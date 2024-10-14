@@ -1,7 +1,14 @@
 {
     "name": "foundry-pf2e",
     "version": "1.0.0",
-    "types": "types/index.d.ts",
+    "exports": {
+        "./foundry": "./types/foundry/index.d.ts",
+        "./foundry/*": "./types/foundry/*",
+        "./pf2e": "./types/pf2e/global.d.ts",
+        "./pf2e/*": "./types/pf2e/*",
+        "./socketlib": "./types/socketlib/index.d.ts",
+        "./lib-wrapper": "./types/lib-wrapper/index.d.ts"
+    },
     "license": "MIT",
     "devDependencies": {
         "@codemirror/lang-json": "^6.0.1",
