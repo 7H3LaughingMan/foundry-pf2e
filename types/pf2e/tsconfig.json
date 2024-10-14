@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "strict": true,
+        "noImplicitOverride": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "allowImportingTsExtensions": true,
+        "rootDir": ".",
+        "typeRoots": [
+            "../"
+        ],
+        "types": [
+            "foundry"
+        ],
+    },
+    "files": [
+        "global.d.ts",
+    ]
+}

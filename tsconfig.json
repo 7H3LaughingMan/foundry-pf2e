@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "allowJs": true,
+        "strict": true,
+        "noImplicitOverride": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "allowImportingTsExtensions": true,
+        "types": [
+            "foundry",
+            "pf2e",
+        ],
+        "typeRoots": [
+            "node_modules/@types",
+            "types"
+        ],
+        "rootDirs": [
+            "src",
+            "types"
+        ]
+    }
+}
