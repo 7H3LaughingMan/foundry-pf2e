@@ -1,11 +1,11 @@
-export {};
+export { };
 
 declare global {
-    class Hooks {
+    namespace Hooks {
         /**
          * A mapping of hook events which have functions registered to them.
          */
-        static get events(): Record<string, HookedFunction[]>;
+        var events: Record<string, HookedFunction[]>;
 
         /**
          * Register a callback handler which should be triggered when a hook is triggered.
@@ -16,7 +16,7 @@ declare global {
          * @param options.once  Only trigger the hooked function once
          * @returns             An ID number of the hooked function which can be used to turn off the hook later
          */
-        static on(hook: string, fn: Function, options?: { once: boolean }): number;
+        function on(hook: string, fn: Function, options?: { once: boolean }): number;
 
         /**
          * Register a callback handler for an event which is only triggered once the first time the event occurs.
@@ -26,7 +26,7 @@ declare global {
          * @param fn    The callback function which should be triggered when the hook event occurs
          * @returns     An ID number of the hooked function which can be used to turn off the hook later
          */
-        static once(hook: string, fn: Function): number;
+        function once(hook: string, fn: Function): number;
 
         /**
          * Unregister a callback handler for a particular hook event
@@ -34,7 +34,7 @@ declare global {
          * @param hook  The unique name of the hooked event
          * @param fn    The function that should be removed from the set of hooked callbacks
          */
-        static off(hook: string, fn: number | Function): void;
+        function off(hook: string, fn: number | Function): void;
 
         /**
          * Call all hook listeners in the order in which they were registered
@@ -44,7 +44,7 @@ declare global {
          * @param {...*} args     Arguments passed to the hook callback functions
          * @returns {boolean}     Were all hooks called without execution being prevented?
          */
-        static callAll(hook: string, ...args: any[]): boolean;
+        function callAll(hook: string, ...args: any[]): boolean;
 
         /**
          * Call hook listeners in the order in which they were registered.
@@ -57,7 +57,7 @@ declare global {
          * @param {...*} args     Arguments passed to the hook callback functions
          * @returns {boolean}     Were all hooks called without execution being prevented?
          */
-        static call(hook: string, ...args: any[]): boolean;
+        function call(hook: string, ...args: any[]): boolean;
 
         /**
          * Notify subscribers that an error has occurred within foundry.
@@ -70,7 +70,7 @@ declare global {
          * @param {?string} [options.notify=null]  The level at which to spawn a notification in the UI (if at all).
          * @param {object} [options.data={}]       Additional data to pass to the hook subscribers.
          */
-        static onError(
+        function onError(
             location: string,
             error: Error,
             options?: { msg: string; log: string; notify: string; data: object }
