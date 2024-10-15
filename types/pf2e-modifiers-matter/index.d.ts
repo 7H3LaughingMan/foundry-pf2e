@@ -133,4 +133,76 @@ declare global {
             }
         }
     }
+
+    interface ClientSettings {
+        get(module: "pf2e-modifiers-matter", setting: "always-show-highlights-to-everyone"): boolean;
+        get(module: "pf2e-modifiers-matter", setting: "additional-ignored-labels"): string;
+        get(module: "pf2e-modifiers-matter", setting: "always-show-defense-conditions"): boolean;
+        get(module: "pf2e-modifiers-matter", setting: "ignore-crit-fail-over-fail-on-attacks"): boolean;
+        get(module: "pf2e-modifiers-matter", setting: "highlight-potentials-preset"): "disabled" | "1_status" | "2_status" | "2_circumstance_ac";
+
+        set(module: "pf2e-modifiers-matter", setting: "always-show-highlights-to-everyone", value: boolean): Promise<boolean>;
+        set(module: "pf2e-modifiers-matter", setting: "additional-ignored-labels", value: string): Promise<string>;
+        set(module: "pf2e-modifiers-matter", setting: "always-show-defense-conditions", value: boolean): Promise<boolean>;
+        set(module: "pf2e-modifiers-matter", setting: "ignore-crit-fail-over-fail-on-attacks", value: boolean): Promise<boolean>;
+        set(module: "pf2e-modifiers-matter", setting: "highlight-potentials-preset", value: "disabled" | "1_status" | "2_status" | "2_circumstance_ac"): Promise<"disabled" | "1_status" | "2_status" | "2_circumstance_ac">;
+    }
+
+    namespace Hooks {
+        function on(hook: "modifiersMatter", fn: ({
+            rollingActor,
+            actorWithDc,
+            targetedToken,
+            significantModifiers,
+            chatMessage
+        }: {
+            rollingActor: ActorPF2e;
+            actorWithDc?: ActorPF2e;
+            targetedToken?: TokenDocumentPF2e;
+            significantModifiers: pf2eModifiersMatter.SignificantModifier[];
+            chatMessage: ChatMessagePF2e;
+        }) => void | Promise<void>): number;
+
+        function once(hook: "modifiersMatter", fn: ({
+            rollingActor,
+            actorWithDc,
+            targetedToken,
+            significantModifiers,
+            chatMessage
+        }: {
+            rollingActor: ActorPF2e;
+            actorWithDc?: ActorPF2e;
+            targetedToken?: TokenDocumentPF2e;
+            significantModifiers: pf2eModifiersMatter.SignificantModifier[];
+            chatMessage: ChatMessagePF2e;
+        }) => void | Promise<void>): number;
+
+        function callAll(hook: "modifiersMatter", {
+            rollingActor,
+            actorWithDc,
+            targetedToken,
+            significantModifiers,
+            chatMessage
+        }: {
+            rollingActor: ActorPF2e;
+            actorWithDc?: ActorPF2e;
+            targetedToken?: TokenDocumentPF2e;
+            significantModifiers: pf2eModifiersMatter.SignificantModifier[];
+            chatMessage: ChatMessagePF2e;
+        }): boolean;
+
+        function call(hook: "modifiersMatter", {
+            rollingActor,
+            actorWithDc,
+            targetedToken,
+            significantModifiers,
+            chatMessage
+        }: {
+            rollingActor: ActorPF2e;
+            actorWithDc?: ActorPF2e;
+            targetedToken?: TokenDocumentPF2e;
+            significantModifiers: pf2eModifiersMatter.SignificantModifier[];
+            chatMessage: ChatMessagePF2e;
+        }): boolean;
+    }
 }
