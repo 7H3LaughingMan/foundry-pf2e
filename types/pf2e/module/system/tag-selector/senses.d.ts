@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { ActorPF2e } from "@actor";
 import type { SenseAcuity, SenseType } from "@actor/creature/types.ts";
 import { BaseTagSelector, TagSelectorData, TagSelectorOptions } from "./base.ts";

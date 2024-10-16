@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ItemSheetOptions } from "@item/base/sheet/sheet.ts";
 import { PhysicalItemSheetData, PhysicalItemSheetPF2e } from "@item/physical/index.ts";
 import { SheetOptions } from "@module/sheet/helpers.ts";

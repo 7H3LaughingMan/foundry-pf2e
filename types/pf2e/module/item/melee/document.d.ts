@@ -1,4 +1,4 @@
-/// <reference types="jquery" resolution-mode="require"/>
+
 import type { ActorPF2e } from "@actor";
 import { ItemPF2e, type WeaponPF2e } from "@item";
 import type { RangeData } from "@item/types.ts";

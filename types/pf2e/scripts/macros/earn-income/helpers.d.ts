@@ -1,4 +1,4 @@
-/// <reference types="jquery" resolution-mode="require"/>
+
 import type { CharacterPF2e } from "@actor";
 import type { Statistic } from "@system/statistic/index.ts";
 declare function runEarnIncome({ actor, event, skill, level, days }: RunEarnIncomeParams): void;

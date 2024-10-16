@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { ItemPF2e } from "@item";
 import type { UserPF2e } from "@module/user/document.ts";
 import { Predicate } from "@system/predication.ts";

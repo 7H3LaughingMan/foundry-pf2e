@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ActorSheetPF2e, SheetClickActionHandlers } from "@actor/sheet/base.ts";
 import type { HazardPF2e } from "./document.ts";
 import { HazardSheetData } from "./types.ts";

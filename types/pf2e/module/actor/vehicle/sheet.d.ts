@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ActorSheetDataPF2e } from "@actor/sheet/data-types.ts";
 import { VehiclePF2e } from "@actor/vehicle/index.ts";
 import { AbilityItemPF2e } from "@item";

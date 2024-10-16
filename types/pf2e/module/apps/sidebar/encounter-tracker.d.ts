@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { CombatantPF2e, EncounterPF2e } from "@module/encounter/index.ts";
 import type { TokenDocumentPF2e } from "@scene/index.ts";
 import Sortable from "sortablejs";

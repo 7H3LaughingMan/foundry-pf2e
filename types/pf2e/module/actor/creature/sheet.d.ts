@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { ActorPF2e, CreaturePF2e } from "@actor";
 import { ActorSheetDataPF2e } from "@actor/sheet/data-types.ts";
 import { ItemPF2e } from "@item";

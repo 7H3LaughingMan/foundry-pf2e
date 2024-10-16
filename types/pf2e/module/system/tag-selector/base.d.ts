@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { ActorPF2e } from "@actor";
 import type { ItemPF2e } from "@item";
 import type { SelectableTagField } from "./index.ts";

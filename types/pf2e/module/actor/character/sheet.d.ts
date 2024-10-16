@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { CreatureSheetData, Language } from "@actor/creature/index.ts";
 import type { Sense } from "@actor/creature/sense.ts";
 import { SheetClickActionHandlers } from "@actor/sheet/base.ts";

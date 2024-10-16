@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { ActorPF2e } from "@actor";
 import type { MovementType } from "@actor/types.ts";
 import { BaseTagSelector, type TagSelectorData } from "./base.ts";

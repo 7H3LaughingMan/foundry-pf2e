@@ -1,4 +1,4 @@
-/// <reference types="jquery" resolution-mode="require"/>
+
 import type { ActorPF2e } from "@actor";
 import { AttributeString } from "@actor/types.ts";
 import type { ConsumablePF2e } from "@item";

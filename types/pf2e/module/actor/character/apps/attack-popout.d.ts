@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { EffectTrait } from "@item/abstract-effect/types.ts";
 import type { CharacterStrike } from "../data.ts";
 import type { CharacterPF2e } from "../document.ts";

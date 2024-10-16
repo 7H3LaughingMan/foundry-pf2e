@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "@item/base/sheet/sheet.ts";
 import type { CampaignFeaturePF2e } from "./document.ts";
 declare class CampaignFeatureSheetPF2e extends ItemSheetPF2e<CampaignFeaturePF2e> {

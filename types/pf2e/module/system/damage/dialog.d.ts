@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { DegreeOfSuccessIndex } from "@system/degree-of-success.ts";
 import { DamageCategoryUnique, DamageDamageContext, DamageFormulaData, DamageType } from "./types.ts";
 /**

@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { CharacterPF2e } from "@actor";
 import { AttributeString } from "@actor/types.ts";
 import { AncestryPF2e, BackgroundPF2e, ClassPF2e } from "@item";

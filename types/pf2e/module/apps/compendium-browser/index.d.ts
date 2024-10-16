@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ActionCategory, ActionTrait } from "@item/ability/index.ts";
 import { ActionType } from "@item/base/data/index.ts";
 import { BaseSpellcastingEntry } from "@item/spellcasting-entry/index.ts";

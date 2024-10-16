@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import "@yaireo/tagify/src/tagify.scss";
 import { PartialSettingsData, SettingsMenuPF2e } from "../menu.ts";
 import { CustomDamageData, HomebrewElementsSheetData, HomebrewKey, HomebrewTag, HomebrewTraitKey, LanguageSettings, ModuleHomebrewData } from "./data.ts";

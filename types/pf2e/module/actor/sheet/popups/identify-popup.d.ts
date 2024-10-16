@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { GenericIdentifyDCs, IdentifyAlchemyDCs, IdentifyMagicDCs } from "@item/identification.ts";
 import type { PhysicalItemPF2e } from "@item/physical/index.ts";
 export declare class IdentifyItemPopup extends FormApplication<PhysicalItemPF2e> {

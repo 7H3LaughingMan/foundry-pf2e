@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { ActorPF2e } from "@actor";
 import type { PhysicalItemPF2e } from "@item";
 declare class ItemTransferDialog extends FormApplication<PhysicalItemPF2e, MoveLootOptions> {

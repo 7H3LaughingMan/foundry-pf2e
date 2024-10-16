@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { ScenePF2e } from "./document.ts";
 export declare class SceneConfigPF2e<TDocument extends ScenePF2e> extends SceneConfig<TDocument> {
     #private;

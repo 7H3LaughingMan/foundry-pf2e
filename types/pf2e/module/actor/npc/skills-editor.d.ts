@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { NPCPF2e } from "@actor";
 import { NPCSkillData } from "@actor/npc/data.ts";
 /** Specialized form to setup skills for an NPC character. */

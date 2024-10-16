@@ -1,4 +1,4 @@
-/// <reference types="jquery" resolution-mode="require"/>
+
 /** Returns statistic dialog roll parameters based on held keys */
 type ParamsFromEvent = {
     skipDialog: boolean;

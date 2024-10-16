@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ItemSheetOptions } from "@item/base/sheet/sheet.ts";
 import { SheetOptions } from "@module/sheet/helpers.ts";
 import { ABCSheetData, ABCSheetPF2e } from "../abc/sheet.ts";

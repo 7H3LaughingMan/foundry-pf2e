@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ActorSheetPF2e, SheetClickActionHandlers } from "@actor/sheet/base.ts";
 import { ActorSheetDataPF2e } from "@actor/sheet/data-types.ts";
 import { ItemSummaryRenderer } from "@actor/sheet/item-summary-renderer.ts";

@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { NPCPF2e } from "@actor";
 import { CreatureSheetPF2e } from "@actor/creature/sheet.ts";
 import { SheetClickActionHandlers } from "@actor/sheet/base.ts";

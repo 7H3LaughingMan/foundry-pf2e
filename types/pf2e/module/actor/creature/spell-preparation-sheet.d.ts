@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { ActorPF2e, CreaturePF2e } from "@actor";
 import { ItemSummaryRenderer } from "@actor/sheet/item-summary-renderer.ts";
 import type { ItemPF2e } from "@item";

@@ -1,4 +1,4 @@
-/// <reference types="jquery" resolution-mode="require"/>
+
 import type { ActorPF2e } from "@actor";
 import { StrikeData } from "@actor/data/base.ts";
 import type { ModifierPF2e } from "@actor/modifiers.ts";

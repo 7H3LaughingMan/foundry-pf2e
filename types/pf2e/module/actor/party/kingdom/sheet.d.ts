@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ActorPF2e, ArmyPF2e, type PartyPF2e } from "@actor";
 import { FeatGroup } from "@actor/character/feats.ts";
 import { ActorSheetPF2e, SheetClickActionHandlers } from "@actor/sheet/base.ts";

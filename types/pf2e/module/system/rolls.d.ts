@@ -1,4 +1,4 @@
-/// <reference types="jquery" resolution-mode="require"/>
+
 import type { ModifierPF2e } from "@actor/modifiers.ts";
 import type { RollOrigin, RollTarget } from "@actor/roll-context/types.ts";
 import type { ActionTrait } from "@item/ability/types.ts";

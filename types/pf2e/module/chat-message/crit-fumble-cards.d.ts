@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ChatMessagePF2e } from "./index.ts";
 export declare class CriticalHitAndFumbleCards {
     private static rollTypes;

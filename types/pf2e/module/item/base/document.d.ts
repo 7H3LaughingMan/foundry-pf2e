@@ -1,4 +1,4 @@
-/// <reference types="jquery" resolution-mode="require"/>
+
 import { ActorPF2e } from "@actor/base.ts";
 import type { PhysicalItemPF2e } from "@item";
 import { ItemOriginFlag } from "@module/chat-message/data.ts";

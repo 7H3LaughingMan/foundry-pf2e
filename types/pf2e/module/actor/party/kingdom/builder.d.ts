@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import type { BoostFlawState } from "@actor/character/apps/attribute-builder.ts";
 import type { PartyPF2e } from "../document.ts";
 import type { Kingdom } from "./model.ts";

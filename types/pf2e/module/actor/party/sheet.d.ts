@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { ActorPF2e } from "@actor";
 import { HitPointsSummary } from "@actor/base.ts";
 import { ActorSheetPF2e } from "@actor/sheet/base.ts";

@@ -1,6 +1,6 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
+
+
+
 import { RawModifier, StatisticModifier } from "@actor/modifiers.ts";
 import { RollSubstitution } from "@module/rules/synthetics.ts";
 import { CheckCheckContext } from "./types.ts";

@@ -1,4 +1,4 @@
-/// <reference types="jquery" resolution-mode="require"/>
+
 import type { ActorPF2e } from "@actor";
 import type { ItemPF2e } from "@item";
 /**
