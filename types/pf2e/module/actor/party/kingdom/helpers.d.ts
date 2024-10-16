@@ -1,5 +1,5 @@
-import type { ActorPF2e } from "@actor";
-import type { ItemPF2e } from "@item";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
 import type { Kingdom } from "./model.ts";
 import { KingdomAbility, KingdomCHG, KingdomCommodity } from "./types.ts";
 /** Resolves boosts using kingmaker rules. Free boosts cannot be the granted ability nor the flaw */

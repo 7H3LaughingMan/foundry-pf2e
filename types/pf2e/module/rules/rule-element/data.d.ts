@@ -1,4 +1,4 @@
-import { PredicateField, SlugField } from "@system/schema-data-fields.ts";
+import { PredicateField, SlugField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { BooleanField, NumberField, StringField } from "types/foundry/common/data/fields.ts";
 type RuleElementSource = {
     key?: JSONValue;

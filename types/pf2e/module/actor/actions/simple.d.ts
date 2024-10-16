@@ -1,5 +1,5 @@
-import type { ActorPF2e } from "@actor";
-import type { EffectPF2e } from "@item";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { EffectPF2e } from "types/pf2e/module/item/index.ts";
 import { BaseAction, BaseActionData, BaseActionVariant, BaseActionVariantData } from "./base.ts";
 import { ActionCost, ActionUseOptions } from "./types.ts";
 interface SimpleActionVariantData extends BaseActionVariantData {

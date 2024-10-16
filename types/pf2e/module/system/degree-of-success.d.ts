@@ -1,4 +1,4 @@
-import { ZeroToThree } from "@module/data.ts";
+import { ZeroToThree } from "types/pf2e/module/data.ts";
 import type { CheckRoll } from "./check/roll.ts";
 import type { Predicate } from "./predication.ts";
 import type { StatisticDifficultyClass } from "./statistic/index.ts";

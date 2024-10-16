@@ -1,5 +1,5 @@
-import type { ActorPF2e } from "@actor";
-import type { ItemPF2e } from "@item";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts"
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
 declare class UUIDUtils {
     /** Retrieve multiple documents by UUID */
     static fromUUIDs(uuids: ActorUUID[], options?: {

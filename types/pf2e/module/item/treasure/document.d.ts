@@ -1,7 +1,7 @@
-import type { ActorPF2e } from "@actor";
-import type { RawItemChatData } from "@item/base/data/index.ts";
-import { PhysicalItemPF2e } from "@item/physical/index.ts";
-import type { CoinDenomination } from "@item/physical/types.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { RawItemChatData } from "types/pf2e/module/item/base/data/index.ts";
+import { PhysicalItemPF2e } from "types/pf2e/module/item/physical/index.ts";
+import type { CoinDenomination } from "types/pf2e/module/item/physical/types.ts";
 import type { TreasureSource, TreasureSystemData } from "./data.ts";
 declare class TreasurePF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {
     get isCoinage(): boolean;

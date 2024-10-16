@@ -1,6 +1,6 @@
-import { ActorAttributes, ActorAttributesSource, ActorDetails, ActorDetailsSource, ActorHitPoints, ActorSystemData, ActorSystemSource, ActorTraitsData, ActorTraitsSource, BaseActorSourcePF2e, BaseHitPointsSource } from "@actor/data/base.ts";
-import { ValueAndMax, ValueAndMaybeMax } from "@module/data.ts";
-import { PerceptionTraceData } from "@system/statistic/perception.ts";
+import { ActorAttributes, ActorAttributesSource, ActorDetails, ActorDetailsSource, ActorHitPoints, ActorSystemData, ActorSystemSource, ActorTraitsData, ActorTraitsSource, BaseActorSourcePF2e, BaseHitPointsSource } from "types/pf2e/module/actor/data/base.ts";
+import { ValueAndMax, ValueAndMaybeMax } from "types/pf2e/module/data.ts";
+import { PerceptionTraceData } from "types/pf2e/module/system/statistic/perception.ts";
 import { ARMY_TYPES } from "./values.ts";
 type ArmySource = BaseActorSourcePF2e<"army", ArmySystemSource>;
 interface ArmySystemSource extends ActorSystemSource {

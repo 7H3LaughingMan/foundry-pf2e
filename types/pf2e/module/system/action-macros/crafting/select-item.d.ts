@@ -1,7 +1,7 @@
 
 
 
-import { PhysicalItemPF2e } from "@item";
+import { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
 declare class SelectItemDialog extends Application {
     #private;
     private constructor();

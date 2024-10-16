@@ -1,7 +1,7 @@
-import { ZeroToThree } from "@module/data.ts";
-import { UserPF2e } from "@module/user/index.ts";
-import { DegreeOfSuccessIndex } from "@system/degree-of-success.ts";
-import { RollDataPF2e } from "@system/rolls.ts";
+import { ZeroToThree } from "types/pf2e/module/data.ts";
+import { UserPF2e } from "types/pf2e/module/user/index.ts";
+import { DegreeOfSuccessIndex } from "types/pf2e/module/system/degree-of-success.ts";
+import { RollDataPF2e } from "types/pf2e/module/system/rolls.ts";
 import { CheckType } from "./types.ts";
 /** A foundry `Roll` subclass representing a Pathfinder 2e check */
 declare class CheckRoll extends Roll {

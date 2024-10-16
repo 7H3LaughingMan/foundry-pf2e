@@ -1,5 +1,5 @@
-import type { ActorPF2e } from "@actor";
-import type { EnrichmentOptionsPF2e } from "@system/text-editor.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { EnrichmentOptionsPF2e } from "types/pf2e/module/system/text-editor.ts";
 import type { ItemSourcePF2e, ItemType, RawItemChatData } from "./base/data/index.ts";
 import type { ItemPF2e } from "./base/document.ts";
 import type { PhysicalItemPF2e } from "./physical/document.ts";

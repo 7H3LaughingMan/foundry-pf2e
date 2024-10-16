@@ -1,6 +1,6 @@
-import { ActorPF2e } from "@actor";
-import { SpellPF2e } from "@item";
-import { OneToTen, ZeroToTen } from "@module/data.ts";
+import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { SpellPF2e } from "types/pf2e/module/item/index.ts";
+import { OneToTen, ZeroToTen } from "types/pf2e/module/data.ts";
 import { BaseSpellcastingEntry, SpellPrepEntry, SpellcastingSlotGroup } from "./types.ts";
 declare class SpellCollection<TActor extends ActorPF2e> extends Collection<SpellPF2e<TActor>> {
     #private;

@@ -1,4 +1,4 @@
-import { DCOptions } from "@module/dc.ts";
+import { DCOptions } from "types/pf2e/module/dc.ts";
 export interface EncounterBudgets {
     trivial: number;
     low: number;

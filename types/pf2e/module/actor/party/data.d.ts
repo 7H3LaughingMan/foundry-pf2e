@@ -1,4 +1,4 @@
-import { ActorAttributes, ActorAttributesSource, ActorDetails, ActorDetailsSource, ActorSystemData, ActorSystemSource, BaseActorSourcePF2e } from "@actor/data/base.ts";
+import { ActorAttributes, ActorAttributesSource, ActorDetails, ActorDetailsSource, ActorSystemData, ActorSystemSource, BaseActorSourcePF2e } from "types/pf2e/module/actor/data/base.ts";
 import { PartyCampaign } from "./types.ts";
 type PartySource = BaseActorSourcePF2e<"party", PartySystemSource>;
 interface PartySystemSource extends ActorSystemSource {

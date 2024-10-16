@@ -1,10 +1,10 @@
-import { OtherArmorTag } from "@item/armor/types.ts";
-import { BackgroundTrait } from "@item/background/types.ts";
-import { ClassTrait } from "@item/class/types.ts";
-import { OtherConsumableTag } from "@item/consumable/types.ts";
-import { PreciousMaterialType } from "@item/physical/types.ts";
-import { MagicTradition } from "@item/spell/types.ts";
-import { OtherWeaponTag } from "@item/weapon/types.ts";
+import { OtherArmorTag } from "types/pf2e/module/item/armor/types.ts";
+import { BackgroundTrait } from "types/pf2e/module/item/background/types.ts";
+import { ClassTrait } from "types/pf2e/module/item/class/types.ts";
+import { OtherConsumableTag } from "types/pf2e/module/item/consumable/types.ts";
+import { PreciousMaterialType } from "types/pf2e/module/item/physical/types.ts";
+import { MagicTradition } from "types/pf2e/module/item/spell/types.ts";
+import { OtherWeaponTag } from "types/pf2e/module/item/weapon/types.ts";
 declare const ancestryTraits: {
     aiuvarin: string;
     anadi: string;

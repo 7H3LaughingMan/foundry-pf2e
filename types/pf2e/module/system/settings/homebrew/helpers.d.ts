@@ -1,4 +1,4 @@
-import { MigrationBase } from "@module/migration/base.ts";
+import { MigrationBase } from "types/pf2e/module/migration/base.ts";
 import { CustomDamageData, HomebrewTraitKey, ModuleHomebrewData } from "./data.ts";
 /** User-defined type guard for checking that an object is a well-formed flag category of module-provided homebrew elements */
 declare function isHomebrewFlagCategory(value: unknown): value is Record<string, string | LabelAndDescription>;

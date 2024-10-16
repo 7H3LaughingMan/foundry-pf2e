@@ -1,13 +1,13 @@
-import { CreaturePF2e } from "@actor";
-import type { Abilities } from "@actor/creature/data.ts";
-import type { CreatureUpdateOperation } from "@actor/creature/index.ts";
-import { ActorInitiative } from "@actor/initiative.ts";
-import type { MeleePF2e } from "@item";
-import type { ItemType } from "@item/base/data/index.ts";
-import { RollNotePF2e } from "@module/notes.ts";
-import { CreatureIdentificationData } from "@module/recall-knowledge.ts";
-import type { UserPF2e } from "@module/user/document.ts";
-import type { TokenDocumentPF2e } from "@scene";
+import { CreaturePF2e } from "types/pf2e/module/actor/index.ts";
+import type { Abilities } from "types/pf2e/module/actor/creature/data.ts";
+import type { CreatureUpdateOperation } from "types/pf2e/module/actor/creature/index.ts";
+import { ActorInitiative } from "types/pf2e/module/actor/initiative.ts";
+import type { MeleePF2e } from "types/pf2e/module/item/index.ts";
+import type { ItemType } from "types/pf2e/module/item/base/data/index.ts";
+import { RollNotePF2e } from "types/pf2e/module/notes.ts";
+import { CreatureIdentificationData } from "types/pf2e/module/recall-knowledge.ts";
+import type { UserPF2e } from "types/pf2e/module/user/document.ts";
+import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
 import type { NPCFlags, NPCSource, NPCSystemData } from "./data.ts";
 import type { VariantCloneParams } from "./types.ts";
 declare class NPCPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends CreaturePF2e<TParent> {

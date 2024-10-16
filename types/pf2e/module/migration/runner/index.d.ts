@@ -1,7 +1,7 @@
-import type { ActorPF2e } from "@actor";
-import type { ItemPF2e } from "@item";
-import type { MigrationBase } from "@module/migration/base.ts";
-import { MigrationRunnerBase } from "@module/migration/runner/base.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import type { MigrationBase } from "types/pf2e/module/migration/base.ts";
+import { MigrationRunnerBase } from "types/pf2e/module/migration/runner/base.ts";
 export declare class MigrationRunner extends MigrationRunnerBase {
     #private;
     needsMigration(): boolean;

@@ -1,9 +1,9 @@
-import type { ActorPF2e } from "@actor";
-import { ItemPF2e } from "@item";
-import type { AfflictionSource, AfflictionSystemData } from "@item/affliction/data.ts";
-import type { ConditionSource, ConditionSystemData } from "@item/condition/data.ts";
-import type { EffectSource, EffectSystemData } from "@item/effect/data.ts";
-import type { UserPF2e } from "@module/user/document.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import type { AfflictionSource, AfflictionSystemData } from "types/pf2e/module/item/affliction/data.ts";
+import type { ConditionSource, ConditionSystemData } from "types/pf2e/module/item/condition/data.ts";
+import type { EffectSource, EffectSystemData } from "types/pf2e/module/item/effect/data.ts";
+import type { UserPF2e } from "types/pf2e/module/user/document.ts";
 import type { EffectBadge } from "./data.ts";
 import type { EffectTrait } from "./types.ts";
 /** Base effect type for all PF2e effects including conditions and afflictions */

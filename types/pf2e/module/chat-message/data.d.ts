@@ -1,11 +1,11 @@
-import type { RawDamageDice, RawModifier } from "@actor/modifiers.ts";
-import { ItemType, SpellSource } from "@item/base/data/index.ts";
-import { MagicTradition } from "@item/spell/types.ts";
-import { ZeroToTwo } from "@module/data.ts";
-import { RollNoteSource } from "@module/notes.ts";
-import { CheckCheckContext } from "@system/check/index.ts";
-import { DamageDamageContext } from "@system/damage/types.ts";
-import { DegreeAdjustmentsRecord, DegreeOfSuccessString } from "@system/degree-of-success.ts";
+import type { RawDamageDice, RawModifier } from "types/pf2e/module/actor/modifiers.ts";
+import { ItemType, SpellSource } from "types/pf2e/module/item/base/data/index.ts";
+import { MagicTradition } from "types/pf2e/module/item/spell/types.ts";
+import { ZeroToTwo } from "types/pf2e/module/data.ts";
+import { RollNoteSource } from "types/pf2e/module/notes.ts";
+import { CheckCheckContext } from "types/pf2e/module/system/check/index.ts";
+import { DamageDamageContext } from "types/pf2e/module/system/damage/types.ts";
+import { DegreeAdjustmentsRecord, DegreeOfSuccessString } from "types/pf2e/module/system/degree-of-success.ts";
 import type { ChatMessageFlags } from "types/foundry/common/documents/chat-message.ts";
 type ChatMessageSourcePF2e = foundry.documents.ChatMessageSource & {
     flags: ChatMessageFlagsPF2e;

@@ -1,15 +1,15 @@
-import type * as ActorInstance from "@actor";
-import type { ActorPF2e } from "@actor";
-import type { ItemPF2e } from "@item";
-import type { EffectTrait } from "@item/abstract-effect/types.ts";
-import type { ItemInstances } from "@item/types.ts";
-import type { RollNotePF2e } from "@module/notes.ts";
-import type { ItemAlteration } from "@module/rules/rule-element/item-alteration/alteration.ts";
-import type { TokenDocumentPF2e } from "@scene";
-import type { immunityTypes, resistanceTypes, weaknessTypes } from "@scripts/config/iwr.ts";
-import type { DamageRoll } from "@system/damage/roll.ts";
-import type { DegreeOfSuccessString } from "@system/degree-of-success.ts";
-import type { Predicate } from "@system/predication.ts";
+import type * as ActorInstance from "types/pf2e/module/actor/index.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import type { EffectTrait } from "types/pf2e/module/item/abstract-effect/types.ts";
+import type { ItemInstances } from "types/pf2e/module/item/types.ts";
+import type { RollNotePF2e } from "types/pf2e/module/notes.ts";
+import type { ItemAlteration } from "types/pf2e/module/rules/rule-element/item-alteration/alteration.ts";
+import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
+import type { immunityTypes, resistanceTypes, weaknessTypes } from "types/pf2e/scripts/config/iwr.ts";
+import type { DamageRoll } from "types/pf2e/module/system/damage/roll.ts";
+import type { DegreeOfSuccessString } from "types/pf2e/module/system/degree-of-success.ts";
+import type { Predicate } from "types/pf2e/module/system/predication.ts";
 import type { ACTOR_TYPES, ATTRIBUTE_ABBREVIATIONS, CORE_SKILL_SLUGS, MOVEMENT_TYPES, SAVE_TYPES, UNAFFECTED_TYPES } from "./values.ts";
 type ActorType = (typeof ACTOR_TYPES)[number];
 /** Used exclusively to resolve `ActorPF2e#isOfType` */

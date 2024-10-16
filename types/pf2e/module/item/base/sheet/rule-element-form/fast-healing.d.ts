@@ -1,4 +1,4 @@
-import type { FastHealingRuleElement, FastHealingSource, FastHealingType } from "@module/rules/rule-element/fast-healing.ts";
+import type { FastHealingRuleElement, FastHealingSource, FastHealingType } from "types/pf2e/module/rules/rule-element/fast-healing.ts";
 import { RuleElementForm, RuleElementFormSheetData } from "./base.ts";
 declare class FastHealingForm extends RuleElementForm<FastHealingSource, FastHealingRuleElement> {
     template: string;

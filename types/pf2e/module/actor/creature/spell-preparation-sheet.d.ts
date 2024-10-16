@@ -1,12 +1,12 @@
 
 
 
-import type { ActorPF2e, CreaturePF2e } from "@actor";
-import { ItemSummaryRenderer } from "@actor/sheet/item-summary-renderer.ts";
-import type { ItemPF2e } from "@item";
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
-import type { SpellcastingEntryPF2e, SpellcastingSheetData } from "@item/spellcasting-entry/index.ts";
-import { ZeroToTen } from "@module/data.ts";
+import type { ActorPF2e, CreaturePF2e } from "types/pf2e/module/actor/index.ts";
+import { ItemSummaryRenderer } from "types/pf2e/module/actor/sheet/item-summary-renderer.ts";
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
+import type { SpellcastingEntryPF2e, SpellcastingSheetData } from "types/pf2e/module/item/spellcasting-entry/index.ts";
+import { ZeroToTen } from "types/pf2e/module/data.ts";
 /**
  * Sheet used to render the the spell list for prepared casting.
  * It overrides the actor sheet to inherit important drag/drop behavior for actor items (the spells).

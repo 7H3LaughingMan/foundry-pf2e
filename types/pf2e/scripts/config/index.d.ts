@@ -1,8 +1,8 @@
-import { ArmyPF2e, CharacterPF2e, FamiliarPF2e, HazardPF2e, LootPF2e, NPCPF2e, PartyPF2e, VehiclePF2e } from "@actor";
-import { SenseAcuity } from "@actor/creature/types.ts";
-import { AbilityItemPF2e, AfflictionPF2e, AncestryPF2e, ArmorPF2e, BackgroundPF2e, BookPF2e, CampaignFeaturePF2e, ClassPF2e, ConditionPF2e, ConsumablePF2e, ContainerPF2e, DeityPF2e, EffectPF2e, EquipmentPF2e, FeatPF2e, HeritagePF2e, KitPF2e, LorePF2e, MeleePF2e, ShieldPF2e, SpellPF2e, SpellcastingEntryPF2e, TreasurePF2e, WeaponPF2e } from "@item";
-import { WeaponReloadTime } from "@item/weapon/types.ts";
-import { JournalSheetPF2e } from "@module/journal-entry/sheet.ts";
+import { ArmyPF2e, CharacterPF2e, FamiliarPF2e, HazardPF2e, LootPF2e, NPCPF2e, PartyPF2e, VehiclePF2e } from "types/pf2e/module/actor/index.ts";
+import { SenseAcuity } from "types/pf2e/module/actor/creature/types.ts";
+import { AbilityItemPF2e, AfflictionPF2e, AncestryPF2e, ArmorPF2e, BackgroundPF2e, BookPF2e, CampaignFeaturePF2e, ClassPF2e, ConditionPF2e, ConsumablePF2e, ContainerPF2e, DeityPF2e, EffectPF2e, EquipmentPF2e, FeatPF2e, HeritagePF2e, KitPF2e, LorePF2e, MeleePF2e, ShieldPF2e, SpellPF2e, SpellcastingEntryPF2e, TreasurePF2e, WeaponPF2e } from "types/pf2e/module/item/index.ts";
+import { WeaponReloadTime } from "types/pf2e/module/item/weapon/types.ts";
+import { JournalSheetPF2e } from "types/pf2e/module/journal-entry/sheet.ts";
 export type StatusEffectIconTheme = "default" | "blackWhite";
 export declare const PF2ECONFIG: {
     defaultPartyId: string;
@@ -508,7 +508,7 @@ export declare const PF2ECONFIG: {
     }>;
     otherArmorTags: Record<"shoddy", string>;
     otherConsumableTags: Record<"herbal", string>;
-    otherWeaponTags: Record<import("@item/weapon/types.ts").OtherWeaponTag, string>;
+    otherWeaponTags: Record<import("types/pf2e/module/item/weapon/types.ts").OtherWeaponTag, string>;
     actionTraits: {
         "certain-kill": string;
         summon: string;
@@ -4329,7 +4329,7 @@ export declare const PF2ECONFIG: {
         silver: string;
         "cold-iron": string;
     };
-    languages: Record<import("@actor/creature/types.ts").Language, string>;
+    languages: Record<import("types/pf2e/module/actor/creature/types.ts").Language, string>;
     attackEffects: {
         grab: string;
         "improved-grab": string;

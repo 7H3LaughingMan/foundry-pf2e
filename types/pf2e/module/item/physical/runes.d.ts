@@ -1,14 +1,14 @@
-import type { CreatureTrait } from "@actor/creature/index.ts";
-import { DamageDicePF2e, DamageDiceParameters, ModifierAdjustment, ModifierObjectParams, ModifierPF2e } from "@actor/modifiers.ts";
-import { ResistanceType } from "@actor/types.ts";
-import type { ArmorPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "@item";
-import { ArmorPropertyRuneType, ResilientRuneType } from "@item/armor/types.ts";
-import { SpellTrait } from "@item/spell/types.ts";
-import { StrikingRuneType, WeaponPropertyRuneType } from "@item/weapon/types.ts";
-import { OneToFour, Rarity, ZeroToFour, ZeroToSix, ZeroToThree } from "@module/data.ts";
-import { RollNoteSource } from "@module/notes.ts";
-import { StrikeAdjustment } from "@module/rules/synthetics.ts";
-import { DegreeOfSuccessAdjustment } from "@system/degree-of-success.ts";
+import type { CreatureTrait } from "types/pf2e/module/actor/creature/index.ts";
+import { DamageDicePF2e, DamageDiceParameters, ModifierAdjustment, ModifierObjectParams, ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
+import { ResistanceType } from "types/pf2e/module/actor/types.ts";
+import type { ArmorPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "types/pf2e/module/item/index.ts";
+import { ArmorPropertyRuneType, ResilientRuneType } from "types/pf2e/module/item/armor/types.ts";
+import { SpellTrait } from "types/pf2e/module/item/spell/types.ts";
+import { StrikingRuneType, WeaponPropertyRuneType } from "types/pf2e/module/item/weapon/types.ts";
+import { OneToFour, Rarity, ZeroToFour, ZeroToSix, ZeroToThree } from "types/pf2e/module/data.ts";
+import { RollNoteSource } from "types/pf2e/module/notes.ts";
+import { StrikeAdjustment } from "types/pf2e/module/rules/synthetics.ts";
+import { DegreeOfSuccessAdjustment } from "types/pf2e/module/system/degree-of-success.ts";
 declare function getPropertyRuneSlots(item: WeaponPF2e | ArmorPF2e): ZeroToFour;
 /** Remove duplicate and lesser versions from an array of property runes */
 declare function prunePropertyRunes<T extends string>(runes: (string | null)[], validTypes: Record<T, unknown>): T[];

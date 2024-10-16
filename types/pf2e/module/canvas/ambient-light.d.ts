@@ -1,4 +1,4 @@
-import { AmbientLightDocumentPF2e } from "@scene/index.ts";
+import { AmbientLightDocumentPF2e } from "types/pf2e/module/scene/index.ts";
 import { LightingLayerPF2e } from "./index.ts";
 declare class AmbientLightPF2e<TDocument extends AmbientLightDocumentPF2e = AmbientLightDocumentPF2e> extends AmbientLight<TDocument> {
 }

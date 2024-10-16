@@ -1,13 +1,13 @@
 
 
 
-import type { ActorPF2e, CreaturePF2e } from "@actor";
-import { ActorSheetDataPF2e } from "@actor/sheet/data-types.ts";
-import { ItemPF2e } from "@item";
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
-import { SpellcastingSheetData } from "@item/spellcasting-entry/index.ts";
-import { DropCanvasItemDataPF2e } from "@module/canvas/drop-canvas-data.ts";
-import { ZeroToFour } from "@module/data.ts";
+import type { ActorPF2e, CreaturePF2e } from "types/pf2e/module/actor/index.ts";
+import { ActorSheetDataPF2e } from "types/pf2e/module/actor/sheet/data-types.ts";
+import { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
+import { SpellcastingSheetData } from "types/pf2e/module/item/spellcasting-entry/index.ts";
+import { DropCanvasItemDataPF2e } from "types/pf2e/module/canvas/drop-canvas-data.ts";
+import { ZeroToFour } from "types/pf2e/module/data.ts";
 import { ActorSheetPF2e, SheetClickActionHandlers } from "../sheet/base.ts";
 import { CreatureConfig } from "./config.ts";
 import { Language } from "./index.ts";

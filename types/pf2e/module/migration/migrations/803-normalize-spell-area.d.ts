@@ -1,4 +1,4 @@
-import type { ItemSourcePF2e } from "@item/base/data/index.ts";
+import type { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
 /** Ensure spell-area values are numbers, null out area object if not in use */
 export declare class Migration803NormalizeSpellArea extends MigrationBase {

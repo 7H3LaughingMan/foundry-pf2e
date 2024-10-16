@@ -1,4 +1,4 @@
-import { AmbientLightDocumentPF2e, MeasuredTemplateDocumentPF2e, RegionDocumentPF2e, ScenePF2e, TokenDocumentPF2e } from "@scene/index.ts";
+import { AmbientLightDocumentPF2e, MeasuredTemplateDocumentPF2e, RegionDocumentPF2e, ScenePF2e, TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
 import { AmbientLightPF2e } from "./ambient-light.ts";
 import { EffectsCanvasGroupPF2e } from "./group/effects.ts";
 import { LightingLayerPF2e } from "./layer/lighting.ts";

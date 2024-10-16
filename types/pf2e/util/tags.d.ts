@@ -1,5 +1,5 @@
-import { TraitViewData } from "@actor/data/base.ts";
-import type { HTMLTagifyTagsElement } from "@system/html-elements/tagify-tags.ts";
+import { TraitViewData } from "types/pf2e/module/actor/data/base.ts";
+import type { HTMLTagifyTagsElement } from "types/pf2e/module/system/html-elements/tagify-tags.ts";
 import Tagify, { TagifySettings } from "@yaireo/tagify";
 declare function traitSlugToObject(trait: string, dictionary: Record<string, string | undefined>): TraitViewData;
 /** Create a tagify select menu out of a JSON input element */

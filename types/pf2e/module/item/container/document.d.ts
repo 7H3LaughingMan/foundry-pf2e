@@ -1,9 +1,9 @@
-import type { ActorPF2e } from "@actor";
-import { RawItemChatData } from "@item/base/data/index.ts";
-import { EquipmentTrait } from "@item/equipment/data.ts";
-import { Bulk } from "@item/physical/bulk.ts";
-import { PhysicalItemPF2e } from "@item/physical/document.ts";
-import type { UserPF2e } from "@module/user/index.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { RawItemChatData } from "types/pf2e/module/item/base/data/index.ts";
+import { EquipmentTrait } from "types/pf2e/module/item/equipment/data.ts";
+import { Bulk } from "types/pf2e/module/item/physical/bulk.ts";
+import { PhysicalItemPF2e } from "types/pf2e/module/item/physical/document.ts";
+import type { UserPF2e } from "types/pf2e/module/user/index.ts";
 import type { ContainerSource, ContainerSystemData } from "./data.ts";
 declare class ContainerPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {
     static get validTraits(): Record<EquipmentTrait, string>;

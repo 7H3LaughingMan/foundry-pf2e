@@ -1,9 +1,9 @@
-import { ActorPF2e, LootPF2e } from "@actor";
-import { ItemPF2e, PhysicalItemPF2e } from "@item";
-import { CoinsPF2e } from "@item/physical/coins.ts";
-import { Coins } from "@item/physical/index.ts";
-import { EquipmentFilters } from "@module/apps/compendium-browser/tabs/data.ts";
-import { TokenPF2e } from "@module/canvas/index.ts";
+import { ActorPF2e, LootPF2e } from "types/pf2e/module/actor/index.ts";
+import { ItemPF2e, PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
+import { CoinsPF2e } from "types/pf2e/module/item/physical/coins.ts";
+import { Coins } from "types/pf2e/module/item/physical/index.ts";
+import { EquipmentFilters } from "types/pf2e/module/apps/compendium-browser/tabs/data.ts";
+import { TokenPF2e } from "types/pf2e/module/canvas/index.ts";
 
 export {};
 

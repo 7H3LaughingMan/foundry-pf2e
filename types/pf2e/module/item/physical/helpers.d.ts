@@ -1,7 +1,7 @@
-import type { ContainerPF2e, PhysicalItemPF2e } from "@item";
-import { PhysicalItemSource } from "@item/base/data/index.ts";
-import { ContainerBulkData } from "@item/container/data.ts";
-import { Rarity } from "@module/data.ts";
+import type { ContainerPF2e, PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
+import { PhysicalItemSource } from "types/pf2e/module/item/base/data/index.ts";
+import { ContainerBulkData } from "types/pf2e/module/item/container/data.ts";
+import { Rarity } from "types/pf2e/module/data.ts";
 import { CoinsPF2e } from "./coins.ts";
 import { BulkData } from "./data.ts";
 declare function computeLevelRarityPrice(item: PhysicalItemPF2e): {

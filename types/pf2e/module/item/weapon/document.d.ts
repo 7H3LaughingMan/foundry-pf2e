@@ -1,14 +1,14 @@
-import type { ActorPF2e } from "@actor";
-import type { AttributeString } from "@actor/types.ts";
-import type { ConsumablePF2e, MeleePF2e, ShieldPF2e } from "@item";
-import { PhysicalItemPF2e } from "@item";
-import type { ItemSourcePF2e, RawItemChatData } from "@item/base/data/index.ts";
-import type { NPCAttackTrait } from "@item/melee/types.ts";
-import type { PhysicalItemConstructionContext } from "@item/physical/document.ts";
-import { IdentificationStatus, MystifiedData } from "@item/physical/index.ts";
-import type { RangeData } from "@item/types.ts";
-import type { StrikeRuleElement } from "@module/rules/rule-element/strike.ts";
-import type { UserPF2e } from "@module/user/document.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { AttributeString } from "types/pf2e/module/actor/types.ts";
+import type { ConsumablePF2e, MeleePF2e, ShieldPF2e } from "types/pf2e/module/item/index.ts";
+import { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
+import type { ItemSourcePF2e, RawItemChatData } from "types/pf2e/module/item/base/data/index.ts";
+import type { NPCAttackTrait } from "types/pf2e/module/item/melee/types.ts";
+import type { PhysicalItemConstructionContext } from "types/pf2e/module/item/physical/document.ts";
+import { IdentificationStatus, MystifiedData } from "types/pf2e/module/item/physical/index.ts";
+import type { RangeData } from "types/pf2e/module/item/types.ts";
+import type { StrikeRuleElement } from "types/pf2e/module/rules/rule-element/strike.ts";
+import type { UserPF2e } from "types/pf2e/module/user/document.ts";
 import type { WeaponDamage, WeaponFlags, WeaponSource, WeaponSystemData } from "./data.ts";
 import type { BaseWeaponType, OtherWeaponTag, WeaponCategory, WeaponGroup, WeaponReloadTime, WeaponTrait } from "./types.ts";
 declare class WeaponPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {

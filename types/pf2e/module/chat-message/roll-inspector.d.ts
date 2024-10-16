@@ -1,7 +1,7 @@
 
 
 
-import { RawDamageDice, RawModifier } from "@actor/modifiers.ts";
+import { RawDamageDice, RawModifier } from "types/pf2e/module/actor/modifiers.ts";
 import type { ChatContextFlag, ChatMessagePF2e } from "./index.ts";
 declare class RollInspector extends Application {
     message: ChatMessagePF2e;

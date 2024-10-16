@@ -1,4 +1,4 @@
-import type { ActorPF2e } from "@actor";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
 import type { NumberField, StringField } from "types/foundry/common/data/fields.ts";
 import type { SenseData } from "./data.ts";
 import type { SenseAcuity, SenseType } from "./index.ts";

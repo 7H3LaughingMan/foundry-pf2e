@@ -1,4 +1,4 @@
-import { ActorSourcePF2e } from "@actor/data/index.ts";
+import { ActorSourcePF2e } from "types/pf2e/module/actor/data/index.ts";
 import { MigrationBase } from "../base.ts";
 /** Move tracking of roll-option toggles to the rules themselves */
 export declare class Migration741RollOptionToggleToItem extends MigrationBase {

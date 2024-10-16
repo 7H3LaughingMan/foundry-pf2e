@@ -1,4 +1,4 @@
-import type { RegionDocumentPF2e } from "@scene/region-document/document.ts";
+import type { RegionDocumentPF2e } from "types/pf2e/module/scene/region-document/document.ts";
 /** Add support for drag/drop repositioning of regions. */
 declare class RegionPF2e<TDocument extends RegionDocumentPF2e = RegionDocumentPF2e> extends Region<TDocument> {
     static RENDER_FLAGS: {

@@ -1,8 +1,8 @@
 
 
 
-import type { CombatantPF2e, EncounterPF2e } from "@module/encounter/index.ts";
-import type { TokenDocumentPF2e } from "@scene/index.ts";
+import type { CombatantPF2e, EncounterPF2e } from "types/pf2e/module/encounter/index.ts";
+import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
 import Sortable from "sortablejs";
 export declare class EncounterTrackerPF2e<TEncounter extends EncounterPF2e | null> extends CombatTracker<TEncounter> {
     #private;

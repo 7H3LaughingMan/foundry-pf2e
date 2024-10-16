@@ -1,4 +1,4 @@
-import type { ActorType, CharacterPF2e, NPCPF2e } from "@actor";
+import type { ActorType, CharacterPF2e, NPCPF2e } from "types/pf2e/module/actor/index.ts";
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
 /**

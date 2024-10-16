@@ -1,4 +1,4 @@
-import { ActionCost } from "@item/base/data/system.ts";
+import { ActionCost } from "types/pf2e/module/item/base/data/system.ts";
 import Sortable from "sortablejs";
 /**
  * Given an array and a key function, create a map where the key is the value that

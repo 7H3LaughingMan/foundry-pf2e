@@ -1,7 +1,7 @@
 
 
 
-import type { BoostFlawState } from "@actor/character/apps/attribute-builder.ts";
+import type { BoostFlawState } from "types/pf2e/module/actor/character/apps/attribute-builder.ts";
 import type { PartyPF2e } from "../document.ts";
 import type { Kingdom } from "./model.ts";
 import type { KingdomAbility, KingdomCHG } from "./types.ts";

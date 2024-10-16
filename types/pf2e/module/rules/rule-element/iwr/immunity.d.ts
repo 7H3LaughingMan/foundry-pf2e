@@ -1,6 +1,6 @@
-import { Immunity } from "@actor/data/iwr.ts";
-import { ImmunityType } from "@actor/types.ts";
-import type { StrictArrayField } from "@system/schema-data-fields.ts";
+import { Immunity } from "types/pf2e/module/actor/data/iwr.ts";
+import { ImmunityType } from "types/pf2e/module/actor/types.ts";
+import type { StrictArrayField } from "types/pf2e/module/system/schema-data-fields.ts";
 import { ModelPropsFromRESchema } from "../data.ts";
 import { IWRException, IWRExceptionField, IWRRuleElement, IWRRuleSchema } from "./base.ts";
 /** @category RuleElement */

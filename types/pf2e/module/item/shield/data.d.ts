@@ -1,9 +1,9 @@
-import { PhysicalItemSource } from "@item/base/data/index.ts";
-import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "@item/physical/data.ts";
-import { HeldUsage } from "@item/physical/usage.ts";
-import { WeaponRuneData, WeaponRuneSource } from "@item/weapon/data.ts";
-import { ZeroToSix } from "@module/data.ts";
-import { DamageType } from "@system/damage/types.ts";
+import { PhysicalItemSource } from "types/pf2e/module/item/base/data/index.ts";
+import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "types/pf2e/module/item/physical/data.ts";
+import { HeldUsage } from "types/pf2e/module/item/physical/usage.ts";
+import { WeaponRuneData, WeaponRuneSource } from "types/pf2e/module/item/weapon/data.ts";
+import { ZeroToSix } from "types/pf2e/module/data.ts";
+import { DamageType } from "types/pf2e/module/system/damage/types.ts";
 import { BaseShieldType, ShieldTrait } from "./types.ts";
 type ShieldSource = BasePhysicalItemSource<"shield", ShieldSystemSource>;
 interface ShieldSystemSource extends PhysicalSystemSource {

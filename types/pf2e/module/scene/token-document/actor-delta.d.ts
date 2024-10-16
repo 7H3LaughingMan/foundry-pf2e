@@ -1,4 +1,4 @@
-import { ActorSystemSource } from "@actor/data/base.ts";
+import { ActorSystemSource } from "types/pf2e/module/actor/data/base.ts";
 import type { ActorDeltaSource } from "types/foundry/common/documents/actor-delta.ts";
 import type { TokenDocumentPF2e } from "./document.ts";
 declare class ActorDeltaPF2e<TParent extends TokenDocumentPF2e | null> extends ActorDelta<TParent> {

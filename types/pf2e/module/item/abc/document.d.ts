@@ -1,9 +1,9 @@
-import { ActorPF2e } from "@actor";
-import { FeatPF2e, ItemPF2e } from "@item";
-import type { AncestrySource, AncestrySystemData } from "@item/ancestry/data.ts";
-import type { BackgroundSource, BackgroundSystemData } from "@item/background/data.ts";
-import type { ClassSource, ClassSystemData } from "@item/class/data.ts";
-import { Rarity } from "@module/data.ts";
+import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { FeatPF2e, ItemPF2e } from "types/pf2e/module/item/index.ts";
+import type { AncestrySource, AncestrySystemData } from "types/pf2e/module/item/ancestry/data.ts";
+import type { BackgroundSource, BackgroundSystemData } from "types/pf2e/module/item/background/data.ts";
+import type { ClassSource, ClassSystemData } from "types/pf2e/module/item/class/data.ts";
+import { Rarity } from "types/pf2e/module/data.ts";
 /** Abstract base class representing a Pathfinder (A)ncestry, (B)ackground, or (C)lass */
 declare abstract class ABCItemPF2e<TParent extends ActorPF2e | null> extends ItemPF2e<TParent> {
     get rarity(): Rarity;

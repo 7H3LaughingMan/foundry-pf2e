@@ -1,4 +1,4 @@
-import { ZeroToTwo } from "@module/data.ts";
+import { ZeroToTwo } from "types/pf2e/module/data.ts";
 interface SceneFlagsPF2e extends DocumentFlags {
     pf2e: {
         [key: string]: unknown;

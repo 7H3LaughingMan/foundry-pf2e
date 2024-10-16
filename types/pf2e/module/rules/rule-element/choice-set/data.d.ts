@@ -1,7 +1,7 @@
-import { ItemType } from "@item/base/data/index.ts";
-import { PickableThing } from "@module/apps/pick-a-thing-prompt.ts";
-import { RawPredicate } from "@system/predication.ts";
-import type { DataUnionField, PredicateField, StrictArrayField, StrictBooleanField, StrictObjectField, StrictStringField } from "@system/schema-data-fields.ts";
+import { ItemType } from "types/pf2e/module/item/base/data/index.ts";
+import { PickableThing } from "types/pf2e/module/apps/pick-a-thing-prompt.ts";
+import { RawPredicate } from "types/pf2e/module/system/predication.ts";
+import type { DataUnionField, PredicateField, StrictArrayField, StrictBooleanField, StrictObjectField, StrictStringField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { BooleanField, SchemaField, StringField } from "types/foundry/common/data/fields.ts";
 import type { RuleElementSchema, RuleElementSource } from "../data.ts";
 type ChoiceSetSchema = RuleElementSchema & {

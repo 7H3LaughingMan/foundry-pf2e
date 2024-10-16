@@ -1,5 +1,5 @@
-import { EffectAreaSquare } from "@module/canvas/effect-area-square.ts";
-import { TokenDocumentPF2e } from "@scene";
+import { EffectAreaSquare } from "types/pf2e/module/canvas/effect-area-square.ts";
+import { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
 import type { TokenPF2e } from "../index.ts";
 export declare function getAreaSquares(data: GetAreaSquaresParams): EffectAreaSquare[];
 interface GetAreaSquaresParams {

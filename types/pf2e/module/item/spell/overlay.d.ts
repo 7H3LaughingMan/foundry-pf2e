@@ -1,4 +1,4 @@
-import type { ActorPF2e } from "@actor";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
 import type { SpellOverlay, SpellOverlayType, SpellSource } from "./data.ts";
 import type { SpellPF2e } from "./document.ts";
 declare class SpellOverlayCollection extends Collection<SpellOverlay> {

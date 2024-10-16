@@ -1,7 +1,7 @@
 
 
 
-import { ActorPF2e } from "@actor";
+import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
 /** Extend ActorDirectory to show more information */
 declare class ActorDirectoryPF2e extends ActorDirectory<ActorPF2e<null>> {
     #private;

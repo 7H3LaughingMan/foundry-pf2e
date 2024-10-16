@@ -1,4 +1,4 @@
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
 /** Remove AE-likes that increase the size of a PC's focus pool. */
 export declare class Migration889RemoveFocusMaxIncreases extends MigrationBase {

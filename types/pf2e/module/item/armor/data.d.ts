@@ -1,7 +1,7 @@
-import { PhysicalItemSource } from "@item/base/data/index.ts";
-import { BasePhysicalItemSource, Investable, ItemMaterialSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "@item/physical/data.ts";
-import { WornUsage } from "@item/physical/usage.ts";
-import { ZeroToFour, ZeroToThree } from "@module/data.ts";
+import { PhysicalItemSource } from "types/pf2e/module/item/base/data/index.ts";
+import { BasePhysicalItemSource, Investable, ItemMaterialSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "types/pf2e/module/item/physical/data.ts";
+import { WornUsage } from "types/pf2e/module/item/physical/usage.ts";
+import { ZeroToFour, ZeroToThree } from "types/pf2e/module/data.ts";
 import { ArmorCategory, ArmorGroup, ArmorPropertyRuneType, ArmorTrait, BaseArmorType, OtherArmorTag } from "./index.ts";
 type ArmorSource = BasePhysicalItemSource<"armor", ArmorSystemSource>;
 interface ArmorSystemSource extends Investable<PhysicalSystemSource> {

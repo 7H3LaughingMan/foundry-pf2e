@@ -1,5 +1,5 @@
-import type { ActorType, CreaturePF2e } from "@actor";
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import type { ActorType, CreaturePF2e } from "types/pf2e/module/actor/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
 import type { BooleanField } from "types/foundry/common/data/fields.ts";
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";

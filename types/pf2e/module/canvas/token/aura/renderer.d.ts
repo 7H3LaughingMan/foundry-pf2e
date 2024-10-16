@@ -1,6 +1,6 @@
-import { AuraAppearanceData, AuraData } from "@actor/types.ts";
-import { ItemTrait } from "@item/base/data/system.ts";
-import { TokenAuraData } from "@scene/token-document/aura/index.ts";
+import { AuraAppearanceData, AuraData } from "types/pf2e/module/actor/types.ts";
+import { ItemTrait } from "types/pf2e/module/item/base/data/system.ts";
+import { TokenAuraData } from "types/pf2e/module/scene/token-document/aura/index.ts";
 import type { EffectAreaSquare } from "../../effect-area-square.ts";
 import type { TokenPF2e } from "../index.ts";
 /** Visual rendering of auras emanated by a token's actor */

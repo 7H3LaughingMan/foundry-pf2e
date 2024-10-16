@@ -1,4 +1,4 @@
-import { SlugField } from "@system/schema-data-fields.ts";
+import { SlugField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { StringField } from "types/foundry/common/data/fields.ts";
 import { RuleElementPF2e } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSchema } from "../data.ts";

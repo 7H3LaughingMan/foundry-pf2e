@@ -1,9 +1,9 @@
 
 
 
-import { ItemSheetOptions } from "@item/base/sheet/sheet.ts";
-import { CoinsPF2e, MaterialSheetData, PhysicalItemSheetData, PhysicalItemSheetPF2e, RUNE_DATA } from "@item/physical/index.ts";
-import { WeaponPropertyRuneType } from "@item/weapon/types.ts";
+import { ItemSheetOptions } from "types/pf2e/module/item/base/sheet/sheet.ts";
+import { CoinsPF2e, MaterialSheetData, PhysicalItemSheetData, PhysicalItemSheetPF2e, RUNE_DATA } from "types/pf2e/module/item/physical/index.ts";
+import { WeaponPropertyRuneType } from "types/pf2e/module/item/weapon/types.ts";
 import type { ShieldPF2e } from "./document.ts";
 import { BaseShieldType } from "./types.ts";
 declare class ShieldSheetPF2e extends PhysicalItemSheetPF2e<ShieldPF2e> {

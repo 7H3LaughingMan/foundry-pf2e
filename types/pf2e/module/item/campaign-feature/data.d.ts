@@ -1,5 +1,5 @@
-import { ActionType, BaseItemSourcePF2e, Frequency, FrequencySource, ItemSystemData, ItemSystemSource, ItemTraits } from "@item/base/data/system.ts";
-import { OneToThree } from "@module/data.ts";
+import { ActionType, BaseItemSourcePF2e, Frequency, FrequencySource, ItemSystemData, ItemSystemSource, ItemTraits } from "types/pf2e/module/item/base/data/system.ts";
+import { OneToThree } from "types/pf2e/module/data.ts";
 import { KingmakerCategory, KingmakerTrait } from "./types.ts";
 type CampaignFeatureSource = BaseItemSourcePF2e<"campaignFeature", CampaignFeatureSystemSource>;
 interface PrerequisiteTagData {

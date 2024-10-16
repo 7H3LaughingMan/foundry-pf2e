@@ -1,5 +1,5 @@
-import { ActorSourcePF2e } from "@actor/data/index.ts";
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import { ActorSourcePF2e } from "types/pf2e/module/actor/data/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
 /** Update feats, items, and rule elements to accurately process cumulative item bonuses */
 export declare class Migration723CumulativeItemBonuses extends MigrationBase {

@@ -1,5 +1,5 @@
-import type { DamageType } from "@system/damage/types.ts";
-import { StrictArrayField } from "@system/schema-data-fields.ts";
+import type { DamageType } from "types/pf2e/module/system/damage/types.ts";
+import { StrictArrayField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { StringField } from "types/foundry/common/data/fields.ts";
 import { type AELikeChangeMode } from "../ae-like.ts";
 import type { ModelPropsFromRESchema, RuleElementSchema } from "../data.ts";

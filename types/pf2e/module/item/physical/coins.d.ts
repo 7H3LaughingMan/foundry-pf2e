@@ -1,4 +1,4 @@
-import { Size } from "@module/data.ts";
+import { Size } from "types/pf2e/module/data.ts";
 import { Coins, PartialPrice } from "./data.ts";
 /** Coins class that exposes methods to perform operations on coins without side effects */
 declare class CoinsPF2e implements Coins {

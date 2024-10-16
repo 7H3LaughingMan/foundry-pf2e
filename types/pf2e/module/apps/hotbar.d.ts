@@ -1,4 +1,4 @@
-import { MacroPF2e } from "@module/macro.ts";
+import { MacroPF2e } from "types/pf2e/module/macro.ts";
 declare class HotbarPF2e extends Hotbar<MacroPF2e> {
     #private;
     /** Handle macro creation from non-macros */

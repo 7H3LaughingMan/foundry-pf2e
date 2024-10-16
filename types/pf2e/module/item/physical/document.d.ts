@@ -1,9 +1,9 @@
-import type { ActorPF2e } from "@actor";
-import { ItemPF2e, type ContainerPF2e } from "@item";
-import type { ItemSourcePF2e, PhysicalItemSource, RawItemChatData, TraitChatData } from "@item/base/data/index.ts";
-import type { Rarity, Size, ZeroToTwo } from "@module/data.ts";
-import type { EffectSpinoff } from "@module/rules/rule-element/effect-spinoff/spinoff.ts";
-import type { UserPF2e } from "@module/user/document.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { ItemPF2e, type ContainerPF2e } from "types/pf2e/module/item/index.ts";
+import type { ItemSourcePF2e, PhysicalItemSource, RawItemChatData, TraitChatData } from "types/pf2e/module/item/base/data/index.ts";
+import type { Rarity, Size, ZeroToTwo } from "types/pf2e/module/data.ts";
+import type { EffectSpinoff } from "types/pf2e/module/rules/rule-element/effect-spinoff/spinoff.ts";
+import type { UserPF2e } from "types/pf2e/module/user/document.ts";
 import { Bulk } from "./bulk.ts";
 import type { IdentificationStatus, ItemActivation, ItemCarryType, ItemMaterialData, MystifiedData, PhysicalItemHitPoints, PhysicalItemTrait, PhysicalSystemData, Price } from "./data.ts";
 import { CoinsPF2e } from "./helpers.ts";

@@ -1,7 +1,7 @@
-import type { CreaturePF2e } from "@actor";
-import type { AttributeString } from "@actor/types.ts";
-import { SpellcastingEntryPF2e } from "@item";
-import type { SpellcastingEntrySystemSource } from "@item/spellcasting-entry/data.ts";
+import type { CreaturePF2e } from "types/pf2e/module/actor/index.ts";
+import type { AttributeString } from "types/pf2e/module/actor/types.ts";
+import { SpellcastingEntryPF2e } from "types/pf2e/module/item/index.ts";
+import type { SpellcastingEntrySystemSource } from "types/pf2e/module/item/spellcasting-entry/data.ts";
 /** Dialog to create or edit spellcasting entries. It works on a clone of spellcasting entry, but will not persist unless the changes are accepted */
 declare class SpellcastingCreateAndEditDialog extends FormApplication<SpellcastingEntryPF2e<CreaturePF2e>> {
     #private;

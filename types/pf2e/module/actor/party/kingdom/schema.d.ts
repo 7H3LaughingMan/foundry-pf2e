@@ -1,6 +1,6 @@
-import { RawModifier } from "@actor/modifiers.ts";
-import { ZeroToFour } from "@module/data.ts";
-import { DataUnionField, RecordField, StrictBooleanField, StrictStringField } from "@system/schema-data-fields.ts";
+import { RawModifier } from "types/pf2e/module/actor/modifiers.ts";
+import { ZeroToFour } from "types/pf2e/module/data.ts";
+import { DataUnionField, RecordField, StrictBooleanField, StrictStringField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { ArrayField, SchemaField, StringField } from "types/foundry/common/data/fields.ts";
 import { KingdomAbility } from "./types.ts";
 declare const KINGDOM_SETTLEMENT_SCHEMA: {

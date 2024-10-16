@@ -1,8 +1,8 @@
-import { ActorPF2e } from "@actor";
-import { AttributeString, SkillSlug } from "@actor/types.ts";
-import { SpellPF2e } from "@item";
-import { MagicTradition } from "@item/spell/types.ts";
-import { Statistic } from "@system/statistic/index.ts";
+import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { AttributeString, SkillSlug } from "types/pf2e/module/actor/types.ts";
+import { SpellPF2e } from "types/pf2e/module/item/index.ts";
+import { MagicTradition } from "types/pf2e/module/item/spell/types.ts";
+import { Statistic } from "types/pf2e/module/system/statistic/index.ts";
 import { CastOptions, SpellcastingEntry, SpellcastingSheetData } from "./types.ts";
 declare const TRICK_MAGIC_SKILLS: readonly ["arcana", "nature", "occultism", "religion"];
 type TrickMagicItemSkill = (typeof TRICK_MAGIC_SKILLS)[number];

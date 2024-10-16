@@ -1,6 +1,6 @@
-import { PhysicalItemPF2e } from "@item";
-import { Coins, Price } from "@item/physical/data.ts";
-import { Rarity } from "@module/data.ts";
+import { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
+import { Coins, Price } from "types/pf2e/module/item/physical/data.ts";
+import { Rarity } from "types/pf2e/module/data.ts";
 declare class CraftingFormula implements CraftingFormulaData {
     #private;
     /** The item to craft */

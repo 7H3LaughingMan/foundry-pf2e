@@ -1,10 +1,10 @@
 
 
 
-import { AttributeString } from "@actor/types.ts";
-import type { AncestryPF2e, BackgroundPF2e, ClassPF2e } from "@item";
-import { ABCFeatureEntryData } from "@item/abc/data.ts";
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "@item/base/sheet/sheet.ts";
+import { AttributeString } from "types/pf2e/module/actor/types.ts";
+import type { AncestryPF2e, BackgroundPF2e, ClassPF2e } from "types/pf2e/module/item/index.ts";
+import { ABCFeatureEntryData } from "types/pf2e/module/item/abc/data.ts";
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "types/pf2e/module/item/base/sheet/sheet.ts";
 declare abstract class ABCSheetPF2e<TItem extends ABCItem> extends ItemSheetPF2e<TItem> {
     #private;
     static get defaultOptions(): ItemSheetOptions;

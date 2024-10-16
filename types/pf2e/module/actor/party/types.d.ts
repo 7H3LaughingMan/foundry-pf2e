@@ -1,7 +1,7 @@
-import { ActorUpdateOperation } from "@actor/base.ts";
-import { ItemType } from "@item/base/data/index.ts";
-import type { TokenDocumentPF2e } from "@scene";
-import type { Statistic } from "@system/statistic/index.ts";
+import { ActorUpdateOperation } from "types/pf2e/module/actor/base.ts";
+import { ItemType } from "types/pf2e/module/item/base/data/index.ts";
+import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
+import type { Statistic } from "types/pf2e/module/system/statistic/index.ts";
 import type DataModel from "types/foundry/common/abstract/data.ts";
 import type { PartyPF2e } from "./document.ts";
 interface PartyUpdateOperation<TParent extends TokenDocumentPF2e | null> extends ActorUpdateOperation<TParent> {

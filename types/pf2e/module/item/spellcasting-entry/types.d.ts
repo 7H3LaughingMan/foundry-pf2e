@@ -1,10 +1,10 @@
-import { ActorPF2e } from "@actor";
-import { AttributeString } from "@actor/types.ts";
-import { PhysicalItemPF2e } from "@item/physical/index.ts";
-import { SpellPF2e } from "@item/spell/document.ts";
-import { MagicTradition } from "@item/spell/types.ts";
-import { OneToTen } from "@module/data.ts";
-import { Statistic, StatisticChatData } from "@system/statistic/index.ts";
+import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { AttributeString } from "types/pf2e/module/actor/types.ts";
+import { PhysicalItemPF2e } from "types/pf2e/module/item/physical/index.ts";
+import { SpellPF2e } from "types/pf2e/module/item/spell/document.ts";
+import { MagicTradition } from "types/pf2e/module/item/spell/types.ts";
+import { OneToTen } from "types/pf2e/module/data.ts";
+import { Statistic, StatisticChatData } from "types/pf2e/module/system/statistic/index.ts";
 import { SpellCollection, SpellCollectionData, SpellSlotGroupId } from "./collection.ts";
 import { SpellcastingEntrySystemData } from "./data.ts";
 interface BaseSpellcastingEntry<TActor extends ActorPF2e | null = ActorPF2e | null> {

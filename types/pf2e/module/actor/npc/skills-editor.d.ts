@@ -1,8 +1,8 @@
 
 
 
-import type { NPCPF2e } from "@actor";
-import { NPCSkillData } from "@actor/npc/data.ts";
+import type { NPCPF2e } from "types/pf2e/module/actor/index.ts";
+import { NPCSkillData } from "types/pf2e/module/actor/npc/data.ts";
 /** Specialized form to setup skills for an NPC character. */
 export declare class NPCSkillsEditor extends DocumentSheet<NPCPF2e> {
     get actor(): NPCPF2e;

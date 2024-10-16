@@ -1,4 +1,4 @@
-import type { UserPF2e } from "@module/user/document.ts";
+import type { UserPF2e } from "types/pf2e/module/user/document.ts";
 export interface ItemTransferData {
     source: {
         tokenId?: string;

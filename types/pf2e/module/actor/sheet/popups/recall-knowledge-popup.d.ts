@@ -1,4 +1,4 @@
-import { CreatureIdentificationData } from "@module/recall-knowledge.ts";
+import { CreatureIdentificationData } from "types/pf2e/module/recall-knowledge.ts";
 export declare class RecallKnowledgePopup extends Application {
     #private;
     constructor(options: Partial<ApplicationOptions>, data: CreatureIdentificationData);

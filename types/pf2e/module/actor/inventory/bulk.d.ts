@@ -1,7 +1,7 @@
-import { ActorPF2e } from "@actor";
-import { PhysicalItemPF2e } from "@item";
-import { Bulk } from "@item/physical/bulk.ts";
-import { Size } from "@module/data.ts";
+import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
+import { Bulk } from "types/pf2e/module/item/physical/bulk.ts";
+import { Size } from "types/pf2e/module/data.ts";
 export declare class InventoryBulk {
     #private;
     actor: ActorPF2e;

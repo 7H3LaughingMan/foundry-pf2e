@@ -1,6 +1,6 @@
-import type { ActorType, CharacterPF2e } from "@actor";
-import { DamageDicePF2e, ModifierPF2e } from "@actor/modifiers.ts";
-import { WeaponPF2e } from "@item";
+import type { ActorType, CharacterPF2e } from "types/pf2e/module/actor/index.ts";
+import { DamageDicePF2e, ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
+import { WeaponPF2e } from "types/pf2e/module/item/index.ts";
 import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
 import { ModelPropsFromRESchema } from "../data.ts";
 import { BattleFormRuleSchema } from "./schema.ts";

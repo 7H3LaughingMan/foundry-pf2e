@@ -1,6 +1,6 @@
-import { type ActorPF2e } from "@actor";
-import type { ItemPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "@item";
-import { ZeroToFour } from "@module/data.ts";
+import { type ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { ItemPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "types/pf2e/module/item/index.ts";
+import { ZeroToFour } from "types/pf2e/module/data.ts";
 import { ActorSourcePF2e } from "./data/index.ts";
 import { ModifierPF2e } from "./modifiers.ts";
 import { NPCStrike } from "./npc/data.ts";

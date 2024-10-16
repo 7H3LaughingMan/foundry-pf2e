@@ -1,10 +1,10 @@
-import type { ActorPF2e, ActorType } from "@actor";
-import type { CheckModifier, DamageDicePF2e, ModifierPF2e } from "@actor/modifiers.ts";
-import { ItemPF2e, type WeaponPF2e } from "@item";
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
-import type { TokenDocumentPF2e } from "@scene/index.ts";
-import { CheckCheckContext, CheckRoll } from "@system/check/index.ts";
-import { LaxSchemaField } from "@system/schema-data-fields.ts";
+import type { ActorPF2e, ActorType } from "types/pf2e/module/actor/index.ts";
+import type { CheckModifier, DamageDicePF2e, ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
+import { ItemPF2e, type WeaponPF2e } from "types/pf2e/module/item/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
+import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
+import { CheckCheckContext, CheckRoll } from "types/pf2e/module/system/check/index.ts";
+import { LaxSchemaField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { DataModelValidationOptions } from "types/foundry/common/abstract/data.ts";
 import { BracketedValue, RuleElementSchema, RuleElementSource, RuleValue } from "./data.ts";
 /**

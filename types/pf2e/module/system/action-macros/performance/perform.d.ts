@@ -1,5 +1,5 @@
 import { SkillActionOptions } from "../index.ts";
-import { SingleCheckAction } from "@actor/actions/index.ts";
+import { SingleCheckAction } from "types/pf2e/module/actor/actions/index.ts";
 declare const PERFORM_VARIANT_TRAITS: {
     readonly acting: readonly ["auditory", "linguistic", "visual"];
     readonly comedy: readonly ["auditory", "linguistic", "visual"];

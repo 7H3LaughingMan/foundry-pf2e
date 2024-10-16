@@ -1,10 +1,10 @@
-import { FeatGroup } from "@actor/character/feats.ts";
-import { Kingdom } from "@actor/party/kingdom/model.ts";
-import { type CampaignFeaturePF2e } from "@item";
-import type { ItemSourcePF2e, ItemType } from "@item/base/data/index.ts";
-import type { UserPF2e } from "@module/user/index.ts";
-import type { TokenDocumentPF2e } from "@scene/index.ts";
-import { ArmorStatistic, Statistic, StatisticDifficultyClass } from "@system/statistic/index.ts";
+import { FeatGroup } from "types/pf2e/module/actor/character/feats.ts";
+import { Kingdom } from "types/pf2e/module/actor/party/kingdom/model.ts";
+import { type CampaignFeaturePF2e } from "types/pf2e/module/item/index.ts";
+import type { ItemSourcePF2e, ItemType } from "types/pf2e/module/item/base/data/index.ts";
+import type { UserPF2e } from "types/pf2e/module/user/index.ts";
+import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
+import { ArmorStatistic, Statistic, StatisticDifficultyClass } from "types/pf2e/module/system/statistic/index.ts";
 import { ActorPF2e, type ActorUpdateOperation, type HitPointsSummary } from "../base.ts";
 import type { ArmySource, ArmySystemData } from "./data.ts";
 import type { ArmyStrike } from "./types.ts";

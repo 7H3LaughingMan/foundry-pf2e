@@ -1,4 +1,4 @@
-import type { UserPF2e } from "@module/user/document.ts";
+import type { UserPF2e } from "types/pf2e/module/user/document.ts";
 import type { TokenPF2e } from "./token/object.ts";
 declare class RulerPF2e<TToken extends TokenPF2e | null = TokenPF2e | null> extends Ruler<TToken, UserPF2e> {
     #private;

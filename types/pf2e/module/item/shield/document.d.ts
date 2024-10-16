@@ -1,8 +1,8 @@
-import type { ActorPF2e } from "@actor";
-import { type WeaponPF2e } from "@item";
-import { RawItemChatData } from "@item/base/data/index.ts";
-import { PhysicalItemPF2e } from "@item/physical/index.ts";
-import type { UserPF2e } from "@module/user/document.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { type WeaponPF2e } from "types/pf2e/module/item/index.ts";
+import { RawItemChatData } from "types/pf2e/module/item/base/data/index.ts";
+import { PhysicalItemPF2e } from "types/pf2e/module/item/physical/index.ts";
+import type { UserPF2e } from "types/pf2e/module/user/document.ts";
 import { ShieldSource, ShieldSystemData } from "./data.ts";
 import { BaseShieldType, ShieldTrait } from "./types.ts";
 declare class ShieldPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {

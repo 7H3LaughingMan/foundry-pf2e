@@ -1,8 +1,8 @@
 
 
 
-import type { ActorPF2e } from "@actor";
-import type { AfflictionPF2e, ConditionPF2e, EffectPF2e } from "@item";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { AfflictionPF2e, ConditionPF2e, EffectPF2e } from "types/pf2e/module/item/index.ts";
 export declare class EffectsPanel extends Application {
     #private;
     private get token();

@@ -1,5 +1,5 @@
-import { Predicate, PredicateStatement, RawPredicate } from "@system/predication.ts";
-import { SlugCamel } from "@util";
+import { Predicate, PredicateStatement, RawPredicate } from "types/pf2e/module/system/predication.ts";
+import { SlugCamel } from "types/pf2e/util/index.ts";
 import type DataModel from "types/foundry/common/abstract/data.ts";
 import type { ArrayFieldOptions, CleanFieldOptions, DataField, DataFieldOptions, DataFieldValidationOptions, DataSchema, MaybeSchemaProp, ModelPropFromDataField, NumberField, ObjectFieldOptions, SourcePropFromDataField, StringField, StringFieldOptions } from "types/foundry/common/data/fields.ts";
 import type { DataModelValidationFailure } from "types/foundry/common/data/validation-failure.ts";

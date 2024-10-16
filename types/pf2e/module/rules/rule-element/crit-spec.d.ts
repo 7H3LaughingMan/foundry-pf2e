@@ -1,6 +1,6 @@
-import { ModifierType } from "@actor/modifiers.ts";
-import type { ActorType } from "@actor/types.ts";
-import { DamageCategoryUnique, DamageType } from "@system/damage/types.ts";
+import { ModifierType } from "types/pf2e/module/actor/modifiers.ts";
+import type { ActorType } from "types/pf2e/module/actor/types.ts";
+import { DamageCategoryUnique, DamageType } from "types/pf2e/module/system/damage/types.ts";
 import type { BooleanField, NumberField, SchemaField, StringField } from "types/foundry/common/data/fields.ts";
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleValue } from "./data.ts";

@@ -1,7 +1,7 @@
 
 
 
-import { DegreeOfSuccessIndex } from "@system/degree-of-success.ts";
+import { DegreeOfSuccessIndex } from "types/pf2e/module/system/degree-of-success.ts";
 import { DamageCategoryUnique, DamageDamageContext, DamageFormulaData, DamageType } from "./types.ts";
 /**
  * Dialog for excluding certain modifiers before rolling damage.

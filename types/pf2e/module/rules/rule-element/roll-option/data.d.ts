@@ -1,4 +1,4 @@
-import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from "@system/schema-data-fields.ts";
+import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { ArrayField, BooleanField, DataSchema, EmbeddedDataField, StringField } from "types/foundry/common/data/fields.ts";
 import type { AELikeDataPrepPhase } from "../ae-like.ts";
 import type { ResolvableValueField, RuleElementSchema } from "../data.ts";

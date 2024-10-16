@@ -1,11 +1,11 @@
-import type { ActorPF2e } from "@actor";
-import { ModifierPF2e } from "@actor/modifiers.ts";
-import type { ItemPF2e, WeaponPF2e } from "@item";
-import type { WeaponTrait } from "@item/weapon/types.ts";
-import { RollNotePF2e } from "@module/notes.ts";
-import type { TokenDocumentPF2e } from "@scene";
-import { CheckType } from "@system/check/index.ts";
-import type { DegreeOfSuccessString } from "@system/degree-of-success.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
+import type { ItemPF2e, WeaponPF2e } from "types/pf2e/module/item/index.ts";
+import type { WeaponTrait } from "types/pf2e/module/item/weapon/types.ts";
+import { RollNotePF2e } from "types/pf2e/module/notes.ts";
+import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
+import { CheckType } from "types/pf2e/module/system/check/index.ts";
+import type { DegreeOfSuccessString } from "types/pf2e/module/system/degree-of-success.ts";
 import type { CheckContextData, CheckContextOptions, CheckMacroContext, SimpleRollActionCheckOptions } from "./types.ts";
 declare class ActionMacroHelpers {
     #private;

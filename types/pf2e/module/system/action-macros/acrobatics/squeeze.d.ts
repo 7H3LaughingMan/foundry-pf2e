@@ -1,4 +1,4 @@
-import { SingleCheckAction } from "@actor/actions/index.ts";
+import { SingleCheckAction } from "types/pf2e/module/actor/actions/index.ts";
 import { SkillActionOptions } from "../index.ts";
 declare function squeeze(options: SkillActionOptions): void;
 declare const action: SingleCheckAction;

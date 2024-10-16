@@ -1,8 +1,8 @@
-import { ActorPF2e } from "@actor";
-import { RawModifier } from "@actor/modifiers.js";
-import { ItemPF2e } from "@item";
-import { ChatMessagePF2e } from "@module/chat-message/document.js";
-import { TokenDocumentPF2e } from "@scene";
+import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { RawModifier } from "types/pf2e/module/actor/modifiers.js";
+import { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import { ChatMessagePF2e } from "types/pf2e/module/chat-message/document.js";
+import { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
 
 export {};
 

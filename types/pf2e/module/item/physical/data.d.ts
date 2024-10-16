@@ -1,8 +1,8 @@
-import { AttributeString } from "@actor/types.ts";
-import { ActionTrait } from "@item/ability/types.ts";
-import { PhysicalItemSource } from "@item/base/data/index.ts";
-import { Size, TraitsWithRarity, ValuesList, ZeroToTwo } from "@module/data.ts";
-import { MaterialDamageEffect } from "@system/damage/types.ts";
+import { AttributeString } from "types/pf2e/module/actor/types.ts";
+import { ActionTrait } from "types/pf2e/module/item/ability/types.ts";
+import { PhysicalItemSource } from "types/pf2e/module/item/base/data/index.ts";
+import { Size, TraitsWithRarity, ValuesList, ZeroToTwo } from "types/pf2e/module/data.ts";
+import { MaterialDamageEffect } from "types/pf2e/module/system/damage/types.ts";
 import { ActionCost, BaseItemSourcePF2e, Frequency, ItemSystemData, ItemSystemSource } from "../base/data/system.ts";
 import type { ITEM_CARRY_TYPES } from "../base/data/values.ts";
 import type { CoinsPF2e } from "./helpers.ts";

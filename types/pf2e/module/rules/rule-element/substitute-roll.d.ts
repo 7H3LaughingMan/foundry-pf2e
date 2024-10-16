@@ -1,4 +1,4 @@
-import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from "@system/schema-data-fields.ts";
+import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { BooleanField, StringField } from "types/foundry/common/data/fields.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";

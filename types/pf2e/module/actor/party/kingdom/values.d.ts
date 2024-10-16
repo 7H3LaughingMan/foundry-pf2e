@@ -1,4 +1,4 @@
-import { ModifierAdjustment, RawModifier } from "@actor/modifiers.ts";
+import { ModifierAdjustment, RawModifier } from "types/pf2e/module/actor/modifiers.ts";
 import { KingdomAbility, KingdomCHG, KingdomCharter, KingdomGovernment, KingdomLeadershipRole, KingdomSkill } from "./types.ts";
 declare const KINGDOM_ABILITIES: readonly ["culture", "economy", "loyalty", "stability"];
 declare const KINGDOM_LEADERSHIP: readonly ["ruler", "counselor", "general", "emissary", "magister", "treasurer", "viceroy", "warden"];

@@ -1,7 +1,7 @@
-import { CoinsPF2e } from "@item/physical/coins.ts";
-import { OneToFour } from "@module/data.ts";
-import { calculateDC } from "@module/dc.ts";
-import { DegreeOfSuccessIndex, RollBrief } from "@system/degree-of-success.ts";
+import { CoinsPF2e } from "types/pf2e/module/item/physical/coins.ts";
+import { OneToFour } from "types/pf2e/module/data.ts";
+import { calculateDC } from "types/pf2e/module/dc.ts";
+import { DegreeOfSuccessIndex, RollBrief } from "types/pf2e/module/system/degree-of-success.ts";
 /**
  * Implementation of Earn Income rules on https://2e.aonprd.com/Skills.aspx?ID=2&General=true
  */

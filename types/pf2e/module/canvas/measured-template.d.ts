@@ -1,8 +1,8 @@
-import type { ActorPF2e } from "@actor";
-import type { ItemPF2e } from "@item";
-import type { EffectAreaShape } from "@item/spell/types.ts";
-import type { ChatMessagePF2e } from "@module/chat-message/document.ts";
-import type { MeasuredTemplateDocumentPF2e, ScenePF2e } from "@scene";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import type { EffectAreaShape } from "types/pf2e/module/item/spell/types.ts";
+import type { ChatMessagePF2e } from "types/pf2e/module/chat-message/document.ts";
+import type { MeasuredTemplateDocumentPF2e, ScenePF2e } from "types/pf2e/module/scene/index.ts";
 import { type TemplateLayerPF2e } from "./index.ts";
 declare class MeasuredTemplatePF2e<TDocument extends MeasuredTemplateDocumentPF2e<ScenePF2e | null> = MeasuredTemplateDocumentPF2e<ScenePF2e | null>> extends MeasuredTemplate<TDocument> {
     get actor(): ActorPF2e | null;

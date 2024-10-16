@@ -1,6 +1,6 @@
-import type { ConditionPF2e } from "@item";
-import type { ConditionSlug, PersistentDamagePF2e } from "@item/condition/index.ts";
-import { DelegatedCollection } from "@util";
+import type { ConditionPF2e } from "types/pf2e/module/item/index.ts";
+import type { ConditionSlug, PersistentDamagePF2e } from "types/pf2e/module/item/condition/index.ts";
+import { DelegatedCollection } from "types/pf2e/util/index.ts";
 import type { ActorPF2e } from "./base.ts";
 /** A wrapper for collections of conditions on an actor, filterable by whether they're active or stored/temporary */
 declare class ActorConditions<TActor extends ActorPF2e> extends DelegatedCollection<ConditionPF2e<TActor>> {

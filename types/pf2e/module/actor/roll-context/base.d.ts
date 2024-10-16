@@ -1,8 +1,8 @@
-import type { ActorPF2e } from "@actor";
-import type { StrikeData } from "@actor/data/base.ts";
-import type { ItemPF2e } from "@item";
-import type { ActionTrait } from "@item/ability/types.ts";
-import type { Statistic } from "@system/statistic/statistic.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { StrikeData } from "types/pf2e/module/actor/data/base.ts";
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import type { ActionTrait } from "types/pf2e/module/item/ability/types.ts";
+import type { Statistic } from "types/pf2e/module/system/statistic/statistic.ts";
 import type { RollContextConstructorParams, UnresolvedOpposingActors } from "./types.ts";
 import { RollContextData } from "./types.ts";
 /** Resolve a roll context by cloning a pair of actors and feeding them with mutual roll options. */

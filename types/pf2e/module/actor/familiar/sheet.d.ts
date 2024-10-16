@@ -1,9 +1,9 @@
-import type { CharacterPF2e } from "@actor";
-import { CreatureSheetData } from "@actor/creature/index.ts";
-import { CreatureSheetPF2e } from "@actor/creature/sheet.ts";
-import { SheetClickActionHandlers } from "@actor/sheet/base.ts";
-import { AbilityViewData } from "@actor/sheet/data-types.ts";
-import { StatisticTraceData } from "@system/statistic/index.ts";
+import type { CharacterPF2e } from "types/pf2e/module/actor/index.ts";
+import { CreatureSheetData } from "types/pf2e/module/actor/creature/index.ts";
+import { CreatureSheetPF2e } from "types/pf2e/module/actor/creature/sheet.ts";
+import { SheetClickActionHandlers } from "types/pf2e/module/actor/sheet/base.ts";
+import { AbilityViewData } from "types/pf2e/module/actor/sheet/data-types.ts";
+import { StatisticTraceData } from "types/pf2e/module/system/statistic/index.ts";
 import type { FamiliarPF2e } from "./document.ts";
 /**
  * @category Actor

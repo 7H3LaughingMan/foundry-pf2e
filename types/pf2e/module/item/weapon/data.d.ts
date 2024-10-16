@@ -1,9 +1,9 @@
-import { AttributeString } from "@actor/types.ts";
-import type { PhysicalItemSource } from "@item/base/data/index.ts";
-import { ItemFlagsPF2e } from "@item/base/data/system.ts";
-import type { BasePhysicalItemSource, Investable, ItemMaterialData, ItemMaterialSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource, UsageDetails } from "@item/physical/index.ts";
-import { ZeroToFour, ZeroToThree } from "@module/data.ts";
-import { DamageDieSize, DamageType } from "@system/damage/index.ts";
+import { AttributeString } from "types/pf2e/module/actor/types.ts";
+import type { PhysicalItemSource } from "types/pf2e/module/item/base/data/index.ts";
+import { ItemFlagsPF2e } from "types/pf2e/module/item/base/data/system.ts";
+import type { BasePhysicalItemSource, Investable, ItemMaterialData, ItemMaterialSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource, UsageDetails } from "types/pf2e/module/item/physical/index.ts";
+import { ZeroToFour, ZeroToThree } from "types/pf2e/module/data.ts";
+import { DamageDieSize, DamageType } from "types/pf2e/module/system/damage/index.ts";
 import type { WeaponTraitToggles } from "./trait-toggles.ts";
 import type { BaseWeaponType, MeleeWeaponGroup, OtherWeaponTag, WeaponCategory, WeaponGroup, WeaponMaterialType, WeaponPropertyRuneType, WeaponRangeIncrement, WeaponReloadTime, WeaponTrait } from "./types.ts";
 type WeaponSource = BasePhysicalItemSource<"weapon", WeaponSystemSource> & {

@@ -1,5 +1,5 @@
-import type { UserPF2e } from "@module/user/document.ts";
-import type { TokenDocumentPF2e } from "@scene";
+import type { UserPF2e } from "types/pf2e/module/user/document.ts";
+import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
 import type { TokenLayerPF2e } from "../index.ts";
 import { AuraRenderers } from "./aura/index.ts";
 import { FlankingHighlightRenderer } from "./flanking-highlight/renderer.ts";

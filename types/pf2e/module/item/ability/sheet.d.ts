@@ -1,8 +1,8 @@
 
 
 
-import type { AbilityItemPF2e } from "@item/ability/document.ts";
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "@item/base/sheet/sheet.ts";
+import type { AbilityItemPF2e } from "types/pf2e/module/item/ability/document.ts";
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "types/pf2e/module/item/base/sheet/sheet.ts";
 import { SelfEffectReference } from "./data.ts";
 declare class AbilitySheetPF2e extends ItemSheetPF2e<AbilityItemPF2e> {
     static get defaultOptions(): ItemSheetOptions;

@@ -1,4 +1,4 @@
-import type { SlugField, StrictArrayField } from "@system/schema-data-fields.ts";
+import type { SlugField, StrictArrayField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { BooleanField, EmbeddedDataField, StringField } from "types/foundry/common/data/fields.ts";
 import type { RuleElementSchema } from "../data.ts";
 import type { ItemAlteration } from "../item-alteration/alteration.ts";

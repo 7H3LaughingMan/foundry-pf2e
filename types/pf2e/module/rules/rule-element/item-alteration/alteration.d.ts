@@ -1,6 +1,6 @@
-import type { ActorPF2e } from "@actor";
-import { ItemPF2e } from "@item";
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
 import type { StringField } from "types/foundry/common/data/fields.ts";
 import { AELikeChangeMode } from "../ae-like.ts";
 import type { RuleElementPF2e } from "../base.ts";

@@ -1,8 +1,8 @@
-import type { AbilityItemPF2e, FeatPF2e, SpellPF2e } from "@item";
-import { ItemPF2e } from "@item";
-import { ActionCost } from "@item/base/data/system.ts";
-import type { FeatSheetPF2e } from "@item/feat/sheet.ts";
-import { RangeData } from "@item/types.ts";
+import type { AbilityItemPF2e, FeatPF2e, SpellPF2e } from "types/pf2e/module/item/index.ts";
+import { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import { ActionCost } from "types/pf2e/module/item/base/data/system.ts";
+import type { FeatSheetPF2e } from "types/pf2e/module/item/feat/sheet.ts";
+import { RangeData } from "types/pf2e/module/item/types.ts";
 import type { AbilitySystemData, SelfEffectReference } from "./data.ts";
 import type { AbilitySheetPF2e } from "./sheet.ts";
 interface SourceWithActionData {

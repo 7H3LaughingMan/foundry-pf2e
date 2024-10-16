@@ -1,6 +1,6 @@
-import { UserVisibility } from "@scripts/ui/user-visibility.ts";
-import { DegreeOfSuccessString } from "@system/degree-of-success.ts";
-import { DataUnionField, StrictStringField } from "@system/schema-data-fields.ts";
+import { UserVisibility } from "types/pf2e/scripts/ui/user-visibility.ts";
+import { DegreeOfSuccessString } from "types/pf2e/module/system/degree-of-success.ts";
+import { DataUnionField, StrictStringField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { ArrayField, StringField } from "types/foundry/common/data/fields.ts";
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";

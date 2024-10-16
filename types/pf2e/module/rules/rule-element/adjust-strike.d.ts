@@ -1,5 +1,5 @@
-import type { ActorType } from "@actor/types.ts";
-import { PredicateField } from "@system/schema-data-fields.ts";
+import type { ActorType } from "types/pf2e/module/actor/types.ts";
+import { PredicateField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { StringField } from "types/foundry/common/data/fields.ts";
 import { AELikeChangeMode } from "./ae-like.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";

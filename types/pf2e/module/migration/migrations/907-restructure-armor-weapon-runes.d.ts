@@ -1,4 +1,4 @@
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
 /** Move armor and weapon runes to a single object. */
 export declare class Migration907RestructureArmorWeaponRunes extends MigrationBase {

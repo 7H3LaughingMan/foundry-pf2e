@@ -1,5 +1,5 @@
-import type { AbilityItemPF2e, FeatPF2e } from "@item";
-import { DamageAlteration } from "@module/rules/rule-element/damage-alteration/alteration.ts";
+import type { AbilityItemPF2e, FeatPF2e } from "types/pf2e/module/item/index.ts";
+import { DamageAlteration } from "types/pf2e/module/rules/rule-element/damage-alteration/alteration.ts";
 /** A helper class to handle toggleable ability traits */
 declare class AbilityTraitToggles {
     parent: AbilityItemPF2e | FeatPF2e;

@@ -1,7 +1,7 @@
-import { ActorSourcePF2e } from "@actor/data/index.ts";
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
-import { MigrationBase } from "@module/migration/base.ts";
-import type { ScenePF2e, TokenDocumentPF2e } from "@scene";
+import { ActorSourcePF2e } from "types/pf2e/module/actor/data/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
+import { MigrationBase } from "types/pf2e/module/migration/base.ts";
+import type { ScenePF2e, TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
 interface CollectionDiff<T extends foundry.documents.ActiveEffectSource | ItemSourcePF2e> {
     inserted: T[];
     deleted: string[];

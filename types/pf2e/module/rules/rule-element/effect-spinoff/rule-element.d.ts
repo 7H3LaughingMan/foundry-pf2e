@@ -1,6 +1,6 @@
-import type { ActorPF2e } from "@actor";
-import type { PhysicalItemPF2e } from "@item";
-import { SlugField } from "@system/schema-data-fields.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
+import { SlugField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { ArrayField, NumberField, SchemaField, StringField } from "types/foundry/common/data/fields.ts";
 import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
 import type { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource } from "../data.ts";

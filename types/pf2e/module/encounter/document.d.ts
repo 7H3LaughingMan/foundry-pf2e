@@ -1,8 +1,8 @@
-import type { ActorPF2e } from "@actor";
-import { RollInitiativeOptionsPF2e } from "@actor/data/index.ts";
-import { SkillSlug } from "@actor/types.ts";
-import type { ScenePF2e, TokenDocumentPF2e } from "@scene/index.ts";
-import { ThreatRating } from "@scripts/macros/xp/index.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { RollInitiativeOptionsPF2e } from "types/pf2e/module/actor/data/index.ts";
+import { SkillSlug } from "types/pf2e/module/actor/types.ts";
+import type { ScenePF2e, TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
+import { ThreatRating } from "types/pf2e/scripts/macros/xp/index.ts";
 import type { CombatantPF2e, RolledCombatant } from "./combatant.ts";
 declare class EncounterPF2e extends Combat {
     /** Has this document completed `DataModel` initialization? */

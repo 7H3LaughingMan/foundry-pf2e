@@ -1,7 +1,7 @@
-import type { ActorPF2e } from "@actor";
-import { ItemPF2e, ItemSheetPF2e } from "@item";
-import { BaseItemSourcePF2e, ItemSystemData, ItemSystemSource, OtherTagsOnly } from "@item/base/data/system.ts";
-import { ZeroToFour } from "@module/data.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { ItemPF2e, ItemSheetPF2e } from "types/pf2e/module/item/index.ts";
+import { BaseItemSourcePF2e, ItemSystemData, ItemSystemSource, OtherTagsOnly } from "types/pf2e/module/item/base/data/system.ts";
+import { ZeroToFour } from "types/pf2e/module/data.ts";
 declare class LorePF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
 }
 interface LorePF2e<TParent extends ActorPF2e | null> extends ItemPF2e<TParent> {

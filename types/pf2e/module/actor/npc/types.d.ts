@@ -1,12 +1,12 @@
-import type { CreatureSheetData } from "@actor/creature/sheet.ts";
-import type { HitPointsStatistic, TraitViewData } from "@actor/data/base.ts";
-import type { AbilityViewData } from "@actor/sheet/data-types.ts";
-import type { MovementType, SaveType, SkillSlug } from "@actor/types.ts";
-import type { ItemPF2e } from "@item";
-import type { SpellcastingSheetData } from "@item/spellcasting-entry/index.ts";
-import type { ZeroToFour } from "@module/data.ts";
-import type { TagifyEntry } from "@module/sheet/helpers.ts";
-import type { ArmorClassTraceData } from "@system/statistic/index.ts";
+import type { CreatureSheetData } from "types/pf2e/module/actor/creature/sheet.ts";
+import type { HitPointsStatistic, TraitViewData } from "types/pf2e/module/actor/data/base.ts";
+import type { AbilityViewData } from "types/pf2e/module/actor/sheet/data-types.ts";
+import type { MovementType, SaveType, SkillSlug } from "types/pf2e/module/actor/types.ts";
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import type { SpellcastingSheetData } from "types/pf2e/module/item/spellcasting-entry/index.ts";
+import type { ZeroToFour } from "types/pf2e/module/data.ts";
+import type { TagifyEntry } from "types/pf2e/module/sheet/helpers.ts";
+import type { ArmorClassTraceData } from "types/pf2e/module/system/statistic/index.ts";
 import type { NPCAttributes, NPCPerceptionData, NPCSaveData, NPCSkillData, NPCSystemData } from "./data.ts";
 import type { NPCPF2e, NPCStrike } from "./index.ts";
 interface ActionsDetails {

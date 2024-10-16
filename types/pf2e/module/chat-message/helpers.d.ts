@@ -1,5 +1,5 @@
-import type { ActorPF2e } from "@actor";
-import { AbilityItemPF2e, FeatPF2e } from "@item";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { AbilityItemPF2e, FeatPF2e } from "types/pf2e/module/item/index.ts";
 import { ChatContextFlag, CheckContextChatFlag } from "./data.ts";
 import { ChatMessagePF2e } from "./document.ts";
 declare function isCheckContextFlag(flag?: ChatContextFlag): flag is CheckContextChatFlag;

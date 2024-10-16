@@ -1,7 +1,7 @@
-import type { ActorPF2e, CreaturePF2e } from "@actor";
-import { SenseData } from "@actor/creature/data.ts";
-import { Sense } from "@actor/creature/sense.ts";
-import { AttributeString } from "@actor/types.ts";
+import type { ActorPF2e, CreaturePF2e } from "types/pf2e/module/actor/index.ts";
+import { SenseData } from "types/pf2e/module/actor/creature/data.ts";
+import { Sense } from "types/pf2e/module/actor/creature/sense.ts";
+import { AttributeString } from "types/pf2e/module/actor/types.ts";
 import type { StatisticData, StatisticTraceData } from "./data.ts";
 import { Statistic, type RollOptionConfig } from "./statistic.ts";
 declare class PerceptionStatistic<TActor extends ActorPF2e = ActorPF2e> extends Statistic<TActor> {

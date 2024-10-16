@@ -1,6 +1,6 @@
-import type { ActorType, CharacterPF2e, NPCPF2e } from "@actor";
-import { DegreeOfSuccessString } from "@system/degree-of-success.ts";
-import { RecordField } from "@system/schema-data-fields.ts";
+import type { ActorType, CharacterPF2e, NPCPF2e } from "types/pf2e/module/actor/index.ts";
+import { DegreeOfSuccessString } from "types/pf2e/module/system/degree-of-success.ts";
+import { RecordField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { StringField } from "types/foundry/common/data/fields.ts";
 import { ModelPropsFromRESchema } from "./data.ts";
 import { RuleElementPF2e, RuleElementSchema } from "./index.ts";

@@ -1,7 +1,7 @@
-import type { ActorPF2e, CharacterPF2e } from "@actor";
-import type { ArmorPF2e, WeaponPF2e } from "@item";
-import { ZeroToThree } from "@module/data.ts";
-import type { FlatModifierRuleElement } from "@module/rules/rule-element/flat-modifier.ts";
+import type { ActorPF2e, CharacterPF2e } from "types/pf2e/module/actor/index.ts";
+import type { ArmorPF2e, WeaponPF2e } from "types/pf2e/module/item/index.ts";
+import { ZeroToThree } from "types/pf2e/module/data.ts";
+import type { FlatModifierRuleElement } from "types/pf2e/module/rules/rule-element/flat-modifier.ts";
 declare class AutomaticBonusProgression {
     /** Whether the ABP variant is enabled and also not selectively disabled for a particular actor */
     static isEnabled(actor: ActorPF2e | null): boolean;

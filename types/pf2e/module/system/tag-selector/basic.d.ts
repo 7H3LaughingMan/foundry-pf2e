@@ -1,5 +1,5 @@
-import type { ActorPF2e } from "@actor";
-import type { ItemPF2e } from "@item";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
 import { BaseTagSelector, TagSelectorData } from "./base.ts";
 import { SelectableTagField, TagSelectorOptions } from "./index.ts";
 export type BasicConstructorOptions = Partial<BasicSelectorOptions> & {

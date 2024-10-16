@@ -1,5 +1,5 @@
-import { RuleElementSource } from "@module/rules/index.ts";
-import type { TokenImageRuleElement } from "@module/rules/rule-element/token-image.ts";
+import { RuleElementSource } from "types/pf2e/module/rules/index.ts";
+import type { TokenImageRuleElement } from "types/pf2e/module/rules/rule-element/token-image.ts";
 import { RuleElementForm, RuleElementFormSheetData, RuleElementFormTabData } from "./base.ts";
 declare class TokenImageForm extends RuleElementForm<RuleElementSource, TokenImageRuleElement> {
     template: string;

@@ -1,8 +1,8 @@
-import { ActorPF2e } from "@actor";
-import type { PrototypeTokenPF2e } from "@actor/data/base.ts";
-import type { TokenPF2e } from "@module/canvas/index.ts";
-import type { CombatantPF2e, EncounterPF2e } from "@module/encounter/index.ts";
-import { DifficultTerrainGrade, RegionDocumentPF2e } from "@scene";
+import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import type { PrototypeTokenPF2e } from "types/pf2e/module/actor/data/base.ts";
+import type { TokenPF2e } from "types/pf2e/module/canvas/index.ts";
+import type { CombatantPF2e, EncounterPF2e } from "types/pf2e/module/encounter/index.ts";
+import { DifficultTerrainGrade, RegionDocumentPF2e } from "types/pf2e/module/scene/index.ts";
 import type { ScenePF2e } from "../document.ts";
 import { TokenAura } from "./aura/index.ts";
 import { TokenFlagsPF2e } from "./data.ts";

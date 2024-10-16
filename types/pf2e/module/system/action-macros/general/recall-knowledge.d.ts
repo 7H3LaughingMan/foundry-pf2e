@@ -1,5 +1,5 @@
-import { SingleCheckAction, SingleCheckActionUseOptions, SingleCheckActionVariant, SingleCheckActionVariantData } from "@actor/actions/index.ts";
-import { CheckResultCallback } from "@system/action-macros/types.ts";
+import { SingleCheckAction, SingleCheckActionUseOptions, SingleCheckActionVariant, SingleCheckActionVariantData } from "types/pf2e/module/actor/actions/index.ts";
+import { CheckResultCallback } from "types/pf2e/module/system/action-macros/types.ts";
 interface RecallKnowledgeActionUseOptions extends Partial<SingleCheckActionUseOptions> {
     statistic: string;
 }

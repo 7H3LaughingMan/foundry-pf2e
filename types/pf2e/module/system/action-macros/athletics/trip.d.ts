@@ -1,7 +1,7 @@
-import { ActorPF2e } from "@actor";
-import { SingleCheckAction, SingleCheckActionVariant, SingleCheckActionVariantData } from "@actor/actions/index.ts";
-import { ItemPF2e } from "@item";
-import { CheckContextData, CheckContextOptions, CheckMacroContext } from "@system/action-macros/types.ts";
+import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { SingleCheckAction, SingleCheckActionVariant, SingleCheckActionVariantData } from "types/pf2e/module/actor/actions/index.ts";
+import { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import { CheckContextData, CheckContextOptions, CheckMacroContext } from "types/pf2e/module/system/action-macros/types.ts";
 import { SkillActionOptions } from "../index.ts";
 declare function trip(options: SkillActionOptions): void;
 declare class TripActionVariant extends SingleCheckActionVariant {

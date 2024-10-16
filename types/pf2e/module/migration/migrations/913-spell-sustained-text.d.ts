@@ -1,4 +1,4 @@
-import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
 /** Remove redundant "sustained for up to" in free-text spell durations. */
 export declare class Migration913SpellSustainedText extends MigrationBase {

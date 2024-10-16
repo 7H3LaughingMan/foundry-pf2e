@@ -1,4 +1,4 @@
-import { DamageDiceOverride } from "@actor/modifiers.ts";
+import { DamageDiceOverride } from "types/pf2e/module/actor/modifiers.ts";
 import type { ArrayField, BooleanField, ObjectField, StringField } from "types/foundry/common/data/fields.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";

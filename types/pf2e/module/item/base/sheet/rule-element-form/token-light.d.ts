@@ -1,4 +1,4 @@
-import type { TokenLightRuleElement, TokenLightRuleSource } from "@module/rules/rule-element/token-light.ts";
+import type { TokenLightRuleElement, TokenLightRuleSource } from "types/pf2e/module/rules/rule-element/token-light.ts";
 import { RuleElementForm, RuleElementFormSheetData, RuleElementFormTabData } from "./base.ts";
 declare class TokenLightForm extends RuleElementForm<TokenLightRuleSource, TokenLightRuleElement> {
     template: string;

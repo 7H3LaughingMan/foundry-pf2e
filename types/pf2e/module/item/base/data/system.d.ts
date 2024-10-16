@@ -1,6 +1,6 @@
-import type { MigrationRecord, OneToThree, PublicationData, Rarity } from "@module/data.ts";
-import type { RuleElementSource } from "@module/rules/index.ts";
-import type { Predicate } from "@system/predication.ts";
+import type { MigrationRecord, OneToThree, PublicationData, Rarity } from "types/pf2e/module/data.ts";
+import type { RuleElementSource } from "types/pf2e/module/rules/index.ts";
+import type { Predicate } from "types/pf2e/module/system/predication.ts";
 import type * as fields from "types/foundry/common/data/fields.ts";
 import type { ItemTrait } from "../types.ts";
 import type { ItemType } from "./index.ts";

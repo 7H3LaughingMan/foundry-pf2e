@@ -1,7 +1,7 @@
-import type { ActorPF2e } from "@actor";
-import { ChatMessagePF2e } from "@module/chat-message/index.ts";
-import type { ActionDefaultOptions } from "@system/action-macros/index.ts";
-import { type DegreeOfSuccessString } from "@system/degree-of-success.ts";
+import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { ChatMessagePF2e } from "types/pf2e/module/chat-message/index.ts";
+import type { ActionDefaultOptions } from "types/pf2e/module/system/action-macros/index.ts";
+import { type DegreeOfSuccessString } from "types/pf2e/module/system/degree-of-success.ts";
 declare function treatWounds(options: ActionDefaultOptions): Promise<void>;
 declare function treatWoundsMacroCallback({ actor, bonus, message, originalMessageId, outcome, }: {
     actor: ActorPF2e;

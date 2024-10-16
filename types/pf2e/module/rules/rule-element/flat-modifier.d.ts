@@ -1,7 +1,7 @@
-import { ModifierType } from "@actor/modifiers.ts";
-import { AttributeString } from "@actor/types.ts";
-import { DamageCategoryUnique } from "@system/damage/types.ts";
-import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from "@system/schema-data-fields.ts";
+import { ModifierType } from "types/pf2e/module/actor/modifiers.ts";
+import { AttributeString } from "types/pf2e/module/actor/types.ts";
+import { DamageCategoryUnique } from "types/pf2e/module/system/damage/types.ts";
+import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { ArrayField, BooleanField, NumberField, StringField } from "types/foundry/common/data/fields.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource, RuleValue } from "./data.ts";

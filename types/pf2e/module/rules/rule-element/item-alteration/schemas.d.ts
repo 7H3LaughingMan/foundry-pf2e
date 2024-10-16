@@ -1,8 +1,8 @@
-import type { ItemPF2e } from "@item";
-import type { ItemSourcePF2e, ItemType } from "@item/base/data/index.ts";
-import type { ItemTrait } from "@item/base/types.ts";
-import { type DamageType } from "@system/damage/types.ts";
-import { PredicateField, SlugField, StrictNumberField } from "@system/schema-data-fields.ts";
+import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import type { ItemSourcePF2e, ItemType } from "types/pf2e/module/item/base/data/index.ts";
+import type { ItemTrait } from "types/pf2e/module/item/base/types.ts";
+import { type DamageType } from "types/pf2e/module/system/damage/types.ts";
+import { PredicateField, SlugField, StrictNumberField } from "types/pf2e/module/system/schema-data-fields.ts";
 import type { ArrayField, BooleanField, DataField, DataFieldOptions, NumberField, SchemaField, StringField } from "types/foundry/common/data/fields.ts";
 import type { DataModelValidationFailure } from "types/foundry/common/data/validation-failure.ts";
 import type { AELikeChangeMode } from "../ae-like.ts";
