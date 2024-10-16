@@ -6,7 +6,7 @@ import { RollNoteSource } from "@module/notes.ts";
 import { CheckCheckContext } from "@system/check/index.ts";
 import { DamageDamageContext } from "@system/damage/types.ts";
 import { DegreeAdjustmentsRecord, DegreeOfSuccessString } from "@system/degree-of-success.ts";
-import type { ChatMessageFlags } from "types/foundry/common/documents/chat-message.d.ts";
+import type { ChatMessageFlags } from "types/foundry/common/documents/chat-message.ts";
 type ChatMessageSourcePF2e = foundry.documents.ChatMessageSource & {
     flags: ChatMessageFlagsPF2e;
 };
@@ -21,7 +21,7 @@ export interface ItemOriginFlag {
     };
     rollOptions?: string[];
 }
-type ChatMessageFlagsPF2e = ChatMessageFlags & {
+interface ChatMessageFlagsPF2e extends ChatMessageFlags {
     pf2e: {
         damageRoll?: DamageRollFlag;
         context?: ChatContextFlag;
@@ -42,7 +42,7 @@ type ChatMessageFlagsPF2e = ChatMessageFlags & {
         [key: string]: unknown;
     };
     core: NonNullable<ChatMessageFlags["core"]>;
-};
+}
 type ChatContextFlag = CheckContextChatFlag | DamageDamageContextFlag | SpellCastContextFlag | SelfEffectContextFlag | DamageTakenContextFlag;
 interface DamageRollFlag {
     outcome: DegreeOfSuccessString;

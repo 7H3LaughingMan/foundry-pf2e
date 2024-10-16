@@ -1,32 +1,161 @@
-export { };
+import type ApplicationV2 from "../../client-esm/applications/api/application.d.ts";
 
+export {};
 declare global {
-    namespace Hooks {
-        /**
-         * A mapping of hook events which have functions registered to them.
-         */
-        var events: Record<string, HookedFunction[]>;
+    type HookCallback<P extends unknown[]> = (...args: P) => boolean | void | Promise<boolean | void>;
+    type HookParameters<H extends string, C extends unknown[]> = [hook: H, callback: HookCallback<C>];
 
+    // Sequence of hooks called on world load
+    type HookParamsInit = HookParameters<"init", never>;
+    type HookParamsSetup = HookParameters<"setup", never>;
+    type HookParamsI18nInit = HookParameters<"i18nInit", never>;
+    type HookParamsCanvasInit = HookParameters<"canvasInit", [DrawnCanvas]>;
+    type HookParamsCanvasReady = HookParameters<"canvasReady", [DrawnCanvas]>;
+    type HookParamsReady = HookParameters<"ready", never>;
+
+    type HookParamsClose<T extends Application, N extends string> = HookParameters<`close${N}`, [T, JQuery]>;
+    type HookParamsDeleteCombat = HookParameters<"deleteCombat", [Combat, { [key: string]: unknown }, string]>;
+    type HookParamsDropCanvasData = HookParameters<"dropCanvasData", [Canvas, DropCanvasData]>;
+    type HookParamsGetChatLogEntryContext = HookParameters<"getChatLogEntryContext", [JQuery, EntryContextOption[]]>;
+    type HookParamsGetSceneControlButtons = HookParameters<"getSceneControlButtons", [SceneControl[]]>;
+    type HookParamsHotbarDrop = HookParameters<"hotbarDrop", [Hotbar, unknown, string]>;
+    type HookParamsLightingRefresh = HookParameters<"lightingRefresh", [LightingLayer]>;
+    type HookParamsPreCreateItem = HookParameters<
+        "preCreateItem",
+        [PreCreate<foundry.documents.ItemSource>, DatabaseCreateOperation<Actor | null>, string]
+    >;
+    type HooksParamsPreUpdateCombat = HookParameters<
+        "preUpdateCombat",
+        [Combat, object, { diff: boolean; advanceTime: number; [key: string]: unknown }, string]
+    >;
+    type HookParamsPreUpdateToken = HookParameters<
+        "preUpdateToken",
+        [
+            Scene,
+            foundry.documents.TokenSource,
+            DeepPartial<foundry.documents.TokenSource>,
+            { diff: boolean; [key: string]: unknown },
+            string,
+        ]
+    >;
+    type HookParamsRender<T extends Application | ApplicationV2, N extends string> = HookParameters<
+        `render${N}`,
+        T extends Application ? [T, JQuery, Awaited<ReturnType<T["getData"]>>] : [T, HTMLElement]
+    >;
+    type HookParamsRenderChatMessage = HookParameters<
+        "renderChatMessage",
+        [ChatMessage, JQuery, foundry.documents.ChatMessageSource]
+    >;
+    type HookParamsTargetToken = HookParameters<"targetToken", [User, Token<TokenDocument<Scene>>, boolean]>;
+    type HookParamsUpdate<T extends foundry.abstract.Document, N extends string> = HookParameters<
+        `update${N}`,
+        [T, Record<string, unknown>, DatabaseCreateOperation<T["parent"]>]
+    >;
+    type HookParamsUpdateWorldTime = HookParameters<"updateWorldTime", [number, number]>;
+    type HookParamsGetProseMirrorMenuDropDowns = HookParameters<
+        "getProseMirrorMenuDropDowns",
+        [foundry.prosemirror.ProseMirrorMenu, Record<string, ProseMirrorDropDownConfig>]
+    >;
+
+    namespace Hooks {
         /**
          * Register a callback handler which should be triggered when a hook is triggered.
          *
-         * @param hook          The unique name of the hooked event
-         * @param fn            The callback function which should be triggered when the hook event occurs
-         * @param options       Options which customize hook registration
-         * @param options.once  Only trigger the hooked function once
-         * @returns             An ID number of the hooked function which can be used to turn off the hook later
+         * @param hook The unique name of the hooked event
+         * @param fn   The callback function which should be triggered when the hook event occurs
          */
-        function on(hook: string, fn: Function, options?: { once: boolean }): number;
+        function on(...args: HookParamsSetup): number;
+        function on(...args: HookParamsInit): number;
+        function on(...args: HookParamsReady): number;
+        function on(...args: HookParamsI18nInit): number;
+        function on(...args: HookParamsCanvasInit): number;
+        function on(...args: HookParamsCanvasReady): number;
+        function on(...args: HookParamsClose<CombatTrackerConfig, "CombatTrackerConfig">): number;
+        function on(...args: HookParamsDropCanvasData): number;
+        function on(...args: HookParamsGetChatLogEntryContext): number;
+        function on(...args: HookParamsGetSceneControlButtons): number;
+        function on(...args: HookParamsHotbarDrop): number;
+        function on(...args: HookParamsLightingRefresh): number;
+        function on(...args: HookParamsPreCreateItem): number;
+        function on(...args: HooksParamsPreUpdateCombat): number;
+        function on(...args: HookParamsPreUpdateToken): number;
+        function on(...args: HookParamsRenderChatMessage): number;
+        function on(...args: HookParamsRender<ChatLog, "ChatLog">): number;
+        function on(...args: HookParamsRender<ChatPopout, "ChatPopout">): number;
+        function on(...args: HookParamsRender<CombatTrackerConfig, "CombatTrackerConfig">): number;
+        function on(...args: HookParamsRender<CompendiumDirectory, "CompendiumDirectory">): number;
+        function on(...args: HookParamsRender<Dialog, "Dialog">): number;
+        function on(...args: HookParamsRender<ActorDirectory<Actor<null>>, "ActorDirectory">): number;
+        function on(...args: HookParamsRender<ItemDirectory<Item<null>>, "ItemDirectory">): number;
+        function on(...args: HookParamsRender<SceneControls, "SceneControls">): number;
+        function on(...args: HookParamsRender<Settings, "Settings">): number;
+        function on(...args: HookParamsRender<SettingsConfig, "SettingsConfig">): number;
+        function on(...args: HookParamsRender<TokenHUD, "TokenHUD">): number;
+        function on(
+            ...args: HookParamsRender<JournalPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalPageSheet">
+        ): number;
+        function on(
+            ...args: HookParamsRender<
+                JournalTextPageSheet<JournalEntryPage<JournalEntry | null>>,
+                "JournalTextPageSheet"
+            >
+        ): number;
+        function on(...args: HookParamsRender<ApplicationV2, "RegionLegend">): number;
+        function on(...args: HookParamsTargetToken): number;
+        function on(...args: HookParamsUpdate<Combat, "Combat">): number;
+        function on(...args: HookParamsUpdate<Scene, "Scene">): number;
+        function on(...args: HookParamsUpdateWorldTime): number;
+        function on(...args: HookParamsGetProseMirrorMenuDropDowns): number;
+        function on(...args: HookParameters<string, unknown[]>): number;
+        function on(...args: HookParameters<string, any[]>): number;
 
         /**
          * Register a callback handler for an event which is only triggered once the first time the event occurs.
-         * An alias for Hooks.on with {once: true}
+         * After a "once" hook is triggered the hook is automatically removed.
          *
          * @param hook  The unique name of the hooked event
          * @param fn    The callback function which should be triggered when the hook event occurs
-         * @returns     An ID number of the hooked function which can be used to turn off the hook later
          */
-        function once(hook: string, fn: Function): number;
+        function once(...args: HookParamsSetup): number;
+        function once(...args: HookParamsInit): number;
+        function once(...args: HookParamsReady): number;
+        function once(...args: HookParamsCanvasInit): number;
+        function once(...args: HookParamsCanvasReady): number;
+        function once(...args: HookParamsClose<CombatTrackerConfig, "CombatTrackerConfig">): number;
+        function once(...args: HookParamsDropCanvasData): number;
+        function once(...args: HookParamsGetChatLogEntryContext): number;
+        function once(...args: HookParamsGetSceneControlButtons): number;
+        function once(...args: HookParamsHotbarDrop): number;
+        function once(...args: HookParamsLightingRefresh): number;
+        function once(...args: HookParamsPreCreateItem): number;
+        function once(...args: HookParamsPreUpdateToken): number;
+        function once(...args: HookParamsRenderChatMessage): number;
+        function once(...args: HookParamsRender<ActorDirectory<Actor<null>>, "ActorDirectory">): number;
+        function once(...args: HookParamsRender<ChatLog, "ChatLog">): number;
+        function once(...args: HookParamsRender<ChatPopout, "ChatPopout">): number;
+        function once(...args: HookParamsRender<CombatTrackerConfig, "CombatTrackerConfig">): number;
+        function once(...args: HookParamsRender<CompendiumDirectory, "CompendiumDirectory">): number;
+        function once(...args: HookParamsRender<Dialog, "Dialog">): number;
+        function once(...args: HookParamsRender<ItemDirectory<Item<null>>, "ItemDirectory">): number;
+        function once(
+            ...args: HookParamsRender<JournalPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalPageSheet">
+        ): number;
+        function once(
+            ...args: HookParamsRender<
+                JournalTextPageSheet<JournalEntryPage<JournalEntry | null>>,
+                "JournalTextPageSheet"
+            >
+        ): number;
+        function once(...args: HookParamsRender<SceneControls, "SceneControls">): number;
+        function once(...args: HookParamsRender<Settings, "Settings">): number;
+        function once(...args: HookParamsRender<TokenHUD, "TokenHUD">): number;
+        function once(...args: HookParamsTargetToken): number;
+        function once(...args: HookParamsUpdate<Combat, "Combat">): number;
+        function once(...args: HookParamsUpdate<Scene, "Scene">): number;
+        function once(...args: HookParamsUpdateWorldTime): number;
+        function once(...args: HookParamsI18nInit): number;
+        function once(...args: HookParameters<string, unknown[]>): number;
+        function once(...args: HookParameters<string, any[]>): number;
 
         /**
          * Unregister a callback handler for a particular hook event
@@ -34,54 +163,28 @@ declare global {
          * @param hook  The unique name of the hooked event
          * @param fn    The function that should be removed from the set of hooked callbacks
          */
-        function off(hook: string, fn: number | Function): void;
+        function off(hook: string, fn: Function): void;
 
         /**
          * Call all hook listeners in the order in which they were registered
          * Hooks called this way can not be handled by returning false and will always trigger every hook callback.
          *
-         * @param {string} hook   The hook being triggered
-         * @param {...*} args     Arguments passed to the hook callback functions
-         * @returns {boolean}     Were all hooks called without execution being prevented?
+         * @param hook  The hook being triggered
+         * @param args  Arguments passed to the hook callback statics
          */
-        function callAll(hook: string, ...args: any[]): boolean;
+        function callAll(hook: string, ...args: unknown[]): boolean;
 
         /**
          * Call hook listeners in the order in which they were registered.
-         * Continue calling hooks until either all have been called or one returns false.
+         * Continue calling hooks until either all have been called or one returns `false`.
          *
-         * Hook listeners which return false denote that the original event has been adequately handled and no further
+         * Hook listeners which return `false` denote that the original event has been adequately handled and no further
          * hooks should be called.
          *
-         * @param {string} hook   The hook being triggered
-         * @param {...*} args     Arguments passed to the hook callback functions
-         * @returns {boolean}     Were all hooks called without execution being prevented?
+         * @param hook  The hook being triggered
+         * @param args  Arguments passed to the hook callback statics
          */
-        function call(hook: string, ...args: any[]): boolean;
-
-        /**
-         * Notify subscribers that an error has occurred within foundry.
-         *
-         * @param {string} location                The method where the error was caught.
-         * @param {Error} error                    The error.
-         * @param {object} [options={}]            Additional options to configure behaviour.
-         * @param {string} [options.msg=""]        A message which should prefix the resulting error or notification.
-         * @param {?string} [options.log=null]     The level at which to log the error to console (if at all).
-         * @param {?string} [options.notify=null]  The level at which to spawn a notification in the UI (if at all).
-         * @param {object} [options.data={}]       Additional data to pass to the hook subscribers.
-         */
-        function onError(
-            location: string,
-            error: Error,
-            options?: { msg: string; log: string; notify: string; data: object }
-        ): void;
-    }
-
-    interface HookedFunction {
-        hook: string;
-        id: number;
-        fn: Function;
-        once: boolean;
+        function call(hook: string, ...args: unknown[]): boolean;
     }
 
     interface DropCanvasData<T extends string = string, D extends object = object> {

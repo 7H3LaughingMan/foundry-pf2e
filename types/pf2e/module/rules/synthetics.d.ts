@@ -14,7 +14,7 @@ import type { MaterialDamageEffect } from "@system/damage/types.ts";
 import type { DegreeOfSuccessAdjustment } from "@system/degree-of-success.ts";
 import type { Predicate } from "@system/predication.ts";
 import type { Statistic } from "@system/statistic/index.ts";
-import type { TokenSource } from "types/foundry/common/documents/token.d.ts";
+import type { TokenSource } from "types/foundry/common/documents/token.ts";
 import type { DamageAlteration } from "./rule-element/damage-alteration/alteration.ts";
 import type { Suboption } from "./rule-element/roll-option/data.ts";
 /** Defines a list of data provided by rule elements that an actor can pull from during its data preparation lifecycle */

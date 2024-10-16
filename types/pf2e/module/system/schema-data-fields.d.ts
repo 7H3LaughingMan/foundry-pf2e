@@ -1,8 +1,8 @@
 import { Predicate, PredicateStatement, RawPredicate } from "@system/predication.ts";
 import { SlugCamel } from "@util";
-import type DataModel from "types/foundry/common/abstract/data.d.ts";
-import type { ArrayFieldOptions, CleanFieldOptions, DataField, DataFieldOptions, DataFieldValidationOptions, DataSchema, MaybeSchemaProp, ModelPropFromDataField, NumberField, ObjectFieldOptions, SourcePropFromDataField, StringField, StringFieldOptions } from "types/foundry/common/data/fields.d.ts";
-import type { DataModelValidationFailure } from "types/foundry/common/data/validation-failure.d.ts";
+import type DataModel from "types/foundry/common/abstract/data.ts";
+import type { ArrayFieldOptions, CleanFieldOptions, DataField, DataFieldOptions, DataFieldValidationOptions, DataSchema, MaybeSchemaProp, ModelPropFromDataField, NumberField, ObjectFieldOptions, SourcePropFromDataField, StringField, StringFieldOptions } from "types/foundry/common/data/fields.ts";
+import type { DataModelValidationFailure } from "types/foundry/common/data/validation-failure.ts";
 declare const fields: typeof foundry.data.fields;
 /** A `SchemaField` that preserves fields not declared in its `DataSchema` */
 declare class LaxSchemaField<TDataSchema extends DataSchema> extends fields.SchemaField<TDataSchema> {

@@ -1,4 +1,4 @@
-import type { DataSchema } from "types/foundry/common/data/fields.d.ts";
+import type { DataSchema } from "types/foundry/common/data/fields.ts";
 import { PartyPF2e } from "./document.ts";
 import { PartyCampaign } from "./types.ts";
 declare const DataModel: typeof foundry.abstract.DataModel;

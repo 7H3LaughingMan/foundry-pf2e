@@ -1,4 +1,4 @@
-import type { NumberField, SchemaField } from "types/foundry/common/data/fields.d.ts";
+import type { NumberField, SchemaField } from "types/foundry/common/data/fields.ts";
 import { CoinsPF2e } from "./coins.ts";
 declare const fields: typeof foundry.data.fields;
 declare class PriceField extends fields.SchemaField<PriceSchema> {

@@ -7,6 +7,24 @@ import { TokenDocumentPF2e } from "@scene";
 export {};
 
 declare global {
+    namespace pf2eModifiersMatter {
+        export type Degree = "CRIT_SUCC" | "SUCCESS" | "FAILURE" | "CRIT_FAIL";
+
+        export type SignificantModifier = {
+            appliedTo: "roll" | "dc";
+            name: string;
+            value: number;
+            significance: "ESSENTIAL" | "HELPFUL" | "HARMFUL" | "DETRIMENTAL";
+        };
+
+        export type InsignificantModifier = {
+            appliedTo: "roll" | "dc";
+            name: string;
+            value: number;
+            significance: "NONE";
+        };
+    }
+
     interface Window {
         pf2eMm?: {
             getSignificantModifiersOfMessage(chatMessage: ChatMessagePF2e): pf2eModifiersMatter.SignificantModifier[];
@@ -149,39 +167,20 @@ declare global {
         ): Promise<"disabled" | "1_status" | "2_status" | "2_circumstance_ac">;
     }
 
-    namespace Hooks {
+    /*namespace Hooks {
         function on(
-            hook: "modifiersMatter",
-            fn: ({
-                rollingActor,
-                actorWithDc,
-                targetedToken,
-                significantModifiers,
-                chatMessage,
-            }: {
-                rollingActor: ActorPF2e;
-                actorWithDc?: ActorPF2e;
-                targetedToken?: TokenDocumentPF2e;
-                significantModifiers: pf2eModifiersMatter.SignificantModifier[];
-                chatMessage: ChatMessagePF2e;
-            }) => void | Promise<void>
-        ): number;
-
-        function once(
-            hook: "modifiersMatter",
-            fn: ({
-                rollingActor,
-                actorWithDc,
-                targetedToken,
-                significantModifiers,
-                chatMessage,
-            }: {
-                rollingActor: ActorPF2e;
-                actorWithDc?: ActorPF2e;
-                targetedToken?: TokenDocumentPF2e;
-                significantModifiers: pf2eModifiersMatter.SignificantModifier[];
-                chatMessage: ChatMessagePF2e;
-            }) => void | Promise<void>
+            ...args: HookParameters<
+                "modifiersMatter",
+                [
+                    {
+                        rollingActor: ActorPF2e;
+                        actorWithDc?: ActorPF2e;
+                        targetedToken?: TokenDocumentPF2e;
+                        significantModifiers: pf2eModifiersMatter.SignificantModifier[];
+                        chatMessage: ChatMessagePF2e;
+                    }
+                ]
+            >
         ): number;
 
         function callAll(
@@ -217,23 +216,23 @@ declare global {
                 chatMessage: ChatMessagePF2e;
             }
         ): boolean;
-    }
 
-    namespace pf2eModifiersMatter {
-        export type Degree = "CRIT_SUCC" | "SUCCESS" | "FAILURE" | "CRIT_FAIL";
+        namespace pf2eModifiersMatter {
+            export type Degree = "CRIT_SUCC" | "SUCCESS" | "FAILURE" | "CRIT_FAIL";
 
-        export type SignificantModifier = {
-            appliedTo: "roll" | "dc";
-            name: string;
-            value: number;
-            significance: "ESSENTIAL" | "HELPFUL" | "HARMFUL" | "DETRIMENTAL";
-        };
+            export type SignificantModifier = {
+                appliedTo: "roll" | "dc";
+                name: string;
+                value: number;
+                significance: "ESSENTIAL" | "HELPFUL" | "HARMFUL" | "DETRIMENTAL";
+            };
 
-        export type InsignificantModifier = {
-            appliedTo: "roll" | "dc";
-            name: string;
-            value: number;
-            significance: "NONE";
-        };
-    }
+            export type InsignificantModifier = {
+                appliedTo: "roll" | "dc";
+                name: string;
+                value: number;
+                significance: "NONE";
+            };
+        }
+    }*/
 }

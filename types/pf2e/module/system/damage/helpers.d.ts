@@ -1,7 +1,7 @@
 import type { ActorPF2e } from "@actor";
 import { DamageDicePF2e, RawDamageDice } from "@actor/modifiers.ts";
 import type { ItemPF2e } from "@item";
-import type { Die, NumericTerm, RollTerm } from "types/foundry/client-esm/dice/terms/module.d.ts";
+import type { Die, NumericTerm, RollTerm } from "types/foundry/client-esm/dice/terms/module.ts";
 import { DamageInstance, DamageRoll } from "./roll.ts";
 import { ArithmeticExpression, Grouping } from "./terms.ts";
 import type { BaseDamageData, DamageCategory, DamageDiceFaces, DamageDieSize, DamageType } from "./types.ts";

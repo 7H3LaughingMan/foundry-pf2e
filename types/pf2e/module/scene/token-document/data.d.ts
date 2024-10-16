@@ -1,4 +1,4 @@
-import type { TokenSchema } from "types/foundry/common/documents/token.d.ts";
+import type { TokenSchema } from "types/foundry/common/documents/token.ts";
 type TokenFlagsPF2e = DocumentFlags & {
     pf2e: {
         [key: string]: unknown;

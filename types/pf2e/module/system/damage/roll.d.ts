@@ -3,7 +3,7 @@ import type { UserPF2e } from "@module/user/index.ts";
 import { DegreeOfSuccessIndex } from "@system/degree-of-success.ts";
 import { RollDataPF2e } from "@system/rolls.ts";
 import type Peggy from "peggy";
-import type { DiceTerm, RollTerm } from "types/foundry/client-esm/dice/terms/module.d.ts";
+import type { DiceTerm, RollTerm } from "types/foundry/client-esm/dice/terms/module.ts";
 import { InstancePool } from "./terms.ts";
 import { DamageCategory, DamageIRBypassData, DamageTemplate, DamageType, MaterialDamageEffect } from "./types.ts";
 declare abstract class AbstractDamageRoll extends Roll {
