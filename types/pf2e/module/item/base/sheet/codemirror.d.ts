@@ -1,7 +1,7 @@
-import { json } from '@codemirror/lang-json';
-import { Extension } from '@codemirror/state';
-import { EditorView } from 'codemirror';
-import { DataSchema } from '../../../../../foundry/common/data/fields.ts';
+import { json } from "@codemirror/lang-json";
+import { Extension } from "@codemirror/state";
+import { EditorView } from "codemirror";
+import type { DataSchema } from "types/foundry/common/data/fields.d.ts";
 export declare const CodeMirror: {
     EditorView: typeof EditorView;
     basicSetup: Extension;

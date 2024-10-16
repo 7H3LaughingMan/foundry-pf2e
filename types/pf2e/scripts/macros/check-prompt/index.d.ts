@@ -1,1 +1,1 @@
-export { checkPrompt } from './prompt.ts';
+export { checkPrompt } from "./prompt.ts";

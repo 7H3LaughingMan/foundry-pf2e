@@ -1,13 +1,16 @@
-import { ActorPF2e, CreaturePF2e } from '../index.ts';
-import { ActorSheetDataPF2e } from '../sheet/data-types.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { SpellcastingSheetData } from '../../item/spellcasting-entry/index.ts';
-import { DropCanvasItemDataPF2e } from '../../canvas/drop-canvas-data.ts';
-import { ZeroToFour } from '../../data.ts';
-import { ActorSheetPF2e, SheetClickActionHandlers } from '../sheet/base.ts';
-import { CreatureConfig } from './config.ts';
-import { Language } from './index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e, CreaturePF2e } from "@actor";
+import { ActorSheetDataPF2e } from "@actor/sheet/data-types.ts";
+import { ItemPF2e } from "@item";
+import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import { SpellcastingSheetData } from "@item/spellcasting-entry/index.ts";
+import { DropCanvasItemDataPF2e } from "@module/canvas/drop-canvas-data.ts";
+import { ZeroToFour } from "@module/data.ts";
+import { ActorSheetPF2e, SheetClickActionHandlers } from "../sheet/base.ts";
+import { CreatureConfig } from "./config.ts";
+import { Language } from "./index.ts";
 /**
  * Base class for NPC and character sheets
  * @category Actor

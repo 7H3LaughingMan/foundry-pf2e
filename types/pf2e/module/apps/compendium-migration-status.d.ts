@@ -1,5 +1,8 @@
-import { ActorPF2e } from '../actor/index.ts';
-import { ItemPF2e } from '../item/index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor";
+import type { ItemPF2e } from "@item";
 /** Dialog used to view compendium data and migrate them. */
 declare class CompendiumMigrationStatus extends Application {
     compendium: CompendiumCollection<ActorPF2e<null> | ItemPF2e<null>>;

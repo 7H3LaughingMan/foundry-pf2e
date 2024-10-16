@@ -1,12 +1,12 @@
-import { CreaturePF2e, CharacterPF2e } from '../index.ts';
-import { ActorUpdateOperation } from '../base.ts';
-import { ItemType } from '../../item/base/data/index.ts';
-import { CombatantPF2e, EncounterPF2e } from '../../encounter/index.ts';
-import { RuleElementPF2e } from '../../rules/index.ts';
-import { UserPF2e } from '../../user/document.ts';
-import { TokenDocumentPF2e } from '../../scene/index.ts';
-import { Statistic } from '../../system/statistic/index.ts';
-import { FamiliarSource, FamiliarSystemData } from './data.ts';
+import { CreaturePF2e, type CharacterPF2e } from "@actor";
+import type { ActorUpdateOperation } from "@actor/base.ts";
+import type { ItemType } from "@item/base/data/index.ts";
+import type { CombatantPF2e, EncounterPF2e } from "@module/encounter/index.ts";
+import type { RuleElementPF2e } from "@module/rules/index.ts";
+import type { UserPF2e } from "@module/user/document.ts";
+import type { TokenDocumentPF2e } from "@scene";
+import { Statistic } from "@system/statistic/index.ts";
+import { FamiliarSource, FamiliarSystemData } from "./data.ts";
 declare class FamiliarPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends CreaturePF2e<TParent> {
     /** The familiar's attack statistic, for the rare occasion it must make an attack roll */
     attackStatistic: Statistic;

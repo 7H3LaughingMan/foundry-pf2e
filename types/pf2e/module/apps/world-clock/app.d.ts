@@ -1,5 +1,8 @@
-import { DateTime } from 'luxon';
-import { animateDarkness } from './animate-darkness.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import { DateTime } from "luxon";
+import { animateDarkness } from "./animate-darkness.ts";
 interface WorldClockData {
     date: string;
     time: string;

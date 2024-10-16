@@ -1,9 +1,9 @@
-import { DamageType } from '../../../system/damage/types.ts';
-import { StrictArrayField } from '../../../system/schema-data-fields.ts';
-import { StringField } from '../../../../../foundry/common/data/fields.ts';
-import { AELikeChangeMode } from '../ae-like.ts';
-import { ModelPropsFromRESchema, RuleElementSchema } from '../data.ts';
-import { ResolvableValueField, RuleElementPF2e } from '../index.ts';
+import type { DamageType } from "@system/damage/types.ts";
+import { StrictArrayField } from "@system/schema-data-fields.ts";
+import type { StringField } from "types/foundry/common/data/fields.d.ts";
+import { type AELikeChangeMode } from "../ae-like.ts";
+import type { ModelPropsFromRESchema, RuleElementSchema } from "../data.ts";
+import { ResolvableValueField, RuleElementPF2e } from "../index.ts";
 /** Alter certain aspects of individual components (modifiers and dice) of a damage roll. */
 declare class DamageAlterationRuleElement extends RuleElementPF2e<DamageAlterationSchema> {
     static defineSchema(): DamageAlterationSchema;

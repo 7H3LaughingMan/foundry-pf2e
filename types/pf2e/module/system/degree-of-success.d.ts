@@ -1,7 +1,7 @@
-import { ZeroToThree } from '../data.ts';
-import { CheckRoll } from './check/roll.ts';
-import { Predicate } from './predication.ts';
-import { StatisticDifficultyClass } from './statistic/index.ts';
+import { ZeroToThree } from "@module/data.ts";
+import type { CheckRoll } from "./check/roll.ts";
+import type { Predicate } from "./predication.ts";
+import type { StatisticDifficultyClass } from "./statistic/index.ts";
 /** Get the degree of success from a roll and a difficulty class */
 declare class DegreeOfSuccess {
     #private;

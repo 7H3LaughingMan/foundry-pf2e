@@ -1,10 +1,10 @@
-import { ActorPF2e } from '../../../actor/index.ts';
-import { ItemPF2e } from '../../../item/index.ts';
-import { ItemSourcePF2e } from '../../../item/base/data/index.ts';
-import { StringField } from '../../../../../foundry/common/data/fields.ts';
-import { AELikeChangeMode } from '../ae-like.ts';
-import { RuleElementPF2e } from '../base.ts';
-import { ResolvableValueField } from '../data.ts';
+import type { ActorPF2e } from "@actor";
+import { ItemPF2e } from "@item";
+import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import type { StringField } from "types/foundry/common/data/fields.d.ts";
+import { AELikeChangeMode } from "../ae-like.ts";
+import type { RuleElementPF2e } from "../base.ts";
+import { ResolvableValueField } from "../data.ts";
 declare class ItemAlteration extends foundry.abstract.DataModel<RuleElementPF2e, ItemAlterationSchema> {
     #private;
     static VALID_PROPERTIES: readonly ["ac-bonus", "area-size", "badge-max", "badge-value", "bulk", "category", "check-penalty", "damage-dice-faces", "damage-type", "defense-passive", "description", "dex-cap", "focus-point-cost", "frequency-max", "frequency-per", "hardness", "hp-max", "material-type", "other-tags", "pd-recovery-dc", "persistent-damage", "rarity", "speed-penalty", "strength", "traits"];

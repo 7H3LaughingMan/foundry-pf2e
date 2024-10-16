@@ -1,9 +1,10 @@
-import { ActorPF2e } from '../index.ts';
-import { StrikeData } from '../data/base.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { ActionTrait } from '../../item/ability/types.ts';
-import { Statistic } from '../../system/statistic/statistic.ts';
-import { RollContextConstructorParams, UnresolvedOpposingActors, RollContextData } from './types.ts';
+import type { ActorPF2e } from "@actor";
+import type { StrikeData } from "@actor/data/base.ts";
+import type { ItemPF2e } from "@item";
+import type { ActionTrait } from "@item/ability/types.ts";
+import type { Statistic } from "@system/statistic/statistic.ts";
+import type { RollContextConstructorParams, UnresolvedOpposingActors } from "./types.ts";
+import { RollContextData } from "./types.ts";
 /** Resolve a roll context by cloning a pair of actors and feeding them with mutual roll options. */
 declare abstract class RollContext<TSelf extends ActorPF2e, TStatistic extends Statistic | StrikeData, TItem extends ItemPF2e<ActorPF2e> | null> {
     #private;

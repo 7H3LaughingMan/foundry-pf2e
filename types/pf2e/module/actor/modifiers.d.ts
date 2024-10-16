@@ -1,15 +1,15 @@
-import { ActorPF2e, CharacterPF2e, NPCPF2e } from './index.ts';
-import { AttributeString } from './types.ts';
-import { ItemPF2e } from '../item/index.ts';
-import { ZeroToFour } from '../data.ts';
-import { RollNotePF2e } from '../notes.ts';
-import { RuleElementPF2e } from '../rules/index.ts';
-import { DamageAlteration } from '../rules/rule-element/damage-alteration/alteration.ts';
-import { DamageCategoryUnique, DamageDiceFaces, DamageDieSize, DamageType } from '../system/damage/types.ts';
-import { Predicate, RawPredicate } from '../system/predication.ts';
+import type { ActorPF2e, CharacterPF2e, NPCPF2e } from "@actor";
+import type { AttributeString } from "@actor/types.ts";
+import type { ItemPF2e } from "@item";
+import { ZeroToFour } from "@module/data.ts";
+import type { RollNotePF2e } from "@module/notes.ts";
+import type { RuleElementPF2e } from "@module/rules/index.ts";
+import { DamageAlteration } from "@module/rules/rule-element/damage-alteration/alteration.ts";
+import type { DamageCategoryUnique, DamageDiceFaces, DamageDieSize, DamageType } from "@system/damage/types.ts";
+import { Predicate, RawPredicate } from "@system/predication.ts";
 declare const PROFICIENCY_RANK_OPTION: readonly ["proficiency:untrained", "proficiency:trained", "proficiency:expert", "proficiency:master", "proficiency:legendary"];
 declare function ensureProficiencyOption(options: Set<string>, rank: number): void;
-declare const MODIFIER_TYPES: Set<"untyped" | "item" | "ability" | "circumstance" | "potency" | "proficiency" | "status">;
+declare const MODIFIER_TYPES: Set<"untyped" | "ability" | "circumstance" | "item" | "potency" | "proficiency" | "status">;
 type ModifierType = SetElement<typeof MODIFIER_TYPES>;
 interface RawModifier {
     /** An identifier for this modifier; should generally be a localization key (see en.json). */

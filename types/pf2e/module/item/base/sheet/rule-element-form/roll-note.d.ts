@@ -1,5 +1,5 @@
-import { NoteRESource, RollNoteRuleElement } from '../../../../rules/rule-element/roll-note.ts';
-import { RuleElementForm, RuleElementFormSheetData } from './base.ts';
+import type { NoteRESource, RollNoteRuleElement } from "@module/rules/rule-element/roll-note.ts";
+import { RuleElementForm, RuleElementFormSheetData } from "./base.ts";
 /** Form handler for the RollNote rule element */
 declare class RollNoteForm extends RuleElementForm<NoteRESource, RollNoteRuleElement> {
     template: string;

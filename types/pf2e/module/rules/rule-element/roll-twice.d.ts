@@ -1,5 +1,5 @@
-import { RuleElementPF2e } from './base.ts';
-import { ModelPropsFromRESchema, RuleElementSchema } from './data.ts';
+import { RuleElementPF2e } from "./base.ts";
+import { ModelPropsFromRESchema, RuleElementSchema } from "./data.ts";
 /** Roll Twice and keep either the higher or lower result */
 declare class RollTwiceRuleElement extends RuleElementPF2e<RollTwiceRuleSchema> {
     static defineSchema(): RollTwiceRuleSchema;

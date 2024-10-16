@@ -1,10 +1,10 @@
-import { ActorPF2e } from '../index.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { ItemType } from '../../item/base/data/index.ts';
-import { ActiveEffectPF2e } from '../../active-effect.ts';
-import { UserPF2e } from '../../user/document.ts';
-import { TokenDocumentPF2e } from '../../scene/index.ts';
-import { LootSource, LootSystemData } from './data.ts';
+import { ActorPF2e } from "@actor";
+import type { ItemPF2e } from "@item";
+import { ItemType } from "@item/base/data/index.ts";
+import { ActiveEffectPF2e } from "@module/active-effect.ts";
+import { UserPF2e } from "@module/user/document.ts";
+import type { TokenDocumentPF2e } from "@scene/index.ts";
+import { LootSource, LootSystemData } from "./data.ts";
 declare class LootPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     armorClass: null;
     get allowedItemTypes(): (ItemType | "physical")[];

@@ -1,4 +1,4 @@
-import { Language, SenseAcuity, SenseType } from './types.ts';
+import type { Language, SenseAcuity, SenseType } from "./types.ts";
 declare const ALLIANCES: Set<"party" | "opposition" | null>;
 declare const SAVING_THROW_ATTRIBUTES: {
     readonly fortitude: "con";

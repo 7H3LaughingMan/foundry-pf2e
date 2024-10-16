@@ -1,7 +1,11 @@
-import { PartialSettingsData, SettingsMenuPF2e } from '../menu.ts';
-import { CustomDamageData, HomebrewElementsSheetData, HomebrewKey, HomebrewTag, HomebrewTraitKey, LanguageSettings, ModuleHomebrewData } from './data.ts';
-import { ReservedTermsRecord } from './helpers.ts';
-import { LanguagesManager } from './languages.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import "@yaireo/tagify/src/tagify.scss";
+import { PartialSettingsData, SettingsMenuPF2e } from "../menu.ts";
+import { CustomDamageData, HomebrewElementsSheetData, HomebrewKey, HomebrewTag, HomebrewTraitKey, LanguageSettings, ModuleHomebrewData } from "./data.ts";
+import { ReservedTermsRecord } from "./helpers.ts";
+import { LanguagesManager } from "./languages.ts";
 declare class HomebrewElements extends SettingsMenuPF2e {
     #private;
     static readonly namespace = "homebrew";

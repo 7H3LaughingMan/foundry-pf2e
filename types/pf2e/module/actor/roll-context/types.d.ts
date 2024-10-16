@@ -1,12 +1,12 @@
-import { ActorPF2e } from '../index.ts';
-import { StrikeData } from '../data/base.ts';
-import { ModifierPF2e } from '../modifiers.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { ActionTrait } from '../../item/ability/types.ts';
-import { CheckContextChatFlag } from '../../chat-message/data.ts';
-import { TokenDocumentPF2e } from '../../scene/index.ts';
-import { CheckDC, DegreeOfSuccessString } from '../../system/degree-of-success.ts';
-import { Statistic } from '../../system/statistic/statistic.ts';
+import type { ActorPF2e } from "@actor";
+import type { StrikeData } from "@actor/data/base.ts";
+import type { ModifierPF2e } from "@actor/modifiers.ts";
+import type { ItemPF2e } from "@item";
+import type { ActionTrait } from "@item/ability/types.ts";
+import type { CheckContextChatFlag } from "@module/chat-message/data.ts";
+import type { TokenDocumentPF2e } from "@scene";
+import type { CheckDC, DegreeOfSuccessString } from "@system/degree-of-success.ts";
+import type { Statistic } from "@system/statistic/statistic.ts";
 interface OpposingActorConstructorData<TActor extends ActorPF2e | null = ActorPF2e | null, TStatistic extends Statistic | StrikeData | null = Statistic | StrikeData | null, TItem extends ItemPF2e<ActorPF2e> | null = ItemPF2e<ActorPF2e> | null> {
     actor?: TActor;
     /** The statistic used for the roll */

@@ -1,7 +1,7 @@
-import { LightDataSchema } from '../../../../foundry/common/data/data.ts';
-import { SchemaField, StringField } from '../../../../foundry/common/data/fields.ts';
-import { RuleElementPF2e } from './base.ts';
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from './data.ts';
+import type { LightDataSchema } from "types/foundry/common/data/data.d.ts";
+import type { SchemaField, StringField } from "types/foundry/common/data/fields.d.ts";
+import { RuleElementPF2e } from "./base.ts";
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
 /**
  * Add or change the light emitted by a token
  * @category RuleElement

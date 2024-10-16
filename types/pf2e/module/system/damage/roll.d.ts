@@ -1,11 +1,11 @@
-import { DamageRollFlag } from '../../chat-message/index.ts';
-import { UserPF2e } from '../../user/index.ts';
-import { DegreeOfSuccessIndex } from '../degree-of-success.ts';
-import { RollDataPF2e } from '../rolls.ts';
-import { default as Peggy } from 'peggy';
-import { DiceTerm, RollTerm } from '../../../../foundry/client-esm/dice/terms/module.ts';
-import { InstancePool } from './terms.ts';
-import { DamageCategory, DamageIRBypassData, DamageTemplate, DamageType, MaterialDamageEffect } from './types.ts';
+import { DamageRollFlag } from "@module/chat-message/index.ts";
+import type { UserPF2e } from "@module/user/index.ts";
+import { DegreeOfSuccessIndex } from "@system/degree-of-success.ts";
+import { RollDataPF2e } from "@system/rolls.ts";
+import type Peggy from "peggy";
+import type { DiceTerm, RollTerm } from "types/foundry/client-esm/dice/terms/module.d.ts";
+import { InstancePool } from "./terms.ts";
+import { DamageCategory, DamageIRBypassData, DamageTemplate, DamageType, MaterialDamageEffect } from "./types.ts";
 declare abstract class AbstractDamageRoll extends Roll {
     static parser: Peggy.Parser;
     /** Strip out parentheses enclosing constants */

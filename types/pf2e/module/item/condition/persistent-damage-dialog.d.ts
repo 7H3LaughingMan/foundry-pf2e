@@ -1,5 +1,8 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { DamageType } from '../../system/damage/types.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor";
+import { DamageType } from "@system/damage/types.ts";
 declare class PersistentDamageDialog extends Application<PersistentDamageDialogOptions> {
     #private;
     private actor;

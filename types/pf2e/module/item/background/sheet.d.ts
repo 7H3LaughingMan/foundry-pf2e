@@ -1,7 +1,10 @@
-import { ItemSheetOptions } from '../base/sheet/sheet.ts';
-import { SheetOptions } from '../../sheet/helpers.ts';
-import { ABCSheetData, ABCSheetPF2e } from '../abc/sheet.ts';
-import { BackgroundPF2e } from './document.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import { ItemSheetOptions } from "@item/base/sheet/sheet.ts";
+import { SheetOptions } from "@module/sheet/helpers.ts";
+import { ABCSheetData, ABCSheetPF2e } from "../abc/sheet.ts";
+import type { BackgroundPF2e } from "./document.ts";
 export declare class BackgroundSheetPF2e extends ABCSheetPF2e<BackgroundPF2e> {
     getData(options?: Partial<ItemSheetOptions>): Promise<BackgroundSheetData>;
     activateListeners($html: JQuery<HTMLElement>): void;

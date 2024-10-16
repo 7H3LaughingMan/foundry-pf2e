@@ -1,7 +1,10 @@
-import { ActorPF2e } from '../../../actor/index.ts';
-import { ItemPF2e } from '../../../item/index.ts';
-import { PickableThing, PickAThingConstructorArgs, PickAThingPrompt, PromptTemplateData } from '../../../apps/pick-a-thing-prompt.ts';
-import { Predicate } from '../../../system/predication.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor";
+import { ItemPF2e } from "@item";
+import { PickableThing, PickAThingConstructorArgs, PickAThingPrompt, PromptTemplateData } from "@module/apps/pick-a-thing-prompt.ts";
+import type { Predicate } from "@system/predication.ts";
 /** Prompt the user for a selection among a set of options */
 declare class ChoiceSetPrompt extends PickAThingPrompt<ItemPF2e<ActorPF2e>, string | number | object> {
     /** The prompt statement to present the user in this application's window */

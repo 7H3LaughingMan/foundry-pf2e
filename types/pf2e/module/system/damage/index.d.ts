@@ -1,2 +1,2 @@
-export * from './damage.ts';
-export * from './types.ts';
+export * from "./damage.ts";
+export * from "./types.ts";

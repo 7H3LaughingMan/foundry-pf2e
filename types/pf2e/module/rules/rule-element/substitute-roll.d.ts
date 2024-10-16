@@ -1,7 +1,7 @@
-import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from '../../system/schema-data-fields.ts';
-import { BooleanField, StringField } from '../../../../foundry/common/data/fields.ts';
-import { RuleElementOptions, RuleElementPF2e } from './base.ts';
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from './data.ts';
+import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from "@system/schema-data-fields.ts";
+import type { BooleanField, StringField } from "types/foundry/common/data/fields.d.ts";
+import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
 /** Substitute a pre-determined result for a check's D20 roll */
 declare class SubstituteRollRuleElement extends RuleElementPF2e<SubstituteRollSchema> {
     constructor(source: RuleElementSource, options: RuleElementOptions);

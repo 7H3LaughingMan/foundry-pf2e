@@ -1,5 +1,8 @@
-import { ActorPF2e } from '../../index.ts';
-import { PhysicalItemPF2e } from '../../../item/index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor";
+import type { PhysicalItemPF2e } from "@item";
 declare class ItemTransferDialog extends FormApplication<PhysicalItemPF2e, MoveLootOptions> {
     #private;
     static get defaultOptions(): MoveLootOptions;

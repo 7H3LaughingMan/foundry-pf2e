@@ -1,25 +1,29 @@
-import { CreatureSheetData, Language } from '../creature/index.ts';
-import { Sense } from '../creature/sense.ts';
-import { SheetClickActionHandlers } from '../sheet/base.ts';
-import { ActorSheetDataPF2e, InventoryItem } from '../sheet/data-types.ts';
-import { AttributeString, SaveType } from '../types.ts';
-import { AncestryPF2e, BackgroundPF2e, ClassPF2e, DeityPF2e, FeatPF2e, HeritagePF2e, PhysicalItemPF2e, ItemPF2e } from '../../item/index.ts';
-import { TraitToggleViewData } from '../../item/ability/trait-toggles.ts';
-import { ActionCost, Frequency, ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { MagicTradition } from '../../item/spell/types.ts';
-import { SpellcastingSheetData } from '../../item/spellcasting-entry/types.ts';
-import { DropCanvasItemDataPF2e } from '../../canvas/drop-canvas-data.ts';
-import { ZeroToFour } from '../../data.ts';
-import { DamageType } from '../../system/damage/types.ts';
-import { CreatureSheetPF2e } from '../creature/sheet.ts';
-import { CharacterConfig } from './config.ts';
-import { CraftingAbilitySheetData } from './crafting/ability.ts';
-import { CraftingFormula } from './crafting/index.ts';
-import { CharacterBiography, CharacterSaveData, CharacterStrike, CharacterSystemData, ClassDCData, MartialProficiency } from './data.ts';
-import { CharacterPF2e } from './document.ts';
-import { ElementalBlastConfig } from './elemental-blast.ts';
-import { FeatGroup } from './feats.ts';
-import { CHARACTER_SHEET_TABS } from './values.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import { CreatureSheetData, Language } from "@actor/creature/index.ts";
+import type { Sense } from "@actor/creature/sense.ts";
+import { SheetClickActionHandlers } from "@actor/sheet/base.ts";
+import { ActorSheetDataPF2e, InventoryItem } from "@actor/sheet/data-types.ts";
+import { AttributeString, SaveType } from "@actor/types.ts";
+import type { AncestryPF2e, BackgroundPF2e, ClassPF2e, DeityPF2e, FeatPF2e, HeritagePF2e, PhysicalItemPF2e } from "@item";
+import { ItemPF2e } from "@item";
+import { TraitToggleViewData } from "@item/ability/trait-toggles.ts";
+import { ActionCost, Frequency, ItemSourcePF2e } from "@item/base/data/index.ts";
+import { MagicTradition } from "@item/spell/types.ts";
+import { SpellcastingSheetData } from "@item/spellcasting-entry/types.ts";
+import { DropCanvasItemDataPF2e } from "@module/canvas/drop-canvas-data.ts";
+import { ZeroToFour } from "@module/data.ts";
+import { DamageType } from "@system/damage/types.ts";
+import { CreatureSheetPF2e } from "../creature/sheet.ts";
+import { CharacterConfig } from "./config.ts";
+import type { CraftingAbilitySheetData } from "./crafting/ability.ts";
+import { CraftingFormula } from "./crafting/index.ts";
+import { CharacterBiography, CharacterSaveData, CharacterStrike, CharacterSystemData, ClassDCData, MartialProficiency } from "./data.ts";
+import { CharacterPF2e } from "./document.ts";
+import { ElementalBlastConfig } from "./elemental-blast.ts";
+import { FeatGroup } from "./feats.ts";
+import { CHARACTER_SHEET_TABS } from "./values.ts";
 declare class CharacterSheetPF2e<TActor extends CharacterPF2e> extends CreatureSheetPF2e<TActor> {
     #private;
     protected readonly actorConfigClass: typeof CharacterConfig;

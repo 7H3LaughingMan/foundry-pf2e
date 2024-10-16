@@ -1,2 +1,2 @@
-import { ActionDefaultOptions } from '../../module/system/action-macros/index.ts';
+import { ActionDefaultOptions } from "@system/action-macros/index.ts";
 export declare function steelYourResolve(options: ActionDefaultOptions): void;

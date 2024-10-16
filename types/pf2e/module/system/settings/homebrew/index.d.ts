@@ -1,2 +1,2 @@
-export * from './data.ts';
-export * from './menu.ts';
+export * from "./data.ts";
+export * from "./menu.ts";

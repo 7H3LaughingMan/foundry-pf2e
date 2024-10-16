@@ -1,6 +1,9 @@
-import { ActorPF2e } from '../base.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { RawItemChatData } from '../../item/base/data/index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor/base.ts";
+import { ItemPF2e } from "@item";
+import type { RawItemChatData } from "@item/base/data/index.ts";
 /**
  * Implementation used to populate item summaries, toggle visibility
  * of item summaries, and save expanded/collapsed state of item summaries.

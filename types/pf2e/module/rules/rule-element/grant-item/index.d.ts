@@ -1,1 +1,1 @@
-export { GrantItemRuleElement } from './rule-element.ts';
+export { GrantItemRuleElement } from "./rule-element.ts";

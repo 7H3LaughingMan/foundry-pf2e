@@ -1,7 +1,10 @@
-import { SkillSlug } from '../../actor/types.ts';
-import { DeityPF2e } from '../index.ts';
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from '../base/sheet/sheet.ts';
-import { SheetOptions } from '../../sheet/helpers.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { SkillSlug } from "@actor/types.ts";
+import { type DeityPF2e } from "@item";
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "@item/base/sheet/sheet.ts";
+import { SheetOptions } from "@module/sheet/helpers.ts";
 export declare class DeitySheetPF2e extends ItemSheetPF2e<DeityPF2e> {
     static get defaultOptions(): ItemSheetOptions;
     getData(options?: Partial<ItemSheetOptions>): Promise<DeitySheetData>;

@@ -1,7 +1,10 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { MovementType } from '../../actor/types.ts';
-import { BaseTagSelector, TagSelectorData } from './base.ts';
-import { SelectableTagField, TagSelectorOptions } from './index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor";
+import type { MovementType } from "@actor/types.ts";
+import { BaseTagSelector, type TagSelectorData } from "./base.ts";
+import type { SelectableTagField, TagSelectorOptions } from "./index.ts";
 declare class SpeedSelector<TActor extends ActorPF2e> extends BaseTagSelector<TActor> {
     static get defaultOptions(): TagSelectorOptions;
     protected objectProperty: string;

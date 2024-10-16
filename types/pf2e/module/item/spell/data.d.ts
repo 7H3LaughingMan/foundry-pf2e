@@ -1,8 +1,8 @@
-import { SaveType } from '../../actor/types.ts';
-import { BaseItemSourcePF2e, ItemSystemData, ItemSystemSource, ItemTraits } from '../base/data/system.ts';
-import { OneToTen, ValueAndMax, ZeroToThree } from '../../data.ts';
-import { DamageCategoryUnique, DamageKind, DamageType, MaterialDamageEffect } from '../../system/damage/index.ts';
-import { EffectAreaShape, MagicTradition, SpellTrait } from './types.ts';
+import type { SaveType } from "@actor/types.ts";
+import type { BaseItemSourcePF2e, ItemSystemData, ItemSystemSource, ItemTraits } from "@item/base/data/system.ts";
+import type { OneToTen, ValueAndMax, ZeroToThree } from "@module/data.ts";
+import type { DamageCategoryUnique, DamageKind, DamageType, MaterialDamageEffect } from "@system/damage/index.ts";
+import type { EffectAreaShape, MagicTradition, SpellTrait } from "./types.ts";
 type SpellSource = BaseItemSourcePF2e<"spell", SpellSystemSource>;
 interface SpellSystemSource extends ItemSystemSource {
     traits: SpellTraits;

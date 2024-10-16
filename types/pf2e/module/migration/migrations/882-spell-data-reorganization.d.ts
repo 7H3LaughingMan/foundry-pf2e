@@ -1,6 +1,6 @@
-import { ActorSourcePF2e } from '../../actor/data/index.ts';
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { MigrationBase } from '../base.ts';
+import { ActorSourcePF2e } from "@actor/data/index.ts";
+import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import { MigrationBase } from "../base.ts";
 /** Simplify data structure of spells, add damage `kinds` */
 export declare class Migration882SpellDataReorganization extends MigrationBase {
     #private;

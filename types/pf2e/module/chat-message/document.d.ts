@@ -1,9 +1,12 @@
-import { ActorPF2e } from '../actor/index.ts';
-import { StrikeData } from '../actor/data/base.ts';
-import { ItemPF2e } from '../item/index.ts';
-import { UserPF2e } from '../user/index.ts';
-import { ScenePF2e, TokenDocumentPF2e } from '../scene/index.ts';
-import { ChatMessageFlagsPF2e, ChatMessageSourcePF2e } from './data.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor";
+import { StrikeData } from "@actor/data/base.ts";
+import { ItemPF2e } from "@item";
+import type { UserPF2e } from "@module/user/index.ts";
+import type { ScenePF2e, TokenDocumentPF2e } from "@scene/index.ts";
+import { ChatMessageFlagsPF2e, ChatMessageSourcePF2e } from "./data.ts";
 declare class ChatMessagePF2e extends ChatMessage {
     #private;
     /** Set some flags/flag scopes early. */

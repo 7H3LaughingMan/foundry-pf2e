@@ -1,14 +1,14 @@
-import { AbilityItemPF2e } from '../../item/index.ts';
-import { EffectTrait } from '../../item/abstract-effect/types.ts';
-import { RangeData } from '../../item/types.ts';
-import { WeaponTrait } from '../../item/weapon/types.ts';
-import { CheckRoll } from '../../system/check/index.ts';
-import { DamageRoll } from '../../system/damage/roll.ts';
-import { DamageType } from '../../system/damage/types.ts';
-import { AttackRollParams, DamageRollParams } from '../../system/rolls.ts';
-import { Statistic } from '../../system/statistic/index.ts';
-import { ArrayField, FilePathField, NumberField, SchemaField, StringField } from '../../../../foundry/common/data/fields.ts';
-import { CharacterPF2e } from './document.ts';
+import type { AbilityItemPF2e } from "@item";
+import { EffectTrait } from "@item/abstract-effect/types.ts";
+import { RangeData } from "@item/types.ts";
+import { WeaponTrait } from "@item/weapon/types.ts";
+import { CheckRoll } from "@system/check/index.ts";
+import { DamageRoll } from "@system/damage/roll.ts";
+import { DamageType } from "@system/damage/types.ts";
+import { AttackRollParams, DamageRollParams } from "@system/rolls.ts";
+import { Statistic } from "@system/statistic/index.ts";
+import type { ArrayField, FilePathField, NumberField, SchemaField, StringField } from "types/foundry/common/data/fields.d.ts";
+import type { CharacterPF2e } from "./document.ts";
 declare class ElementalBlast {
     #private;
     actor: CharacterPF2e;

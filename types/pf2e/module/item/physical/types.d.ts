@@ -1,9 +1,9 @@
-import { ArmorTrait } from '../armor/types.ts';
-import { ConsumableTrait } from '../consumable/types.ts';
-import { EquipmentTrait } from '../equipment/types.ts';
-import { ShieldTrait } from '../shield/types.ts';
-import { WeaponTrait } from '../weapon/types.ts';
-import { PHYSICAL_ITEM_TYPES, PRECIOUS_MATERIAL_GRADES, PRECIOUS_MATERIAL_TYPES } from './values.ts';
+import type { ArmorTrait } from "@item/armor/types.ts";
+import type { ConsumableTrait } from "@item/consumable/types.ts";
+import type { EquipmentTrait } from "@item/equipment/types.ts";
+import type { ShieldTrait } from "@item/shield/types.ts";
+import type { WeaponTrait } from "@item/weapon/types.ts";
+import type { PHYSICAL_ITEM_TYPES, PRECIOUS_MATERIAL_GRADES, PRECIOUS_MATERIAL_TYPES } from "./values.ts";
 type BaseMaterialType = "bone" | "cloth" | "glass" | "leather" | "paper" | "rope" | "steel" | "stone" | "wood";
 type BaseMaterialThickness = "thin" | "standard" | "structure";
 type BaseMaterial = {

@@ -1,9 +1,9 @@
-import { ActorUpdateOperation } from '../base.ts';
-import { ItemType } from '../../item/base/data/index.ts';
-import { TokenDocumentPF2e } from '../../scene/index.ts';
-import { Statistic } from '../../system/statistic/index.ts';
-import { default as DataModel } from '../../../../foundry/common/abstract/data.ts';
-import { PartyPF2e } from './document.ts';
+import { ActorUpdateOperation } from "@actor/base.ts";
+import { ItemType } from "@item/base/data/index.ts";
+import type { TokenDocumentPF2e } from "@scene";
+import type { Statistic } from "@system/statistic/index.ts";
+import type DataModel from "types/foundry/common/abstract/data.d.ts";
+import type { PartyPF2e } from "./document.ts";
 interface PartyUpdateOperation<TParent extends TokenDocumentPF2e | null> extends ActorUpdateOperation<TParent> {
     removedMembers?: string[];
 }

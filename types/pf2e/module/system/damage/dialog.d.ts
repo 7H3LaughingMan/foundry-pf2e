@@ -1,5 +1,8 @@
-import { DegreeOfSuccessIndex } from '../degree-of-success.ts';
-import { DamageCategoryUnique, DamageDamageContext, DamageFormulaData, DamageType } from './types.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import { DegreeOfSuccessIndex } from "@system/degree-of-success.ts";
+import { DamageCategoryUnique, DamageDamageContext, DamageFormulaData, DamageType } from "./types.ts";
 /**
  * Dialog for excluding certain modifiers before rolling damage.
  * @category Other

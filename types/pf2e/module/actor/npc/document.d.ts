@@ -1,15 +1,15 @@
-import { CreaturePF2e } from '../index.ts';
-import { Abilities } from '../creature/data.ts';
-import { CreatureUpdateOperation } from '../creature/index.ts';
-import { ActorInitiative } from '../initiative.ts';
-import { MeleePF2e } from '../../item/index.ts';
-import { ItemType } from '../../item/base/data/index.ts';
-import { RollNotePF2e } from '../../notes.ts';
-import { CreatureIdentificationData } from '../../recall-knowledge.ts';
-import { UserPF2e } from '../../user/document.ts';
-import { TokenDocumentPF2e } from '../../scene/index.ts';
-import { NPCFlags, NPCSource, NPCSystemData } from './data.ts';
-import { VariantCloneParams } from './types.ts';
+import { CreaturePF2e } from "@actor";
+import type { Abilities } from "@actor/creature/data.ts";
+import type { CreatureUpdateOperation } from "@actor/creature/index.ts";
+import { ActorInitiative } from "@actor/initiative.ts";
+import type { MeleePF2e } from "@item";
+import type { ItemType } from "@item/base/data/index.ts";
+import { RollNotePF2e } from "@module/notes.ts";
+import { CreatureIdentificationData } from "@module/recall-knowledge.ts";
+import type { UserPF2e } from "@module/user/document.ts";
+import type { TokenDocumentPF2e } from "@scene";
+import type { NPCFlags, NPCSource, NPCSystemData } from "./data.ts";
+import type { VariantCloneParams } from "./types.ts";
 declare class NPCPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends CreaturePF2e<TParent> {
     initiative: ActorInitiative;
     get allowedItemTypes(): (ItemType | "physical")[];

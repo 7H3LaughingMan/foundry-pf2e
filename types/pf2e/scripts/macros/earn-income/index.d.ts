@@ -1,2 +1,2 @@
-export * from './calculate.ts';
-export { showEarnIncomePopup } from './macro.ts';
+export * from "./calculate.ts";
+export { showEarnIncomePopup } from "./macro.ts";

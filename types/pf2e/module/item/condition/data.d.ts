@@ -1,8 +1,8 @@
-import { AbstractEffectSystemData, AbstractEffectSystemSource, DurationData } from '../abstract-effect/data.ts';
-import { BaseItemSourcePF2e } from '../base/data/system.ts';
-import { DamageType } from '../../system/damage/index.ts';
-import { DamageRoll } from '../../system/damage/roll.ts';
-import { ConditionSlug } from './types.ts';
+import { AbstractEffectSystemData, AbstractEffectSystemSource, DurationData } from "@item/abstract-effect/data.ts";
+import { BaseItemSourcePF2e } from "@item/base/data/system.ts";
+import { DamageType } from "@system/damage/index.ts";
+import type { DamageRoll } from "@system/damage/roll.ts";
+import { ConditionSlug } from "./types.ts";
 type ConditionSource = BaseItemSourcePF2e<"condition", ConditionSystemSource>;
 interface ConditionSystemSource extends AbstractEffectSystemSource {
     slug: ConditionSlug;

@@ -1,4 +1,4 @@
-import { BehaviorType, KingmakerCategory } from './types.ts';
+import { BehaviorType, KingmakerCategory } from "./types.ts";
 interface CategoryData {
     behavior: BehaviorType;
     levelLabel?: string;

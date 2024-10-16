@@ -1,7 +1,7 @@
-import { LaxSchemaField } from '../system/schema-data-fields.ts';
-import { RuleElementPF2e } from './rule-element/base.ts';
-import { RuleElementOptions, RuleElementSchema, RuleElementSource } from './rule-element/index.ts';
-export type { RuleElementSynthetics } from './synthetics.ts';
+import { LaxSchemaField } from "@system/schema-data-fields.ts";
+import { RuleElementPF2e } from "./rule-element/base.ts";
+import type { RuleElementOptions, RuleElementSchema, RuleElementSource } from "./rule-element/index.ts";
+export type { RuleElementSynthetics } from "./synthetics.ts";
 /**
  * @category RuleElement
  */

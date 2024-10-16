@@ -1,19 +1,19 @@
-import { ActorPF2e, ActorType } from '../index.ts';
-import { DexterityModifierCapData } from '../character/types.ts';
-import { Abilities } from '../creature/data.ts';
-import { InitiativeTraceData } from '../initiative.ts';
-import { StatisticModifier } from '../modifiers.ts';
-import { ActorAlliance, AttributeString, SkillSlug } from '../types.ts';
-import { MeleePF2e, WeaponPF2e } from '../../item/index.ts';
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { MigrationRecord, Rarity, Size, ValueAndMaybeMax, ZeroToTwo } from '../../data.ts';
-import { AutoChangeEntry } from '../../rules/rule-element/ae-like.ts';
-import { AttackRollParams, DamageRollParams, RollParameters } from '../../system/rolls.ts';
-import { CheckRoll } from '../../system/check/roll.ts';
-import { DamageRoll } from '../../system/damage/roll.ts';
-import { StatisticTraceData } from '../../system/statistic/data.ts';
-import { Immunity, ImmunitySource, Resistance, ResistanceSource, Weakness, WeaknessSource } from './iwr.ts';
-import { ActorSizePF2e } from './size.ts';
+import type { ActorPF2e, ActorType } from "@actor";
+import type { DexterityModifierCapData } from "@actor/character/types.ts";
+import type { Abilities } from "@actor/creature/data.ts";
+import type { InitiativeTraceData } from "@actor/initiative.ts";
+import type { StatisticModifier } from "@actor/modifiers.ts";
+import type { ActorAlliance, AttributeString, SkillSlug } from "@actor/types.ts";
+import type { MeleePF2e, WeaponPF2e } from "@item";
+import type { ItemSourcePF2e } from "@item/base/data/index.ts";
+import type { MigrationRecord, Rarity, Size, ValueAndMaybeMax, ZeroToTwo } from "@module/data.ts";
+import type { AutoChangeEntry } from "@module/rules/rule-element/ae-like.ts";
+import type { AttackRollParams, DamageRollParams, RollParameters } from "@module/system/rolls.ts";
+import type { CheckRoll } from "@system/check/roll.ts";
+import type { DamageRoll } from "@system/damage/roll.ts";
+import type { StatisticTraceData } from "@system/statistic/data.ts";
+import type { Immunity, ImmunitySource, Resistance, ResistanceSource, Weakness, WeaknessSource } from "./iwr.ts";
+import type { ActorSizePF2e } from "./size.ts";
 /** Base interface for all actor data */
 type BaseActorSourcePF2e<TType extends ActorType, TSystemSource extends ActorSystemSource = ActorSystemSource> = foundry.documents.ActorSource<TType, TSystemSource, ItemSourcePF2e> & {
     flags: DeepPartial<ActorFlagsPF2e>;

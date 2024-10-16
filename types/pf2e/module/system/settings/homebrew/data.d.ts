@@ -1,9 +1,9 @@
-import { Language } from '../../../actor/creature/index.ts';
-import { AttributeString } from '../../../actor/types.ts';
-import { BaseArmorType } from '../../../item/armor/types.ts';
-import { BaseWeaponType } from '../../../item/weapon/types.ts';
-import { SetField, StringField } from '../../../../../foundry/common/data/fields.ts';
-import { MenuTemplateData } from '../menu.ts';
+import type { Language } from "@actor/creature/index.ts";
+import { AttributeString } from "@actor/types.ts";
+import { BaseArmorType } from "@item/armor/types.ts";
+import type { BaseWeaponType } from "@item/weapon/types.ts";
+import type { SetField, StringField } from "types/foundry/common/data/fields.d.ts";
+import type { MenuTemplateData } from "../menu.ts";
 declare const HOMEBREW_ELEMENT_KEYS: readonly ["languages", "armorGroups", "baseArmors", "weaponCategories", "weaponGroups", "baseWeapons", "creatureTraits", "featTraits", "spellTraits", "weaponTraits", "shieldTraits", "equipmentTraits"];
 /** Homebrew elements from some of the above records are propagated to related records */
 declare const TRAIT_PROPAGATIONS: {

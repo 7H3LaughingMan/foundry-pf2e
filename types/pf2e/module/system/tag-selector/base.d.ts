@@ -1,6 +1,9 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { SelectableTagField } from './index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor";
+import type { ItemPF2e } from "@item";
+import type { SelectableTagField } from "./index.ts";
 declare abstract class BaseTagSelector<TDocument extends ActorPF2e | ItemPF2e> extends DocumentSheet<TDocument, TagSelectorOptions> {
     #private;
     static get defaultOptions(): TagSelectorOptions;

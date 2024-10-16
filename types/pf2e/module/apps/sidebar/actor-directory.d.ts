@@ -1,4 +1,7 @@
-import { ActorPF2e } from '../../actor/index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import { ActorPF2e } from "@actor";
 /** Extend ActorDirectory to show more information */
 declare class ActorDirectoryPF2e extends ActorDirectory<ActorPF2e<null>> {
     #private;

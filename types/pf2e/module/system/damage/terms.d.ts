@@ -1,5 +1,5 @@
-import { DiceTerm, Die, FunctionTerm, PoolTerm, RollTerm } from '../../../../foundry/client-esm/dice/terms/module.ts';
-import { DamageInstance } from './roll.ts';
+import type { DiceTerm, Die, FunctionTerm, PoolTerm, RollTerm } from "types/foundry/client-esm/dice/terms/module.d.ts";
+import { DamageInstance } from "./roll.ts";
 declare const terms: typeof foundry.dice.terms;
 declare class ArithmeticExpression extends terms.RollTerm<ArithmeticExpressionData> {
     operator: ArithmeticOperator;

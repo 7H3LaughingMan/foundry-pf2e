@@ -1,5 +1,5 @@
-import { ActorPF2e } from '../../actor/base.ts';
-import { ContainerPF2e, PhysicalItemPF2e } from '../index.ts';
+import { ActorPF2e } from "@actor/base.ts";
+import { ContainerPF2e, PhysicalItemPF2e } from "@item";
 /**
  * Detect if adding an item to a container would produce a cycle
  * @param item The item being added to a container

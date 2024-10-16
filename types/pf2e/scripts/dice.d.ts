@@ -1,5 +1,6 @@
-import { ActorPF2e } from '../module/actor/index.ts';
-import { ItemPF2e } from '../module/item/index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+import type { ActorPF2e } from "@actor";
+import type { ItemPF2e } from "@item";
 /**
  * @category Other
  */

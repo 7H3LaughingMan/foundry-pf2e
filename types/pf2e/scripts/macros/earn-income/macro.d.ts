@@ -1,3 +1,3 @@
-import { ActorPF2e } from '../../../module/actor/index.ts';
+import type { ActorPF2e } from "@actor";
 declare function showEarnIncomePopup(actor: ActorPF2e | undefined): void;
 export { showEarnIncomePopup };

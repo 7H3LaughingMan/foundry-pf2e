@@ -1,6 +1,6 @@
-import { ActorSourcePF2e } from '../../actor/data/index.ts';
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { MigrationBase } from '../base.ts';
+import { ActorSourcePF2e } from "@actor/data/index.ts";
+import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import { MigrationBase } from "../base.ts";
 /** Prune traits from actors and items that are invalid for the given type */
 export declare class Migration828PruneInvalidTraits extends MigrationBase {
     static version: number;

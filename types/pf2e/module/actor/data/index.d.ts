@@ -1,12 +1,12 @@
-import { ArmySource } from '../army/data.ts';
-import { CharacterSource } from '../character/data.ts';
-import { FamiliarSource } from '../familiar/data.ts';
-import { HazardSource } from '../hazard/data.ts';
-import { LootSource } from '../loot/data.ts';
-import { NPCSource } from '../npc/data.ts';
-import { PartySource } from '../party/data.ts';
-import { VehicleSource } from '../vehicle/data.ts';
-import { StatisticRollParameters } from '../../system/statistic/index.ts';
+import { ArmySource } from "@actor/army/data.ts";
+import { CharacterSource } from "@actor/character/data.ts";
+import { FamiliarSource } from "@actor/familiar/data.ts";
+import { HazardSource } from "@actor/hazard/data.ts";
+import { LootSource } from "@actor/loot/data.ts";
+import { NPCSource } from "@actor/npc/data.ts";
+import { PartySource } from "@actor/party/data.ts";
+import { VehicleSource } from "@actor/vehicle/data.ts";
+import { StatisticRollParameters } from "@system/statistic/index.ts";
 type CreatureSource = CharacterSource | NPCSource | FamiliarSource;
 type ActorSourcePF2e = ArmySource | CreatureSource | HazardSource | LootSource | PartySource | VehicleSource;
 interface RollInitiativeOptionsPF2e extends RollInitiativeOptions, StatisticRollParameters {

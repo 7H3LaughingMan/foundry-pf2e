@@ -1,4 +1,7 @@
-import { default as MiniSearch } from 'minisearch';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import MiniSearch from "minisearch";
 /** Extend CompendiumDirectory to support a search bar */
 declare class CompendiumDirectoryPF2e extends CompendiumDirectory {
     #private;

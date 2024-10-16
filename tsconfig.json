@@ -13,13 +13,51 @@
         "noEmit": true,
         "esModuleInterop": true,
         "allowImportingTsExtensions": true,
+        "baseUrl": ".",
+        "rootDir": ".",
+        "paths": {
+            "@actor": [
+                "types/pf2e/module/actor/index.ts"
+            ],
+            "@actor/*": [
+                "types/pf2e/module/actor/*"
+            ],
+            "@item": [
+                "types/pf2e/module/item/index.ts"
+            ],
+            "@item/*": [
+                "types/pf2e/module/item/*"
+            ],
+            "@scene": [
+                "types/pf2e/module/scene/index.ts"
+            ],
+            "@scene/*": [
+                "types/pf2e/module/scene/*"
+            ],
+            "@system/*": [
+                "types/pf2e/module/system/*"
+            ],
+            "@module/*": [
+                "types/pf2e/module/*"
+            ],
+            "@scripts/*": [
+                "types/pf2e/scripts/*"
+            ],
+            "@util": [
+                "types/pf2e/util/index.ts"
+            ],
+            "@util/*": [
+                "types/pf2e/util/*"
+            ]
+        },
         "types": [
-            "foundry",
-            "pf2e",
+            "jquery",
+            "node",
+            "tooltipster"
         ],
         "typeRoots": [
             "node_modules/@types",
-            "types"
+            "types/foundry"
         ]
     }
 }

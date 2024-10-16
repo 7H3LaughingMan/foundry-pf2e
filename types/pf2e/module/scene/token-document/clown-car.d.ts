@@ -1,5 +1,5 @@
-import { PartyPF2e } from '../../actor/index.ts';
-import { ScenePF2e, TokenDocumentPF2e } from '../index.ts';
+import type { PartyPF2e } from "@actor";
+import type { ScenePF2e, TokenDocumentPF2e } from "@scene";
 /** A helper class to manage a party token's loaded/unloaded state */
 declare class PartyClownCar {
     #private;

@@ -1,13 +1,13 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { AttributeString } from '../../actor/types.ts';
-import { ItemPF2e, PhysicalItemPF2e, SpellPF2e } from '../index.ts';
-import { MagicTradition } from '../spell/types.ts';
-import { ZeroToFour, ZeroToTen } from '../../data.ts';
-import { UserPF2e } from '../../user/index.ts';
-import { Statistic } from '../../system/statistic/index.ts';
-import { SpellCollection, SpellSlotGroupId } from './collection.ts';
-import { SpellcastingEntrySource, SpellcastingEntrySystemData } from './data.ts';
-import { CastOptions, SpellcastingCategory, SpellcastingEntry, SpellcastingSheetData } from './types.ts';
+import type { ActorPF2e } from "@actor";
+import { AttributeString } from "@actor/types.ts";
+import { ItemPF2e, PhysicalItemPF2e, type SpellPF2e } from "@item";
+import { MagicTradition } from "@item/spell/types.ts";
+import { ZeroToFour, ZeroToTen } from "@module/data.ts";
+import type { UserPF2e } from "@module/user/index.ts";
+import { Statistic } from "@system/statistic/index.ts";
+import { SpellCollection, type SpellSlotGroupId } from "./collection.ts";
+import { SpellcastingEntrySource, SpellcastingEntrySystemData } from "./data.ts";
+import { CastOptions, SpellcastingCategory, SpellcastingEntry, SpellcastingSheetData } from "./types.ts";
 declare class SpellcastingEntryPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> implements SpellcastingEntry<TParent> {
     spells: SpellCollection<NonNullable<TParent>> | null;
     /** Spellcasting attack and dc data created during actor preparation */

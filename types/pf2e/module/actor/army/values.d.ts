@@ -1,5 +1,5 @@
-import { ActionTrait } from '../../item/ability/types.ts';
-import { KingmakerTrait } from '../../item/campaign-feature/types.ts';
+import type { ActionTrait } from "@item/ability/types.ts";
+import type { KingmakerTrait } from "@item/campaign-feature/types.ts";
 declare const BASIC_WAR_ACTIONS_FOLDER = "Vqp8b64uH35zkncy";
 declare const ARMY_TYPES: readonly ["infantry", "cavalry", "siege", "skirmisher"];
 declare const ARMY_STATS: {

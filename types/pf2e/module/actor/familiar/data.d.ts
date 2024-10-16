@@ -1,6 +1,6 @@
-import { BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureDetailsSource, CreatureSystemData, CreatureSystemSource } from '../creature/data.ts';
-import { AttributeString } from '../types.ts';
-import { StatisticTraceData } from '../../system/statistic/index.ts';
+import { BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureDetailsSource, CreatureSystemData, CreatureSystemSource } from "@actor/creature/data.ts";
+import { AttributeString } from "@actor/types.ts";
+import { StatisticTraceData } from "@system/statistic/index.ts";
 type FamiliarSource = BaseCreatureSource<"familiar", FamiliarSystemSource>;
 interface FamiliarSystemSource extends CreatureSystemSource {
     details: FamiliarDetailsSource;

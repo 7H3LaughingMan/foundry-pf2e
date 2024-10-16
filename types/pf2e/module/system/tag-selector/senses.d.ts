@@ -1,7 +1,10 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { SenseAcuity, SenseType } from '../../actor/creature/types.ts';
-import { BaseTagSelector, TagSelectorData, TagSelectorOptions } from './base.ts';
-import { SelectableTagField } from './index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor";
+import type { SenseAcuity, SenseType } from "@actor/creature/types.ts";
+import { BaseTagSelector, TagSelectorData, TagSelectorOptions } from "./base.ts";
+import { SelectableTagField } from "./index.ts";
 declare class SenseSelector<TActor extends ActorPF2e> extends BaseTagSelector<TActor> {
     protected objectProperty: string;
     static get defaultOptions(): TagSelectorOptions;

@@ -1,5 +1,5 @@
-import { Coins } from '../../../item/physical/data.ts';
-import { ActorPF2e } from '../../index.ts';
+import { Coins } from "@item/physical/data.ts";
+import { ActorPF2e } from "@actor";
 interface PopupFormData extends Coins {
     removeByValue: boolean;
 }

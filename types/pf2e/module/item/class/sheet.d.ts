@@ -1,7 +1,7 @@
-import { ItemSheetOptions } from '../base/sheet/sheet.ts';
-import { ClassPF2e } from './document.ts';
-import { SheetOptions } from '../../sheet/helpers.ts';
-import { ABCSheetData, ABCSheetPF2e } from '../abc/sheet.ts';
+import { ItemSheetOptions } from "@item/base/sheet/sheet.ts";
+import type { ClassPF2e } from "@item/class/document.ts";
+import { SheetOptions } from "@module/sheet/helpers.ts";
+import { ABCSheetData, ABCSheetPF2e } from "../abc/sheet.ts";
 export declare class ClassSheetPF2e extends ABCSheetPF2e<ClassPF2e> {
     getData(options?: Partial<ItemSheetOptions>): Promise<ClassSheetData>;
 }

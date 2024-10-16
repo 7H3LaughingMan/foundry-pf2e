@@ -1,13 +1,13 @@
-import { ActorPF2e, CreaturePF2e } from '../index.ts';
-import { ItemType } from '../../item/base/data/index.ts';
-import { RuleElementPF2e } from '../../rules/index.ts';
-import { RuleElementSchema } from '../../rules/rule-element/data.ts';
-import { UserPF2e } from '../../user/document.ts';
-import { TokenDocumentPF2e } from '../../scene/index.ts';
-import { Statistic } from '../../system/statistic/index.ts';
-import { DataModelValidationOptions } from '../../../../foundry/common/abstract/data.ts';
-import { PartySource, PartySystemData } from './data.ts';
-import { PartyCampaign, PartyUpdateOperation } from './types.ts';
+import { ActorPF2e, type CreaturePF2e } from "@actor";
+import { ItemType } from "@item/base/data/index.ts";
+import { RuleElementPF2e } from "@module/rules/index.ts";
+import { RuleElementSchema } from "@module/rules/rule-element/data.ts";
+import type { UserPF2e } from "@module/user/document.ts";
+import type { TokenDocumentPF2e } from "@scene/index.ts";
+import type { Statistic } from "@system/statistic/index.ts";
+import type { DataModelValidationOptions } from "types/foundry/common/abstract/data.d.ts";
+import { PartySource, PartySystemData } from "./data.ts";
+import { PartyCampaign, PartyUpdateOperation } from "./types.ts";
 declare class PartyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     armorClass: null;
     members: CreaturePF2e[];

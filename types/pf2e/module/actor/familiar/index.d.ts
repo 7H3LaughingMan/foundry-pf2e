@@ -1,1 +1,1 @@
-export { FamiliarPF2e } from './document.ts';
+export { FamiliarPF2e } from "./document.ts";

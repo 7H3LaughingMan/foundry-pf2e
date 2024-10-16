@@ -1,12 +1,13 @@
-import { ModifierPF2e } from '../actor/modifiers.ts';
-import { RollOrigin, RollTarget } from '../actor/roll-context/types.ts';
-import { ActionTrait } from '../item/ability/types.ts';
-import { TokenPF2e } from '../canvas/index.ts';
-import { CheckContextChatFlag } from '../chat-message/index.ts';
-import { ZeroToTwo } from '../data.ts';
-import { RollNotePF2e, RollNoteSource } from '../notes.ts';
-import { RollTwiceOption } from './check/index.ts';
-import { CheckDC, DEGREE_OF_SUCCESS_STRINGS } from './degree-of-success.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+import type { ModifierPF2e } from "@actor/modifiers.ts";
+import type { RollOrigin, RollTarget } from "@actor/roll-context/types.ts";
+import type { ActionTrait } from "@item/ability/types.ts";
+import type { TokenPF2e } from "@module/canvas/index.ts";
+import type { CheckContextChatFlag } from "@module/chat-message/index.ts";
+import type { ZeroToTwo } from "@module/data.ts";
+import type { RollNotePF2e, RollNoteSource } from "@module/notes.ts";
+import type { RollTwiceOption } from "./check/index.ts";
+import type { CheckDC, DEGREE_OF_SUCCESS_STRINGS } from "./degree-of-success.ts";
 interface RollDataPF2e extends RollOptions {
     rollerId?: string;
     totalModifier?: number;

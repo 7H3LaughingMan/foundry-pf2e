@@ -1,6 +1,9 @@
-import { ActorSheetPF2e, SheetClickActionHandlers } from '../sheet/base.ts';
-import { HazardPF2e } from './document.ts';
-import { HazardSheetData } from './types.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import { ActorSheetPF2e, SheetClickActionHandlers } from "@actor/sheet/base.ts";
+import type { HazardPF2e } from "./document.ts";
+import { HazardSheetData } from "./types.ts";
 export declare class HazardSheetPF2e extends ActorSheetPF2e<HazardPF2e> {
     #private;
     static get defaultOptions(): ActorSheetOptions;

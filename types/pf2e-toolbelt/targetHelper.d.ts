@@ -1,6 +1,7 @@
-import { SaveType } from "../pf2e/module/actor/types.js";
-import { RollNoteSource } from "../pf2e/module/notes.js";
-import { DegreeAdjustmentsRecord, DegreeOfSuccessString } from "../pf2e/module/system/degree-of-success.js";
+import { SaveType } from "@actor/types.js";
+import { RollNoteSource } from "@module/notes.js";
+import { DegreeAdjustmentsRecord, DegreeOfSuccessString } from "@system/degree-of-success.js";
+
 
 export {};
 

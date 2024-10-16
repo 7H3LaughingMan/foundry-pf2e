@@ -1,5 +1,5 @@
-import { ModifierAdjustment, RawModifier } from '../../modifiers.ts';
-import { KingdomAbility, KingdomCHG, KingdomCharter, KingdomGovernment, KingdomLeadershipRole, KingdomSkill } from './types.ts';
+import { ModifierAdjustment, RawModifier } from "@actor/modifiers.ts";
+import { KingdomAbility, KingdomCHG, KingdomCharter, KingdomGovernment, KingdomLeadershipRole, KingdomSkill } from "./types.ts";
 declare const KINGDOM_ABILITIES: readonly ["culture", "economy", "loyalty", "stability"];
 declare const KINGDOM_LEADERSHIP: readonly ["ruler", "counselor", "general", "emissary", "magister", "treasurer", "viceroy", "warden"];
 declare const KINGDOM_COMMODITIES: readonly ["food", "luxuries", "lumber", "ore", "stone"];

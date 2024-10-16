@@ -1,5 +1,8 @@
-import { RawDamageDice, RawModifier } from '../actor/modifiers.ts';
-import { ChatContextFlag, ChatMessagePF2e } from './index.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import { RawDamageDice, RawModifier } from "@actor/modifiers.ts";
+import type { ChatContextFlag, ChatMessagePF2e } from "./index.ts";
 declare class RollInspector extends Application {
     message: ChatMessagePF2e;
     constructor(message: ChatMessagePF2e, options?: Partial<ApplicationOptions>);

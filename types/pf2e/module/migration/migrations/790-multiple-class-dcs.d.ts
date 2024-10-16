@@ -1,6 +1,6 @@
-import { ActorSourcePF2e } from '../../actor/data/index.ts';
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { MigrationBase } from '../base.ts';
+import { ActorSourcePF2e } from "@actor/data/index.ts";
+import { ItemSourcePF2e } from "@item/base/data/index.ts";
+import { MigrationBase } from "../base.ts";
 /** Add support for multiple class DCs  */
 export declare class Migration790MultipleClassDCs extends MigrationBase {
     #private;

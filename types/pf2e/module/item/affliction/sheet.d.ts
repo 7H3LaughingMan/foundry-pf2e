@@ -1,7 +1,10 @@
-import { AfflictionPF2e, ConditionPF2e } from '../index.ts';
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from '../base/sheet/sheet.ts';
-import { DamageCategoryUnique } from '../../system/damage/types.ts';
-import { AfflictionConditionData, AfflictionStageData } from './data.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import { type AfflictionPF2e, type ConditionPF2e } from "@item";
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "@item/base/sheet/sheet.ts";
+import { DamageCategoryUnique } from "@system/damage/types.ts";
+import type { AfflictionConditionData, AfflictionStageData } from "./data.ts";
 declare class AfflictionSheetPF2e extends ItemSheetPF2e<AfflictionPF2e> {
     static get defaultOptions(): ItemSheetOptions;
     getData(options?: Partial<ItemSheetOptions>): Promise<AfflictionSheetData>;

@@ -1,10 +1,10 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { ItemPF2e } from '../index.ts';
-import { ActionCost, Frequency, RawItemChatData } from '../base/data/index.ts';
-import { RangeData } from '../types.ts';
-import { UserPF2e } from '../../user/index.ts';
-import { AbilitySource, AbilitySystemData } from './data.ts';
-import { ActionTrait } from './types.ts';
+import type { ActorPF2e } from "@actor";
+import { ItemPF2e } from "@item";
+import type { ActionCost, Frequency, RawItemChatData } from "@item/base/data/index.ts";
+import type { RangeData } from "@item/types.ts";
+import type { UserPF2e } from "@module/user/index.ts";
+import type { AbilitySource, AbilitySystemData } from "./data.ts";
+import type { ActionTrait } from "./types.ts";
 declare class AbilityItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     range?: RangeData | null;
     isMelee?: boolean;

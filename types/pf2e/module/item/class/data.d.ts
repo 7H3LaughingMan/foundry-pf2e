@@ -1,7 +1,7 @@
-import { AttributeString, SaveType, SkillSlug } from '../../actor/types.ts';
-import { ABCSystemData, ABCSystemSource } from '../abc/data.ts';
-import { BaseItemSourcePF2e, RarityTraitAndOtherTags } from '../base/data/system.ts';
-import { ZeroToFour } from '../../data.ts';
+import { AttributeString, SaveType, SkillSlug } from "@actor/types.ts";
+import { ABCSystemData, ABCSystemSource } from "@item/abc/data.ts";
+import { BaseItemSourcePF2e, RarityTraitAndOtherTags } from "@item/base/data/system.ts";
+import { ZeroToFour } from "@module/data.ts";
 type ClassSource = BaseItemSourcePF2e<"class", ClassSystemSource>;
 interface ClassSystemSource extends ABCSystemSource {
     traits: RarityTraitAndOtherTags;

@@ -1,7 +1,7 @@
-import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from '../physical/data.ts';
-import { SpellSource } from '../spell/data.ts';
-import { DamageKind, DamageType } from '../../system/damage/index.ts';
-import { AmmoStackGroup, ConsumableCategory, ConsumableTrait, OtherConsumableTag } from './types.ts';
+import type { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "@item/physical/data.ts";
+import type { SpellSource } from "@item/spell/data.ts";
+import type { DamageKind, DamageType } from "@system/damage/index.ts";
+import type { AmmoStackGroup, ConsumableCategory, ConsumableTrait, OtherConsumableTag } from "./types.ts";
 type ConsumableSource = BasePhysicalItemSource<"consumable", ConsumableSystemSource>;
 interface ConsumableTraits extends PhysicalItemTraits<ConsumableTrait> {
     otherTags: OtherConsumableTag[];

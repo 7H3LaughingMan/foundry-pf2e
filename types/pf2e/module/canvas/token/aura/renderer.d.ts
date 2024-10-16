@@ -1,8 +1,8 @@
-import { AuraAppearanceData, AuraData } from '../../../actor/types.ts';
-import { ItemTrait } from '../../../item/base/data/system.ts';
-import { TokenAuraData } from '../../../scene/token-document/aura/index.ts';
-import { EffectAreaSquare } from '../../effect-area-square.ts';
-import { TokenPF2e } from '../index.ts';
+import { AuraAppearanceData, AuraData } from "@actor/types.ts";
+import { ItemTrait } from "@item/base/data/system.ts";
+import { TokenAuraData } from "@scene/token-document/aura/index.ts";
+import type { EffectAreaSquare } from "../../effect-area-square.ts";
+import type { TokenPF2e } from "../index.ts";
 /** Visual rendering of auras emanated by a token's actor */
 declare class AuraRenderer extends PIXI.Graphics implements TokenAuraData {
     #private;
@@ -19,7 +19,7 @@ declare class AuraRenderer extends PIXI.Graphics implements TokenAuraData {
     appearance: AuraAppearanceData;
     /** Standard line thickness for circle shape and label markers */
     static readonly LINE_THICKNESS = 3;
-    border: import('pixi.js').Graphics;
+    border: import("pixi.js").Graphics;
     textureContainer: PIXI.Graphics | null;
     constructor(params: AuraRendererParams);
     get bounds(): PIXI.Rectangle;

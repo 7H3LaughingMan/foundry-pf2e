@@ -1,8 +1,11 @@
-import { BoostFlawState } from '../../character/apps/attribute-builder.ts';
-import { PartyPF2e } from '../document.ts';
-import { Kingdom } from './model.ts';
-import { KingdomAbility, KingdomCHG } from './types.ts';
-import { KingdomCHGData } from './values.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { BoostFlawState } from "@actor/character/apps/attribute-builder.ts";
+import type { PartyPF2e } from "../document.ts";
+import type { Kingdom } from "./model.ts";
+import type { KingdomAbility, KingdomCHG } from "./types.ts";
+import { KingdomCHGData } from "./values.ts";
 declare const KINGDOM_BUILD_CATEGORIES: readonly ["charter", "heartland", "government"];
 type KingdomBuildCategory = (typeof KINGDOM_BUILD_CATEGORIES)[number];
 type CurrentSelections = Record<KingdomBuildCategory, string | null>;

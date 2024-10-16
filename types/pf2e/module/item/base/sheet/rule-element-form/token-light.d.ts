@@ -1,5 +1,5 @@
-import { TokenLightRuleElement, TokenLightRuleSource } from '../../../../rules/rule-element/token-light.ts';
-import { RuleElementForm, RuleElementFormSheetData, RuleElementFormTabData } from './base.ts';
+import type { TokenLightRuleElement, TokenLightRuleSource } from "@module/rules/rule-element/token-light.ts";
+import { RuleElementForm, RuleElementFormSheetData, RuleElementFormTabData } from "./base.ts";
 declare class TokenLightForm extends RuleElementForm<TokenLightRuleSource, TokenLightRuleElement> {
     template: string;
     protected tabs: RuleElementFormTabData;

@@ -1,7 +1,7 @@
-import { ArrayField, BooleanField, NumberField, StringField } from '../../../../foundry/common/data/fields.ts';
-import { AELikeChangeMode } from './ae-like.ts';
-import { ModelPropsFromRESchema, ResolvableValueField } from './data.ts';
-import { RuleElementOptions, RuleElementPF2e, RuleElementSchema, RuleElementSource } from './index.ts';
+import type { ArrayField, BooleanField, NumberField, StringField } from "types/foundry/common/data/fields.d.ts";
+import { AELikeChangeMode } from "./ae-like.ts";
+import { ModelPropsFromRESchema, ResolvableValueField } from "./data.ts";
+import { RuleElementOptions, RuleElementPF2e, RuleElementSchema, RuleElementSource } from "./index.ts";
 /** Adjust the value of a modifier, change its damage type (in case of damage modifiers) or suppress it entirely */
 declare class AdjustModifierRuleElement extends RuleElementPF2e<AdjustModifierSchema> {
     /** The number of times this adjustment has been applied */

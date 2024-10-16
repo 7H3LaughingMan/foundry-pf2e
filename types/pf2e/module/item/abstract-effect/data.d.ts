@@ -1,8 +1,8 @@
-import { AttributeString } from '../../actor/types.ts';
-import { ItemSystemData, ItemSystemSource, ItemTraitsNoRarity } from '../base/data/system.ts';
-import { MagicTradition } from '../spell/index.ts';
-import { CheckRoll } from '../../system/check/index.ts';
-import { EffectTrait } from './types.ts';
+import type { AttributeString } from "@actor/types.ts";
+import type { ItemSystemData, ItemSystemSource, ItemTraitsNoRarity } from "@item/base/data/system.ts";
+import type { MagicTradition } from "@item/spell/index.ts";
+import type { CheckRoll } from "@system/check/index.ts";
+import type { EffectTrait } from "./types.ts";
 interface AbstractEffectSystemSource extends ItemSystemSource {
     traits: EffectTraits;
     /** Whether this effect originated from a spell */

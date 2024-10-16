@@ -1,5 +1,5 @@
-import { ActorPF2e } from '../actor/index.ts';
-import type * as ItemInstance from './index.d.ts';
+import type { ActorPF2e } from "@actor";
+import type * as ItemInstance from "@item";
 interface ItemInstances<TParent extends ActorPF2e | null> {
     action: ItemInstance.AbilityItemPF2e<TParent>;
     affliction: ItemInstance.AfflictionPF2e<TParent>;

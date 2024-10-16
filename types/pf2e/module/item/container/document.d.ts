@@ -1,10 +1,10 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { RawItemChatData } from '../base/data/index.ts';
-import { EquipmentTrait } from '../equipment/data.ts';
-import { Bulk } from '../physical/bulk.ts';
-import { PhysicalItemPF2e } from '../physical/document.ts';
-import { UserPF2e } from '../../user/index.ts';
-import { ContainerSource, ContainerSystemData } from './data.ts';
+import type { ActorPF2e } from "@actor";
+import { RawItemChatData } from "@item/base/data/index.ts";
+import { EquipmentTrait } from "@item/equipment/data.ts";
+import { Bulk } from "@item/physical/bulk.ts";
+import { PhysicalItemPF2e } from "@item/physical/document.ts";
+import type { UserPF2e } from "@module/user/index.ts";
+import type { ContainerSource, ContainerSystemData } from "./data.ts";
 declare class ContainerPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {
     static get validTraits(): Record<EquipmentTrait, string>;
     /** This container's contents, reloaded every data preparation cycle */

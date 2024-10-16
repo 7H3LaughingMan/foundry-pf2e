@@ -1,6 +1,6 @@
-import { CharacterPF2e } from '../../index.ts';
-import { Predicate, RawPredicate } from '../../../system/predication.ts';
-import { CraftingFormula } from './formula.ts';
+import type { CharacterPF2e } from "@actor";
+import { Predicate, RawPredicate } from "@system/predication.ts";
+import { CraftingFormula } from "./formula.ts";
 declare class CraftingAbility implements CraftingAbilityData {
     #private;
     /** A label for this crafting entry to display on sheets */

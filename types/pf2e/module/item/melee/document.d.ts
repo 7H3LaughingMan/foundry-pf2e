@@ -1,11 +1,12 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { ItemPF2e, WeaponPF2e } from '../index.ts';
-import { RangeData } from '../types.ts';
-import { BaseWeaponType, WeaponCategory, WeaponGroup } from '../weapon/types.ts';
-import { ChatMessagePF2e } from '../../chat-message/document.ts';
-import { ConvertedNPCDamage } from '../../system/damage/weapon.ts';
-import { MeleeFlags, MeleeSource, MeleeSystemData } from './data.ts';
-import { NPCAttackTrait } from './types.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+import type { ActorPF2e } from "@actor";
+import { ItemPF2e, type WeaponPF2e } from "@item";
+import type { RangeData } from "@item/types.ts";
+import type { BaseWeaponType, WeaponCategory, WeaponGroup } from "@item/weapon/types.ts";
+import type { ChatMessagePF2e } from "@module/chat-message/document.ts";
+import { ConvertedNPCDamage } from "@system/damage/weapon.ts";
+import type { MeleeFlags, MeleeSource, MeleeSystemData } from "./data.ts";
+import type { NPCAttackTrait } from "./types.ts";
 declare class MeleePF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     /** Set during data preparation if a linked weapon is found */
     category: WeaponCategory | null;

@@ -1,8 +1,11 @@
-import { ItemSheetOptions } from '../base/sheet/sheet.ts';
-import { MaterialSheetData, PhysicalItemSheetData, PhysicalItemSheetPF2e, RUNE_DATA } from '../physical/index.ts';
-import { SheetOptions } from '../../sheet/helpers.ts';
-import { ComboWeaponMeleeUsage, SpecificWeaponData } from './data.ts';
-import { WeaponPF2e } from './document.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import { ItemSheetOptions } from "@item/base/sheet/sheet.ts";
+import { MaterialSheetData, PhysicalItemSheetData, PhysicalItemSheetPF2e, RUNE_DATA } from "@item/physical/index.ts";
+import { SheetOptions } from "@module/sheet/helpers.ts";
+import { ComboWeaponMeleeUsage, SpecificWeaponData } from "./data.ts";
+import type { WeaponPF2e } from "./document.ts";
 export declare class WeaponSheetPF2e extends PhysicalItemSheetPF2e<WeaponPF2e> {
     protected get validTraits(): Record<string, string>;
     getData(options?: Partial<ItemSheetOptions>): Promise<WeaponSheetData>;

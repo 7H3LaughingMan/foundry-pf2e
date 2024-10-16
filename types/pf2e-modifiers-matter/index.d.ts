@@ -1,28 +1,10 @@
-import { ActorPF2e } from "../pf2e/module/actor/base.js";
-import { RawModifier } from "../pf2e/module/actor/modifiers.js";
-import { ChatMessagePF2e } from "../pf2e/module/chat-message/document.js";
-import { ItemPF2e } from "../pf2e/module/item/base/document.js";
-import { TokenDocumentPF2e } from "../pf2e/module/scene/token-document/document.js";
+import { ActorPF2e } from "@actor";
+import { RawModifier } from "@actor/modifiers.js";
+import { ItemPF2e } from "@item";
+import { ChatMessagePF2e } from "@module/chat-message/document.js";
+import { TokenDocumentPF2e } from "@scene";
 
-export { };
-
-export namespace pf2eModifiersMatter {
-    export type Degree = "CRIT_SUCC" | "SUCCESS" | "FAILURE" | "CRIT_FAIL";
-
-    export type SignificantModifier = {
-        appliedTo: "roll" | "dc";
-        name: string;
-        value: number;
-        significance: "ESSENTIAL" | "HELPFUL" | "HARMFUL" | "DETRIMENTAL";
-    };
-
-    export type InsignificantModifier = {
-        appliedTo: "roll" | "dc";
-        name: string;
-        value: number;
-        significance: "NONE";
-    };
-}
+export {};
 
 declare global {
     interface Window {
@@ -64,7 +46,7 @@ declare global {
             filterRollModsFromChatMessage({
                 allModifiersInChatMessage,
                 rollingActor,
-                isStrike
+                isStrike,
             }: {
                 allModifiersInChatMessage: RawModifier[];
                 rollingActor: ActorPF2e;
@@ -78,7 +60,7 @@ declare global {
                 isStrike,
                 isSpell,
                 contextOptionsInFlags,
-                chatMessageFlavor
+                chatMessageFlavor,
             }: {
                 targetedActor?: TokenDocumentPF2e;
                 originItem?: ItemPF2e;
@@ -90,7 +72,7 @@ declare global {
             }): {
                 dcMods: RawModifier[];
                 actorWithDc?: ActorPF2e;
-            }
+            };
 
             calcSignificantModifiers({
                 rollMods,
@@ -98,7 +80,7 @@ declare global {
                 originalDeltaFromDc,
                 dieRoll,
                 currentDegreeOfSuccess,
-                isStrike
+                isStrike,
             }: {
                 rollMods: RawModifier[];
                 dcMods: RawModifier[];
@@ -110,7 +92,7 @@ declare global {
                 significantRollModifiers: pf2eModifiersMatter.SignificantModifier[];
                 significantDcModifiers: pf2eModifiersMatter.SignificantModifier[];
                 insignificantDcModifiers: pf2eModifiersMatter.InsignificantModifier[];
-            }
+            };
 
             checkHighlightPotentials({
                 rollMods,
@@ -118,20 +100,20 @@ declare global {
                 originalDeltaFromDc,
                 dieRoll,
                 currentDegreeOfSuccess,
-                isStrike
+                isStrike,
             }: {
-                rollMods: RawModifier[],
-                dcMods: RawModifier[],
-                originalDeltaFromDc: number,
-                dieRoll: number,
-                currentDegreeOfSuccess: pf2eModifiersMatter.Degree,
-                isStrike: boolean
+                rollMods: RawModifier[];
+                dcMods: RawModifier[];
+                originalDeltaFromDc: number;
+                dieRoll: number;
+                currentDegreeOfSuccess: pf2eModifiersMatter.Degree;
+                isStrike: boolean;
             }): {
                 plus1StatusHasPotential: boolean;
                 plus2StatusHasPotential: boolean;
                 plus2CircumstanceAcHasPotential: boolean;
-            }
-        }
+            };
+        };
     }
 
     interface ClientSettings {
@@ -139,70 +121,119 @@ declare global {
         get(module: "pf2e-modifiers-matter", setting: "additional-ignored-labels"): string;
         get(module: "pf2e-modifiers-matter", setting: "always-show-defense-conditions"): boolean;
         get(module: "pf2e-modifiers-matter", setting: "ignore-crit-fail-over-fail-on-attacks"): boolean;
-        get(module: "pf2e-modifiers-matter", setting: "highlight-potentials-preset"): "disabled" | "1_status" | "2_status" | "2_circumstance_ac";
+        get(
+            module: "pf2e-modifiers-matter",
+            setting: "highlight-potentials-preset"
+        ): "disabled" | "1_status" | "2_status" | "2_circumstance_ac";
 
-        set(module: "pf2e-modifiers-matter", setting: "always-show-highlights-to-everyone", value: boolean): Promise<boolean>;
+        set(
+            module: "pf2e-modifiers-matter",
+            setting: "always-show-highlights-to-everyone",
+            value: boolean
+        ): Promise<boolean>;
         set(module: "pf2e-modifiers-matter", setting: "additional-ignored-labels", value: string): Promise<string>;
-        set(module: "pf2e-modifiers-matter", setting: "always-show-defense-conditions", value: boolean): Promise<boolean>;
-        set(module: "pf2e-modifiers-matter", setting: "ignore-crit-fail-over-fail-on-attacks", value: boolean): Promise<boolean>;
-        set(module: "pf2e-modifiers-matter", setting: "highlight-potentials-preset", value: "disabled" | "1_status" | "2_status" | "2_circumstance_ac"): Promise<"disabled" | "1_status" | "2_status" | "2_circumstance_ac">;
+        set(
+            module: "pf2e-modifiers-matter",
+            setting: "always-show-defense-conditions",
+            value: boolean
+        ): Promise<boolean>;
+        set(
+            module: "pf2e-modifiers-matter",
+            setting: "ignore-crit-fail-over-fail-on-attacks",
+            value: boolean
+        ): Promise<boolean>;
+        set(
+            module: "pf2e-modifiers-matter",
+            setting: "highlight-potentials-preset",
+            value: "disabled" | "1_status" | "2_status" | "2_circumstance_ac"
+        ): Promise<"disabled" | "1_status" | "2_status" | "2_circumstance_ac">;
     }
 
     namespace Hooks {
-        function on(hook: "modifiersMatter", fn: ({
-            rollingActor,
-            actorWithDc,
-            targetedToken,
-            significantModifiers,
-            chatMessage
-        }: {
-            rollingActor: ActorPF2e;
-            actorWithDc?: ActorPF2e;
-            targetedToken?: TokenDocumentPF2e;
-            significantModifiers: pf2eModifiersMatter.SignificantModifier[];
-            chatMessage: ChatMessagePF2e;
-        }) => void | Promise<void>): number;
+        function on(
+            hook: "modifiersMatter",
+            fn: ({
+                rollingActor,
+                actorWithDc,
+                targetedToken,
+                significantModifiers,
+                chatMessage,
+            }: {
+                rollingActor: ActorPF2e;
+                actorWithDc?: ActorPF2e;
+                targetedToken?: TokenDocumentPF2e;
+                significantModifiers: pf2eModifiersMatter.SignificantModifier[];
+                chatMessage: ChatMessagePF2e;
+            }) => void | Promise<void>
+        ): number;
 
-        function once(hook: "modifiersMatter", fn: ({
-            rollingActor,
-            actorWithDc,
-            targetedToken,
-            significantModifiers,
-            chatMessage
-        }: {
-            rollingActor: ActorPF2e;
-            actorWithDc?: ActorPF2e;
-            targetedToken?: TokenDocumentPF2e;
-            significantModifiers: pf2eModifiersMatter.SignificantModifier[];
-            chatMessage: ChatMessagePF2e;
-        }) => void | Promise<void>): number;
+        function once(
+            hook: "modifiersMatter",
+            fn: ({
+                rollingActor,
+                actorWithDc,
+                targetedToken,
+                significantModifiers,
+                chatMessage,
+            }: {
+                rollingActor: ActorPF2e;
+                actorWithDc?: ActorPF2e;
+                targetedToken?: TokenDocumentPF2e;
+                significantModifiers: pf2eModifiersMatter.SignificantModifier[];
+                chatMessage: ChatMessagePF2e;
+            }) => void | Promise<void>
+        ): number;
 
-        function callAll(hook: "modifiersMatter", {
-            rollingActor,
-            actorWithDc,
-            targetedToken,
-            significantModifiers,
-            chatMessage
-        }: {
-            rollingActor: ActorPF2e;
-            actorWithDc?: ActorPF2e;
-            targetedToken?: TokenDocumentPF2e;
-            significantModifiers: pf2eModifiersMatter.SignificantModifier[];
-            chatMessage: ChatMessagePF2e;
-        }): boolean;
+        function callAll(
+            hook: "modifiersMatter",
+            {
+                rollingActor,
+                actorWithDc,
+                targetedToken,
+                significantModifiers,
+                chatMessage,
+            }: {
+                rollingActor: ActorPF2e;
+                actorWithDc?: ActorPF2e;
+                targetedToken?: TokenDocumentPF2e;
+                significantModifiers: pf2eModifiersMatter.SignificantModifier[];
+                chatMessage: ChatMessagePF2e;
+            }
+        ): boolean;
 
-        function call(hook: "modifiersMatter", {
-            rollingActor,
-            actorWithDc,
-            targetedToken,
-            significantModifiers,
-            chatMessage
-        }: {
-            rollingActor: ActorPF2e;
-            actorWithDc?: ActorPF2e;
-            targetedToken?: TokenDocumentPF2e;
-            significantModifiers: pf2eModifiersMatter.SignificantModifier[];
-            chatMessage: ChatMessagePF2e;
-        }): boolean;
+        function call(
+            hook: "modifiersMatter",
+            {
+                rollingActor,
+                actorWithDc,
+                targetedToken,
+                significantModifiers,
+                chatMessage,
+            }: {
+                rollingActor: ActorPF2e;
+                actorWithDc?: ActorPF2e;
+                targetedToken?: TokenDocumentPF2e;
+                significantModifiers: pf2eModifiersMatter.SignificantModifier[];
+                chatMessage: ChatMessagePF2e;
+            }
+        ): boolean;
+    }
+
+    namespace pf2eModifiersMatter {
+        export type Degree = "CRIT_SUCC" | "SUCCESS" | "FAILURE" | "CRIT_FAIL";
+
+        export type SignificantModifier = {
+            appliedTo: "roll" | "dc";
+            name: string;
+            value: number;
+            significance: "ESSENTIAL" | "HELPFUL" | "HARMFUL" | "DETRIMENTAL";
+        };
+
+        export type InsignificantModifier = {
+            appliedTo: "roll" | "dc";
+            name: string;
+            value: number;
+            significance: "NONE";
+        };
     }
 }

@@ -1,5 +1,5 @@
-import { RuleElementPF2e } from './base.ts';
-import { ModelPropsFromRESchema, RuleElementSchema } from './data.ts';
+import { RuleElementPF2e } from "./base.ts";
+import { ModelPropsFromRESchema, RuleElementSchema } from "./data.ts";
 import fields = foundry.data.fields;
 /**
  * Add an effect icon to an actor's token

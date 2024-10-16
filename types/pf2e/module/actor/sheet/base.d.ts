@@ -1,12 +1,16 @@
-import { ActorPF2e } from '../index.ts';
-import { StrikeData } from '../data/base.ts';
-import { PhysicalItemPF2e, ItemPF2e } from '../../item/index.ts';
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { Coins } from '../../item/physical/data.ts';
-import { DropCanvasItemDataPF2e } from '../../canvas/drop-canvas-data.ts';
-import { BasicConstructorOptions, TagSelectorOptions, TagSelectorType } from '../../system/tag-selector/index.ts';
-import { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e, CoinageSummary, InventoryItem, SheetInventory } from './data-types.ts';
-import { ItemSummaryRenderer } from './item-summary-renderer.ts';
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
+import type { ActorPF2e } from "@actor";
+import type { StrikeData } from "@actor/data/base.ts";
+import type { PhysicalItemPF2e } from "@item";
+import { ItemPF2e } from "@item";
+import type { ItemSourcePF2e } from "@item/base/data/index.ts";
+import type { Coins } from "@item/physical/data.ts";
+import { DropCanvasItemDataPF2e } from "@module/canvas/drop-canvas-data.ts";
+import { BasicConstructorOptions, TagSelectorOptions, TagSelectorType } from "@system/tag-selector/index.ts";
+import type { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e, CoinageSummary, InventoryItem, SheetInventory } from "./data-types.ts";
+import { ItemSummaryRenderer } from "./item-summary-renderer.ts";
 /**
  * Extend the basic ActorSheet class to do all the PF2e things!
  * This sheet is an Abstract layer which is not used.
