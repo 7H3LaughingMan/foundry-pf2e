@@ -1,8 +1,5 @@
-
-
-
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
+import { ActorPF2e } from '../../index.ts';
+import { PhysicalItemPF2e } from '../../../item/index.ts';
 declare class ItemTransferDialog extends FormApplication<PhysicalItemPF2e, MoveLootOptions> {
     #private;
     static get defaultOptions(): MoveLootOptions;

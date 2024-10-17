@@ -1,7 +1,4 @@
-
-
-
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import { ItemPF2e } from '../../item/index.ts';
 /** Extend ItemDirectory to show more information */
 export declare class ItemDirectoryPF2e<TItem extends ItemPF2e<null>> extends ItemDirectory<TItem> {
     #private;

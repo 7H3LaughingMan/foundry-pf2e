@@ -1,5 +1,5 @@
-import { ActorPF2e } from "types/pf2e/module/actor/base.ts";
-import { Coins } from "types/pf2e/module/item/physical/data.ts";
+import { ActorPF2e } from '../../base.ts';
+import { Coins } from '../../../item/physical/data.ts';
 interface AddCoinsFormData extends Coins {
     combineStacks: boolean;
 }

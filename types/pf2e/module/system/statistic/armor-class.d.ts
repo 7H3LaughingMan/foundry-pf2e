@@ -1,8 +1,8 @@
-import type { ActorPF2e, CreaturePF2e } from "types/pf2e/module/actor/index.ts";
-import { AttributeString } from "types/pf2e/module/actor/types.ts";
-import type { ArmorPF2e } from "types/pf2e/module/item/index.ts";
-import { ZeroToFour } from "types/pf2e/module/data.ts";
-import { Statistic, StatisticData, StatisticTraceData } from "./index.ts";
+import { ActorPF2e, CreaturePF2e } from '../../actor/index.ts';
+import { AttributeString } from '../../actor/types.ts';
+import { ArmorPF2e } from '../../item/index.ts';
+import { ZeroToFour } from '../../data.ts';
+import { Statistic, StatisticData, StatisticTraceData } from './index.ts';
 declare class ArmorStatistic<TActor extends ActorPF2e = ActorPF2e> extends Statistic<TActor> {
     #private;
     details: string;

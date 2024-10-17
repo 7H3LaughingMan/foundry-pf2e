@@ -1,17 +1,14 @@
-
-
-
-import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { HitPointsSummary } from "types/pf2e/module/actor/base.ts";
-import { ActorSheetPF2e } from "types/pf2e/module/actor/sheet/base.ts";
-import { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e } from "types/pf2e/module/actor/sheet/data-types.ts";
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import { Bulk } from "types/pf2e/module/item/physical/index.ts";
-import { DropCanvasItemDataPF2e } from "types/pf2e/module/canvas/drop-canvas-data.ts";
-import { ValueAndMax, ZeroToFour } from "types/pf2e/module/data.ts";
-import { SheetOptions } from "types/pf2e/module/sheet/helpers.ts";
-import { PartyPF2e } from "./document.ts";
+import { ActorPF2e } from '../index.ts';
+import { HitPointsSummary } from '../base.ts';
+import { ActorSheetPF2e } from '../sheet/base.ts';
+import { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e } from '../sheet/data-types.ts';
+import { ItemPF2e } from '../../item/index.ts';
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { Bulk } from '../../item/physical/index.ts';
+import { DropCanvasItemDataPF2e } from '../../canvas/drop-canvas-data.ts';
+import { ValueAndMax, ZeroToFour } from '../../data.ts';
+import { SheetOptions } from '../../sheet/helpers.ts';
+import { PartyPF2e } from './document.ts';
 interface PartySheetRenderOptions extends ActorSheetRenderOptionsPF2e {
     actors?: boolean;
 }

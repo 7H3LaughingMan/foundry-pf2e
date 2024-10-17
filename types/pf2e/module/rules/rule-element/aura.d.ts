@@ -1,10 +1,10 @@
-import type { SaveType } from "types/pf2e/module/actor/types.ts";
-import type { EffectTrait } from "types/pf2e/module/item/abstract-effect/types.ts";
-import { DataUnionField, PredicateField, StrictArrayField, StrictBooleanField, StrictNumberField, StrictStringField } from "types/pf2e/module/system/schema-data-fields.ts";
-import type { AlphaField, ArrayField, BooleanField, ColorField, EmbeddedDataField, SchemaField } from "types/foundry/common/data/fields.ts";
-import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource, RuleValue } from "./data.ts";
-import { ItemAlteration } from "./item-alteration/alteration.ts";
+import { SaveType } from '../../actor/types.ts';
+import { EffectTrait } from '../../item/abstract-effect/types.ts';
+import { DataUnionField, PredicateField, StrictArrayField, StrictBooleanField, StrictNumberField, StrictStringField } from '../../system/schema-data-fields.ts';
+import { AlphaField, ArrayField, BooleanField, ColorField, EmbeddedDataField, SchemaField } from '../../../../foundry/common/data/fields.ts';
+import { RuleElementOptions, RuleElementPF2e } from './base.ts';
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource, RuleValue } from './data.ts';
+import { ItemAlteration } from './item-alteration/alteration.ts';
 /** A Pathfinder 2e aura, capable of transmitting effects and with a visual representation on the canvas */
 declare class AuraRuleElement extends RuleElementPF2e<AuraSchema> {
     #private;

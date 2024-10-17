@@ -1,7 +1,7 @@
-import type { ActorPF2e, CharacterPF2e } from "types/pf2e/module/actor/index.ts";
-import type { FeatPF2e, HeritagePF2e, ItemPF2e } from "types/pf2e/module/item/index.ts";
-import { ItemSystemData } from "types/pf2e/module/item/base/data/system.ts";
-import { FeatOrFeatureCategory } from "types/pf2e/module/item/feat/types.ts";
+import { ActorPF2e, CharacterPF2e } from '../index.ts';
+import { FeatPF2e, HeritagePF2e, ItemPF2e } from '../../item/index.ts';
+import { ItemSystemData } from '../../item/base/data/system.ts';
+import { FeatOrFeatureCategory } from '../../item/feat/types.ts';
 declare class CharacterFeats<TActor extends CharacterPF2e> extends Collection<FeatGroup<TActor>> {
     #private;
     private actor;

@@ -1,6 +1,6 @@
-
-
-
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="jquery" resolution-mode="require"/>
+/// <reference types="tooltipster" />
 declare abstract class SettingsMenuPF2e extends FormApplication {
     static readonly namespace: string;
     protected cache: Record<string, unknown> & {

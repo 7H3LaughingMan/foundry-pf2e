@@ -1,6 +1,6 @@
-import type { CreaturePF2e, HazardPF2e, VehiclePF2e } from "types/pf2e/module/actor/index.ts";
-import { BaseStatistic } from "./base.ts";
-import { BaseStatisticTraceData } from "./data.ts";
+import { CreaturePF2e, HazardPF2e, VehiclePF2e } from '../../actor/index.ts';
+import { BaseStatistic } from './base.ts';
+import { BaseStatisticTraceData } from './data.ts';
 type HPStatActor = CreaturePF2e | HazardPF2e | VehiclePF2e;
 declare class HitPointsStatistic<TActor extends HPStatActor = HPStatActor> extends BaseStatistic<TActor> {
     #private;

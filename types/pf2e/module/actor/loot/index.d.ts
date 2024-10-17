@@ -1,1 +1,1 @@
-export { LootPF2e } from "./document.ts";
+export { LootPF2e } from './document.ts';

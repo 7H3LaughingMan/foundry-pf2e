@@ -1,15 +1,14 @@
-
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { StrikeData } from "types/pf2e/module/actor/data/base.ts";
-import type { ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
-import type { DCSlug } from "types/pf2e/module/actor/types.ts";
-import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { WeaponTrait } from "types/pf2e/module/item/weapon/types.ts";
-import type { RollNotePF2e } from "types/pf2e/module/notes.ts";
-import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import type { CheckRoll, CheckType } from "types/pf2e/module/system/check/index.ts";
-import type { CheckDC, DegreeOfSuccessString } from "types/pf2e/module/system/degree-of-success.ts";
-import type { Statistic } from "types/pf2e/module/system/statistic/index.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { StrikeData } from '../../actor/data/base.ts';
+import { ModifierPF2e } from '../../actor/modifiers.ts';
+import { DCSlug } from '../../actor/types.ts';
+import { ItemPF2e } from '../../item/index.ts';
+import { WeaponTrait } from '../../item/weapon/types.ts';
+import { RollNotePF2e } from '../../notes.ts';
+import { TokenDocumentPF2e } from '../../scene/index.ts';
+import { CheckRoll, CheckType } from '../check/index.ts';
+import { CheckDC, DegreeOfSuccessString } from '../degree-of-success.ts';
+import { Statistic } from '../statistic/index.ts';
 type ActionGlyph = "A" | "D" | "T" | "R" | "F" | "a" | "d" | "t" | "r" | "f" | 1 | 2 | 3 | "1" | "2" | "3";
 interface BuildCheckContextOptions<TItem extends ItemPF2e<ActorPF2e>> {
     actor: ActorPF2e;

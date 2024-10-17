@@ -1,9 +1,9 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { RawItemChatData } from "types/pf2e/module/item/base/data/index.ts";
-import { PhysicalItemPF2e } from "types/pf2e/module/item/physical/index.ts";
-import { UserPF2e } from "types/pf2e/module/user/index.ts";
-import { ArmorSource, ArmorSystemData } from "./data.ts";
-import { ArmorCategory, ArmorGroup, ArmorTrait, BaseArmorType } from "./types.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { RawItemChatData } from '../base/data/index.ts';
+import { PhysicalItemPF2e } from '../physical/index.ts';
+import { UserPF2e } from '../../user/index.ts';
+import { ArmorSource, ArmorSystemData } from './data.ts';
+import { ArmorCategory, ArmorGroup, ArmorTrait, BaseArmorType } from './types.ts';
 declare class ArmorPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {
     static get validTraits(): Record<ArmorTrait, string>;
     get isBarding(): boolean;

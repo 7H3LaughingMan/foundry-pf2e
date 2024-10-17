@@ -1,5 +1,5 @@
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import { MigrationBase } from "../base.ts";
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { MigrationBase } from '../base.ts';
 /** Remove links to deleted compendium items */
 export declare class Migration830BarbarianRework extends MigrationBase {
     #private;

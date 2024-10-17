@@ -1,5 +1,5 @@
-import type { GrantItemRuleElement, GrantItemSource } from "types/pf2e/module/rules/rule-element/grant-item/rule-element.ts";
-import { RuleElementForm, RuleElementFormSheetData } from "./base.ts";
+import { GrantItemRuleElement, GrantItemSource } from '../../../../rules/rule-element/grant-item/rule-element.ts';
+import { RuleElementForm, RuleElementFormSheetData } from './base.ts';
 /** Form handler for the GrantItem rule element */
 declare class GrantItemForm extends RuleElementForm<GrantItemSource, GrantItemRuleElement> {
     template: string;

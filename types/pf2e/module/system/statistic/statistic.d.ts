@@ -1,17 +1,17 @@
-import type { ActorPF2e, CreaturePF2e } from "types/pf2e/module/actor/index.ts";
-import { TraitViewData } from "types/pf2e/module/actor/data/base.ts";
-import { ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
-import { AttributeString } from "types/pf2e/module/actor/types.ts";
-import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import { ZeroToFour } from "types/pf2e/module/data.ts";
-import { RollNotePF2e, RollNoteSource } from "types/pf2e/module/notes.ts";
-import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import { CheckRollCallback } from "types/pf2e/module/system/check/check.ts";
-import type { CheckRoll } from "types/pf2e/module/system/check/index.ts";
-import { CheckType, RollTwiceOption } from "types/pf2e/module/system/check/types.ts";
-import { CheckDC } from "types/pf2e/module/system/degree-of-success.ts";
-import { BaseStatistic } from "./base.ts";
-import { StatisticChatData, StatisticCheckData, StatisticData, StatisticDifficultyClassData, StatisticTraceData } from "./data.ts";
+import { ActorPF2e, CreaturePF2e } from '../../actor/index.ts';
+import { TraitViewData } from '../../actor/data/base.ts';
+import { ModifierPF2e } from '../../actor/modifiers.ts';
+import { AttributeString } from '../../actor/types.ts';
+import { ItemPF2e } from '../../item/index.ts';
+import { ZeroToFour } from '../../data.ts';
+import { RollNotePF2e, RollNoteSource } from '../../notes.ts';
+import { TokenDocumentPF2e } from '../../scene/index.ts';
+import { CheckRollCallback } from '../check/check.ts';
+import { CheckRoll } from '../check/index.ts';
+import { CheckType, RollTwiceOption } from '../check/types.ts';
+import { CheckDC } from '../degree-of-success.ts';
+import { BaseStatistic } from './base.ts';
+import { StatisticChatData, StatisticCheckData, StatisticData, StatisticDifficultyClassData, StatisticTraceData } from './data.ts';
 /** A Pathfinder statistic used to perform checks and calculate DCs */
 declare class Statistic<TActor extends ActorPF2e = ActorPF2e> extends BaseStatistic<TActor> {
     #private;

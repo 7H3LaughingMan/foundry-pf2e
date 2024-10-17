@@ -1,11 +1,11 @@
-import type { CreaturePF2e } from "types/pf2e/module/actor/index.ts";
-import { AttributeString } from "types/pf2e/module/actor/types.ts";
-import type { PhysicalItemPF2e, SpellPF2e } from "types/pf2e/module/item/index.ts";
-import { MagicTradition } from "types/pf2e/module/item/spell/types.ts";
-import type { Predicate } from "types/pf2e/module/system/predication.ts";
-import type { Statistic } from "types/pf2e/module/system/statistic/statistic.ts";
-import { SpellCollection } from "./collection.ts";
-import type { CastOptions, SpellcastingEntry, SpellcastingSheetData } from "./types.ts";
+import { CreaturePF2e } from '../../actor/index.ts';
+import { AttributeString } from '../../actor/types.ts';
+import { PhysicalItemPF2e, SpellPF2e } from '../index.ts';
+import { MagicTradition } from '../spell/types.ts';
+import { Predicate } from '../../system/predication.ts';
+import { Statistic } from '../../system/statistic/statistic.ts';
+import { SpellCollection } from './collection.ts';
+import { CastOptions, SpellcastingEntry, SpellcastingSheetData } from './types.ts';
 /** An in-memory spellcasting entry for items-only spellcasting */
 declare class ItemSpellcasting<TActor extends CreaturePF2e = CreaturePF2e> implements SpellcastingEntry<TActor> {
     id: string;

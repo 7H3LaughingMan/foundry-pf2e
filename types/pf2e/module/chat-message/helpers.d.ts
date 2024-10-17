@@ -1,7 +1,7 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { AbilityItemPF2e, FeatPF2e } from "types/pf2e/module/item/index.ts";
-import { ChatContextFlag, CheckContextChatFlag } from "./data.ts";
-import { ChatMessagePF2e } from "./document.ts";
+import { ActorPF2e } from '../actor/index.ts';
+import { AbilityItemPF2e, FeatPF2e } from '../item/index.ts';
+import { ChatContextFlag, CheckContextChatFlag } from './data.ts';
+import { ChatMessagePF2e } from './document.ts';
 declare function isCheckContextFlag(flag?: ChatContextFlag): flag is CheckContextChatFlag;
 /** Create a message with collapsed action description and button to apply an effect */
 declare function createSelfEffectMessage(item: AbilityItemPF2e<ActorPF2e> | FeatPF2e<ActorPF2e>, rollMode?: RollMode | "roll"): Promise<ChatMessagePF2e | null>;

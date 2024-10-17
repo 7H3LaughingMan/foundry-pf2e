@@ -1,6 +1,6 @@
-import { ItemSheetOptions } from "types/pf2e/module/item/base/sheet/sheet.ts";
-import { PhysicalItemSheetData, PhysicalItemSheetPF2e } from "types/pf2e/module/item/physical/index.ts";
-import type { TreasurePF2e } from "./document.ts";
+import { ItemSheetOptions } from '../base/sheet/sheet.ts';
+import { PhysicalItemSheetData, PhysicalItemSheetPF2e } from '../physical/index.ts';
+import { TreasurePF2e } from './document.ts';
 export declare class TreasureSheetPF2e extends PhysicalItemSheetPF2e<TreasurePF2e> {
     getData(options?: Partial<ItemSheetOptions>): Promise<TreasureSheetData>;
     protected _updateObject(event: Event, formData: Record<string, unknown>): Promise<void>;

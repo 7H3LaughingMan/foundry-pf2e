@@ -1,7 +1,7 @@
-import type { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "types/pf2e/module/item/physical/data.ts";
-import type { SpellSource } from "types/pf2e/module/item/spell/data.ts";
-import type { DamageKind, DamageType } from "types/pf2e/module/system/damage/index.ts";
-import type { AmmoStackGroup, ConsumableCategory, ConsumableTrait, OtherConsumableTag } from "./types.ts";
+import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from '../physical/data.ts';
+import { SpellSource } from '../spell/data.ts';
+import { DamageKind, DamageType } from '../../system/damage/index.ts';
+import { AmmoStackGroup, ConsumableCategory, ConsumableTrait, OtherConsumableTag } from './types.ts';
 type ConsumableSource = BasePhysicalItemSource<"consumable", ConsumableSystemSource>;
 interface ConsumableTraits extends PhysicalItemTraits<ConsumableTrait> {
     otherTags: OtherConsumableTag[];

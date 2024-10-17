@@ -1,13 +1,13 @@
-import type { Language, SenseAcuity, SenseType } from "types/pf2e/module/actor/creature/types.ts";
-import type { AttributeString, SaveType } from "types/pf2e/module/actor/types.ts";
-import type { SelfEffectReference, SelfEffectReferenceSource } from "types/pf2e/module/item/ability/index.ts";
-import type { AbilityTraitToggles } from "types/pf2e/module/item/ability/trait-toggles.ts";
-import type { ArmorCategory } from "types/pf2e/module/item/armor/types.ts";
-import type { ActionType, BaseItemSourcePF2e, Frequency, FrequencySource, ItemSystemData, ItemSystemSource, ItemTraits } from "types/pf2e/module/item/base/data/system.ts";
-import type { ClassTrait } from "types/pf2e/module/item/class/types.ts";
-import type { WeaponCategory } from "types/pf2e/module/item/weapon/types.ts";
-import type { OneToFour, OneToThree } from "types/pf2e/module/data.ts";
-import type { FeatOrFeatureCategory, FeatTrait } from "./types.ts";
+import { Language, SenseAcuity, SenseType } from '../../actor/creature/types.ts';
+import { AttributeString, SaveType } from '../../actor/types.ts';
+import { SelfEffectReference, SelfEffectReferenceSource } from '../ability/index.ts';
+import { AbilityTraitToggles } from '../ability/trait-toggles.ts';
+import { ArmorCategory } from '../armor/types.ts';
+import { ActionType, BaseItemSourcePF2e, Frequency, FrequencySource, ItemSystemData, ItemSystemSource, ItemTraits } from '../base/data/system.ts';
+import { ClassTrait } from '../class/types.ts';
+import { WeaponCategory } from '../weapon/types.ts';
+import { OneToFour, OneToThree } from '../../data.ts';
+import { FeatOrFeatureCategory, FeatTrait } from './types.ts';
 type FeatSource = BaseItemSourcePF2e<"feat", FeatSystemSource>;
 interface PrerequisiteTagData {
     value: string;

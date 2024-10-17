@@ -1,21 +1,20 @@
-import { CreaturePF2e, type FamiliarPF2e } from "types/pf2e/module/actor/index.ts";
-import { CreatureSpeeds, LabeledSpeed } from "types/pf2e/module/actor/creature/data.ts";
-import { CreatureUpdateOperation } from "types/pf2e/module/actor/creature/types.ts";
-import { ActorInitiative } from "types/pf2e/module/actor/initiative.ts";
-import { StatisticModifier } from "types/pf2e/module/actor/modifiers.ts";
-import { AttributeString, MovementType } from "types/pf2e/module/actor/types.ts";
-import type { AncestryPF2e, BackgroundPF2e, ClassPF2e, DeityPF2e, FeatPF2e, HeritagePF2e } from "types/pf2e/module/item/index.ts";
-import { WeaponPF2e } from "types/pf2e/module/item/index.ts";
-import type { ItemType } from "types/pf2e/module/item/base/data/index.ts";
-import { ZeroToTwo } from "types/pf2e/module/data.ts";
-import type { UserPF2e } from "types/pf2e/module/user/document.ts";
-import { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import { RollParameters } from "types/pf2e/module/system/rolls.ts";
-import { Statistic } from "types/pf2e/module/system/statistic/index.ts";
-import { CharacterCrafting, CraftingAbility, CraftingFormula } from "./crafting/index.ts";
-import { BaseWeaponProficiencyKey, CharacterAbilities, CharacterFlags, CharacterSource, CharacterStrike, CharacterSystemData, WeaponGroupProficiencyKey } from "./data.ts";
-import { CharacterFeats } from "./feats.ts";
-import { CharacterHitPointsSummary, CharacterSkills, GuaranteedGetStatisticSlug } from "./types.ts";
+import { CreaturePF2e, FamiliarPF2e } from '../index.ts';
+import { CreatureSpeeds, LabeledSpeed } from '../creature/data.ts';
+import { CreatureUpdateOperation } from '../creature/types.ts';
+import { ActorInitiative } from '../initiative.ts';
+import { StatisticModifier } from '../modifiers.ts';
+import { AttributeString, MovementType } from '../types.ts';
+import { AncestryPF2e, BackgroundPF2e, ClassPF2e, DeityPF2e, FeatPF2e, HeritagePF2e, WeaponPF2e } from '../../item/index.ts';
+import { ItemType } from '../../item/base/data/index.ts';
+import { ZeroToTwo } from '../../data.ts';
+import { UserPF2e } from '../../user/document.ts';
+import { TokenDocumentPF2e } from '../../scene/index.ts';
+import { RollParameters } from '../../system/rolls.ts';
+import { Statistic } from '../../system/statistic/index.ts';
+import { CharacterCrafting, CraftingAbility, CraftingFormula } from './crafting/index.ts';
+import { BaseWeaponProficiencyKey, CharacterAbilities, CharacterFlags, CharacterSource, CharacterStrike, CharacterSystemData, WeaponGroupProficiencyKey } from './data.ts';
+import { CharacterFeats } from './feats.ts';
+import { CharacterHitPointsSummary, CharacterSkills, GuaranteedGetStatisticSlug } from './types.ts';
 declare class CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends CreaturePF2e<TParent> {
     /** Core singular embeds for PCs */
     ancestry: AncestryPF2e<this> | null;

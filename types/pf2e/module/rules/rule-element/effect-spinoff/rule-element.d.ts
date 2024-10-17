@@ -1,9 +1,9 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
-import { SlugField } from "types/pf2e/module/system/schema-data-fields.ts";
-import type { ArrayField, NumberField, SchemaField, StringField } from "types/foundry/common/data/fields.ts";
-import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
-import type { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource } from "../data.ts";
+import { ActorPF2e } from '../../../actor/index.ts';
+import { PhysicalItemPF2e } from '../../../item/index.ts';
+import { SlugField } from '../../../system/schema-data-fields.ts';
+import { ArrayField, NumberField, SchemaField, StringField } from '../../../../../foundry/common/data/fields.ts';
+import { RuleElementOptions, RuleElementPF2e } from '../base.ts';
+import { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource } from '../data.ts';
 declare class EffectSpinoffRuleElement extends RuleElementPF2e<EffectSpinoffSchema> {
     constructor(source: RuleElementSource, options: RuleElementOptions);
     static defineSchema(): EffectSpinoffSchema;

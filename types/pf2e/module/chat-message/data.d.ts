@@ -1,12 +1,12 @@
-import type { RawDamageDice, RawModifier } from "types/pf2e/module/actor/modifiers.ts";
-import { ItemType, SpellSource } from "types/pf2e/module/item/base/data/index.ts";
-import { MagicTradition } from "types/pf2e/module/item/spell/types.ts";
-import { ZeroToTwo } from "types/pf2e/module/data.ts";
-import { RollNoteSource } from "types/pf2e/module/notes.ts";
-import { CheckCheckContext } from "types/pf2e/module/system/check/index.ts";
-import { DamageDamageContext } from "types/pf2e/module/system/damage/types.ts";
-import { DegreeAdjustmentsRecord, DegreeOfSuccessString } from "types/pf2e/module/system/degree-of-success.ts";
-import type { ChatMessageFlags } from "types/foundry/common/documents/chat-message.ts";
+import { RawDamageDice, RawModifier } from '../actor/modifiers.ts';
+import { ItemType, SpellSource } from '../item/base/data/index.ts';
+import { MagicTradition } from '../item/spell/types.ts';
+import { ZeroToTwo } from '../data.ts';
+import { RollNoteSource } from '../notes.ts';
+import { CheckCheckContext } from '../system/check/index.ts';
+import { DamageDamageContext } from '../system/damage/types.ts';
+import { DegreeAdjustmentsRecord, DegreeOfSuccessString } from '../system/degree-of-success.ts';
+import { ChatMessageFlags } from '../../../foundry/common/documents/chat-message.ts';
 type ChatMessageSourcePF2e = foundry.documents.ChatMessageSource & {
     flags: ChatMessageFlagsPF2e;
 };
@@ -21,7 +21,7 @@ export interface ItemOriginFlag {
     };
     rollOptions?: string[];
 }
-interface ChatMessageFlagsPF2e extends ChatMessageFlags {
+type ChatMessageFlagsPF2e = ChatMessageFlags & {
     pf2e: {
         damageRoll?: DamageRollFlag;
         context?: ChatContextFlag;
@@ -42,7 +42,7 @@ interface ChatMessageFlagsPF2e extends ChatMessageFlags {
         [key: string]: unknown;
     };
     core: NonNullable<ChatMessageFlags["core"]>;
-}
+};
 type ChatContextFlag = CheckContextChatFlag | DamageDamageContextFlag | SpellCastContextFlag | SelfEffectContextFlag | DamageTakenContextFlag;
 interface DamageRollFlag {
     outcome: DegreeOfSuccessString;

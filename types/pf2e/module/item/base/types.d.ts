@@ -1,7 +1,7 @@
-import type { CreatureTrait } from "types/pf2e/module/actor/creature/types.ts";
-import type { ActionTrait } from "types/pf2e/module/item/ability/types.ts";
-import type { KingmakerTrait } from "types/pf2e/module/item/campaign-feature/types.ts";
-import type { NPCAttackTrait } from "types/pf2e/module/item/melee/types.ts";
-import type { PhysicalItemTrait } from "types/pf2e/module/item/physical/types.ts";
+import { CreatureTrait } from '../../actor/creature/types.ts';
+import { ActionTrait } from '../ability/types.ts';
+import { KingmakerTrait } from '../campaign-feature/types.ts';
+import { NPCAttackTrait } from '../melee/types.ts';
+import { PhysicalItemTrait } from '../physical/types.ts';
 type ItemTrait = ActionTrait | CreatureTrait | PhysicalItemTrait | NPCAttackTrait | KingmakerTrait;
 export type { ItemTrait };

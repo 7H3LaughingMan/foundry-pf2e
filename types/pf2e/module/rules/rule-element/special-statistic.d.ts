@@ -1,11 +1,11 @@
-import type { CreaturePF2e } from "types/pf2e/module/actor/index.ts";
-import { AttributeString } from "types/pf2e/module/actor/types.ts";
-import { MagicTradition } from "types/pf2e/module/item/spell/types.ts";
-import { Predicate, RawPredicate } from "types/pf2e/module/system/predication.ts";
-import { PredicateField } from "types/pf2e/module/system/schema-data-fields.ts";
-import type { NumberField, SchemaField, StringField } from "types/foundry/common/data/fields.ts";
-import { RuleElementPF2e } from "../index.ts";
-import type { RuleElementSchema } from "./data.ts";
+import { CreaturePF2e } from '../../actor/index.ts';
+import { AttributeString } from '../../actor/types.ts';
+import { MagicTradition } from '../../item/spell/types.ts';
+import { Predicate, RawPredicate } from '../../system/predication.ts';
+import { PredicateField } from '../../system/schema-data-fields.ts';
+import { NumberField, SchemaField, StringField } from '../../../../foundry/common/data/fields.ts';
+import { RuleElementPF2e } from '../index.ts';
+import { RuleElementSchema } from './data.ts';
 /** Create a special-purpose statistic for use in checks and as a DC */
 declare class SpecialStatisticRuleElement extends RuleElementPF2e<SpecialStatisticSchema> {
     static validActorTypes: ("character" | "npc")[];

@@ -1,7 +1,7 @@
-import type { SlugField, StrictArrayField } from "types/pf2e/module/system/schema-data-fields.ts";
-import type { BooleanField, EmbeddedDataField, StringField } from "types/foundry/common/data/fields.ts";
-import type { RuleElementSchema } from "../data.ts";
-import type { ItemAlteration } from "../item-alteration/alteration.ts";
+import { SlugField, StrictArrayField } from '../../../system/schema-data-fields.ts';
+import { BooleanField, EmbeddedDataField, StringField } from '../../../../../foundry/common/data/fields.ts';
+import { RuleElementSchema } from '../data.ts';
+import { ItemAlteration } from '../item-alteration/alteration.ts';
 type GrantItemSchema = RuleElementSchema & {
     /** The UUID of the item to grant: must be a compendium or world item */
     uuid: StringField<string, string, true, false, false>;

@@ -1,13 +1,13 @@
-import { AttributeString } from "types/pf2e/module/actor/types.ts";
-import { ActionTrait } from "types/pf2e/module/item/ability/types.ts";
-import { PhysicalItemSource } from "types/pf2e/module/item/base/data/index.ts";
-import { Size, TraitsWithRarity, ValuesList, ZeroToTwo } from "types/pf2e/module/data.ts";
-import { MaterialDamageEffect } from "types/pf2e/module/system/damage/types.ts";
-import { ActionCost, BaseItemSourcePF2e, Frequency, ItemSystemData, ItemSystemSource } from "../base/data/system.ts";
-import type { ITEM_CARRY_TYPES } from "../base/data/values.ts";
-import type { CoinsPF2e } from "./helpers.ts";
-import type { PhysicalItemTrait, PhysicalItemType, PreciousMaterialGrade, PreciousMaterialType } from "./types.ts";
-import type { UsageDetails } from "./usage.ts";
+import { AttributeString } from '../../actor/types.ts';
+import { ActionTrait } from '../ability/types.ts';
+import { PhysicalItemSource } from '../base/data/index.ts';
+import { Size, TraitsWithRarity, ValuesList, ZeroToTwo } from '../../data.ts';
+import { MaterialDamageEffect } from '../../system/damage/types.ts';
+import { ActionCost, BaseItemSourcePF2e, Frequency, ItemSystemData, ItemSystemSource } from '../base/data/system.ts';
+import { ITEM_CARRY_TYPES } from '../base/data/values.ts';
+import { CoinsPF2e } from './helpers.ts';
+import { PhysicalItemTrait, PhysicalItemType, PreciousMaterialGrade, PreciousMaterialType } from './types.ts';
+import { UsageDetails } from './usage.ts';
 type ItemCarryType = (typeof ITEM_CARRY_TYPES)[number];
 type BasePhysicalItemSource<TType extends PhysicalItemType, TSystemSource extends PhysicalSystemSource = PhysicalSystemSource> = BaseItemSourcePF2e<TType, TSystemSource>;
 interface PhysicalSystemSource extends ItemSystemSource {

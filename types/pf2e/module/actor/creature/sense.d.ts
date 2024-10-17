@@ -1,7 +1,7 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { NumberField, StringField } from "types/foundry/common/data/fields.ts";
-import type { SenseData } from "./data.ts";
-import type { SenseAcuity, SenseType } from "./index.ts";
+import { ActorPF2e } from '../index.ts';
+import { NumberField, StringField } from '../../../../foundry/common/data/fields.ts';
+import { SenseData } from './data.ts';
+import { SenseAcuity, SenseType } from './index.ts';
 declare class Sense extends foundry.abstract.DataModel<ActorPF2e, SenseSchema> {
     constructor(data: SenseConstructorParams, options: DataModelConstructionOptions<ActorPF2e>);
     static defineSchema(): SenseSchema;

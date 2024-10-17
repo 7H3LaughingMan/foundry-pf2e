@@ -1,12 +1,12 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { ItemPF2e, type ContainerPF2e } from "types/pf2e/module/item/index.ts";
-import type { ItemSourcePF2e, PhysicalItemSource, RawItemChatData, TraitChatData } from "types/pf2e/module/item/base/data/index.ts";
-import type { Rarity, Size, ZeroToTwo } from "types/pf2e/module/data.ts";
-import type { EffectSpinoff } from "types/pf2e/module/rules/rule-element/effect-spinoff/spinoff.ts";
-import type { UserPF2e } from "types/pf2e/module/user/document.ts";
-import { Bulk } from "./bulk.ts";
-import type { IdentificationStatus, ItemActivation, ItemCarryType, ItemMaterialData, MystifiedData, PhysicalItemHitPoints, PhysicalItemTrait, PhysicalSystemData, Price } from "./data.ts";
-import { CoinsPF2e } from "./helpers.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { ItemPF2e, ContainerPF2e } from '../index.ts';
+import { ItemSourcePF2e, PhysicalItemSource, RawItemChatData, TraitChatData } from '../base/data/index.ts';
+import { Rarity, Size, ZeroToTwo } from '../../data.ts';
+import { EffectSpinoff } from '../../rules/rule-element/effect-spinoff/spinoff.ts';
+import { UserPF2e } from '../../user/document.ts';
+import { Bulk } from './bulk.ts';
+import { IdentificationStatus, ItemActivation, ItemCarryType, ItemMaterialData, MystifiedData, PhysicalItemHitPoints, PhysicalItemTrait, PhysicalSystemData, Price } from './data.ts';
+import { CoinsPF2e } from './helpers.ts';
 declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     /** The item in which this item is embedded */
     parentItem: PhysicalItemPF2e | null;

@@ -1,13 +1,13 @@
-import { FeatGroup } from "types/pf2e/module/actor/character/feats.ts";
-import { Kingdom } from "types/pf2e/module/actor/party/kingdom/model.ts";
-import { type CampaignFeaturePF2e } from "types/pf2e/module/item/index.ts";
-import type { ItemSourcePF2e, ItemType } from "types/pf2e/module/item/base/data/index.ts";
-import type { UserPF2e } from "types/pf2e/module/user/index.ts";
-import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import { ArmorStatistic, Statistic, StatisticDifficultyClass } from "types/pf2e/module/system/statistic/index.ts";
-import { ActorPF2e, type ActorUpdateOperation, type HitPointsSummary } from "../base.ts";
-import type { ArmySource, ArmySystemData } from "./data.ts";
-import type { ArmyStrike } from "./types.ts";
+import { FeatGroup } from '../character/feats.ts';
+import { Kingdom } from '../party/kingdom/model.ts';
+import { CampaignFeaturePF2e } from '../../item/index.ts';
+import { ItemSourcePF2e, ItemType } from '../../item/base/data/index.ts';
+import { UserPF2e } from '../../user/index.ts';
+import { TokenDocumentPF2e } from '../../scene/index.ts';
+import { ArmorStatistic, Statistic, StatisticDifficultyClass } from '../../system/statistic/index.ts';
+import { ActorPF2e, ActorUpdateOperation, HitPointsSummary } from '../base.ts';
+import { ArmySource, ArmySystemData } from './data.ts';
+import { ArmyStrike } from './types.ts';
 declare class ArmyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     scouting: Statistic;
     maneuver: Statistic;

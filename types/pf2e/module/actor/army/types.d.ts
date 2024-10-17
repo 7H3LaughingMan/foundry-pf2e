@@ -1,5 +1,5 @@
-import { DamageRollFunction, RollFunction } from "types/pf2e/module/actor/data/base.ts";
-import { AttackRollParams } from "types/pf2e/module/system/rolls.ts";
+import { DamageRollFunction, RollFunction } from '../data/base.ts';
+import { AttackRollParams } from '../../system/rolls.ts';
 /** Data for an army strike. Deals 1 damage on a hit, 2 on a crit (usually) */
 interface ArmyStrike {
     slug: string;

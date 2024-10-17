@@ -1,8 +1,8 @@
-import type { ActorType, CreaturePF2e } from "types/pf2e/module/actor/index.ts";
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import type { BooleanField } from "types/foundry/common/data/fields.ts";
-import { RuleElementPF2e } from "./base.ts";
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
+import { ActorType, CreaturePF2e } from '../../actor/index.ts';
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { BooleanField } from '../../../../foundry/common/data/fields.ts';
+import { RuleElementPF2e } from './base.ts';
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from './data.ts';
 /** Reduce current hit points without applying damage */
 declare class LoseHitPointsRuleElement extends RuleElementPF2e<LoseHitPointsRuleSchema> {
     static validActorTypes: ActorType[];

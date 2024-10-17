@@ -1,6 +1,6 @@
-import { ActorSourcePF2e } from "types/pf2e/module/actor/data/index.ts";
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import { MigrationBase } from "../base.ts";
+import { ActorSourcePF2e } from '../../actor/data/index.ts';
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { MigrationBase } from '../base.ts';
 /** Convert UUIDs to V11 format */
 export declare class Migration841V11UUIDFormat extends MigrationBase {
     #private;

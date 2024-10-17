@@ -1,6 +1,6 @@
-import { EffectAreaSquare } from "types/pf2e/module/canvas/effect-area-square.ts";
-import { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import type { TokenPF2e } from "../index.ts";
+import { EffectAreaSquare } from '../../effect-area-square.ts';
+import { TokenDocumentPF2e } from '../../../scene/index.ts';
+import { TokenPF2e } from '../index.ts';
 export declare function getAreaSquares(data: GetAreaSquaresParams): EffectAreaSquare[];
 interface GetAreaSquaresParams {
     bounds: PIXI.Rectangle;

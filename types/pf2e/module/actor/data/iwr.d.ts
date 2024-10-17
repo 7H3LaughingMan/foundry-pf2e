@@ -1,6 +1,6 @@
-import { ImmunityType, IWRType, ResistanceType, WeaknessType } from "types/pf2e/module/actor/types.ts";
-import { IWRException } from "types/pf2e/module/rules/rule-element/iwr/base.ts";
-import { Predicate, PredicateStatement } from "types/pf2e/module/system/predication.ts";
+import { ImmunityType, IWRType, ResistanceType, WeaknessType } from '../types.ts';
+import { IWRException } from '../../rules/rule-element/iwr/base.ts';
+import { Predicate, PredicateStatement } from '../../system/predication.ts';
 declare abstract class IWR<TType extends IWRType> {
     #private;
     readonly type: TType;

@@ -1,12 +1,9 @@
-
-
-
-import type { ActorPF2e, CreaturePF2e } from "types/pf2e/module/actor/index.ts";
-import { ItemSummaryRenderer } from "types/pf2e/module/actor/sheet/item-summary-renderer.ts";
-import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import type { SpellcastingEntryPF2e, SpellcastingSheetData } from "types/pf2e/module/item/spellcasting-entry/index.ts";
-import { ZeroToTen } from "types/pf2e/module/data.ts";
+import { ActorPF2e, CreaturePF2e } from '../index.ts';
+import { ItemSummaryRenderer } from '../sheet/item-summary-renderer.ts';
+import { ItemPF2e } from '../../item/index.ts';
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { SpellcastingEntryPF2e, SpellcastingSheetData } from '../../item/spellcasting-entry/index.ts';
+import { ZeroToTen } from '../../data.ts';
 /**
  * Sheet used to render the the spell list for prepared casting.
  * It overrides the actor sheet to inherit important drag/drop behavior for actor items (the spells).
@@ -14,7 +11,7 @@ import { ZeroToTen } from "types/pf2e/module/data.ts";
 declare class SpellPreparationSheet<TActor extends CreaturePF2e> extends ActorSheet<TActor, ItemPF2e> {
     #private;
     /** Implementation used to handle the toggling and rendering of item summaries */
-    itemRenderer: ItemSummaryRenderer<ActorPF2e<import("../../scene/token-document/document.ts").TokenDocumentPF2e<import("../../scene/document.ts").ScenePF2e | null> | null>, this>;
+    itemRenderer: ItemSummaryRenderer<ActorPF2e<import('../../scene/token-document/document.ts').TokenDocumentPF2e<import('../../scene/document.ts').ScenePF2e | null> | null>, this>;
     item: SpellcastingEntryPF2e<TActor>;
     constructor(item: SpellcastingEntryPF2e<TActor>, options: Partial<ActorSheetOptions>);
     static get defaultOptions(): ActorSheetOptions;

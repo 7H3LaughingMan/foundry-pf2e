@@ -1,10 +1,10 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { ItemPF2e, type PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { ClassTrait } from "types/pf2e/module/item/class/types.ts";
-import { Price } from "types/pf2e/module/item/physical/data.ts";
-import { Size } from "types/pf2e/module/data.ts";
-import type { UserPF2e } from "types/pf2e/module/user/index.ts";
-import { KitSource, KitSystemData, type KitEntryData } from "./data.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { ItemPF2e, PhysicalItemPF2e } from '../index.ts';
+import { ClassTrait } from '../class/types.ts';
+import { Price } from '../physical/data.ts';
+import { Size } from '../../data.ts';
+import { UserPF2e } from '../../user/index.ts';
+import { KitSource, KitSystemData, KitEntryData } from './data.ts';
 declare class KitPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     static get validTraits(): Record<ClassTrait, string>;
     get entries(): KitEntryData[];

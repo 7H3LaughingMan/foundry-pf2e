@@ -1,11 +1,11 @@
-import { CreatureTrait } from "types/pf2e/module/actor/creature/types.ts";
-import { HazardTrait } from "types/pf2e/module/actor/hazard/types.ts";
-import { ActionTrait } from "types/pf2e/module/item/ability/index.ts";
-import { KingmakerTrait } from "types/pf2e/module/item/campaign-feature/types.ts";
-import { FeatTrait } from "types/pf2e/module/item/feat/types.ts";
-import { PhysicalItemTrait } from "types/pf2e/module/item/physical/data.ts";
-import type { SearchResult } from "minisearch";
-import { SortDirection } from "../data.ts";
+import { CreatureTrait } from '../../../actor/creature/types.ts';
+import { HazardTrait } from '../../../actor/hazard/types.ts';
+import { ActionTrait } from '../../../item/ability/index.ts';
+import { KingmakerTrait } from '../../../item/campaign-feature/types.ts';
+import { FeatTrait } from '../../../item/feat/types.ts';
+import { PhysicalItemTrait } from '../../../item/physical/data.ts';
+import { SearchResult } from 'minisearch';
+import { SortDirection } from '../data.ts';
 type CheckboxOptions = Record<string, {
     label: string;
     selected: boolean;

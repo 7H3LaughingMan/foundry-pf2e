@@ -1,4 +1,4 @@
-import { TagifyEntry } from "types/pf2e/module/sheet/helpers.ts";
+import { TagifyEntry } from '../../sheet/helpers.ts';
 /**
  * A HTML Element that handles `Tagify` data and always has a `value` of `string[]`.
  * `Tagify` must be bound to the child input element that can be accessed at `HTMLTagifyTagsElement#input`

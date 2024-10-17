@@ -1,10 +1,10 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { FeatGroup } from "types/pf2e/module/actor/character/feats.ts";
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import { ActionCost, Frequency } from "types/pf2e/module/item/base/data/index.ts";
-import type { UserPF2e } from "types/pf2e/module/user/index.ts";
-import { CampaignFeatureSource, CampaignFeatureSystemData } from "./data.ts";
-import type { BehaviorType, KingmakerCategory, KingmakerTrait } from "./types.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { FeatGroup } from '../../actor/character/feats.ts';
+import { ItemPF2e } from '../index.ts';
+import { ActionCost, Frequency } from '../base/data/index.ts';
+import { UserPF2e } from '../../user/index.ts';
+import { CampaignFeatureSource, CampaignFeatureSystemData } from './data.ts';
+import { BehaviorType, KingmakerCategory, KingmakerTrait } from './types.ts';
 declare class CampaignFeaturePF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     group: FeatGroup<ActorPF2e, CampaignFeaturePF2e> | null;
     grants: CampaignFeaturePF2e[];

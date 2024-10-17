@@ -1,12 +1,12 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/base.ts";
-import type { TraitViewData } from "types/pf2e/module/actor/data/base.ts";
-import type { ActorSizePF2e } from "types/pf2e/module/actor/data/size.ts";
-import type { InventoryBulk } from "types/pf2e/module/actor/inventory/index.ts";
-import type { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { Frequency } from "types/pf2e/module/item/base/data/index.ts";
-import type { Coins } from "types/pf2e/module/item/physical/data.ts";
-import type { RollOptionToggle } from "types/pf2e/module/rules/synthetics.ts";
-import type { SheetOptions } from "types/pf2e/module/sheet/helpers.ts";
+import { ActorPF2e } from '../base.ts';
+import { TraitViewData } from '../data/base.ts';
+import { ActorSizePF2e } from '../data/size.ts';
+import { InventoryBulk } from '../inventory/index.ts';
+import { PhysicalItemPF2e } from '../../item/index.ts';
+import { Frequency } from '../../item/base/data/index.ts';
+import { Coins } from '../../item/physical/data.ts';
+import { RollOptionToggle } from '../../rules/synthetics.ts';
+import { SheetOptions } from '../../sheet/helpers.ts';
 interface InventoryItem<TItem extends PhysicalItemPF2e = PhysicalItemPF2e> {
     item: TItem;
     /** Item size if it causes any weight difference relative to the actor */

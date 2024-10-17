@@ -1,6 +1,6 @@
-import { ActorSourcePF2e } from "types/pf2e/module/actor/data/index.ts";
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import { MigrationBase } from "../base.ts";
+import { ActorSourcePF2e } from '../../actor/data/index.ts';
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { MigrationBase } from '../base.ts';
 /** Convert ability scores to attribute modifiers */
 export declare class Migration852AbilityScoresToModifiers extends MigrationBase {
     static version: number;

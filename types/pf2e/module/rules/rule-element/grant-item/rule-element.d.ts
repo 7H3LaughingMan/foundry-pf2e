@@ -1,9 +1,9 @@
-import type { ActorType } from "types/pf2e/module/actor/index.ts";
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import { ItemGrantDeleteAction } from "types/pf2e/module/item/base/data/system.ts";
-import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
-import { ModelPropsFromRESchema, RuleElementSource } from "../data.ts";
-import { GrantItemSchema } from "./schema.ts";
+import { ActorType } from '../../../actor/index.ts';
+import { ItemSourcePF2e } from '../../../item/base/data/index.ts';
+import { ItemGrantDeleteAction } from '../../../item/base/data/system.ts';
+import { RuleElementOptions, RuleElementPF2e } from '../base.ts';
+import { ModelPropsFromRESchema, RuleElementSource } from '../data.ts';
+import { GrantItemSchema } from './schema.ts';
 declare class GrantItemRuleElement extends RuleElementPF2e<GrantItemSchema> {
     #private;
     static validActorTypes: ActorType[];

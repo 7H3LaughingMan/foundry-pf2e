@@ -1,25 +1,23 @@
-
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { AttributeString } from "types/pf2e/module/actor/types.ts";
-import type { ConsumablePF2e } from "types/pf2e/module/item/index.ts";
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import { ItemSourcePF2e, RawItemChatData } from "types/pf2e/module/item/base/data/index.ts";
-import { SpellSlotGroupId } from "types/pf2e/module/item/spellcasting-entry/collection.ts";
-import { BaseSpellcastingEntry } from "types/pf2e/module/item/spellcasting-entry/types.ts";
-import { RangeData } from "types/pf2e/module/item/types.ts";
-import { MeasuredTemplatePF2e } from "types/pf2e/module/canvas/index.ts";
-import { ChatMessagePF2e, ItemOriginFlag } from "types/pf2e/module/chat-message/index.ts";
-import { OneToTen, Rarity, ZeroToTwo } from "types/pf2e/module/data.ts";
-import type { UserPF2e } from "types/pf2e/module/user/index.ts";
-import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import { CheckRoll } from "types/pf2e/module/system/check/index.ts";
-import { DamageRoll } from "types/pf2e/module/system/damage/roll.ts";
-import { DamageDamageContext, DamageKind, SpellDamageTemplate } from "types/pf2e/module/system/damage/types.ts";
-import { StatisticRollParameters } from "types/pf2e/module/system/statistic/index.ts";
-import { EnrichmentOptionsPF2e } from "types/pf2e/module/system/text-editor.ts";
-import { SpellArea, SpellHeightenLayer, SpellOverlayType, SpellSource, SpellSystemData } from "./data.ts";
-import { SpellOverlayCollection } from "./overlay.ts";
-import { MagicTradition, SpellTrait } from "./types.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { AttributeString } from '../../actor/types.ts';
+import { ConsumablePF2e, ItemPF2e } from '../index.ts';
+import { ItemSourcePF2e, RawItemChatData } from '../base/data/index.ts';
+import { SpellSlotGroupId } from '../spellcasting-entry/collection.ts';
+import { BaseSpellcastingEntry } from '../spellcasting-entry/types.ts';
+import { RangeData } from '../types.ts';
+import { MeasuredTemplatePF2e } from '../../canvas/index.ts';
+import { ChatMessagePF2e, ItemOriginFlag } from '../../chat-message/index.ts';
+import { OneToTen, Rarity, ZeroToTwo } from '../../data.ts';
+import { UserPF2e } from '../../user/index.ts';
+import { TokenDocumentPF2e } from '../../scene/index.ts';
+import { CheckRoll } from '../../system/check/index.ts';
+import { DamageRoll } from '../../system/damage/roll.ts';
+import { DamageDamageContext, DamageKind, SpellDamageTemplate } from '../../system/damage/types.ts';
+import { StatisticRollParameters } from '../../system/statistic/index.ts';
+import { EnrichmentOptionsPF2e } from '../../system/text-editor.ts';
+import { SpellArea, SpellHeightenLayer, SpellOverlayType, SpellSource, SpellSystemData } from './data.ts';
+import { SpellOverlayCollection } from './overlay.ts';
+import { MagicTradition, SpellTrait } from './types.ts';
 declare class SpellPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     readonly parentItem: ConsumablePF2e<TParent> | null;
     /** The original spell. Only exists if this is a variant */

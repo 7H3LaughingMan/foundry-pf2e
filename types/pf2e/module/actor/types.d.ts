@@ -1,16 +1,16 @@
-import type * as ActorInstance from "types/pf2e/module/actor/index.ts";
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { EffectTrait } from "types/pf2e/module/item/abstract-effect/types.ts";
-import type { ItemInstances } from "types/pf2e/module/item/types.ts";
-import type { RollNotePF2e } from "types/pf2e/module/notes.ts";
-import type { ItemAlteration } from "types/pf2e/module/rules/rule-element/item-alteration/alteration.ts";
-import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import type { immunityTypes, resistanceTypes, weaknessTypes } from "types/pf2e/scripts/config/iwr.ts";
-import type { DamageRoll } from "types/pf2e/module/system/damage/roll.ts";
-import type { DegreeOfSuccessString } from "types/pf2e/module/system/degree-of-success.ts";
-import type { Predicate } from "types/pf2e/module/system/predication.ts";
-import type { ACTOR_TYPES, ATTRIBUTE_ABBREVIATIONS, CORE_SKILL_SLUGS, MOVEMENT_TYPES, SAVE_TYPES, UNAFFECTED_TYPES } from "./values.ts";
+import { ActorPF2e } from './index.ts';
+import { ItemPF2e } from '../item/index.ts';
+import { EffectTrait } from '../item/abstract-effect/types.ts';
+import { ItemInstances } from '../item/types.ts';
+import { RollNotePF2e } from '../notes.ts';
+import { ItemAlteration } from '../rules/rule-element/item-alteration/alteration.ts';
+import { TokenDocumentPF2e } from '../scene/index.ts';
+import { immunityTypes, resistanceTypes, weaknessTypes } from '../../scripts/config/iwr.ts';
+import { DamageRoll } from '../system/damage/roll.ts';
+import { DegreeOfSuccessString } from '../system/degree-of-success.ts';
+import { Predicate } from '../system/predication.ts';
+import { ACTOR_TYPES, ATTRIBUTE_ABBREVIATIONS, CORE_SKILL_SLUGS, MOVEMENT_TYPES, SAVE_TYPES, UNAFFECTED_TYPES } from './values.ts';
+import type * as ActorInstance from './index.d.ts';
 type ActorType = (typeof ACTOR_TYPES)[number];
 /** Used exclusively to resolve `ActorPF2e#isOfType` */
 interface ActorInstances<TParent extends TokenDocumentPF2e | null> {

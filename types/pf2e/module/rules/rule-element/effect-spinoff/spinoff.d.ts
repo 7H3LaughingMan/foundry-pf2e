@@ -1,8 +1,8 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { TraitViewData } from "types/pf2e/module/actor/data/base.ts";
-import { type PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { EffectSource } from "types/pf2e/module/item/effect/data.ts";
-import type { EffectSpinoffRuleElement } from "./rule-element.ts";
+import { ActorPF2e } from '../../../actor/index.ts';
+import { TraitViewData } from '../../../actor/data/base.ts';
+import { PhysicalItemPF2e } from '../../../item/index.ts';
+import { EffectSource } from '../../../item/effect/data.ts';
+import { EffectSpinoffRuleElement } from './rule-element.ts';
 declare class EffectSpinoff {
     item: PhysicalItemPF2e<ActorPF2e>;
     slug: string;

@@ -1,11 +1,11 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { AfflictionSource, AfflictionSystemData } from "types/pf2e/module/item/affliction/data.ts";
-import type { ConditionSource, ConditionSystemData } from "types/pf2e/module/item/condition/data.ts";
-import type { EffectSource, EffectSystemData } from "types/pf2e/module/item/effect/data.ts";
-import type { UserPF2e } from "types/pf2e/module/user/document.ts";
-import type { EffectBadge } from "./data.ts";
-import type { EffectTrait } from "./types.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { ItemPF2e } from '../index.ts';
+import { AfflictionSource, AfflictionSystemData } from '../affliction/data.ts';
+import { ConditionSource, ConditionSystemData } from '../condition/data.ts';
+import { EffectSource, EffectSystemData } from '../effect/data.ts';
+import { UserPF2e } from '../../user/document.ts';
+import { EffectBadge } from './data.ts';
+import { EffectTrait } from './types.ts';
 /** Base effect type for all PF2e effects including conditions and afflictions */
 declare abstract class AbstractEffectPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     /** A normalized version of the slug that shows in roll options, removing certain prefixes */

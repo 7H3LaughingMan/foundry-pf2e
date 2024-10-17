@@ -1,4 +1,4 @@
-import { ActorAttributes, ActorAttributesSource, ActorDetails, ActorSystemData, ActorSystemSource, BaseActorSourcePF2e } from "types/pf2e/module/actor/data/base.ts";
+import { ActorAttributes, ActorAttributesSource, ActorDetails, ActorSystemData, ActorSystemSource, BaseActorSourcePF2e } from '../data/base.ts';
 /** The stored source data of a loot actor */
 type LootSource = BaseActorSourcePF2e<"loot", LootSystemSource>;
 /** The system-level data of loot actors. */

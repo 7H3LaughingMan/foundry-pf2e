@@ -1,11 +1,11 @@
-import { IWRSource, Immunity, Resistance, Weakness } from "types/pf2e/module/actor/data/iwr.ts";
-import { IWRType } from "types/pf2e/module/actor/types.ts";
-import type { Predicate } from "types/pf2e/module/system/predication.ts";
-import { DataUnionField, PredicateField, StrictArrayField, StrictStringField } from "types/pf2e/module/system/schema-data-fields.ts";
-import type { ArrayField, BooleanField, SchemaField, StringField } from "types/foundry/common/data/fields.ts";
-import { AELikeChangeMode } from "../ae-like.ts";
-import { RuleElementPF2e } from "../base.ts";
-import { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource, RuleValue } from "../data.ts";
+import { IWRSource, Immunity, Resistance, Weakness } from '../../../actor/data/iwr.ts';
+import { IWRType } from '../../../actor/types.ts';
+import { Predicate } from '../../../system/predication.ts';
+import { DataUnionField, PredicateField, StrictArrayField, StrictStringField } from '../../../system/schema-data-fields.ts';
+import { ArrayField, BooleanField, SchemaField, StringField } from '../../../../../foundry/common/data/fields.ts';
+import { AELikeChangeMode } from '../ae-like.ts';
+import { RuleElementPF2e } from '../base.ts';
+import { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource, RuleValue } from '../data.ts';
 /** @category RuleElement */
 declare abstract class IWRRuleElement<TSchema extends IWRRuleSchema> extends RuleElementPF2e<TSchema> {
     #private;

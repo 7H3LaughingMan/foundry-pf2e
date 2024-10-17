@@ -1,7 +1,7 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { SkillSlug } from "types/pf2e/module/actor/types.ts";
-import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import type { EncounterPF2e } from "./index.ts";
+import { ActorPF2e } from '../actor/index.ts';
+import { SkillSlug } from '../actor/types.ts';
+import { TokenDocumentPF2e } from '../scene/index.ts';
+import { EncounterPF2e } from './index.ts';
 declare class CombatantPF2e<TParent extends EncounterPF2e | null = EncounterPF2e | null, TTokenDocument extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends Combatant<TParent, TTokenDocument> {
     #private;
     /** Has this document completed `DataModel` initialization? */

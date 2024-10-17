@@ -1,6 +1,6 @@
-import type { CharacterPF2e } from "../document.ts";
-import { CraftingAbility } from "./ability.ts";
-import { CraftingFormula } from "./formula.ts";
+import { CharacterPF2e } from '../document.ts';
+import { CraftingAbility } from './ability.ts';
+import { CraftingFormula } from './formula.ts';
 /** Caches and performs operations on elements related to crafting */
 declare class CharacterCrafting {
     #private;

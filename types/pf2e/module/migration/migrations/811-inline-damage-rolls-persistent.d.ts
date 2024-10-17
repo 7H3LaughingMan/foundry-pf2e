@@ -1,6 +1,6 @@
-import { ActorSourcePF2e } from "types/pf2e/module/actor/data/index.ts";
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import { MigrationBase } from "../base.ts";
+import { ActorSourcePF2e } from '../../actor/data/index.ts';
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { MigrationBase } from '../base.ts';
 /** Update persistent damage roll links to also be formatted to new standard */
 export declare class Migration811InlineDamageRollsPersistent extends MigrationBase {
     #private;

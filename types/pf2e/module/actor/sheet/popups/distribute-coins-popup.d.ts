@@ -1,4 +1,4 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
+import { ActorPF2e } from '../../index.ts';
 interface PopupData extends FormApplicationData<ActorPF2e> {
     selection?: string[];
     actorInfo?: {

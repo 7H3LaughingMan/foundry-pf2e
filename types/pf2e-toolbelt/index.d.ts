@@ -1,9 +1,10 @@
-import { ActorPF2e, LootPF2e } from "types/pf2e/module/actor/index.ts";
-import { ItemPF2e, PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
-import { CoinsPF2e } from "types/pf2e/module/item/physical/coins.ts";
-import { Coins } from "types/pf2e/module/item/physical/index.ts";
-import { EquipmentFilters } from "types/pf2e/module/apps/compendium-browser/tabs/data.ts";
-import { TokenPF2e } from "types/pf2e/module/canvas/index.ts";
+import { ActorPF2e } from "../pf2e/module/actor/base.js";
+import { LootPF2e } from "../pf2e/module/actor/index.js";
+import { EquipmentFilters } from "../pf2e/module/apps/compendium-browser/tabs/data.js";
+import { TokenPF2e } from "../pf2e/module/canvas/index.js";
+import { ItemPF2e, PhysicalItemPF2e } from "../pf2e/module/item/index.js";
+import { CoinsPF2e } from "../pf2e/module/item/physical/coins.js";
+import { Coins } from "../pf2e/module/item/physical/data.js";
 
 export {};
 
@@ -134,7 +135,7 @@ declare module "@module/chat-message/data.js" {
     }
 }
 
-declare module "@actor/data/base.js" {
+declare module "../pf2e/module/actor/data/base.js" {
     interface ActorFlagsPF2e {
         "pf2e-toolbelt"?: {
             betterMerchant?: {

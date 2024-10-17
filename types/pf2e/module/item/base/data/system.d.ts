@@ -1,9 +1,9 @@
-import type { MigrationRecord, OneToThree, PublicationData, Rarity } from "types/pf2e/module/data.ts";
-import type { RuleElementSource } from "types/pf2e/module/rules/index.ts";
-import type { Predicate } from "types/pf2e/module/system/predication.ts";
-import type * as fields from "types/foundry/common/data/fields.ts";
-import type { ItemTrait } from "../types.ts";
-import type { ItemType } from "./index.ts";
+import { MigrationRecord, OneToThree, PublicationData, Rarity } from '../../../data.ts';
+import { RuleElementSource } from '../../../rules/index.ts';
+import { Predicate } from '../../../system/predication.ts';
+import { ItemTrait } from '../types.ts';
+import { ItemType } from './index.ts';
+import type * as fields from '../../../../../foundry/common/data/fields.ts';
 type BaseItemSourcePF2e<TType extends ItemType, TSystemSource extends ItemSystemSource = ItemSystemSource> = foundry.documents.ItemSource<TType, TSystemSource> & {
     flags: ItemSourceFlagsPF2e;
 };

@@ -1,12 +1,11 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { ConsumablePF2e, SpellPF2e } from "types/pf2e/module/item/index.ts";
-import { SpellcastingEntryPF2e } from "types/pf2e/module/item/index.ts";
-import { SpellCollection } from "types/pf2e/module/item/spellcasting-entry/collection.ts";
-import { SpellcastingEntrySource } from "types/pf2e/module/item/spellcasting-entry/index.ts";
-import { RitualSpellcasting } from "types/pf2e/module/item/spellcasting-entry/rituals.ts";
-import { BaseSpellcastingEntry } from "types/pf2e/module/item/spellcasting-entry/types.ts";
-import { Statistic } from "types/pf2e/module/system/statistic/statistic.ts";
-import { DelegatedCollection } from "types/pf2e/util/index.ts";
+import { ActorPF2e } from './index.ts';
+import { ConsumablePF2e, SpellPF2e, SpellcastingEntryPF2e } from '../item/index.ts';
+import { SpellCollection } from '../item/spellcasting-entry/collection.ts';
+import { SpellcastingEntrySource } from '../item/spellcasting-entry/index.ts';
+import { RitualSpellcasting } from '../item/spellcasting-entry/rituals.ts';
+import { BaseSpellcastingEntry } from '../item/spellcasting-entry/types.ts';
+import { Statistic } from '../system/statistic/statistic.ts';
+import { DelegatedCollection } from '../../util/index.ts';
 export declare class ActorSpellcasting<TActor extends ActorPF2e> extends DelegatedCollection<BaseSpellcastingEntry<TActor>> {
     #private;
     readonly actor: TActor;

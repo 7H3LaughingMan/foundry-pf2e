@@ -1,10 +1,7 @@
-
-
-
-import type { EffectTrait } from "types/pf2e/module/item/abstract-effect/types.ts";
-import type { CharacterStrike } from "../data.ts";
-import type { CharacterPF2e } from "../document.ts";
-import { CharacterSheetPF2e, type CharacterSheetData } from "../sheet.ts";
+import { EffectTrait } from '../../../item/abstract-effect/types.ts';
+import { CharacterStrike } from '../data.ts';
+import { CharacterPF2e } from '../document.ts';
+import { CharacterSheetPF2e, CharacterSheetData } from '../sheet.ts';
 declare class AttackPopout<TActor extends CharacterPF2e> extends CharacterSheetPF2e<TActor> {
     #private;
     type: "strike" | "blast";

@@ -1,7 +1,7 @@
-import { ActionType, BaseItemSourcePF2e, Frequency, FrequencySource, ItemSystemData, ItemSystemSource, ItemTraitsNoRarity } from "types/pf2e/module/item/base/data/system.ts";
-import { OneToThree } from "types/pf2e/module/data.ts";
-import type { AbilityTraitToggles } from "./trait-toggles.ts";
-import { ActionCategory, ActionTrait } from "./types.ts";
+import { ActionType, BaseItemSourcePF2e, Frequency, FrequencySource, ItemSystemData, ItemSystemSource, ItemTraitsNoRarity } from '../base/data/system.ts';
+import { OneToThree } from '../../data.ts';
+import { AbilityTraitToggles } from './trait-toggles.ts';
+import { ActionCategory, ActionTrait } from './types.ts';
 type AbilitySource = BaseItemSourcePF2e<"action", AbilitySystemSource>;
 interface AbilitySystemSource extends ItemSystemSource {
     traits: AbilityTraitsSource;

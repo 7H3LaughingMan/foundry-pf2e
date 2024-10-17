@@ -1,8 +1,8 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { ZeroToTen } from "types/pf2e/module/data.ts";
-import { Statistic } from "types/pf2e/module/system/statistic/statistic.ts";
-import type { SpellSlotGroupId } from "./collection.ts";
-import type { SpellcastingEntry } from "./types.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { ZeroToTen } from '../../data.ts';
+import { Statistic } from '../../system/statistic/statistic.ts';
+import { SpellSlotGroupId } from './collection.ts';
+import { SpellcastingEntry } from './types.ts';
 /** Create a statistic that draws from limited domains for the purpose of counteracting. */
 declare function createCounteractStatistic<TActor extends ActorPF2e>(ability: SpellcastingEntry<TActor>): Statistic<TActor>;
 declare function spellSlotGroupIdToNumber(groupId: SpellSlotGroupId): ZeroToTen;

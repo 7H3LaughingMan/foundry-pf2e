@@ -1,8 +1,5 @@
-
-
-
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
+import { ActorPF2e } from '../actor/index.ts';
+import { ItemPF2e } from '../item/index.ts';
 /** Dialog used to view compendium data and migrate them. */
 declare class CompendiumMigrationStatus extends Application {
     compendium: CompendiumCollection<ActorPF2e<null> | ItemPF2e<null>>;

@@ -1,5 +1,5 @@
-import type { EquipmentTrait } from "types/pf2e/module/item/equipment/data.ts";
-import type { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "types/pf2e/module/item/physical/data.ts";
+import { EquipmentTrait } from '../equipment/data.ts';
+import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from '../physical/data.ts';
 type BookSource = BasePhysicalItemSource<"book", BookSystemSource>;
 type BookTraits = PhysicalItemTraits<EquipmentTrait>;
 interface BookSystemSource extends PhysicalSystemSource {

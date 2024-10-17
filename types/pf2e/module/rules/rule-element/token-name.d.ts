@@ -1,5 +1,5 @@
-import { RuleElementPF2e } from "./base.ts";
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
+import { RuleElementPF2e } from './base.ts';
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from './data.ts';
 /**
  * Change the name representing an actor's token
  * @category RuleElement

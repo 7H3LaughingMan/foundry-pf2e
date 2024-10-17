@@ -13,16 +13,13 @@
         "noEmit": true,
         "esModuleInterop": true,
         "allowImportingTsExtensions": true,
-        "baseUrl": ".",
-        "rootDir": ".",
         "types": [
             "jquery",
-            "node",
-            "tooltipster"
         ],
         "typeRoots": [
             "node_modules/@types",
-            "types/foundry"
+            "types/foundry",
+            "types/pf2e"
         ]
     }
 }

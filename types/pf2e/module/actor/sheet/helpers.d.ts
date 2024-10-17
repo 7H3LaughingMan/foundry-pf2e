@@ -1,6 +1,6 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { Sense } from "types/pf2e/module/actor/creature/sense.ts";
-import { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
+import { ActorPF2e } from '../index.ts';
+import { Sense } from '../creature/sense.ts';
+import { PhysicalItemPF2e } from '../../item/index.ts';
 declare function onClickCreateSpell(actor: ActorPF2e, data: Record<string, string | undefined>): void;
 /** Create a price label like "L / 10" when appropriate. */
 declare function createBulkPerLabel(item: PhysicalItemPF2e): string;

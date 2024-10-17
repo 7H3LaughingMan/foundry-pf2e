@@ -1,5 +1,5 @@
-import { ZeroToTwo } from "types/pf2e/module/data.ts";
-import { RegionBehaviorPF2e } from "./document.ts";
+import { ZeroToTwo } from '../../data.ts';
+import { RegionBehaviorPF2e } from './document.ts';
 import fields = foundry.data.fields;
 declare class EnvironmentFeatureBehaviorType extends foundry.data.regionBehaviors.RegionBehaviorType<EnvironmentFeatureTypeSchema, RegionBehaviorPF2e | null> {
     static defineSchema(): EnvironmentFeatureTypeSchema;

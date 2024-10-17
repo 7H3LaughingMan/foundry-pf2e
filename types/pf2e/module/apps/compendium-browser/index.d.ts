@@ -1,13 +1,10 @@
-
-
-
-import { ActionCategory, ActionTrait } from "types/pf2e/module/item/ability/index.ts";
-import { ActionType } from "types/pf2e/module/item/base/data/index.ts";
-import { BaseSpellcastingEntry } from "types/pf2e/module/item/spellcasting-entry/index.ts";
-import type { UserPF2e } from "types/pf2e/module/user/document.ts";
-import { BrowserTabs, PackInfo, SourceInfo, TabData, TabName } from "./data.ts";
-import { PackLoader } from "./loader.ts";
-import { ActionFilters, BestiaryFilters, EquipmentFilters, FeatFilters, HazardFilters, SpellFilters } from "./tabs/data.ts";
+import { ActionCategory, ActionTrait } from '../../item/ability/index.ts';
+import { ActionType } from '../../item/base/data/index.ts';
+import { BaseSpellcastingEntry } from '../../item/spellcasting-entry/index.ts';
+import { UserPF2e } from '../../user/document.ts';
+import { BrowserTabs, PackInfo, SourceInfo, TabData, TabName } from './data.ts';
+import { PackLoader } from './loader.ts';
+import { ActionFilters, BestiaryFilters, EquipmentFilters, FeatFilters, HazardFilters, SpellFilters } from './tabs/data.ts';
 declare class CompendiumBrowser extends Application {
     #private;
     settings: CompendiumBrowserSettings;

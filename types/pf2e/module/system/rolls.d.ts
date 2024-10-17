@@ -1,13 +1,12 @@
-
-import type { ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
-import type { RollOrigin, RollTarget } from "types/pf2e/module/actor/roll-context/types.ts";
-import type { ActionTrait } from "types/pf2e/module/item/ability/types.ts";
-import type { TokenPF2e } from "types/pf2e/module/canvas/index.ts";
-import type { CheckContextChatFlag } from "types/pf2e/module/chat-message/index.ts";
-import type { ZeroToTwo } from "types/pf2e/module/data.ts";
-import type { RollNotePF2e, RollNoteSource } from "types/pf2e/module/notes.ts";
-import type { RollTwiceOption } from "./check/index.ts";
-import type { CheckDC, DEGREE_OF_SUCCESS_STRINGS } from "./degree-of-success.ts";
+import { ModifierPF2e } from '../actor/modifiers.ts';
+import { RollOrigin, RollTarget } from '../actor/roll-context/types.ts';
+import { ActionTrait } from '../item/ability/types.ts';
+import { TokenPF2e } from '../canvas/index.ts';
+import { CheckContextChatFlag } from '../chat-message/index.ts';
+import { ZeroToTwo } from '../data.ts';
+import { RollNotePF2e, RollNoteSource } from '../notes.ts';
+import { RollTwiceOption } from './check/index.ts';
+import { CheckDC, DEGREE_OF_SUCCESS_STRINGS } from './degree-of-success.ts';
 interface RollDataPF2e extends RollOptions {
     rollerId?: string;
     totalModifier?: number;

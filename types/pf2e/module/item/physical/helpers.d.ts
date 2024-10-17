@@ -1,9 +1,9 @@
-import type { ContainerPF2e, PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
-import { PhysicalItemSource } from "types/pf2e/module/item/base/data/index.ts";
-import { ContainerBulkData } from "types/pf2e/module/item/container/data.ts";
-import { Rarity } from "types/pf2e/module/data.ts";
-import { CoinsPF2e } from "./coins.ts";
-import { BulkData } from "./data.ts";
+import { ContainerPF2e, PhysicalItemPF2e } from '../index.ts';
+import { PhysicalItemSource } from '../base/data/index.ts';
+import { ContainerBulkData } from '../container/data.ts';
+import { Rarity } from '../../data.ts';
+import { CoinsPF2e } from './coins.ts';
+import { BulkData } from './data.ts';
 declare function computeLevelRarityPrice(item: PhysicalItemPF2e): {
     level: number;
     rarity: Rarity;
@@ -23,5 +23,5 @@ declare function prepareBulkData<TItem extends PhysicalItemPF2e>(item: TItem): T
  * quantity of aan existing stack.
  */
 declare function detachSubitem(subitem: PhysicalItemPF2e, skipConfirm: boolean): Promise<void>;
-export { coinCompendiumIds } from "./coins.ts";
+export { coinCompendiumIds } from './coins.ts';
 export { CoinsPF2e, computeLevelRarityPrice, detachSubitem, generateItemName, handleHPChange, prepareBulkData };

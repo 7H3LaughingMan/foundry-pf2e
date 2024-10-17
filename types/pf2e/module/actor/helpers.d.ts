@@ -1,10 +1,10 @@
-import { type ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { ItemPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "types/pf2e/module/item/index.ts";
-import { ZeroToFour } from "types/pf2e/module/data.ts";
-import { ActorSourcePF2e } from "./data/index.ts";
-import { ModifierPF2e } from "./modifiers.ts";
-import { NPCStrike } from "./npc/data.ts";
-import { AuraEffectData } from "./types.ts";
+import { ActorPF2e } from './index.ts';
+import { ItemPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from '../item/index.ts';
+import { ZeroToFour } from '../data.ts';
+import { ActorSourcePF2e } from './data/index.ts';
+import { ModifierPF2e } from './modifiers.ts';
+import { NPCStrike } from './npc/data.ts';
+import { AuraEffectData } from './types.ts';
 /**
  * Reset and rerender a provided list of actors. Omit argument to reset all world and synthetic actors
  * @param [actors] A list of actors to refresh: if none are provided, all world and synthetic actors are retrieved

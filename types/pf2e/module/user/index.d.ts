@@ -1,1 +1,1 @@
-export { UserPF2e } from "./document.ts";
+export { UserPF2e } from './document.ts';

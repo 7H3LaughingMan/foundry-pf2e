@@ -1,14 +1,14 @@
-import type { AbilityItemPF2e } from "types/pf2e/module/item/index.ts";
-import { EffectTrait } from "types/pf2e/module/item/abstract-effect/types.ts";
-import { RangeData } from "types/pf2e/module/item/types.ts";
-import { WeaponTrait } from "types/pf2e/module/item/weapon/types.ts";
-import { CheckRoll } from "types/pf2e/module/system/check/index.ts";
-import { DamageRoll } from "types/pf2e/module/system/damage/roll.ts";
-import { DamageType } from "types/pf2e/module/system/damage/types.ts";
-import { AttackRollParams, DamageRollParams } from "types/pf2e/module/system/rolls.ts";
-import { Statistic } from "types/pf2e/module/system/statistic/index.ts";
-import type { ArrayField, FilePathField, NumberField, SchemaField, StringField } from "types/foundry/common/data/fields.ts";
-import type { CharacterPF2e } from "./document.ts";
+import { AbilityItemPF2e } from '../../item/index.ts';
+import { EffectTrait } from '../../item/abstract-effect/types.ts';
+import { RangeData } from '../../item/types.ts';
+import { WeaponTrait } from '../../item/weapon/types.ts';
+import { CheckRoll } from '../../system/check/index.ts';
+import { DamageRoll } from '../../system/damage/roll.ts';
+import { DamageType } from '../../system/damage/types.ts';
+import { AttackRollParams, DamageRollParams } from '../../system/rolls.ts';
+import { Statistic } from '../../system/statistic/index.ts';
+import { ArrayField, FilePathField, NumberField, SchemaField, StringField } from '../../../../foundry/common/data/fields.ts';
+import { CharacterPF2e } from './document.ts';
 declare class ElementalBlast {
     #private;
     actor: CharacterPF2e;

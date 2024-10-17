@@ -1,8 +1,5 @@
-
-
-
-import { GenericIdentifyDCs, IdentifyAlchemyDCs, IdentifyMagicDCs } from "types/pf2e/module/item/identification.ts";
-import type { PhysicalItemPF2e } from "types/pf2e/module/item/physical/index.ts";
+import { GenericIdentifyDCs, IdentifyAlchemyDCs, IdentifyMagicDCs } from '../../../item/identification.ts';
+import { PhysicalItemPF2e } from '../../../item/physical/index.ts';
 export declare class IdentifyItemPopup extends FormApplication<PhysicalItemPF2e> {
     static get defaultOptions(): FormApplicationOptions;
     dcs: IdentifyMagicDCs | IdentifyAlchemyDCs | GenericIdentifyDCs;

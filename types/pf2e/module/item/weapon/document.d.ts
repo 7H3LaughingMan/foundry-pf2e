@@ -1,16 +1,15 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { AttributeString } from "types/pf2e/module/actor/types.ts";
-import type { ConsumablePF2e, MeleePF2e, ShieldPF2e } from "types/pf2e/module/item/index.ts";
-import { PhysicalItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { ItemSourcePF2e, RawItemChatData } from "types/pf2e/module/item/base/data/index.ts";
-import type { NPCAttackTrait } from "types/pf2e/module/item/melee/types.ts";
-import type { PhysicalItemConstructionContext } from "types/pf2e/module/item/physical/document.ts";
-import { IdentificationStatus, MystifiedData } from "types/pf2e/module/item/physical/index.ts";
-import type { RangeData } from "types/pf2e/module/item/types.ts";
-import type { StrikeRuleElement } from "types/pf2e/module/rules/rule-element/strike.ts";
-import type { UserPF2e } from "types/pf2e/module/user/document.ts";
-import type { WeaponDamage, WeaponFlags, WeaponSource, WeaponSystemData } from "./data.ts";
-import type { BaseWeaponType, OtherWeaponTag, WeaponCategory, WeaponGroup, WeaponReloadTime, WeaponTrait } from "./types.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { AttributeString } from '../../actor/types.ts';
+import { ConsumablePF2e, MeleePF2e, ShieldPF2e, PhysicalItemPF2e } from '../index.ts';
+import { ItemSourcePF2e, RawItemChatData } from '../base/data/index.ts';
+import { NPCAttackTrait } from '../melee/types.ts';
+import { PhysicalItemConstructionContext } from '../physical/document.ts';
+import { IdentificationStatus, MystifiedData } from '../physical/index.ts';
+import { RangeData } from '../types.ts';
+import { StrikeRuleElement } from '../../rules/rule-element/strike.ts';
+import { UserPF2e } from '../../user/document.ts';
+import { WeaponDamage, WeaponFlags, WeaponSource, WeaponSystemData } from './data.ts';
+import { BaseWeaponType, OtherWeaponTag, WeaponCategory, WeaponGroup, WeaponReloadTime, WeaponTrait } from './types.ts';
 declare class WeaponPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {
     shield?: ShieldPF2e<TParent>;
     /** The rule element that generated this weapon, if applicable */

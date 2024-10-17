@@ -1,13 +1,13 @@
-import type { ActorType } from "types/pf2e/module/actor/types.ts";
-import { PredicateField } from "types/pf2e/module/system/schema-data-fields.ts";
-import type { StringField } from "types/foundry/common/data/fields.ts";
-import { AELikeChangeMode } from "./ae-like.ts";
-import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+import { ActorType } from '../../actor/types.ts';
+import { PredicateField } from '../../system/schema-data-fields.ts';
+import { StringField } from '../../../../foundry/common/data/fields.ts';
+import { AELikeChangeMode } from './ae-like.ts';
+import { RuleElementOptions, RuleElementPF2e } from './base.ts';
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from './data.ts';
 declare class AdjustStrikeRuleElement extends RuleElementPF2e<AdjustStrikeSchema> {
     protected static validActorTypes: ActorType[];
     constructor(data: AdjustStrikeSource, options: RuleElementOptions);
-    static VALID_PROPERTIES: Set<"traits" | "materials" | "range-increment" | "property-runes" | "weapon-traits">;
+    static VALID_PROPERTIES: Set<"traits" | "materials" | "range-increment" | "weapon-traits" | "property-runes">;
     static defineSchema(): AdjustStrikeSchema;
     /** Instead of applying the change directly to a property path, defer it to a synthetic */
     beforePrepareData(): void;

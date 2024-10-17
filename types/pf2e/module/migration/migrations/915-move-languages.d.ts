@@ -1,6 +1,6 @@
-import { ActorSourcePF2e } from "types/pf2e/module/actor/data/index.ts";
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import { Migration914MovePerceptionSenses } from "./914-move-perception-senses.ts";
+import { ActorSourcePF2e } from '../../actor/data/index.ts';
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { Migration914MovePerceptionSenses } from './914-move-perception-senses.ts';
 /** Move languages from traits to details. */
 export declare class Migration915MoveLanguages extends Migration914MovePerceptionSenses {
     #private;

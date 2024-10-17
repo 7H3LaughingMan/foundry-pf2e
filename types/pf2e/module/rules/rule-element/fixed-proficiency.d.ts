@@ -1,8 +1,8 @@
-import type { ActorType, CharacterPF2e } from "types/pf2e/module/actor/index.ts";
-import { AttributeString } from "types/pf2e/module/actor/types.ts";
-import type { StringField } from "types/foundry/common/data/fields.ts";
-import { RuleElementPF2e } from "./base.ts";
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
+import { ActorType, CharacterPF2e } from '../../actor/index.ts';
+import { AttributeString } from '../../actor/types.ts';
+import { StringField } from '../../../../foundry/common/data/fields.ts';
+import { RuleElementPF2e } from './base.ts';
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from './data.ts';
 /**
  * @category RuleElement
  */

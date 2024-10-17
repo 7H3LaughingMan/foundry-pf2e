@@ -1,8 +1,5 @@
-
-
-
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "types/pf2e/module/item/base/sheet/sheet.ts";
-import type { CampaignFeaturePF2e } from "./document.ts";
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from '../base/sheet/sheet.ts';
+import { CampaignFeaturePF2e } from './document.ts';
 declare class CampaignFeatureSheetPF2e extends ItemSheetPF2e<CampaignFeaturePF2e> {
     static get defaultOptions(): ItemSheetOptions;
     get validTraits(): Record<string, string>;

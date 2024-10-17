@@ -1,5 +1,5 @@
-import type { BasePhysicalItemSource, EquippedData, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "types/pf2e/module/item/physical/data.ts";
-import type { CarriedUsage } from "types/pf2e/module/item/physical/usage.ts";
+import { BasePhysicalItemSource, EquippedData, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from '../physical/data.ts';
+import { CarriedUsage } from '../physical/usage.ts';
 type TreasureSource = BasePhysicalItemSource<"treasure", TreasureSystemSource>;
 interface TreasureSystemSource extends PhysicalSystemSource {
     traits: PhysicalItemTraits<never>;

@@ -1,8 +1,8 @@
-import type { AttributeString } from "types/pf2e/module/actor/types.ts";
-import type { ItemSystemData, ItemSystemSource, ItemTraitsNoRarity } from "types/pf2e/module/item/base/data/system.ts";
-import type { MagicTradition } from "types/pf2e/module/item/spell/index.ts";
-import type { CheckRoll } from "types/pf2e/module/system/check/index.ts";
-import type { EffectTrait } from "./types.ts";
+import { AttributeString } from '../../actor/types.ts';
+import { ItemSystemData, ItemSystemSource, ItemTraitsNoRarity } from '../base/data/system.ts';
+import { MagicTradition } from '../spell/index.ts';
+import { CheckRoll } from '../../system/check/index.ts';
+import { EffectTrait } from './types.ts';
 interface AbstractEffectSystemSource extends ItemSystemSource {
     traits: EffectTraits;
     /** Whether this effect originated from a spell */

@@ -1,11 +1,11 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { FeatGroup } from "types/pf2e/module/actor/character/feats.ts";
-import { ItemPF2e, type HeritagePF2e } from "types/pf2e/module/item/index.ts";
-import { ActionCost, Frequency, RawItemChatData } from "types/pf2e/module/item/base/data/index.ts";
-import { Rarity } from "types/pf2e/module/data.ts";
-import type { UserPF2e } from "types/pf2e/module/user/index.ts";
-import { FeatSource, FeatSystemData } from "./data.ts";
-import { FeatOrFeatureCategory, FeatTrait } from "./types.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { FeatGroup } from '../../actor/character/feats.ts';
+import { ItemPF2e, HeritagePF2e } from '../index.ts';
+import { ActionCost, Frequency, RawItemChatData } from '../base/data/index.ts';
+import { Rarity } from '../../data.ts';
+import { UserPF2e } from '../../user/index.ts';
+import { FeatSource, FeatSystemData } from './data.ts';
+import { FeatOrFeatureCategory, FeatTrait } from './types.ts';
 declare class FeatPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     group: FeatGroup | null;
     grants: (FeatPF2e<ActorPF2e> | HeritagePF2e<ActorPF2e>)[];

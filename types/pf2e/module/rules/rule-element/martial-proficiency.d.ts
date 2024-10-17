@@ -1,10 +1,10 @@
-import type { ActorType, CharacterPF2e } from "types/pf2e/module/actor/index.ts";
-import { ArmorCategory } from "types/pf2e/module/item/armor/types.ts";
-import { ProficiencyRank } from "types/pf2e/module/item/base/data/index.ts";
-import { WeaponCategory } from "types/pf2e/module/item/weapon/types.ts";
-import { PredicateField, StrictStringField } from "types/pf2e/module/system/schema-data-fields.ts";
-import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+import { ActorType, CharacterPF2e } from '../../actor/index.ts';
+import { ArmorCategory } from '../../item/armor/types.ts';
+import { ProficiencyRank } from '../../item/base/data/index.ts';
+import { WeaponCategory } from '../../item/weapon/types.ts';
+import { PredicateField, StrictStringField } from '../../system/schema-data-fields.ts';
+import { RuleElementOptions, RuleElementPF2e } from './base.ts';
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from './data.ts';
 declare class MartialProficiencyRuleElement extends RuleElementPF2e<MartialProficiencySchema> {
     protected static validActorTypes: ActorType[];
     slug: string;

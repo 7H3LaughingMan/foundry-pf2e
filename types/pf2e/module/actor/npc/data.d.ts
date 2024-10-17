@@ -1,12 +1,12 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/base.ts";
-import type { Abilities, BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureDetailsSource, CreatureHitPointsSource, CreatureInitiativeSource, CreatureLanguagesData, CreaturePerceptionData, CreatureResources, CreatureResourcesSource, CreatureSpeeds, CreatureSystemData, CreatureSystemSource, CreatureTraitsSource, HeldShieldData, LabeledSpeed, SaveData, SenseData } from "types/pf2e/module/actor/creature/data.ts";
-import type { ActorAttributesSource, ActorFlagsPF2e, AttributeBasedTraceData, HitPointsStatistic, StrikeData } from "types/pf2e/module/actor/data/base.ts";
-import { InitiativeTraceData } from "types/pf2e/module/actor/initiative.ts";
-import type { ModifierPF2e, StatisticModifier } from "types/pf2e/module/actor/modifiers.ts";
-import type { ActorAlliance, SaveType, SkillSlug } from "types/pf2e/module/actor/types.ts";
-import type { MeleePF2e } from "types/pf2e/module/item/index.ts";
-import type { PublicationData } from "types/pf2e/module/data.ts";
-import type { RawPredicate } from "types/pf2e/module/system/predication.ts";
+import { ActorPF2e } from '../base.ts';
+import { Abilities, BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureDetailsSource, CreatureHitPointsSource, CreatureInitiativeSource, CreatureLanguagesData, CreaturePerceptionData, CreatureResources, CreatureResourcesSource, CreatureSpeeds, CreatureSystemData, CreatureSystemSource, CreatureTraitsSource, HeldShieldData, LabeledSpeed, SaveData, SenseData } from '../creature/data.ts';
+import { ActorAttributesSource, ActorFlagsPF2e, AttributeBasedTraceData, HitPointsStatistic, StrikeData } from '../data/base.ts';
+import { InitiativeTraceData } from '../initiative.ts';
+import { ModifierPF2e, StatisticModifier } from '../modifiers.ts';
+import { ActorAlliance, SaveType, SkillSlug } from '../types.ts';
+import { MeleePF2e } from '../../item/index.ts';
+import { PublicationData } from '../../data.ts';
+import { RawPredicate } from '../../system/predication.ts';
 type NPCSource = BaseCreatureSource<"npc", NPCSystemSource> & {
     flags: DeepPartial<NPCFlags>;
 };

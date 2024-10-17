@@ -1,9 +1,6 @@
-
-
-
-import type { ActorPF2e } from "types/pf2e/module/actor/base.ts";
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { RawItemChatData } from "types/pf2e/module/item/base/data/index.ts";
+import { ActorPF2e } from '../base.ts';
+import { ItemPF2e } from '../../item/index.ts';
+import { RawItemChatData } from '../../item/base/data/index.ts';
 /**
  * Implementation used to populate item summaries, toggle visibility
  * of item summaries, and save expanded/collapsed state of item summaries.

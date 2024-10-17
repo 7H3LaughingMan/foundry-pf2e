@@ -1,32 +1,30 @@
-import { ActorAlliance, ActorDimensions, ActorInstances, ApplyDamageParams, AuraData, EmbeddedItemInstances, SaveType } from "types/pf2e/module/actor/types.ts";
-import type { AbstractEffectPF2e, ConditionPF2e, ContainerPF2e, PhysicalItemPF2e, ShieldPF2e } from "types/pf2e/module/item/index.ts";
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { ItemSourcePF2e, ItemType, PhysicalItemSource } from "types/pf2e/module/item/base/data/index.ts";
-import type { ConditionKey, ConditionSlug, ConditionSource } from "types/pf2e/module/item/condition/index.ts";
-import type { EffectSource } from "types/pf2e/module/item/effect/data.ts";
-import { ActiveEffectPF2e } from "types/pf2e/module/active-effect.ts";
-import type { TokenPF2e } from "types/pf2e/module/canvas/index.ts";
-import type { AppliedDamageFlag } from "types/pf2e/module/chat-message/index.ts";
-import type { Size } from "types/pf2e/module/data.ts";
-import { CombatantPF2e, EncounterPF2e } from "types/pf2e/module/encounter/index.ts";
-import type { RuleElementSynthetics } from "types/pf2e/module/rules/index.ts";
-import type { RuleElementPF2e } from "types/pf2e/module/rules/rule-element/base.ts";
-import type { UserPF2e } from "types/pf2e/module/user/document.ts";
-import type { ScenePF2e } from "types/pf2e/module/scene/document.ts";
-import { TokenDocumentPF2e } from "types/pf2e/module/scene/token-document/document.ts";
-import type { DamageType } from "types/pf2e/module/system/damage/types.ts";
-import type { ArmorStatistic, PerceptionStatistic, Statistic, StatisticDifficultyClass } from "types/pf2e/module/system/statistic/index.ts";
-import { EnrichmentOptionsPF2e } from "types/pf2e/module/system/text-editor.ts";
-import { ActorConditions } from "./conditions.ts";
-import { Abilities, VisionLevel } from "./creature/data.ts";
-import { GetReachParameters, ModeOfBeing } from "./creature/types.ts";
-import { ActorFlagsPF2e, ActorSystemData, PrototypeTokenPF2e, RollOptionFlags } from "./data/base.ts";
-import type { ActorSourcePF2e } from "./data/index.ts";
-import type { ActorInitiative } from "./initiative.ts";
-import { ActorInventory } from "./inventory/index.ts";
-import type { ActorSheetPF2e } from "./sheet/base.ts";
-import type { ActorSpellcasting } from "./spellcasting.ts";
-import type { ActorType } from "./types.ts";
+import { ActorAlliance, ActorDimensions, ActorInstances, ApplyDamageParams, AuraData, EmbeddedItemInstances, SaveType, ActorType } from './types.ts';
+import { AbstractEffectPF2e, ConditionPF2e, ContainerPF2e, PhysicalItemPF2e, ShieldPF2e, ItemPF2e } from '../item/index.ts';
+import { ItemSourcePF2e, ItemType, PhysicalItemSource } from '../item/base/data/index.ts';
+import { ConditionKey, ConditionSlug, ConditionSource } from '../item/condition/index.ts';
+import { EffectSource } from '../item/effect/data.ts';
+import { ActiveEffectPF2e } from '../active-effect.ts';
+import { TokenPF2e } from '../canvas/index.ts';
+import { AppliedDamageFlag } from '../chat-message/index.ts';
+import { Size } from '../data.ts';
+import { CombatantPF2e, EncounterPF2e } from '../encounter/index.ts';
+import { RuleElementSynthetics } from '../rules/index.ts';
+import { RuleElementPF2e } from '../rules/rule-element/base.ts';
+import { UserPF2e } from '../user/document.ts';
+import { ScenePF2e } from '../scene/document.ts';
+import { TokenDocumentPF2e } from '../scene/token-document/document.ts';
+import { DamageType } from '../system/damage/types.ts';
+import { ArmorStatistic, PerceptionStatistic, Statistic, StatisticDifficultyClass } from '../system/statistic/index.ts';
+import { EnrichmentOptionsPF2e } from '../system/text-editor.ts';
+import { ActorConditions } from './conditions.ts';
+import { Abilities, VisionLevel } from './creature/data.ts';
+import { GetReachParameters, ModeOfBeing } from './creature/types.ts';
+import { ActorFlagsPF2e, ActorSystemData, PrototypeTokenPF2e, RollOptionFlags } from './data/base.ts';
+import { ActorSourcePF2e } from './data/index.ts';
+import { ActorInitiative } from './initiative.ts';
+import { ActorInventory } from './inventory/index.ts';
+import { ActorSheetPF2e } from './sheet/base.ts';
+import { ActorSpellcasting } from './spellcasting.ts';
 /**
  * Extend the base Actor class to implement additional logic specialized for PF2e.
  * @category Actor
@@ -113,6 +111,7 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     get alliance(): ActorAlliance;
     get combatant(): CombatantPF2e<EncounterPF2e> | null;
     /** Add effect icons from effect items and rule elements */
+    // @ts-ignore
     get temporaryEffects(): ActiveEffect<this>[];
     /** A means of checking this actor's type without risk of circular import references */
     isOfType<T extends "creature" | ActorType>(...types: T[]): this is ActorInstances<TParent>[T];

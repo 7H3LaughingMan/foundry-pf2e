@@ -1,10 +1,10 @@
-import type { ActorPF2e, CharacterPF2e } from "types/pf2e/module/actor/index.ts";
-import { AttackTraitHelpers } from "types/pf2e/module/actor/creature/helpers.ts";
-import { ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
-import type { AbilityItemPF2e, ArmorPF2e, WeaponPF2e } from "types/pf2e/module/item/index.ts";
-import { ItemCarryType } from "types/pf2e/module/item/physical/index.ts";
-import { ZeroToThree, ZeroToTwo } from "types/pf2e/module/data.ts";
-import { SheetOptions } from "types/pf2e/module/sheet/helpers.ts";
+import { ActorPF2e, CharacterPF2e } from '../index.ts';
+import { AttackTraitHelpers } from '../creature/helpers.ts';
+import { ModifierPF2e } from '../modifiers.ts';
+import { AbilityItemPF2e, ArmorPF2e, WeaponPF2e } from '../../item/index.ts';
+import { ItemCarryType } from '../../item/physical/index.ts';
+import { ZeroToThree, ZeroToTwo } from '../../data.ts';
+import { SheetOptions } from '../../sheet/helpers.ts';
 /** Handle weapon traits that introduce modifiers or add other weapon traits */
 declare class PCAttackTraitHelpers extends AttackTraitHelpers {
     static adjustWeapon(weapon: WeaponPF2e): void;

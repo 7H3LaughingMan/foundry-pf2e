@@ -1,9 +1,9 @@
-import { ActorAttributes, ActorAttributesSource, ActorDetailsSource, ActorHitPoints, ActorSystemData, ActorSystemSource, ActorTraitsSource, BaseActorSourcePF2e } from "types/pf2e/module/actor/data/base.ts";
-import { ImmunitySource } from "types/pf2e/module/actor/data/iwr.ts";
-import type { ActorSizePF2e } from "types/pf2e/module/actor/data/size.ts";
-import { PublicationData, Rarity, Size } from "types/pf2e/module/data.ts";
-import type { ArmorClassTraceData, StatisticTraceData } from "types/pf2e/module/system/statistic/index.ts";
-import { VehicleTrait } from "./types.ts";
+import { ActorAttributes, ActorAttributesSource, ActorDetailsSource, ActorHitPoints, ActorSystemData, ActorSystemSource, ActorTraitsSource, BaseActorSourcePF2e } from '../data/base.ts';
+import { ImmunitySource } from '../data/iwr.ts';
+import { ActorSizePF2e } from '../data/size.ts';
+import { PublicationData, Rarity, Size } from '../../data.ts';
+import { ArmorClassTraceData, StatisticTraceData } from '../../system/statistic/index.ts';
+import { VehicleTrait } from './types.ts';
 /** The stored source data of a vehicle actor */
 type VehicleSource = BaseActorSourcePF2e<"vehicle", VehicleSystemSource>;
 interface VehicleSystemSource extends ActorSystemSource {

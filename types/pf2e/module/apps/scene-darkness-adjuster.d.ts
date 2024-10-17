@@ -1,8 +1,4 @@
-
-
-
-import { ScenePF2e } from "types/pf2e/module/scene/index.ts";
-import "nouislider/dist/nouislider.min.css";
+import { ScenePF2e } from '../scene/index.ts';
 export declare class SceneDarknessAdjuster extends Application {
     #private;
     static readonly instance: SceneDarknessAdjuster;

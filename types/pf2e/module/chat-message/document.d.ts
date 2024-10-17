@@ -1,12 +1,9 @@
-
-
-
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { StrikeData } from "types/pf2e/module/actor/data/base.ts";
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { UserPF2e } from "types/pf2e/module/user/index.ts";
-import type { ScenePF2e, TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import { ChatMessageFlagsPF2e, ChatMessageSourcePF2e } from "./data.ts";
+import { ActorPF2e } from '../actor/index.ts';
+import { StrikeData } from '../actor/data/base.ts';
+import { ItemPF2e } from '../item/index.ts';
+import { UserPF2e } from '../user/index.ts';
+import { ScenePF2e, TokenDocumentPF2e } from '../scene/index.ts';
+import { ChatMessageFlagsPF2e, ChatMessageSourcePF2e } from './data.ts';
 declare class ChatMessagePF2e extends ChatMessage {
     #private;
     /** Set some flags/flag scopes early. */

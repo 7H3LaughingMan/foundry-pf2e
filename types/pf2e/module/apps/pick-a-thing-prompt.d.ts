@@ -1,10 +1,7 @@
-
-
-
-import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { UserPF2e } from "types/pf2e/module/user/document.ts";
-import { Predicate } from "types/pf2e/module/system/predication.ts";
-import Tagify from "@yaireo/tagify";
+import { ItemPF2e } from '../item/index.ts';
+import { UserPF2e } from '../user/document.ts';
+import { Predicate } from '../system/predication.ts';
+import { default as Tagify } from '@yaireo/tagify';
 /** Prompt the user to pick from a number of options */
 declare abstract class PickAThingPrompt<TItem extends ItemPF2e, TThing extends string | number | object> extends Application {
     #private;

@@ -1,14 +1,14 @@
-import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { DamageDicePF2e, DeferredDamageDiceOptions, DeferredValueParams, ModifierAdjustment, ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import { ConditionSource, EffectSource } from "types/pf2e/module/item/base/data/index.ts";
-import { RollNotePF2e } from "types/pf2e/module/notes.ts";
-import { BaseDamageData } from "types/pf2e/module/system/damage/index.ts";
-import { DegreeOfSuccessAdjustment } from "types/pf2e/module/system/degree-of-success.ts";
-import { RollTwiceOption } from "types/pf2e/module/system/rolls.ts";
-import { DamageAlteration } from "./rule-element/damage-alteration/alteration.ts";
-import { BracketedValue, RuleElementPF2e } from "./rule-element/index.ts";
-import { DamageDiceSynthetics, RollSubstitution, RollTwiceSynthetic, RuleElementSynthetics } from "./synthetics.ts";
+import { ActorPF2e } from '../actor/index.ts';
+import { DamageDicePF2e, DeferredDamageDiceOptions, DeferredValueParams, ModifierAdjustment, ModifierPF2e } from '../actor/modifiers.ts';
+import { ItemPF2e } from '../item/index.ts';
+import { ConditionSource, EffectSource } from '../item/base/data/index.ts';
+import { RollNotePF2e } from '../notes.ts';
+import { BaseDamageData } from '../system/damage/index.ts';
+import { DegreeOfSuccessAdjustment } from '../system/degree-of-success.ts';
+import { RollTwiceOption } from '../system/rolls.ts';
+import { DamageAlteration } from './rule-element/damage-alteration/alteration.ts';
+import { BracketedValue, RuleElementPF2e } from './rule-element/index.ts';
+import { DamageDiceSynthetics, RollSubstitution, RollTwiceSynthetic, RuleElementSynthetics } from './synthetics.ts';
 /** Extracts a list of all cloned modifiers across all given keys in a single list. */
 declare function extractModifiers(synthetics: RuleElementSynthetics, domains: string[], options?: DeferredValueParams): ModifierPF2e[];
 declare function extractModifierAdjustments(adjustmentsRecord: RuleElementSynthetics["modifierAdjustments"], selectors: string[], slug: string): ModifierAdjustment[];

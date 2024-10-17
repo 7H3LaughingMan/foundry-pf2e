@@ -1,9 +1,6 @@
-
-
-
-import { RawModifier, StatisticModifier } from "types/pf2e/module/actor/modifiers.ts";
-import { RollSubstitution } from "types/pf2e/module/rules/synthetics.ts";
-import { CheckCheckContext } from "./types.ts";
+import { RawModifier, StatisticModifier } from '../../actor/modifiers.ts';
+import { RollSubstitution } from '../../rules/synthetics.ts';
+import { CheckCheckContext } from './types.ts';
 /**
  * Dialog for excluding certain modifiers before rolling a check.
  * @category Other

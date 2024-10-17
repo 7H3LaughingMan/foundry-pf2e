@@ -1,6 +1,6 @@
-import type { PhysicalItemSource } from "types/pf2e/module/item/base/data/index.ts";
-import type { BasePhysicalItemSource, Investable, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "types/pf2e/module/item/physical/data.ts";
-import type { EquipmentTrait } from "./types.ts";
+import { PhysicalItemSource } from '../base/data/index.ts';
+import { BasePhysicalItemSource, Investable, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from '../physical/data.ts';
+import { EquipmentTrait } from './types.ts';
 type EquipmentSource = BasePhysicalItemSource<"equipment", EquipmentSystemSource>;
 interface EquipmentSystemSource extends Investable<PhysicalSystemSource> {
     traits: EquipmentTraits;

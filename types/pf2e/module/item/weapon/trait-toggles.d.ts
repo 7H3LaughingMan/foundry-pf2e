@@ -1,6 +1,6 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { WeaponPF2e } from "types/pf2e/module/item/index.ts";
-import type { DamageType } from "types/pf2e/module/system/damage/types.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { WeaponPF2e } from '../index.ts';
+import { DamageType } from '../../system/damage/types.ts';
 /** A helper class to handle toggleable weapon traits */
 declare class WeaponTraitToggles {
     #private;

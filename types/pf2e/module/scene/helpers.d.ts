@@ -1,7 +1,7 @@
-import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import type { CreaturePF2e } from "types/pf2e/module/actor/creature/document.ts";
-import { PrototypeTokenPF2e } from "types/pf2e/module/actor/data/base.ts";
-import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
+import { ActorPF2e } from '../actor/index.ts';
+import { CreaturePF2e } from '../actor/creature/document.ts';
+import { PrototypeTokenPF2e } from '../actor/data/base.ts';
+import { TokenDocumentPF2e } from './index.ts';
 /** Check for auras containing newly-placed or moved tokens */
 declare const checkAuras: () => void;
 /** Assigns detection modes and sight settings for either a token or prototype token assuming RBV is enabled. */

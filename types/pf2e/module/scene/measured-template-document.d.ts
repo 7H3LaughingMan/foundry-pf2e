@@ -1,10 +1,10 @@
-import { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { EffectAreaShape } from "types/pf2e/module/item/spell/types.ts";
-import type { MeasuredTemplatePF2e } from "types/pf2e/module/canvas/measured-template.ts";
-import { ItemOriginFlag } from "types/pf2e/module/chat-message/data.ts";
-import type { ChatMessagePF2e } from "types/pf2e/module/chat-message/document.ts";
-import type { ScenePF2e } from "./document.ts";
+import { ActorPF2e } from '../actor/index.ts';
+import { ItemPF2e } from '../item/index.ts';
+import { EffectAreaShape } from '../item/spell/types.ts';
+import { MeasuredTemplatePF2e } from '../canvas/measured-template.ts';
+import { ItemOriginFlag } from '../chat-message/data.ts';
+import { ChatMessagePF2e } from '../chat-message/document.ts';
+import { ScenePF2e } from './document.ts';
 declare class MeasuredTemplateDocumentPF2e<TParent extends ScenePF2e | null = ScenePF2e | null> extends MeasuredTemplateDocument<TParent> {
     get actor(): ActorPF2e | null;
     get item(): ItemPF2e<ActorPF2e> | null;

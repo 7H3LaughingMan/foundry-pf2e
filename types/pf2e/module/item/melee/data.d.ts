@@ -1,11 +1,11 @@
-import type { MeleePF2e } from "types/pf2e/module/item/index.ts";
-import { ItemSystemModel, ItemSystemSchema } from "types/pf2e/module/item/base/data/schema.ts";
-import type { BaseItemSourcePF2e, ItemFlagsPF2e, ItemSystemSource, ItemTraitsNoRarity } from "types/pf2e/module/item/base/data/system.ts";
-import type { WeaponMaterialData } from "types/pf2e/module/item/weapon/data.ts";
-import type { WeaponPropertyRuneType } from "types/pf2e/module/item/weapon/types.ts";
-import type { DamageCategoryUnique, DamageType } from "types/pf2e/module/system/damage/types.ts";
-import { RecordField, SlugField } from "types/pf2e/module/system/schema-data-fields.ts";
-import type { NPCAttackTrait } from "./types.ts";
+import { MeleePF2e } from '../index.ts';
+import { ItemSystemModel, ItemSystemSchema } from '../base/data/schema.ts';
+import { BaseItemSourcePF2e, ItemFlagsPF2e, ItemSystemSource, ItemTraitsNoRarity } from '../base/data/system.ts';
+import { WeaponMaterialData } from '../weapon/data.ts';
+import { WeaponPropertyRuneType } from '../weapon/types.ts';
+import { DamageCategoryUnique, DamageType } from '../../system/damage/types.ts';
+import { RecordField, SlugField } from '../../system/schema-data-fields.ts';
+import { NPCAttackTrait } from './types.ts';
 import fields = foundry.data.fields;
 type MeleeSource = BaseItemSourcePF2e<"melee", MeleeSystemSource> & {
     flags: DeepPartial<MeleeFlags>;

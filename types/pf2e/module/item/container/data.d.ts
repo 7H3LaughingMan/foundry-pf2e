@@ -1,5 +1,5 @@
-import { EquipmentTrait } from "types/pf2e/module/item/equipment/data.ts";
-import { BasePhysicalItemSource, BulkData, Investable, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "types/pf2e/module/item/physical/data.ts";
+import { EquipmentTrait } from '../equipment/data.ts';
+import { BasePhysicalItemSource, BulkData, Investable, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from '../physical/data.ts';
 type ContainerSource = BasePhysicalItemSource<"backpack", ContainerSystemSource>;
 type ContainerTraits = PhysicalItemTraits<EquipmentTrait>;
 interface ContainerSystemSource extends Investable<PhysicalSystemSource> {

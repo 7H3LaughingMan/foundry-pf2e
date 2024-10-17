@@ -1,11 +1,11 @@
-import type { CreatureTrait, SenseAcuity, SenseType } from "types/pf2e/module/actor/creature/index.ts";
-import type { AttributeString, MovementType, SkillSlug } from "types/pf2e/module/actor/types.ts";
-import type { WeaponDamage } from "types/pf2e/module/item/weapon/data.ts";
-import type { BaseWeaponType, WeaponCategory, WeaponGroup, WeaponTrait } from "types/pf2e/module/item/weapon/types.ts";
-import type { Size } from "types/pf2e/module/data.ts";
-import type { RawPredicate } from "types/pf2e/module/system/predication.ts";
-import type { RuleElementSource } from "../index.ts";
-import type { ImmunityRuleElement, ResistanceRuleElement, WeaknessRuleElement } from "../iwr/index.ts";
+import { CreatureTrait, SenseAcuity, SenseType } from '../../../actor/creature/index.ts';
+import { AttributeString, MovementType, SkillSlug } from '../../../actor/types.ts';
+import { WeaponDamage } from '../../../item/weapon/data.ts';
+import { BaseWeaponType, WeaponCategory, WeaponGroup, WeaponTrait } from '../../../item/weapon/types.ts';
+import { Size } from '../../../data.ts';
+import { RawPredicate } from '../../../system/predication.ts';
+import { RuleElementSource } from '../index.ts';
+import { ImmunityRuleElement, ResistanceRuleElement, WeaknessRuleElement } from '../iwr/index.ts';
 interface BattleFormSource extends RuleElementSource {
     overrides?: BattleFormOverrides;
     canCast?: boolean;

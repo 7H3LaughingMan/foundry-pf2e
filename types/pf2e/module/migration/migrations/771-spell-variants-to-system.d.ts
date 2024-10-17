@@ -1,5 +1,5 @@
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import { MigrationBase } from "../base.ts";
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { MigrationBase } from '../base.ts';
 /** Convert embedded spell variant `data` properties to use `system` */
 export declare class Migration771SpellVariantsToSystem extends MigrationBase {
     static version: number;

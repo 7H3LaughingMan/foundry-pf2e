@@ -1,4 +1,4 @@
-import { Size } from "types/pf2e/module/data.ts";
+import { Size } from '../../data.ts';
 interface StackDefinition {
     size: number;
     lightBulk: number;

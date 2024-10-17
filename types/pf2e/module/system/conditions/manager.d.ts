@@ -1,8 +1,8 @@
-import type { ActorPF2e } from "types/pf2e/module/actor/index.ts";
-import { ConditionPF2e } from "types/pf2e/module/item/index.ts";
-import { ConditionSource } from "types/pf2e/module/item/condition/data.ts";
-import { ConditionSlug } from "types/pf2e/module/item/condition/types.ts";
-import type { TokenPF2e } from "types/pf2e/module/canvas/index.ts";
+import { ActorPF2e } from '../../actor/index.ts';
+import { ConditionPF2e } from '../../item/index.ts';
+import { ConditionSource } from '../../item/condition/data.ts';
+import { ConditionSlug } from '../../item/condition/types.ts';
+import { TokenPF2e } from '../../canvas/index.ts';
 /** A helper class to manage PF2e Conditions */
 export declare class ConditionManager {
     #private;

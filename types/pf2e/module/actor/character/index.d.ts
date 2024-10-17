@@ -1,1 +1,1 @@
-export { CharacterPF2e } from "./document.ts";
+export { CharacterPF2e } from './document.ts';

@@ -1,6 +1,6 @@
-import type { ItemPF2e } from "types/pf2e/module/item/index.ts";
-import type { AuraRuleElement, AuraRuleElementSchema } from "types/pf2e/module/rules/rule-element/aura.ts";
-import { RuleElementForm, RuleElementFormSheetData, RuleElementFormTabData } from "./base.ts";
+import { ItemPF2e } from '../../../index.ts';
+import { AuraRuleElement, AuraRuleElementSchema } from '../../../../rules/rule-element/aura.ts';
+import { RuleElementForm, RuleElementFormSheetData, RuleElementFormTabData } from './base.ts';
 declare class AuraForm extends RuleElementForm<AuraRuleElementSource, AuraRuleElement> {
     #private;
     template: string;

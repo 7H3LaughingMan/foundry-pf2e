@@ -1,8 +1,8 @@
-import { Resistance } from "types/pf2e/module/actor/data/iwr.ts";
-import { ResistanceType } from "types/pf2e/module/actor/types.ts";
-import type { StrictArrayField } from "types/pf2e/module/system/schema-data-fields.ts";
-import { ModelPropsFromRESchema, ResolvableValueField, RuleValue } from "../data.ts";
-import { IWRException, IWRExceptionField, IWRRuleElement, IWRRuleSchema } from "./base.ts";
+import { Resistance } from '../../../actor/data/iwr.ts';
+import { ResistanceType } from '../../../actor/types.ts';
+import { StrictArrayField } from '../../../system/schema-data-fields.ts';
+import { ModelPropsFromRESchema, ResolvableValueField, RuleValue } from '../data.ts';
+import { IWRException, IWRExceptionField, IWRRuleElement, IWRRuleSchema } from './base.ts';
 /** @category RuleElement */
 declare class ResistanceRuleElement extends IWRRuleElement<ResistanceRuleSchema> {
     static defineSchema(): ResistanceRuleSchema;

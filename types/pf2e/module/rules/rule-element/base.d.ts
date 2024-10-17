@@ -1,12 +1,12 @@
-import type { ActorPF2e, ActorType } from "types/pf2e/module/actor/index.ts";
-import type { CheckModifier, DamageDicePF2e, ModifierPF2e } from "types/pf2e/module/actor/modifiers.ts";
-import { ItemPF2e, type WeaponPF2e } from "types/pf2e/module/item/index.ts";
-import { ItemSourcePF2e } from "types/pf2e/module/item/base/data/index.ts";
-import type { TokenDocumentPF2e } from "types/pf2e/module/scene/index.ts";
-import { CheckCheckContext, CheckRoll } from "types/pf2e/module/system/check/index.ts";
-import { LaxSchemaField } from "types/pf2e/module/system/schema-data-fields.ts";
-import type { DataModelValidationOptions } from "types/foundry/common/abstract/data.ts";
-import { BracketedValue, RuleElementSchema, RuleElementSource, RuleValue } from "./data.ts";
+import { ActorPF2e, ActorType } from '../../actor/index.ts';
+import { CheckModifier, DamageDicePF2e, ModifierPF2e } from '../../actor/modifiers.ts';
+import { ItemPF2e, WeaponPF2e } from '../../item/index.ts';
+import { ItemSourcePF2e } from '../../item/base/data/index.ts';
+import { TokenDocumentPF2e } from '../../scene/index.ts';
+import { CheckCheckContext, CheckRoll } from '../../system/check/index.ts';
+import { LaxSchemaField } from '../../system/schema-data-fields.ts';
+import { DataModelValidationOptions } from '../../../../foundry/common/abstract/data.ts';
+import { BracketedValue, RuleElementSchema, RuleElementSource, RuleValue } from './data.ts';
 /**
  * Rule Elements allow you to modify actorData and tokenData values when present on items. They can be configured
  * in the item's Rules tab which has to be enabled using the "Advanced Rule Element UI" system setting.

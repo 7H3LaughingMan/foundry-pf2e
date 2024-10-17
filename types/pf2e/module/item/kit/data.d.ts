@@ -1,9 +1,9 @@
-import type { KitPF2e } from "types/pf2e/module/item/index.ts";
-import { ItemSystemModel, ItemSystemSchema } from "types/pf2e/module/item/base/data/schema.ts";
-import type { BaseItemSourcePF2e, ItemSystemSource } from "types/pf2e/module/item/base/data/system.ts";
-import type { ClassTrait } from "types/pf2e/module/item/class/types.ts";
-import { PriceField } from "types/pf2e/module/item/physical/schema.ts";
-import { NullField, RecordField, SlugField } from "types/pf2e/module/system/schema-data-fields.ts";
+import { KitPF2e } from '../index.ts';
+import { ItemSystemModel, ItemSystemSchema } from '../base/data/schema.ts';
+import { BaseItemSourcePF2e, ItemSystemSource } from '../base/data/system.ts';
+import { ClassTrait } from '../class/types.ts';
+import { PriceField } from '../physical/schema.ts';
+import { NullField, RecordField, SlugField } from '../../system/schema-data-fields.ts';
 import fields = foundry.data.fields;
 declare class KitEntriesField extends RecordField<fields.StringField<string, string, true, false, false>, fields.SchemaField<KitEntryValueSchema>, true, false, true, true> {
     /**
