@@ -1,6 +1,6 @@
-import { ActorPF2e } from "../pf2e/module/actor/base.js";
+import { ActorPF2e } from "../pf2e/module/actor/index.js";
 import { RawModifier } from "../pf2e/module/actor/modifiers.js";
-import { ChatMessagePF2e } from "../pf2e/module/chat-message/document.js";
+import { ChatMessagePF2e } from "../pf2e/module/chat-message/index.js";
 import { ItemPF2e } from "../pf2e/module/item/index.js";
 import { TokenDocumentPF2e } from "../pf2e/module/scene/index.js";
 
@@ -8,16 +8,26 @@ export {};
 
 declare global {
     namespace pf2eModifiersMatter {
-        export type Degree = "CRIT_SUCC" | "SUCCESS" | "FAILURE" | "CRIT_FAIL";
+        interface HookParameters {
+            rollingActor: ActorPF2e;
+            actorWithDc?: ActorPF2e;
+            targetedToken?: TokenDocumentPF2e;
+            significantModifiers: SignificantModifier[];
+            chatMessage: ChatMessagePF2e;
+        }
 
-        export type SignificantModifier = {
+        type HighlightPotentialsSetting = "disabled" | "1_status" | "2_status" | "2_circumstance_ac";
+
+        type Degree = "CRIT_SUCC" | "SUCCESS" | "FAILURE" | "CRIT_FAIL";
+
+        type SignificantModifier = {
             appliedTo: "roll" | "dc";
             name: string;
             value: number;
             significance: "ESSENTIAL" | "HELPFUL" | "HARMFUL" | "DETRIMENTAL";
         };
 
-        export type InsignificantModifier = {
+        type InsignificantModifier = {
             appliedTo: "roll" | "dc";
             name: string;
             value: number;
@@ -135,104 +145,56 @@ declare global {
     }
 
     interface ClientSettings {
+        /** Always Show Highlights To Everyone */
         get(module: "pf2e-modifiers-matter", setting: "always-show-highlights-to-everyone"): boolean;
-        get(module: "pf2e-modifiers-matter", setting: "additional-ignored-labels"): string;
-        get(module: "pf2e-modifiers-matter", setting: "always-show-defense-conditions"): boolean;
-        get(module: "pf2e-modifiers-matter", setting: "ignore-crit-fail-over-fail-on-attacks"): boolean;
-        get(
-            module: "pf2e-modifiers-matter",
-            setting: "highlight-potentials-preset"
-        ): "disabled" | "1_status" | "2_status" | "2_circumstance_ac";
-
+        /** Always Show Highlights To Everyone */
         set(
             module: "pf2e-modifiers-matter",
             setting: "always-show-highlights-to-everyone",
             value: boolean
         ): Promise<boolean>;
+
+        /** Additional Ignored Labels */
+        get(module: "pf2e-modifiers-matter", setting: "additional-ignored-labels"): string;
+        /** Additional Ignored Labels */
         set(module: "pf2e-modifiers-matter", setting: "additional-ignored-labels", value: string): Promise<string>;
+
+        /** Always Show Defense Conditions */
+        get(module: "pf2e-modifiers-matter", setting: "always-show-defense-conditions"): boolean;
+        /** Always Show Defense Conditions */
         set(
             module: "pf2e-modifiers-matter",
             setting: "always-show-defense-conditions",
             value: boolean
         ): Promise<boolean>;
+
+        /** Ignore Crit Fail Over Fail On Attacks */
+        get(module: "pf2e-modifiers-matter", setting: "ignore-crit-fail-over-fail-on-attacks"): boolean;
+        /** Ignore Crit Fail Over Fail On Attacks */
         set(
             module: "pf2e-modifiers-matter",
             setting: "ignore-crit-fail-over-fail-on-attacks",
             value: boolean
         ): Promise<boolean>;
+
+        /** Highlight Potentials */
+        get(
+            module: "pf2e-modifiers-matter",
+            setting: "highlight-potentials-preset"
+        ): pf2eModifiersMatter.HighlightPotentialsSetting;
+        /** Highlight Potentials */
         set(
             module: "pf2e-modifiers-matter",
             setting: "highlight-potentials-preset",
-            value: "disabled" | "1_status" | "2_status" | "2_circumstance_ac"
-        ): Promise<"disabled" | "1_status" | "2_status" | "2_circumstance_ac">;
+            value: pf2eModifiersMatter.HighlightPotentialsSetting
+        ): Promise<pf2eModifiersMatter.HighlightPotentialsSetting>;
     }
 
-    /*namespace Hooks {
-        function on(
-            ...args: HookParameters<
-                "modifiersMatter",
-                [
-                    {
-                        rollingActor: ActorPF2e;
-                        actorWithDc?: ActorPF2e;
-                        targetedToken?: TokenDocumentPF2e;
-                        significantModifiers: pf2eModifiersMatter.SignificantModifier[];
-                        chatMessage: ChatMessagePF2e;
-                    }
-                ]
-            >
-        ): number;
+    namespace Hooks {
+        function on(...args: HookParameters<"modifiersMatter", [pf2eModifiersMatter.HookParameters]>): number;
 
-        function callAll(
-            hook: "modifiersMatter",
-            {
-                rollingActor,
-                actorWithDc,
-                targetedToken,
-                significantModifiers,
-                chatMessage,
-            }: {
-                rollingActor: ActorPF2e;
-                actorWithDc?: ActorPF2e;
-                targetedToken?: TokenDocumentPF2e;
-                significantModifiers: pf2eModifiersMatter.SignificantModifier[];
-                chatMessage: ChatMessagePF2e;
-            }
-        ): boolean;
+        function callAll(hook: "modifiersMatter", arg: pf2eModifiersMatter.HookParameters): boolean;
 
-        function call(
-            hook: "modifiersMatter",
-            {
-                rollingActor,
-                actorWithDc,
-                targetedToken,
-                significantModifiers,
-                chatMessage,
-            }: {
-                rollingActor: ActorPF2e;
-                actorWithDc?: ActorPF2e;
-                targetedToken?: TokenDocumentPF2e;
-                significantModifiers: pf2eModifiersMatter.SignificantModifier[];
-                chatMessage: ChatMessagePF2e;
-            }
-        ): boolean;
-
-        namespace pf2eModifiersMatter {
-            export type Degree = "CRIT_SUCC" | "SUCCESS" | "FAILURE" | "CRIT_FAIL";
-
-            export type SignificantModifier = {
-                appliedTo: "roll" | "dc";
-                name: string;
-                value: number;
-                significance: "ESSENTIAL" | "HELPFUL" | "HARMFUL" | "DETRIMENTAL";
-            };
-
-            export type InsignificantModifier = {
-                appliedTo: "roll" | "dc";
-                name: string;
-                value: number;
-                significance: "NONE";
-            };
-        }
-    }*/
+        function call(hook: "modifiersMatter", arg: pf2eModifiersMatter.HookParameters): boolean;
+    }
 }
