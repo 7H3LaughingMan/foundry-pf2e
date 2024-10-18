@@ -163,7 +163,7 @@ declare global {
          * @param hook  The unique name of the hooked event
          * @param fn    The function that should be removed from the set of hooked callbacks
          */
-        function off(hook: string, fn: Function): void;
+        function off(hook: string, fn: number | Function): void;
 
         /**
          * Call all hook listeners in the order in which they were registered
