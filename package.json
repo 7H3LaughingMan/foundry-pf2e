@@ -25,15 +25,15 @@
         "peggy": "^4.1.1",
         "prosemirror-commands": "^1.5.2",
         "prosemirror-view": "^1.33.6",
-        "socket.io": "4.7.5",
-        "socket.io-client": "4.7.5",
-        "tinymce": "6.8.4",
         "typescript": "^5.3.3"
     },
     "dependencies": {
-        "@types/jquery": "^3.5.31",
         "@pixi/graphics-smooth": "^1.1.0",
         "@pixi/particle-emitter": "5.0.8",
-        "pixi.js": "^7.4.2"
+        "@types/jquery": "^3.5.31",
+        "pixi.js": "^7.4.2",
+        "socket.io-client": "^4.5.1",
+        "socket.io": "^4.5.1",
+        "tinymce": "^6.1.2"
     }
 }
