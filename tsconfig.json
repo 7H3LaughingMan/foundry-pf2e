@@ -13,9 +13,6 @@
         "noEmit": true,
         "esModuleInterop": true,
         "allowImportingTsExtensions": true,
-        "types": [
-            "jquery",
-        ],
         "typeRoots": [
             "node_modules/@types",
             "types/foundry",
