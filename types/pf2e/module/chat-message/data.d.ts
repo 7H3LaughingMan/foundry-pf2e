@@ -21,7 +21,7 @@ export interface ItemOriginFlag {
     };
     rollOptions?: string[];
 }
-type ChatMessageFlagsPF2e = ChatMessageFlags & {
+interface ChatMessageFlagsPF2e extends ChatMessageFlags {
     pf2e: {
         damageRoll?: DamageRollFlag;
         context?: ChatContextFlag;
