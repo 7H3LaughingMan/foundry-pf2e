@@ -36,7 +36,7 @@ declare global {
 
         register(name: string, func: Function): void;
         executeAsGM(handler: string | Function, ...args: any[]): Promise<unknown>;
-        executeAsUser(hander: string | Function, userId: string, ...args: any[]): Promise<unknown>;
+        executeAsUser(handler: string | Function, userId: string, ...args: any[]): Promise<unknown>;
         executeForAllGMs(handler: string | Function, ...args: any[]): Promise<unknown>;
         executeForOtherGMs(handler: string | Function, ...args: any[]): Promise<unknown>;
         executeForEveryone(handler: string | Function, ...args: any[]): Promise<unknown>;
