@@ -106,7 +106,7 @@ declare global {
         function on(...args: HookParamsUpdate<Scene, "Scene">): number;
         function on(...args: HookParamsUpdateWorldTime): number;
         function on(...args: HookParamsGetProseMirrorMenuDropDowns): number;
-        function on(...args: HookParameters<string, unknown[]>): number;
+        function on(...args: HookParameters<string, any[]>): number;
 
         /**
          * Register a callback handler for an event which is only triggered once the first time the event occurs.
@@ -153,7 +153,7 @@ declare global {
         function once(...args: HookParamsUpdate<Scene, "Scene">): number;
         function once(...args: HookParamsUpdateWorldTime): number;
         function once(...args: HookParamsI18nInit): number;
-        function once(...args: HookParameters<string, unknown[]>): number;
+        function once(...args: HookParameters<string, any[]>): number;
 
         /**
          * Unregister a callback handler for a particular hook event
@@ -171,7 +171,7 @@ declare global {
          * @param hook  The hook being triggered
          * @param args  Arguments passed to the hook callback functions
          */
-        function callAll(hook: string, ...args: unknown[]): boolean;
+        function callAll(hook: string, ...args: any[]): boolean;
 
         /**
          * Call hook listeners in the order in which they were registered.
@@ -183,7 +183,7 @@ declare global {
          * @param hook  The hook being triggered
          * @param args  Arguments passed to the hook callback functions
          */
-        function call(hook: string, ...args: unknown[]): boolean;
+        function call(hook: string, ...args: any[]): boolean;
     }
 
     interface DropCanvasData<T extends string = string, D extends object = object> {
