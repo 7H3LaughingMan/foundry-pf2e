@@ -11,7 +11,7 @@ import { DamageRoll } from '../system/damage/roll.ts';
 import { DegreeOfSuccessString } from '../system/degree-of-success.ts';
 import { Predicate } from '../system/predication.ts';
 import { ACTOR_TYPES, ATTRIBUTE_ABBREVIATIONS, CORE_SKILL_SLUGS, MOVEMENT_TYPES, SAVE_TYPES, UNAFFECTED_TYPES } from './values.ts';
-import type * as ActorInstance from "@actor";
+import type * as ActorInstance from './index.ts';
 type ActorType = (typeof ACTOR_TYPES)[number];
 /** Used exclusively to resolve `ActorPF2e#isOfType` */
 interface ActorInstances<TParent extends TokenDocumentPF2e | null> {
