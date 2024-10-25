@@ -1,5 +1,5 @@
 import { ActorPF2e } from '../actor/index.ts';
-import { AfflictionPF2e, ConditionPF2e, EffectPF2e } from '../item/index.ts';
+import { AbstractEffectPF2e } from '../item/index.ts';
 export declare class EffectsPanel extends Application {
     #private;
     private get token();
@@ -10,22 +10,22 @@ export declare class EffectsPanel extends Application {
      */
     refresh: (force?: boolean | undefined, options?: RenderOptions | undefined) => void;
     static get defaultOptions(): ApplicationOptions;
-    getData(options?: ApplicationOptions): Promise<EffectsPanelData>;
+    getData(options?: ApplicationOptions): Promise<EffectsPanelViewData>;
     activateListeners($html: JQuery): void;
+    render(force?: boolean, options?: RenderOptions): this;
 }
-interface EffectsDescriptionData {
-    afflictions: string[];
-    conditions: string[];
-    effects: string[];
-}
-interface EffectsPanelData {
-    afflictions: AfflictionPF2e[];
-    conditions: ConditionPF2e[];
-    descriptions: EffectsDescriptionData;
-    effects: EffectPF2e[];
+interface EffectsPanelViewData {
+    afflictions: EffectViewData[];
+    conditions: EffectViewData[];
+    effects: EffectViewData[];
     actor: ActorPF2e | null;
     user: {
         isGM: boolean;
     };
+}
+interface EffectViewData {
+    effect: AbstractEffectPF2e;
+    description: string;
+    remaining: string | null;
 }
 export {};

@@ -107,7 +107,6 @@ declare global {
         function on(...args: HookParamsUpdateWorldTime): number;
         function on(...args: HookParamsGetProseMirrorMenuDropDowns): number;
         function on(...args: HookParameters<string, unknown[]>): number;
-        function on(...args: HookParameters<string, any[]>): number;
 
         /**
          * Register a callback handler for an event which is only triggered once the first time the event occurs.
@@ -155,7 +154,6 @@ declare global {
         function once(...args: HookParamsUpdateWorldTime): number;
         function once(...args: HookParamsI18nInit): number;
         function once(...args: HookParameters<string, unknown[]>): number;
-        function once(...args: HookParameters<string, any[]>): number;
 
         /**
          * Unregister a callback handler for a particular hook event
@@ -163,14 +161,15 @@ declare global {
          * @param hook  The unique name of the hooked event
          * @param fn    The function that should be removed from the set of hooked callbacks
          */
-        function off(hook: string, fn: number | Function): void;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        function off(hook: string, fn: (...args: any[]) => boolean | void | Promise<boolean | void>): void;
 
         /**
          * Call all hook listeners in the order in which they were registered
          * Hooks called this way can not be handled by returning false and will always trigger every hook callback.
          *
          * @param hook  The hook being triggered
-         * @param args  Arguments passed to the hook callback statics
+         * @param args  Arguments passed to the hook callback functions
          */
         function callAll(hook: string, ...args: unknown[]): boolean;
 
@@ -182,7 +181,7 @@ declare global {
          * hooks should be called.
          *
          * @param hook  The hook being triggered
-         * @param args  Arguments passed to the hook callback statics
+         * @param args  Arguments passed to the hook callback functions
          */
         function call(hook: string, ...args: unknown[]): boolean;
     }

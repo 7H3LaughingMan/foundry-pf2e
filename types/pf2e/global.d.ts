@@ -2,7 +2,7 @@ import { ActorPF2e } from './module/actor/index.ts';
 import { Action } from './module/actor/actions/index.ts';
 import { AutomaticBonusProgression } from './module/actor/character/automatic-bonus-progression.ts';
 import { ElementalBlast } from './module/actor/character/elemental-blast.ts';
-import { FeatGroupOptions } from './module/actor/character/feats.ts';
+import { FeatGroupData } from './module/actor/character/feats/index.ts';
 import { CheckModifier, ModifierPF2e, ModifierType, StatisticModifier } from './module/actor/modifiers.ts';
 import { ItemPF2e, PhysicalItemPF2e } from './module/item/index.ts';
 import { ConditionSource } from './module/item/condition/data.ts';
@@ -36,7 +36,7 @@ import { Predicate } from './module/system/predication.ts';
 import { CustomDamageData, HomebrewTag, HomebrewTraitSettingsKey, LanguageSettings } from './module/system/settings/homebrew/index.ts';
 import { TextEditorPF2e } from './module/system/text-editor.ts';
 import { sluggify } from './util/index.ts';
-//import { default as EnJSON } from 'static/lang/en.json';
+
 interface GamePF2e extends Game<ActorPF2e<null>, ActorsPF2e<ActorPF2e<null>>, ChatMessagePF2e, EncounterPF2e, ItemPF2e<null>, MacroPF2e, ScenePF2e, UserPF2e> {
     pf2e: {
         actions: Record<string, Function> & Collection<Action>;
@@ -91,7 +91,7 @@ interface GamePF2e extends Game<ActorPF2e<null>, ActorsPF2e<ActorPF2e<null>>, Ch
             campaign: {
                 feats: {
                     enabled: boolean;
-                    sections: FeatGroupOptions[];
+                    sections: FeatGroupData[];
                 };
                 languages: LanguageSettings;
             };
@@ -211,7 +211,7 @@ declare global {
         get(module: "pf2e", setting: "worldClock.timeConvention"): 24 | 12;
         get(module: "pf2e", setting: "worldClock.worldCreatedOn"): string;
         get(module: "pf2e", setting: "campaignFeats"): boolean;
-        get(module: "pf2e", setting: "campaignFeatSections"): FeatGroupOptions[];
+        get(module: "pf2e", setting: "campaignFeatSections"): FeatGroupData[];
         get(module: "pf2e", setting: "campaignType"): string;
         get(module: "pf2e", setting: "activeParty"): string;
         get(module: "pf2e", setting: "activePartyFolderState"): boolean;
@@ -254,7 +254,7 @@ declare global {
     }
     const BUILD_MODE: "development" | "production";
     const CONDITION_SOURCES: ConditionSource[];
-    //const EN_JSON: typeof EnJSON;
+    const EN_JSON: typeof EnJSON;
     const ROLL_PARSER: string;
     const UUID_REDIRECTS: Record<CompendiumUUID, CompendiumUUID>;
 }

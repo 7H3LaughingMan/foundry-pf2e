@@ -1,4 +1,4 @@
-import { StringField } from '../../../../foundry/common/data/fields.ts';
+import { StringField } from 'foundry/common/data/fields.ts';
 import { RuleElementPF2e } from './base.ts';
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from './data.ts';
 /**

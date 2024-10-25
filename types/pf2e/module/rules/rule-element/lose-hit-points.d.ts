@@ -1,6 +1,6 @@
 import { ActorType, CreaturePF2e } from '../../actor/index.ts';
 import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { BooleanField } from '../../../../foundry/common/data/fields.ts';
+import { BooleanField } from 'foundry/common/data/fields.ts';
 import { RuleElementPF2e } from './base.ts';
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from './data.ts';
 /** Reduce current hit points without applying damage */

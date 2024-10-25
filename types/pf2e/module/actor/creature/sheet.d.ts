@@ -47,5 +47,11 @@ interface CreatureSheetData<TActor extends CreaturePF2e> extends ActorSheetDataP
         remainingDying: number;
         remainingWounded: number;
     };
+    specialResources: {
+        slug: string;
+        label: string;
+        value: number;
+        max: number;
+    }[];
 }
 export { CreatureSheetPF2e, type CreatureSheetData };

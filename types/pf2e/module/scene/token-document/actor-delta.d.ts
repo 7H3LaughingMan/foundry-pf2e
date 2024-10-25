@@ -1,5 +1,5 @@
 import { ActorSystemSource } from '../../actor/data/base.ts';
-import { ActorDeltaSource } from '../../../../foundry/common/documents/actor-delta.ts';
+import { ActorDeltaSource } from 'foundry/common/documents/actor-delta.ts';
 import { TokenDocumentPF2e } from './document.ts';
 declare class ActorDeltaPF2e<TParent extends TokenDocumentPF2e | null> extends ActorDelta<TParent> {
     /** Following synthetic actor updates, send the `Token` a fake update notification to trigger redraws */

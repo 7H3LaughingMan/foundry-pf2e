@@ -2,7 +2,7 @@ import { ItemPF2e } from '../../index.ts';
 import { Rarity } from '../../../data.ts';
 import { RuleElementSource } from '../../../rules/index.ts';
 import { SheetOptions, TagifyEntry } from '../../../sheet/helpers.ts';
-import type * as TinyMCE from 'tinymce';
+import type * as TinyMCE from "tinymce";
 declare class ItemSheetPF2e<TItem extends ItemPF2e> extends ItemSheet<TItem, ItemSheetOptions> {
     #private;
     constructor(item: TItem, options?: Partial<ItemSheetOptions>);
@@ -39,6 +39,9 @@ interface ItemSheetDataPF2e<TItem extends ItemPF2e> extends ItemSheetData<TItem>
     detailsTemplate: string;
     item: TItem;
     data: TItem["system"];
+    /** The leading part of IDs used for label-input/select matching */
+    fieldRootId: string;
+    /** Legacy value of the above */
     fieldIdPrefix: string;
     enrichedContent: Record<string, string>;
     isPhysical: boolean;

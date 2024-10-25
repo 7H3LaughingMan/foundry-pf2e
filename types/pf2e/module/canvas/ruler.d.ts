@@ -36,7 +36,7 @@ declare class RulerPF2e<TToken extends TokenPF2e | null = TokenPF2e | null> exte
     /** Widen the ruler when measuring with larger tokens. */
     protected _highlightMeasurementSegment(segment: RulerMeasurementSegment): void;
     protected _animateSegment(token: TToken, segment: RulerMeasurementSegment, destination: Point): Promise<unknown>;
-    /** If measuring with a token, only broadcast during an encounter. */
+    /** If measuring with a token, broadcast if the token is not hidden and only during encounters. */
     protected _broadcastMeasurement(): void;
     /** Prevent behavior from keybind modifiers if token drag measurement is enabled. */
     _onMouseUp(event: PlaceablesLayerPointerEvent<NonNullable<TToken>>): void;

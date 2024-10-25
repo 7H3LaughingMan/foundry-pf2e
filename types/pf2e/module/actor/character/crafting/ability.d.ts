@@ -1,11 +1,11 @@
 import { CharacterPF2e } from '../../index.ts';
 import { Predicate, RawPredicate } from '../../../system/predication.ts';
-import { CraftingFormula } from './formula.ts';
+import { CraftingFormula, PreparedFormula, PreparedFormulaData } from './types.ts';
 declare class CraftingAbility implements CraftingAbilityData {
     #private;
     /** A label for this crafting entry to display on sheets */
-    name: string;
-    selector: string;
+    label: string;
+    slug: string;
     /** This crafting ability's parent actor */
     actor: CharacterPF2e;
     preparedFormulaData: PreparedFormulaData[];
@@ -25,11 +25,10 @@ declare class CraftingAbility implements CraftingAbilityData {
     fieldDiscoveryBatchSize: number;
     maxItemLevel: number;
     constructor(actor: CharacterPF2e, data: CraftingAbilityData);
-    getPreparedCraftingFormulas(): Promise<PreparedCraftingFormula[]>;
+    getPreparedCraftingFormulas(): Promise<PreparedFormula[]>;
     getSheetData(): Promise<CraftingAbilitySheetData>;
     /** Computes reagent cost. Will go away once updated to PC2 */
     calculateReagentCost(): Promise<number>;
-    static isValid(data: Maybe<Partial<CraftingAbilityData>>): data is CraftingAbilityData;
     prepareFormula(formula: CraftingFormula): Promise<void>;
     checkEntryRequirements(formula: CraftingFormula, { warn }?: {
         warn?: boolean | undefined;
@@ -41,8 +40,8 @@ declare class CraftingAbility implements CraftingAbilityData {
     updateFormulas(formulas: PreparedFormulaData[]): Promise<void>;
 }
 interface CraftingAbilityData {
-    selector: string;
-    name: string;
+    slug: string;
+    label: string;
     isAlchemical: boolean;
     isDailyPrep: boolean;
     isPrepared: boolean;
@@ -60,36 +59,16 @@ interface CraftingAbilityData {
     maxItemLevel?: number | null;
     preparedFormulaData?: PreparedFormulaData[];
 }
-interface PreparedFormulaData {
-    itemUUID: string;
-    quantity?: number;
-    expended?: boolean;
-    isSignatureItem?: boolean;
-    sort?: number;
-}
-interface PreparedCraftingFormula extends CraftingFormula {
-    quantity: number;
-    expended: boolean;
-    isSignatureItem: boolean;
-    sort: number;
-}
 interface CraftingAbilitySheetData {
-    name: string;
-    selector: string;
+    slug: string;
+    label: string;
     isAlchemical: boolean;
     isPrepared: boolean;
     isDailyPrep: boolean;
     maxSlots: number;
     maxItemLevel: number;
     reagentCost: number;
-    formulas: ({
-        uuid: string;
-        expended: boolean;
-        img: ImageFilePath;
-        name: string;
-        quantity: number;
-        isSignatureItem: boolean;
-    } | null)[];
+    prepared: (PreparedFormula | null)[];
 }
 export { CraftingAbility };
 export type { CraftingAbilityData, CraftingAbilitySheetData, PreparedFormulaData };

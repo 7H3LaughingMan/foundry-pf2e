@@ -11,7 +11,7 @@ import { ZeroToTen } from '../../data.ts';
 declare class SpellPreparationSheet<TActor extends CreaturePF2e> extends ActorSheet<TActor, ItemPF2e> {
     #private;
     /** Implementation used to handle the toggling and rendering of item summaries */
-    itemRenderer: ItemSummaryRenderer<ActorPF2e<import('../../scene/token-document/document.ts').TokenDocumentPF2e<import('../../scene/document.ts').ScenePF2e | null> | null>, this>;
+    itemRenderer: ItemSummaryRenderer<ActorPF2e<import('../../scene/index.ts').TokenDocumentPF2e<import('../../scene/document.ts').ScenePF2e | null> | null>, this>;
     item: SpellcastingEntryPF2e<TActor>;
     constructor(item: SpellcastingEntryPF2e<TActor>, options: Partial<ActorSheetOptions>);
     static get defaultOptions(): ActorSheetOptions;

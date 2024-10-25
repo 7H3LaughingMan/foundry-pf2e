@@ -1,5 +1,5 @@
 import { ActorPF2e, CharacterPF2e } from '../../actor/index.ts';
-import { FeatSlotCreationData } from '../../actor/character/feats.ts';
+import { FeatSlotCreationData } from '../../actor/character/feats/index.ts';
 import { SaveType } from '../../actor/types.ts';
 import { ABCItemPF2e, FeatPF2e } from '../index.ts';
 import { ZeroToFour } from '../../data.ts';

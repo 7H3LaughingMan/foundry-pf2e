@@ -64,6 +64,7 @@ declare class ItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exte
     /**
      * Never prepare data except as part of `DataModel` initialization. If embedded, don't prepare data if the parent is
      * not yet initialized. See https://github.com/foundryvtt/foundryvtt/issues/7987
+     * @todo remove in V13
      */
     prepareData(): void;
     /** Ensure the presence of the pf2e flag scope with default properties and values */

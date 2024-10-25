@@ -1,6 +1,6 @@
 import { ModifierPF2e } from '../actor/modifiers.ts';
 import { RollOrigin, RollTarget } from '../actor/roll-context/types.ts';
-import { ActionTrait } from '../item/ability/types.ts';
+import { AbilityTrait } from '../item/ability/types.ts';
 import { TokenPF2e } from '../canvas/index.ts';
 import { CheckContextChatFlag } from '../chat-message/index.ts';
 import { ZeroToTwo } from '../data.ts';
@@ -56,7 +56,7 @@ interface BaseRollContext {
     /** Targeting data for the check, if applicable */
     target?: RollTarget | null;
     /** Action traits associated with the roll */
-    traits?: ActionTrait[];
+    traits?: AbilityTrait[];
     /** The outcome a roll (usually relevant only to rerolls) */
     outcome?: (typeof DEGREE_OF_SUCCESS_STRINGS)[number] | null;
     /** The outcome prior to being changed by abilities raising or lowering degree of success */

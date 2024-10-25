@@ -3,7 +3,7 @@ import { RuleElementSource } from '../../../rules/index.ts';
 import { Predicate } from '../../../system/predication.ts';
 import { ItemTrait } from '../types.ts';
 import { ItemType } from './index.ts';
-import type * as fields from '../../../../../foundry/common/data/fields.ts';
+import type * as fields from "types/foundry/common/data/fields.d.ts";
 type BaseItemSourcePF2e<TType extends ItemType, TSystemSource extends ItemSystemSource = ItemSystemSource> = foundry.documents.ItemSource<TType, TSystemSource> & {
     flags: ItemSourceFlagsPF2e;
 };

@@ -1,5 +1,4 @@
-import { CraftingAbilityData } from './crafting/ability.ts';
-import { CraftingFormulaData } from './crafting/formula.ts';
+import { CraftingAbilityData, CraftingFormulaData } from './crafting/index.ts';
 import { AbilityData, BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureDetailsSource, CreatureLanguagesData, CreaturePerceptionData, CreatureResources, CreatureSystemData, CreatureSystemSource, HeldShieldData, SaveData, SkillData } from '../creature/data.ts';
 import { CreatureInitiativeSource, CreatureSpeeds, Language } from '../creature/index.ts';
 import { ActorAttributesSource, ActorFlagsPF2e, AttributeBasedTraceData, HitPointsStatistic, InitiativeData, StrikeData, TraitViewData } from '../data/base.ts';
@@ -361,16 +360,20 @@ interface CharacterCraftingData {
     formulas: CraftingFormulaData[];
     entries: Record<string, Partial<CraftingAbilityData>>;
 }
-interface CharacterResources extends CreatureResources {
+type CharacterResources = CreatureResources & {
     /** The current and maximum number of hero points */
     heroPoints: ValueAndMax;
+    /** The current number of focus points and pool size */
+    focus: ValueAndMax & {
+        cap: number;
+    };
     /** The current and maximum number of invested items */
     investiture: ValueAndMax;
     crafting: {
         infusedReagents: ValueAndMax;
     };
     resolve?: ValueAndMax;
-}
+};
 interface CharacterPerceptionData extends CreaturePerceptionData {
     rank: ZeroToFour;
 }

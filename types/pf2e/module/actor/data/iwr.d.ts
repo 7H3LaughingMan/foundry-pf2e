@@ -266,7 +266,7 @@ declare class Resistance extends IWR<ResistanceType> implements ResistanceSource
         salt: string;
         "salt-water": string;
         slashing: string;
-        sonic: string; /** Construct an object argument for Localization#format (see also PF2E.Actor.IWR.CompositeLabel in en.json) */
+        sonic: string;
         spells: string;
         spirit: string;
         "unarmed-attacks": string;

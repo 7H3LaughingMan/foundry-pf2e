@@ -584,6 +584,7 @@ declare const weaponTraits: {
     "volley-20": string;
     "volley-30": string;
     "volley-50": string;
+    "volley-60": string;
     holy: string;
     unholy: string;
     arcane: string;
@@ -930,6 +931,7 @@ declare const npcAttackTraits: {
     "volley-20": string;
     "volley-30": string;
     "volley-50": string;
+    "volley-60": string;
     holy: string;
     unholy: string;
     arcane: string;
@@ -1406,6 +1408,7 @@ declare const actionTraits: {
     "volley-20": string;
     "volley-30": string;
     "volley-50": string;
+    "volley-60": string;
     amp: string;
     attack: string;
     auditory: string;
@@ -1671,6 +1674,7 @@ declare const effectTraits: Omit<{
     "volley-20": string;
     "volley-30": string;
     "volley-50": string;
+    "volley-60": string;
     amp: string;
     attack: string;
     auditory: string;
@@ -1922,7 +1926,7 @@ declare const effectTraits: Omit<{
     wayang: string;
     yaksha: string;
     yaoguai: string;
-}, "splash" | "alchemist" | "barbarian" | "bard" | "champion" | "cleric" | "druid" | "fighter" | "gunslinger" | "kineticist" | "inventor" | "investigator" | "magus" | "monk" | "oracle" | "psychic" | "ranger" | "rogue" | "sorcerer" | "summoner" | "swashbuckler" | "thaumaturge" | "witch" | "wizard" | "agile" | "propulsive" | "backswing" | "forceful" | "reach" | "sweep" | "thrown" | "volley-20" | "volley-30" | "volley-50" | "clockwork" | "consumable" | "infused" | "aiuvarin" | "anadi" | "android" | "aphorite" | "ardande" | "athamaru" | "automaton" | "awakened-animal" | "azarketi" | "beastkin" | "bugbear" | "catfolk" | "centaur" | "changeling" | "conrasu" | "dhampir" | "dragonblood" | "dromaar" | "duskwalker" | "dwarf" | "elf" | "fetchling" | "fleshwarp" | "ganzi" | "geniekin" | "ghoran" | "gnoll" | "gnome" | "goblin" | "goloma" | "grippli" | "halfling" | "hobgoblin" | "human" | "hungerseed" | "kashrishi" | "kitsune" | "kobold" | "leshy" | "lizardfolk" | "merfolk" | "minotaur" | "nagaji" | "naari" | "nephilim" | "orc" | "oread" | "poppet" | "ratfolk" | "reflection" | "samsaran" | "sarangay" | "shisk" | "shoony" | "skeleton" | "sprite" | "strix" | "suli" | "surki" | "sylph" | "tanuki" | "talos" | "tengu" | "undine" | "vanara" | "vishkanya" | "wayang" | "yaksha" | "yaoguai" | "additive" | "additive1" | "additive2" | "additive3" | "aftermath" | "amp" | "archetype" | "attack" | "beast" | "bottled-breath" | "cantrip" | "catalyst" | "circus" | "class" | "coagulant" | "composite" | "composition" | "concentrate" | "dedication" | "deviant" | "eidolon" | "elixir" | "esoterica" | "expandable" | "exploration" | "finisher" | "flourish" | "focus" | "fulu" | "gadget" | "general" | "lineage" | "litany" | "lozenge" | "manipulate" | "missive" | "modification" | "multiclass" | "mutagen" | "oath" | "oil" | "overflow" | "pervasive-magic" | "potion" | "precious" | "press" | "processed" | "reckless" | "reincarnated" | "revelation" | "sanctified" | "scroll" | "secret" | "skill" | "snare" | "spellgun" | "structure" | "subtle" | "talisman" | "tandem" | "tea" | "trap" | "unstable" | "vigilante" | "wand">;
+}, "splash" | "alchemist" | "barbarian" | "bard" | "champion" | "cleric" | "druid" | "fighter" | "gunslinger" | "kineticist" | "inventor" | "investigator" | "magus" | "monk" | "oracle" | "psychic" | "ranger" | "rogue" | "sorcerer" | "summoner" | "swashbuckler" | "thaumaturge" | "witch" | "wizard" | "agile" | "propulsive" | "backswing" | "forceful" | "reach" | "sweep" | "thrown" | "volley-20" | "volley-30" | "volley-50" | "volley-60" | "clockwork" | "consumable" | "infused" | "aiuvarin" | "anadi" | "android" | "aphorite" | "ardande" | "athamaru" | "automaton" | "awakened-animal" | "azarketi" | "beastkin" | "bugbear" | "catfolk" | "centaur" | "changeling" | "conrasu" | "dhampir" | "dragonblood" | "dromaar" | "duskwalker" | "dwarf" | "elf" | "fetchling" | "fleshwarp" | "ganzi" | "geniekin" | "ghoran" | "gnoll" | "gnome" | "goblin" | "goloma" | "grippli" | "halfling" | "hobgoblin" | "human" | "hungerseed" | "kashrishi" | "kitsune" | "kobold" | "leshy" | "lizardfolk" | "merfolk" | "minotaur" | "nagaji" | "naari" | "nephilim" | "orc" | "oread" | "poppet" | "ratfolk" | "reflection" | "samsaran" | "sarangay" | "shisk" | "shoony" | "skeleton" | "sprite" | "strix" | "suli" | "surki" | "sylph" | "tanuki" | "talos" | "tengu" | "undine" | "vanara" | "vishkanya" | "wayang" | "yaksha" | "yaoguai" | "additive" | "additive1" | "additive2" | "additive3" | "aftermath" | "amp" | "archetype" | "attack" | "beast" | "bottled-breath" | "cantrip" | "catalyst" | "circus" | "class" | "coagulant" | "composite" | "composition" | "concentrate" | "dedication" | "deviant" | "eidolon" | "elixir" | "esoterica" | "expandable" | "exploration" | "finisher" | "flourish" | "focus" | "fulu" | "gadget" | "general" | "lineage" | "litany" | "lozenge" | "manipulate" | "missive" | "modification" | "multiclass" | "mutagen" | "oath" | "oil" | "overflow" | "pervasive-magic" | "potion" | "precious" | "press" | "processed" | "reckless" | "reincarnated" | "revelation" | "sanctified" | "scroll" | "secret" | "skill" | "snare" | "spellgun" | "structure" | "subtle" | "talisman" | "tandem" | "tea" | "trap" | "unstable" | "vigilante" | "wand">;
 declare const hazardTraits: {
     alchemical: string;
     auditory: string;
@@ -2457,6 +2461,7 @@ declare const kingmakerTraits: {
     "volley-20": string;
     "volley-30": string;
     "volley-50": string;
+    "volley-60": string;
     amp: string;
     attack: string;
     auditory: string;
@@ -2875,6 +2880,7 @@ declare const traitDescriptions: {
     "volley-20": string;
     "volley-30": string;
     "volley-50": string;
+    "volley-60": string;
     wand: string;
     water: string;
     werecreature: string;

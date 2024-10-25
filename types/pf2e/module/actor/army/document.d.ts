@@ -1,4 +1,4 @@
-import { FeatGroup } from '../character/feats.ts';
+import { FeatGroup } from '../character/feats/index.ts';
 import { Kingdom } from '../party/kingdom/model.ts';
 import { CampaignFeaturePF2e } from '../../item/index.ts';
 import { ItemSourcePF2e, ItemType } from '../../item/base/data/index.ts';

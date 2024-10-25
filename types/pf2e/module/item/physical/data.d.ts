@@ -1,5 +1,5 @@
 import { AttributeString } from '../../actor/types.ts';
-import { ActionTrait } from '../ability/types.ts';
+import { AbilityTrait } from '../ability/types.ts';
 import { PhysicalItemSource } from '../base/data/index.ts';
 import { Size, TraitsWithRarity, ValuesList, ZeroToTwo } from '../../data.ts';
 import { MaterialDamageEffect } from '../../system/damage/types.ts';
@@ -120,7 +120,7 @@ interface ItemActivation {
         cast: boolean;
     };
     frequency?: Frequency;
-    traits: ValuesList<ActionTrait>;
+    traits: ValuesList<AbilityTrait>;
 }
 interface PhysicalItemHPSource {
     value: number;

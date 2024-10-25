@@ -7,16 +7,35 @@
             "ESNext",
             "DOM"
         ],
-        "allowJs": true,
-        "strict": true,
-        "noImplicitOverride": true,
         "noEmit": true,
-        "esModuleInterop": true,
+        "strict": true,
+        "noFallthroughCasesInSwitch": true,
+        "skipLibCheck": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
         "allowImportingTsExtensions": true,
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "isolatedModules": true,
+        "allowUnusedLabels": false,
+        "removeComments": false,
+        "resolveJsonModule": true,
+        "useDefineForClassFields": true,
+        "noErrorTruncation": true,
+        "types": [
+            "foundry",
+            "pf2e",
+            "jest",
+            "jquery",
+            "node",
+            "tooltipster"
+        ],
         "typeRoots": [
             "node_modules/@types",
-            "types/foundry",
-            "types/pf2e"
+            "types",
         ]
     }
 }

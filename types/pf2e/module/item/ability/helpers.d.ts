@@ -23,7 +23,7 @@ declare function getActionCostRollOptions(prefix: string, item: {
     actionCost?: ActionCost | null;
 }): string[];
 /** Create data for the "self-applied effect" drop zone on an ability or feat sheet. */
-declare function createSelfEffectSheetData(data: SelfEffectReference | null): SelfEffectSheetReference | null;
+declare function createSelfEffectSheetData(data: Maybe<SelfEffectReference>): SelfEffectSheetReference | null;
 interface SelfEffectSheetReference extends SelfEffectReference {
     id: string | null;
     type: string | null;

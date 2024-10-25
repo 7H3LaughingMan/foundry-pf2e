@@ -1,5 +1,5 @@
 import { SlugField } from '../../../system/schema-data-fields.ts';
-import { StringField } from '../../../../../foundry/common/data/fields.ts';
+import { StringField } from 'foundry/common/data/fields.ts';
 import { RuleElementPF2e } from '../base.ts';
 import { ModelPropsFromRESchema, RuleElementSchema } from '../data.ts';
 /** Remember a token for later referencing */

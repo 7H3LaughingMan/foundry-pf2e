@@ -2,7 +2,7 @@ import { ActorAttributes, ActorAttributesSource, ActorDetailsSource, ActorHitPoi
 import { ActorSizePF2e } from '../data/size.ts';
 import { DamageDicePF2e, ModifierPF2e, RawModifier, StatisticModifier } from '../modifiers.ts';
 import { AttributeString, MovementType, SaveType, SkillSlug } from '../types.ts';
-import { LabeledNumber, Size, ValueAndMax, ZeroToThree } from '../../data.ts';
+import { LabeledNumber, Size, ValueAndMax, ValueAndMaybeMax, ZeroToThree } from '../../data.ts';
 import { ArmorClassTraceData } from '../../system/statistic/index.ts';
 import { PerceptionTraceData } from '../../system/statistic/perception.ts';
 import { CreatureActorType, CreatureTrait, Language, SenseAcuity, SenseType, SpecialVisionType } from './types.ts';
@@ -36,10 +36,7 @@ interface CreatureLanguagesData {
 interface CreatureTraitsSource extends ActorTraitsSource<CreatureTrait> {
 }
 interface CreatureResourcesSource {
-    focus?: {
-        value: number;
-        max?: number;
-    };
+    focus?: ValueAndMaybeMax;
 }
 interface CreatureSystemData extends Omit<CreatureSystemSource, "attributes">, ActorSystemData {
     abilities?: Abilities;
@@ -57,7 +54,7 @@ interface CreatureSystemData extends Omit<CreatureSystemSource, "attributes">, A
     saves: CreatureSaves;
     skills: Record<string, SkillData>;
     actions?: StrikeData[];
-    resources?: CreatureResources;
+    resources: CreatureResources;
 }
 type SenseData = {
     type: SpecialVisionType;
@@ -147,11 +144,10 @@ interface CreatureInitiativeSource {
 }
 interface CreatureResources extends CreatureResourcesSource {
     /** The current number of focus points and pool size */
-    focus: {
-        value: number;
-        max: number;
+    focus?: ValueAndMax & {
         cap: number;
     };
+    [key: string]: ValueAndMax | undefined;
 }
 declare enum VisionLevels {
     BLINDED = 0,

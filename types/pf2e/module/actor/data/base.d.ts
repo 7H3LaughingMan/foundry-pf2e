@@ -19,7 +19,7 @@ type BaseActorSourcePF2e<TType extends ActorType, TSystemSource extends ActorSys
     flags: DeepPartial<ActorFlagsPF2e>;
     prototypeToken: PrototypeTokenSourcePF2e;
 };
-interface ActorFlagsPF2e extends DocumentFlags {    
+type ActorFlagsPF2e = DocumentFlags & {
     pf2e: {
         rollOptions: RollOptionFlags;
         /** IDs of granted items that are tracked */
@@ -27,7 +27,7 @@ interface ActorFlagsPF2e extends DocumentFlags {
         hideStowed?: boolean;
         [key: string]: unknown;
     };
-}
+};
 type ActorSystemSource = {
     details?: ActorDetailsSource;
     attributes: ActorAttributesSource;

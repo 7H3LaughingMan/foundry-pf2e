@@ -1,6 +1,3 @@
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="jquery" resolution-mode="require"/>
-/// <reference types="tooltipster" />
 /** A summary window that opens after a system migration completes */
 export declare class MigrationSummary extends Application<MigrationSummaryOptions> {
     #private;

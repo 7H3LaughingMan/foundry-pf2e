@@ -1,6 +1,7 @@
 import { ActorPF2e } from './index.ts';
 import { ItemPF2e } from '../item/index.ts';
 import { EffectTrait } from '../item/abstract-effect/types.ts';
+import { ItemSourcePF2e } from '../item/base/data/index.ts';
 import { ItemInstances } from '../item/types.ts';
 import { RollNotePF2e } from '../notes.ts';
 import { ItemAlteration } from '../rules/rule-element/item-alteration/alteration.ts';
@@ -10,7 +11,7 @@ import { DamageRoll } from '../system/damage/roll.ts';
 import { DegreeOfSuccessString } from '../system/degree-of-success.ts';
 import { Predicate } from '../system/predication.ts';
 import { ACTOR_TYPES, ATTRIBUTE_ABBREVIATIONS, CORE_SKILL_SLUGS, MOVEMENT_TYPES, SAVE_TYPES, UNAFFECTED_TYPES } from './values.ts';
-import type * as ActorInstance from './index.d.ts';
+import type * as ActorInstance from "@actor";
 type ActorType = (typeof ACTOR_TYPES)[number];
 /** Used exclusively to resolve `ActorPF2e#isOfType` */
 interface ActorInstances<TParent extends TokenDocumentPF2e | null> {
@@ -80,6 +81,18 @@ interface AuraAppearanceData {
         playbackRate: number;
     } | null;
 }
+interface ActorCommitData<T extends ActorPF2e = ActorPF2e> {
+    actorUpdates: DeepPartial<T["_source"]> | null;
+    itemCreates: PreCreate<ItemSourcePF2e>[];
+    itemUpdates: EmbeddedDocumentUpdateData[];
+}
+interface ActorRechargeData<T extends ActorPF2e> extends ActorCommitData<T> {
+    affected: {
+        frequencies: boolean;
+        spellSlots: boolean;
+        resources: string[];
+    };
+}
 interface ApplyDamageParams {
     damage: number | Rolled<DamageRoll>;
     token: TokenDocumentPF2e;
@@ -101,4 +114,4 @@ type ResistanceType = keyof typeof resistanceTypes;
 /** Damage types a creature or hazard is possibly unaffected by, outside the IWR framework */
 type UnaffectedType = SetElement<typeof UNAFFECTED_TYPES>;
 type IWRType = ImmunityType | WeaknessType | ResistanceType;
-export type { ActorAlliance, ActorDimensions, ActorInstances, ActorType, ApplyDamageParams, AttributeString, AuraAppearanceData, AuraData, AuraEffectData, DCSlug, EmbeddedItemInstances, IWRType, ImmunityType, MovementType, ResistanceType, SaveType, SkillSlug, UnaffectedType, WeaknessType, };
+export type { ActorAlliance, ActorCommitData, ActorDimensions, ActorInstances, ActorRechargeData, ActorType, ApplyDamageParams, AttributeString, AuraAppearanceData, AuraData, AuraEffectData, DCSlug, EmbeddedItemInstances, ImmunityType, IWRType, MovementType, ResistanceType, SaveType, SkillSlug, UnaffectedType, WeaknessType, };

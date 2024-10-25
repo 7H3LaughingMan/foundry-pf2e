@@ -1,5 +1,5 @@
 import { ActorPF2e, ArmyPF2e, PartyPF2e } from '../../index.ts';
-import { FeatGroup } from '../../character/feats.ts';
+import { FeatGroup } from '../../character/feats/index.ts';
 import { ActorSheetPF2e, SheetClickActionHandlers } from '../../sheet/base.ts';
 import { ActorSheetDataPF2e } from '../../sheet/data-types.ts';
 import { ItemPF2e, CampaignFeaturePF2e } from '../../../item/index.ts';

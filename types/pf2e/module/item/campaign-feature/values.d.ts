@@ -21,7 +21,7 @@ declare const KINGDOM_CATEGORY_DATA: {
         behavior: "activity";
     };
 };
-declare const KINGMAKER_CATEGORY_TYPES: ("army-tactic" | "army-war-action" | "kingdom-feat" | "kingdom-feature" | "kingdom-activity")[];
+declare const KINGMAKER_CATEGORY_TYPES: (keyof typeof KINGDOM_CATEGORY_DATA)[];
 declare const KINGMAKER_CATEGORIES: Record<KingmakerCategory, string>;
 export { KINGDOM_CATEGORY_DATA, KINGMAKER_CATEGORIES, KINGMAKER_CATEGORY_TYPES };
 export type { CategoryData };

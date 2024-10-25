@@ -1,7 +1,7 @@
 import { ActorPF2e } from '../../../actor/index.ts';
 import { ItemPF2e } from '../../../item/index.ts';
 import { ItemType } from '../../../item/base/data/index.ts';
-import { StringField } from '../../../../../foundry/common/data/fields.ts';
+import { StringField } from 'foundry/common/data/fields.ts';
 import { RuleElementPF2e } from '../base.ts';
 import { ModelPropsFromRESchema, RuleElementSchema } from '../data.ts';
 import { ItemAlterationSchema } from './alteration.ts';

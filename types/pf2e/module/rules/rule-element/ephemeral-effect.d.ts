@@ -1,4 +1,4 @@
-import { ArrayField, BooleanField, EmbeddedDataField, StringField } from '../../../../foundry/common/data/fields.ts';
+import { ArrayField, BooleanField, EmbeddedDataField, StringField } from 'foundry/common/data/fields.ts';
 import { RuleElementPF2e } from './base.ts';
 import { ModelPropsFromRESchema, RuleElementSchema } from './data.ts';
 import { ItemAlteration } from './item-alteration/alteration.ts';

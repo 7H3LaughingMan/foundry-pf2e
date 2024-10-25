@@ -1,4 +1,4 @@
-import { ActorAlliance, ActorDimensions, ActorInstances, ApplyDamageParams, AuraData, EmbeddedItemInstances, SaveType, ActorType } from './types.ts';
+import { ActorAlliance, ActorDimensions, ActorInstances, ApplyDamageParams, AuraData, EmbeddedItemInstances, SaveType, ActorRechargeData, ActorType } from './types.ts';
 import { AbstractEffectPF2e, ConditionPF2e, ContainerPF2e, PhysicalItemPF2e, ShieldPF2e, ItemPF2e } from '../item/index.ts';
 import { ItemSourcePF2e, ItemType, PhysicalItemSource } from '../item/base/data/index.ts';
 import { ConditionKey, ConditionSlug, ConditionSource } from '../item/condition/index.ts';
@@ -111,7 +111,6 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     get alliance(): ActorAlliance;
     get combatant(): CombatantPF2e<EncounterPF2e> | null;
     /** Add effect icons from effect items and rule elements */
-    // @ts-ignore
     get temporaryEffects(): ActiveEffect<this>[];
     /** A means of checking this actor's type without risk of circular import references */
     isOfType<T extends "creature" | ActorType>(...types: T[]): this is ActorInstances<TParent>[T];
@@ -138,6 +137,8 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
         actor: ActorPF2e;
         token: TokenDocumentPF2e;
     }): Promise<void>;
+    /** Recharges all abilities after some time has elapsed. */
+    recharge(options: RechargeOptions): Promise<ActorRechargeData<this>>;
     /** Don't allow the user to create in-development actor types. */
     static createDialog<TDocument extends foundry.abstract.Document>(this: ConstructorOf<TDocument>, data?: Record<string, unknown>, context?: {
         parent?: TDocument["parent"];
@@ -156,6 +157,7 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     /**
      * Never prepare data except as part of `DataModel` initialization. If embedded, don't prepare data if the parent is
      * not yet initialized. See https://github.com/foundryvtt/foundryvtt/issues/7987
+     * @todo remove in V13
      */
     prepareData(): void;
     /** Prepare baseline ephemeral data applicable to all actor types */
@@ -299,6 +301,11 @@ interface ActorUpdateOperation<TParent extends TokenDocumentPF2e | null> extends
 }
 interface EmbeddedItemUpdateOperation<TParent extends ActorPF2e> extends DatabaseUpdateOperation<TParent> {
     checkHP?: boolean;
+}
+interface RechargeOptions {
+    /** How much time elapsed as a delta operation */
+    duration: "turn" | "round" | "day";
+    commit?: boolean;
 }
 /** A `Proxy` to to get Foundry to construct `ActorPF2e` subclasses */
 declare const ActorProxyPF2e: typeof ActorPF2e;

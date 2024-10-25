@@ -5,7 +5,7 @@ import { RuleElementSchema } from '../../rules/rule-element/data.ts';
 import { UserPF2e } from '../../user/document.ts';
 import { TokenDocumentPF2e } from '../../scene/index.ts';
 import { Statistic } from '../../system/statistic/index.ts';
-import { DataModelValidationOptions } from '../../../../foundry/common/abstract/data.ts';
+import { DataModelValidationOptions } from 'foundry/common/abstract/data.ts';
 import { PartySource, PartySystemData } from './data.ts';
 import { PartyCampaign, PartyUpdateOperation } from './types.ts';
 declare class PartyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {

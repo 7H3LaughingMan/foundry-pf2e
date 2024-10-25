@@ -1,4 +1,4 @@
-import { ActionCategory, ActionTrait } from '../../item/ability/index.ts';
+import { AbilityTrait, ActionCategory } from '../../item/ability/index.ts';
 import { ActionType } from '../../item/base/data/index.ts';
 import { BaseSpellcastingEntry } from '../../item/spellcasting-entry/index.ts';
 import { UserPF2e } from '../../user/document.ts';
@@ -32,7 +32,7 @@ declare class CompendiumBrowser extends Application {
     openActionTab(options: {
         types?: ActionType[];
         categories?: ActionCategory[];
-        traits?: ActionTrait[];
+        traits?: AbilityTrait[];
     }): Promise<void>;
     openSpellTab(entry: BaseSpellcastingEntry, maxRank?: number, category?: string | null): Promise<void>;
     loadTab(tabName: TabName): Promise<void>;

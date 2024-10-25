@@ -16,7 +16,10 @@ declare class EncounterPF2e extends Combat {
     /** Determine threat rating and XP award for this encounter */
     analyze(): EncounterMetrics | null;
     protected _initialize(options?: Record<string, unknown>): void;
-    /** Prevent double data preparation */
+    /**
+     * Prevent double data preparation of child documents.
+     * @todo remove in V13
+     */
     prepareData(): void;
     prepareDerivedData(): void;
     /** Exclude orphaned, loot-actor, and minion tokens from combat */
@@ -25,7 +28,7 @@ declare class EncounterPF2e extends Combat {
     rollInitiative(ids: string[], options?: RollInitiativeOptionsPF2e): Promise<this>;
     /** Set the initiative of multiple combatants */
     setMultipleInitiatives(initiatives: SetInitiativeData[]): Promise<void>;
-    setInitiative(id: string, value: number): Promise<void>;
+    setInitiative(id: string, value: number, statistic?: string): Promise<void>;
     /**
      * Rerun data preparation for participating actors
      * `async` since this is usually called from CRUD hooks, which are called prior to encounter/combatant data resets

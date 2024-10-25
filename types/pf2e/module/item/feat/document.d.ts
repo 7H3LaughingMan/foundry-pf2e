@@ -1,5 +1,5 @@
 import { ActorPF2e } from '../../actor/index.ts';
-import { FeatGroup } from '../../actor/character/feats.ts';
+import { FeatGroup } from '../../actor/character/feats/index.ts';
 import { ItemPF2e, HeritagePF2e } from '../index.ts';
 import { ActionCost, Frequency, RawItemChatData } from '../base/data/index.ts';
 import { Rarity } from '../../data.ts';

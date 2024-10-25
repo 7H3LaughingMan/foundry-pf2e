@@ -11,9 +11,9 @@ import { UserPF2e } from '../../user/document.ts';
 import { TokenDocumentPF2e } from '../../scene/index.ts';
 import { RollParameters } from '../../system/rolls.ts';
 import { Statistic } from '../../system/statistic/index.ts';
-import { CharacterCrafting, CraftingAbility, CraftingFormula } from './crafting/index.ts';
+import { CharacterCrafting, CraftingFormula } from './crafting/index.ts';
 import { BaseWeaponProficiencyKey, CharacterAbilities, CharacterFlags, CharacterSource, CharacterStrike, CharacterSystemData, WeaponGroupProficiencyKey } from './data.ts';
-import { CharacterFeats } from './feats.ts';
+import { CharacterFeats } from './feats/index.ts';
 import { CharacterHitPointsSummary, CharacterSkills, GuaranteedGetStatisticSlug } from './types.ts';
 declare class CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends CreaturePF2e<TParent> {
     /** Core singular embeds for PCs */
@@ -52,10 +52,6 @@ declare class CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocu
     getStatistic(slug: string): Statistic<this> | null;
     /** Will be deprecated/removed after PC2 alchemist is complete */
     getCraftingFormulas(): Promise<CraftingFormula[]>;
-    /** Will be deprecated/removed after PC2 alchemist is complete */
-    getCraftingEntries(): Promise<CraftingAbility[]>;
-    /** Will be deprecated/removed after PC2 alchemist is complete */
-    getCraftingEntry(selector: string): Promise<CraftingAbility | null>;
     /** Will be deprecated/removed after PC2 alchemist is complete */
     performDailyCrafting(): Promise<void>;
     protected _initialize(options?: Record<string, unknown>): void;

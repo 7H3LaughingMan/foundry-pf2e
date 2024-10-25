@@ -1,7 +1,5 @@
-import { ActorSheetDataPF2e } from '../sheet/data-types.ts';
+import { AbilityViewData, ActorSheetDataPF2e } from '../sheet/data-types.ts';
 import { VehiclePF2e } from './index.ts';
-import { AbilityItemPF2e } from '../../item/index.ts';
-import { ActionCost, Frequency } from '../../item/base/data/system.ts';
 import { AdjustedValue } from '../../sheet/helpers.ts';
 import { ActorSheetPF2e } from '../sheet/base.ts';
 export declare class VehicleSheetPF2e extends ActorSheetPF2e<VehiclePF2e> {
@@ -25,13 +23,6 @@ interface VehicleSheetData extends ActorSheetDataPF2e<VehiclePF2e> {
 }
 type ActionsSheetData = Record<"action" | "reaction" | "free", {
     label: string;
-    actions: ActionSheetData[];
+    actions: AbilityViewData[];
 }>;
-interface ActionSheetData extends RawObject<AbilityItemPF2e> {
-    id: string;
-    actionCost: ActionCost | null;
-    glyph: string | null;
-    frequency: Frequency | null;
-    hasEffect: boolean;
-}
 export {};
