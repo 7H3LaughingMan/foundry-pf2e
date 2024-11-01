@@ -240,13 +240,6 @@ declare global {
         set(module: "pf2e-toolbelt", setting: "arp.force", value: boolean): Promise<boolean>;
         // #endregion
 
-        // #region Better Browser
-        /** Better Browser - Remove Bestiary Duplicates */
-        get(module: "pf2e-toolbelt", setting: "betterBrowser.noDuplicates"): boolean;
-        /** Better Browser - Remove Bestiary Duplicates */
-        set(module: "pf2e-toolbelt", setting: "betterBrowser.noDuplicates", value: boolean): Promise<boolean>;
-        // #endregion
-
         // #region Better Merchant
         /** Better Merchant - Enabled */
         get(module: "pf2e-toolbelt", setting: "betterMerchant.enabled"): boolean;
