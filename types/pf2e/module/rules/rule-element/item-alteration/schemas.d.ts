@@ -121,7 +121,7 @@ declare const ITEM_ALTERATION_VALIDATORS: {
     "material-type": ItemAlterationValidator<{
         itemType: StringField<"armor" | "shield" | "consumable" | "book" | "backpack" | "equipment" | "treasure" | "weapon", ItemType, true, false, false>;
         mode: StringField<"override", "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade", true, false, false>;
-        value: StringField<"abysium" | "adamantine" | "dawnsilver" | "djezet" | "duskwood" | "inubrix" | "noqual" | "orichalcum" | "siccatite" | "silver" | "cold-iron" | "dragonhide" | "grisantian-pelt" | "keep-stone" | "peachwood" | "sisterstone" | "sisterstone-dusk" | "sisterstone-scarlet" | "sovereign-steel" | "warpglass", NonNullable<JSONValue>, true, false, boolean>;
+        value: StringField<"abysium" | "adamantine" | "dawnsilver" | "djezet" | "duskwood" | "inubrix" | "noqual" | "orichalcum" | "siccatite" | "silver" | "cold-iron" | "dragonhide" | "dreamweb" | "grisantian-pelt" | "keep-stone" | "peachwood" | "sisterstone" | "sisterstone-dusk" | "sisterstone-scarlet" | "sloughstone" | "sovereign-steel" | "warpglass", NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "pd-recovery-dc": ItemAlterationValidator<{
         itemType: StringField<"condition", ItemType, true, false, false>;

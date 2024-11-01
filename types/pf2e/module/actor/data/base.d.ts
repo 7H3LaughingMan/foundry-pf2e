@@ -27,7 +27,7 @@ interface ActorFlagsPF2e extends DocumentFlags {
         hideStowed?: boolean;
         [key: string]: unknown;
     };
-};
+}
 type ActorSystemSource = {
     details?: ActorDetailsSource;
     attributes: ActorAttributesSource;

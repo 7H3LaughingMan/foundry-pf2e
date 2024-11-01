@@ -117,7 +117,7 @@ export declare const PF2ECONFIG: {
         cp: string;
     };
     preciousMaterialGrades: Record<"low" | "standard" | "high", string>;
-    preciousMaterials: Record<"abysium" | "adamantine" | "dawnsilver" | "djezet" | "duskwood" | "inubrix" | "noqual" | "orichalcum" | "siccatite" | "silver" | "cold-iron" | "dragonhide" | "grisantian-pelt" | "keep-stone" | "peachwood" | "sisterstone" | "sisterstone-dusk" | "sisterstone-scarlet" | "sovereign-steel" | "warpglass", string>;
+    preciousMaterials: Record<"abysium" | "adamantine" | "dawnsilver" | "djezet" | "duskwood" | "inubrix" | "noqual" | "orichalcum" | "siccatite" | "silver" | "cold-iron" | "dragonhide" | "dreamweb" | "grisantian-pelt" | "keep-stone" | "peachwood" | "sisterstone" | "sisterstone-dusk" | "sisterstone-scarlet" | "sloughstone" | "sovereign-steel" | "warpglass", string>;
     accessoryPropertyRunes: {
         called: string;
         dragonsBreath: string;
@@ -191,7 +191,7 @@ export declare const PF2ECONFIG: {
         vitality: string;
         void: string;
     };
-    materialDamageEffects: Pick<Record<"abysium" | "adamantine" | "dawnsilver" | "djezet" | "duskwood" | "inubrix" | "noqual" | "orichalcum" | "siccatite" | "silver" | "cold-iron" | "dragonhide" | "grisantian-pelt" | "keep-stone" | "peachwood" | "sisterstone" | "sisterstone-dusk" | "sisterstone-scarlet" | "sovereign-steel" | "warpglass", string>, "abysium" | "adamantine" | "dawnsilver" | "djezet" | "duskwood" | "inubrix" | "noqual" | "orichalcum" | "siccatite" | "silver" | "cold-iron" | "keep-stone" | "peachwood" | "sisterstone-dusk" | "sisterstone-scarlet" | "sovereign-steel" | "warpglass">;
+    materialDamageEffects: Pick<Record<"abysium" | "adamantine" | "dawnsilver" | "djezet" | "duskwood" | "inubrix" | "noqual" | "orichalcum" | "siccatite" | "silver" | "cold-iron" | "dragonhide" | "dreamweb" | "grisantian-pelt" | "keep-stone" | "peachwood" | "sisterstone" | "sisterstone-dusk" | "sisterstone-scarlet" | "sloughstone" | "sovereign-steel" | "warpglass", string>, "abysium" | "adamantine" | "dawnsilver" | "djezet" | "duskwood" | "inubrix" | "noqual" | "orichalcum" | "siccatite" | "silver" | "cold-iron" | "keep-stone" | "peachwood" | "sisterstone-dusk" | "sisterstone-scarlet" | "sovereign-steel" | "warpglass">;
     physicalDamageTypes: {
         bleed: string;
         bludgeoning: string;
@@ -221,6 +221,7 @@ export declare const PF2ECONFIG: {
         magical: string;
         mental: string;
         metal: string;
+        mythic: string;
         "non-magical": string;
         nonlethal: string;
         "nonlethal-attacks": string;
@@ -302,6 +303,7 @@ export declare const PF2ECONFIG: {
         magical: string;
         mental: string;
         metal: string;
+        mythic: string;
         "non-magical": string;
         "nonlethal-attacks": string;
         "persistent-damage": string;
@@ -369,6 +371,7 @@ export declare const PF2ECONFIG: {
         "hellknight-half-plate": string;
         "hellknight-plate": string;
         "hide-armor": string;
+        "kilted-breastplate": string;
         "lamellar-breastplate": string;
         "lattice-armor": string;
         "leaf-weave": string;
@@ -380,6 +383,7 @@ export declare const PF2ECONFIG: {
         "padded-armor": string;
         "power-suit": string;
         "quilted-armor": string;
+        "rattan-armor": string;
         sankeit: string;
         "scale-mail": string;
         "scroll-robes": string;
@@ -455,6 +459,7 @@ export declare const PF2ECONFIG: {
         "claw-blade": string;
         club: string;
         "coat-pistol": string;
+        "combat-fishing-pole": string;
         "combat-grapnel": string;
         "combat-lure": string;
         "composite-longbow": string;
@@ -490,6 +495,7 @@ export declare const PF2ECONFIG: {
         fauchard: string;
         "feng-huo-lun": string;
         "fighting-fan": string;
+        "fighting-oar": string;
         "fighting-stick": string;
         "filchers-fork": string;
         "fire-lance": string;
@@ -509,6 +515,7 @@ export declare const PF2ECONFIG: {
         gauntlet: string;
         "gauntlet-bow": string;
         "gill-hook": string;
+        gladius: string;
         glaive: string;
         "gnome-amalgam-musket": string;
         "gnome-flickmace": string;
@@ -544,6 +551,7 @@ export declare const PF2ECONFIG: {
         karambit: string;
         katana: string;
         katar: string;
+        kestros: string;
         khakkhara: string;
         khopesh: string;
         "knuckle-duster": string;
@@ -566,6 +574,7 @@ export declare const PF2ECONFIG: {
         mace: string;
         "mace-multipistol": string;
         machete: string;
+        macuahuitl: string;
         "main-gauche": string;
         mambele: string;
         maul: string;
@@ -582,6 +591,7 @@ export declare const PF2ECONFIG: {
         "orc-knuckle-dagger": string;
         "orc-necksplitter": string;
         "orc-skewermaul": string;
+        palstave: string;
         panabas: string;
         pepperbox: string;
         "phalanx-piercer": string;
@@ -665,6 +675,8 @@ export declare const PF2ECONFIG: {
         visap: string;
         wakizashi: string;
         "war-flail": string;
+        "war-gavel": string;
+        "war-javelin": string;
         "war-lance": string;
         "war-razor": string;
         warhammer: string;
@@ -891,6 +903,7 @@ export declare const PF2ECONFIG: {
         misfortune: string;
         morph: string;
         move: string;
+        mythic: string;
         nonlethal: string;
         olfactory: string;
         plant: string;
@@ -899,6 +912,7 @@ export declare const PF2ECONFIG: {
         possession: string;
         prediction: string;
         psyche: string;
+        rage: string;
         revelation: string;
         sanctified: string;
         scrying: string;
@@ -937,11 +951,13 @@ export declare const PF2ECONFIG: {
         force: string;
         sonic: string;
         alchemist: string;
+        animist: string;
         barbarian: string;
         bard: string;
         champion: string;
         cleric: string;
         druid: string;
+        exemplar: string;
         fighter: string;
         gunslinger: string;
         kineticist: string;
@@ -999,13 +1015,16 @@ export declare const PF2ECONFIG: {
         virulent: string;
         wand: string;
         aftermath: string;
+        apparition: string;
         archetype: string;
         artifact: string;
         bravado: string;
+        calling: string;
         circus: string;
         class: string;
         composite: string;
         dedication: string;
+        destiny: string;
         deviant: string;
         downtime: string;
         evolution: string;
@@ -1013,6 +1032,7 @@ export declare const PF2ECONFIG: {
         finisher: string;
         flourish: string;
         general: string;
+        ikon: string;
         impulse: string;
         infusion: string;
         lineage: string;
@@ -1023,7 +1043,6 @@ export declare const PF2ECONFIG: {
         overflow: string;
         "pervasive-magic": string;
         press: string;
-        rage: string;
         reckless: string;
         reincarnated: string;
         reflection: string;
@@ -1034,8 +1053,10 @@ export declare const PF2ECONFIG: {
         stamina: string;
         tandem: string;
         time: string;
+        transcendence: string;
         unstable: string;
         vigilante: string;
+        wandering: string;
         aiuvarin: string;
         anadi: string;
         android: string;
@@ -1203,6 +1224,7 @@ export declare const PF2ECONFIG: {
         laminar: string;
         light: string;
         magical: string;
+        mythic: string;
         noisy: string;
         plant: string;
         ponderous: string;
@@ -1230,7 +1252,7 @@ export declare const PF2ECONFIG: {
         water: string;
         wood: string;
     };
-    classTraits: Record<"alchemist" | "barbarian" | "bard" | "champion" | "cleric" | "druid" | "fighter" | "gunslinger" | "kineticist" | "inventor" | "investigator" | "magus" | "monk" | "oracle" | "psychic" | "ranger" | "rogue" | "sorcerer" | "summoner" | "swashbuckler" | "thaumaturge" | "witch" | "wizard", string>;
+    classTraits: Record<"alchemist" | "animist" | "barbarian" | "bard" | "champion" | "cleric" | "druid" | "exemplar" | "fighter" | "gunslinger" | "kineticist" | "inventor" | "investigator" | "magus" | "monk" | "oracle" | "psychic" | "ranger" | "rogue" | "sorcerer" | "summoner" | "swashbuckler" | "thaumaturge" | "witch" | "wizard", string>;
     consumableTraits: {
         additive: string;
         additive1: string;
@@ -1321,10 +1343,12 @@ export declare const PF2ECONFIG: {
         litany: string;
         manipulate: string;
         move: string;
+        mythic: string;
         nonlethal: string;
         plant: string;
         prediction: string;
         psyche: string;
+        rage: string;
         revelation: string;
         sanctified: string;
         shadow: string;
@@ -1357,11 +1381,13 @@ export declare const PF2ECONFIG: {
         force: string;
         sonic: string;
         alchemist: string;
+        animist: string;
         barbarian: string;
         bard: string;
         champion: string;
         cleric: string;
         druid: string;
+        exemplar: string;
         fighter: string;
         gunslinger: string;
         kineticist: string;
@@ -1444,6 +1470,7 @@ export declare const PF2ECONFIG: {
         incorporeal: string;
         inevitable: string;
         kami: string;
+        kaiju: string;
         kovintus: string;
         light: string;
         lilu: string;
@@ -1458,6 +1485,7 @@ export declare const PF2ECONFIG: {
         mummy: string;
         munavri: string;
         mutant: string;
+        mythic: string;
         nindoru: string;
         nymph: string;
         oni: string;
@@ -1654,6 +1682,7 @@ export declare const PF2ECONFIG: {
         misfortune: string;
         morph: string;
         move: string;
+        mythic: string;
         nonlethal: string;
         olfactory: string;
         plant: string;
@@ -1662,6 +1691,7 @@ export declare const PF2ECONFIG: {
         possession: string;
         prediction: string;
         psyche: string;
+        rage: string;
         revelation: string;
         sanctified: string;
         scrying: string;
@@ -1700,11 +1730,13 @@ export declare const PF2ECONFIG: {
         force: string;
         sonic: string;
         alchemist: string;
+        animist: string;
         barbarian: string;
         bard: string;
         champion: string;
         cleric: string;
         druid: string;
+        exemplar: string;
         fighter: string;
         gunslinger: string;
         kineticist: string;
@@ -1762,13 +1794,16 @@ export declare const PF2ECONFIG: {
         virulent: string;
         wand: string;
         aftermath: string;
+        apparition: string;
         archetype: string;
         artifact: string;
         bravado: string;
+        calling: string;
         circus: string;
         class: string;
         composite: string;
         dedication: string;
+        destiny: string;
         deviant: string;
         downtime: string;
         evolution: string;
@@ -1776,6 +1811,7 @@ export declare const PF2ECONFIG: {
         finisher: string;
         flourish: string;
         general: string;
+        ikon: string;
         impulse: string;
         infusion: string;
         lineage: string;
@@ -1786,7 +1822,6 @@ export declare const PF2ECONFIG: {
         overflow: string;
         "pervasive-magic": string;
         press: string;
-        rage: string;
         reckless: string;
         reincarnated: string;
         reflection: string;
@@ -1797,8 +1832,10 @@ export declare const PF2ECONFIG: {
         stamina: string;
         tandem: string;
         time: string;
+        transcendence: string;
         unstable: string;
         vigilante: string;
+        wandering: string;
         aiuvarin: string;
         anadi: string;
         android: string;
@@ -1866,7 +1903,7 @@ export declare const PF2ECONFIG: {
         wayang: string;
         yaksha: string;
         yaoguai: string;
-    }, "splash" | "alchemist" | "barbarian" | "bard" | "champion" | "cleric" | "druid" | "fighter" | "gunslinger" | "kineticist" | "inventor" | "investigator" | "magus" | "monk" | "oracle" | "psychic" | "ranger" | "rogue" | "sorcerer" | "summoner" | "swashbuckler" | "thaumaturge" | "witch" | "wizard" | "agile" | "propulsive" | "backswing" | "forceful" | "reach" | "sweep" | "thrown" | "volley-20" | "volley-30" | "volley-50" | "volley-60" | "clockwork" | "consumable" | "infused" | "aiuvarin" | "anadi" | "android" | "aphorite" | "ardande" | "athamaru" | "automaton" | "awakened-animal" | "azarketi" | "beastkin" | "bugbear" | "catfolk" | "centaur" | "changeling" | "conrasu" | "dhampir" | "dragonblood" | "dromaar" | "duskwalker" | "dwarf" | "elf" | "fetchling" | "fleshwarp" | "ganzi" | "geniekin" | "ghoran" | "gnoll" | "gnome" | "goblin" | "goloma" | "grippli" | "halfling" | "hobgoblin" | "human" | "hungerseed" | "kashrishi" | "kitsune" | "kobold" | "leshy" | "lizardfolk" | "merfolk" | "minotaur" | "nagaji" | "naari" | "nephilim" | "orc" | "oread" | "poppet" | "ratfolk" | "reflection" | "samsaran" | "sarangay" | "shisk" | "shoony" | "skeleton" | "sprite" | "strix" | "suli" | "surki" | "sylph" | "tanuki" | "talos" | "tengu" | "undine" | "vanara" | "vishkanya" | "wayang" | "yaksha" | "yaoguai" | "additive" | "additive1" | "additive2" | "additive3" | "aftermath" | "amp" | "archetype" | "attack" | "beast" | "bottled-breath" | "cantrip" | "catalyst" | "circus" | "class" | "coagulant" | "composite" | "composition" | "concentrate" | "dedication" | "deviant" | "eidolon" | "elixir" | "esoterica" | "expandable" | "exploration" | "finisher" | "flourish" | "focus" | "fulu" | "gadget" | "general" | "lineage" | "litany" | "lozenge" | "manipulate" | "missive" | "modification" | "multiclass" | "mutagen" | "oath" | "oil" | "overflow" | "pervasive-magic" | "potion" | "precious" | "press" | "processed" | "reckless" | "reincarnated" | "revelation" | "sanctified" | "scroll" | "secret" | "skill" | "snare" | "spellgun" | "structure" | "subtle" | "talisman" | "tandem" | "tea" | "trap" | "unstable" | "vigilante" | "wand">;
+    }, "splash" | "alchemist" | "animist" | "barbarian" | "bard" | "champion" | "cleric" | "druid" | "exemplar" | "fighter" | "gunslinger" | "kineticist" | "inventor" | "investigator" | "magus" | "monk" | "oracle" | "psychic" | "ranger" | "rogue" | "sorcerer" | "summoner" | "swashbuckler" | "thaumaturge" | "witch" | "wizard" | "agile" | "propulsive" | "backswing" | "forceful" | "reach" | "sweep" | "thrown" | "volley-20" | "volley-30" | "volley-50" | "volley-60" | "clockwork" | "consumable" | "infused" | "aiuvarin" | "anadi" | "android" | "aphorite" | "ardande" | "athamaru" | "automaton" | "awakened-animal" | "azarketi" | "beastkin" | "bugbear" | "catfolk" | "centaur" | "changeling" | "conrasu" | "dhampir" | "dragonblood" | "dromaar" | "duskwalker" | "dwarf" | "elf" | "fetchling" | "fleshwarp" | "ganzi" | "geniekin" | "ghoran" | "gnoll" | "gnome" | "goblin" | "goloma" | "grippli" | "halfling" | "hobgoblin" | "human" | "hungerseed" | "kashrishi" | "kitsune" | "kobold" | "leshy" | "lizardfolk" | "merfolk" | "minotaur" | "nagaji" | "naari" | "nephilim" | "orc" | "oread" | "poppet" | "ratfolk" | "reflection" | "samsaran" | "sarangay" | "shisk" | "shoony" | "skeleton" | "sprite" | "strix" | "suli" | "surki" | "sylph" | "tanuki" | "talos" | "tengu" | "undine" | "vanara" | "vishkanya" | "wayang" | "yaksha" | "yaoguai" | "additive" | "additive1" | "additive2" | "additive3" | "aftermath" | "amp" | "archetype" | "attack" | "beast" | "bottled-breath" | "cantrip" | "catalyst" | "circus" | "class" | "coagulant" | "composite" | "composition" | "concentrate" | "dedication" | "deviant" | "eidolon" | "elixir" | "esoterica" | "expandable" | "exploration" | "finisher" | "flourish" | "focus" | "fulu" | "gadget" | "general" | "lineage" | "litany" | "lozenge" | "manipulate" | "missive" | "modification" | "multiclass" | "mutagen" | "oath" | "oil" | "overflow" | "pervasive-magic" | "potion" | "precious" | "press" | "processed" | "reckless" | "reincarnated" | "revelation" | "sanctified" | "scroll" | "secret" | "skill" | "snare" | "spellgun" | "structure" | "subtle" | "talisman" | "tandem" | "tea" | "trap" | "unstable" | "vigilante" | "wand">;
     elementTraits: {
         air: string;
         earth: string;
@@ -1925,6 +1962,7 @@ export declare const PF2ECONFIG: {
         misfortune: string;
         morph: string;
         mounted: string;
+        mythic: string;
         nonlethal: string;
         plant: string;
         poison: string;
@@ -2044,17 +2082,20 @@ export declare const PF2ECONFIG: {
         additive3: string;
         aftermath: string;
         alchemical: string;
+        apparition: string;
         archetype: string;
         artifact: string;
         auditory: string;
         aura: string;
         bravado: string;
+        calling: string;
         circus: string;
         class: string;
         coagulant: string;
         composite: string;
         concentrate: string;
         dedication: string;
+        destiny: string;
         detection: string;
         deviant: string;
         downtime: string;
@@ -2067,6 +2108,7 @@ export declare const PF2ECONFIG: {
         flourish: string;
         fortune: string;
         general: string;
+        ikon: string;
         impulse: string;
         infusion: string;
         injury: string;
@@ -2095,12 +2137,14 @@ export declare const PF2ECONFIG: {
         talisman: string;
         tandem: string;
         time: string;
+        transcendence: string;
         "true-name": string;
         unstable: string;
         vigilante: string;
         virulent: string;
         vitality: string;
         void: string;
+        wandering: string;
         amp: string;
         attack: string;
         beast: string;
@@ -2130,6 +2174,7 @@ export declare const PF2ECONFIG: {
         litany: string;
         misfortune: string;
         morph: string;
+        mythic: string;
         nonlethal: string;
         plant: string;
         polymorph: string;
@@ -2171,11 +2216,13 @@ export declare const PF2ECONFIG: {
         force: string;
         sonic: string;
         alchemist: string;
+        animist: string;
         barbarian: string;
         bard: string;
         champion: string;
         cleric: string;
         druid: string;
+        exemplar: string;
         fighter: string;
         gunslinger: string;
         kineticist: string;
@@ -2380,6 +2427,7 @@ export declare const PF2ECONFIG: {
         mummy: string;
         munavri: string;
         mutant: string;
+        mythic: string;
         nindoru: string;
         nymph: string;
         oni: string;
@@ -2567,6 +2615,7 @@ export declare const PF2ECONFIG: {
         misfortune: string;
         morph: string;
         move: string;
+        mythic: string;
         nonlethal: string;
         olfactory: string;
         plant: string;
@@ -2575,6 +2624,7 @@ export declare const PF2ECONFIG: {
         possession: string;
         prediction: string;
         psyche: string;
+        rage: string;
         revelation: string;
         sanctified: string;
         scrying: string;
@@ -2613,11 +2663,13 @@ export declare const PF2ECONFIG: {
         force: string;
         sonic: string;
         alchemist: string;
+        animist: string;
         barbarian: string;
         bard: string;
         champion: string;
         cleric: string;
         druid: string;
+        exemplar: string;
         fighter: string;
         gunslinger: string;
         kineticist: string;
@@ -2675,13 +2727,16 @@ export declare const PF2ECONFIG: {
         virulent: string;
         wand: string;
         aftermath: string;
+        apparition: string;
         archetype: string;
         artifact: string;
         bravado: string;
+        calling: string;
         circus: string;
         class: string;
         composite: string;
         dedication: string;
+        destiny: string;
         deviant: string;
         downtime: string;
         evolution: string;
@@ -2689,6 +2744,7 @@ export declare const PF2ECONFIG: {
         finisher: string;
         flourish: string;
         general: string;
+        ikon: string;
         impulse: string;
         infusion: string;
         lineage: string;
@@ -2699,7 +2755,6 @@ export declare const PF2ECONFIG: {
         overflow: string;
         "pervasive-magic": string;
         press: string;
-        rage: string;
         reckless: string;
         reincarnated: string;
         reflection: string;
@@ -2710,8 +2765,10 @@ export declare const PF2ECONFIG: {
         stamina: string;
         tandem: string;
         time: string;
+        transcendence: string;
         unstable: string;
         vigilante: string;
+        wandering: string;
         aiuvarin: string;
         anadi: string;
         android: string;
@@ -2896,12 +2953,14 @@ export declare const PF2ECONFIG: {
         silver: string;
         "cold-iron": string;
         dragonhide: string;
+        dreamweb: string;
         "grisantian-pelt": string;
         "keep-stone": string;
         peachwood: string;
         sisterstone: string;
         "sisterstone-dusk": string;
         "sisterstone-scarlet": string;
+        sloughstone: string;
         "sovereign-steel": string;
         warpglass: string;
         adjusted: string;
@@ -2968,6 +3027,7 @@ export declare const PF2ECONFIG: {
         mental: string;
         modular: string;
         monk: string;
+        mythic: string;
         nonlethal: string;
         olfactory: string;
         parry: string;
@@ -2993,6 +3053,7 @@ export declare const PF2ECONFIG: {
         splash: string;
         staff: string;
         sweep: string;
+        tearing: string;
         tech: string;
         teleportation: string;
         tethered: string;
@@ -3209,6 +3270,7 @@ export declare const PF2ECONFIG: {
         misfortune: string;
         morph: string;
         move: string;
+        mythic: string;
         nonlethal: string;
         olfactory: string;
         plant: string;
@@ -3217,6 +3279,7 @@ export declare const PF2ECONFIG: {
         possession: string;
         prediction: string;
         psyche: string;
+        rage: string;
         revelation: string;
         sanctified: string;
         scrying: string;
@@ -3256,11 +3319,13 @@ export declare const PF2ECONFIG: {
         force: string;
         sonic: string;
         alchemist: string;
+        animist: string;
         barbarian: string;
         bard: string;
         champion: string;
         cleric: string;
         druid: string;
+        exemplar: string;
         fighter: string;
         gunslinger: string;
         kineticist: string;
@@ -3351,6 +3416,7 @@ export declare const PF2ECONFIG: {
         mental: string;
         modular: string;
         monk: string;
+        mythic: string;
         nonlethal: string;
         olfactory: string;
         parry: string;
@@ -3376,6 +3442,7 @@ export declare const PF2ECONFIG: {
         splash: string;
         staff: string;
         sweep: string;
+        tearing: string;
         tech: string;
         teleportation: string;
         tethered: string;
@@ -3519,6 +3586,7 @@ export declare const PF2ECONFIG: {
         duskwood: string;
         djezet: string;
         dragonhide: string;
+        dreamweb: string;
         "grisantian-pelt": string;
         inubrix: string;
         dawnsilver: string;
@@ -3529,6 +3597,7 @@ export declare const PF2ECONFIG: {
         sisterstone: string;
         "sisterstone-dusk": string;
         "sisterstone-scarlet": string;
+        sloughstone: string;
         "sovereign-steel": string;
         warpglass: string;
         "ranged-trip": string;
@@ -3616,6 +3685,7 @@ export declare const PF2ECONFIG: {
         tane: string;
         tattoo: string;
         tea: string;
+        tearing: string;
         tech: string;
         telepathy: string;
         teleportation: string;
@@ -3637,6 +3707,7 @@ export declare const PF2ECONFIG: {
         tiefling: string;
         time: string;
         training: string;
+        transcendence: string;
         trap: string;
         trip: string;
         troll: string;
@@ -3680,6 +3751,7 @@ export declare const PF2ECONFIG: {
         "volley-50": string;
         "volley-60": string;
         wand: string;
+        wandering: string;
         water: string;
         werecreature: string;
         wight: string;
@@ -3786,8 +3858,10 @@ export declare const PF2ECONFIG: {
         android: string;
         angel: string;
         animal: string;
+        animist: string;
         apex: string;
         aphorite: string;
+        apparition: string;
         aquadynamic: string;
         aquatic: string;
         arcane: string;
@@ -3821,6 +3895,7 @@ export declare const PF2ECONFIG: {
         bugbear: string;
         bulwark: string;
         caligni: string;
+        calling: string;
         cantrip: string;
         "capacity-2": string;
         "capacity-3": string;
@@ -3888,6 +3963,7 @@ export declare const PF2ECONFIG: {
         dedication: string;
         demon: string;
         dero: string;
+        destiny: string;
         detection: string;
         deviant: string;
         devil: string;
@@ -3919,6 +3995,7 @@ export declare const PF2ECONFIG: {
         esoterica: string;
         ethereal: string;
         evolution: string;
+        exemplar: string;
         expandable: string;
         experiment: string;
         exploration: string;
@@ -3985,6 +4062,7 @@ export declare const PF2ECONFIG: {
         human: string;
         humanoid: string;
         naari: string;
+        ikon: string;
         illusion: string;
         impulse: string;
         incapacitation: string;
@@ -4044,6 +4122,7 @@ export declare const PF2ECONFIG: {
         mummy: string;
         mutagen: string;
         mutant: string;
+        mythic: string;
         nagaji: string;
         nephilim: string;
         nindoru: string;
@@ -4164,6 +4243,7 @@ export declare const PF2ECONFIG: {
         incorporeal: string;
         inevitable: string;
         kami: string;
+        kaiju: string;
         kovintus: string;
         light: string;
         lilu: string;
@@ -4178,6 +4258,7 @@ export declare const PF2ECONFIG: {
         mummy: string;
         munavri: string;
         mutant: string;
+        mythic: string;
         nindoru: string;
         nymph: string;
         oni: string;

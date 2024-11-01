@@ -5,7 +5,7 @@ import { ArmorPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from '../index.ts'
 import { ArmorPropertyRuneType, ResilientRuneType } from '../armor/types.ts';
 import { SpellTrait } from '../spell/types.ts';
 import { StrikingRuneType, WeaponPropertyRuneType } from '../weapon/types.ts';
-import { OneToFour, Rarity, ZeroToFour, ZeroToSix, ZeroToThree } from '../../data.ts';
+import { OneToFour, Rarity, ZeroToFour, ZeroToSix } from '../../data.ts';
 import { RollNoteSource } from '../../notes.ts';
 import { StrikeAdjustment } from '../../rules/synthetics.ts';
 import { DegreeOfSuccessAdjustment } from '../../system/degree-of-success.ts';
@@ -148,7 +148,7 @@ declare const RUNE_DATA: {
             winged: ArmorPropertyRuneData<"winged">;
         };
         potency: Record<ZeroToFour, PotencyRuneData | null>;
-        resilient: Record<ZeroToThree, SecondaryFundamentalRuneData<ResilientRuneType> | null>;
+        resilient: Record<ZeroToFour, SecondaryFundamentalRuneData<ResilientRuneType> | null>;
     };
     shield: FundamentalShieldRuneData;
     weapon: {
@@ -235,7 +235,7 @@ declare const RUNE_DATA: {
             wounding: WeaponPropertyRuneData<"wounding">;
         };
         potency: Record<ZeroToFour, PotencyRuneData | null>;
-        striking: Record<ZeroToThree, SecondaryFundamentalRuneData<StrikingRuneType> | null>;
+        striking: Record<ZeroToFour, SecondaryFundamentalRuneData<StrikingRuneType> | null>;
     };
 };
 export { RUNE_DATA, getPropertyRuneDamage, getPropertyRuneDegreeAdjustments, getPropertyRuneModifierAdjustments, getPropertyRuneSlots, getPropertyRuneStrikeAdjustments, getRuneValuationData, prunePropertyRunes, };

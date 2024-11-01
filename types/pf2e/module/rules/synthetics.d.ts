@@ -16,6 +16,7 @@ import { Predicate } from '../system/predication.ts';
 import { Statistic } from '../system/statistic/index.ts';
 import { TokenSource } from 'foundry/common/documents/token.ts';
 import { DamageAlteration } from './rule-element/damage-alteration/alteration.ts';
+import { ItemAlterationRuleElement } from './rule-element/item-alteration/rule-element.ts';
 import { Suboption } from './rule-element/roll-option/data.ts';
 import { SpecialResourceRuleElement } from './rule-element/special-resource.ts';
 /** Defines a list of data provided by rule elements that an actor can pull from during its data preparation lifecycle */
@@ -28,6 +29,7 @@ interface RuleElementSynthetics<TActor extends ActorPF2e = ActorPF2e> {
     damageDice: DamageDiceSynthetics;
     degreeOfSuccessAdjustments: Record<string, DegreeOfSuccessAdjustment[]>;
     dexterityModifierCaps: DexterityModifierCapData[];
+    itemAlterations: ItemAlterationRuleElement[];
     ephemeralEffects: Record<string, {
         target: DeferredEphemeralEffect[];
         origin: DeferredEphemeralEffect[];

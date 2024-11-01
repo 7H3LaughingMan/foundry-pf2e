@@ -42,7 +42,7 @@ interface ChatMessageFlagsPF2e extends ChatMessageFlags {
         [key: string]: unknown;
     };
     core: NonNullable<ChatMessageFlags["core"]>;
-};
+}
 type ChatContextFlag = CheckContextChatFlag | DamageDamageContextFlag | SpellCastContextFlag | SelfEffectContextFlag | DamageTakenContextFlag;
 interface DamageRollFlag {
     outcome: DegreeOfSuccessString;

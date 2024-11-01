@@ -111,7 +111,7 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     get alliance(): ActorAlliance;
     get combatant(): CombatantPF2e<EncounterPF2e> | null;
     /** Add effect icons from effect items and rule elements */
-    get temporaryEffects(): ActiveEffect<this>[];
+    get temporaryEffects(): ActiveEffectPF2e<this>[];
     /** A means of checking this actor's type without risk of circular import references */
     isOfType<T extends "creature" | ActorType>(...types: T[]): this is ActorInstances<TParent>[T];
     /** Whether this actor is an ally of the provided actor */
@@ -253,7 +253,7 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     toggleStatusEffect(statusId: string, options?: {
         active?: boolean;
         overlay?: boolean;
-    }): Promise<boolean | void | ActiveEffect<this>>;
+    }): Promise<boolean | void | ActiveEffectPF2e<this>>;
     /** Assess and pre-process this JSON data, ensuring it's importable and fully migrated */
     importFromJSON(json: string): Promise<this>;
     protected _applyDefaultTokenSettings(data: this["_source"], options?: {

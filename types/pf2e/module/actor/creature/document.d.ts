@@ -81,7 +81,10 @@ declare abstract class CreaturePF2e<TParent extends TokenDocumentPF2e | null = T
      * Prompt the user for input regarding Advantage/Disadvantage and any Situational Bonus
      */
     rollRecovery(event?: MouseEvent): Promise<Rolled<CheckRoll> | null>;
-    /** Updates a resource. Redirects to special resources if needed */
+    /**
+     * Updates a resource. Redirects to special resources if needed.
+     * Accepts resource slugs in both kebab and dromedary, to handle token updates and direct ones.
+     */
     updateResource(resource: string, value: number): Promise<void>;
     prepareSpeed(movementType: "land"): this["system"]["attributes"]["speed"];
     prepareSpeed(movementType: Exclude<MovementType, "land">): (LabeledSpeed & StatisticModifier) | null;

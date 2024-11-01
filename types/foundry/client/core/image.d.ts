@@ -15,7 +15,7 @@ declare class ImageHelper {
      * @param [options.quality] The desired output image quality
      * @returns The parsed and converted thumbnail data
      */
-    static async createThumbnail(
+    static createThumbnail(
         src: string | PIXI.DisplayObject,
         options: {
             width?: number;
@@ -61,7 +61,7 @@ declare class ImageHelper {
      * @param [options.quality] JPEG or WEBP compression from 0 to 1. Default is 0.92.
      * @returns A base64 png string of the texture
      */
-    static async textureToImage(texture: PIXI.Texture, options?: { format: string; quality: number }): Promise<string>;
+    static textureToImage(texture: PIXI.Texture, options?: { format: string; quality: number }): Promise<string>;
 
     /**
      * Asynchronously convert a DisplayObject container to base64 using Canvas#toBlob and FileReader
@@ -70,7 +70,7 @@ declare class ImageHelper {
      * @param quality   A number between 0 and 1 for image quality if image/jpeg or image/webp
      * @returns A processed base64 string
      */
-    static async pixiToBase64(target: PIXI.DisplayObject, type: string, quality: number): Promise<string>;
+    static pixiToBase64(target: PIXI.DisplayObject, type: string, quality: number): Promise<string>;
 
     /**
      * Asynchronously convert a canvas element to base64.
@@ -79,7 +79,7 @@ declare class ImageHelper {
      * @param quality
      * @returns The base64 string of the canvas.
      */
-    static async canvasToBase64(canvas: HTMLCanvasElement, type: string, quality?: number): Promise<string>;
+    static canvasToBase64(canvas: HTMLCanvasElement, type: string, quality?: number): Promise<string>;
 
     /**
      * Upload a base64 image string to a persisted data storage location
@@ -92,7 +92,7 @@ declare class ImageHelper {
      * @param [options.notify=true]     Display a UI notification when the upload is processed.
      * @returns A promise which resolves to the FilePicker upload response
      */
-    static async uploadBase64(
+    static uploadBase64(
         base64: string,
         fileName: string,
         filePath: string,

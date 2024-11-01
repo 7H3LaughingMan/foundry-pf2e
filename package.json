@@ -2,6 +2,9 @@
     "name": "foundry-pf2e",
     "version": "1.0.0",
     "type": "module",
+    "scripts": {
+        "dir:pf2e": "dir types\\pf2e /A-D /S /B > files.txt"
+    },
     "exports": {
         ".": "./types/index.d.ts",
         "./*": "./types/*/index.d.ts",

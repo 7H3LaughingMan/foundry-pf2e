@@ -94,6 +94,7 @@ interface GamePF2e extends Game<ActorPF2e<null>, ActorsPF2e<ActorPF2e<null>>, Ch
                     sections: FeatGroupData[];
                 };
                 languages: LanguageSettings;
+                mythic: "disabled" | "enabled" | "variant-tiers";
             };
             critFumble: {
                 buttons: boolean;
@@ -213,6 +214,7 @@ declare global {
         get(module: "pf2e", setting: "campaignFeats"): boolean;
         get(module: "pf2e", setting: "campaignFeatSections"): FeatGroupData[];
         get(module: "pf2e", setting: "campaignType"): string;
+        get(module: "pf2e", setting: "mythic"): "disabled" | "enabled" | "variant-tiers";
         get(module: "pf2e", setting: "activeParty"): string;
         get(module: "pf2e", setting: "activePartyFolderState"): boolean;
         get(module: "pf2e", setting: "createdFirstParty"): boolean;
@@ -254,7 +256,6 @@ declare global {
     }
     const BUILD_MODE: "development" | "production";
     const CONDITION_SOURCES: ConditionSource[];
-    const EN_JSON: typeof EnJSON;
     const ROLL_PARSER: string;
     const UUID_REDIRECTS: Record<CompendiumUUID, CompendiumUUID>;
 }

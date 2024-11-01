@@ -1,7 +1,7 @@
 import { CreatureSheetData, Language } from '../creature/index.ts';
 import { Sense } from '../creature/sense.ts';
 import { SheetClickActionHandlers } from '../sheet/base.ts';
-import { AbilityViewData, ActorSheetDataPF2e, InventoryItem } from '../sheet/data-types.ts';
+import { AbilityViewData, InventoryItem } from '../sheet/data-types.ts';
 import { AttributeString, SaveType } from '../types.ts';
 import { AncestryPF2e, BackgroundPF2e, ClassPF2e, DeityPF2e, FeatPF2e, HeritagePF2e, PhysicalItemPF2e, ItemPF2e } from '../../item/index.ts';
 import { TraitToggleViewData } from '../../item/ability/trait-toggles.ts';
@@ -26,8 +26,6 @@ declare class CharacterSheetPF2e<TActor extends CharacterPF2e> extends CreatureS
     static get defaultOptions(): ActorSheetOptions;
     get template(): string;
     getData(options?: ActorSheetOptions): Promise<CharacterSheetData<TActor>>;
-    /** Organize and classify Items for Character sheets */
-    prepareItems(sheetData: ActorSheetDataPF2e<CharacterPF2e>): Promise<void>;
     protected prepareInventoryItem(item: PhysicalItemPF2e): InventoryItem;
     /** Overriden to open sub-tabs if requested */
     protected openTab(name: string): void;

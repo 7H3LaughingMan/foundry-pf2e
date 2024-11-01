@@ -26,7 +26,7 @@ declare class CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocu
     familiar: FamiliarPF2e | null;
     feats: CharacterFeats<this>;
     pfsBoons: FeatPF2e<this>[];
-    deityBoonsCurses: FeatPF2e<this>[];
+    divineIntercessions: FeatPF2e<this>[];
     /** The primary class DC */
     classDC: Statistic | null;
     /** All class DCs, including the primary */
