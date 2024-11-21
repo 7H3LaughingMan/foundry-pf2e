@@ -2,7 +2,7 @@ import { ItemSystemModel, ItemSystemSchema } from '../base/data/model.ts';
 import { ActionType, BaseItemSourcePF2e, FrequencyInterval, ItemSystemSource } from '../base/data/system.ts';
 import { OneToThree } from '../../data.ts';
 import { SlugField } from '../../system/schema-data-fields.ts';
-import { ModelPropFromDataField } from 'foundry/common/data/fields.ts';
+import { ModelPropFromDataField } from '../../../../foundry/common/data/fields.ts';
 import { AbilityItemPF2e } from './document.ts';
 import { AbilityTraitToggles } from './trait-toggles.ts';
 import { AbilityTrait, ActionCategory } from './types.ts';

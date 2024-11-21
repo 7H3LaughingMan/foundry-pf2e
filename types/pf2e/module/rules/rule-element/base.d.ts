@@ -5,7 +5,7 @@ import { ItemSourcePF2e } from '../../item/base/data/index.ts';
 import { TokenDocumentPF2e } from '../../scene/index.ts';
 import { CheckCheckContext, CheckRoll } from '../../system/check/index.ts';
 import { LaxSchemaField } from '../../system/schema-data-fields.ts';
-import { DataModelValidationOptions } from 'foundry/common/abstract/data.ts';
+import { DataModelValidationOptions } from '../../../../foundry/common/abstract/data.ts';
 import { BracketedValue, RuleElementSchema, RuleElementSource, RuleValue } from './data.ts';
 /**
  * Rule Elements allow you to modify actorData and tokenData values when present on items. They can be configured

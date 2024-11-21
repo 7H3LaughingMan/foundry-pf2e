@@ -3,8 +3,8 @@ import { ItemSourcePF2e, ItemType } from '../../../item/base/data/index.ts';
 import { ItemTrait } from '../../../item/base/types.ts';
 import { DamageType } from '../../../system/damage/types.ts';
 import { PredicateField, SlugField, StrictNumberField } from '../../../system/schema-data-fields.ts';
-import { ArrayField, BooleanField, DataField, DataFieldOptions, NumberField, SchemaField, StringField } from 'foundry/common/data/fields.ts';
-import { DataModelValidationFailure } from 'foundry/common/data/validation-failure.ts';
+import { ArrayField, BooleanField, DataField, DataFieldOptions, NumberField, SchemaField, StringField } from '../../../../../foundry/common/data/fields.ts';
+import { DataModelValidationFailure } from '../../../../../foundry/common/data/validation-failure.ts';
 import { AELikeChangeMode } from '../ae-like.ts';
 declare const fields: typeof foundry.data.fields;
 /** A `SchemaField` reappropriated for validation of specific item alterations */

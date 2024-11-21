@@ -3,7 +3,7 @@ import { AttributeString } from '../../actor/types.ts';
 import { MagicTradition } from '../../item/spell/types.ts';
 import { Predicate, RawPredicate } from '../../system/predication.ts';
 import { PredicateField } from '../../system/schema-data-fields.ts';
-import { NumberField, SchemaField, StringField } from 'foundry/common/data/fields.ts';
+import { NumberField, SchemaField, StringField } from '../../../../foundry/common/data/fields.ts';
 import { RuleElementPF2e } from '../index.ts';
 import { RuleElementSchema } from './data.ts';
 /** Create a special-purpose statistic for use in checks and as a DC */

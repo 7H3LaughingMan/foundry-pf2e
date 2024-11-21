@@ -14,7 +14,7 @@ import { MaterialDamageEffect } from '../system/damage/types.ts';
 import { DegreeOfSuccessAdjustment } from '../system/degree-of-success.ts';
 import { Predicate } from '../system/predication.ts';
 import { Statistic } from '../system/statistic/index.ts';
-import { TokenSource } from 'foundry/common/documents/token.ts';
+import { TokenSource } from '../../../foundry/common/documents/token.ts';
 import { DamageAlteration } from './rule-element/damage-alteration/alteration.ts';
 import { ItemAlterationRuleElement } from './rule-element/item-alteration/rule-element.ts';
 import { Suboption } from './rule-element/roll-option/data.ts';

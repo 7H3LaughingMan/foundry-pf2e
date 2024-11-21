@@ -1,7 +1,7 @@
 import { ActorPF2e } from '../../../actor/index.ts';
 import { ItemPF2e } from '../../../item/index.ts';
 import { ItemSourcePF2e } from '../../../item/base/data/index.ts';
-import { StringField } from 'foundry/common/data/fields.ts';
+import { StringField } from '../../../../../foundry/common/data/fields.ts';
 import { AELikeChangeMode } from '../ae-like.ts';
 import { RuleElementPF2e } from '../base.ts';
 import { ResolvableValueField } from '../data.ts';

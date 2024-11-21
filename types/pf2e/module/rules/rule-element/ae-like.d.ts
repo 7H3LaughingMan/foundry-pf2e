@@ -1,4 +1,4 @@
-import { DataModelValidationFailure } from 'foundry/common/data/validation-failure.ts';
+import { DataModelValidationFailure } from '../../../../foundry/common/data/validation-failure.ts';
 import { RuleElementPF2e } from './base.ts';
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from './data.ts';
 /**

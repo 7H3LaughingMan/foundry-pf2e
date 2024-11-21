@@ -1,7 +1,7 @@
 import { SlugField, StrictArrayField } from '../../../system/schema-data-fields.ts';
 import { RuleElementSchema } from '../data.ts';
 import { ItemAlteration } from '../item-alteration/alteration.ts';
-import type * as fields from 'foundry/common/data/fields.ts';
+import type * as fields from '../../../../../foundry/common/data/fields.ts';
 type GrantItemSchema = RuleElementSchema & {
     /** The UUID of the item to grant: must be a compendium or world item */
     uuid: fields.StringField<string, string, true, false, false>;

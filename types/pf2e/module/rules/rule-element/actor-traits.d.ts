@@ -1,5 +1,5 @@
 import { ActorType } from '../../actor/types.ts';
-import { ArrayField, StringField } from 'foundry/common/data/fields.ts';
+import { ArrayField, StringField } from '../../../../foundry/common/data/fields.ts';
 import { ModelPropsFromRESchema } from './data.ts';
 import { RuleElementPF2e, RuleElementSchema } from './index.ts';
 declare class ActorTraitsRuleElement extends RuleElementPF2e<ActorTraitsRuleSchema> {

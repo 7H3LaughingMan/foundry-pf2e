@@ -1,6 +1,6 @@
 import { ActorAttributes, ActorDetails, BaseActorSourcePF2e } from '../data/base.ts';
 import { ActorSystemModel, ActorSystemSchema } from '../data/model.ts';
-import { ModelPropFromDataField, SourcePropFromDataField } from 'foundry/common/data/fields.ts';
+import { ModelPropFromDataField, SourcePropFromDataField } from '../../../../foundry/common/data/fields.ts';
 import { PartyPF2e } from './document.ts';
 import { PartyCampaign } from './types.ts';
 import fields = foundry.data.fields;

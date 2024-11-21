@@ -1,4 +1,4 @@
-import { ArrayField, BooleanField, NumberField, StringField } from 'foundry/common/data/fields.ts';
+import { ArrayField, BooleanField, NumberField, StringField } from '../../../../foundry/common/data/fields.ts';
 import { AELikeChangeMode } from './ae-like.ts';
 import { ModelPropsFromRESchema, ResolvableValueField } from './data.ts';
 import { RuleElementOptions, RuleElementPF2e, RuleElementSchema, RuleElementSource } from './index.ts';

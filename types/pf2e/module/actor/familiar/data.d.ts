@@ -3,7 +3,7 @@ import { ActorSystemModel, ActorSystemSchema } from '../data/model.ts';
 import { ModifierPF2e } from '../modifiers.ts';
 import { AttributeString } from '../types.ts';
 import { StatisticTraceData } from '../../system/statistic/data.ts';
-import { ModelPropFromDataField, SourcePropFromDataField } from 'foundry/common/data/fields.ts';
+import { ModelPropFromDataField, SourcePropFromDataField } from '../../../../foundry/common/data/fields.ts';
 import { FamiliarPF2e } from './document.ts';
 import fields = foundry.data.fields;
 type FamiliarSource = BaseCreatureSource<"familiar", FamiliarSystemSource>;
