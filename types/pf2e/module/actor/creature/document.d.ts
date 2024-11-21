@@ -15,7 +15,7 @@ import { CheckRoll } from '../../system/check/index.ts';
 import { Statistic, StatisticDifficultyClass, ArmorStatistic } from '../../system/statistic/index.ts';
 import { PerceptionStatistic } from '../../system/statistic/perception.ts';
 import { CreatureSpeeds, CreatureSystemData, LabeledSpeed, VisionLevel } from './data.ts';
-import { CreatureTrait, CreatureType, CreatureUpdateOperation, GetReachParameters } from './types.ts';
+import { CreatureTrait, CreatureType, CreatureUpdateOperation, GetReachParameters, ResourceData } from './types.ts';
 /** An "actor" in a Pathfinder sense rather than a Foundry one: all should contain attributes and abilities */
 declare abstract class CreaturePF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     /** A separate collection of owned spellcasting entries for convenience */
@@ -81,6 +81,8 @@ declare abstract class CreaturePF2e<TParent extends TokenDocumentPF2e | null = T
      * Prompt the user for input regarding Advantage/Disadvantage and any Situational Bonus
      */
     rollRecovery(event?: MouseEvent): Promise<Rolled<CheckRoll> | null>;
+    /** Returns a resource by slug or by key */
+    getResource(resource: string): ResourceData | null;
     /**
      * Updates a resource. Redirects to special resources if needed.
      * Accepts resource slugs in both kebab and dromedary, to handle token updates and direct ones.

@@ -5,13 +5,12 @@ import { RuleElementSchema } from '../../rules/rule-element/data.ts';
 import { UserPF2e } from '../../user/document.ts';
 import { TokenDocumentPF2e } from '../../scene/index.ts';
 import { Statistic } from '../../system/statistic/index.ts';
-import { DataModelValidationOptions } from 'foundry/common/abstract/data.ts';
 import { PartySource, PartySystemData } from './data.ts';
 import { PartyCampaign, PartyUpdateOperation } from './types.ts';
 declare class PartyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     armorClass: null;
     members: CreaturePF2e[];
-    campaign: PartyCampaign | null;
+    get campaign(): PartyCampaign | null;
     get active(): boolean;
     get baseAllowedItemTypes(): (ItemType | "physical")[];
     get allowedItemTypes(): (ItemType | "physical")[];
@@ -19,11 +18,8 @@ declare class PartyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     get canAct(): false;
     /** Part members can add and remove items (though system socket shenanigans)  */
     canUserModify(user: UserPF2e, action: UserAction): boolean;
-    /** Our bond is unbreakable */
+    /** Our bond is unbreakable. */
     isAffectedBy(): false;
-    /** Override validation to defer certain properties to the campaign model */
-    validate(options?: DataModelValidationOptions): boolean;
-    updateSource(data?: Record<string, unknown>, options?: DocumentSourceUpdateContext): DeepPartial<this["_source"]>;
     /** Only prepare rule elements for non-physical items (in case campaign items exist) */
     protected prepareRuleElements(): RuleElementPF2e<RuleElementSchema>[];
     /** Make `system.campaign` non-enumerable to prevent `TokenDocument.getTrackedAttributes` from recursing into it. */

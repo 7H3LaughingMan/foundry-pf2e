@@ -14,8 +14,8 @@ declare global {
         /** The current vision container which provides line-of-sight for vision sources and field-of-view of light sources. */
         vision: PIXI.Container;
 
-        /** The exploration container which tracks exploration progress. */
-        explored: PIXI.Container;
+        /** The canonical line-of-sight polygon which defines current Token visibility. */
+        los: PIXI.Graphics;
 
         /** The optional visibility overlay sprite that should be drawn instead of the unexplored color in the fog of war. */
         visibilityOverlay: PIXI.Sprite;
@@ -34,7 +34,6 @@ declare global {
             background: LightingVisibility;
             illumination: LightingVisibility;
             coloration: LightingVisibility;
-            darkness: LightingVisibility;
             any: boolean;
         };
 
@@ -44,9 +43,6 @@ declare global {
 
         /** A status flag for whether the layer initialization workflow has succeeded. */
         get initialized(): boolean;
-
-        /** Indicates whether containment filtering is required when rendering vision into a texture. */
-        get needsContainment(): boolean;
 
         /** Does the currently viewed Scene support Token field of vision? */
         get tokenVision(): boolean;
@@ -65,11 +61,6 @@ declare global {
          * Initialize all Token vision sources which are present on this layer
          */
         initializeSources(): void;
-
-        /**
-         * Initialize the vision mode.
-         */
-        initializeVisionMode(): void;
 
         /* -------------------------------------------- */
         /*  Layer Rendering                             */

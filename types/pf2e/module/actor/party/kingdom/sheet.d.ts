@@ -9,7 +9,7 @@ import { ValueAndMax } from '../../../data.ts';
 import { AdjustedValue, SheetOption, SheetOptions } from '../../../sheet/helpers.ts';
 import { Statistic } from '../../../system/statistic/index.ts';
 import { Kingdom } from './model.ts';
-import { KingdomAbilityData, KingdomData, KingdomLeadershipData, KingdomSettlementData } from './types.ts';
+import { KingdomAbilityData, KingdomData, KingdomLeadershipData, KingdomSettlementData } from './schema.ts';
 declare class KingdomSheetPF2e extends ActorSheetPF2e<PartyPF2e> {
     #private;
     /** The current selected activity filter, which doubles as an active kingdom phase */

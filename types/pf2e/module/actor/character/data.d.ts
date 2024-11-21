@@ -360,7 +360,7 @@ interface VersatileWeaponOption {
 }
 interface CharacterCraftingData {
     formulas: CraftingFormulaData[];
-    entries: Record<string, Partial<CraftingAbilityData>>;
+    entries: Record<string, CraftingAbilityData>;
 }
 type CharacterResources = CreatureResources & {
     /** The current and maximum number of hero points */
@@ -375,6 +375,7 @@ type CharacterResources = CreatureResources & {
         infusedReagents: ValueAndMax;
     };
     resolve?: ValueAndMax;
+    mythicPoints: ValueAndMax;
 };
 interface CharacterPerceptionData extends CreaturePerceptionData {
     rank: ZeroToFour;

@@ -6,7 +6,7 @@ import { DegreeOfSuccessString } from '../degree-of-success.ts';
 import { BaseRollContext } from '../rolls.ts';
 import { DamageRoll } from './roll.ts';
 import { DAMAGE_CATEGORIES_UNIQUE, DAMAGE_DICE_FACES, DAMAGE_DIE_SIZES, DAMAGE_TYPES } from './values.ts';
-type DamageCategoryUnique = SetElement<typeof DAMAGE_CATEGORIES_UNIQUE>;
+type DamageCategoryUnique = (typeof DAMAGE_CATEGORIES_UNIQUE)[number];
 type DamageCategory = keyof typeof CONFIG.PF2E.damageCategories;
 type DamageDiceFaces = (typeof DAMAGE_DICE_FACES)[number];
 type DamageDieSize = (typeof DAMAGE_DIE_SIZES)[number];
@@ -111,6 +111,7 @@ interface BaseDamageData {
     modifier?: number;
     category: DamageCategoryUnique | null;
     materials?: MaterialDamageEffect[];
+    tags?: string[];
 }
 interface WeaponBaseDamageData extends BaseDamageData {
     terms?: never;

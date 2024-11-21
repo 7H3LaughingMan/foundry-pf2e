@@ -1,6 +1,7 @@
+import { MigrationDataField } from '../../../data.ts';
 import { RuleElementSource } from '../../../rules/index.ts';
 import { SlugField } from '../../../system/schema-data-fields.ts';
-import { ArrayField, BooleanField, NumberField, ObjectField, SchemaField, StringField } from 'foundry/common/data/fields.ts';
+import { ArrayField, BooleanField, ObjectField, SchemaField, StringField } from 'foundry/common/data/fields.ts';
 import { ItemPF2e } from '../document.ts';
 import { ItemDescriptionData } from './system.ts';
 declare abstract class ItemSystemModel<TParent extends ItemPF2e, TSchema extends ItemSystemSchema> extends foundry.abstract
@@ -27,21 +28,6 @@ type ItemSystemSchema = {
     traits: SchemaField<{
         otherTags: ArrayField<SlugField<true, false, false>, string[], string[], true, false, true>;
     }>;
-    _migration: SchemaField<{
-        version: NumberField<number, number, true, true, true>;
-        previous: SchemaField<{
-            foundry: StringField<string, string, true, true, true>;
-            system: StringField<string, string, true, true, true>;
-            schema: NumberField<number, number, true, true, true>;
-        }, {
-            foundry: string | null;
-            system: string | null;
-            schema: number | null;
-        }, {
-            foundry: string | null;
-            system: string | null;
-            schema: number | null;
-        }, true, true, true>;
-    }>;
+    _migration: MigrationDataField;
 };
 export { ItemSystemModel, type ItemSystemSchema };

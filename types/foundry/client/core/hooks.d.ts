@@ -171,7 +171,7 @@ declare global {
          * @param hook  The hook being triggered
          * @param args  Arguments passed to the hook callback functions
          */
-        function callAll(hook: string, ...args: any[]): boolean;
+        function callAll(hook: string, ...args: unknown[]): boolean;
 
         /**
          * Call hook listeners in the order in which they were registered.
@@ -183,7 +183,7 @@ declare global {
          * @param hook  The hook being triggered
          * @param args  Arguments passed to the hook callback functions
          */
-        function call(hook: string, ...args: any[]): boolean;
+        function call(hook: string, ...args: unknown[]): boolean;
     }
 
     interface DropCanvasData<T extends string = string, D extends object = object> {

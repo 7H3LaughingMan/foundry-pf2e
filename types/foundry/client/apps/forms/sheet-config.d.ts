@@ -60,7 +60,9 @@ declare global {
          * @param [options.makeDefault] Whether to make this sheet the default for provided types
          */
         static registerSheet<
-            T extends foundry.abstract.Document & { get sheet(): FormApplication<T> | DocumentSheetV2<DocumentSheetConfiguration<T>> },
+            T extends foundry.abstract.Document & {
+                get sheet(): FormApplication<T> | DocumentSheetV2<DocumentSheetConfiguration<T>>;
+            },
         >(
             documentClass: ConstructorOf<T>,
             scope: string,
@@ -79,7 +81,9 @@ declare global {
          * @param types             An Array of types for which this sheet should be removed
          */
         static unregisterSheet<
-            T extends foundry.abstract.Document & { get sheet(): FormApplication<T> | DocumentSheetV2<DocumentSheetConfiguration<T>> },
+            T extends foundry.abstract.Document & {
+                get sheet(): FormApplication<T> | DocumentSheetV2<DocumentSheetConfiguration<T>>;
+            },
         >(
             documentClass: ConstructorOf<T>,
             scope: string,

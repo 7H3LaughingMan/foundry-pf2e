@@ -4,12 +4,12 @@ import { TokenDocumentPF2e } from '../../scene/index.ts';
 import { Statistic } from '../../system/statistic/index.ts';
 import { default as DataModel } from 'foundry/common/abstract/data.ts';
 import { DataSchema } from 'foundry/common/data/fields.ts';
-import { PartyPF2e } from './document.ts';
+import { PartySystemData } from './data.ts';
 interface PartyUpdateOperation<TParent extends TokenDocumentPF2e | null> extends ActorUpdateOperation<TParent> {
     removedMembers?: string[];
 }
 /** Interface for a party campaign implementation, alternative data preparation used by parties for special campaigns */
-interface PartyCampaign extends DataModel<PartyPF2e, DataSchema> {
+interface PartyCampaign extends DataModel<PartySystemData, DataSchema> {
     type: string;
     level?: number;
     /** Any additional item types supported by the campaign */
@@ -28,9 +28,9 @@ interface PartyCampaign extends DataModel<PartyPF2e, DataSchema> {
         type?: string | null;
     }): void;
     /** Executed during the actor's prepareBaseData phase */
-    prepareBaseData?(): void;
+    prepareBaseData(): void;
     /** Executed during the actor's prepareDerivedData phase */
-    prepareDerivedData?(): void;
+    prepareDerivedData(): void;
     _preUpdate?(changed: Record<string, unknown>): void;
 }
 export type { PartyCampaign, PartyUpdateOperation };

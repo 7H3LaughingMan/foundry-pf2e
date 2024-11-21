@@ -14,7 +14,7 @@ declare class DamageAlterationRuleElement extends RuleElementPF2e<DamageAlterati
 }
 interface DamageAlterationRuleElement extends RuleElementPF2e<DamageAlterationSchema>, ModelPropsFromRESchema<DamageAlterationSchema> {
 }
-type DamageAlterationProperty = "dice-faces" | "dice-number" | "damage-type";
+type DamageAlterationProperty = "dice-faces" | "dice-number" | "damage-type" | "tags";
 type DamageAlterationSchema = RuleElementSchema & {
     selectors: StrictArrayField<StringField<string, string, true, false, false>>;
     mode: StringField<AELikeChangeMode, AELikeChangeMode, true, false, false>;
@@ -23,6 +23,6 @@ type DamageAlterationSchema = RuleElementSchema & {
     /** An optional relabeling of the altered unit of damage */
     relabel: StringField<string, string, false, true, true>;
 };
-type DamageAlterationValue = DamageType | number;
+type DamageAlterationValue = DamageType | number | string[];
 export { DamageAlterationRuleElement };
 export type { DamageAlterationProperty, DamageAlterationValue };

@@ -1,6 +1,6 @@
 import { ActorAttributes, ActorAttributesSource, ActorDetailsSource, ActorHitPoints, ActorHitPointsSource, ActorSystemData, ActorSystemSource, ActorTraitsSource, AttributeBasedTraceData, BaseActorSourcePF2e, StrikeData } from '../data/base.ts';
 import { ActorSizePF2e } from '../data/size.ts';
-import { DamageDicePF2e, ModifierPF2e, RawModifier, StatisticModifier } from '../modifiers.ts';
+import { ModifierPF2e, RawModifier, StatisticModifier } from '../modifiers.ts';
 import { AttributeString, MovementType, SaveType, SkillSlug } from '../types.ts';
 import { LabeledNumber, Size, ValueAndMax, ValueAndMaybeMax, ZeroToThree } from '../../data.ts';
 import { ArmorClassTraceData } from '../../system/statistic/index.ts';
@@ -48,8 +48,6 @@ interface CreatureSystemData extends Omit<CreatureSystemSource, "attributes">, A
     perception: CreaturePerceptionData;
     /** Maps roll types -> a list of modifiers which should affect that roll type. */
     customModifiers: Record<string, ModifierPF2e[]>;
-    /** Maps damage roll types -> a list of damage dice which should be added to that damage roll type. */
-    damageDice: Record<string, DamageDicePF2e[]>;
     /** Saving throw data */
     saves: CreatureSaves;
     skills: Record<string, SkillData>;

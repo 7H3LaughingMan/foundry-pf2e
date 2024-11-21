@@ -1,6 +1,6 @@
 import { CreaturePF2e, FamiliarPF2e } from '../index.ts';
 import { CreatureSpeeds, LabeledSpeed } from '../creature/data.ts';
-import { CreatureUpdateOperation } from '../creature/types.ts';
+import { CreatureUpdateOperation, ResourceData } from '../creature/types.ts';
 import { ActorInitiative } from '../initiative.ts';
 import { StatisticModifier } from '../modifiers.ts';
 import { AttributeString, MovementType } from '../types.ts';
@@ -102,5 +102,7 @@ interface CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     flags: CharacterFlags;
     readonly _source: CharacterSource;
     system: CharacterSystemData;
+    getResource(resource: "hero-points" | "mythic-points" | "focus" | "investiture" | "infused-reagents"): ResourceData;
+    getResource(resource: string): ResourceData | null;
 }
 export { CharacterPF2e };

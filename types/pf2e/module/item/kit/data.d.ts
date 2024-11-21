@@ -1,5 +1,5 @@
 import { KitPF2e } from '../index.ts';
-import { ItemSystemModel, ItemSystemSchema } from '../base/data/schema.ts';
+import { ItemSystemModel, ItemSystemSchema } from '../base/data/model.ts';
 import { BaseItemSourcePF2e, ItemSystemSource } from '../base/data/system.ts';
 import { ClassTrait } from '../class/types.ts';
 import { PriceField } from '../physical/schema.ts';
