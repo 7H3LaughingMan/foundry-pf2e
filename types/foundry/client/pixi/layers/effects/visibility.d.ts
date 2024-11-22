@@ -14,8 +14,8 @@ declare global {
         /** The current vision container which provides line-of-sight for vision sources and field-of-view of light sources. */
         vision: PIXI.Container;
 
-        /** The canonical line-of-sight polygon which defines current Token visibility. */
-        los: PIXI.Graphics;
+        /** The exploration container which tracks exploration progress. */
+        explored: PIXI.Container;
 
         /** The optional visibility overlay sprite that should be drawn instead of the unexplored color in the fog of war. */
         visibilityOverlay: PIXI.Sprite;
