@@ -62,51 +62,99 @@ import type ApplicationV2 from "./application.d.ts";
  * }).render({ force: true });
  * ```
  */
-export default class DialogV2 extends ApplicationV2<DialogV2Configuration> {
+export default class DialogV2 extends ApplicationV2<ApplicationConfiguration & DialogV2Configuration> {
+    /**
+     * Render an HTMLElement for the Application.
+     * An Application subclass must implement this method in order for the Application to be renderable.
+     * @param context      Context data for the render operation
+     * @param options      Options which configure application rendering behavior
+     * @returns            The result of HTML rendering may be implementation specific.
+     *                     Whatever value is returned here is passed to _replaceHTML
+     */
+    protected _renderHTML(context: ApplicationRenderContext, options: ApplicationRenderOptions): Promise<unknown>;
+
+    /**
+     * Render configured buttons.
+     */
+    protected _renderButtons(): string;
+
+    /**
+     * Handle submitting the dialog.
+     * @param target    The button that was clicked or the default button.
+     * @param event     The triggering event.
+     */
+    protected _onSubmit(target: HTMLButtonElement, event: PointerEvent | SubmitEvent): Promise<DialogV2>;
+
+    /**
+     * Replace the HTML of the application with the result provided by the rendering backend.
+     * An Application subclass should implement this method in order for the Application to be renderable.
+     * @param result                  The result returned by the application rendering backend
+     * @param content                 The content element into which the rendered result must be inserted
+     * @param options                 Options which configure application rendering behavior
+     */
+    protected _replaceHTML(result: unknown, content: HTMLElement, options: ApplicationRenderOptions): void;
+
+    /**
+     * Handle keypresses within the dialog.
+     * @param event     The triggering event.
+     */
+    protected _onKeyDown(event: KeyboardEvent): void;
+
+    /**
+     * @param event     The originating click event.
+     * @param target    The button element that was clicked.
+     */
+    protected static _onClickButton(event: PointerEvent, target: HTMLButtonElement): void;
+
     /**
      * A utility helper to generate a dialog with yes and no buttons.
-     *
-     * Resolves to true if the yes button was pressed, or false if the no button
-     * was pressed. If additional buttons were provided, the Promise resolves to
-     * the identifier of the one that was pressed, or the value returned by its
-     * callback. If the dialog was dismissed, and rejectClose is false, the
-     * Promise resolves to null.
+     * @param options.yes   Options to overwrite the default yes button configuration.
+     * @param options.no    Options to overwrite the default no button configuration.
+     * @returns             Resolves to true if the yes button was pressed, or false if the no button
+     *                      was pressed. If additional buttons were provided, the Promise resolves to
+     *                      the identifier of the one that was pressed, or the value returned by its
+     *                      callback. If the dialog was dismissed, and rejectClose is false, the
+     *                      Promise resolves to null.
      */
-    static confirm(options?: DialogV2ConfirmOptions): Promise<true | false | null>;
+    static confirm(
+        options?: Partial<ApplicationConfiguration & DialogV2Configuration & DialogV2WaitOptions> & {
+            yes?: DialogV2Button;
+            no?: DialogV2Button;
+        }
+    ): Promise<any>;
 
     /**
      * A utility helper to generate a dialog with a single confirmation button.
-     *
-     * Resolves to the identifier of the button used to submit the dialog,
-     * or the value returned by that button's callback. If the dialog was
-     * dismissed, and rejectClose is false, the Promise resolves to null.
+     * @param options.ok    Options to overwrite the default confirmation button configuration.
+     * @returns             Resolves to the identifier of the button used to submit the dialog,
+     *                      or the value returned by that button's callback. If the dialog was
+     *                      dismissed, and rejectClose is false, the Promise resolves to null.
      */
-    static prompt(options?: DialogV2PromptOptions): Promise<any>;
+    static prompt(
+        options?: Partial<ApplicationConfiguration & DialogV2Configuration & DialogV2WaitOptions> & {
+            ok?: DialogV2Button;
+        }
+    ): Promise<any>;
 
     /**
      * Spawn a dialog and wait for it to be dismissed or submitted.
-     *
-     * Resolves to the identifier of the button used to submit the
-     * dialog, or the value returned by that button's callback. If the
-     * dialog was dismissed, and rejectClose is false, the Promise
-     * resolves to null.
+     * @param options.render        A function to invoke whenever the dialog is rendered.
+     * @param options.close         A function to invoke when the dialog is closed under any
+     *                              circumstances.
+     * @param options.rejectClose   Throw a Promise rejection if the dialog is dismissed.
+     * @returns                     Resolves to the identifier of the button used to submit the
+     *                              dialog, or the value returned by that button's callback. If the
+     *                              dialog was dismissed, and rejectClose is false, the Promise
+     *                              resolves to null.
      */
-    static wait(options?: DialogV2WaitOptions): Promise<any>;
-
-    protected _renderHTML(context: ApplicationRenderContext, options: ApplicationRenderOptions): Promise<unknown>;
-    protected _replaceHTML(result: unknown, content: HTMLElement, options: ApplicationRenderOptions): void;
+    static wait(
+        options?: Partial<ApplicationConfiguration & DialogV2Configuration> & {
+            rejectClose?: boolean;
+            render?: DialogV2RenderCallback;
+            close?: DialogV2CloseCallback;
+        }
+    ): Promise<any>;
 }
-
-/**
- * @param event The button click event, or a form submission event if the dialog was submitted via keyboard.
- * @param button If the form was submitted via keyboard, this will be the default button, otherwise the button that was clicked.
- * @param dialog The dialog element.
- */
-export type DialogV2ButtonCallback = (
-    event: PointerEvent | SubmitEvent,
-    button: HTMLButtonElement,
-    dialog: HTMLDialogElement
-) => Promise<any>;
 
 export interface DialogV2Button {
     /** The button action identifier. */
@@ -132,11 +180,17 @@ export interface DialogV2Button {
 }
 
 /**
- * @param result Either the identifier of the button that was clicked to submit the dialog, or the result returned by that button's callback.
+ * @param event The button click event, or a form submission event if the dialog was submitted via keyboard.
+ * @param button If the form was submitted via keyboard, this will be the default button, otherwise the button that was clicked.
+ * @param dialog The dialog element.
  */
-export type DialogV2SubmitCallback = (result: any) => Promise<void>;
+export type DialogV2ButtonCallback = (
+    event: PointerEvent | SubmitEvent,
+    button: HTMLButtonElement,
+    dialog: HTMLDialogElement
+) => Promise<any>;
 
-export interface DialogV2Configuration extends ApplicationConfiguration {
+export interface DialogV2Configuration {
     /**
      * Modal dialogs prevent interaction with the rest of the UI until they
      * are dismissed or submitted.
@@ -153,27 +207,6 @@ export interface DialogV2Configuration extends ApplicationConfiguration {
     submit?: DialogV2SubmitCallback;
 }
 
-export interface DialogV2WaitOptions extends ApplicationConfiguration, DialogV2Configuration {
-    /** A synchronous function to invoke whenever the dialog is rendered. */
-    render?: DialogV2RenderCallback;
-    /** A synchronous function to invoke when the dialog is closed under any circumstances. */
-    close?: DialogV2CloseCallback;
-    /** Throw a Promise rejection if the dialog is dismissed. (default: true) */
-    rejectClose?: boolean;
-}
-
-export interface DialogV2PromptOptions extends DialogV2WaitOptions {
-    /** Options to overwrite the default confirmation button configuration. */
-    ok?: Partial<DialogV2Button>;
-}
-
-export interface DialogV2ConfirmOptions extends DialogV2WaitOptions {
-    /** Options to overwrite the default yes button configuration. */
-    yes?: Partial<DialogV2Button>;
-    /** Options to overwrite the default no button configuration. */
-    no?: Partial<DialogV2Button>;
-}
-
 /**
  * @param event The render event.
  * @param dialog The dialog element.
@@ -185,3 +218,17 @@ export type DialogV2RenderCallback = (event: Event, dialog: HTMLDialogElement) =
  * @param  dialog The dialog instance.
  */
 export type DialogV2CloseCallback = (event: Event, dialog: DialogV2) => void;
+
+/**
+ * @param result Either the identifier of the button that was clicked to submit the dialog, or the result returned by that button's callback.
+ */
+export type DialogV2SubmitCallback = (result: any) => Promise<void>;
+
+export interface DialogV2WaitOptions {
+    /** A synchronous function to invoke whenever the dialog is rendered. */
+    render?: DialogV2RenderCallback;
+    /** A synchronous function to invoke when the dialog is closed under any circumstances. */
+    close?: DialogV2CloseCallback;
+    /** Throw a Promise rejection if the dialog is dismissed. */
+    rejectClose?: boolean;
+}
