@@ -6,12 +6,13 @@ import type {
     ApplicationRenderContext,
     ApplicationRenderOptions,
 } from "../_types.d.ts";
+import EventEmitter from "./event-emitter.js";
 
 /** The Application class is responsible for rendering an HTMLElement into the Foundry Virtual Tabletop user interface. */
 export default abstract class ApplicationV2<
     TConfig extends ApplicationConfiguration = ApplicationConfiguration,
-    TRenderOptions extends ApplicationRenderOptions = ApplicationRenderOptions,
-> {
+    TRenderOptions extends ApplicationRenderOptions = ApplicationRenderOptions
+> extends EventEmitter {
     constructor(options: DeepPartial<TConfig>);
 
     /**
@@ -263,7 +264,7 @@ export default abstract class ApplicationV2<
     changeTab(
         tab: string,
         group: string,
-        options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean },
+        options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean }
     ): void;
 
     /* -------------------------------------------- */
