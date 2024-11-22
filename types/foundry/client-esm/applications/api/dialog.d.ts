@@ -117,9 +117,9 @@ export default class DialogV2 extends ApplicationV2<ApplicationConfiguration & D
      *                      Promise resolves to null.
      */
     static confirm(
-        options?: Partial<ApplicationConfiguration & DialogV2Configuration & DialogV2WaitOptions> & {
-            yes?: DialogV2Button;
-            no?: DialogV2Button;
+        options?: DeepPartial<ApplicationConfiguration & DialogV2Configuration & DialogV2WaitOptions> & {
+            yes?: Partial<DialogV2Button>;
+            no?: Partial<DialogV2Button>;
         }
     ): Promise<any>;
 
@@ -131,8 +131,8 @@ export default class DialogV2 extends ApplicationV2<ApplicationConfiguration & D
      *                      dismissed, and rejectClose is false, the Promise resolves to null.
      */
     static prompt(
-        options?: Partial<ApplicationConfiguration & DialogV2Configuration & DialogV2WaitOptions> & {
-            ok?: DialogV2Button;
+        options?: DeepPartial<ApplicationConfiguration & DialogV2Configuration & DialogV2WaitOptions> & {
+            ok?: Partial<DialogV2Button>;
         }
     ): Promise<any>;
 
@@ -148,7 +148,7 @@ export default class DialogV2 extends ApplicationV2<ApplicationConfiguration & D
      *                              resolves to null.
      */
     static wait(
-        options?: Partial<ApplicationConfiguration & DialogV2Configuration> & {
+        options?: DeepPartial<ApplicationConfiguration & DialogV2Configuration> & {
             rejectClose?: boolean;
             render?: DialogV2RenderCallback;
             close?: DialogV2CloseCallback;
