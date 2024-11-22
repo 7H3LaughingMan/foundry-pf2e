@@ -6,12 +6,13 @@ import type {
     ApplicationRenderContext,
     ApplicationRenderOptions,
 } from "../_types.d.ts";
+import EventEmitterMixin from "../../../common/utils/event-emiiter.ts";
 
 /** The Application class is responsible for rendering an HTMLElement into the Foundry Virtual Tabletop user interface. */
 export default abstract class ApplicationV2<
     TConfig extends ApplicationConfiguration = ApplicationConfiguration,
     TRenderOptions extends ApplicationRenderOptions = ApplicationRenderOptions
-> {
+> extends EventEmitterMixin(Object) {
     constructor(options?: DeepPartial<TConfig>);
 
     /**
