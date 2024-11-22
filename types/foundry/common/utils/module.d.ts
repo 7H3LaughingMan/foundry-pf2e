@@ -3,6 +3,7 @@ export * from "./geometry.ts";
 export * from "./helpers.ts";
 // export * from "./logging.mjs";
 export { default as Color } from "./color.ts";
+export { default as EventEmitterMixin } from "./event-emiiter.ts";
 
 /**
  * The constructor of an async function.
