@@ -9,3 +9,4 @@ import "./settings.d.ts";
 import "./socket.d.ts";
 import "./sorting.d.ts";
 import "./video.d.ts";
+import "./utils.d.ts";
