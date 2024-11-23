@@ -124,7 +124,7 @@ export default abstract class ApplicationV2<
      *                      ApplicationV1#render signature.
      * @returns A Promise which resolves to the rendered Application instance
      */
-    render(options?: boolean | TRenderOptions, _options?: TRenderOptions): Promise<ApplicationV2>;
+    render(options?: boolean | Partial<TRenderOptions>, _options?: Partial<TRenderOptions>): Promise<this>;
 
     /**
      * Modify the provided options passed to a render request.
@@ -196,7 +196,7 @@ export default abstract class ApplicationV2<
      * @param options Options which modify how the application is closed.
      * @returns A Promise which resolves to the closed Application instance
      */
-    close(options?: ApplicationClosingOptions): Promise<ApplicationV2>;
+    close(options?: ApplicationClosingOptions): Promise<this>;
 
     /**
      * Remove the application HTML element from the DOM.
@@ -322,7 +322,7 @@ export default abstract class ApplicationV2<
      * Post-close steps are not awaited by the close process.
      * @param options Provided render options
      */
-    protected _onClose(options: TRenderOptions): void;
+    protected _onClose(options: ApplicationClosingOptions): void;
 
     /**
      * Actions performed before the Application is re-positioned.
