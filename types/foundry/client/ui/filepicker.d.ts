@@ -26,8 +26,6 @@ declare class FilePicker extends Application<FilePickerOptions> {
     /** The current set of file extensions which are being filtered upon */
     extension: string[];
 
-    constructor(options: FilePickerOptions);
-
     /** The allowed values for the type of this FilePicker instance. */
     static FILE_TYPES: ["image", "audio", "video", "text", "imagevideo", "font", "folder", "any"];
 
@@ -95,7 +93,7 @@ declare class FilePicker extends Application<FilePickerOptions> {
     static browse(
         source: string,
         target: string,
-        options?: { bucket?: string; extensions?: string[]; wildcard?: boolean },
+        options?: { bucket?: string; extensions?: string[]; wildcard?: boolean }
     ): Promise<object>;
 
     /**
@@ -120,7 +118,7 @@ declare class FilePicker extends Application<FilePickerOptions> {
         path: string,
         file: File,
         body?: object,
-        options?: { notify?: boolean },
+        options?: { notify?: boolean }
     ): Promise<boolean>;
 
     /**
@@ -186,9 +184,9 @@ declare interface FilePickerOptions extends ApplicationOptions {
     /** A current file source in "data", "public", or "s3" */
     activeSource?: "data" | "public" | "s3";
     /** A callback function to trigger once a file has been selected */
-    callback?: Function;
+    callback?: (path: string, filePicker: this) => any;
     /** A flag which permits explicitly disallowing upload, true by default */
-    allowUpdload?: boolean;
+    allowUpload?: boolean;
     /** An HTML form field that the result of this selection is applied to */
     field?: HTMLElement;
     /** An HTML button element which triggers the display of this picker */
