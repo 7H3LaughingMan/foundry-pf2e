@@ -602,6 +602,12 @@ export const USER_PERMISSIONS: {
         disableGM: false;
         defaultRole: typeof USER_ROLES.PLAYER;
     };
+    MANUAL_ROLLS: {
+        label: "PERMISSION.ManualRolls";
+        hint: "PERMISSION.ManualRollsHint";
+        disableGM: true;
+        defaultRole: typeof USER_ROLES.TRUSTED;
+    };
     MESSAGE_WHISPER: {
         label: "PERMISSION.MessageWhisper";
         hint: "PERMISSION.MessageWhisperHint";
@@ -613,6 +619,18 @@ export const USER_PERMISSIONS: {
         hint: "PERMISSION.NoteCreateHint";
         disableGM: false;
         defaultRole: typeof USER_ROLES.TRUSTED;
+    };
+    PING_CANVAS: {
+        label: "PERMISSION.PingCanvas";
+        hint: "PERMISSION.PingCanvasHint";
+        disableGM: true;
+        defaultRole: typeof USER_ROLES.PLAYER;
+    };
+    PLAYLIST_CREATE: {
+        label: "PERMISSION.PlaylistCreate";
+        hint: "PERMISSION.PlaylistCreateHint";
+        disableGM: false;
+        defaultRole: typeof USER_ROLES.ASSISTANT;
     };
     SETTINGS_MODIFY: {
         label: "PERMISSION.SettingsModify";
@@ -641,6 +659,12 @@ export const USER_PERMISSIONS: {
     TOKEN_CREATE: {
         label: "PERMISSION.TokenCreate";
         hint: "PERMISSION.TokenCreateHint";
+        disableGM: false;
+        defaultRole: typeof USER_ROLES.ASSISTANT;
+    };
+    TOKEN_DELETE: {
+        label: "PERMISSION.TokenDelete";
+        hint: "PERMISSION.TokenDeleteHint";
         disableGM: false;
         defaultRole: typeof USER_ROLES.ASSISTANT;
     };
