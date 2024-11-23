@@ -1,84 +1,42 @@
-import { ActorPF2e } from "./module/actor/index.ts";
-import { Action } from "./module/actor/actions/index.ts";
-import { AutomaticBonusProgression } from "./module/actor/character/automatic-bonus-progression.ts";
-import { ElementalBlast } from "./module/actor/character/elemental-blast.ts";
-import { FeatGroupData } from "./module/actor/character/feats/index.ts";
-import { CheckModifier, ModifierPF2e, ModifierType, StatisticModifier } from "./module/actor/modifiers.ts";
-import { ItemPF2e, PhysicalItemPF2e } from "./module/item/index.ts";
-import { ConditionSource } from "./module/item/condition/data.ts";
-import { CoinsPF2e } from "./module/item/physical/helpers.ts";
-import { ActiveEffectPF2e } from "./module/active-effect.ts";
-import {
-    CompendiumBrowser,
-    CompendiumBrowserSettings,
-    CompendiumBrowserSources,
-} from "./module/apps/compendium-browser/index.ts";
-import { EffectsPanel } from "./module/apps/effects-panel.ts";
-import { HotbarPF2e } from "./module/apps/hotbar.ts";
-import { LicenseViewer } from "./module/apps/license-viewer/app.ts";
-import {
-    ActorDirectoryPF2e,
-    ChatLogPF2e,
-    CompendiumDirectoryPF2e,
-    EncounterTrackerPF2e,
-} from "./module/apps/sidebar/index.ts";
-import { WorldClock } from "./module/apps/world-clock/app.ts";
-import { CanvasPF2e, EffectsCanvasGroupPF2e } from "./module/canvas/index.ts";
-import { StatusEffects } from "./module/canvas/status-effects.ts";
-import { ChatMessagePF2e } from "./module/chat-message/index.ts";
-import { ActorsPF2e } from "./module/collection/actors.ts";
-import { CombatantPF2e, EncounterPF2e } from "./module/encounter/index.ts";
-import { MacroPF2e } from "./module/macro.ts";
-import { RuleElementPF2e, RuleElements } from "./module/rules/index.ts";
-import { UserPF2e } from "./module/user/index.ts";
-import {
-    AmbientLightDocumentPF2e,
-    MeasuredTemplateDocumentPF2e,
-    RegionBehaviorPF2e,
-    RegionDocumentPF2e,
-    ScenePF2e,
-    TileDocumentPF2e,
-    TokenDocumentPF2e,
-} from "./module/scene/index.ts";
-import { ActorDeltaPF2e } from "./module/scene/token-document/actor-delta.ts";
-import { PF2ECONFIG, StatusEffectIconTheme } from "./scripts/config/index.ts";
-import { DicePF2e } from "./scripts/dice.ts";
-import {
-    calculateXP,
-    checkPrompt,
-    editPersistent,
-    launchTravelSheet,
-    perceptionForSelected,
-    rollActionMacro,
-    rollItemMacro,
-    stealthForSelected,
-    xpFromEncounter,
-} from "./scripts/macros/index.ts";
-import { remigrate } from "./scripts/system/remigrate.ts";
-import { CheckPF2e } from "./module/system/check/index.ts";
-import { ConditionManager } from "./module/system/conditions/manager.ts";
-import { EffectTracker } from "./module/system/effect-tracker.ts";
-import { ModuleArt } from "./module/system/module-art.ts";
-import { Predicate } from "./module/system/predication.ts";
-import {
-    CustomDamageData,
-    HomebrewTag,
-    HomebrewTraitSettingsKey,
-    LanguageSettings,
-} from "./module/system/settings/homebrew/index.ts";
-import { TextEditorPF2e } from "./module/system/text-editor.ts";
-import { sluggify } from "./util/index.ts";
-interface GamePF2e
-    extends Game<
-        ActorPF2e<null>,
-        ActorsPF2e<ActorPF2e<null>>,
-        ChatMessagePF2e,
-        EncounterPF2e,
-        ItemPF2e<null>,
-        MacroPF2e,
-        ScenePF2e,
-        UserPF2e
-    > {
+import { ActorPF2e } from './module/actor/index.ts';
+import { Action } from './module/actor/actions/index.ts';
+import { AutomaticBonusProgression } from './module/actor/character/automatic-bonus-progression.ts';
+import { ElementalBlast } from './module/actor/character/elemental-blast.ts';
+import { FeatGroupData } from './module/actor/character/feats/index.ts';
+import { CheckModifier, ModifierPF2e, ModifierType, StatisticModifier } from './module/actor/modifiers.ts';
+import { ItemPF2e, PhysicalItemPF2e } from './module/item/index.ts';
+import { ConditionSource } from './module/item/condition/data.ts';
+import { CoinsPF2e } from './module/item/physical/helpers.ts';
+import { ActiveEffectPF2e } from './module/active-effect.ts';
+import { CompendiumBrowser, CompendiumBrowserSettings, CompendiumBrowserSources } from './module/apps/compendium-browser/index.ts';
+import { EffectsPanel } from './module/apps/effects-panel.ts';
+import { HotbarPF2e } from './module/apps/hotbar.ts';
+import { LicenseViewer } from './module/apps/license-viewer/app.ts';
+import { ActorDirectoryPF2e, ChatLogPF2e, CompendiumDirectoryPF2e, EncounterTrackerPF2e } from './module/apps/sidebar/index.ts';
+import { WorldClock } from './module/apps/world-clock/app.ts';
+import { CanvasPF2e, EffectsCanvasGroupPF2e } from './module/canvas/index.ts';
+import { StatusEffects } from './module/canvas/status-effects.ts';
+import { ChatMessagePF2e } from './module/chat-message/index.ts';
+import { ActorsPF2e } from './module/collection/actors.ts';
+import { CombatantPF2e, EncounterPF2e } from './module/encounter/index.ts';
+import { MacroPF2e } from './module/macro.ts';
+import { RuleElementPF2e, RuleElements } from './module/rules/index.ts';
+import { UserPF2e } from './module/user/index.ts';
+import { AmbientLightDocumentPF2e, MeasuredTemplateDocumentPF2e, RegionBehaviorPF2e, RegionDocumentPF2e, ScenePF2e, TileDocumentPF2e, TokenDocumentPF2e } from './module/scene/index.ts';
+import { ActorDeltaPF2e } from './module/scene/token-document/actor-delta.ts';
+import { PF2ECONFIG, StatusEffectIconTheme } from './scripts/config/index.ts';
+import { DicePF2e } from './scripts/dice.ts';
+import { calculateXP, checkPrompt, editPersistent, launchTravelSheet, perceptionForSelected, rollActionMacro, rollItemMacro, stealthForSelected, xpFromEncounter } from './scripts/macros/index.ts';
+import { remigrate } from './scripts/system/remigrate.ts';
+import { CheckPF2e } from './module/system/check/index.ts';
+import { ConditionManager } from './module/system/conditions/manager.ts';
+import { EffectTracker } from './module/system/effect-tracker.ts';
+import { ModuleArt } from './module/system/module-art.ts';
+import { Predicate } from './module/system/predication.ts';
+import { CustomDamageData, HomebrewTag, HomebrewTraitSettingsKey, LanguageSettings } from './module/system/settings/homebrew/index.ts';
+import { TextEditorPF2e } from './module/system/text-editor.ts';
+import { sluggify } from './util/index.ts';
+interface GamePF2e extends Game<ActorPF2e<null>, ActorsPF2e<ActorPF2e<null>>, ChatMessagePF2e, EncounterPF2e, ItemPF2e<null>, MacroPF2e, ScenePF2e, UserPF2e> {
     pf2e: {
         actions: Record<string, Function> & Collection<Action>;
         compendiumBrowser: CompendiumBrowser;
@@ -187,30 +145,7 @@ interface GamePF2e
         };
     };
 }
-type ConfiguredConfig = Config<
-    AmbientLightDocumentPF2e<ScenePF2e | null>,
-    ActiveEffectPF2e<ActorPF2e | ItemPF2e | null>,
-    ActorPF2e,
-    ActorDeltaPF2e<TokenDocumentPF2e>,
-    ChatLogPF2e,
-    ChatMessagePF2e,
-    EncounterPF2e,
-    CombatantPF2e<EncounterPF2e | null, TokenDocumentPF2e>,
-    EncounterTrackerPF2e<EncounterPF2e | null>,
-    CompendiumDirectoryPF2e,
-    HotbarPF2e,
-    ItemPF2e,
-    MacroPF2e,
-    MeasuredTemplateDocumentPF2e,
-    RegionDocumentPF2e,
-    RegionBehaviorPF2e,
-    TileDocumentPF2e,
-    TokenDocumentPF2e,
-    WallDocument<ScenePF2e | null>,
-    ScenePF2e,
-    UserPF2e,
-    EffectsCanvasGroupPF2e
->;
+type ConfiguredConfig = Config<AmbientLightDocumentPF2e<ScenePF2e | null>, ActiveEffectPF2e<ActorPF2e | ItemPF2e | null>, ActorPF2e, ActorDeltaPF2e<TokenDocumentPF2e>, ChatLogPF2e, ChatMessagePF2e, EncounterPF2e, CombatantPF2e<EncounterPF2e | null, TokenDocumentPF2e>, EncounterTrackerPF2e<EncounterPF2e | null>, CompendiumDirectoryPF2e, HotbarPF2e, ItemPF2e, MacroPF2e, MeasuredTemplateDocumentPF2e, RegionDocumentPF2e, RegionBehaviorPF2e, TileDocumentPF2e, TokenDocumentPF2e, WallDocument<ScenePF2e | null>, ScenePF2e, UserPF2e, EffectsCanvasGroupPF2e>;
 declare global {
     interface ConfigPF2e extends ConfiguredConfig {
         debug: ConfiguredConfig["debug"] & {
@@ -226,14 +161,7 @@ declare global {
     namespace globalThis {
         var game: GamePF2e;
         var fu: typeof foundry.utils;
-        var ui: FoundryUI<
-            ActorDirectoryPF2e,
-            ItemDirectory<ItemPF2e<null>>,
-            ChatLogPF2e,
-            CompendiumDirectoryPF2e,
-            EncounterTrackerPF2e<EncounterPF2e | null>,
-            HotbarPF2e
-        >;
+        var ui: FoundryUI<ActorDirectoryPF2e, ItemDirectory<ItemPF2e<null>>, ChatLogPF2e, CompendiumDirectoryPF2e, EncounterTrackerPF2e<EncounterPF2e | null>, HotbarPF2e>;
         interface Math {
             eq: (a: number, b: number) => boolean;
             gt: (a: number, b: number) => boolean;
@@ -329,6 +257,12 @@ declare global {
     const CONDITION_SOURCES: ConditionSource[];
     const ROLL_PARSER: string;
     const UUID_REDIRECTS: Record<CompendiumUUID, CompendiumUUID>;
+
+    function getDocumentClass(name: "ChatMessage"): typeof ChatMessagePF2e;
+    function getDocumentClass(name: "Combatant"): typeof CombatantPF2e;
+    function getDocumentClass(name: "Macro"): typeof MacroPF2e;
+    function getDocumentClass(name: "Actor"): typeof ActorPF2e;
+    function getDocumentClass(name: "Item"): typeof ItemPF2e;
 
     function getDocumentClass(name: "ChatMessage"): typeof ChatMessagePF2e;
     function getDocumentClass(name: "Combatant"): typeof CombatantPF2e;
