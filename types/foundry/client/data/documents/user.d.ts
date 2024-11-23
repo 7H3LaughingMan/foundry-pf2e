@@ -15,7 +15,7 @@ declare global {
         active: boolean;
 
         /** Track references to the current set of Tokens which are targeted by the User */
-        targets: Set<Token>;
+        targets: UserTargets<Token>;
 
         /** Track the ID of the Scene that is currently being viewed by the User */
         viewedScene: string | null;
@@ -42,7 +42,7 @@ declare global {
         assignHotbarMacro(
             macro: Macro | null,
             slot?: number | string,
-            { fromSlot }?: { fromSlot?: number | undefined },
+            { fromSlot }?: { fromSlot?: number | undefined }
         ): Promise<this>;
 
         /**
@@ -83,7 +83,7 @@ declare global {
         protected override _onUpdate(
             changed: DeepPartial<foundry.documents.UserSource>,
             options: DatabaseUpdateOperation<null>,
-            userId: string,
+            userId: string
         ): void;
 
         protected override _onDelete(options: DatabaseDeleteOperation<null>, userId: string): void;
