@@ -473,6 +473,7 @@ export type * from "./pf2e/module/scene/token-document/sheet.d.ts";
 export type * from "./pf2e/module/scene/token-document/aura/index.d.ts";
 export type * from "./pf2e/module/scene/token-document/aura/types.d.ts";
 export type * from "./pf2e/module/sheet/helpers.d.ts";
+export type * from "./pf2e/module/system/action-macros/index.d.ts";
 export type * from "./pf2e/module/system/client-backend.d.ts";
 export type * from "./pf2e/module/system/degree-of-success.d.ts";
 export type * from "./pf2e/module/system/effect-tracker.d.ts";
