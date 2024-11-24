@@ -39,4 +39,9 @@ declare global {
          */
         protected abstract _onResetDefaults(event: Event): void;
     }
+
+    interface PackageConfigurationData {
+        categoryTemplate: string;
+        submitButton: boolean;
+    }
 }
