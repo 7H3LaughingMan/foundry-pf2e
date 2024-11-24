@@ -66,7 +66,7 @@ declare global {
          * @param activityData.sceneId The id of the Scene currently being viewed by the User
          * @param activityData.targets An id of Token ids which are targeted by the User
          */
-        broadcastActivity(activityData?: UserActivity): void;
+        broadcastActivity(activityData?: ActivityData): void;
 
         /**
          * Get an Array of Macro Entities on this User's Hotbar by page
@@ -89,13 +89,32 @@ declare global {
         protected override _onDelete(options: DatabaseDeleteOperation<null>, userId: string): void;
     }
 
-    interface UserActivity {
-        cursor?: object;
-        focus?: boolean;
-        ping?: boolean;
-        ruler?: string;
-        sceneId?: string;
-        target?: string[];
+    interface PingData {
+        /** Pulls all connected clients' views to the pinged coordinates. (default: false) */
+        pull?: boolean;
+        /** The ping style, see CONFIG.Canvas.pings. */
+        style: string;
+        /** The ID of the scene that was pinged. */
+        scene: string;
+        /** The zoom level at which the ping was made. */
+        zoom: number;
+    }
+
+    interface ActivityData {
+        /** The ID of the scene that the user is viewing. */
+        sceneId?: string | null;
+        /** The position of the user's cursor. */
+        cursor?: Point;
+        /** The state of the user's ruler, if they are currently using one. */
+        ruler?: RulerData | null;
+        /** The IDs of the tokens the user has targeted in the currently viewed */
+        targets?: string[];
+        /** Whether the user has an open WS connection to the server or not. */
+        active?: boolean;
+        /** Is the user emitting a ping at the cursor coordinates? */
+        ping?: PingData;
+        /** The state of the user's AV settings. */
+        av?: AVSettingsData;
     }
 
     type Active<TUser extends User<Actor<null>>> = TUser & {

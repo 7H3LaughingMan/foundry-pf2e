@@ -1,0 +1,1 @@
+import "./setting.d.ts";
