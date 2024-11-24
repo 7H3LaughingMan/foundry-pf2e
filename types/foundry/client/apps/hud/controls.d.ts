@@ -38,18 +38,26 @@ declare class SceneControls extends Application {
     override activateListeners(html: JQuery): void;
 }
 
-declare interface SceneControlTool {
+declare type SceneControlTool = {
     name: string;
     title: string;
     icon: string;
     visible: boolean;
-    toggle?: boolean;
     active?: boolean;
     button?: boolean;
-    onClick?: () => void;
     /** Configuration for rendering the tool's toolclip. */
     toolclip?: ToolclipConfiguration;
-}
+} & (
+    | {
+          toggle?: false;
+          onClick?: () => void;
+      }
+    | {
+          toggle: true;
+          onClick?: (active: boolean) => void;
+      }
+);
+
 
 declare interface SceneControl {
     name: string;
