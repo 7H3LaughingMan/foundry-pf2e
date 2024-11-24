@@ -32,6 +32,6 @@ declare global {
         windows: Record<number, Application>;
         hotbar: THotbar;
         nav: SceneNavigation;
-        macro: DocumentDirectory<Macro>;
+        macros: DocumentDirectory<Macro>;
     }
 }
