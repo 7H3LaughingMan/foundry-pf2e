@@ -17,7 +17,7 @@ declare global {
         TChatLog extends ChatLog,
         TCompendiumDirectory extends CompendiumDirectory,
         TCombatTracker extends CombatTracker<Combat | null>,
-        THotbar extends Hotbar,
+        THotbar extends Hotbar
     > {
         actors: TActorDirectory;
         chat: TChatLog;
@@ -32,5 +32,6 @@ declare global {
         windows: Record<number, Application>;
         hotbar: THotbar;
         nav: SceneNavigation;
+        macro: DocumentDirectory<Macro>;
     }
 }

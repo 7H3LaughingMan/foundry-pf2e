@@ -33,6 +33,9 @@ declare global {
 
         static override get defaultOptions(): ApplicationOptions;
 
+        /** Whether the hotbar is locked. */
+        get locked(): boolean
+
         override getData(options?: Record<string, unknown>): {
             page: number;
             macros: TMacro[];
