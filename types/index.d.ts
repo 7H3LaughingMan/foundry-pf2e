@@ -531,3 +531,5 @@ export type * from "./pf2e/module/user/data.d.ts";
 export type * from "./pf2e/module/user/document.d.ts";
 export type * from "./pf2e/module/user/index.d.ts";
 export type * from "./pf2e/module/user/sheet.d.ts";
+export type * from "./pf2e/scripts/config/index.d.ts";
+export type * from "./pf2e/scripts/config/traits.d.ts";
