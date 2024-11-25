@@ -74,7 +74,7 @@ declare class FilePicker extends Application<FilePickerOptions> {
      * @param target    The target within the currently active source location.
      * @param options   Browsing options
      */
-    browse(target: string, options?: object): Promise<object>;
+    browse(target?: string, options?: object): Promise<object>;
 
     /**
      * Browse files for a certain directory location
