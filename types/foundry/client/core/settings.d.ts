@@ -108,7 +108,7 @@ declare global {
         get(module: "core", key: "fontSize"): number;
         get(module: "core", key: "noCanvas"): boolean;
         get(module: "core", key: "rollMode"): RollMode;
-        get(module: string, key: string): unknown;
+        get<TSetting>(module: string, key: string): TSetting;
 
         /**
          * Get the value of a game setting for a certain module and setting key
@@ -116,7 +116,7 @@ declare global {
          * @param key   The setting key to retrieve
          * @param value The data to assign to the setting key
          */
-        set(module: string, key: string, value: unknown): Promise<unknown>;
+        set<TSetting>(module: string, key: string, value: TSetting): Promise<TSetting>;
     }
 
     interface SettingRegistration<
@@ -131,6 +131,7 @@ declare global {
         get(key: "core.defaultToken"): SettingConfig & { default: PreCreate<foundry.data.PrototypeTokenSource> };
         get(key: "core.dynamicTokenRingFitMode"): SettingConfig & { default: "grid" | "subject" };
         get(key: "core.notesDisplayToggle"): SettingConfig & { default: boolean };
+        get<TDefault>(key: string): SettingConfig & { default: TDefault };
     }
 
     /** A simple interface for World settings storage which imitates the API provided by localStorage */
