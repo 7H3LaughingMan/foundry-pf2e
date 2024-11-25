@@ -1,3 +1,4 @@
+import { CombatSource } from "../../../common/documents/combat.js";
 import type { ClientBaseCombat } from "./client-base-mixes.d.ts";
 
 declare global {
@@ -120,6 +121,11 @@ declare global {
 
         /** Begin the combat encounter, advancing to round 1 and turn 1 */
         startCombat(): Promise<this>;
+
+        update(
+            data: Partial<CombatSource>,
+            operation?: Partial<DatabaseUpdateOperation<null>> & {direction?: 1 | -1, worldTime?: {delta?: number}},
+        ): Promise<this | undefined>;
 
         /**
          * Define how the array of Combatants is sorted in the displayed list of the tracker.
