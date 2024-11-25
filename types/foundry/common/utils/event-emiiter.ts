@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function EventEmitterMixin<TBase extends AbstractConstructorOf<any>>(BaseClass: TBase) {
     abstract class EventEmitter extends BaseClass {
         /**

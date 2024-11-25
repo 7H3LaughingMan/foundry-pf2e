@@ -13,18 +13,18 @@ const files = await glob("./pf2e/module/**/*.d.ts", {
 });
 
 files.sort((a, b) => {
-    let a_parts = a.split("/");
-    let b_parts = b.split("/");
+    const a_parts = a.split("/");
+    const b_parts = b.split("/");
 
-    let a_folders = a_parts.slice(1, -1);
-    let a_file = a_parts.at(-1) ?? "";
+    const a_folders = a_parts.slice(1, -1);
+    const a_file = a_parts.at(-1) ?? "";
 
-    let b_folders = b_parts.slice(1, -1);
-    let b_file = b_parts.at(-1) ?? "";
+    const b_folders = b_parts.slice(1, -1);
+    const b_file = b_parts.at(-1) ?? "";
 
     for (let index = 0; index < Math.max(a_folders.length, b_folders.length); index++) {
-        let a_folder = a_folders[index];
-        let b_folder = b_folders[index];
+        const a_folder = a_folders[index];
+        const b_folder = b_folders[index];
 
         if (!a_folder && !b_folder) {
             break;
@@ -40,9 +40,9 @@ files.sort((a, b) => {
             }
         }
 
-        let folder_compare = a_folder.localeCompare(b_folder);
+        const folder_compare = a_folder.localeCompare(b_folder);
 
-        if (folder_compare != 0) {
+        if (folder_compare !== 0) {
             return folder_compare;
         }
     }
@@ -61,7 +61,7 @@ files.unshift(
     'export type { HitPointsStatistic } from "./pf2e/module/actor/data/base.d.ts";',
     'export type { ActionCost } from "./pf2e/module/item/base/data/system.d.ts";',
     'export type { PrerequisiteTagData } from "./pf2e/module/item/feat/data.d.ts";',
-    ""
+    "",
 );
 
 fs.writeFileSync("./types/index.d.ts", files.join("\r\n"));

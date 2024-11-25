@@ -124,7 +124,7 @@ declare global {
 
         override update(
             data: Partial<CombatSource>,
-            operation?: Partial<DatabaseUpdateOperation<null>> & {direction?: 1 | -1, worldTime?: {delta?: number}},
+            operation?: Partial<DatabaseUpdateOperation<null>> & { direction?: 1 | -1; worldTime?: { delta?: number } },
         ): Promise<this | undefined>;
 
         /**
@@ -141,13 +141,13 @@ declare global {
         protected override _onCreate(
             data: this["_source"],
             operation: DatabaseCreateOperation<null>,
-            userId: string
+            userId: string,
         ): void;
 
         protected override _onUpdate(
             changed: DeepPartial<this["_source"]>,
             operation: DatabaseUpdateOperation<null>,
-            userId: string
+            userId: string,
         ): void;
 
         protected override _onDelete(operation: DatabaseDeleteOperation<null>, userId: string): void;
@@ -158,7 +158,7 @@ declare global {
             documents: Combatant<this>[],
             data: Combatant<this>["_source"][],
             operation: DatabaseCreateOperation<this>,
-            userId: string
+            userId: string,
         ): void;
 
         protected override _onUpdateDescendantDocuments(
@@ -167,7 +167,7 @@ declare global {
             documents: Combatant<this>[],
             changes: DeepPartial<Combatant<this>["_source"]>[],
             operation: DatabaseUpdateOperation<this>,
-            userId: string
+            userId: string,
         ): void;
 
         protected override _onDeleteDescendantDocuments(
@@ -176,7 +176,7 @@ declare global {
             documents: Combatant<this>[],
             ids: string[],
             operation: DatabaseDeleteOperation<this>,
-            userId: string
+            userId: string,
         ): void;
 
         /**

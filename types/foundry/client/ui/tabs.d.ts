@@ -37,7 +37,7 @@ declare class Tabs {
     active: string;
 
     /** A callback function to trigger when the tab is changed */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     callback: ((...args: any[]) => void) | null;
 
     /** The CSS selector used to target the tab navigation element */

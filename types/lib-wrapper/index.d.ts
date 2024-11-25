@@ -194,7 +194,7 @@ declare global {
                 chain?: boolean;
                 perf_mode?: PerfomanceModes;
                 bind?: any[];
-            }
+            },
         ): number;
         static register<T extends ThisType<F>, F extends (...args: any) => any>(
             package_id: string,
@@ -205,7 +205,7 @@ declare global {
                 chain?: boolean;
                 perf_mode?: PerfomanceModes;
                 bind?: any[];
-            }
+            },
         ): number;
         static register<T extends ThisType<F>, F extends (...args: any) => any>(
             package_id: string,
@@ -216,7 +216,7 @@ declare global {
                 chain?: boolean;
                 perf_mode?: PerfomanceModes;
                 bind?: any[];
-            }
+            },
         ): number;
         static register<T extends ThisType<F>, F extends (...args: any) => any>(
             package_id: string,
@@ -227,7 +227,7 @@ declare global {
                 chain?: boolean;
                 perf_mode?: PerfomanceModes;
                 bind?: any[];
-            }
+            },
         ): number;
 
         /**
@@ -286,7 +286,7 @@ declare global {
             package_id: string,
             ignore_ids: string | string[],
             targets: string | string[],
-            options?: { ingore_errors?: boolean }
+            options?: { ingore_errors?: boolean },
         ): void;
     }
 }

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-function-type */
-
 /**
  * The FilePicker application renders contents of the server-side public directory.
  * This app allows for navigating and uploading files to the public path.
@@ -93,7 +91,7 @@ declare class FilePicker extends Application<FilePickerOptions> {
     static browse(
         source: string,
         target: string,
-        options?: { bucket?: string; extensions?: string[]; wildcard?: boolean }
+        options?: { bucket?: string; extensions?: string[]; wildcard?: boolean },
     ): Promise<object>;
 
     /**
@@ -118,7 +116,7 @@ declare class FilePicker extends Application<FilePickerOptions> {
         path: string,
         file: File,
         body?: object,
-        options?: { notify?: boolean }
+        options?: { notify?: boolean },
     ): Promise<boolean>;
 
     /**

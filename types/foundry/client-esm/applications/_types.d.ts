@@ -154,7 +154,7 @@ export type ApplicationClickAction = (event: PointerEvent, target: HTMLElement) 
 export type ApplicationFormSubmission = (
     event: SubmitEvent | Event,
     form: HTMLFormElement,
-    formData: FormDataExtended
+    formData: FormDataExtended,
 ) => Promise<void>;
 
 export interface ApplicationTab {

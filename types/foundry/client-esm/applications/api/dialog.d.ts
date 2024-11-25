@@ -120,7 +120,7 @@ export default class DialogV2 extends ApplicationV2<ApplicationConfiguration & D
         options?: DeepPartial<ApplicationConfiguration & DialogV2Configuration & DialogV2WaitOptions> & {
             yes?: Partial<DialogV2Button>;
             no?: Partial<DialogV2Button>;
-        }
+        },
     ): Promise<any>;
 
     /**
@@ -133,7 +133,7 @@ export default class DialogV2 extends ApplicationV2<ApplicationConfiguration & D
     static prompt(
         options?: DeepPartial<ApplicationConfiguration & DialogV2Configuration & DialogV2WaitOptions> & {
             ok?: Partial<DialogV2Button>;
-        }
+        },
     ): Promise<any>;
 
     /**
@@ -152,7 +152,7 @@ export default class DialogV2 extends ApplicationV2<ApplicationConfiguration & D
             rejectClose?: boolean;
             render?: DialogV2RenderCallback;
             close?: DialogV2CloseCallback;
-        }
+        },
     ): Promise<any>;
 }
 
@@ -187,7 +187,7 @@ export interface DialogV2Button {
 export type DialogV2ButtonCallback = (
     event: PointerEvent | SubmitEvent,
     button: HTMLButtonElement,
-    dialog: HTMLDialogElement
+    dialog: HTMLDialogElement,
 ) => Promise<any>;
 
 export interface DialogV2Configuration {

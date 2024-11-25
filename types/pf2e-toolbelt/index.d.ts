@@ -181,7 +181,7 @@ declare global {
                     actor: LootPF2e,
                     item: PhysicalItemPF2e,
                     type: pf2eToolbelt.betterMerchant.ItemFilter,
-                    quantity?: number
+                    quantity?: number,
                 ): { price: CoinsPF2e; filter: pf2eToolbelt.betterMerchant.ExtractedFilter } | undefined;
             };
             heroActions: {
@@ -299,7 +299,7 @@ declare global {
         set(
             module: "pf2e-toolbelt",
             setting: "heroActions.count",
-            value: pf2eToolbelt.heroActions.CountSetting
+            value: pf2eToolbelt.heroActions.CountSetting,
         ): Promise<pf2eToolbelt.heroActions.CountSetting>;
         /** Hero Actions - Allow Trade */
         set(module: "pf2e-toolbelt", setting: "heroActions.trade", value: boolean): Promise<boolean>;
@@ -406,7 +406,7 @@ declare global {
         set(
             module: "pf2e-toolbelt",
             setting: "dismiss.enabled",
-            value: pf2eToolbelt.templateHelper.DismissSetting
+            value: pf2eToolbelt.templateHelper.DismissSetting,
         ): Promise<pf2eToolbelt.templateHelper.DismissSetting>;
         // #endregion
 
@@ -425,19 +425,19 @@ declare global {
         set(
             module: "pf2e-toolbelt",
             setting: "underground.mode",
-            value: pf2eToolbelt.underground.ModeSetting
+            value: pf2eToolbelt.underground.ModeSetting,
         ): Promise<pf2eToolbelt.underground.ModeSetting>;
         /** Underground - Opacity */
         set(
             module: "pf2e-toolbelt",
             setting: "underground.alpha",
-            value: pf2eToolbelt.underground.AlphaSetting
+            value: pf2eToolbelt.underground.AlphaSetting,
         ): Promise<pf2eToolbelt.underground.AlphaSetting>;
         /** Underground - Contrast */
         set(
             module: "pf2e-toolbelt",
             setting: "underground.contrast",
-            value: pf2eToolbelt.underground.ContrastSetting
+            value: pf2eToolbelt.underground.ContrastSetting,
         ): Promise<pf2eToolbelt.underground.ContrastSetting>;
         // #endregion
 

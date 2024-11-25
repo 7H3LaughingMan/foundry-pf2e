@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "type": "module",
     "scripts": {
-        "dir:pf2e": "dir types\\pf2e /A-D /S /B > files.txt"
+        "tsc": "tsc",
+        "eslint": "eslint"
     },
     "exports": {
         ".": "./types/index.d.ts",
@@ -11,18 +12,28 @@
         "./foundry/*": "./types/foundry/*",
         "./pf2e/*": "./types/pf2e/*"
     },
-    "license": "MIT",
+    "license": "Apache-2.0",
+    "engines": {
+        "node": ">=20.15.0"
+    },
     "devDependencies": {
         "@codemirror/lang-json": "^6.0.1",
+        "@eslint/js": "^9.15.0",
         "codemirror": "^6.0.1",
+        "eslint": "^9.15.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "glob": "^11.0.0",
         "gsap": "3.11.5",
         "handlebars": "4.7.8",
         "js-angusj-clipper": "^1.3.1",
         "minisearch": "^7.1.0",
         "peggy": "^4.1.1",
+        "prettier": "3.3.3",
         "prosemirror-commands": "^1.5.2",
         "prosemirror-view": "^1.33.6",
-        "typescript": "5.3.3"
+        "typescript": "5.3.3",
+        "typescript-eslint": "^8.16.0"
     },
     "dependencies": {
         "@pixi/graphics-smooth": "^1.1.0",
@@ -36,8 +47,8 @@
         "@types/uuid": "^10.0.0",
         "@types/yaireo__tagify": "4.17.0",
         "pixi.js": "^7.4.2",
-        "socket.io-client": "^4.5.1",
         "socket.io": "^4.5.1",
+        "socket.io-client": "^4.5.1",
         "tinymce": "^6.1.2"
     }
 }

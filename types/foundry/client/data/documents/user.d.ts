@@ -42,7 +42,7 @@ declare global {
         assignHotbarMacro(
             macro: Macro | null,
             slot?: number | string,
-            { fromSlot }?: { fromSlot?: number | undefined }
+            { fromSlot }?: { fromSlot?: number | undefined },
         ): Promise<this>;
 
         /**
@@ -58,12 +58,12 @@ declare global {
          * Submit User activity data to the server for broadcast to other players.
          * This type of data is transient, persisting only for the duration of the session and not saved to any database.
          * Activity data uses a volatile event to prevent unnecessary buffering if the client temporarily loses connection.
-         * 
+         *
          * @param activityData          An object of User activity data to submit to the server for broadcast.
          * @param options
          * @param options.volatile      If undefined, volatile is inferred from the activity data.
          */
-        broadcastActivity(activityData?: ActivityData, options?: { volatile?: boolean}): void;
+        broadcastActivity(activityData?: ActivityData, options?: { volatile?: boolean }): void;
 
         /**
          * Get an Array of Macro Entities on this User's Hotbar by page
@@ -80,7 +80,7 @@ declare global {
         protected override _onUpdate(
             changed: DeepPartial<foundry.documents.UserSource>,
             options: DatabaseUpdateOperation<null>,
-            userId: string
+            userId: string,
         ): void;
 
         protected override _onDelete(options: DatabaseDeleteOperation<null>, userId: string): void;

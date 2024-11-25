@@ -10,14 +10,11 @@ declare global {
 
     type CollectionValue<T> = T extends Collection<infer U> ? U : never;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type AbstractConstructorOf<T> = abstract new (...args: any[]) => T;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     type ConstructorOf<T> = new (...args: any[]) => T;
 
     type DocumentConstructorOf<T extends foundry.abstract.Document> = {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         new (...args: any[]): T;
         updateDocuments(updates?: object[], operation?: Partial<DatabaseUpdateOperation<T["parent"]>>): Promise<T[]>;
     };

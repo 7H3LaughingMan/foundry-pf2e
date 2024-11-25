@@ -34,7 +34,7 @@ declare global {
 
         /**
          * Handle receipt of activity data from another User connected to the Game session
-         * 
+         *
          * @param userId       The User id who generated the activity data
          * @param activityData The object of activity data
          */

@@ -62,7 +62,7 @@ declare global {
          */
         static applyRollMode<TData extends DeepPartial<ChatMessageSource>>(
             chatData: TData,
-            rollMode: RollMode | "roll"
+            rollMode: RollMode | "roll",
         ): TData;
 
         /**
@@ -174,19 +174,19 @@ declare global {
         protected override _preCreate(
             data: this["_source"],
             options: DatabaseCreateOperation<null>,
-            user: BaseUser<BaseActor<null>>
+            user: BaseUser<BaseActor<null>>,
         ): Promise<boolean | void>;
 
         protected override _onCreate(
             data: this["_source"],
             options: DatabaseCreateOperation<null>,
-            userId: string
+            userId: string,
         ): void;
 
         protected override _onUpdate(
             changed: DeepPartial<this["_source"]>,
             options: DatabaseUpdateOperation<null>,
-            userId: string
+            userId: string,
         ): void;
 
         protected override _onDelete(options: DatabaseDeleteOperation<null>, userId: string): void;
@@ -203,17 +203,17 @@ declare global {
         function create<TDocument extends ChatMessage>(
             this: ConstructorOf<TDocument>,
             data: ChatMessageCreateData<TDocument>[],
-            operation?: Partial<ChatMessageCreateOperation>
+            operation?: Partial<ChatMessageCreateOperation>,
         ): Promise<TDocument[]>;
         function create<TDocument extends ChatMessage>(
             this: ConstructorOf<TDocument>,
             data: ChatMessageCreateData<TDocument>,
-            operation?: Partial<ChatMessageCreateOperation>
+            operation?: Partial<ChatMessageCreateOperation>,
         ): Promise<TDocument | undefined>;
         function create<TDocument extends ChatMessage>(
             this: ConstructorOf<TDocument>,
             data: ChatMessageCreateData<TDocument>[] | ChatMessageCreateData<TDocument>,
-            operation?: Partial<ChatMessageCreateOperation>
+            operation?: Partial<ChatMessageCreateOperation>,
         ): Promise<TDocument[] | TDocument | undefined>;
     }
 

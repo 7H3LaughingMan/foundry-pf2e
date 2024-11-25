@@ -151,7 +151,7 @@ declare global {
         set(
             module: "pf2e-modifiers-matter",
             setting: "always-show-highlights-to-everyone",
-            value: boolean
+            value: boolean,
         ): Promise<boolean>;
 
         /** Additional Ignored Labels */
@@ -165,7 +165,7 @@ declare global {
         set(
             module: "pf2e-modifiers-matter",
             setting: "always-show-defense-conditions",
-            value: boolean
+            value: boolean,
         ): Promise<boolean>;
 
         /** Ignore Crit Fail Over Fail On Attacks */
@@ -174,19 +174,19 @@ declare global {
         set(
             module: "pf2e-modifiers-matter",
             setting: "ignore-crit-fail-over-fail-on-attacks",
-            value: boolean
+            value: boolean,
         ): Promise<boolean>;
 
         /** Highlight Potentials */
         get(
             module: "pf2e-modifiers-matter",
-            setting: "highlight-potentials-preset"
+            setting: "highlight-potentials-preset",
         ): pf2eModifiersMatter.HighlightPotentialsSetting;
         /** Highlight Potentials */
         set(
             module: "pf2e-modifiers-matter",
             setting: "highlight-potentials-preset",
-            value: pf2eModifiersMatter.HighlightPotentialsSetting
+            value: pf2eModifiersMatter.HighlightPotentialsSetting,
         ): Promise<pf2eModifiersMatter.HighlightPotentialsSetting>;
     }
 

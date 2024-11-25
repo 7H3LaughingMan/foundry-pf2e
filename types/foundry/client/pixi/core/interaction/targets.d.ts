@@ -16,7 +16,7 @@ declare global {
 
         /**
          * Dispatch the targetToken hook whenever the user's target set changes.
-         * 
+         *
          * @param token         The targeted Token
          * @param targeted      Whether the Token has been targeted or untargeted
          */

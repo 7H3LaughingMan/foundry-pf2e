@@ -43,7 +43,7 @@ declare function fromUuid(uuid: string, options?: { relative?: Document; invalid
  */
 declare function fromUuidSync(
     uuid: string,
-    options?: { relative?: Document; invalid?: boolean; strict?: boolean }
+    options?: { relative?: Document; invalid?: boolean; strict?: boolean },
 ): Document | object | null;
 
 /**
