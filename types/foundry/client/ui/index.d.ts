@@ -19,18 +19,26 @@ declare global {
         TCombatTracker extends CombatTracker<Combat | null>,
         THotbar extends Hotbar,
     > {
+        menu: MainMenu;
+        sidebar: Sidebar;
+        pause: Pause;
+        nav: SceneNavigation;
+        notifications: Notifications;
         actors: TActorDirectory;
         chat: TChatLog;
         combat: TCombatTracker;
         compendium: TCompendiumDirectory;
         controls: SceneControls;
+        hotbar: THotbar;
         items: TItemDirectory;
-        notifications: Notifications;
+        // journal: JournalDirectory;
+        macros: MacroDirectory<Macro>;
+        players: PlayerList;
+        // playlists: PlaylistDirectory;
+        // scenes: SceneDirectory;
         settings: Settings;
-        sidebar: Sidebar;
         tables: RollTableDirectory;
         windows: Record<number, Application>;
-        hotbar: THotbar;
-        nav: SceneNavigation;
+        // webrtc: CameraViews;
     }
 }
