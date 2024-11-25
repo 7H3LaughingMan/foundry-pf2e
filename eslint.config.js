@@ -5,7 +5,7 @@ import globals from "globals";
 
 export default tseslint.config(
     {
-        ignores: ["types/pf2e/**/*.ts", "build", "eslint.config.js"],
+        ignores: ["types/pf2e/**/*.ts", "eslint.config.js"],
     },
     {
         plugins: { prettier },

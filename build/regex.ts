@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import { glob } from "glob";
-//import * as path from "path/posix";
+// import * as path from "path/posix";
 
 const files = await glob("./types/pf2e/**/*.d.ts", {
     dotRelative: true,
@@ -8,7 +8,7 @@ const files = await glob("./types/pf2e/**/*.d.ts", {
 });
 
 for (const file of files) {
-    //const dir = path.parse(file).dir;
+    // const dir = path.parse(file).dir;
 
     let data = fs.readFileSync(file, "utf8");
 

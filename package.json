@@ -4,7 +4,8 @@
     "type": "module",
     "scripts": {
         "tsc": "tsc",
-        "eslint": "eslint"
+        "eslint": "eslint .",
+        "eslint:fix": "eslint . --fix && prettier . --write"
     },
     "exports": {
         ".": "./types/index.d.ts",
