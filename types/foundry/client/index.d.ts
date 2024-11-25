@@ -2,6 +2,7 @@ import "gsap";
 import "handlebars";
 import SHOWDOWN from "showdown";
 import "./apps/index.d.ts";
+import "./av/index.d.ts";
 import "./config.d.ts";
 import "./core/index.d.ts";
 import "./data/index.d.ts";

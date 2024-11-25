@@ -34,9 +34,10 @@ declare global {
 
         /**
          * Handle receipt of activity data from another User connected to the Game session
+         * 
          * @param userId       The User id who generated the activity data
          * @param activityData The object of activity data
          */
-        protected static _handleUserActivity(userId: string, activityData?: UserActivity): void;
+        protected static _handleUserActivity(userId: string, activityData?: ActivityData): void;
     }
 }

@@ -42,7 +42,7 @@ declare global {
         assignHotbarMacro(
             macro: Macro | null,
             slot?: number | string,
-            { fromSlot }?: { fromSlot?: number | undefined },
+            { fromSlot }?: { fromSlot?: number | undefined }
         ): Promise<this>;
 
         /**
@@ -57,16 +57,13 @@ declare global {
         /**
          * Submit User activity data to the server for broadcast to other players.
          * This type of data is transient, persisting only for the duration of the session and not saved to any database.
-         *
-         * @param activityData An object of User activity data to submit to the server for broadcast.
-         * @param activityData.cursor  The coordinates of the user's cursor
-         * @param activityData.focus   Is the user pulling focus to the cursor coordinates?
-         * @param activityData.ping    Is the user emitting a ping at the cursor coordinates?
-         * @param activityData.ruler   Serialized Ruler coordinate data in JSON format
-         * @param activityData.sceneId The id of the Scene currently being viewed by the User
-         * @param activityData.targets An id of Token ids which are targeted by the User
+         * Activity data uses a volatile event to prevent unnecessary buffering if the client temporarily loses connection.
+         * 
+         * @param activityData          An object of User activity data to submit to the server for broadcast.
+         * @param options
+         * @param options.volatile      If undefined, volatile is inferred from the activity data.
          */
-        broadcastActivity(activityData?: UserActivity): void;
+        broadcastActivity(activityData?: ActivityData, options?: { volatile?: boolean}): void;
 
         /**
          * Get an Array of Macro Entities on this User's Hotbar by page
@@ -83,19 +80,41 @@ declare global {
         protected override _onUpdate(
             changed: DeepPartial<foundry.documents.UserSource>,
             options: DatabaseUpdateOperation<null>,
-            userId: string,
+            userId: string
         ): void;
 
         protected override _onDelete(options: DatabaseDeleteOperation<null>, userId: string): void;
     }
 
-    interface UserActivity {
-        cursor?: object;
-        focus?: boolean;
-        ping?: boolean;
-        ruler?: string;
-        sceneId?: string;
-        target?: string[];
+    interface PingData {
+        /** Pulls all connected clients' views to the pinged coordinates. */
+        pull?: boolean;
+        /** The ping style, see CONFIG.Canvas.pings. */
+        style: string;
+        /** The ID of the scene that was pinged. */
+        scene: string;
+        /** The zoom level at which the ping was made. */
+        zoom: number;
+    }
+
+    interface ActivityData {
+        /** The ID of the scene that the user is viewing. */
+        sceneId?: string | null;
+        /** The position of the user's cursor. */
+        cursor?: { x: number; y: number };
+        /** The state of the user's ruler, if they are currently using one  */
+        ruler?: RulerMeasurementData | null;
+        /**
+         * The IDs of the tokens the user has targeted in the currently viewed
+         * scene.
+         */
+        targets?: string[];
+        /** Whether the user has an open WS connection to the server or not. */
+        active?: boolean;
+        /** Is the user emitting a ping at the cursor coordinates? */
+        ping?: PingData;
+        /** The state of the user's AV settings. */
+        av?: AVSettingsData;
     }
 
     type Active<TUser extends User<Actor<null>>> = TUser & {
