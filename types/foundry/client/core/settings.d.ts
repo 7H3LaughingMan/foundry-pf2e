@@ -131,6 +131,7 @@ declare global {
         get(key: "core.defaultToken"): SettingConfig & { default: PreCreate<foundry.data.PrototypeTokenSource> };
         get(key: "core.dynamicTokenRingFitMode"): SettingConfig & { default: "grid" | "subject" };
         get(key: "core.notesDisplayToggle"): SettingConfig & { default: boolean };
+        get<TDefault extends unknown>(key: string): SettingConfig & { default: TDefault };
     }
 
     /** A simple interface for World settings storage which imitates the API provided by localStorage */
