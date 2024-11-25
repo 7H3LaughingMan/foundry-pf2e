@@ -209,7 +209,7 @@ declare global {
         /**
          * Change the currently active tab
          */
-        activateTab(tabName: string, options?: { group?: string, triggerCallback?: boolean }): void;
+        activateTab(tabName: string, options?: { group?: string; triggerCallback?: boolean }): void;
 
         /**
          * Handle changes to the active tab in a configured Tabs controller
