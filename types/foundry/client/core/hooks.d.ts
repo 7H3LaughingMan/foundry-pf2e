@@ -46,6 +46,10 @@ declare global {
         "renderChatMessage",
         [ChatMessage, JQuery, foundry.documents.ChatMessageSource]
     >;
+    type HookParamsRenderSettingsConfig = HookParameters<
+        "renderSettingsConfig",
+        [SettingsConfig, JQuery, ReturnType<SettingsConfig["_prepareCategoryData"]>]
+    >;
     type HookParamsTargetToken = HookParameters<"targetToken", [User, Token<TokenDocument<Scene>>, boolean]>;
     type HookParamsUpdate<T extends foundry.abstract.Document, N extends string> = HookParameters<
         `update${N}`,
@@ -80,6 +84,7 @@ declare global {
         function on(...args: HooksParamsPreUpdateCombat): number;
         function on(...args: HookParamsPreUpdateToken): number;
         function on(...args: HookParamsRenderChatMessage): number;
+        function on(...args: HookParamsRenderSettingsConfig): number;
         function on(...args: HookParamsRender<ChatLog, "ChatLog">): number;
         function on(...args: HookParamsRender<ChatPopout, "ChatPopout">): number;
         function on(...args: HookParamsRender<CombatTrackerConfig, "CombatTrackerConfig">): number;
@@ -129,6 +134,7 @@ declare global {
         function once(...args: HookParamsPreCreateItem): number;
         function once(...args: HookParamsPreUpdateToken): number;
         function once(...args: HookParamsRenderChatMessage): number;
+        function once(...args: HookParamsRenderSettingsConfig): number;
         function once(...args: HookParamsRender<ActorDirectory<Actor<null>>, "ActorDirectory">): number;
         function once(...args: HookParamsRender<ChatLog, "ChatLog">): number;
         function once(...args: HookParamsRender<ChatPopout, "ChatPopout">): number;
