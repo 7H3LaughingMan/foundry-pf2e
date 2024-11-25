@@ -207,6 +207,11 @@ declare global {
         activateListeners(html: JQuery): void;
 
         /**
+         * Change the currently active tab
+         */
+        activateTab(tabName: string, options?: { group?: string, triggerCallback?: boolean }): void;
+
+        /**
          * Handle changes to the active tab in a configured Tabs controller
          * @param event     A left click event
          * @param tabs      The TabsV2 controller
