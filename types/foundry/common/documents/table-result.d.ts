@@ -1,9 +1,9 @@
-import type { Document, DocumentMetadata } from "../abstract/module.d.ts";
+import type * as abstract from "../abstract/module.d.ts";
 import type * as fields from "../data/fields.d.ts";
 import type * as documents from "./module.d.ts";
 
 /** The TableResult document model. */
-export default class BaseTableResult<TParent extends documents.BaseRollTable | null> extends Document<
+export default class BaseTableResult<TParent extends documents.BaseRollTable | null> extends abstract.Document<
     TParent,
     TableResultSchema
 > {
@@ -18,16 +18,17 @@ export default class BaseTableResult<TParent extends documents.BaseRollTable | n
     override testUserPermission(
         user: documents.BaseUser,
         permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
+        { exact }?: { exact?: boolean }
     ): boolean;
 }
 
 export default interface BaseTableResult<TParent extends documents.BaseRollTable | null>
-    extends Document<TParent, TableResultSchema> {
+    extends abstract.Document<TParent, TableResultSchema>,
+        ModelPropsFromSchema<TableResultSchema> {
     get documentName(): TableResultMetadata["name"];
 }
 
-interface TableResultMetadata extends DocumentMetadata {
+interface TableResultMetadata extends abstract.DocumentMetadata {
     name: "TableResult";
     collection: "results";
     label: "DOCUMENT.TableResult";
