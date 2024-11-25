@@ -45,7 +45,7 @@ export type ChatMessageSchema = {
     /** A ChatSpeakerData object which describes the origin of the ChatMessage */
     speaker: fields.SchemaField<ChatSpeakerSchema>;
     /** An array of User _id values to whom this message is privately whispered */
-    whisper: fields.ArrayField<fields.ForeignDocumentField<string>>;
+    whisper: fields.ArrayField<fields.ForeignDocumentField<string, true, false, true>>;
     /** Is this message sent blindly where the creating User cannot see it? */
     blind: fields.BooleanField;
     /** Serialized content of any Roll instances attached to the ChatMessage */
