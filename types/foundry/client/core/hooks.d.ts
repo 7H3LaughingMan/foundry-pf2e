@@ -48,7 +48,7 @@ declare global {
     >;
     type HookParamsRenderSettingsConfig = HookParameters<
         "renderSettingsConfig",
-        [SettingsConfig, JQuery, SettingsConfigData]
+        [SettingsConfig, JQuery, ReturnType<SettingsConfig["_prepareCategoryData"]>]
     >;
     type HookParamsTargetToken = HookParameters<"targetToken", [User, Token<TokenDocument<Scene>>, boolean]>;
     type HookParamsUpdate<T extends foundry.abstract.Document, N extends string> = HookParameters<

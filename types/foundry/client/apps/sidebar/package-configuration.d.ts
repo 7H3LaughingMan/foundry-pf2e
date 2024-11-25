@@ -17,8 +17,8 @@ declare global {
 
         /**
          * Classify what Category an Action belongs to
-         * @param namespace The entry to classify
-         * @returns The category the entry belongs to
+         * @param namespace     The entry to classify
+         * @returns             The category the entry belongs to
          */
         protected _categorizeEntry(namespace: string): { id: string; title: string };
 
