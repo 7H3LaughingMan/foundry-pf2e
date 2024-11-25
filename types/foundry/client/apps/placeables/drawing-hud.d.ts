@@ -7,5 +7,11 @@ declare class DrawingHUD extends BasePlaceableHUD<Drawing> {
 
     override getData(options?: ApplicationOptions): BasePlaceableHUDData<Drawing>;
 
-    override setPosition(options?: ApplicationPosition): void;
+    override setPosition(position?: {
+        left: Maybe<number>;
+        top: Maybe<number>;
+        width: Maybe<number>;
+        height: Maybe<number | "auto">;
+        scale: Maybe<number>;
+    }): void;
 }

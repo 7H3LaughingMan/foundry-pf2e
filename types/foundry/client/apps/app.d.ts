@@ -14,7 +14,14 @@ declare global {
         protected _element: JQuery;
 
         /** Track the current position and dimensions of the Application UI */
-        position: ApplicationPosition;
+        position: {
+            width: Maybe<number>;
+            height: Maybe<number | "auto">;
+            left: Maybe<number>;
+            top: Maybe<number>;
+            scale: Maybe<number>;
+            zIndex: number;
+        };
 
         /** DragDrop workflow handlers which are active for this Application */
         protected _dragDrop: DragDrop[];
@@ -281,7 +288,19 @@ declare global {
         bringToTop(): void;
 
         /** Set the application position and store it's new location */
-        setPosition(options?: ApplicationPosition): ApplicationPosition | void;
+        setPosition(position?: {
+            left: Maybe<number>;
+            top: Maybe<number>;
+            width: Maybe<number>;
+            height: Maybe<number | "auto">;
+            scale: Maybe<number>;
+        }): {
+            left: Maybe<number>;
+            top: Maybe<number>;
+            width: Maybe<number>;
+            height: Maybe<number>;
+            scale: Maybe<number>;
+        } | void;
 
         /**
          * Handle application minimization behavior - collapsing content and reducing the size of the header
@@ -359,7 +378,7 @@ declare global {
         event: KeyboardEvent,
         query: string,
         rgx?: RegExp,
-        content?: HTMLElement | null,
+        content?: HTMLElement | null
     ) => void;
 
     interface ApplicationHeaderButton {
@@ -390,15 +409,6 @@ declare global {
         action?: UserAction;
         // Undocumented: applicable only to `FormApplication`s
         editable?: boolean;
-    }
-
-    interface ApplicationPosition {
-        width?: Maybe<number>;
-        height?: Maybe<string | number>;
-        left?: Maybe<number>;
-        top?: Maybe<number>;
-        scale?: Maybe<number>;
-        zIndex?: Maybe<number>;
     }
 
     type ApplicationRenderState = (typeof Application)["RENDER_STATES"][keyof (typeof Application)["RENDER_STATES"]];

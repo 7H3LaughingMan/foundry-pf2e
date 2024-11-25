@@ -3,6 +3,7 @@ import type {
     ApplicationConfiguration,
     ApplicationFormConfiguration,
     ApplicationHeaderControlsEntry,
+    ApplicationPosition,
     ApplicationRenderContext,
     ApplicationRenderOptions,
 } from "../_types.d.ts";

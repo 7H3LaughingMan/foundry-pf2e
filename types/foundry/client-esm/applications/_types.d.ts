@@ -19,6 +19,21 @@ export interface ApplicationConfiguration {
     position: Partial<ApplicationPosition>;
 }
 
+export interface ApplicationPosition {
+    /** Window offset pixels from top */
+    top: number;
+    /** Window offset pixels from left */
+    left: number;
+    /** Un-scaled pixels in width or "auto" */
+    width: number | "auto";
+    /** Un-scaled pixels in height or "auto" */
+    height: number | "auto";
+    /** A numeric scaling factor applied to application dimensions */
+    scale: number;
+    /** A z-index of the application relative to siblings */
+    zIndex: number;
+}
+
 export interface ApplicationWindowConfiguration {
     /**
      * Is this Application rendered inside a window frame?
@@ -139,7 +154,7 @@ export type ApplicationClickAction = (event: PointerEvent, target: HTMLElement) 
 export type ApplicationFormSubmission = (
     event: SubmitEvent | Event,
     form: HTMLFormElement,
-    formData: FormDataExtended,
+    formData: FormDataExtended
 ) => Promise<void>;
 
 export interface ApplicationTab {

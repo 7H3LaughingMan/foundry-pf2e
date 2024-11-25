@@ -10,7 +10,13 @@ declare global {
 
         override getData(options?: Partial<ApplicationOptions>): TileHUDData<NonNullable<TObject>>;
 
-        override setPosition(options?: ApplicationPosition): void;
+        override setPosition(position?: {
+            left: Maybe<number>;
+            top: Maybe<number>;
+            width: Maybe<number>;
+            height: Maybe<number | "auto">;
+            scale: Maybe<number>;
+        }): void;
 
         /* -------------------------------------------- */
         /*  Event Listeners and Handlers                */
