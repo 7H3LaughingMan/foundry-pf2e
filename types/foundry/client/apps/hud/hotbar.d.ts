@@ -10,11 +10,6 @@ declare global {
      * Right clicking the button displays a context menu of Macro options.
      * The number keys 1 through 0 activate numbered hotbar slots.
      * Pressing the delete key while hovering over a Macro will remove it from the bar.
-     *
-     * @extends {Application}
-     *
-     * @see {@link Macros}
-     * @see {@link Macro}
      */
     class Hotbar<TMacro extends Macro = Macro> extends Application {
         constructor(options: ApplicationOptions);
@@ -33,6 +28,9 @@ declare global {
 
         static override get defaultOptions(): ApplicationOptions;
 
+        /** Whether the hotbar is locked. */
+        get locked(): boolean;
+
         override getData(options?: Record<string, unknown>): {
             page: number;
             macros: TMacro[];
@@ -41,57 +39,61 @@ declare global {
 
         /**
          * Get the Array of Macro (or null) values that should be displayed on a numbered page of the bar
+         *
          * @param page
          */
         protected _getMacrosByPage(page: number): TMacro[];
 
         /**
          * Collapse the Hotbar, minimizing its display.
+         *
          * @return A promise which resolves once the collapse animation completes
          */
         collapse(): Promise<void>;
 
         /**
          * Expand the Hotbar, displaying it normally.
+         *
          * @return A promise which resolves once the expand animation completes
          */
         expand(): Promise<void>;
 
         /**
          * Change to a specific numbered page from 1 to 5
-         * @param page The page number to change to.
+         *
+         * @param page      The page number to change to.
          */
         changePage(page: number): void;
 
         /**
          * Change the page of the hotbar by cycling up (positive) or down (negative)
-         * @param direction The direction to cycle
+         *
+         * @param direction     The direction to cycle
          */
         cyclePage(direction: number): void;
 
         override activateListeners(html: JQuery): void;
 
-        /**
-         * Create a Context Menu attached to each Macro button
-         * @param html
-         */
         protected _contextMenu(html: JQuery): void;
 
-        /** Get the Macro entry context options */
+        /**
+         * Get the Macro entry context options
+         *
+         * @returns The Macro entry context options
+         * */
         protected _getEntryContextOptions(): EntryContextOption[];
 
-        /** Handle left-click events to */
+        /**
+         * Handle left-click events to
+         *
+         * @param event     The originating click event
+         * */
         protected _onClickMacro(event: MouseEvent): Promise<void>;
 
         /**
-         * Handle hover events on a macro button to track which slot is the hover target
-         * @param event The originating mouseover or mouseleave event
-         */
-        protected _onHoverMacro(event: MouseEvent): void;
-
-        /**
          * Handle pagination controls
-         * @param event   The originating click event
+         *
+         * @param event     The originating click event
          */
         protected _onClickPageControl(event: MouseEvent): void;
 
@@ -104,16 +106,32 @@ declare global {
         protected override _onDrop(event: DragEvent): Promise<void>;
 
         /**
-         * Get the Macro entity being dropped in the Hotbar. If the data comes from a non-World source, create the Macro
-         * @param data The data transfer attached to the DragEvent
-         * @return A Promise which returns the dropped Macro, or null
+         * Create a Macro which rolls a RollTable when executed
+         *
+         * @param table     The RollTable document
+         * @returns         A created Macro document to add to the bar
          */
-        protected _getDropMacro(data: unknown): Promise<TMacro | null>;
+        _createRollTableRollMacro(table: RollTable): Promise<TMacro>;
 
         /**
-         * Handle click events to toggle display of the macro bar
-         * @param event
+         * Create a Macro document which can be used to toggle display of a Journal Entry.
+         *
+         * @param doc       A Document which should be toggled
+         * @returns         A created Macro document to add to the bar
          */
-        protected _onToggleBar(event: Event): void;
+        protected _createDocumentSheetToggle(doc: Document): Promise<TMacro>;
+
+        /** Handle click events to toggle display of the macro bar */
+        _onToggleBar(event: Event): void;
+
+        /** Toggle the hotbar's lock state. */
+        protected _toggleHotbarLock(): Promise<void>;
+
+        /**
+         * Handle toggling a document sheet.
+         *
+         * @param uuid      The Document UUID to display
+         */
+        toggleDocumentSheet(uuid: string): Promise<Application | number | void>;
     }
 }
