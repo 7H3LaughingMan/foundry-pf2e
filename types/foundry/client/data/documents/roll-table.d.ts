@@ -122,6 +122,11 @@ declare global {
          */
         getResultsForRoll(value: number): TableResult<this>[];
 
+        /**
+         * Reset the state of the RollTable to return any drawn items to the table
+         */
+        resetResults(): Promise<RollTable>;
+
         /* -------------------------------------------- */
         /*  Event Handlers                              */
         /* -------------------------------------------- */
