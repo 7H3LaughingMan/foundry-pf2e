@@ -1,6 +1,6 @@
-import { CharacterPF2e } from '../document.ts';
-import { CraftingAbility } from './ability.ts';
-import { CraftingFormula } from './types.ts';
+import { CharacterPF2e } from "../document.ts";
+import { CraftingAbility } from "./ability.ts";
+import { CraftingFormula } from "./types.ts";
 /** Caches and performs operations on elements related to crafting */
 declare class CharacterCrafting {
     #private;
@@ -12,6 +12,8 @@ declare class CharacterCrafting {
      * The result is cached until next data prep.
      */
     getFormulas(): Promise<CraftingFormula[]>;
+    /** Removes all infused items and un-expends all prepared items */
+    resetDailyCrafting(): Promise<void>;
     performDailyCrafting(): Promise<void>;
 }
 export { CharacterCrafting };

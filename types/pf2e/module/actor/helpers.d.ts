@@ -1,10 +1,10 @@
-import { ActorPF2e } from './index.ts';
-import { ItemPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from '../item/index.ts';
-import { ZeroToFour } from '../data.ts';
-import { ActorSourcePF2e } from './data/index.ts';
-import { ModifierPF2e } from './modifiers.ts';
-import { NPCStrike } from './npc/data.ts';
-import { ActorCommitData, AuraEffectData } from './types.ts';
+import { ActorPF2e } from "./index.ts";
+import { ItemPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "../item/index.ts";
+import { ZeroToFour } from "../data.ts";
+import { ActorSourcePF2e } from "./data/index.ts";
+import { ModifierPF2e } from "./modifiers.ts";
+import { NPCStrike } from "./npc/data.ts";
+import { ActorCommitData, AuraEffectData } from "./types.ts";
 /**
  * Reset and rerender a provided list of actors. Omit argument to reset all world and synthetic actors
  * @param [actors] A list of actors to refresh: if none are provided, all world and synthetic actors are retrieved
@@ -62,6 +62,8 @@ declare function iterateAllItems<T extends ActorPF2e>(document: T | PhysicalItem
  */
 declare function transferItemsBetweenActors(source: ActorPF2e, dest: ActorPF2e, itemFilterFn?: (item: PhysicalItemPF2e) => boolean): Promise<void>;
 /** Applies multiple batched updates to the actor, delaying rendering till the end */
-declare function applyActorUpdate<T extends ActorPF2e>(actor: T, data: Partial<ActorCommitData<T>>): Promise<void>;
+declare function applyActorUpdate<T extends ActorPF2e>(actor: T, data: Partial<ActorCommitData<T>>, { render }?: {
+    render?: boolean;
+}): Promise<void>;
 export { applyActorUpdate, auraAffectsActor, calculateMAPs, calculateRangePenalty, checkAreaEffects, createEncounterRollOptions, createEnvironmentRollOptions, getRangeIncrement, getStrikeAttackDomains, getStrikeDamageDomains, isOffGuardFromFlanking, isReallyPC, iterateAllItems, migrateActorSource, resetActors, setHitPointsRollOptions, strikeFromMeleeItem, transferItemsBetweenActors, userColorForActor, };
 export type { MultipleAttackPenaltyData };

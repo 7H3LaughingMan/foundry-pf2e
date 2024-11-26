@@ -1,8 +1,8 @@
-import { ActorPF2e } from '../../../actor/index.ts';
-import { ActionCheckPreview, SingleCheckAction, SingleCheckActionVariant, SingleCheckActionVariantData } from '../../../actor/actions/index.ts';
-import { ItemPF2e } from '../../../item/index.ts';
-import { CheckContextData, CheckContextOptions, CheckMacroContext } from '../types.ts';
-import { SkillActionOptions } from '../index.ts';
+import { ActorPF2e } from "../../../actor/index.ts";
+import { ActionCheckPreview, SingleCheckAction, SingleCheckActionVariant, SingleCheckActionVariantData } from "../../../actor/actions/index.ts";
+import { ItemPF2e } from "../../../item/index.ts";
+import { CheckContextData, CheckContextOptions, CheckMacroContext } from "../types.ts";
+import { SkillActionOptions } from "../index.ts";
 declare function escape(options: SkillActionOptions): void;
 declare class EscapeActionVariant extends SingleCheckActionVariant {
     #private;

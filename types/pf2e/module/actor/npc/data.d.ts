@@ -1,12 +1,12 @@
-import { ActorPF2e } from '../base.ts';
-import { Abilities, BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureDetailsSource, CreatureHitPointsSource, CreatureInitiativeSource, CreatureLanguagesData, CreaturePerceptionData, CreatureResources, CreatureResourcesSource, CreatureSpeeds, CreatureSystemData, CreatureSystemSource, CreatureTraitsSource, HeldShieldData, LabeledSpeed, SaveData, SenseData } from '../creature/data.ts';
-import { ActorAttributesSource, ActorFlagsPF2e, AttributeBasedTraceData, HitPointsStatistic, StrikeData } from '../data/base.ts';
-import { InitiativeTraceData } from '../initiative.ts';
-import { ModifierPF2e, StatisticModifier } from '../modifiers.ts';
-import { ActorAlliance, SaveType, SkillSlug } from '../types.ts';
-import { MeleePF2e } from '../../item/index.ts';
-import { PublicationData, ValueAndMax } from '../../data.ts';
-import { RawPredicate } from '../../system/predication.ts';
+import { ActorPF2e } from "../base.ts";
+import { Abilities, BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureDetailsSource, CreatureHitPointsSource, CreatureInitiativeSource, CreatureLanguagesData, CreaturePerceptionData, CreatureResources, CreatureResourcesSource, CreatureSpeeds, CreatureSystemData, CreatureSystemSource, CreatureTraitsSource, HeldShieldData, LabeledSpeed, SaveData, SenseData } from "../creature/data.ts";
+import { ActorAttributesSource, ActorFlagsPF2e, AttributeBasedTraceData, HitPointsStatistic, StrikeData } from "../data/base.ts";
+import { InitiativeTraceData } from "../initiative.ts";
+import { ModifierPF2e, StatisticModifier } from "../modifiers.ts";
+import { ActorAlliance, SaveType, SkillSlug } from "../types.ts";
+import { MeleePF2e } from "../../item/index.ts";
+import { PublicationData, ValueAndMax } from "../../data.ts";
+import { RawPredicate } from "../../system/predication.ts";
 type NPCSource = BaseCreatureSource<"npc", NPCSystemSource> & {
     flags: DeepPartial<NPCFlags>;
 };

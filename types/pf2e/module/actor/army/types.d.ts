@@ -1,6 +1,6 @@
-import { DamageRollFunction, RollFunction } from '../data/base.ts';
-import { AttackRollParams } from '../../system/rolls.ts';
-import { ARMY_TYPES } from './values.ts';
+import { DamageRollFunction, RollFunction } from "../data/base.ts";
+import { AttackRollParams } from "../../system/rolls.ts";
+import { ARMY_TYPES } from "./values.ts";
 /** Data for an army strike. Deals 1 damage on a hit, 2 on a crit (usually) */
 interface ArmyStrike {
     slug: string;

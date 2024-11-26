@@ -1,7 +1,7 @@
-import { ActorType } from '../../actor/types.ts';
-import { BooleanField, SchemaField } from '../../../../foundry/common/data/fields.ts';
-import { RuleElementPF2e } from './base.ts';
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from './data.ts';
+import { ActorType } from "../../actor/types.ts";
+import { BooleanField, SchemaField } from "../../../../foundry/common/data/fields.ts";
+import { RuleElementPF2e } from "./base.ts";
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
 /**
  * @category RuleElement
  */

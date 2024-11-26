@@ -1,6 +1,6 @@
-import { ConditionPF2e, EffectPF2e } from '../../module/item/index.ts';
-import { EffectTrait } from '../../module/item/abstract-effect/types.ts';
-import { ChatMessagePF2e } from '../../module/chat-message/document.ts';
+import { ConditionPF2e, EffectPF2e } from "../../module/item/index.ts";
+import { EffectTrait } from "../../module/item/abstract-effect/types.ts";
+import { ChatMessagePF2e } from "../../module/chat-message/document.ts";
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.

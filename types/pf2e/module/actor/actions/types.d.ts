@@ -1,8 +1,8 @@
-import { ActorPF2e } from '../index.ts';
-import { AbilityTrait } from '../../item/ability/index.ts';
-import { ProficiencyRank } from '../../item/base/data/index.ts';
-import { TokenPF2e } from '../../canvas/index.ts';
-import { ChatMessagePF2e } from '../../chat-message/document.ts';
+import { ActorPF2e } from "../index.ts";
+import { AbilityTrait } from "../../item/ability/index.ts";
+import { ProficiencyRank } from "../../item/base/data/index.ts";
+import { TokenPF2e } from "../../canvas/index.ts";
+import { ChatMessagePF2e } from "../../chat-message/document.ts";
 type ActionCost = "free" | "reaction" | 0 | 1 | 2 | 3;
 type ActionSection = "basic" | "skill" | "specialty-basic";
 interface ActionMessageOptions {

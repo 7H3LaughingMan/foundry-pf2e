@@ -1,6 +1,6 @@
-import { ConsumablePF2e, SpellPF2e } from '../index.ts';
-import { ConsumableSource } from '../base/data/index.ts';
-import { DCOptions } from '../../dc.ts';
+import { ConsumablePF2e, SpellPF2e } from "../index.ts";
+import { ConsumableSource } from "../base/data/index.ts";
+import { DCOptions } from "../../dc.ts";
 type SpellConsumableItemType = "cantripDeck5" | "scroll" | "wand";
 declare function isSpellConsumable(itemId: string): boolean;
 declare function createConsumableFromSpell(spell: SpellPF2e, { type, heightenedLevel, mystified, }: {

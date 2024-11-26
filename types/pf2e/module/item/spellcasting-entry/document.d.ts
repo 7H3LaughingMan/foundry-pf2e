@@ -1,13 +1,13 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { AttributeString } from '../../actor/types.ts';
-import { ItemPF2e, PhysicalItemPF2e, SpellPF2e } from '../index.ts';
-import { MagicTradition } from '../spell/types.ts';
-import { ZeroToFour, ZeroToTen } from '../../data.ts';
-import { UserPF2e } from '../../user/index.ts';
-import { Statistic } from '../../system/statistic/index.ts';
-import { SpellCollection, SpellSlotGroupId } from './collection.ts';
-import { SpellcastingEntrySource, SpellcastingEntrySystemData } from './data.ts';
-import { CastOptions, SpellcastingCategory, SpellcastingEntry, SpellcastingSheetData } from './types.ts';
+import { ActorPF2e } from "../../actor/index.ts";
+import { AttributeString } from "../../actor/types.ts";
+import { ItemPF2e, PhysicalItemPF2e, SpellPF2e } from "../index.ts";
+import { MagicTradition } from "../spell/types.ts";
+import { ZeroToFour, ZeroToTen } from "../../data.ts";
+import { UserPF2e } from "../../user/index.ts";
+import { Statistic } from "../../system/statistic/index.ts";
+import { SpellCollection, SpellSlotGroupId } from "./collection.ts";
+import { SpellcastingEntrySource, SpellcastingEntrySystemData } from "./data.ts";
+import { CastOptions, SpellcastingCategory, SpellcastingEntry, SpellcastingSheetData } from "./types.ts";
 declare class SpellcastingEntryPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> implements SpellcastingEntry<TParent> {
     spells: SpellCollection<NonNullable<TParent>> | null;
     /** Spellcasting attack and dc data created during actor preparation */
@@ -66,7 +66,6 @@ declare class SpellcastingEntryPF2e<TParent extends ActorPF2e | null = ActorPF2e
     getRollOptions(prefix?: string): string[];
     protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateOperation<TParent>, user: UserPF2e): Promise<boolean | void>;
     /**
-     * To prevent (or delay) console spam, will send out a deprecation notice in a later release
      * @deprecated
      */
     getSpellData(): Promise<SpellcastingSheetData>;

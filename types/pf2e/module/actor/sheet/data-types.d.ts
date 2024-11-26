@@ -1,12 +1,12 @@
-import { ActorPF2e } from '../base.ts';
-import { TraitViewData } from '../data/base.ts';
-import { ActorSizePF2e } from '../data/size.ts';
-import { InventoryBulk } from '../inventory/index.ts';
-import { PhysicalItemPF2e } from '../../item/index.ts';
-import { Frequency } from '../../item/base/data/index.ts';
-import { Coins } from '../../item/physical/data.ts';
-import { RollOptionToggle } from '../../rules/synthetics.ts';
-import { SheetOptions } from '../../sheet/helpers.ts';
+import { ActorPF2e } from "../base.ts";
+import { TraitViewData } from "../data/base.ts";
+import { ActorSizePF2e } from "../data/size.ts";
+import { InventoryBulk } from "../inventory/index.ts";
+import { PhysicalItemPF2e } from "../../item/index.ts";
+import { Frequency } from "../../item/base/data/index.ts";
+import { Coins } from "../../item/physical/data.ts";
+import { RollOptionToggle } from "../../rules/synthetics.ts";
+import { SheetOptions } from "../../sheet/helpers.ts";
 interface InventoryItem<TItem extends PhysicalItemPF2e = PhysicalItemPF2e> {
     item: TItem;
     /** Item size if it causes any weight difference relative to the actor */

@@ -1,6 +1,6 @@
-import { UserPF2e } from '../../user/document.ts';
-import { EnvironmentBehaviorType, EnvironmentFeatureBehaviorType, RegionBehaviorPF2e, RegionDocumentPF2e } from '../index.ts';
-import { DIFFICULT_TERRAIN_GRADES } from './values.ts';
+import { UserPF2e } from "../../user/document.ts";
+import { EnvironmentBehaviorType, EnvironmentFeatureBehaviorType, RegionBehaviorPF2e, RegionDocumentPF2e } from "../index.ts";
+import { DIFFICULT_TERRAIN_GRADES } from "./values.ts";
 import coreBehaviors = foundry.data.regionBehaviors;
 type RegionEventPF2e = RegionEvent<RegionDocumentPF2e, UserPF2e>;
 interface AdjustDarknessLevelRegionBehavior<TParent extends RegionDocumentPF2e | null = RegionDocumentPF2e | null> extends RegionBehaviorPF2e<TParent> {

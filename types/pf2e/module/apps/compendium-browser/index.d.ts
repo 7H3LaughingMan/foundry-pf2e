@@ -1,10 +1,10 @@
-import { AbilityTrait, ActionCategory } from '../../item/ability/index.ts';
-import { ActionType } from '../../item/base/data/index.ts';
-import { BaseSpellcastingEntry } from '../../item/spellcasting-entry/index.ts';
-import { UserPF2e } from '../../user/document.ts';
-import { BrowserTabs, PackInfo, SourceInfo, TabData, TabName } from './data.ts';
-import { PackLoader } from './loader.ts';
-import { ActionFilters, BestiaryFilters, EquipmentFilters, FeatFilters, HazardFilters, SpellFilters } from './tabs/data.ts';
+import { AbilityTrait, ActionCategory } from "../../item/ability/index.ts";
+import { ActionType } from "../../item/base/data/index.ts";
+import { BaseSpellcastingEntry } from "../../item/spellcasting-entry/index.ts";
+import { UserPF2e } from "../../user/document.ts";
+import { BrowserTabs, PackInfo, SourceInfo, TabData, TabName } from "./data.ts";
+import { PackLoader } from "./loader.ts";
+import { ActionFilters, BestiaryFilters, EquipmentFilters, FeatFilters, HazardFilters, SpellFilters } from "./tabs/data.ts";
 declare class CompendiumBrowser extends Application {
     #private;
     settings: CompendiumBrowserSettings;

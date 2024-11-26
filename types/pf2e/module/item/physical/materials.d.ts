@@ -1,6 +1,6 @@
-import { Rarity } from '../../data.ts';
-import { PhysicalItemPF2e } from './document.ts';
-import { PreciousMaterialGrade, PreciousMaterialType } from './types.ts';
+import { Rarity } from "../../data.ts";
+import { PhysicalItemPF2e } from "./document.ts";
+import { PreciousMaterialGrade, PreciousMaterialType } from "./types.ts";
 interface MaterialGradeData {
     level: number;
     price: number;

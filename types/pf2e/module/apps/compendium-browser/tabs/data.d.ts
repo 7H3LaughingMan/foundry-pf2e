@@ -1,11 +1,11 @@
-import { CreatureTrait } from '../../../actor/creature/types.ts';
-import { HazardTrait } from '../../../actor/hazard/types.ts';
-import { AbilityTrait } from '../../../item/ability/index.ts';
-import { KingmakerTrait } from '../../../item/campaign-feature/types.ts';
-import { FeatTrait } from '../../../item/feat/types.ts';
-import { PhysicalItemTrait } from '../../../item/physical/data.ts';
-import { SearchResult } from 'minisearch';
-import { SortDirection } from '../data.ts';
+import { CreatureTrait } from "../../../actor/creature/types.ts";
+import { HazardTrait } from "../../../actor/hazard/types.ts";
+import { AbilityTrait } from "../../../item/ability/index.ts";
+import { KingmakerTrait } from "../../../item/campaign-feature/types.ts";
+import { FeatTrait } from "../../../item/feat/types.ts";
+import { PhysicalItemTrait } from "../../../item/physical/data.ts";
+import { SearchResult } from "minisearch";
+import { SortDirection } from "../data.ts";
 type CheckboxOptions = Record<string, {
     label: string;
     selected: boolean;

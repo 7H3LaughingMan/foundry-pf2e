@@ -1,19 +1,19 @@
-import { ActorPF2e, ActorType } from '../index.ts';
-import { DexterityModifierCapData } from '../character/types.ts';
-import { Abilities } from '../creature/data.ts';
-import { InitiativeTraceData } from '../initiative.ts';
-import { StatisticModifier } from '../modifiers.ts';
-import { ActorAlliance, AttributeString, SkillSlug } from '../types.ts';
-import { MeleePF2e, WeaponPF2e } from '../../item/index.ts';
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { MigrationRecord, Rarity, Size, ValueAndMaybeMax, ZeroToTwo } from '../../data.ts';
-import { AutoChangeEntry } from '../../rules/rule-element/ae-like.ts';
-import { AttackRollParams, DamageRollParams, RollParameters } from '../../system/rolls.ts';
-import { CheckRoll } from '../../system/check/roll.ts';
-import { DamageRoll } from '../../system/damage/roll.ts';
-import { StatisticTraceData } from '../../system/statistic/data.ts';
-import { Immunity, ImmunitySource, Resistance, ResistanceSource, Weakness, WeaknessSource } from './iwr.ts';
-import { ActorSizePF2e } from './size.ts';
+import { ActorPF2e, ActorType } from "../index.ts";
+import { DexterityModifierCapData } from "../character/types.ts";
+import { Abilities } from "../creature/data.ts";
+import { InitiativeTraceData } from "../initiative.ts";
+import { StatisticModifier } from "../modifiers.ts";
+import { ActorAlliance, AttributeString, SkillSlug } from "../types.ts";
+import { MeleePF2e, WeaponPF2e } from "../../item/index.ts";
+import { ItemSourcePF2e } from "../../item/base/data/index.ts";
+import { MigrationRecord, Rarity, Size, ValueAndMaybeMax, ZeroToTwo } from "../../data.ts";
+import { AutoChangeEntry } from "../../rules/rule-element/ae-like.ts";
+import { AttackRollParams, DamageRollParams, RollParameters } from "../../system/rolls.ts";
+import { CheckRoll } from "../../system/check/roll.ts";
+import { DamageRoll } from "../../system/damage/roll.ts";
+import { StatisticTraceData } from "../../system/statistic/data.ts";
+import { Immunity, ImmunitySource, Resistance, ResistanceSource, Weakness, WeaknessSource } from "./iwr.ts";
+import { ActorSizePF2e } from "./size.ts";
 /** Base interface for all actor data */
 type BaseActorSourcePF2e<TType extends ActorType, TSystemSource extends ActorSystemSource = ActorSystemSource> = foundry.documents.ActorSource<TType, TSystemSource, ItemSourcePF2e> & {
     flags: DeepPartial<ActorFlagsPF2e>;
@@ -115,14 +115,14 @@ interface BaseHitPointsSource {
     /** Any details about hit points. */
     details: string;
 }
-type OffGuardableCircumstance = 
+type OffGuardableCircumstance =
 /** Flat-footable in all flanking situations */
 true
 /** Flat-footable if the flanker's level is less than or equal to the actor's own */
  | number
 /** Never off-guardable */
  | false;
-type GangUpCircumstance = 
+type GangUpCircumstance =
 /** Requires at least `number` allies within melee reach of the target */
 number
 /** Requires the actor's animal companion to be adjacent to the target */

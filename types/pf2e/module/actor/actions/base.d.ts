@@ -1,7 +1,7 @@
-import { AbilityTrait } from '../../item/ability/index.ts';
-import { ProficiencyRank } from '../../item/base/data/index.ts';
-import { ChatMessagePF2e } from '../../chat-message/document.ts';
-import { Action, ActionCost, ActionMessageOptions, ActionSection, ActionUseOptions, ActionVariant, ActionVariantUseOptions } from './types.ts';
+import { AbilityTrait } from "../../item/ability/index.ts";
+import { ProficiencyRank } from "../../item/base/data/index.ts";
+import { ChatMessagePF2e } from "../../chat-message/document.ts";
+import { Action, ActionCost, ActionMessageOptions, ActionSection, ActionUseOptions, ActionVariant, ActionVariantUseOptions } from "./types.ts";
 interface BaseActionVariantData {
     cost?: ActionCost;
     description?: string;

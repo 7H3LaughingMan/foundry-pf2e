@@ -1,5 +1,5 @@
-import { AncestryPF2e, HeritagePF2e } from '../index.ts';
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from '../base/sheet/sheet.ts';
+import { AncestryPF2e, HeritagePF2e } from "../index.ts";
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "../base/sheet/sheet.ts";
 export declare class HeritageSheetPF2e extends ItemSheetPF2e<HeritagePF2e> {
     static get defaultOptions(): ItemSheetOptions;
     getData(options?: Partial<ItemSheetOptions>): Promise<HeritageSheetData>;

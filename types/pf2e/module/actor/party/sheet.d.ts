@@ -1,15 +1,15 @@
-import { ActorPF2e } from '../index.ts';
-import { HitPointsSummary } from '../base.ts';
-import { ResourceData } from '../creature/index.ts';
-import { ActorSheetPF2e } from '../sheet/base.ts';
-import { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e } from '../sheet/data-types.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { Bulk } from '../../item/physical/index.ts';
-import { DropCanvasItemDataPF2e } from '../../canvas/drop-canvas-data.ts';
-import { ZeroToFour } from '../../data.ts';
-import { SheetOptions } from '../../sheet/helpers.ts';
-import { PartyPF2e } from './document.ts';
+import { ActorPF2e } from "../index.ts";
+import { HitPointsSummary } from "../base.ts";
+import { ResourceData } from "../creature/index.ts";
+import { ActorSheetPF2e } from "../sheet/base.ts";
+import { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e } from "../sheet/data-types.ts";
+import { ItemPF2e } from "../../item/index.ts";
+import { ItemSourcePF2e } from "../../item/base/data/index.ts";
+import { Bulk } from "../../item/physical/index.ts";
+import { DropCanvasItemDataPF2e } from "../../canvas/drop-canvas-data.ts";
+import { ZeroToFour } from "../../data.ts";
+import { SheetOptions } from "../../sheet/helpers.ts";
+import { PartyPF2e } from "./document.ts";
 interface PartySheetRenderOptions extends ActorSheetRenderOptionsPF2e {
     actors?: boolean;
 }

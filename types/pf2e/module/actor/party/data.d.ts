@@ -1,8 +1,8 @@
-import { ActorAttributes, ActorDetails, BaseActorSourcePF2e } from '../data/base.ts';
-import { ActorSystemModel, ActorSystemSchema } from '../data/model.ts';
-import { ModelPropFromDataField, SourcePropFromDataField } from '../../../../foundry/common/data/fields.ts';
-import { PartyPF2e } from './document.ts';
-import { PartyCampaign } from './types.ts';
+import { ActorAttributes, ActorDetails, BaseActorSourcePF2e } from "../data/base.ts";
+import { ActorSystemModel, ActorSystemSchema } from "../data/model.ts";
+import { ModelPropFromDataField, SourcePropFromDataField } from "../../../../foundry/common/data/fields.ts";
+import { PartyPF2e } from "./document.ts";
+import { KingdomSchema } from "./kingdom/schema.ts";
 import fields = foundry.data.fields;
 type PartySource = BaseActorSourcePF2e<"party", PartySystemSource>;
 declare class PartySystemData extends ActorSystemModel<PartyPF2e, PartySystemSchema> {
@@ -19,7 +19,7 @@ type PartySystemSchema = ActorSystemSchema & {
             uuid: fields.DocumentUUIDField<ActorUUID, true, false, false>;
         }>>;
     }>;
-    campaign: fields.EmbeddedDataField<PartyCampaign, false, true, false>;
+    campaign: fields.SchemaField<KingdomSchema, SourceFromSchema<KingdomSchema>, ModelPropsFromSchema<KingdomSchema>, false, true, true>;
 };
 interface PartySystemSource extends SourceFromSchema<PartySystemSchema> {
     details: PartyDetailsSource;

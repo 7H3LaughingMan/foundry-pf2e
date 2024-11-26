@@ -1,6 +1,6 @@
-import { ConditionSlug } from '../item/condition/types.ts';
-import { EncounterPF2e } from '../encounter/index.ts';
-import { StatusEffectIconTheme } from '../../scripts/config/index.ts';
+import { ConditionSlug } from "../item/condition/types.ts";
+import { EncounterPF2e } from "../encounter/index.ts";
+import { StatusEffectIconTheme } from "../../scripts/config/index.ts";
 /** Handle interaction with the TokenHUD's status effects menu */
 export declare class StatusEffects {
     #private;

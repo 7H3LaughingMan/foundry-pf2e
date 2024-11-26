@@ -1,11 +1,11 @@
-import { ActorAttributes, ActorAttributesSource, ActorDetailsSource, ActorHitPoints, ActorHitPointsSource, ActorSystemData, ActorSystemSource, ActorTraitsSource, AttributeBasedTraceData, BaseActorSourcePF2e, StrikeData } from '../data/base.ts';
-import { ActorSizePF2e } from '../data/size.ts';
-import { ModifierPF2e, RawModifier, StatisticModifier } from '../modifiers.ts';
-import { AttributeString, MovementType, SaveType, SkillSlug } from '../types.ts';
-import { LabeledNumber, Size, ValueAndMax, ValueAndMaybeMax, ZeroToThree } from '../../data.ts';
-import { ArmorClassTraceData } from '../../system/statistic/index.ts';
-import { PerceptionTraceData } from '../../system/statistic/perception.ts';
-import { CreatureActorType, CreatureTrait, Language, SenseAcuity, SenseType, SpecialVisionType } from './types.ts';
+import { ActorAttributes, ActorAttributesSource, ActorDetailsSource, ActorHitPoints, ActorHitPointsSource, ActorSystemData, ActorSystemSource, ActorTraitsSource, AttributeBasedTraceData, BaseActorSourcePF2e, StrikeData } from "../data/base.ts";
+import { ActorSizePF2e } from "../data/size.ts";
+import { ModifierPF2e, RawModifier, StatisticModifier } from "../modifiers.ts";
+import { AttributeString, MovementType, SaveType, SkillSlug } from "../types.ts";
+import { LabeledNumber, Size, ValueAndMax, ValueAndMaybeMax, ZeroToThree } from "../../data.ts";
+import { ArmorClassTraceData } from "../../system/statistic/index.ts";
+import { PerceptionTraceData } from "../../system/statistic/perception.ts";
+import { CreatureActorType, CreatureTrait, Language, SenseAcuity, SenseType, SpecialVisionType } from "./types.ts";
 type BaseCreatureSource<TType extends CreatureActorType, TSystemSource extends CreatureSystemSource> = BaseActorSourcePF2e<TType, TSystemSource>;
 /** Skill and Lore statistics for rolling. */
 interface CreatureSystemSource extends ActorSystemSource {

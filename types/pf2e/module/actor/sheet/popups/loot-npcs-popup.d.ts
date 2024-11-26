@@ -1,4 +1,4 @@
-import { ActorPF2e } from '../../index.ts';
+import { ActorPF2e } from "../../index.ts";
 declare class LootNPCsPopup extends FormApplication<ActorPF2e> {
     static get defaultOptions(): FormApplicationOptions;
     getData(): Promise<PopupData>;

@@ -1,4 +1,4 @@
-import { ActorPF2e, ActorType } from '../module/actor/index.ts';
+import { ActorPF2e, ActorType } from "../module/actor/index.ts";
 /**
  * Collects every actor whose token is controlled on the canvas.
  * @param [options] Filter and fallback options

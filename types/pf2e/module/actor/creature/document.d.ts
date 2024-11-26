@@ -1,21 +1,21 @@
-import { ActorPF2e, PartyPF2e } from '../index.ts';
-import { HitPointsSummary } from '../base.ts';
-import { CreatureSource } from '../data/index.ts';
-import { StatisticModifier } from '../modifiers.ts';
-import { ActorSpellcasting } from '../spellcasting.ts';
-import { MovementType, SaveType, SkillSlug } from '../types.ts';
-import { ArmorPF2e, ItemPF2e, PhysicalItemPF2e, ShieldPF2e } from '../../item/index.ts';
-import { ItemType } from '../../item/base/data/index.ts';
-import { ItemCarryType } from '../../item/physical/data.ts';
-import { ActiveEffectPF2e } from '../../active-effect.ts';
-import { Rarity, ZeroToTwo } from '../../data.ts';
-import { UserPF2e } from '../../user/index.ts';
-import { TokenDocumentPF2e } from '../../scene/index.ts';
-import { CheckRoll } from '../../system/check/index.ts';
-import { Statistic, StatisticDifficultyClass, ArmorStatistic } from '../../system/statistic/index.ts';
-import { PerceptionStatistic } from '../../system/statistic/perception.ts';
-import { CreatureSpeeds, CreatureSystemData, LabeledSpeed, VisionLevel } from './data.ts';
-import { CreatureTrait, CreatureType, CreatureUpdateOperation, GetReachParameters, ResourceData } from './types.ts';
+import { ActorPF2e, PartyPF2e } from "../index.ts";
+import { HitPointsSummary } from "../base.ts";
+import { CreatureSource } from "../data/index.ts";
+import { StatisticModifier } from "../modifiers.ts";
+import { ActorSpellcasting } from "../spellcasting.ts";
+import { MovementType, SaveType, SkillSlug } from "../types.ts";
+import { ArmorPF2e, ItemPF2e, PhysicalItemPF2e, ShieldPF2e } from "../../item/index.ts";
+import { ItemType } from "../../item/base/data/index.ts";
+import { ItemCarryType } from "../../item/physical/data.ts";
+import { ActiveEffectPF2e } from "../../active-effect.ts";
+import { Rarity, ZeroToTwo } from "../../data.ts";
+import { UserPF2e } from "../../user/index.ts";
+import { TokenDocumentPF2e } from "../../scene/index.ts";
+import { CheckRoll } from "../../system/check/index.ts";
+import { Statistic, StatisticDifficultyClass, ArmorStatistic } from "../../system/statistic/index.ts";
+import { PerceptionStatistic } from "../../system/statistic/perception.ts";
+import { CreatureSpeeds, CreatureSystemData, LabeledSpeed, VisionLevel } from "./data.ts";
+import { CreatureTrait, CreatureType, CreatureUpdateOperation, GetReachParameters, ResourceData } from "./types.ts";
 /** An "actor" in a Pathfinder sense rather than a Foundry one: all should contain attributes and abilities */
 declare abstract class CreaturePF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     /** A separate collection of owned spellcasting entries for convenience */
@@ -87,7 +87,9 @@ declare abstract class CreaturePF2e<TParent extends TokenDocumentPF2e | null = T
      * Updates a resource. Redirects to special resources if needed.
      * Accepts resource slugs in both kebab and dromedary, to handle token updates and direct ones.
      */
-    updateResource(resource: string, value: number): Promise<void>;
+    updateResource(resource: string, value: number, { render }?: {
+        render?: boolean;
+    }): Promise<void>;
     prepareSpeed(movementType: "land"): this["system"]["attributes"]["speed"];
     prepareSpeed(movementType: Exclude<MovementType, "land">): (LabeledSpeed & StatisticModifier) | null;
     prepareSpeed(movementType: MovementType): CreatureSpeeds | (LabeledSpeed & StatisticModifier) | null;

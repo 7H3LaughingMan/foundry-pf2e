@@ -1,25 +1,27 @@
-import { CraftingAbilityData, CraftingFormulaData } from './crafting/index.ts';
-import { AbilityData, BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureDetailsSource, CreatureLanguagesData, CreaturePerceptionData, CreatureResources, CreatureSystemData, CreatureSystemSource, HeldShieldData, SaveData, SkillData } from '../creature/data.ts';
-import { CreatureInitiativeSource, CreatureSpeeds, Language } from '../creature/index.ts';
-import { ActorAttributesSource, ActorFlagsPF2e, AttributeBasedTraceData, HitPointsStatistic, InitiativeData, StrikeData, TraitViewData } from '../data/base.ts';
-import { AttributeString, MovementType, SaveType, SkillSlug } from '../types.ts';
-import { WeaponPF2e } from '../../item/index.ts';
-import { ArmorCategory } from '../../item/armor/types.ts';
-import { ProficiencyRank } from '../../item/base/data/index.ts';
-import { DeitySystemData } from '../../item/deity/data.ts';
-import { DeityDomain } from '../../item/deity/types.ts';
-import { BaseWeaponType, WeaponCategory, WeaponGroup } from '../../item/weapon/types.ts';
-import { ValueAndMax, ZeroToFour } from '../../data.ts';
-import { DamageType } from '../../system/damage/types.ts';
-import { Predicate } from '../../system/predication.ts';
-import { CharacterPF2e } from './document.ts';
-import { WeaponAuxiliaryAction } from './helpers.ts';
-import { CharacterSheetTabVisibility } from './sheet.ts';
+import { CraftingAbilityData, CraftingFormulaData } from "./crafting/index.ts";
+import { AbilityData, BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureDetailsSource, CreatureLanguagesData, CreaturePerceptionData, CreatureResources, CreatureSystemData, CreatureSystemSource, HeldShieldData, SaveData, SkillData } from "../creature/data.ts";
+import { CreatureInitiativeSource, CreatureSpeeds, Language } from "../creature/index.ts";
+import { ActorAttributesSource, ActorFlagsPF2e, AttributeBasedTraceData, HitPointsStatistic, InitiativeData, StrikeData, TraitViewData } from "../data/base.ts";
+import { AttributeString, MovementType, SaveType, SkillSlug } from "../types.ts";
+import { WeaponPF2e } from "../../item/index.ts";
+import { ArmorCategory } from "../../item/armor/types.ts";
+import { ProficiencyRank } from "../../item/base/data/index.ts";
+import { DeitySystemData } from "../../item/deity/data.ts";
+import { DeityDomain } from "../../item/deity/types.ts";
+import { BaseWeaponType, WeaponCategory, WeaponGroup } from "../../item/weapon/types.ts";
+import { ValueAndMax, ZeroToFour } from "../../data.ts";
+import { DamageType } from "../../system/damage/types.ts";
+import { Predicate } from "../../system/predication.ts";
+import { CharacterPF2e } from "./document.ts";
+import { WeaponAuxiliaryAction } from "./helpers.ts";
+import { CharacterSheetTabVisibility } from "./sheet.ts";
 type CharacterSource = BaseCreatureSource<"character", CharacterSystemSource> & {
     flags: DeepPartial<CharacterFlags>;
 };
 type CharacterFlags = ActorFlagsPF2e & {
     pf2e: {
+        /** Has daily preparation crafting been completed for the day */
+        dailyCraftingComplete?: boolean;
         /** If applicable, the character's proficiency rank in their deity's favored weapon */
         favoredWeaponRank: number;
         /** The highest number of damage dice among the character's equipped weapons and available unarmed attacks */

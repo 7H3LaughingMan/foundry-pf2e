@@ -1,5 +1,5 @@
-import { CoinsPF2e } from './coins.ts';
-import { Price } from './index.ts';
+import { CoinsPF2e } from "./coins.ts";
+import { Price } from "./index.ts";
 import fields = foundry.data.fields;
 declare class PriceField extends fields.SchemaField<PriceSchema, SourceFromSchema<PriceSchema>, Price> {
     constructor();

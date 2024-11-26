@@ -1,4 +1,4 @@
-import { ItemSystemData, ItemSystemSource } from '../base/data/system.ts';
+import { ItemSystemData, ItemSystemSource } from "../base/data/system.ts";
 interface ABCFeatureEntryData {
     uuid: string;
     img: ImageFilePath;

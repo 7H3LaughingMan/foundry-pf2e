@@ -1,7 +1,7 @@
-import { ApplicationTab } from '../../../foundry/client-esm/applications/_types.ts';
-import { DocumentSheetRenderOptions } from '../../../foundry/client-esm/applications/api/document-sheet.ts';
-import { UserConfigData } from '../../../foundry/client-esm/applications/sheets/user-config.ts';
-import { UserPF2e } from './document.ts';
+import { ApplicationTab } from "../../../foundry/client-esm/applications/_types.js";
+import { DocumentSheetRenderOptions } from "../../../foundry/client-esm/applications/api/document-sheet.ts";
+import { UserConfigData } from "../../../foundry/client-esm/applications/sheets/user-config.js";
+import { UserPF2e } from "./document.ts";
 /** Player-specific settings, stored as flags on each User */
 declare class UserConfigPF2e extends foundry.applications.sheets.UserConfig<UserPF2e> {
     #private;

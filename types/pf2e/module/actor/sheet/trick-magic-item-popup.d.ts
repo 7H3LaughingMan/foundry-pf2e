@@ -1,6 +1,6 @@
-import { ActorPF2e, CharacterPF2e } from '../index.ts';
-import { ConsumablePF2e } from '../../item/index.ts';
-import { TrickMagicItemDifficultyData } from '../../item/consumable/spell-consumables.ts';
+import { ActorPF2e, CharacterPF2e } from "../index.ts";
+import { ConsumablePF2e } from "../../item/index.ts";
+import { TrickMagicItemDifficultyData } from "../../item/consumable/spell-consumables.ts";
 export declare class TrickMagicItemPopup {
     #private;
     /** The wand or scroll being "tricked" */

@@ -1,14 +1,14 @@
-import { ActorPF2e } from '../../actor/base.ts';
-import { PhysicalItemPF2e } from '../index.ts';
-import { ItemOriginFlag } from '../../chat-message/data.ts';
-import { ChatMessagePF2e } from '../../chat-message/document.ts';
-import { RuleElementOptions, RuleElementPF2e } from '../../rules/index.ts';
-import { UserPF2e } from '../../user/document.ts';
-import { EnrichmentOptionsPF2e } from '../../system/text-editor.ts';
-import { ItemInstances } from '../types.ts';
-import { ItemFlagsPF2e, ItemSourcePF2e, ItemSystemData, ItemType, RawItemChatData, TraitChatData } from './data/index.ts';
-import { ItemTrait } from './data/system.ts';
-import { ItemSheetPF2e } from './sheet/sheet.ts';
+import { ActorPF2e } from "../../actor/base.ts";
+import { PhysicalItemPF2e } from "../index.ts";
+import { ItemOriginFlag } from "../../chat-message/data.ts";
+import { ChatMessagePF2e } from "../../chat-message/document.ts";
+import { RuleElementOptions, RuleElementPF2e } from "../../rules/index.ts";
+import { UserPF2e } from "../../user/document.ts";
+import { EnrichmentOptionsPF2e } from "../../system/text-editor.ts";
+import { ItemInstances } from "../types.ts";
+import { ItemFlagsPF2e, ItemSourcePF2e, ItemSystemData, ItemType, RawItemChatData, TraitChatData } from "./data/index.ts";
+import { ItemTrait } from "./data/system.ts";
+import { ItemSheetPF2e } from "./sheet/sheet.ts";
 /** The basic `Item` subclass for the system */
 declare class ItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends Item<TParent> {
     /** Has this document completed `DataModel` initialization? */

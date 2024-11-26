@@ -1,11 +1,11 @@
-import { ActorSheetPF2e, SheetClickActionHandlers } from '../sheet/base.ts';
-import { ActorSheetDataPF2e } from '../sheet/data-types.ts';
-import { ItemSummaryRenderer } from '../sheet/item-summary-renderer.ts';
-import { CampaignFeaturePF2e, ItemPF2e } from '../../item/index.ts';
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { DropCanvasItemDataPF2e } from '../../canvas/drop-canvas-data.ts';
-import { AdjustedValue } from '../../sheet/helpers.ts';
-import { ArmyPF2e } from './document.ts';
+import { ActorSheetPF2e, SheetClickActionHandlers } from "../sheet/base.ts";
+import { ActorSheetDataPF2e } from "../sheet/data-types.ts";
+import { ItemSummaryRenderer } from "../sheet/item-summary-renderer.ts";
+import { CampaignFeaturePF2e, ItemPF2e } from "../../item/index.ts";
+import { ItemSourcePF2e } from "../../item/base/data/index.ts";
+import { DropCanvasItemDataPF2e } from "../../canvas/drop-canvas-data.ts";
+import { AdjustedValue } from "../../sheet/helpers.ts";
+import { ArmyPF2e } from "./document.ts";
 declare class ArmySheetPF2e extends ActorSheetPF2e<ArmyPF2e> {
     #private;
     /** Basic war actions are sheet data. Note that they cannot ever work with rule elements */

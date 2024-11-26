@@ -1,12 +1,12 @@
-import { SaveData } from '../creature/data.ts';
-import { ActorAttributes, ActorAttributesSource, ActorDetails, ActorDetailsSource, ActorHitPoints, ActorSystemData, ActorSystemSource, ActorTraitsSource, BaseActorSourcePF2e } from '../data/base.ts';
-import { ActorSizePF2e } from '../data/size.ts';
-import { InitiativeTraceData } from '../initiative.ts';
-import { NPCStrike } from '../npc/index.ts';
-import { SaveType } from '../types.ts';
-import { PublicationData, Rarity, Size } from '../../data.ts';
-import { StatisticTraceData } from '../../system/statistic/data.ts';
-import { HazardTrait } from './types.ts';
+import { SaveData } from "../creature/data.ts";
+import { ActorAttributes, ActorAttributesSource, ActorDetails, ActorDetailsSource, ActorHitPoints, ActorSystemData, ActorSystemSource, ActorTraitsSource, BaseActorSourcePF2e } from "../data/base.ts";
+import { ActorSizePF2e } from "../data/size.ts";
+import { InitiativeTraceData } from "../initiative.ts";
+import { NPCStrike } from "../npc/index.ts";
+import { SaveType } from "../types.ts";
+import { PublicationData, Rarity, Size } from "../../data.ts";
+import { StatisticTraceData } from "../../system/statistic/data.ts";
+import { HazardTrait } from "./types.ts";
 /** The stored source data of a hazard actor */
 type HazardSource = BaseActorSourcePF2e<"hazard", HazardSystemSource>;
 /** The raw information contained within the actor data object for hazards. */

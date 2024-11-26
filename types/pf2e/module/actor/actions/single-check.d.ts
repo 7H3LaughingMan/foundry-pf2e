@@ -1,12 +1,12 @@
-import { ActorPF2e } from '../index.ts';
-import { ModifierPF2e, RawModifier } from '../modifiers.ts';
-import { DCSlug } from '../types.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { RollNoteSource } from '../../notes.ts';
-import { CheckContextData, CheckContextOptions, CheckMacroContext, CheckResultCallback } from '../../system/action-macros/types.ts';
-import { CheckDC } from '../../system/degree-of-success.ts';
-import { BaseAction, BaseActionData, BaseActionVariant, BaseActionVariantData } from './base.ts';
-import { ActionUseOptions } from './types.ts';
+import { ActorPF2e } from "../index.ts";
+import { ModifierPF2e, RawModifier } from "../modifiers.ts";
+import { DCSlug } from "../types.ts";
+import { ItemPF2e } from "../../item/index.ts";
+import { RollNoteSource } from "../../notes.ts";
+import { CheckContextData, CheckContextOptions, CheckMacroContext, CheckResultCallback } from "../../system/action-macros/types.ts";
+import { CheckDC } from "../../system/degree-of-success.ts";
+import { BaseAction, BaseActionData, BaseActionVariant, BaseActionVariantData } from "./base.ts";
+import { ActionUseOptions } from "./types.ts";
 type SingleCheckActionRollNoteData = Omit<RollNoteSource, "selector"> & {
     selector?: string;
 };

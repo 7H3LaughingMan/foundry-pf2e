@@ -1,5 +1,5 @@
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from '../base/sheet/sheet.ts';
-import { EffectPF2e } from './document.ts';
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "../base/sheet/sheet.ts";
+import { EffectPF2e } from "./document.ts";
 export declare class EffectSheetPF2e extends ItemSheetPF2e<EffectPF2e> {
     static get defaultOptions(): ItemSheetOptions;
     protected get validTraits(): Record<string, string>;

@@ -1,10 +1,10 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { ContainerPF2e, PhysicalItemPF2e } from '../index.ts';
-import { PhysicalItemSource } from '../base/data/index.ts';
-import { ContainerBulkData } from '../container/data.ts';
-import { Rarity } from '../../data.ts';
-import { CoinsPF2e } from './coins.ts';
-import { BulkData } from './data.ts';
+import { ActorPF2e } from "../../actor/index.ts";
+import { ContainerPF2e, PhysicalItemPF2e } from "../index.ts";
+import { PhysicalItemSource } from "../base/data/index.ts";
+import { ContainerBulkData } from "../container/data.ts";
+import { Rarity } from "../../data.ts";
+import { CoinsPF2e } from "./coins.ts";
+import { BulkData } from "./data.ts";
 declare function computeLevelRarityPrice(item: PhysicalItemPF2e): {
     level: number;
     rarity: Rarity;

@@ -1,10 +1,10 @@
-import { ActorType, CharacterPF2e } from '../../../actor/index.ts';
-import { DamageDicePF2e, ModifierPF2e } from '../../../actor/modifiers.ts';
-import { WeaponPF2e } from '../../../item/index.ts';
-import { RuleElementOptions, RuleElementPF2e } from '../base.ts';
-import { ModelPropsFromRESchema } from '../data.ts';
-import { BattleFormRuleSchema } from './schema.ts';
-import { BattleFormSource } from './types.ts';
+import { ActorType, CharacterPF2e } from "../../../actor/index.ts";
+import { DamageDicePF2e, ModifierPF2e } from "../../../actor/modifiers.ts";
+import { WeaponPF2e } from "../../../item/index.ts";
+import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
+import { ModelPropsFromRESchema } from "../data.ts";
+import { BattleFormRuleSchema } from "./schema.ts";
+import { BattleFormSource } from "./types.ts";
 declare class BattleFormRuleElement extends RuleElementPF2e<BattleFormRuleSchema> {
     #private;
     protected static validActorTypes: ActorType[];

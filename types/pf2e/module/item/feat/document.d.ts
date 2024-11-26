@@ -1,12 +1,12 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { FeatGroup } from '../../actor/character/feats/index.ts';
-import { ItemPF2e, HeritagePF2e } from '../index.ts';
-import { ActionCost, Frequency, RawItemChatData } from '../base/data/index.ts';
-import { Rarity } from '../../data.ts';
-import { RuleElementOptions, RuleElementPF2e } from '../../rules/index.ts';
-import { UserPF2e } from '../../user/index.ts';
-import { FeatSource, FeatSystemData } from './data.ts';
-import { FeatOrFeatureCategory, FeatTrait } from './types.ts';
+import { ActorPF2e } from "../../actor/index.ts";
+import { FeatGroup } from "../../actor/character/feats/index.ts";
+import { ItemPF2e, HeritagePF2e } from "../index.ts";
+import { ActionCost, Frequency, RawItemChatData } from "../base/data/index.ts";
+import { Rarity } from "../../data.ts";
+import { RuleElementOptions, RuleElementPF2e } from "../../rules/index.ts";
+import { UserPF2e } from "../../user/index.ts";
+import { FeatSource, FeatSystemData } from "./data.ts";
+import { FeatOrFeatureCategory, FeatTrait } from "./types.ts";
 declare class FeatPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     group: FeatGroup | null;
     grants: (FeatPF2e<ActorPF2e> | HeritagePF2e<ActorPF2e>)[];

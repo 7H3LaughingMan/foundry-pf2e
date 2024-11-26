@@ -1,14 +1,14 @@
-import { CreatureTrait } from '../../actor/creature/index.ts';
-import { DamageDicePF2e, DamageDiceParameters, ModifierAdjustment, ModifierObjectParams, ModifierPF2e } from '../../actor/modifiers.ts';
-import { ResistanceType } from '../../actor/types.ts';
-import { ArmorPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from '../index.ts';
-import { ArmorPropertyRuneType, ResilientRuneType } from '../armor/types.ts';
-import { SpellTrait } from '../spell/types.ts';
-import { StrikingRuneType, WeaponPropertyRuneType } from '../weapon/types.ts';
-import { OneToFour, Rarity, ZeroToFour, ZeroToSix } from '../../data.ts';
-import { RollNoteSource } from '../../notes.ts';
-import { StrikeAdjustment } from '../../rules/synthetics.ts';
-import { DegreeOfSuccessAdjustment } from '../../system/degree-of-success.ts';
+import { CreatureTrait } from "../../actor/creature/index.ts";
+import { DamageDicePF2e, DamageDiceParameters, ModifierAdjustment, ModifierObjectParams, ModifierPF2e } from "../../actor/modifiers.ts";
+import { ResistanceType } from "../../actor/types.ts";
+import { ArmorPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "../index.ts";
+import { ArmorPropertyRuneType, ResilientRuneType } from "../armor/types.ts";
+import { SpellTrait } from "../spell/types.ts";
+import { StrikingRuneType, WeaponPropertyRuneType } from "../weapon/types.ts";
+import { OneToFour, Rarity, ZeroToFour, ZeroToSix } from "../../data.ts";
+import { RollNoteSource } from "../../notes.ts";
+import { StrikeAdjustment } from "../../rules/synthetics.ts";
+import { DegreeOfSuccessAdjustment } from "../../system/degree-of-success.ts";
 declare function getPropertyRuneSlots(item: WeaponPF2e | ArmorPF2e): ZeroToFour;
 /** Remove duplicate and lesser versions from an array of property runes */
 declare function prunePropertyRunes<T extends string>(runes: (string | null)[], validTypes: Record<T, unknown>): T[];

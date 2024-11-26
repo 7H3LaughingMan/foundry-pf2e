@@ -1,8 +1,9 @@
-import { CharacterPF2e } from '../../index.ts';
-import { ResourceData } from '../../creature/index.ts';
-import { PhysicalItemPF2e } from '../../../item/index.ts';
-import { Predicate, RawPredicate } from '../../../system/predication.ts';
-import { CraftingFormula, PreparedFormula, PreparedFormulaData } from './types.ts';
+import { CharacterPF2e } from "../../index.ts";
+import { ResourceData } from "../../creature/index.ts";
+import { PhysicalItemPF2e } from "../../../item/index.ts";
+import { PhysicalItemSource } from "../../../item/base/data/index.ts";
+import { Predicate } from "../../../system/predication.ts";
+import { CraftableItemDefinition, CraftingAbilityData, CraftingFormula, PreparedFormula, PreparedFormulaData } from "./types.ts";
 declare class CraftingAbility implements CraftingAbilityData {
     #private;
     /** A label for this crafting entry to display on sheets */
@@ -35,25 +36,12 @@ declare class CraftingAbility implements CraftingAbilityData {
     setFormulaQuantity(index: number, value: "increase" | "decrease" | number): Promise<void>;
     toggleFormulaExpended(index: number, value?: boolean): Promise<void>;
     toggleSignatureItem(itemUUID: string): Promise<void>;
-    updateFormulas(formulas: PreparedFormulaData[]): Promise<void>;
+    updateFormulas(formulas: PreparedFormulaData[], operation?: Partial<DatabaseUpdateOperation<CharacterPF2e>> | undefined): Promise<void>;
     craft(itemOrUUIDOrIndex: PhysicalItemPF2e | ItemUUID | number, { consume }?: {
         consume?: boolean;
     }): Promise<PhysicalItemPF2e | null>;
-}
-interface CraftingAbilityData {
-    slug: string;
-    resource: string | null;
-    label: string;
-    isAlchemical: boolean;
-    isDailyPrep: boolean;
-    isPrepared: boolean;
-    maxSlots: number | null;
-    craftableItems: CraftableItemDefinition[];
-    fieldDiscovery?: RawPredicate | null;
-    batchSize: number;
-    fieldDiscoveryBatchSize?: number;
-    maxItemLevel: number;
-    preparedFormulaData: PreparedFormulaData[];
+    /** Returns what items should be created by this ability during daily preparation, and what the resource expenditure should be */
+    calculateDailyCrafting(): Promise<DailyCraftingResult>;
 }
 interface CraftingAbilitySheetData {
     slug: string;
@@ -68,9 +56,12 @@ interface CraftingAbilitySheetData {
     remainingSlots: number;
     prepared: PreparedFormula[];
 }
-interface CraftableItemDefinition {
-    predicate: Predicate;
-    batchSize?: number;
+interface DailyCraftingResult {
+    items: PreCreate<PhysicalItemSource>[];
+    resource: {
+        slug: string;
+        cost: number;
+    } | null;
 }
 export { CraftingAbility };
-export type { CraftingAbilityData, CraftingAbilitySheetData, PreparedFormulaData };
+export type { CraftingAbilitySheetData, PreparedFormulaData };

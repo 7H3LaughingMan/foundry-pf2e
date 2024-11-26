@@ -1,9 +1,9 @@
-import { ItemSheetOptions } from '../base/sheet/sheet.ts';
-import { PhysicalItemSheetData, PhysicalItemSheetPF2e } from '../physical/index.ts';
-import { SheetOptions } from '../../sheet/helpers.ts';
-import { DamageType } from '../../system/damage/index.ts';
-import { ConsumablePF2e } from './document.ts';
-import { ConsumableCategory } from './types.ts';
+import { ItemSheetOptions } from "../base/sheet/sheet.ts";
+import { PhysicalItemSheetData, PhysicalItemSheetPF2e } from "../physical/index.ts";
+import { SheetOptions } from "../../sheet/helpers.ts";
+import { DamageType } from "../../system/damage/index.ts";
+import { ConsumablePF2e } from "./document.ts";
+import { ConsumableCategory } from "./types.ts";
 declare class ConsumableSheetPF2e extends PhysicalItemSheetPF2e<ConsumablePF2e> {
     getData(options?: Partial<ItemSheetOptions>): Promise<ConsumableSheetData>;
     activateListeners($html: JQuery): void;

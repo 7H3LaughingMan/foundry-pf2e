@@ -1,5 +1,5 @@
-import { ChatMessagePF2e } from '../../chat-message/index.ts';
-import { ChatMessageSource } from '../../../../foundry/common/documents/chat-message.ts';
+import { ChatMessagePF2e } from "../../chat-message/index.ts";
+import { ChatMessageSource } from "../../../../foundry/common/documents/chat-message.ts";
 declare class ChatLogPF2e extends ChatLog<ChatMessagePF2e> {
     #private;
     activateListeners($html: JQuery<HTMLElement>): void;

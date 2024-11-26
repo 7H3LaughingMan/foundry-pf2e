@@ -1,4 +1,4 @@
-import { SettingsTemplateData } from './menu.ts';
+import { SettingsTemplateData } from "./menu.ts";
 export declare class VariantRulesSettings extends FormApplication {
     static get defaultOptions(): FormApplicationOptions;
     getData(): Promise<Record<string, SettingsTemplateData>>;

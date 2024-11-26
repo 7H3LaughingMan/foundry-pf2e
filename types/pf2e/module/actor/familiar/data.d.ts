@@ -1,10 +1,10 @@
-import { BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureLanguagesData, CreaturePerceptionData, CreatureResources, CreatureSaves, CreatureTraitsData, SkillData } from '../creature/data.ts';
-import { ActorSystemModel, ActorSystemSchema } from '../data/model.ts';
-import { ModifierPF2e } from '../modifiers.ts';
-import { AttributeString } from '../types.ts';
-import { StatisticTraceData } from '../../system/statistic/data.ts';
-import { ModelPropFromDataField, SourcePropFromDataField } from '../../../../foundry/common/data/fields.ts';
-import { FamiliarPF2e } from './document.ts';
+import { BaseCreatureSource, CreatureAttributes, CreatureDetails, CreatureLanguagesData, CreaturePerceptionData, CreatureResources, CreatureSaves, CreatureTraitsData, SkillData } from "../creature/data.ts";
+import { ActorSystemModel, ActorSystemSchema } from "../data/model.ts";
+import { ModifierPF2e } from "../modifiers.ts";
+import { AttributeString } from "../types.ts";
+import { StatisticTraceData } from "../../system/statistic/data.ts";
+import { ModelPropFromDataField, SourcePropFromDataField } from "../../../../foundry/common/data/fields.ts";
+import { FamiliarPF2e } from "./document.ts";
 import fields = foundry.data.fields;
 type FamiliarSource = BaseCreatureSource<"familiar", FamiliarSystemSource>;
 declare class FamiliarSystemData extends ActorSystemModel<FamiliarPF2e, FamiliarSystemSchema> {

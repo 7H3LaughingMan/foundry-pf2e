@@ -1,6 +1,6 @@
-import { CombatantPF2e, EncounterPF2e } from '../../encounter/index.ts';
-import { TokenDocumentPF2e } from '../../scene/index.ts';
-import { default as Sortable } from 'sortablejs';
+import { CombatantPF2e, EncounterPF2e } from "../../encounter/index.ts";
+import { TokenDocumentPF2e } from "../../scene/index.ts";
+import { default as Sortable } from "sortablejs";
 export declare class EncounterTrackerPF2e<TEncounter extends EncounterPF2e | null> extends CombatTracker<TEncounter> {
     #private;
     sortable: Sortable;

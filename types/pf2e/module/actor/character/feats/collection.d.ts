@@ -1,7 +1,7 @@
-import { CharacterPF2e } from '../../index.ts';
-import { FeatPF2e, ItemPF2e } from '../../../item/index.ts';
-import { FeatGroup } from './group.ts';
-import { FeatGroupData } from './types.ts';
+import { CharacterPF2e } from "../../index.ts";
+import { FeatPF2e, ItemPF2e } from "../../../item/index.ts";
+import { FeatGroup } from "./group.ts";
+import { FeatGroupData } from "./types.ts";
 declare class CharacterFeats<TActor extends CharacterPF2e> extends Collection<FeatGroup<TActor>> {
     #private;
     private actor;

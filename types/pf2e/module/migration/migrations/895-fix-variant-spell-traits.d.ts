@@ -1,5 +1,5 @@
-import { ItemSourcePF2e } from '../../item/base/data/index.ts';
-import { MigrationBase } from '../base.ts';
+import { ItemSourcePF2e } from "../../item/base/data/index.ts";
+import { MigrationBase } from "../base.ts";
 /** Fix traits on spell variants */
 export declare class Migration895FixVariantSpellTraits extends MigrationBase {
     #private;

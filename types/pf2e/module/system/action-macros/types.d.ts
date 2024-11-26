@@ -1,14 +1,14 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { StrikeData } from '../../actor/data/base.ts';
-import { ModifierPF2e } from '../../actor/modifiers.ts';
-import { DCSlug } from '../../actor/types.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { WeaponTrait } from '../../item/weapon/types.ts';
-import { RollNotePF2e } from '../../notes.ts';
-import { TokenDocumentPF2e } from '../../scene/index.ts';
-import { CheckRoll, CheckType } from '../check/index.ts';
-import { CheckDC, DegreeOfSuccessString } from '../degree-of-success.ts';
-import { Statistic } from '../statistic/index.ts';
+import { ActorPF2e } from "../../actor/index.ts";
+import { StrikeData } from "../../actor/data/base.ts";
+import { ModifierPF2e } from "../../actor/modifiers.ts";
+import { DCSlug } from "../../actor/types.ts";
+import { ItemPF2e } from "../../item/index.ts";
+import { WeaponTrait } from "../../item/weapon/types.ts";
+import { RollNotePF2e } from "../../notes.ts";
+import { TokenDocumentPF2e } from "../../scene/index.ts";
+import { CheckRoll, CheckType } from "../check/index.ts";
+import { CheckDC, DegreeOfSuccessString } from "../degree-of-success.ts";
+import { Statistic } from "../statistic/index.ts";
 type ActionGlyph = "A" | "D" | "T" | "R" | "F" | "a" | "d" | "t" | "r" | "f" | 1 | 2 | 3 | "1" | "2" | "3";
 interface BuildCheckContextOptions<TItem extends ItemPF2e<ActorPF2e>> {
     actor: ActorPF2e;

@@ -1,4 +1,4 @@
-import { ItemTransferData } from '../module/actor/item-transfer.ts';
+import { ItemTransferData } from "../module/actor/item-transfer.ts";
 declare function activateSocketListener(): void;
 interface TransferCallbackMessage {
     request: "itemTransfer";

@@ -1,7 +1,7 @@
-import { ActorType, CreaturePF2e } from '../../actor/index.ts';
-import { ActorCommitData } from '../../actor/types.ts';
-import { RuleElementPF2e, RuleElementOptions } from './base.ts';
-import { ResolvableValueField, RuleElementSchema, RuleElementSource } from './data.ts';
+import { ActorType, CreaturePF2e } from "../../actor/index.ts";
+import { ActorCommitData } from "../../actor/types.ts";
+import { RuleElementPF2e, RuleElementOptions } from "./base.ts";
+import { ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
 import fields = foundry.data.fields;
 declare class SpecialResourceRuleElement extends RuleElementPF2e<SpecialResourceSchema> {
     #private;
@@ -15,6 +15,7 @@ declare class SpecialResourceRuleElement extends RuleElementPF2e<SpecialResource
     }): Promise<ActorCommitData>;
     update(value: number, options?: {
         save?: true;
+        render?: boolean;
         checkLevel?: boolean;
     }): Promise<void>;
     /** If an item uuid is specified, create it when this resource is first attached */

@@ -1,10 +1,10 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { ZeroToTwo } from '../../data.ts';
-import { RollSubstitution } from '../../rules/synthetics.ts';
-import { TokenDocumentPF2e } from '../../scene/token-document/index.ts';
-import { CheckDC, DegreeOfSuccessAdjustment } from '../degree-of-success.ts';
-import { BaseRollContext } from '../rolls.ts';
+import { ActorPF2e } from "../../actor/index.ts";
+import { ItemPF2e } from "../../item/index.ts";
+import { ZeroToTwo } from "../../data.ts";
+import { RollSubstitution } from "../../rules/synthetics.ts";
+import { TokenDocumentPF2e } from "../../scene/token-document/index.ts";
+import { CheckDC, DegreeOfSuccessAdjustment } from "../degree-of-success.ts";
+import { BaseRollContext } from "../rolls.ts";
 type RollTwiceOption = "keep-higher" | "keep-lower" | false;
 type CheckType = "attack-roll" | "check" | "counteract-check" | "flat-check" | "initiative" | "perception-check" | "saving-throw" | "skill-check";
 interface CheckCheckContext extends BaseRollContext {

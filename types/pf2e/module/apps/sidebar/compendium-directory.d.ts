@@ -1,4 +1,4 @@
-import { default as MiniSearch } from 'minisearch';
+import { default as MiniSearch } from "minisearch";
 /** Extend CompendiumDirectory to support a search bar */
 declare class CompendiumDirectoryPF2e extends CompendiumDirectory {
     #private;

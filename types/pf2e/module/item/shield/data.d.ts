@@ -1,10 +1,10 @@
-import { PhysicalItemSource } from '../base/data/index.ts';
-import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from '../physical/data.ts';
-import { HeldUsage } from '../physical/usage.ts';
-import { WeaponRuneData, WeaponRuneSource } from '../weapon/data.ts';
-import { ZeroToSix } from '../../data.ts';
-import { DamageType } from '../../system/damage/types.ts';
-import { BaseShieldType, ShieldTrait } from './types.ts';
+import { PhysicalItemSource } from "../base/data/index.ts";
+import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "../physical/data.ts";
+import { HeldUsage } from "../physical/usage.ts";
+import { WeaponRuneData, WeaponRuneSource } from "../weapon/data.ts";
+import { ZeroToSix } from "../../data.ts";
+import { DamageType } from "../../system/damage/types.ts";
+import { BaseShieldType, ShieldTrait } from "./types.ts";
 type ShieldSource = BasePhysicalItemSource<"shield", ShieldSystemSource>;
 interface ShieldSystemSource extends PhysicalSystemSource {
     traits: ShieldTraitsSource;

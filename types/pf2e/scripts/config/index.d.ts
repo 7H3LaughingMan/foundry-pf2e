@@ -1,8 +1,8 @@
-import { ArmyPF2e, CharacterPF2e, FamiliarPF2e, HazardPF2e, LootPF2e, NPCPF2e, PartyPF2e, VehiclePF2e } from '../../module/actor/index.ts';
-import { SenseAcuity } from '../../module/actor/creature/types.ts';
-import { AbilityItemPF2e, AfflictionPF2e, AncestryPF2e, ArmorPF2e, BackgroundPF2e, BookPF2e, CampaignFeaturePF2e, ClassPF2e, ConditionPF2e, ConsumablePF2e, ContainerPF2e, DeityPF2e, EffectPF2e, EquipmentPF2e, FeatPF2e, HeritagePF2e, KitPF2e, LorePF2e, MeleePF2e, ShieldPF2e, SpellPF2e, SpellcastingEntryPF2e, TreasurePF2e, WeaponPF2e } from '../../module/item/index.ts';
-import { WeaponReloadTime } from '../../module/item/weapon/types.ts';
-import { JournalSheetPF2e } from '../../module/journal-entry/sheet.ts';
+import { ArmyPF2e, CharacterPF2e, FamiliarPF2e, HazardPF2e, LootPF2e, NPCPF2e, PartyPF2e, VehiclePF2e } from "../../module/actor/index.ts";
+import { SenseAcuity } from "../../module/actor/creature/types.ts";
+import { AbilityItemPF2e, AfflictionPF2e, AncestryPF2e, ArmorPF2e, BackgroundPF2e, BookPF2e, CampaignFeaturePF2e, ClassPF2e, ConditionPF2e, ConsumablePF2e, ContainerPF2e, DeityPF2e, EffectPF2e, EquipmentPF2e, FeatPF2e, HeritagePF2e, KitPF2e, LorePF2e, MeleePF2e, ShieldPF2e, SpellPF2e, SpellcastingEntryPF2e, TreasurePF2e, WeaponPF2e } from "../../module/item/index.ts";
+import { WeaponReloadTime } from "../../module/item/weapon/types.ts";
+import { JournalSheetPF2e } from "../../module/journal-entry/sheet.ts";
 export type StatusEffectIconTheme = "default" | "blackWhite";
 export declare const PF2ECONFIG: {
     defaultPartyId: string;

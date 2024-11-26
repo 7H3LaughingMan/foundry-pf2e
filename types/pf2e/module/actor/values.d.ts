@@ -1,4 +1,4 @@
-import { ImmunityType, ResistanceType, WeaknessType } from './types.ts';
+import { ImmunityType, ResistanceType, WeaknessType } from "./types.ts";
 declare const ATTRIBUTE_ABBREVIATIONS: Set<"str" | "dex" | "con" | "int" | "wis" | "cha">;
 declare const CREATURE_ACTOR_TYPES: readonly ["character", "npc", "familiar"];
 declare const ACTOR_TYPES: readonly ["army", "character", "familiar", "hazard", "loot", "npc", "party", "vehicle"];

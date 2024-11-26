@@ -1,10 +1,10 @@
-import { ActorPF2e, CharacterPF2e } from '../../actor/index.ts';
-import { FeatSlotData } from '../../actor/character/feats/index.ts';
-import { SaveType } from '../../actor/types.ts';
-import { ABCItemPF2e, FeatPF2e } from '../index.ts';
-import { ZeroToFour } from '../../data.ts';
-import { ClassAttackProficiencies, ClassDefenseProficiencies, ClassSource, ClassSystemData } from './data.ts';
-import { ClassTrait } from './types.ts';
+import { ActorPF2e, CharacterPF2e } from "../../actor/index.ts";
+import { FeatSlotData } from "../../actor/character/feats/index.ts";
+import { SaveType } from "../../actor/types.ts";
+import { ABCItemPF2e, FeatPF2e } from "../index.ts";
+import { ZeroToFour } from "../../data.ts";
+import { ClassAttackProficiencies, ClassDefenseProficiencies, ClassSource, ClassSystemData } from "./data.ts";
+import { ClassTrait } from "./types.ts";
 declare class ClassPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ABCItemPF2e<TParent> {
     get attacks(): ClassAttackProficiencies;
     get defenses(): ClassDefenseProficiencies;

@@ -1,14 +1,14 @@
-import { CreatureSheetData } from '../creature/sheet.ts';
-import { HitPointsStatistic, TraitViewData } from '../data/base.ts';
-import { AbilityViewData } from '../sheet/data-types.ts';
-import { MovementType, SaveType, SkillSlug } from '../types.ts';
-import { ItemPF2e } from '../../item/index.ts';
-import { SpellcastingSheetData } from '../../item/spellcasting-entry/index.ts';
-import { ZeroToFour } from '../../data.ts';
-import { TagifyEntry } from '../../sheet/helpers.ts';
-import { ArmorClassTraceData } from '../../system/statistic/index.ts';
-import { NPCAttributes, NPCPerceptionData, NPCSaveData, NPCSkillData, NPCSystemData } from './data.ts';
-import { NPCPF2e, NPCStrike } from './index.ts';
+import { CreatureSheetData } from "../creature/sheet.ts";
+import { HitPointsStatistic, TraitViewData } from "../data/base.ts";
+import { AbilityViewData } from "../sheet/data-types.ts";
+import { MovementType, SaveType, SkillSlug } from "../types.ts";
+import { ItemPF2e } from "../../item/index.ts";
+import { SpellcastingSheetData } from "../../item/spellcasting-entry/index.ts";
+import { ZeroToFour } from "../../data.ts";
+import { TagifyEntry } from "../../sheet/helpers.ts";
+import { ArmorClassTraceData } from "../../system/statistic/index.ts";
+import { NPCAttributes, NPCPerceptionData, NPCSaveData, NPCSkillData, NPCSystemData } from "./data.ts";
+import { NPCPF2e, NPCStrike } from "./index.ts";
 interface ActionsDetails {
     label: string;
     actions: AbilityViewData[];

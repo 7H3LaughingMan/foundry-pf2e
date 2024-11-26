@@ -1,8 +1,8 @@
-import { Language, SenseAcuity } from '../../actor/creature/types.ts';
-import { SelfEffectReference } from '../ability/index.ts';
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from '../base/sheet/sheet.ts';
-import { FeatPF2e } from './document.ts';
-import { OneToFour } from '../../data.ts';
+import { Language, SenseAcuity } from "../../actor/creature/types.ts";
+import { SelfEffectReference } from "../ability/index.ts";
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "../base/sheet/sheet.ts";
+import { FeatPF2e } from "./document.ts";
+import { OneToFour } from "../../data.ts";
 declare class FeatSheetPF2e extends ItemSheetPF2e<FeatPF2e> {
     #private;
     static get defaultOptions(): ItemSheetOptions;

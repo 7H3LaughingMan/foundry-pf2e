@@ -1,10 +1,10 @@
-import { ActorPF2e } from '../../../actor/index.ts';
-import { DamageDicePF2e, ModifierPF2e } from '../../../actor/modifiers.ts';
-import { ItemPF2e } from '../../../item/index.ts';
-import { BaseDamageData } from '../../../system/damage/types.ts';
-import { Predicate } from '../../../system/predication.ts';
-import { RuleValue } from '../data.ts';
-import { DamageAlterationProperty, DamageAlterationRuleElement, DamageAlterationValue } from './rule-element.ts';
+import { ActorPF2e } from "../../../actor/index.ts";
+import { DamageDicePF2e, ModifierPF2e } from "../../../actor/modifiers.ts";
+import { ItemPF2e } from "../../../item/index.ts";
+import { BaseDamageData } from "../../../system/damage/types.ts";
+import { Predicate } from "../../../system/predication.ts";
+import { RuleValue } from "../data.ts";
+import { DamageAlterationProperty, DamageAlterationRuleElement, DamageAlterationValue } from "./rule-element.ts";
 declare class DamageAlteration {
     #private;
     slug: string | null;

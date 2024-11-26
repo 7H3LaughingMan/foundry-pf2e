@@ -1,4 +1,4 @@
-import { ScenePF2e } from '../scene/index.ts';
+import { ScenePF2e } from "../scene/index.ts";
 export declare class SceneDarknessAdjuster extends Application {
     #private;
     static readonly instance: SceneDarknessAdjuster;

@@ -1,8 +1,8 @@
-import { ItemPF2e } from '../../../index.ts';
-import { RuleElementPF2e, RuleElementSource } from '../../../../rules/index.ts';
-import { RuleElementSchema } from '../../../../rules/rule-element/data.ts';
-import { LaxSchemaField } from '../../../../system/schema-data-fields.ts';
-import { ItemSheetPF2e } from '../index.ts';
+import { ItemPF2e } from "../../../index.ts";
+import { RuleElementPF2e, RuleElementSource } from "../../../../rules/index.ts";
+import { RuleElementSchema } from "../../../../rules/rule-element/data.ts";
+import { LaxSchemaField } from "../../../../system/schema-data-fields.ts";
+import { ItemSheetPF2e } from "../index.ts";
 interface RuleElementFormOptions<TSource extends RuleElementSource, TObject extends RuleElementPF2e | null> {
     sheet: ItemSheetPF2e<ItemPF2e>;
     index: number;

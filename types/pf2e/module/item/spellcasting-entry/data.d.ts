@@ -1,9 +1,9 @@
-import { AttributeString } from '../../actor/types.ts';
-import { BaseItemSourcePF2e, ItemSystemData, ItemSystemSource, OtherTagsOnly } from '../base/data/system.ts';
-import { MagicTradition } from '../spell/types.ts';
-import { OneToTen, ZeroToFour, ZeroToTen } from '../../data.ts';
-import { RollNotePF2e } from '../../notes.ts';
-import { SpellcastingCategory } from './types.ts';
+import { AttributeString } from "../../actor/types.ts";
+import { BaseItemSourcePF2e, ItemSystemData, ItemSystemSource, OtherTagsOnly } from "../base/data/system.ts";
+import { MagicTradition } from "../spell/types.ts";
+import { OneToTen, ZeroToFour, ZeroToTen } from "../../data.ts";
+import { RollNotePF2e } from "../../notes.ts";
+import { SpellcastingCategory } from "./types.ts";
 type SlotKey = `slot${ZeroToTen}`;
 type SpellcastingEntrySource = BaseItemSourcePF2e<"spellcastingEntry", SpellcastingEntrySystemSource>;
 interface SpellDifficultyClass {

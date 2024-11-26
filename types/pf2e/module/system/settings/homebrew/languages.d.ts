@@ -1,5 +1,5 @@
-import { HomebrewTag, LanguageNotCommon, LanguageSettings, LanguageSettingsSheetData } from './data.ts';
-import { HomebrewElements } from './menu.ts';
+import { HomebrewTag, LanguageNotCommon, LanguageSettings, LanguageSettingsSheetData } from "./data.ts";
+import { HomebrewElements } from "./menu.ts";
 /** A helper class for managing languages and their rarities */
 export declare class LanguagesManager {
     #private;

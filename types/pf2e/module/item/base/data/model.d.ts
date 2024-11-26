@@ -1,9 +1,9 @@
-import { MigrationDataField } from '../../../data.ts';
-import { RuleElementSource } from '../../../rules/index.ts';
-import { SlugField } from '../../../system/schema-data-fields.ts';
-import { ArrayField, BooleanField, ObjectField, SchemaField, StringField } from '../../../../../foundry/common/data/fields.ts';
-import { ItemPF2e } from '../document.ts';
-import { ItemDescriptionData } from './system.ts';
+import { MigrationDataField } from "../../../data.ts";
+import { RuleElementSource } from "../../../rules/index.ts";
+import { SlugField } from "../../../system/schema-data-fields.ts";
+import { ArrayField, BooleanField, ObjectField, SchemaField, StringField } from "../../../../../foundry/common/data/fields.ts";
+import { ItemPF2e } from "../document.ts";
+import { ItemDescriptionData } from "./system.ts";
 declare abstract class ItemSystemModel<TParent extends ItemPF2e, TSchema extends ItemSystemSchema> extends foundry.abstract
     .TypeDataModel<TParent, TSchema> {
     static LOCALIZATION_PREFIXES: string[];

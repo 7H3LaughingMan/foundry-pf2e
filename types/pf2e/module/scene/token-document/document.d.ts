@@ -1,12 +1,12 @@
-import { ActorPF2e } from '../../actor/index.ts';
-import { PrototypeTokenPF2e } from '../../actor/data/base.ts';
-import { TokenPF2e } from '../../canvas/index.ts';
-import { CombatantPF2e, EncounterPF2e } from '../../encounter/index.ts';
-import { DifficultTerrainGrade, RegionDocumentPF2e } from '../index.ts';
-import { ScenePF2e } from '../document.ts';
-import { TokenAura } from './aura/index.ts';
-import { TokenFlagsPF2e } from './data.ts';
-import { TokenConfigPF2e } from './sheet.ts';
+import { ActorPF2e } from "../../actor/index.ts";
+import { PrototypeTokenPF2e } from "../../actor/data/base.ts";
+import { TokenPF2e } from "../../canvas/index.ts";
+import { CombatantPF2e, EncounterPF2e } from "../../encounter/index.ts";
+import { DifficultTerrainGrade, RegionDocumentPF2e } from "../index.ts";
+import { ScenePF2e } from "../document.ts";
+import { TokenAura } from "./aura/index.ts";
+import { TokenFlagsPF2e } from "./data.ts";
+import { TokenConfigPF2e } from "./sheet.ts";
 declare class TokenDocumentPF2e<TParent extends ScenePF2e | null = ScenePF2e | null> extends TokenDocument<TParent> {
     #private;
     /** Has this document completed `DataModel` initialization? */

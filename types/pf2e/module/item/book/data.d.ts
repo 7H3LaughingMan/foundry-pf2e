@@ -1,5 +1,5 @@
-import { EquipmentTrait } from '../equipment/data.ts';
-import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from '../physical/data.ts';
+import { EquipmentTrait } from "../equipment/data.ts";
+import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "../physical/data.ts";
 type BookSource = BasePhysicalItemSource<"book", BookSystemSource>;
 type BookTraits = PhysicalItemTraits<EquipmentTrait>;
 interface BookSystemSource extends PhysicalSystemSource {

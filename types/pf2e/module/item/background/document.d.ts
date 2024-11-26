@@ -1,7 +1,7 @@
-import { ActorPF2e, CharacterPF2e } from '../../actor/index.ts';
-import { ABCItemPF2e } from '../index.ts';
-import { BackgroundSource, BackgroundSystemData } from './data.ts';
-import { BackgroundTrait } from './types.ts';
+import { ActorPF2e, CharacterPF2e } from "../../actor/index.ts";
+import { ABCItemPF2e } from "../index.ts";
+import { BackgroundSource, BackgroundSystemData } from "./data.ts";
+import { BackgroundTrait } from "./types.ts";
 declare class BackgroundPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ABCItemPF2e<TParent> {
     get traits(): Set<BackgroundTrait>;
     /** Set a skill feat granted by a GrantItem RE as one of this background's configured items */

@@ -1,8 +1,8 @@
-import { CreatureTrait, Language } from '../../actor/creature/index.ts';
-import { AttributeString } from '../../actor/types.ts';
-import { ABCSystemData, ABCSystemSource } from '../abc/index.ts';
-import { BaseItemSourcePF2e, ItemTraits } from '../base/data/system.ts';
-import { Size, TraitsWithRarity, ValuesList } from '../../data.ts';
+import { CreatureTrait, Language } from "../../actor/creature/index.ts";
+import { AttributeString } from "../../actor/types.ts";
+import { ABCSystemData, ABCSystemSource } from "../abc/index.ts";
+import { BaseItemSourcePF2e, ItemTraits } from "../base/data/system.ts";
+import { Size, TraitsWithRarity, ValuesList } from "../../data.ts";
 type AncestrySource = BaseItemSourcePF2e<"ancestry", AncestrySystemSource>;
 type CreatureTraits = TraitsWithRarity<CreatureTrait>;
 type AncestryTraits = ItemTraits<CreatureTrait>;

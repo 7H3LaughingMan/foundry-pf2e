@@ -1,8 +1,8 @@
-import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from '../../../system/schema-data-fields.ts';
-import { ArrayField, BooleanField, DataSchema, EmbeddedDataField, StringField } from '../../../../../foundry/common/data/fields.ts';
-import { AELikeDataPrepPhase } from '../ae-like.ts';
-import { ResolvableValueField, RuleElementSchema } from '../data.ts';
-import { RollOptionRuleElement } from './rule-element.ts';
+import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from "../../../system/schema-data-fields.ts";
+import { ArrayField, BooleanField, DataSchema, EmbeddedDataField, StringField } from "../../../../../foundry/common/data/fields.ts";
+import { AELikeDataPrepPhase } from "../ae-like.ts";
+import { ResolvableValueField, RuleElementSchema } from "../data.ts";
+import { RollOptionRuleElement } from "./rule-element.ts";
 declare class Suboption extends foundry.abstract.DataModel<RollOptionRuleElement, SuboptionSchema> {
     static defineSchema(): DataSchema;
     get rule(): RollOptionRuleElement;

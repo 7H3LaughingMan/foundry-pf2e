@@ -1,5 +1,5 @@
-import { ActorPF2e } from '../actor/index.ts';
-import { AbstractEffectPF2e } from '../item/index.ts';
+import { ActorPF2e } from "../actor/index.ts";
+import { AbstractEffectPF2e } from "../item/index.ts";
 export declare class EffectsPanel extends Application {
     #private;
     private get token();
