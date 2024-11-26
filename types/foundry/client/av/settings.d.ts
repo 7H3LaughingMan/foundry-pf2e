@@ -13,15 +13,15 @@ declare global {
     class AVSettings {
         constructor();
 
-        protected _set: <T>(key: string, value: T) => void;
+        _set: <T>(key: string, value: T) => void;
 
-        protected _change: () => void;
+        _change: () => void;
 
         client: typeof AVSettings.DEFAULT_CLIENT_SETTINGS;
 
         world: typeof AVSettings.DEFAULT_WORLD_SETTINGS;
 
-        protected _original: {
+        _original: {
             client: typeof AVSettings.DEFAULT_CLIENT_SETTINGS;
             world: typeof AVSettings.DEFAULT_WORLD_SETTINGS;
         };
