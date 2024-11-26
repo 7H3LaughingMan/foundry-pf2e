@@ -1,6 +1,6 @@
 import "gsap";
 import "handlebars";
-// import SHOWDOWN from "showdown";
+import "showdown";
 import "./apps/index.d.ts";
 import "./av/index.d.ts";
 import "./config.d.ts";
@@ -18,6 +18,5 @@ declare global {
         export import CONST = Foundry.CONST;
         export import Color = Foundry.utils.Color;
         export import foundry = Foundry;
-        // const showdown: typeof SHOWDOWN;
     }
 }
