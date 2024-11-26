@@ -125,7 +125,7 @@ export default abstract class ApplicationV2<
      *                      ApplicationV1#render signature.
      * @returns A Promise which resolves to the rendered Application instance
      */
-    render(options?: boolean | Partial<TRenderOptions>, _options?: Partial<TRenderOptions>): Promise<this>;
+    render(options?: boolean | DeepPartial<TRenderOptions>, _options?: DeepPartial<TRenderOptions>): Promise<this>;
 
     /**
      * Modify the provided options passed to a render request.
