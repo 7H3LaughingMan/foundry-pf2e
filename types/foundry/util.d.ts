@@ -5,7 +5,7 @@ declare global {
     type Maybe<T> = T | null | undefined;
 
     type DeepPartial<T extends object> = {
-        [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+        [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : Partial<T[P]>;
     };
 
     type CollectionValue<T> = T extends Collection<infer U> ? U : never;
