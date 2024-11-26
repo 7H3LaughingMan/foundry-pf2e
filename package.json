@@ -43,7 +43,6 @@
         "@types/luxon": "^3.4.2",
         "@types/showdown": "^2.0.6",
         "@types/sortablejs": "^1.15.8",
-        "@types/uuid": "^10.0.0",
         "@types/yaireo__tagify": "4.17.0",
         "pixi.js": "^7.4.2",
         "socket.io": "^4.5.1",
