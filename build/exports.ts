@@ -12,6 +12,12 @@ const files = await glob("./pf2e/module/**/*.d.ts", {
     posix: true,
 });
 
+files.push(
+    "./pf2e/module/system/action-macros/index.d.ts",
+    "./pf2e/scripts/config/index.d.ts",
+    "./pf2e/scripts/config/traits.d.ts",
+);
+
 files.sort((a, b) => {
     const a_parts = a.split("/");
     const b_parts = b.split("/");
@@ -56,7 +62,7 @@ files.forEach((value, index, array) => {
 
 files.unshift(
     'import "./foundry/index.d.ts";',
-    'import "./pf2e/global.d.ts";',
+    'import "./pf2e/index.d.ts";',
     "",
     'export type { HitPointsStatistic } from "./pf2e/module/actor/data/base.d.ts";',
     'export type { ActionCost } from "./pf2e/module/item/base/data/system.d.ts";',
@@ -64,4 +70,6 @@ files.unshift(
     "",
 );
 
-fs.writeFileSync("./types/index.d.ts", files.join("\r\n"));
+files.push("");
+
+fs.writeFileSync("./types/index.d.ts", files.join("\n"));
