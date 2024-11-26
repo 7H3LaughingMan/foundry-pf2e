@@ -13,7 +13,8 @@ declare global {
         config: AVConfig;
 
         /** The Audio/Video client class */
-        //client: InstanceType<>
+        // TODO: Fix This
+        // client: InstanceType<>
 
         /**
          * A flag to track whether the current user is actively broadcasting their microphone.
