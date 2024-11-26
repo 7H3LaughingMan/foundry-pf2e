@@ -39,12 +39,10 @@
     "dependencies": {
         "@pixi/graphics-smooth": "^1.1.0",
         "@pixi/particle-emitter": "5.0.8",
-        "@types/jest": "^29.5.13",
         "@types/jquery": "^3.5.31",
         "@types/luxon": "^3.4.2",
         "@types/showdown": "^2.0.6",
         "@types/sortablejs": "^1.15.8",
-        "@types/tooltipster": "^0.0.35",
         "@types/uuid": "^10.0.0",
         "@types/yaireo__tagify": "4.17.0",
         "pixi.js": "^7.4.2",

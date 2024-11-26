@@ -28,10 +28,8 @@
         "types": [
             "./types/foundry",
             "./types/pf2e",
-            "jest",
             "jquery",
             "node",
-            "tooltipster"
         ]
     }
 }
