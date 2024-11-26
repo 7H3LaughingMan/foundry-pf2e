@@ -60,17 +60,6 @@ declare global {
          * Find the point I[x,y] and distance t* on ray R(t) which intersects another ray
          * http://paulbourke.net/geometry/pointlineplane/
          */
-        intersectSegment(coords: [number]): Vector2;
-
-        static _getIntersection(
-            x1: number,
-            y1: number,
-            x2: number,
-            y2: number,
-            x3: number,
-            y3: number,
-            x4: number,
-            y4: number,
-        ): Vector2;
+        intersectSegment(coords: [number]): Maybe<LineIntersection>;
     }
 }

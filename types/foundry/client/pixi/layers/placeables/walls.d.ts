@@ -222,21 +222,6 @@ declare global {
         ): Ray[];
 
         /**
-         * Test a single Ray against a single Wall
-         * @param ray  The Ray being tested
-         * @param wall The Wall against which to test
-         * @return A RayIntersection if a collision occurred, or null
-         */
-        static testWall(ray: Ray, wall: Wall<WallDocument<Scene>>): RayIntersection | null;
-
-        /**
-         * Identify the closest collision point from an array of collisions
-         * @param collisions  An array of intersection points
-         * @return The closest blocking intersection or null if no collision occurred
-         */
-        static getClosestCollision(collisions: RayIntersection[]): RayIntersection | null;
-
-        /**
          * Normalize an angle to ensure it is baselined to be the smallest angle that is greater than a minimum.
          * @param aMin  The lower-bound minimum angle
          * @param angle The angle to adjust
