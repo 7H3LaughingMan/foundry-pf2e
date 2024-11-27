@@ -1,8 +1,8 @@
 import "./collection";
-export * from "./geometry";
-export * from "./helpers";
+export * from "./geometry.ts";
+export * from "./helpers.ts";
 export * from "./http.ts";
-// export * from "./logging.mjs";
+export * from "./logging.ts";
 export { default as BitMask } from "./bitmask";
 export { default as Color } from "./color";
 export { default as EventEmitterMixin } from "./event-emiiter.ts";
