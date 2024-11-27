@@ -1,6 +1,7 @@
 import "./collection";
 export * from "./geometry";
 export * from "./helpers";
+export * from "./http.ts";
 // export * from "./logging.mjs";
 export { default as BitMask } from "./bitmask";
 export { default as Color } from "./color";

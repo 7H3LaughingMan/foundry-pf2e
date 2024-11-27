@@ -5,7 +5,6 @@
  * @param data The data of the Request
  * @param timeoutMs How long to wait for a Response before cleanly aborting. If null, no timeout is applied
  * @param onTimeout A method to invoke if and when the timeout is reached
- * @throws {HttpError}
  */
 export function fetchWithTimeout(
     url: string,
@@ -28,7 +27,6 @@ export function fetchJsonWithTimeout(
 
 /**
  * Represents an HTTP Error when a non-OK response is returned by Fetch
- * @extends {Error}
  */
 export class HttpError extends Error {
     constructor(statusText: string, code: number, displayMessage?: string);
