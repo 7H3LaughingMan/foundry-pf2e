@@ -2,6 +2,12 @@ import type DataModel from "./common/abstract/data.d.ts";
 import type { DataSchema } from "./common/data/fields.d.ts";
 
 declare global {
+    type AnyFunction = (arg0: never, ...args: never[]) => unknown;
+
+    type AnyConstructor = abstract new (arg0: never, ...args: never[]) => unknown;
+
+    type AnyConcreteConstructor = new (arg0: never, ...args: never[]) => unknown;
+
     type Maybe<T> = T | null | undefined;
 
     type DeepPartial<T extends object> = {

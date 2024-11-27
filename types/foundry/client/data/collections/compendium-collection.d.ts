@@ -215,25 +215,6 @@ declare global {
      */
     function _parseUuid(uuid: string, relative?: foundry.abstract.Document): ResolvedUUID;
 
-    interface ResolvedUUID {
-        uuid?: string;
-        /**
-         * The type of Document referenced. Legacy compendium UUIDs will not populate this field if the compendium is
-         * not active in the World.
-         */
-        type: string | undefined;
-        /** The parent collection. */
-        collection?: DocumentCollection<ClientDocument> | undefined;
-        /** The parent document. */
-        documentId?: string | undefined;
-        /** The parent document type. */
-        documentType?: string;
-        /** An already-resolved document. */
-        doc?: ClientDocument | null;
-        /** Any remaining Embedded Document parts. */
-        embedded: string[];
-    }
-
     /**
      * Resolve a series of embedded document UUID parts against a parent Document.
      * @param parent The parent Document.
