@@ -1,15 +1,15 @@
 /** A data structure representing a tree of string nodes with arbitrary object leaves. */
-export default class StringTree<EntryType> {
+declare class StringTree<EntryType> {
     /** The key symbol that stores the leaves of any given node. */
     static readonly leaves: unique symbol;
 
     static readonly #leaves: unique symbol;
 
     /** The tree's root. */
-    #root: StringTreeNode<EntryType>;
+    #root: StringTree.StringTreeNode;
 
     /** Create a new node. */
-    #createNode(): StringTreeNode<EntryType>;
+    #createNode(): StringTree.StringTreeNode;
 
     /**
      * Insert an entry into the tree.
@@ -17,7 +17,7 @@ export default class StringTree<EntryType> {
      * @param entry The entry to store.
      * @returns The node the entry was added to.
      */
-    addLeaf(strings: string[], entry: EntryType): StringTreeNode<EntryType>;
+    addLeaf(strings: string[], entry: EntryType): StringTree.StringTreeNode;
 
     /**
      * Traverse the tree along the given string path and return any entries reachable from the node.
@@ -28,8 +28,8 @@ export default class StringTree<EntryType> {
      */
     lookup(
         strings: string[],
-        options?: { limit?: number; filterEntries?: StringTreeEntryFilter<EntryType> },
-    ): StringTreeNode<EntryType>[];
+        options?: { limit?: number; filterEntries?: StringTree.StringTreeEntryFilter },
+    ): StringTree.StringTreeNode[];
 
     /**
      * Returns the node at the given path through the tree.
@@ -38,7 +38,7 @@ export default class StringTree<EntryType> {
      * @param options.hasLeaves Only return the most recently visited node that has leaves, otherwise
      *                          return the exact node at the prefix, if it exists.
      */
-    nodeAtPrefix(strings: string[], options?: { hasLeaves?: boolean }): StringTreeNode<EntryType> | void;
+    nodeAtPrefix(strings: string[], options?: { hasLeaves?: boolean }): StringTree.StringTreeNode | void;
 
     /* -------------------------------------------- */
 
@@ -53,18 +53,20 @@ export default class StringTree<EntryType> {
      * @param options.filterEntries A filter function to apply to each candidate entry.
      */
     protected _breadthFirstSearch(
-        node: StringTreeNode<EntryType>,
+        node: StringTree.StringTreeNode,
         entries: EntryType[],
-        queue: StringTreeNode<EntryType>[],
-        options?: { limit?: number; filterEntries?: StringTreeEntryFilter<EntryType> },
+        queue: StringTree.StringTreeNode[],
+        options?: { limit?: number; filterEntries?: StringTree.StringTreeEntryFilter },
     ): void;
 }
 
-declare global {
-    interface StringTreeNode<EntryType> {
-        [StringTree.leaves]: Record<string, EntryType>[];
-        [key: string]: StringTreeNode<EntryType>;
+declare namespace StringTree {
+    interface StringTreeNode {
+        [StringTree.leaves]: Record<string, unknown>[];
+        [key: string]: StringTreeNode;
     }
 
-    type StringTreeEntryFilter<EntryType> = (entry: EntryType) => boolean;
+    type StringTreeEntryFilter = (entry: unknown) => boolean;
 }
+
+export default StringTree;

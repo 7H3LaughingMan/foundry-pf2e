@@ -6,6 +6,7 @@ export { default as BitMask } from "./bitmask";
 export { default as Color } from "./color";
 export { default as EventEmitterMixin } from "./event-emiiter.ts";
 export { default as StringTree } from "./string-tree.ts";
+export { default as WordTree } from "./word-tree.ts";
 
 /** The constructor of an async function. */
 export const AsyncFunction: {
