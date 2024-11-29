@@ -217,7 +217,7 @@ declare global {
         ): Promise<TDocument[] | TDocument | undefined>;
     }
 
-    type ChatMessageCreateData<TDocument extends ChatMessage> = DeepPartial<
+    type ChatMessageCreateData<TDocument extends ChatMessage> = PreCreate<
         Omit<TDocument["_source"], "rolls" | "whisper"> & {
             rolls: (string | RollJSON | Roll)[];
             whisper: (string | User)[];
