@@ -292,11 +292,11 @@ declare global {
 
         /** Set the application position and store it's new location */
         setPosition(position?: {
-            left: Maybe<number>;
-            top: Maybe<number>;
-            width: Maybe<number>;
-            height: Maybe<number | "auto">;
-            scale: Maybe<number>;
+            left?: Maybe<number>;
+            top?: Maybe<number>;
+            width?: Maybe<number>;
+            height?: Maybe<number | "auto">;
+            scale?: Maybe<number>;
         }): {
             left: Maybe<number>;
             top: Maybe<number>;
