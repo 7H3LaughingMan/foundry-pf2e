@@ -16,7 +16,7 @@ export default class IterableWeakSet<T extends WeakKey> extends WeakSet<T> {
     /**
      * Enumerate the values.
      */
-    [Symbol.iterator](): Generator<T, void, never>;
+    [Symbol.iterator](): Generator<T, void, any>;
 
     /**
      * Add a value to the set.
@@ -39,7 +39,7 @@ export default class IterableWeakSet<T extends WeakKey> extends WeakSet<T> {
     /**
      * Enumerate the collection.
      */
-    values(): Generator<T, void, never>;
+    values(): Generator<T, void, any>;
 
     /**
      * Clear all values from the set.
