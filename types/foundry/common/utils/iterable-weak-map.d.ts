@@ -53,7 +53,7 @@ export default class IterableWeakMap<K extends WeakKey, V> extends WeakMap<K, V>
     /**
      * Enumerate the entries.
      */
-    [Symbol.iterator](): Generator<[K, V], void, never>;
+    [Symbol.iterator](): Generator<[K, V], void, any>;
 
     /**
      * Enumerate the entries.
