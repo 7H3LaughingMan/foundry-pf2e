@@ -7,7 +7,7 @@ import type {
     PointVisionSource,
 } from "../client-esm/canvas/sources/module.ts";
 import type { TokenRingConfig } from "../client-esm/canvas/tokens/module.ts";
-import type * as terms from "../client-esm/dice/terms/module.d.ts";
+import type * as terms from "../client-esm/dice/terms/_module.d.mts";
 import abstract = foundry.abstract;
 import data = foundry.data;
 
@@ -794,4 +794,6 @@ declare global {
          */
         urls: string[];
     }
+
+    type RollFunction = (...args: any[]) => Promise<number> | number;
 }
