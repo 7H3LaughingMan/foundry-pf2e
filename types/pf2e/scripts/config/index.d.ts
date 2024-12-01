@@ -862,7 +862,7 @@ export declare const PF2ECONFIG: {
         "worn-under-armor": string;
     };
     magicTraditions: Record<"arcane" | "divine" | "occult" | "primal", string>;
-    deityDomains: Record<"time" | "healing" | "magic" | "metal" | "water" | "wood" | "air" | "cold" | "earth" | "fire" | "void" | "wealth" | "abomination" | "ambition" | "change" | "cities" | "confidence" | "creation" | "darkness" | "death" | "decay" | "destruction" | "dreams" | "dust" | "duty" | "family" | "fate" | "freedom" | "glyph" | "indulgence" | "introspection" | "knowledge" | "lightning" | "luck" | "might" | "moon" | "naga" | "nature" | "nightmares" | "pain" | "passion" | "perfection" | "plague" | "protection" | "repose" | "secrecy" | "sorrow" | "soul" | "star" | "sun" | "swarm" | "toil" | "travel" | "trickery" | "truth" | "tyranny" | "undeath" | "vigil" | "zeal" | "airapocryphal" | "ambitionapocryphal" | "confidenceapocryphal" | "darknessapocryphal" | "deathapocryphal" | "delirium" | "fateapocryphal" | "fireapocryphal" | "indulgenceapocryphal" | "knowledgeapocryphal" | "mightapocryphal" | "secrecyapocryphal" | "travelapocryphal" | "waterapocryphal" | "wyrmkin", {
+    deityDomains: Record<"healing" | "magic" | "metal" | "water" | "wood" | "air" | "cold" | "earth" | "fire" | "void" | "wealth" | "abomination" | "ambition" | "change" | "cities" | "confidence" | "creation" | "darkness" | "death" | "decay" | "destruction" | "dreams" | "dust" | "duty" | "family" | "fate" | "freedom" | "glyph" | "indulgence" | "introspection" | "knowledge" | "lightning" | "luck" | "might" | "moon" | "naga" | "nature" | "nightmares" | "pain" | "passion" | "perfection" | "plague" | "protection" | "repose" | "secrecy" | "sorrow" | "soul" | "star" | "sun" | "swarm" | "time" | "toil" | "travel" | "trickery" | "truth" | "tyranny" | "undeath" | "vigil" | "zeal" | "airapocryphal" | "ambitionapocryphal" | "confidenceapocryphal" | "darknessapocryphal" | "deathapocryphal" | "delirium" | "fateapocryphal" | "fireapocryphal" | "indulgenceapocryphal" | "knowledgeapocryphal" | "mightapocryphal" | "secrecyapocryphal" | "travelapocryphal" | "waterapocryphal" | "wyrmkin", {
         label: string;
         description: string;
     }>;
@@ -1237,6 +1237,7 @@ export declare const PF2ECONFIG: {
         flexible: string;
         healing: string;
         hindering: string;
+        illusion: string;
         inscribed: string;
         intelligent: string;
         invested: string;
@@ -4199,11 +4200,11 @@ export declare const PF2ECONFIG: {
         skirmisher: string;
     };
     creatureTypes: {
-        time: string;
         plant: string;
         spirit: string;
         vitality: string;
         void: string;
+        time: string;
         fungus: string;
         shadow: string;
         beast: string;
@@ -4259,7 +4260,7 @@ export declare const PF2ECONFIG: {
         5: string;
     };
     weaponReload: Record<WeaponReloadTime, string>;
-    armorCategories: Record<"medium" | "light" | "unarmored" | "heavy" | "light-barding" | "heavy-barding", string>;
+    armorCategories: Record<"light" | "unarmored" | "medium" | "heavy" | "light-barding" | "heavy-barding", string>;
     armorGroups: Record<"wood" | "composite" | "chain" | "cloth" | "leather" | "plate" | "skeletal", string>;
     consumableCategories: Record<"poison" | "catalyst" | "elixir" | "fulu" | "gadget" | "mutagen" | "oil" | "potion" | "scroll" | "snare" | "talisman" | "wand" | "drug" | "ammo" | "other" | "toolkit", string>;
     identification: {

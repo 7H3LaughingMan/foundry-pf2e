@@ -47,5 +47,4 @@ execSync("code -r ./types/pf2e/global.d.ts");
 execSync("code -r ./types/pf2e/module/actor/character/apps/abc-picker/app.svelte.d.ts");
 execSync("code -r ./types/pf2e/module/actor/data/base.d.ts");
 execSync("code -r ./types/pf2e/module/chat-message/data.d.ts");
-execSync("code -r ./types/pf2e/module/data.d.ts");
 execSync("code -r ./types/pf2e/module/item/deity/types.d.ts");

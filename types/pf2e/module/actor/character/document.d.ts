@@ -85,7 +85,7 @@ declare class CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocu
         criticalSuccess: string;
         success: string;
     };
-    consumeAmmo(weapon: WeaponPF2e<this>, params: RollParameters): boolean;
+    consumeAmmo(weapon: WeaponPF2e<CharacterPF2e>, params: RollParameters): boolean;
     /** Prepare stored and synthetic martial proficiencies */
     prepareMartialProficiencies(): void;
     /** Toggle the invested state of an owned magical item */

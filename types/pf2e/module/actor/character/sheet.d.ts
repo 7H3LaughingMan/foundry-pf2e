@@ -62,12 +62,16 @@ interface FormulaSheetData {
     batchSize: number;
     cost: CoinsPF2e;
 }
+interface FormulaByLevel {
+    level: string;
+    formulas: FormulaSheetData[];
+}
 interface CraftingSheetData {
     noCost: boolean;
     hasQuickAlchemy: boolean;
     hasDailyCrafting: boolean;
     dailyCraftingComplete: boolean;
-    knownFormulas: Record<number, FormulaSheetData[]>;
+    knownFormulas: FormulaByLevel[];
     abilities: {
         prepared: CraftingAbilitySheetData[];
         alchemical: {

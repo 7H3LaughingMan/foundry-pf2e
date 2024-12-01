@@ -9,7 +9,7 @@ import { CreatureSource } from "./data/index.ts";
 import { ActorCommitData } from "./types.ts";
 export declare class ActorSpellcasting<TActor extends ActorPF2e> extends DelegatedCollection<BaseSpellcastingEntry<TActor>> {
     #private;
-    readonly actor: TActor;
+    actor: TActor;
     /** The base casting proficiency, off of which spellcasting builds */
     base: Statistic;
     /** All available spell lists on this actor */

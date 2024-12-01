@@ -2447,6 +2447,7 @@ declare const armorTraits: {
     flexible: string;
     healing: string;
     hindering: string;
+    illusion: string;
     inscribed: string;
     intelligent: string;
     invested: string;
