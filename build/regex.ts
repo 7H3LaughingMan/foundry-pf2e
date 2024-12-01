@@ -40,6 +40,9 @@ for (const file of files) {
     // Import - *.d.ts
     data = data.replace(/^import (.*?) from "(.*?)\.d\.ts";$/gm, `import $1 from "$2.ts";`);
 
+    // Import - *.d.mts
+    data = data.replace(/^import (.*?) from "(.*?)\.d\.mts";$/gm, `import $1 from "$2.mts";`);
+
     fs.writeFileSync(file, data, "utf8");
 }
 
