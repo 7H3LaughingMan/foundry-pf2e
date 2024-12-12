@@ -555,7 +555,6 @@ declare class Roll {
     static fromTerms<T extends Roll>(this: ConstructorOf<T>, terms: RollTerm[], options?: RollOptions): T;
 }
 
-// These are here for compatibility reasons
 declare global {
     interface RollOptions {
         flavor?: string;
