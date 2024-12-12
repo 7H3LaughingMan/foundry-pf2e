@@ -1,4 +1,4 @@
-import { RollTerm } from "./term.mjs";
+import type { RollTerm } from "./roll-term.d.ts";
 
 /** A type of RollTerm used to capture residual strings which have not yet been matched */
 export class StringTerm extends RollTerm<StringTermData> {
@@ -11,8 +11,6 @@ export class StringTerm extends RollTerm<StringTermData> {
     override get expression(): string;
 
     override get total(): string;
-
-    override get isDeterministic(): boolean;
 
     override evaluate(options?: Record<string, unknown>): never;
 }

@@ -1,4 +1,4 @@
-import { DiceTerm } from "./dice.mjs";
+import type { DiceTerm } from "./dice-term.d.ts";
 
 /**
  * Define a fair n-sided die term that can be used as part of a Roll formula

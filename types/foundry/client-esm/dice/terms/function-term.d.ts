@@ -1,5 +1,5 @@
-import { DiceTerm } from "./dice.mjs";
-import { RollTerm } from "./term.mjs";
+import type { DiceTerm } from "./dice-term.d.ts";
+import type { RollTerm } from "./roll-term.d.ts";
 
 export class FunctionTerm<TFunctionName extends MathFunctionName = MathFunctionName> extends RollTerm<
     FunctionTermData<TFunctionName>
@@ -16,11 +16,11 @@ export class FunctionTerm<TFunctionName extends MathFunctionName = MathFunctionN
     rolls: Roll[];
 
     /** The cached result of evaluating the method arguments */
-    result: string | number;
+    result: number | undefined;
 
     override isIntermediate: true;
 
-    static override SERIALIZE_ATTRIBUTES: ["fn", "terms", "rolls", "result"];
+    static override SERIALIZE_ATTRIBUTES: ["fn", "terms"];
 
     /* -------------------------------------------- */
     /*  Math Term Attributes                        */
@@ -29,18 +29,21 @@ export class FunctionTerm<TFunctionName extends MathFunctionName = MathFunctionN
     /** An array of evaluated DiceTerm instances that should be bubbled up to the parent Roll */
     get dice(): DiceTerm[];
 
-    override get total(): string | number;
+    override get total(): number | undefined;
 
     override get expression(): `${MathFunctionName}(${string})`;
-
-    /** The function this term represents. */
-    get function(): RollFunction;
-
-    override get isDeterministic(): boolean;
 
     /* -------------------------------------------- */
     /*  Math Term Methods                           */
     /* -------------------------------------------- */
+
+    protected override _evaluateSync({
+        minimize,
+        maximize,
+    }?: {
+        minimize?: boolean;
+        maximize?: boolean;
+    }): Evaluated<this>;
 
     protected override _evaluate({
         minimize,
@@ -49,24 +52,6 @@ export class FunctionTerm<TFunctionName extends MathFunctionName = MathFunctionN
         minimize?: boolean;
         maximize?: boolean;
     }): Promise<Evaluated<this>>;
-
-    /** Evaluate this function when it contains any non-deterministic sub-terms. */
-    protected _evaluateAsync({
-        minimize,
-        maximize,
-    }?: {
-        minimize?: boolean;
-        maximize?: boolean;
-    }): Promise<Evaluated<this>>;
-
-    /** Evaluate this function when it contains only deterministic sub-terms. */
-    protected override _evaluateSync({
-        minimize,
-        maximize,
-    }?: {
-        minimize?: boolean;
-        maximize?: boolean;
-    }): Evaluated<this>;
 }
 
 declare global {

@@ -1,10 +1,9 @@
-import { RollTerm } from "./term.mjs";
+import type { RollTerm } from "./roll-term.d.ts";
 
 /** A type of RollTerm used to capture static numbers. */
 export class NumericTerm<TData extends NumericTermData = NumericTermData> extends RollTerm<TData> {
     constructor({ number, options }: NumericTermData);
 
-    /** The term's numeric value. */
     number: number;
 
     static override REGEXP: RegExp;

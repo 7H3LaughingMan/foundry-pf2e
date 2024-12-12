@@ -1,4 +1,4 @@
-import { DiceTerm } from "./dice.mjs";
+import type { DiceTerm } from "./dice-term.d.ts";
 
 /** Define a two-sided coin term that can be used as part of a Roll formula */
 export class Coin extends DiceTerm<CoinData> {
