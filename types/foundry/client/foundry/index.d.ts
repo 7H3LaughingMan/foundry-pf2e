@@ -8,7 +8,7 @@ export * as documents from "../../common/documents/module.ts";
 /** Package data definitions, validations, and schema. */
 export * as packages from "../../common/packages/module.ts";
 /** Utility functions providing helpful functionality. */
-export * as utils from "../../common/utils/module";
+export * as utils from "../../common/utils/module.ts";
 /** Data schema definitions for data models. */
 export * as data from "./data/index.ts";
 /** Canvas class definitions */
