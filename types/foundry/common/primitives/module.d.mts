@@ -5,3 +5,4 @@ import "./number.mjs";
 import "./regexp.mjs";
 import "./set.mjs";
 import "./string.mjs";
+import "./url.mjs";
