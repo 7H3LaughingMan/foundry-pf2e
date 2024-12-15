@@ -2,6 +2,7 @@
  * A representation of a color in hexadecimal format.
  * This class provides methods for transformations and manipulations of colors.
  */
+// @ts-expect-error 2417: Override of Color.fromString does not match Number.fromString
 export default class Color extends Number {
     /**
      * Is this a valid color?
