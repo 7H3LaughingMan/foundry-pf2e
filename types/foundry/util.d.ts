@@ -1,5 +1,4 @@
-import type DataModel from "./common/abstract/data.d.ts";
-import type { DataSchema } from "./common/data/fields.d.ts";
+export {};
 
 declare global {
     type AnyFunction = (arg0: never, ...args: never[]) => unknown;
@@ -8,22 +7,24 @@ declare global {
 
     type AnyConcreteConstructor = new (arg0: never, ...args: never[]) => unknown;
 
+    type Mixin<MixinClass extends AnyConcreteConstructor, BaseClass extends AnyConstructor> = MixinClass & BaseClass;
+
     type Maybe<T> = T | null | undefined;
 
-    type CollectionValue<T> = T extends Collection<infer U> ? U : never;
+    // type CollectionValue<T> = T extends Collection<infer U> ? U : never;
 
     type AbstractConstructorOf<T> = abstract new (...args: any[]) => T;
 
     type ConstructorOf<T> = new (...args: any[]) => T;
 
-    type DocumentConstructorOf<T extends foundry.abstract.Document> = {
+    /* type DocumentConstructorOf<T extends foundry.abstract.Document> = {
         new (...args: any[]): T;
         updateDocuments(updates?: object[], operation?: Partial<DatabaseUpdateOperation<T["parent"]>>): Promise<T[]>;
-    };
+    }; */
 
-    type ParentOf<TDataModel> = TDataModel extends DataModel<infer P extends DataModel | null> ? P : never;
+    // type ParentOf<TDataModel> = TDataModel extends DataModel<infer P extends DataModel | null> ? P : never;
 
-    type SchemaOf<TDataModel> = TDataModel extends DataModel<infer _P, infer S extends DataSchema> ? S : never;
+    // type SchemaOf<TDataModel> = TDataModel extends DataModel<infer _P, infer S extends DataSchema> ? S : never;
 
     type SetElement<TSet extends Set<unknown>> = TSet extends Set<infer TElement> ? TElement : never;
 
