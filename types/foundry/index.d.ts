@@ -1,1 +1,1 @@
-import "./common/primitives/module.mjs";
+import "./client-esm/client.mjs";
