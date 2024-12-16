@@ -1,6 +1,9 @@
+import * as _PIXI from "pixi.js";
 import Color from "./utils/color.mjs";
 
 declare global {
+    export import PIXI = _PIXI;
+
     type Builtin = Date | Function | Uint8Array | string | number | boolean | symbol | null | undefined;
 
     /** Make all properties in T recursively readonly. */
