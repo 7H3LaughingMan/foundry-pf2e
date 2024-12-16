@@ -1978,11 +1978,13 @@ declare global {
     type PlaylistMode = (typeof PLAYLIST_MODES)[keyof typeof PLAYLIST_MODES];
     type PlaylistSortMode = (typeof PLAYLIST_SORT_MODES)[keyof typeof PLAYLIST_SORT_MODES];
     type RollMode = (typeof DICE_ROLL_MODES)[keyof typeof DICE_ROLL_MODES];
+    type RegionMovementSegments = (typeof REGION_MOVEMENT_SEGMENTS)[keyof typeof REGION_MOVEMENT_SEGMENTS];
     type TableResultType = (typeof TABLE_RESULT_TYPES)[keyof typeof TABLE_RESULT_TYPES];
     type TextAnchorPoint = (typeof TEXT_ANCHOR_POINTS)[keyof typeof TEXT_ANCHOR_POINTS];
     type TileOcclusionMode = (typeof TILE_OCCLUSION_MODES)[keyof typeof TILE_OCCLUSION_MODES];
     type TokenDisplayMode = (typeof TOKEN_DISPLAY_MODES)[keyof typeof TOKEN_DISPLAY_MODES];
     type TokenDisposition = (typeof TOKEN_DISPOSITIONS)[keyof typeof TOKEN_DISPOSITIONS];
+    type TokenShape = (typeof TOKEN_SHAPES)[keyof typeof TOKEN_SHAPES];
     type UserAction = "create" | "update" | "delete";
     type UserPermissionString = keyof typeof USER_PERMISSIONS;
     type UserRole = keyof typeof USER_ROLE_NAMES;
