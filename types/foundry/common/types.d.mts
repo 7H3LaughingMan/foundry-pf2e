@@ -3,6 +3,21 @@ import Color from "./utils/color.mjs";
 declare global {
     type Builtin = Date | Function | Uint8Array | string | number | boolean | symbol | null | undefined;
 
+    /** Make all properties in T recursively readonly. */
+    type DeepReadonly<T> = {
+        readonly [K in keyof T]: T[K] extends undefined | null | boolean | number | string | symbol | bigint | Function
+            ? T[K]
+            : T[K] extends Array<infer V>
+              ? ReadonlyArray<DeepReadonly<V>>
+              : T[K] extends Map<infer K, infer V>
+                ? ReadonlyMap<DeepReadonly<K>, DeepReadonly<V>>
+                : T[K] extends Set<infer V>
+                  ? ReadonlySet<DeepReadonly<V>>
+                  : DeepReadonly<T[K]>;
+    };
+
+    type Constructor<TApplication extends {}> = new (...args: any[]) => TApplication;
+
     /** A recursively-partial object */
     type DeepPartial<T> = T extends Builtin
         ? T
