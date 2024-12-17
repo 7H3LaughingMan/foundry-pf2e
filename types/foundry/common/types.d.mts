@@ -1,3 +1,5 @@
+export * from "./documents/_types.mjs";
+
 import * as _PIXI from "pixi.js";
 import Color from "./utils/color.mjs";
 

@@ -1966,6 +1966,7 @@ declare global {
     type FileExtension = keyof typeof UPLOADABLE_FILE_EXTENSIONS;
     type FolderDocumentType = (typeof FOLDER_DOCUMENT_TYPES)[number];
     type GridType = (typeof GRID_TYPES)[keyof typeof GRID_TYPES];
+    type GridDiagonals = (typeof GRID_DIAGONALS)[keyof typeof GRID_DIAGONALS];
     type GridSnappingMode = (typeof GRID_SNAPPING_MODES)[keyof typeof GRID_SNAPPING_MODES];
     type ImageFileExtension = keyof typeof IMAGE_FILE_EXTENSIONS;
     type JournalEntryPageFormat = (typeof JOURNAL_ENTRY_PAGE_FORMATS)[keyof typeof JOURNAL_ENTRY_PAGE_FORMATS];
