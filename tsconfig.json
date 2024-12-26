@@ -30,6 +30,7 @@
             "./types/pf2e",
             "jquery",
             "node",
+            "tooltipster"
         ]
     }
 }

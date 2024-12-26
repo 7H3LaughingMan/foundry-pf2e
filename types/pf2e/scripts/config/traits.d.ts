@@ -518,7 +518,10 @@ declare const weaponTraits: {
     injection: string;
     intelligent: string;
     invested: string;
+    "jousting-d4": string;
     "jousting-d6": string;
+    "jousting-d8": string;
+    "jousting-d10": string;
     kickback: string;
     light: string;
     magical: string;
@@ -869,7 +872,10 @@ declare const npcAttackTraits: {
     injection: string;
     intelligent: string;
     invested: string;
+    "jousting-d4": string;
     "jousting-d6": string;
+    "jousting-d8": string;
+    "jousting-d10": string;
     kickback: string;
     light: string;
     magical: string;
@@ -3239,7 +3245,10 @@ declare const traitDescriptions: {
     gunslinger: string;
     hag: string;
     halfling: string;
+    "jousting-d4": string;
     "jousting-d6": string;
+    "jousting-d8": string;
+    "jousting-d10": string;
     hampering: string;
     harnessed: string;
     haunt: string;

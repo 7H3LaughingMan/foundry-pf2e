@@ -6,7 +6,7 @@ declare const SAVE_TYPES: readonly ["fortitude", "reflex", "will"];
 declare const IMMUNITY_TYPES: Set<ImmunityType>;
 declare const WEAKNESS_TYPES: Set<WeaknessType>;
 declare const RESISTANCE_TYPES: Set<ResistanceType>;
-declare const UNAFFECTED_TYPES: Set<"bleed" | "spirit" | "vitality" | "void" | "chaotic" | "evil" | "good" | "lawful">;
+declare const UNAFFECTED_TYPES: Set<"bleed" | "spirit" | "vitality" | "void" | "good" | "evil" | "lawful" | "chaotic">;
 /** All skill slugs that are part of the core system. Used for validation. */
 declare const CORE_SKILL_SLUGS: Set<"athletics" | "deception" | "stealth" | "nature" | "acrobatics" | "arcana" | "crafting" | "diplomacy" | "intimidation" | "medicine" | "occultism" | "performance" | "religion" | "society" | "survival" | "thievery">;
 declare const MOVEMENT_TYPES: readonly ["land", "burrow", "climb", "fly", "swim"];

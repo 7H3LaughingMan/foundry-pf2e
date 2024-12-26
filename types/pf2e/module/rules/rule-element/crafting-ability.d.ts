@@ -12,6 +12,8 @@ declare class CraftingAbilityRuleElement extends RuleElementPF2e<CraftingAbility
     constructor(data: CraftingAbilityRuleSource, options: RuleElementOptions);
     static defineSchema(): CraftingAbilityRuleSchema;
     onApplyActiveEffects(): void;
+    /** Attach the crafting ability to the feat or ability if not prepared */
+    afterPrepareData(): void;
 }
 interface CraftingAbilityRuleElement extends RuleElementPF2e<CraftingAbilityRuleSchema>, ModelPropsFromRESchema<CraftingAbilityRuleSchema> {
     readonly parent: ItemPF2e<CharacterPF2e>;

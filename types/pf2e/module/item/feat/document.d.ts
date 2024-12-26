@@ -1,4 +1,5 @@
 import { ActorPF2e } from "../../actor/index.ts";
+import { CraftingAbility } from "../../actor/character/crafting/ability.ts";
 import { FeatGroup } from "../../actor/character/feats/index.ts";
 import { ItemPF2e, HeritagePF2e } from "../index.ts";
 import { ActionCost, Frequency, RawItemChatData } from "../base/data/index.ts";
@@ -10,6 +11,8 @@ import { FeatOrFeatureCategory, FeatTrait } from "./types.ts";
 declare class FeatPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     group: FeatGroup | null;
     grants: (FeatPF2e<ActorPF2e> | HeritagePF2e<ActorPF2e>)[];
+    /** If this ability can craft, what is the crafting ability */
+    crafting: CraftingAbility | null;
     /** If suppressed, this feature should not be assigned to any feat category nor create rule elements */
     suppressed: boolean;
     static get validTraits(): Record<FeatTrait, string>;

@@ -8,7 +8,7 @@ import { ItemPF2e, PhysicalItemPF2e } from "./module/item/index.ts";
 import { ConditionSource } from "./module/item/condition/data.ts";
 import { CoinsPF2e } from "./module/item/physical/helpers.ts";
 import { ActiveEffectPF2e } from "./module/active-effect.ts";
-import { CompendiumBrowser, CompendiumBrowserSettings, CompendiumBrowserSources } from "./module/apps/compendium-browser/index.ts";
+import { CompendiumBrowser, CompendiumBrowserSettings, CompendiumBrowserSources } from "./module/apps/compendium-browser/browser.ts";
 import { EffectsPanel } from "./module/apps/effects-panel.ts";
 import { HotbarPF2e } from "./module/apps/hotbar.ts";
 import { LicenseViewer } from "./module/apps/license-viewer/app.ts";

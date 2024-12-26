@@ -1,3 +1,4 @@
+import { ActorPF2e } from "../actor/index.ts";
 import { ItemPF2e } from "../item/index.ts";
 /** Prepare form options on an item or actor sheet */
 declare function createSheetOptions(options: Record<string, string | {
@@ -41,6 +42,11 @@ declare function eventToRollParams(event: Maybe<JQuery.TriggeredEvent | Event>, 
 }): ParamsFromEvent;
 /** Set roll mode from a user's input: used for messages that are not actually rolls. */
 declare function eventToRollMode(event: Maybe<Event>): RollMode | "roll";
+/** Given a uuid, loads the item and sends it to chat, potentially recontextualizing it with a given actor */
+declare function sendItemToChat(itemUuid: ItemUUID, options: {
+    event?: Event;
+    actor?: ActorPF2e;
+}): Promise<void>;
 /** Creates a listener that can be used to create tooltips with dynamic content */
 declare function createTooltipListener(element: HTMLElement, options: {
     /** Controls if the top edge of this tooltip aligns with the top edge of the target */
@@ -78,5 +84,5 @@ interface TagifyEntry {
      */
     hidden?: true;
 }
-export { createSheetOptions, createSheetTags, createTagifyTraits, createTooltipListener, eventToRollMode, eventToRollParams, getAdjustedValue, getAdjustment, getItemFromDragEvent, maintainFocusInRender, };
+export { createSheetOptions, createSheetTags, createTagifyTraits, createTooltipListener, eventToRollMode, eventToRollParams, getAdjustedValue, getAdjustment, getItemFromDragEvent, maintainFocusInRender, sendItemToChat, };
 export type { AdjustedValue, SheetOption, SheetOptions, TagifyEntry };

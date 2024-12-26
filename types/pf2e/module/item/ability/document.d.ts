@@ -1,4 +1,5 @@
 import { ActorPF2e } from "../../actor/index.ts";
+import { CraftingAbility } from "../../actor/character/crafting/ability.ts";
 import { ItemPF2e } from "../index.ts";
 import { ActionCost, Frequency, RawItemChatData } from "../base/data/index.ts";
 import { RangeData } from "../types.ts";
@@ -8,10 +9,13 @@ import { AbilityTrait } from "./types.ts";
 declare class AbilityItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     range?: RangeData | null;
     isMelee?: boolean;
+    /** If this ability can craft, what is the crafting ability */
+    crafting?: CraftingAbility | null;
     static get validTraits(): Record<AbilityTrait, string>;
     get traits(): Set<AbilityTrait>;
     get actionCost(): ActionCost | null;
     get frequency(): Frequency | null;
+    prepareBaseData(): void;
     prepareActorData(): void;
     onPrepareSynthetics(this: AbilityItemPF2e<ActorPF2e>): void;
     getRollOptions(prefix?: string, options?: {

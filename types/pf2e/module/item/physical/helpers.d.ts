@@ -4,7 +4,7 @@ import { PhysicalItemSource } from "../base/data/index.ts";
 import { ContainerBulkData } from "../container/data.ts";
 import { Rarity } from "../../data.ts";
 import { CoinsPF2e } from "./coins.ts";
-import { BulkData } from "./data.ts";
+import { BulkData, EquippedData } from "./data.ts";
 declare function computeLevelRarityPrice(item: PhysicalItemPF2e): {
     level: number;
     rarity: Rarity;
@@ -26,5 +26,7 @@ declare function prepareBulkData<TItem extends PhysicalItemPF2e>(item: TItem): T
 declare function detachSubitem(subitem: PhysicalItemPF2e, skipConfirm: boolean): Promise<void>;
 /** Clone an item, sizing it appropriately for the actor. For larger PCs, set the price's sensitity to false.  */
 declare function sizeItemForActor<TItem extends PhysicalItemPF2e>(item: TItem, actor: ActorPF2e): TItem;
+/** Returns the default equip status for this item, called in order to "reset" the equip status */
+declare function getDefaultEquipStatus(item: PhysicalItemPF2e): EquippedData;
 export { coinCompendiumIds } from './coins.ts';
-export { CoinsPF2e, computeLevelRarityPrice, detachSubitem, generateItemName, handleHPChange, prepareBulkData, sizeItemForActor, };
+export { CoinsPF2e, computeLevelRarityPrice, detachSubitem, generateItemName, getDefaultEquipStatus, handleHPChange, prepareBulkData, sizeItemForActor, };
