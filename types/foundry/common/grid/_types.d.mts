@@ -54,16 +54,16 @@ declare global {
     }
 
     /** A 2D offset of a grid space or a 2D point with pixel coordinates. */
-    type GridCoordinates2D = GridOffset2D & Point;
+    type GridCoordinates2D = GridOffset2D | Point;
 
     /** A 3D offset of a grid space or an elevated point. */
-    type GridCoordinates3D = GridOffset3D & ElevatedPoint;
+    type GridCoordinates3D = GridOffset3D | ElevatedPoint;
 
     /** 2D hexagonal cube coordinates, a 2D offset of a grid space, or a 2D point with pixel coordinates. */
-    type HexagonalGridCoordinates2D = GridCoordinates2D & HexagonalGridCube2D;
+    type HexagonalGridCoordinates2D = GridCoordinates2D | HexagonalGridCube2D;
 
     /** 3D hexagonal cube coordinates, a 3D offset of a grid space, or a 3D point with pixel coordinates. */
-    type HexagonalGridCoordinates3D = GridCoordinates3D & HexagonalGridCube3D;
+    type HexagonalGridCoordinates3D = GridCoordinates3D | HexagonalGridCube3D;
 
     /** A snapping behavior is defined by the snapping mode at the given resolution of the grid. */
     interface GridSnappingBehavior {

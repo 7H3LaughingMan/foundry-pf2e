@@ -1965,7 +1965,7 @@ declare global {
     type FileCategory = keyof typeof FILE_CATEGORIES;
     type FileExtension = keyof typeof UPLOADABLE_FILE_EXTENSIONS;
     type FolderDocumentType = (typeof FOLDER_DOCUMENT_TYPES)[number];
-    type GridType = (typeof GRID_TYPES)[keyof typeof GRID_TYPES];
+    type GridTypes = (typeof GRID_TYPES)[keyof typeof GRID_TYPES];
     type GridDiagonals = (typeof GRID_DIAGONALS)[keyof typeof GRID_DIAGONALS];
     type GridSnappingMode = (typeof GRID_SNAPPING_MODES)[keyof typeof GRID_SNAPPING_MODES];
     type ImageFileExtension = keyof typeof IMAGE_FILE_EXTENSIONS;
@@ -1973,7 +1973,7 @@ declare global {
     type MacroScope = (typeof MACRO_SCOPES)[number];
     type MacroType = (typeof MACRO_TYPES)[keyof typeof MACRO_TYPES];
     type MeasuredTemplateType = (typeof MEASURED_TEMPLATE_TYPES)[keyof typeof MEASURED_TEMPLATE_TYPES];
-    type MovementDirection = (typeof MOVEMENT_DIRECTIONS)[keyof typeof MOVEMENT_DIRECTIONS];
+    type MovementDirections = (typeof MOVEMENT_DIRECTIONS)[keyof typeof MOVEMENT_DIRECTIONS];
     type PackageAvailabilityCode = (typeof PACKAGE_AVAILABILITY_CODES)[keyof typeof PACKAGE_AVAILABILITY_CODES];
     type PackageType = (typeof PACKAGE_TYPES)[number];
     type PlaylistMode = (typeof PLAYLIST_MODES)[keyof typeof PLAYLIST_MODES];
