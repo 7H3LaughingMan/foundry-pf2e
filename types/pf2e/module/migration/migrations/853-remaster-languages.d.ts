@@ -1,6 +1,7 @@
 import { ActorSourcePF2e } from "../../actor/data/index.ts";
 import { ItemSourcePF2e } from "../../item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
+
 /** Change languages renamed in Rage of Elements  */
 export declare class Migration853RemasterLanguages extends MigrationBase {
     #private;

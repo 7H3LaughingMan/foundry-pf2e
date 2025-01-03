@@ -7,6 +7,7 @@ import { RollParseNode } from "../../../../foundry/client-esm/dice/_types.mjs";
 import { DiceTerm, RollTerm } from "../../../../foundry/client-esm/dice/terms/module.ts";
 import { InstancePool } from "./terms.ts";
 import { DamageCategory, DamageIRBypassData, DamageTemplate, DamageType, MaterialDamageEffect } from "./types.ts";
+
 declare abstract class AbstractDamageRoll extends Roll {
     static parser: Peggy.Parser;
     /** Strip out parentheses enclosing constants */

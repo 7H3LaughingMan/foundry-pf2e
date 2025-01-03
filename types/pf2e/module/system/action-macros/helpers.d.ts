@@ -7,6 +7,7 @@ import { TokenDocumentPF2e } from "../../scene/index.ts";
 import { CheckType } from "../check/index.ts";
 import { DegreeOfSuccessString } from "../degree-of-success.ts";
 import { CheckContextData, CheckContextOptions, CheckMacroContext, SimpleRollActionCheckOptions } from "./types.ts";
+
 declare class ActionMacroHelpers {
     #private;
     static resolveStat(stat: string): {

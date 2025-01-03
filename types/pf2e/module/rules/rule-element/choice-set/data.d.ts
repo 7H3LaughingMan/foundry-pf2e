@@ -4,6 +4,7 @@ import { RawPredicate } from "../../../system/predication.ts";
 import { DataUnionField, PredicateField, StrictArrayField, StrictBooleanField, StrictObjectField, StrictStringField } from "../../../system/schema-data-fields.ts";
 import { BooleanField, SchemaField, StringField } from "../../../../../foundry/common/data/fields.ts";
 import { RuleElementSchema, RuleElementSource } from "../data.ts";
+
 type ChoiceSetSchema = RuleElementSchema & {
     /**
      * The options from which the user can choose. If a string is provided, it is treated as a reference to a record in

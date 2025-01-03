@@ -2,6 +2,7 @@ import { LightDataSchema } from "../../../../foundry/common/data/data.ts";
 import { SchemaField } from "../../../../foundry/common/data/fields.ts";
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
+
 import fields = foundry.data.fields;
 /**
  * Add or change the light emitted by a token

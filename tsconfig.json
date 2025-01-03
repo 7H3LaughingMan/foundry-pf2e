@@ -32,5 +32,8 @@
             "node",
             "tooltipster"
         ]
-    }
+    },
+    "exclude": [
+        "build/files/**"
+    ]
 }

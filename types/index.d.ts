@@ -6,6 +6,7 @@ export type { CompendiumBrowser } from "./pf2e/module/apps/compendium-browser/br
 export type { HitPointsStatistic } from "./pf2e/module/actor/data/base.d.ts";
 export type { PrerequisiteTagData } from "./pf2e/module/item/feat/data.d.ts";
 
+export type * from "./pf2e/global.d.ts";
 export type * from "./pf2e/module/active-effect.d.ts";
 export type * from "./pf2e/module/data.d.ts";
 export type * from "./pf2e/module/dc.d.ts";

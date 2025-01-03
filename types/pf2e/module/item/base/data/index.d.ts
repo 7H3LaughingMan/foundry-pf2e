@@ -25,6 +25,7 @@ import { TreasureSource } from "../../treasure/data.ts";
 import { WeaponSource } from "../../weapon/data.ts";
 import { PROFICIENCY_RANKS, Rarity } from "../../../data.ts";
 import { ItemDescriptionData } from "./system.ts";
+
 type ProficiencyRank = (typeof PROFICIENCY_RANKS)[number];
 type NonPhysicalItemType = "action" | "affliction" | "ancestry" | "background" | "campaignFeature" | "class" | "condition" | "deity" | "effect" | "feat" | "heritage" | "kit" | "lore" | "melee" | "spell" | "spellcastingEntry";
 type ItemType = NonPhysicalItemType | PhysicalItemType;

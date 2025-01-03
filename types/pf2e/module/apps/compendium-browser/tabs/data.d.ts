@@ -6,6 +6,7 @@ import { FeatTrait } from "../../../item/feat/types.ts";
 import { PhysicalItemTrait } from "../../../item/physical/data.ts";
 import { SearchResult } from "minisearch";
 import { SortDirection } from "../data.ts";
+
 interface CheckboxOption {
     label: string;
     selected: boolean;

@@ -1,5 +1,6 @@
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, RuleElementSchema } from "./data.ts";
+
 import fields = foundry.data.fields;
 /** Roll Twice and keep either the higher or lower result */
 declare class RollTwiceRuleElement extends RuleElementPF2e<RollTwiceRuleSchema> {

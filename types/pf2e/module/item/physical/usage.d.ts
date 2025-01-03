@@ -1,4 +1,5 @@
 import { EquippedData } from "./data.ts";
+
 interface HeldUsage {
     value: string;
     type: "held";

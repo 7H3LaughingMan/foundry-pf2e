@@ -5,6 +5,7 @@ import { ContainerBulkData } from "../container/data.ts";
 import { Rarity } from "../../data.ts";
 import { CoinsPF2e } from "./coins.ts";
 import { BulkData, EquippedData } from "./data.ts";
+
 declare function computeLevelRarityPrice(item: PhysicalItemPF2e): {
     level: number;
     rarity: Rarity;

@@ -1,6 +1,7 @@
 import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSource } from "../data.ts";
 import { RollOptionSchema } from "./data.ts";
+
 /**
  * Set a roll option at a specificed domain
  * @category RuleElement

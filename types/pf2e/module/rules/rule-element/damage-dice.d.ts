@@ -2,6 +2,7 @@ import { DamageDiceOverride } from "../../actor/modifiers.ts";
 import { SlugField } from "../../system/schema-data-fields.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+
 import fields = foundry.data.fields;
 declare class DamageDiceRuleElement extends RuleElementPF2e<DamageDiceRuleSchema> {
     #private;

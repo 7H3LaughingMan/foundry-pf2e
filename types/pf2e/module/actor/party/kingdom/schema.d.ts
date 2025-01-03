@@ -2,6 +2,7 @@ import { RawModifier } from "../../modifiers.ts";
 import { ZeroToFour } from "../../../data.ts";
 import { DataUnionField, RecordField, StrictBooleanField, StrictStringField } from "../../../system/schema-data-fields.ts";
 import { FameType, KingdomAbility, KingdomBoostCategory, KingdomCommodity, KingdomLeadershipRole, KingdomSettlementType, KingdomSkill } from "./types.ts";
+
 import fields = foundry.data.fields;
 declare function defineKingdomSchema(): KingdomSchema;
 type CHGSchema = {

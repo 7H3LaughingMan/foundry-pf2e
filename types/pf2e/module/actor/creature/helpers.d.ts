@@ -1,6 +1,7 @@
 import { ActorPF2e, CreaturePF2e } from "../index.ts";
 import { ModifierPF2e } from "../modifiers.ts";
 import { AbilityItemPF2e, MeleePF2e, WeaponPF2e } from "../../item/index.ts";
+
 /** A static class of helper functions for applying automation for certain weapon traits on attack rolls */
 declare class AttackTraitHelpers {
     protected static getLabel(traitOrTag: string): string;

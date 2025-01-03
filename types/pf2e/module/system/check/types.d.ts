@@ -5,6 +5,7 @@ import { RollSubstitution } from "../../rules/synthetics.ts";
 import { TokenDocumentPF2e } from "../../scene/token-document/index.ts";
 import { CheckDC, DegreeOfSuccessAdjustment } from "../degree-of-success.ts";
 import { BaseRollContext } from "../rolls.ts";
+
 type RollTwiceOption = "keep-higher" | "keep-lower" | false;
 type CheckType = "attack-roll" | "check" | "counteract-check" | "flat-check" | "initiative" | "perception-check" | "saving-throw" | "skill-check";
 interface CheckCheckContext extends BaseRollContext {

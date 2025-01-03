@@ -3,6 +3,7 @@ import { DegreeOfSuccessString } from "../../system/degree-of-success.ts";
 import { RecordField } from "../../system/schema-data-fields.ts";
 import { ModelPropsFromRESchema } from "./data.ts";
 import { RuleElementPF2e, RuleElementSchema } from "./index.ts";
+
 import fields = foundry.data.fields;
 /**
  * @category RuleElement

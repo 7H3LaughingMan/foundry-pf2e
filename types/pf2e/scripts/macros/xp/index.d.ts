@@ -1,4 +1,5 @@
 import { DCOptions } from "../../../module/dc.ts";
+
 export interface EncounterBudgets {
     trivial: number;
     low: number;

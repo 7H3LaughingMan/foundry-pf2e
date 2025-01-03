@@ -6,6 +6,7 @@ import { ZeroToFour } from "../../data.ts";
 import { DamageDieSize, DamageType } from "../../system/damage/index.ts";
 import { WeaponTraitToggles } from "./trait-toggles.ts";
 import { BaseWeaponType, MeleeWeaponGroup, OtherWeaponTag, WeaponCategory, WeaponGroup, WeaponMaterialType, WeaponPropertyRuneType, WeaponRangeIncrement, WeaponReloadTime, WeaponTrait } from "./types.ts";
+
 type WeaponSource = BasePhysicalItemSource<"weapon", WeaponSystemSource> & {
     flags: DeepPartial<WeaponFlags>;
 };

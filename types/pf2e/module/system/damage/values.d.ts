@@ -1,4 +1,5 @@
 import { DamageCategory, DamageType } from "./types.ts";
+
 declare const PHYSICAL_DAMAGE_TYPES: readonly ["bludgeoning", "piercing", "slashing", "bleed"];
 declare const ENERGY_DAMAGE_TYPES: readonly ["acid", "cold", "electricity", "fire", "sonic", "force", "vitality", "void"];
 /** A set of mutually exclusive damage categories */

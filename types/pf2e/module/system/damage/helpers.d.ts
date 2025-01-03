@@ -5,6 +5,7 @@ import { Die, NumericTerm, RollTerm } from "../../../../foundry/client-esm/dice/
 import { DamageInstance, DamageRoll } from "./roll.ts";
 import { ArithmeticExpression, Grouping } from "./terms.ts";
 import { BaseDamageData, DamageCategory, DamageDiceFaces, DamageDieSize, DamageType } from "./types.ts";
+
 declare function nextDamageDieSize(next: {
     upgrade: DamageDieSize;
 }): DamageDieSize;

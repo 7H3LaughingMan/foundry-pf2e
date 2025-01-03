@@ -1,5 +1,6 @@
 import { ActorPF2e } from "../actor/index.ts";
 import { ItemPF2e } from "../item/index.ts";
+
 /** Prepare form options on an item or actor sheet */
 declare function createSheetOptions(options: Record<string, string | {
     label: string;

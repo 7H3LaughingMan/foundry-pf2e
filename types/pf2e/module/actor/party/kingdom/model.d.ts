@@ -8,6 +8,7 @@ import { PartySystemData } from "../data.ts";
 import { PartyCampaign } from "../types.ts";
 import { KingdomCHG, KingdomCharter, KingdomData, KingdomGovernment, KingdomSchema, KingdomSource } from "./schema.ts";
 import { KingdomNationType, KingdomSkill } from "./types.ts";
+
 import DataModel = foundry.abstract.DataModel;
 /** Model for the Kingmaker campaign data type, which represents a Kingdom */
 declare class Kingdom extends DataModel<PartySystemData, KingdomSchema> implements PartyCampaign {

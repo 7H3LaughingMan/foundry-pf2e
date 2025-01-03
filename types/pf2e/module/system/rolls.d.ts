@@ -7,6 +7,7 @@ import { ZeroToTwo } from "../data.ts";
 import { RollNotePF2e, RollNoteSource } from "../notes.ts";
 import { RollTwiceOption } from "./check/index.ts";
 import { CheckDC, DEGREE_OF_SUCCESS_STRINGS } from "./degree-of-success.ts";
+
 interface RollDataPF2e extends RollOptions {
     rollerId?: string;
     totalModifier?: number;

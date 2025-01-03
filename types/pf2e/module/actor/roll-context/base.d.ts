@@ -4,6 +4,7 @@ import { ItemPF2e } from "../../item/index.ts";
 import { AbilityTrait } from "../../item/ability/types.ts";
 import { Statistic } from "../../system/statistic/statistic.ts";
 import { RollContextConstructorParams, UnresolvedOpposingActors, RollContextData } from "./types.ts";
+
 /** Resolve a roll context by cloning a pair of actors and feeding them with mutual roll options. */
 declare abstract class RollContext<TSelf extends ActorPF2e, TStatistic extends Statistic | StrikeData, TItem extends ItemPF2e<ActorPF2e> | null> {
     #private;

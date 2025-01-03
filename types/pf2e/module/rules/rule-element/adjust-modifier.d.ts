@@ -1,6 +1,7 @@
 import { AELikeChangeMode } from "./ae-like.ts";
 import { ModelPropsFromRESchema, ResolvableValueField } from "./data.ts";
 import { RuleElementOptions, RuleElementPF2e, RuleElementSchema, RuleElementSource } from "./index.ts";
+
 import fields = foundry.data.fields;
 /** Adjust the value of a modifier, change its damage type (in case of damage modifiers) or suppress it entirely */
 declare class AdjustModifierRuleElement extends RuleElementPF2e<AdjustModifierSchema> {

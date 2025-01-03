@@ -8,6 +8,7 @@ import { ClassTrait } from "../class/types.ts";
 import { WeaponCategory } from "../weapon/types.ts";
 import { OneToFour, OneToThree } from "../../data.ts";
 import { FeatOrFeatureCategory, FeatTrait } from "./types.ts";
+
 type FeatSource = BaseItemSourcePF2e<"feat", FeatSystemSource>;
 interface PrerequisiteTagData {
     value: string;

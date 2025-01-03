@@ -1,4 +1,5 @@
 import { SpellArea, SpellPF2e } from "./index.ts";
+
 declare function createSpellRankLabel(spell: SpellPF2e, castRank?: number): string;
 declare function createSpellAreaLabel(areaData: SpellArea): string;
 declare function createDescriptionPrepend(spell: SpellPF2e, { includeTraditions }: {

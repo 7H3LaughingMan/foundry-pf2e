@@ -5,6 +5,7 @@ import { ABCItemPF2e, FeatPF2e } from "../index.ts";
 import { Size } from "../../data.ts";
 import { UserPF2e } from "../../user/document.ts";
 import { AncestrySource, AncestrySystemData } from "./data.ts";
+
 declare class AncestryPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ABCItemPF2e<TParent> {
     static get validTraits(): Record<CreatureTrait, string>;
     get traits(): Set<CreatureTrait>;

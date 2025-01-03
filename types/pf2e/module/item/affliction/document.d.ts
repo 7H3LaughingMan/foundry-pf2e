@@ -4,6 +4,7 @@ import { AbstractEffectPF2e, EffectBadgeCounter } from "../abstract-effect/index
 import { UserPF2e } from "../../user/index.ts";
 import { AfflictionDamageTemplate, DamageDamageContext } from "../../system/damage/index.ts";
 import { AfflictionFlags, AfflictionSource, AfflictionStageData, AfflictionSystemData } from "./data.ts";
+
 declare class AfflictionPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends AbstractEffectPF2e<TParent> {
     constructor(source: object, context?: DocumentConstructionContext<TParent>);
     get badge(): EffectBadgeCounter;

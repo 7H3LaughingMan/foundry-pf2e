@@ -1,5 +1,6 @@
 import { Size } from "../../data.ts";
 import { Coins, PartialPrice } from "./data.ts";
+
 /** Coins class that exposes methods to perform operations on coins without side effects */
 declare class CoinsPF2e implements Coins {
     cp: number;

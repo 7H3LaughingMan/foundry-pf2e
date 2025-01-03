@@ -3,6 +3,7 @@ import { PredicateField } from "../../system/schema-data-fields.ts";
 import { AELikeChangeMode } from "./ae-like.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+
 import fields = foundry.data.fields;
 declare class AdjustStrikeRuleElement extends RuleElementPF2e<AdjustStrikeSchema> {
     protected static validActorTypes: ActorType[];

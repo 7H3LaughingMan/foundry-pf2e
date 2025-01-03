@@ -6,6 +6,7 @@ import { PredicateField, SlugField, StrictNumberField } from "../../../system/sc
 import { ArrayField, BooleanField, DataField, DataFieldOptions, NumberField, SchemaField, StringField } from "../../../../../foundry/common/data/fields.ts";
 import { DataModelValidationFailure } from "../../../../../foundry/common/data/validation-failure.ts";
 import { AELikeChangeMode } from "../ae-like.ts";
+
 declare const fields: typeof foundry.data.fields;
 /** A `SchemaField` reappropriated for validation of specific item alterations */
 declare class ItemAlterationValidator<TSchema extends AlterationSchema> extends fields.SchemaField<TSchema> {

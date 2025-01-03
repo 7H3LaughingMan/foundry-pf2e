@@ -1,1 +1,1 @@
-export { SvelteComponent as default } from 'svelte';
+export { SvelteComponentTyped as default } from 'svelte';

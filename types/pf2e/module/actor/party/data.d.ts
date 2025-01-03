@@ -3,6 +3,7 @@ import { ActorSystemModel, ActorSystemSchema } from "../data/model.ts";
 import { ModelPropFromDataField, SourcePropFromDataField } from "../../../../foundry/common/data/fields.ts";
 import { PartyPF2e } from "./document.ts";
 import { KingdomSchema } from "./kingdom/schema.ts";
+
 import fields = foundry.data.fields;
 type PartySource = BaseActorSourcePF2e<"party", PartySystemSource>;
 declare class PartySystemData extends ActorSystemModel<PartyPF2e, PartySystemSchema> {

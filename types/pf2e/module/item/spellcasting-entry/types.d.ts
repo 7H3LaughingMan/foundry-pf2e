@@ -7,6 +7,7 @@ import { OneToTen } from "../../data.ts";
 import { Statistic, StatisticChatData } from "../../system/statistic/index.ts";
 import { SpellCollection, SpellCollectionData, SpellSlotGroupId } from "./collection.ts";
 import { SpellcastingEntrySystemData } from "./data.ts";
+
 interface BaseSpellcastingEntry<TActor extends ActorPF2e | null = ActorPF2e | null> {
     id: string;
     name: string;

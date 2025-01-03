@@ -4,6 +4,7 @@ import { DamageCategoryUnique } from "../../system/damage/types.ts";
 import { DataUnionField, PredicateField, SlugField, StrictBooleanField, StrictStringField } from "../../system/schema-data-fields.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource, RuleValue } from "./data.ts";
+
 import fields = foundry.data.fields;
 /**
  * Apply a constant modifier (or penalty/bonus) to a statistic or usage thereof

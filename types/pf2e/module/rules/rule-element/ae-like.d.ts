@@ -1,6 +1,7 @@
 import { DataModelValidationFailure } from "../../../../foundry/common/data/validation-failure.ts";
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+
 import fields = foundry.data.fields;
 /**
  * Make a numeric modification to an arbitrary property in a similar way as `ActiveEffect`s

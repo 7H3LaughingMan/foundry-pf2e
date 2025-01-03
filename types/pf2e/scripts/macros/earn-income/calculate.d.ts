@@ -2,6 +2,7 @@ import { CoinsPF2e } from "../../../module/item/physical/coins.ts";
 import { OneToFour } from "../../../module/data.ts";
 import { calculateDC } from "../../../module/dc.ts";
 import { DegreeOfSuccessIndex, RollBrief } from "../../../module/system/degree-of-success.ts";
+
 /**
  * Implementation of Earn Income rules on https://2e.aonprd.com/Skills.aspx?ID=2&General=true
  */

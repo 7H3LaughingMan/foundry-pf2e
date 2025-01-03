@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import { glob } from "glob";
 import * as path from "path/posix";
-// import { execSync } from "child_process";
+import { execSync } from "child_process";
 
 const files = await glob("./types/pf2e/**/*.ts", {
     dotRelative: true,
@@ -82,7 +82,7 @@ for (const file of files) {
     fs.writeFileSync(file, data, "utf8");
 }
 
-// execSync("code -r ./types/pf2e/global.d.ts");
-// execSync("code -r ./types/pf2e/module/actor/data/base.d.ts");
-// execSync("code -r ./types/pf2e/module/chat-message/data.d.ts");
-// execSync("code -r ./types/pf2e/module/item/deity/types.d.ts");
+execSync("code -r ./types/pf2e/global.d.ts");
+execSync("code -r ./types/pf2e/module/actor/data/base.d.ts");
+execSync("code -r ./types/pf2e/module/chat-message/data.d.ts");
+execSync("code -r ./types/pf2e/module/item/deity/types.d.ts");

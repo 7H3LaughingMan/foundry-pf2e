@@ -7,6 +7,7 @@ import { RuleElementPF2e } from "../rules/index.ts";
 import { DamageAlteration } from "../rules/rule-element/damage-alteration/alteration.ts";
 import { DamageCategoryUnique, DamageDiceFaces, DamageDieSize, DamageType } from "../system/damage/types.ts";
 import { Predicate, RawPredicate } from "../system/predication.ts";
+
 declare const PROFICIENCY_RANK_OPTION: readonly ["proficiency:untrained", "proficiency:trained", "proficiency:expert", "proficiency:master", "proficiency:legendary"];
 declare function ensureProficiencyOption(options: Set<string>, rank: number): void;
 declare const MODIFIER_TYPES: Set<"untyped" | "item" | "ability" | "circumstance" | "potency" | "proficiency" | "status">;

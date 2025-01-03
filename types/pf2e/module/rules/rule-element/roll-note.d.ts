@@ -4,6 +4,7 @@ import { DataUnionField, StrictStringField } from "../../system/schema-data-fiel
 import { StringField } from "../../../../foundry/common/data/fields.ts";
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+
 import fields = foundry.data.fields;
 declare class RollNoteRuleElement extends RuleElementPF2e<RollNoteSchema> {
     static defineSchema(): RollNoteSchema;

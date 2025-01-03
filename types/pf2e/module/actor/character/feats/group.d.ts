@@ -2,6 +2,7 @@ import { ActorPF2e } from "../../index.ts";
 import { FeatPF2e, HeritagePF2e, ItemPF2e } from "../../../item/index.ts";
 import { FeatOrFeatureCategory } from "../../../item/feat/types.ts";
 import { FeatBrowserFilterProps, FeatGroupData, FeatLike, FeatSlot } from "./types.ts";
+
 declare class FeatGroup<TActor extends ActorPF2e = ActorPF2e, TItem extends FeatLike = FeatPF2e> {
     #private;
     actor: TActor;

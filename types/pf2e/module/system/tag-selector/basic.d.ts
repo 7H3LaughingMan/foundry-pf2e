@@ -2,6 +2,7 @@ import { ActorPF2e } from "../../actor/index.ts";
 import { ItemPF2e } from "../../item/index.ts";
 import { BaseTagSelector, TagSelectorData } from "./base.ts";
 import { SelectableTagField, TagSelectorOptions } from "./index.ts";
+
 export type BasicConstructorOptions = Partial<BasicSelectorOptions> & {
     objectProperty: string;
 };

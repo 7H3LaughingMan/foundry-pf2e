@@ -4,6 +4,7 @@ import { DataUnionField, PredicateField, StrictArrayField } from "../../system/s
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource, RuleValue } from "./data.ts";
 import { ItemAlteration } from "./item-alteration/alteration.ts";
+
 import fields = foundry.data.fields;
 /** A Pathfinder 2e aura, capable of transmitting effects and with a visual representation on the canvas */
 declare class AuraRuleElement extends RuleElementPF2e<AuraSchema> {

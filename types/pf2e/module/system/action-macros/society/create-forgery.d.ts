@@ -1,5 +1,6 @@
 import { SkillActionOptions } from "../index.ts";
 import { SingleCheckAction, SingleCheckActionVariant, SingleCheckActionVariantData } from "../../../actor/actions/index.ts";
+
 declare function createForgery(options: SkillActionOptions): Promise<void>;
 declare class CreateForgeryAction extends SingleCheckAction {
     constructor();

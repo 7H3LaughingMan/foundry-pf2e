@@ -10,6 +10,7 @@ import { StrikeRuleElement } from "../../rules/rule-element/strike.ts";
 import { UserPF2e } from "../../user/document.ts";
 import { WeaponDamage, WeaponFlags, WeaponSource, WeaponSystemData } from "./data.ts";
 import { BaseWeaponType, OtherWeaponTag, WeaponCategory, WeaponGroup, WeaponReloadTime, WeaponTrait } from "./types.ts";
+
 declare class WeaponPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {
     shield?: ShieldPF2e<TParent>;
     /** The rule element that generated this weapon, if applicable */

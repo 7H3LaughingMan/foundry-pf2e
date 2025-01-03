@@ -1,4 +1,5 @@
 import { default as Sortable } from "sortablejs";
+
 declare class DestroyableManager {
     #private;
     static instance: DestroyableManager;

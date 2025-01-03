@@ -5,6 +5,7 @@ import { OtherConsumableTag } from "../../module/item/consumable/types.ts";
 import { PreciousMaterialType } from "../../module/item/physical/types.ts";
 import { MagicTradition } from "../../module/item/spell/types.ts";
 import { OtherWeaponTag } from "../../module/item/weapon/types.ts";
+
 declare const ancestryTraits: {
     aiuvarin: string;
     anadi: string;

@@ -8,6 +8,7 @@ import { ArmorStatistic, Statistic, StatisticDifficultyClass } from "../../syste
 import { ActorPF2e, ActorUpdateOperation, HitPointsSummary } from "../base.ts";
 import { ArmySource, ArmySystemData } from "./data.ts";
 import { ArmyStrike } from "./types.ts";
+
 declare class ArmyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     scouting: Statistic;
     maneuver: Statistic;

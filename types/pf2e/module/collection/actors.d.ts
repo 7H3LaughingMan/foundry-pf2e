@@ -1,4 +1,5 @@
 import { ActorPF2e, PartyPF2e } from "../actor/index.ts";
+
 export declare class ActorsPF2e<TActor extends ActorPF2e<null>> extends Actors<TActor> {
     /** The world's active party, if one exists */
     get party(): PartyPF2e<null> | null;

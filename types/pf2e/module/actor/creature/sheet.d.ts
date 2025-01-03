@@ -8,6 +8,7 @@ import { ZeroToFour } from "../../data.ts";
 import { ActorSheetPF2e, SheetClickActionHandlers } from "../sheet/base.ts";
 import { CreatureConfig } from "./config.ts";
 import { Language, ResourceData } from "./index.ts";
+
 /**
  * Base class for NPC and character sheets
  * @category Actor

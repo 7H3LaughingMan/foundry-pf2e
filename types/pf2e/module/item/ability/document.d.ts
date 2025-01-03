@@ -6,6 +6,7 @@ import { RangeData } from "../types.ts";
 import { UserPF2e } from "../../user/index.ts";
 import { AbilitySource, AbilitySystemData } from "./data.ts";
 import { AbilityTrait } from "./types.ts";
+
 declare class AbilityItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     range?: RangeData | null;
     isMelee?: boolean;

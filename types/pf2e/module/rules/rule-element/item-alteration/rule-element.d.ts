@@ -4,6 +4,7 @@ import { ItemType } from "../../../item/base/data/index.ts";
 import { RuleElementPF2e } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSchema } from "../data.ts";
 import { ItemAlterationSchema } from "./alteration.ts";
+
 import fields = foundry.data.fields;
 declare class ItemAlterationRuleElement extends RuleElementPF2e<ItemAlterationRuleSchema> {
     #private;

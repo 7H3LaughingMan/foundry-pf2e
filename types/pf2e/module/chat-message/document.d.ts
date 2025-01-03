@@ -4,6 +4,7 @@ import { ItemPF2e } from "../item/index.ts";
 import { UserPF2e } from "../user/index.ts";
 import { ScenePF2e, TokenDocumentPF2e } from "../scene/index.ts";
 import { ChatMessageFlagsPF2e, ChatMessageSourcePF2e } from "./data.ts";
+
 declare class ChatMessagePF2e extends ChatMessage {
     #private;
     /** Set some flags/flag scopes early. */

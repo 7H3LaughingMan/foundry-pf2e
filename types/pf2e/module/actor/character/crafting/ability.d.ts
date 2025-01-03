@@ -4,6 +4,7 @@ import { PhysicalItemPF2e } from "../../../item/index.ts";
 import { PhysicalItemSource } from "../../../item/base/data/index.ts";
 import { Predicate } from "../../../system/predication.ts";
 import { CraftableItemDefinition, CraftingAbilityData, CraftingFormula, PreparedFormula, PreparedFormulaData } from "./types.ts";
+
 declare class CraftingAbility implements CraftingAbilityData {
     #private;
     /** This crafting ability's parent actor */

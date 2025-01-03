@@ -4,6 +4,7 @@ import { AbilityItemPF2e, MeleePF2e, WeaponPF2e } from "../../item/index.ts";
 import { LabeledValueAndMax } from "../../data.ts";
 import { TokenDocumentPF2e } from "../../scene/index.ts";
 import { LANGUAGES_BY_RARITY, SENSE_TYPES } from "./values.ts";
+
 /** A `CreaturePF2e` subtype string */
 type CreatureActorType = (typeof CREATURE_ACTOR_TYPES)[number];
 type CreatureTrait = keyof typeof CONFIG.PF2E.creatureTraits;

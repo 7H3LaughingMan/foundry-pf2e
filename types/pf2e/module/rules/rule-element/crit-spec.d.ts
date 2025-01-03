@@ -4,6 +4,7 @@ import { DamageCategoryUnique, DamageType } from "../../system/damage/types.ts";
 import { SchemaField } from "../../../../foundry/common/data/fields.ts";
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleValue } from "./data.ts";
+
 import fields = foundry.data.fields;
 /** Substitute a pre-determined result for a check's D20 roll */
 declare class CritSpecRuleElement extends RuleElementPF2e<CritSpecRuleSchema> {

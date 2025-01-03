@@ -2,6 +2,7 @@ import { ActorPF2e } from "../index.ts";
 import { EffectPF2e } from "../../item/index.ts";
 import { BaseAction, BaseActionData, BaseActionVariant, BaseActionVariantData } from "./base.ts";
 import { ActionCost, ActionUseOptions } from "./types.ts";
+
 interface SimpleActionVariantData extends BaseActionVariantData {
     effect?: string | EffectPF2e;
 }

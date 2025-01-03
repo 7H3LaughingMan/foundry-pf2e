@@ -5,6 +5,7 @@ import { BaseWeaponType, OtherWeaponTag, WeaponCategory } from "../../item/weapo
 import { DamageDieSize, DamageType } from "../../system/damage/index.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+
 import fields = foundry.data.fields;
 /**
  * Create an ephemeral strike on an actor

@@ -3,6 +3,7 @@ import { TraitViewData } from "../data/base.ts";
 import { ActorSheetDataPF2e } from "../sheet/data-types.ts";
 import { SaveType } from "../types.ts";
 import { AbilityItemPF2e } from "../../item/index.ts";
+
 interface HazardSheetData extends ActorSheetDataPF2e<HazardPF2e> {
     actions: HazardActionSheetData;
     complexityOptions: FormSelectOption[];

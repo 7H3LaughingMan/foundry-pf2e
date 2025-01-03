@@ -4,6 +4,7 @@ import { RecordField } from "../../../system/schema-data-fields.ts";
 import { ResolvableValueField, RuleElementSchema } from "../data.ts";
 import { ImmunityRuleElement, ResistanceRuleElement, WeaknessRuleElement } from "../iwr/index.ts";
 import { BattleFormSkills, BattleFormSpeeds, BattleFormStrike } from "./types.ts";
+
 import type * as fields from "../../../../../foundry/common/data/fields.ts";
 type OverrideACSchema = {
     modifier: ResolvableValueField<false, false, true>;

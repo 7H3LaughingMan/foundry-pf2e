@@ -5,6 +5,7 @@ import { CombatantPF2e, EncounterPF2e } from "../encounter/index.ts";
 import { CheckRoll } from "../system/check/index.ts";
 import { Statistic, StatisticRollParameters, StatisticTraceData } from "../system/statistic/index.ts";
 import { AttributeString } from "./types.ts";
+
 interface InitiativeRollResult {
     combatant: CombatantPF2e<EncounterPF2e>;
     roll: Rolled<CheckRoll>;

@@ -1,5 +1,6 @@
 import { AbstractEffectSystemData, AbstractEffectSystemSource, DurationData, EffectAuraData, EffectBadge, EffectBadgeSource, EffectContextData } from "../abstract-effect/index.ts";
 import { BaseItemSourcePF2e, ItemFlagsPF2e } from "../base/data/system.ts";
+
 type EffectSource = BaseItemSourcePF2e<"effect", EffectSystemSource> & {
     flags: DeepPartial<EffectFlags>;
 };

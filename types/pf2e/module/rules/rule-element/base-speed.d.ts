@@ -1,6 +1,7 @@
 import { ActorType, CreaturePF2e } from "../../actor/index.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+
 import fields = foundry.data.fields;
 /**
  * @category RuleElement

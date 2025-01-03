@@ -1,5 +1,6 @@
 import { ActorPF2e } from "../../actor/index.ts";
 import { DamageType } from "../../system/damage/types.ts";
+
 declare class PersistentDamageDialog extends Application<PersistentDamageDialogOptions> {
     #private;
     private actor;

@@ -3,6 +3,7 @@ import { ResistanceType } from "../../../actor/types.ts";
 import { StrictArrayField } from "../../../system/schema-data-fields.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleValue } from "../data.ts";
 import { IWRException, IWRExceptionField, IWRRuleElement, IWRRuleSchema } from "./base.ts";
+
 /** @category RuleElement */
 declare class ResistanceRuleElement extends IWRRuleElement<ResistanceRuleSchema> {
     static defineSchema(): ResistanceRuleSchema;

@@ -1,6 +1,7 @@
 import { RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, RuleElementSchema } from "./data.ts";
 import { ItemAlteration } from "./item-alteration/alteration.ts";
+
 import fields = foundry.data.fields;
 /** An effect that applies ephemerally during a single action, such as a strike */
 declare class EphemeralEffectRuleElement extends RuleElementPF2e<EphemeralEffectSchema> {

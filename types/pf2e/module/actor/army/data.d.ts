@@ -8,6 +8,7 @@ import { AutoChangeEntry } from "../../rules/rule-element/ae-like.ts";
 import { PerceptionTraceData } from "../../system/statistic/perception.ts";
 import { ArmyPF2e } from "./document.ts";
 import { ArmyType } from "./types.ts";
+
 import fields = foundry.data.fields;
 declare class ArmySystemData extends ActorSystemModel<ArmyPF2e, ArmySystemSchema> {
     static defineSchema(): ArmySystemSchema;

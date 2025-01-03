@@ -7,6 +7,7 @@ import { UserPF2e } from "../../user/document.ts";
 import { Bulk } from "./bulk.ts";
 import { IdentificationStatus, ItemActivation, ItemCarryType, ItemMaterialData, MystifiedData, PhysicalItemHitPoints, PhysicalItemTrait, PhysicalSystemData, Price } from "./data.ts";
 import { CoinsPF2e } from "./helpers.ts";
+
 declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     /** The item in which this item is embedded */
     parentItem: PhysicalItemPF2e | null;
@@ -88,7 +89,10 @@ declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = Actor
     getEmbeddedDocument(embeddedName: string, id: string, options?: {
         strict?: boolean;
     }): foundry.abstract.Document | undefined;
-    /** Can the provided item stack with this item? */
+    /**
+     * Can the provided item stack with this item?
+     * @param item an item we are trying to add to the inventory
+     */
     isStackableWith(item: PhysicalItemPF2e): boolean;
     /** Combine this item with a target item if possible */
     stackWith(targetItem: PhysicalItemPF2e): Promise<void>;

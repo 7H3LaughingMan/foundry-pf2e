@@ -6,6 +6,7 @@ import { WeaponPropertyRuneType } from "../weapon/types.ts";
 import { DamageCategoryUnique, DamageType } from "../../system/damage/types.ts";
 import { RecordField, SlugField } from "../../system/schema-data-fields.ts";
 import { NPCAttackTrait } from "./types.ts";
+
 import fields = foundry.data.fields;
 type MeleeSource = BaseItemSourcePF2e<"melee", MeleeSystemSource> & {
     flags: DeepPartial<MeleeFlags>;

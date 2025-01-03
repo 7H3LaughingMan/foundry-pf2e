@@ -1,6 +1,7 @@
 import { AbilityItemPF2e } from "./document.ts";
 import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "../base/sheet/sheet.ts";
 import { AbilitySystemSchema, SelfEffectReference } from "./data.ts";
+
 declare class AbilitySheetPF2e extends ItemSheetPF2e<AbilityItemPF2e> {
     static get defaultOptions(): ItemSheetOptions;
     protected get validTraits(): Record<string, string>;

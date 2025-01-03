@@ -2,6 +2,7 @@ import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField }
 import { AELikeDataPrepPhase } from "../ae-like.ts";
 import { ResolvableValueField, RuleElementSchema } from "../data.ts";
 import { RollOptionRuleElement } from "./rule-element.ts";
+
 import type * as fields from "../../../../../foundry/common/data/fields.ts";
 declare class Suboption extends foundry.abstract.DataModel<RollOptionRuleElement, SuboptionSchema> {
     static defineSchema(): fields.DataSchema;

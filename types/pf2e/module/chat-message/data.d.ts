@@ -7,6 +7,7 @@ import { CheckCheckContext } from "../system/check/index.ts";
 import { DamageDamageContext } from "../system/damage/types.ts";
 import { DegreeAdjustmentsRecord, DegreeOfSuccessString } from "../system/degree-of-success.ts";
 import { ChatMessageFlags } from "../../../foundry/common/documents/chat-message.ts";
+
 type ChatMessageSourcePF2e = foundry.documents.ChatMessageSource & {
     flags: ChatMessageFlagsPF2e;
 };

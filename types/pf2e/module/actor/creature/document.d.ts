@@ -16,6 +16,7 @@ import { Statistic, StatisticDifficultyClass, ArmorStatistic } from "../../syste
 import { PerceptionStatistic } from "../../system/statistic/perception.ts";
 import { CreatureSpeeds, CreatureSystemData, LabeledSpeed, VisionLevel } from "./data.ts";
 import { CreatureTrait, CreatureType, CreatureUpdateOperation, GetReachParameters, ResourceData } from "./types.ts";
+
 /** An "actor" in a Pathfinder sense rather than a Foundry one: all should contain attributes and abilities */
 declare abstract class CreaturePF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     /** A separate collection of owned spellcasting entries for convenience */

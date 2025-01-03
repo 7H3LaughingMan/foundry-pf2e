@@ -1,5 +1,6 @@
 import { BasePhysicalItemSource, EquippedData, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "../physical/data.ts";
 import { CarriedUsage } from "../physical/usage.ts";
+
 type TreasureSource = BasePhysicalItemSource<"treasure", TreasureSystemSource>;
 interface TreasureSystemSource extends PhysicalSystemSource {
     traits: PhysicalItemTraits<never>;

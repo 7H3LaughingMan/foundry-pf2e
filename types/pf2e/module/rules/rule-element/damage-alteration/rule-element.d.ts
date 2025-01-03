@@ -3,6 +3,7 @@ import { StrictArrayField } from "../../../system/schema-data-fields.ts";
 import { AELikeChangeMode } from "../ae-like.ts";
 import { ModelPropsFromRESchema, RuleElementSchema } from "../data.ts";
 import { ResolvableValueField, RuleElementPF2e } from "../index.ts";
+
 import fields = foundry.data.fields;
 /** Alter certain aspects of individual components (modifiers and dice) of a damage roll. */
 declare class DamageAlterationRuleElement extends RuleElementPF2e<DamageAlterationSchema> {

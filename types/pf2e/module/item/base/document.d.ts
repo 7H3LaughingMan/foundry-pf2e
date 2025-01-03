@@ -9,6 +9,7 @@ import { ItemInstances } from "../types.ts";
 import { ItemFlagsPF2e, ItemSourcePF2e, ItemSystemData, ItemType, RawItemChatData, TraitChatData } from "./data/index.ts";
 import { ItemTrait } from "./data/system.ts";
 import { ItemSheetPF2e } from "./sheet/sheet.ts";
+
 /** The basic `Item` subclass for the system */
 declare class ItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends Item<TParent> {
     /** Has this document completed `DataModel` initialization? */

@@ -1,6 +1,7 @@
 /*
 
 !build/
+build/files/*
 !types/
 types/pf2e/*
 !types/pf2e/index.d.ts

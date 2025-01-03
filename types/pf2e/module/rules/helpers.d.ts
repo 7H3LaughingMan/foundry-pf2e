@@ -9,6 +9,7 @@ import { RollTwiceOption } from "../system/rolls.ts";
 import { DamageAlteration } from "./rule-element/damage-alteration/alteration.ts";
 import { BracketedValue, RuleElementPF2e } from "./rule-element/index.ts";
 import { DamageDiceSynthetics, RollSubstitution, RollTwiceSynthetic, RuleElementSynthetics } from "./synthetics.ts";
+
 /** Extracts a list of all cloned modifiers across all given keys in a single list. */
 declare function extractModifiers(synthetics: RuleElementSynthetics, domains: string[], options?: DeferredValueParams): ModifierPF2e[];
 declare function extractModifierAdjustments(adjustmentsRecord: RuleElementSynthetics["modifierAdjustments"], selectors: string[], slug: string): ModifierAdjustment[];

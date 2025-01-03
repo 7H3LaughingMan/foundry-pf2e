@@ -25,6 +25,7 @@ import { ActorInitiative } from "./initiative.ts";
 import { ActorInventory } from "./inventory/index.ts";
 import { ActorSheetPF2e } from "./sheet/base.ts";
 import { ActorSpellcasting } from "./spellcasting.ts";
+
 /**
  * Extend the base Actor class to implement additional logic specialized for PF2e.
  * @category Actor

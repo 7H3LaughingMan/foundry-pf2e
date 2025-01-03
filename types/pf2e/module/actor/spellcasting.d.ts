@@ -7,6 +7,7 @@ import { Statistic } from "../system/statistic/statistic.ts";
 import { DelegatedCollection } from "../../util/index.ts";
 import { CreatureSource } from "./data/index.ts";
 import { ActorCommitData } from "./types.ts";
+
 export declare class ActorSpellcasting<TActor extends ActorPF2e> extends DelegatedCollection<BaseSpellcastingEntry<TActor>> {
     #private;
     actor: TActor;

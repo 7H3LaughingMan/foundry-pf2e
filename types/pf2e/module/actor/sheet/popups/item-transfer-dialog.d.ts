@@ -1,5 +1,6 @@
 import { ActorPF2e } from "../../index.ts";
 import { PhysicalItemPF2e } from "../../../item/index.ts";
+
 declare class ItemTransferDialog extends FormApplication<PhysicalItemPF2e, MoveLootOptions> {
     #private;
     static get defaultOptions(): MoveLootOptions;

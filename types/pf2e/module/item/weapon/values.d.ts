@@ -1,4 +1,5 @@
 import { WeaponGroup, WeaponTrait } from "./types.ts";
+
 declare const WEAPON_CATEGORIES: readonly ["unarmed", "simple", "martial", "advanced"];
 declare const WEAPON_GROUPS: Set<"axe" | "bomb" | "bow" | "brawling" | "club" | "crossbow" | "dart" | "firearm" | "flail" | "hammer" | "knife" | "pick" | "polearm" | "shield" | "sling" | "spear" | "sword">;
 declare const MELEE_WEAPON_GROUPS: Set<"axe" | "brawling" | "club" | "dart" | "flail" | "hammer" | "knife" | "pick" | "polearm" | "shield" | "spear" | "sword">;

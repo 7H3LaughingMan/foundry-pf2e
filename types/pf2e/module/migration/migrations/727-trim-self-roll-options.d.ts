@@ -1,5 +1,6 @@
 import { ItemSourcePF2e } from "../../item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
+
 /** Trim roll options with "self:" prefixes but are unnecessary for targeting */
 export declare class Migration727TrimSelfRollOptions extends MigrationBase {
     #private;

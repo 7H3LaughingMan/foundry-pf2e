@@ -9,6 +9,7 @@ import { OneToFour, Rarity, ZeroToFour, ZeroToSix } from "../../data.ts";
 import { RollNoteSource } from "../../notes.ts";
 import { StrikeAdjustment } from "../../rules/synthetics.ts";
 import { DegreeOfSuccessAdjustment } from "../../system/degree-of-success.ts";
+
 declare function getPropertyRuneSlots(item: WeaponPF2e | ArmorPF2e): ZeroToFour;
 /** Remove duplicate and lesser versions from an array of property runes */
 declare function prunePropertyRunes<T extends string>(runes: (string | null)[], validTypes: Record<T, unknown>): T[];

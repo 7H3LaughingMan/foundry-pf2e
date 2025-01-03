@@ -5,6 +5,7 @@ import { Price } from "../physical/data.ts";
 import { Size } from "../../data.ts";
 import { UserPF2e } from "../../user/index.ts";
 import { KitSource, KitSystemData, KitEntryData } from "./data.ts";
+
 declare class KitPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     static get validTraits(): Record<ClassTrait, string>;
     get entries(): KitEntryData[];

@@ -3,6 +3,7 @@ import { PhysicalItemPF2e } from "../../../item/index.ts";
 import { SlugField } from "../../../system/schema-data-fields.ts";
 import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource } from "../data.ts";
+
 import fields = foundry.data.fields;
 declare class EffectSpinoffRuleElement extends RuleElementPF2e<EffectSpinoffSchema> {
     constructor(source: RuleElementSource, options: RuleElementOptions);
