@@ -10,6 +10,7 @@ import { DropCanvasItemDataPF2e } from "../../canvas/drop-canvas-data.ts";
 import { ZeroToFour } from "../../data.ts";
 import { SheetOptions } from "../../sheet/helpers.ts";
 import { PartyPF2e } from "./document.ts";
+
 interface PartySheetRenderOptions extends ActorSheetRenderOptionsPF2e {
     actors?: boolean;
 }

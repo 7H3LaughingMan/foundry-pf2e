@@ -2,6 +2,7 @@ import { SkillSlug } from "../../actor/types.ts";
 import { ItemSourcePF2e } from "../../item/base/data/index.ts";
 import { ChoiceSetSource } from "../../rules/rule-element/choice-set/data.ts";
 import { MigrationBase } from "../base.ts";
+
 export declare class Migration929RemoveSkillAbbreviations extends MigrationBase {
     #private;
     static version: number;

@@ -3,6 +3,7 @@ import { TraitViewData } from "../../../actor/data/base.ts";
 import { PhysicalItemPF2e } from "../../../item/index.ts";
 import { EffectSource } from "../../../item/effect/data.ts";
 import { EffectSpinoffRuleElement } from "./rule-element.ts";
+
 declare class EffectSpinoff {
     item: PhysicalItemPF2e<ActorPF2e>;
     slug: string;

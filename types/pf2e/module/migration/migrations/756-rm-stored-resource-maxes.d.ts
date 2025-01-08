@@ -1,5 +1,6 @@
 import { ActorSourcePF2e } from "../../actor/data/index.ts";
 import { MigrationBase } from "../base.ts";
+
 /** Remove inadvertently stored focus and infused-reagents maxes caused by bug in Rest for the Night script */
 export declare class Migration756RMStoredResourceMaxes extends MigrationBase {
     static version: number;

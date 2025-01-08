@@ -30,6 +30,10 @@
             "./types/pf2e",
             "jquery",
             "node",
+            "tooltipster"
         ]
-    }
+    },
+    "exclude": [
+        "build/files/**"
+    ]
 }

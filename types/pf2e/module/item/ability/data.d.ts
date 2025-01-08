@@ -6,6 +6,7 @@ import { ModelPropFromDataField } from "../../../../foundry/common/data/fields.t
 import { AbilityItemPF2e } from "./document.ts";
 import { AbilityTraitToggles } from "./trait-toggles.ts";
 import { AbilityTrait, ActionCategory } from "./types.ts";
+
 import fields = foundry.data.fields;
 type AbilitySource = BaseItemSourcePF2e<"action", AbilitySystemSource>;
 declare class AbilitySystemData extends ItemSystemModel<AbilityItemPF2e, AbilitySystemSchema> {

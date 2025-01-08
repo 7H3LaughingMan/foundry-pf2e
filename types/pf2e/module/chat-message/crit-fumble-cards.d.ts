@@ -1,4 +1,5 @@
 import { ChatMessagePF2e } from "./index.ts";
+
 export declare class CriticalHitAndFumbleCards {
     private static rollTypes;
     private static diceSoNice;

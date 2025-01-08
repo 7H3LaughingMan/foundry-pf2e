@@ -5,6 +5,7 @@ import { Statistic } from "../../system/statistic/index.ts";
 import { default as DataModel } from "../../../../foundry/common/abstract/data.ts";
 import { DataSchema } from "../../../../foundry/common/data/fields.ts";
 import { PartySystemData } from "./data.ts";
+
 interface PartyUpdateOperation<TParent extends TokenDocumentPF2e | null> extends ActorUpdateOperation<TParent> {
     removedMembers?: string[];
 }

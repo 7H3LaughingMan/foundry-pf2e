@@ -3,6 +3,7 @@ import { ItemPF2e } from "../../item/index.ts";
 import { PredicateField } from "../../system/schema-data-fields.ts";
 import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+
 import fields = foundry.data.fields;
 /**
  * @category RuleElement
@@ -12,6 +13,8 @@ declare class CraftingAbilityRuleElement extends RuleElementPF2e<CraftingAbility
     constructor(data: CraftingAbilityRuleSource, options: RuleElementOptions);
     static defineSchema(): CraftingAbilityRuleSchema;
     onApplyActiveEffects(): void;
+    /** Attach the crafting ability to the feat or ability if not prepared */
+    afterPrepareData(): void;
 }
 interface CraftingAbilityRuleElement extends RuleElementPF2e<CraftingAbilityRuleSchema>, ModelPropsFromRESchema<CraftingAbilityRuleSchema> {
     readonly parent: ItemPF2e<CharacterPF2e>;

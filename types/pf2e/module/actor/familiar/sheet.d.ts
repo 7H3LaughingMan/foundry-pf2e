@@ -5,6 +5,7 @@ import { SheetClickActionHandlers } from "../sheet/base.ts";
 import { AbilityViewData } from "../sheet/data-types.ts";
 import { StatisticTraceData } from "../../system/statistic/index.ts";
 import { FamiliarPF2e } from "./document.ts";
+
 /**
  * @category Actor
  */

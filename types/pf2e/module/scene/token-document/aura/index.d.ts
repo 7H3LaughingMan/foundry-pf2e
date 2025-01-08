@@ -3,6 +3,7 @@ import { ItemTrait } from "../../../item/base/data/system.ts";
 import { EffectAreaSquare } from "../../../canvas/effect-area-square.ts";
 import { ScenePF2e, TokenDocumentPF2e } from "../../index.ts";
 import { TokenAuraData } from "./types.ts";
+
 declare class TokenAura implements TokenAuraData {
     #private;
     slug: string;

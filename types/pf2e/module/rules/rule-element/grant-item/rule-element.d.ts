@@ -4,6 +4,7 @@ import { ItemGrantDeleteAction } from "../../../item/base/data/system.ts";
 import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSource } from "../data.ts";
 import { GrantItemSchema } from "./schema.ts";
+
 declare class GrantItemRuleElement extends RuleElementPF2e<GrantItemSchema> {
     #private;
     static validActorTypes: ActorType[];

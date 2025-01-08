@@ -2,6 +2,7 @@ import { ItemPF2e } from "../../index.ts";
 import { Rarity } from "../../../data.ts";
 import { RuleElementSource } from "../../../rules/index.ts";
 import { SheetOptions, TagifyEntry } from "../../../sheet/helpers.ts";
+
 import type * as TinyMCE from "tinymce";
 declare class ItemSheetPF2e<TItem extends ItemPF2e> extends ItemSheet<TItem, ItemSheetOptions> {
     #private;

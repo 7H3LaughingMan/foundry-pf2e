@@ -6,6 +6,7 @@ import { PredicateField, SlugField, StrictNumberField } from "../../../system/sc
 import { ArrayField, BooleanField, DataField, DataFieldOptions, NumberField, SchemaField, StringField } from "../../../../../foundry/common/data/fields.ts";
 import { DataModelValidationFailure } from "../../../../../foundry/common/data/validation-failure.ts";
 import { AELikeChangeMode } from "../ae-like.ts";
+
 declare const fields: typeof foundry.data.fields;
 /** A `SchemaField` reappropriated for validation of specific item alterations */
 declare class ItemAlterationValidator<TSchema extends AlterationSchema> extends fields.SchemaField<TSchema> {
@@ -60,7 +61,7 @@ declare const ITEM_ALTERATION_VALIDATORS: {
     category: ItemAlterationValidator<{
         itemType: StringField<"armor", ItemType, true, false, false>;
         mode: StringField<"override", "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade" | "override", true, false, false>;
-        value: StringField<"light" | "medium" | "heavy", NonNullable<JSONValue>, true, false, boolean>;
+        value: StringField<"medium" | "light" | "heavy", NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "check-penalty": ItemAlterationValidator<{
         itemType: StringField<"armor", ItemType, true, false, false>;
@@ -70,7 +71,7 @@ declare const ITEM_ALTERATION_VALIDATORS: {
     "damage-dice-faces": ItemAlterationValidator<{
         itemType: StringField<"weapon", ItemType, true, false, false>;
         mode: StringField<"downgrade" | "upgrade" | "override", "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade" | "override", true, false, false>;
-        value: StrictNumberField<4 | 6 | 8 | 12 | 10, 4 | 6 | 8 | 12 | 10, true, true, true>;
+        value: StrictNumberField<6 | 4 | 8 | 10 | 12, 6 | 4 | 8 | 10 | 12, true, true, true>;
     }>;
     "damage-type": ItemAlterationValidator<{
         itemType: StringField<"weapon", ItemType, true, false, false>;
@@ -84,7 +85,7 @@ declare const ITEM_ALTERATION_VALIDATORS: {
         value: StringField<"ac" | "fortitude-dc" | "reflex-dc" | "will-dc", NonNullable<JSONValue>, true, false, boolean>;
     }>;
     description: ItemAlterationValidator<{
-        itemType: StringField<"armor" | "shield" | "consumable" | "class" | "ancestry" | "action" | "background" | "book" | "backpack" | "equipment" | "treasure" | "weapon" | "affliction" | "campaignFeature" | "condition" | "deity" | "effect" | "feat" | "heritage" | "kit" | "lore" | "melee" | "spell" | "spellcastingEntry", ItemType, true, false, false>;
+        itemType: StringField<"background" | "armor" | "shield" | "consumable" | "class" | "ancestry" | "book" | "backpack" | "equipment" | "treasure" | "weapon" | "action" | "affliction" | "campaignFeature" | "condition" | "deity" | "effect" | "feat" | "heritage" | "kit" | "lore" | "melee" | "spell" | "spellcastingEntry", ItemType, true, false, false>;
         mode: StringField<"add" | "override", "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade" | "override", true, false, false>;
         value: ArrayField<DescriptionElementField, SourceFromSchema<{
             title: StringField<string, string, false, true, true>;
@@ -136,7 +137,7 @@ declare const ITEM_ALTERATION_VALIDATORS: {
     rarity: ItemAlterationValidator<{
         itemType: StringField<"armor" | "shield" | "consumable" | "book" | "backpack" | "equipment" | "treasure" | "weapon", ItemType, true, false, false>;
         mode: StringField<"override", "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade" | "override", true, false, false>;
-        value: StringField<"common" | "unique" | "uncommon" | "rare", NonNullable<JSONValue>, true, false, boolean>;
+        value: StringField<"common" | "uncommon" | "rare" | "unique", NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "frequency-max": ItemAlterationValidator<{
         itemType: StringField<"action" | "feat", ItemType, true, false, false>;
@@ -149,7 +150,7 @@ declare const ITEM_ALTERATION_VALIDATORS: {
         value: StringField<string, NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "other-tags": ItemAlterationValidator<{
-        itemType: StringField<"armor" | "shield" | "consumable" | "class" | "ancestry" | "action" | "background" | "book" | "backpack" | "equipment" | "treasure" | "weapon" | "affliction" | "campaignFeature" | "condition" | "deity" | "effect" | "feat" | "heritage" | "kit" | "lore" | "melee" | "spell" | "spellcastingEntry", ItemType, true, false, false>;
+        itemType: StringField<"background" | "armor" | "shield" | "consumable" | "class" | "ancestry" | "book" | "backpack" | "equipment" | "treasure" | "weapon" | "action" | "affliction" | "campaignFeature" | "condition" | "deity" | "effect" | "feat" | "heritage" | "kit" | "lore" | "melee" | "spell" | "spellcastingEntry", ItemType, true, false, false>;
         mode: StringField<"add" | "subtract" | "remove", "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade" | "override", true, false, false>;
         value: SlugField<true, false, boolean>;
     }>;
@@ -164,7 +165,7 @@ declare const ITEM_ALTERATION_VALIDATORS: {
         value: StrictNumberField<number, NonNullable<JSONValue>, true, false, boolean>;
     }>;
     traits: ItemAlterationValidator<{
-        itemType: StringField<"armor" | "shield" | "consumable" | "class" | "ancestry" | "action" | "background" | "book" | "backpack" | "equipment" | "treasure" | "weapon" | "affliction" | "campaignFeature" | "condition" | "effect" | "feat" | "heritage" | "kit" | "melee" | "spell", ItemType, true, false, false>;
+        itemType: StringField<"background" | "armor" | "shield" | "consumable" | "class" | "ancestry" | "book" | "backpack" | "equipment" | "treasure" | "weapon" | "action" | "affliction" | "campaignFeature" | "condition" | "effect" | "feat" | "heritage" | "kit" | "melee" | "spell", ItemType, true, false, false>;
         mode: StringField<"add" | "subtract" | "remove", "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade" | "override", true, false, false>;
         value: StringField<ItemTrait, ItemTrait, true, false, false>;
     }>;

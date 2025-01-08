@@ -4,6 +4,7 @@ import { MagicTradition } from "../../item/spell/types.ts";
 import { ZeroToFour } from "../../data.ts";
 import { Statistic } from "../../system/statistic/index.ts";
 import { CharacterPF2e } from "./document.ts";
+
 interface CharacterHitPointsSummary extends HitPointsSummary {
     recoveryMultiplier: number;
     recoveryAddend: number;

@@ -1,5 +1,6 @@
 import { ChatMessagePF2e } from "../../module/chat-message/index.ts";
 import { ActionDefaultOptions } from "../../module/system/action-macros/index.ts";
+
 interface RestForTheNightOptions extends ActionDefaultOptions {
     skipDialog?: boolean;
 }

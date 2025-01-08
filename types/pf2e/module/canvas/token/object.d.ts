@@ -3,6 +3,7 @@ import { TokenDocumentPF2e } from "../../scene/index.ts";
 import { TokenLayerPF2e } from "../index.ts";
 import { AuraRenderers } from "./aura/index.ts";
 import { FlankingHighlightRenderer } from "./flanking-highlight/renderer.ts";
+
 declare class TokenPF2e<TDocument extends TokenDocumentPF2e = TokenDocumentPF2e> extends Token<TDocument> {
     #private;
     /** Visual representation and proximity-detection facilities for auras */

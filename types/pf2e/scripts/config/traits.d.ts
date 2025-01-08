@@ -5,6 +5,7 @@ import { OtherConsumableTag } from "../../module/item/consumable/types.ts";
 import { PreciousMaterialType } from "../../module/item/physical/types.ts";
 import { MagicTradition } from "../../module/item/spell/types.ts";
 import { OtherWeaponTag } from "../../module/item/weapon/types.ts";
+
 declare const ancestryTraits: {
     aiuvarin: string;
     anadi: string;
@@ -518,7 +519,10 @@ declare const weaponTraits: {
     injection: string;
     intelligent: string;
     invested: string;
+    "jousting-d4": string;
     "jousting-d6": string;
+    "jousting-d8": string;
+    "jousting-d10": string;
     kickback: string;
     light: string;
     magical: string;
@@ -869,7 +873,10 @@ declare const npcAttackTraits: {
     injection: string;
     intelligent: string;
     invested: string;
+    "jousting-d4": string;
     "jousting-d6": string;
+    "jousting-d8": string;
+    "jousting-d10": string;
     kickback: string;
     light: string;
     magical: string;
@@ -3239,7 +3246,10 @@ declare const traitDescriptions: {
     gunslinger: string;
     hag: string;
     halfling: string;
+    "jousting-d4": string;
     "jousting-d6": string;
+    "jousting-d8": string;
+    "jousting-d10": string;
     hampering: string;
     harnessed: string;
     haunt: string;

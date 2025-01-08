@@ -7,6 +7,7 @@ import { CheckCheckContext, CheckRoll } from "../../system/check/index.ts";
 import { LaxSchemaField } from "../../system/schema-data-fields.ts";
 import { DataModelValidationOptions } from "../../../../foundry/common/abstract/data.ts";
 import { BracketedValue, RuleElementSchema, RuleElementSource, RuleValue } from "./data.ts";
+
 /**
  * Rule Elements allow you to modify actorData and tokenData values when present on items. They can be configured
  * in the item's Rules tab which has to be enabled using the "Advanced Rule Element UI" system setting.
@@ -179,6 +180,8 @@ declare namespace RuleElementPF2e {
         pendingItems: ItemSourcePF2e[];
         /** Items temporarily constructed from pending item source */
         tempItems: ItemPF2e<ActorPF2e>[];
+        /** Updates that should be performed to items after pre creates conclude */
+        itemUpdates: EmbeddedDocumentUpdateData[];
         /** The `operation` object from the `ItemPF2e.createDocuments` call */
         operation: Partial<DatabaseCreateOperation<ActorPF2e | null>>;
         /** Whether this preCreate run is from a pre-update reevaluation */

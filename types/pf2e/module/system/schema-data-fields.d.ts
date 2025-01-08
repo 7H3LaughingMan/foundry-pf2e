@@ -3,6 +3,7 @@ import { SlugCamel } from "../../util/index.ts";
 import { default as DataModel } from "../../../foundry/common/abstract/data.ts";
 import { ArrayFieldOptions, CleanFieldOptions, DataField, DataFieldOptions, DataFieldValidationOptions, DataSchema, MaybeSchemaProp, ModelPropFromDataField, NumberField, ObjectFieldOptions, SourcePropFromDataField, StringField, StringFieldOptions } from "../../../foundry/common/data/fields.ts";
 import { DataModelValidationFailure } from "../../../foundry/common/data/validation-failure.ts";
+
 declare const fields: typeof foundry.data.fields;
 /** A `SchemaField` that preserves fields not declared in its `DataSchema` */
 declare class LaxSchemaField<TDataSchema extends DataSchema> extends fields.SchemaField<TDataSchema> {

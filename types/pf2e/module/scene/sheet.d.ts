@@ -1,4 +1,5 @@
 import { ScenePF2e } from "./document.ts";
+
 export declare class SceneConfigPF2e<TDocument extends ScenePF2e> extends SceneConfig<TDocument> {
     #private;
     get scene(): TDocument;

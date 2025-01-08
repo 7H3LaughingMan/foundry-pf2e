@@ -23,8 +23,9 @@ import { SpellSource } from "../../spell/data.ts";
 import { SpellcastingEntrySource } from "../../spellcasting-entry/data.ts";
 import { TreasureSource } from "../../treasure/data.ts";
 import { WeaponSource } from "../../weapon/data.ts";
-import { PROFICIENCY_RANKS } from "../../../data.ts";
+import { PROFICIENCY_RANKS, Rarity } from "../../../data.ts";
 import { ItemDescriptionData } from "./system.ts";
+
 type ProficiencyRank = (typeof PROFICIENCY_RANKS)[number];
 type NonPhysicalItemType = "action" | "affliction" | "ancestry" | "background" | "campaignFeature" | "class" | "condition" | "deity" | "effect" | "feat" | "heritage" | "kit" | "lore" | "melee" | "spell" | "spellcastingEntry";
 type ItemType = NonPhysicalItemType | PhysicalItemType;
@@ -34,6 +35,11 @@ type MagicItemSource = Exclude<PhysicalItemSource, ConsumableSource | TreasureSo
 interface RawItemChatData {
     [key: string]: unknown;
     description: ItemDescriptionData;
+    rarity?: {
+        slug: Rarity;
+        label: string;
+        description: string;
+    } | null;
     traits?: TraitChatData[];
     properties?: string[];
 }
@@ -45,4 +51,4 @@ interface TraitChatData {
     excluded?: boolean;
 }
 export type { ActionCost, ActionType, Frequency, FrequencyInterval, FrequencySource, ItemFlagsPF2e, ItemSystemData, } from './system.ts';
-export type { AbilitySource, AncestrySource, ArmorSource, BackgroundSource, BookSource, ClassSource, ConditionSource, ConsumableSource, ContainerSource, DeitySource, EffectSource, EquipmentSource, FeatSource, ItemSourcePF2e, ItemType, KitSource, LoreSource, MagicItemSource, MeleeSource, NonPhysicalItemType, PhysicalItemSource, ProficiencyRank, RawItemChatData, ShieldSource, SpellSource, SpellcastingEntrySource, TraitChatData, TreasureSource, WeaponSource, };
+export type { AbilitySource, AncestrySource, ArmorSource, BackgroundSource, BookSource, ClassSource, ConditionSource, ConsumableSource, ContainerSource, DeitySource, EffectSource, EquipmentSource, FeatSource, ItemSourcePF2e, ItemType, KitSource, LoreSource, MagicItemSource, MeleeSource, NonPhysicalItemType, PhysicalItemSource, ProficiencyRank, RawItemChatData, ShieldSource, SpellcastingEntrySource, SpellSource, TraitChatData, TreasureSource, WeaponSource, };

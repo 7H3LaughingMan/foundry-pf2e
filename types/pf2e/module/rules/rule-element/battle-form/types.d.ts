@@ -6,6 +6,7 @@ import { Size } from "../../../data.ts";
 import { RawPredicate } from "../../../system/predication.ts";
 import { RuleElementSource } from "../index.ts";
 import { ImmunityRuleElement, ResistanceRuleElement, WeaknessRuleElement } from "../iwr/index.ts";
+
 interface BattleFormSource extends RuleElementSource {
     overrides?: BattleFormOverrides;
     canCast?: boolean;

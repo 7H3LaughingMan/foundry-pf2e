@@ -1,18 +1,15 @@
 import * as fs from "fs";
 import { glob } from "glob";
 
-const files = await glob("./pf2e/module/**/*.d.ts", {
+let files = await glob("./pf2e/module/**/*.d.ts", {
     cwd: "./types",
     dotRelative: true,
-    ignore: [
-        "./pf2e/module/actor/character/apps/abc-picker/**",
-        "./pf2e/module/migration/**",
-        "./pf2e/module/system/action-macros/**",
-    ],
+    ignore: ["./pf2e/module/migration/**", "./pf2e/module/system/action-macros/**"],
     posix: true,
 });
 
 files.push(
+    "./pf2e/global.d.ts",
     "./pf2e/module/system/action-macros/index.d.ts",
     "./pf2e/scripts/config/index.d.ts",
     "./pf2e/scripts/config/traits.d.ts",
@@ -56,6 +53,10 @@ files.sort((a, b) => {
     return a_file.localeCompare(b_file);
 });
 
+files = files.filter((value) => {
+    return !value.endsWith(".svelte.d.ts");
+});
+
 files.forEach((value, index, array) => {
     array[index] = `export type * from "${value}";`;
 });
@@ -64,8 +65,9 @@ files.unshift(
     'import "./foundry/index.d.ts";',
     'import "./pf2e/index.d.ts";',
     "",
-    'export type { HitPointsStatistic } from "./pf2e/module/actor/data/base.d.ts";',
     'export type { ActionCost } from "./pf2e/module/item/base/data/system.d.ts";',
+    'export type { CompendiumBrowser } from "./pf2e/module/apps/compendium-browser/browser.d.ts";',
+    'export type { HitPointsStatistic } from "./pf2e/module/actor/data/base.d.ts";',
     'export type { PrerequisiteTagData } from "./pf2e/module/item/feat/data.d.ts";',
     "",
 );

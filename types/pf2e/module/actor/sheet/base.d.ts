@@ -7,6 +7,7 @@ import { DropCanvasItemDataPF2e } from "../../canvas/drop-canvas-data.ts";
 import { BasicConstructorOptions, TagSelectorOptions, TagSelectorType } from "../../system/tag-selector/index.ts";
 import { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e, CoinageSummary, InventoryItem, SheetInventory } from "./data-types.ts";
 import { ItemSummaryRenderer } from "./item-summary-renderer.ts";
+
 /**
  * Extend the basic ActorSheet class to do all the PF2e things!
  * This sheet is an Abstract layer which is not used.
@@ -24,6 +25,7 @@ declare abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends ActorShe
     getData(options?: Partial<ActorSheetOptions>): Promise<ActorSheetDataPF2e<TActor>>;
     protected prepareInventory(): SheetInventory;
     protected prepareInventoryItem(item: PhysicalItemPF2e): InventoryItem;
+    protected _onSearchFilter(event: KeyboardEvent, query: string, rgx: RegExp, html: HTMLElement | null): void;
     protected static coinsToSheetData(coins: Coins): CoinageSummary;
     protected getStrikeFromDOM(button: HTMLElement, readyOnly?: boolean): StrikeData | null;
     activateListeners($html: JQuery): void;

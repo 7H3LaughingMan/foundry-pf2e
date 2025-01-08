@@ -9,6 +9,7 @@ import { TokenDocumentPF2e } from "../../scene/index.ts";
 import { CheckRoll, CheckType } from "../check/index.ts";
 import { CheckDC, DegreeOfSuccessString } from "../degree-of-success.ts";
 import { Statistic } from "../statistic/index.ts";
+
 type ActionGlyph = "A" | "D" | "T" | "R" | "F" | "a" | "d" | "t" | "r" | "f" | 1 | 2 | 3 | "1" | "2" | "3";
 interface BuildCheckContextOptions<TItem extends ItemPF2e<ActorPF2e>> {
     actor: ActorPF2e;

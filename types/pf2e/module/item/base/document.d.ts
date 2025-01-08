@@ -9,6 +9,7 @@ import { ItemInstances } from "../types.ts";
 import { ItemFlagsPF2e, ItemSourcePF2e, ItemSystemData, ItemType, RawItemChatData, TraitChatData } from "./data/index.ts";
 import { ItemTrait } from "./data/system.ts";
 import { ItemSheetPF2e } from "./sheet/sheet.ts";
+
 /** The basic `Item` subclass for the system */
 declare class ItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends Item<TParent> {
     /** Has this document completed `DataModel` initialization? */
@@ -79,7 +80,7 @@ declare class ItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exte
      */
     protected processChatData(htmlOptions: EnrichmentOptionsPF2e | undefined, chatData: RawItemChatData): Promise<RawItemChatData>;
     getChatData(htmlOptions?: EnrichmentOptionsPF2e, _rollOptions?: Record<string, unknown>): Promise<RawItemChatData>;
-    protected traitChatData(dictionary?: Record<string, string | undefined>, traits?: ItemTrait[]): TraitChatData[];
+    traitChatData(dictionary?: Record<string, string | undefined>, traits?: ItemTrait[]): TraitChatData[];
     /** Don't allow the user to create a condition or spellcasting entry from the sidebar. */
     static createDialog<TDocument extends foundry.abstract.Document>(this: ConstructorOf<TDocument>, data?: Record<string, unknown>, context?: {
         parent?: TDocument["parent"];

@@ -1,4 +1,5 @@
 import { Size } from "../../data.ts";
+
 export declare class ActorSizePF2e {
     /** The size category of this category */
     value: Size;

@@ -3,6 +3,7 @@ import { SingleCheckAction, SingleCheckActionVariant, SingleCheckActionVariantDa
 import { ItemPF2e } from "../../../item/index.ts";
 import { CheckContextData, CheckContextOptions, CheckMacroContext } from "../types.ts";
 import { SkillActionOptions } from "../index.ts";
+
 declare function trip(options: SkillActionOptions): void;
 declare class TripActionVariant extends SingleCheckActionVariant {
     protected checkContext<ItemType extends ItemPF2e<ActorPF2e>>(opts: CheckContextOptions<ItemType>, data: CheckContextData<ItemType>): CheckMacroContext<ItemType> | undefined;

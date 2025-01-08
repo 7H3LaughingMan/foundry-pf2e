@@ -3,6 +3,7 @@ import { ItemSourcePF2e } from "../../item/base/data/index.ts";
 import { PhysicalItemTrait } from "../../item/physical/data.ts";
 import { PredicateStatement } from "../../system/predication.ts";
 import { MigrationBase } from "../base.ts";
+
 /** Convert crafting entry `requiredTrait` properties to be predicates */
 export declare class Migration774UnpersistCraftingEntries extends MigrationBase {
     static version: number;

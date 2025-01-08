@@ -7,6 +7,7 @@ import { ActorAlliance, SaveType, SkillSlug } from "../types.ts";
 import { MeleePF2e } from "../../item/index.ts";
 import { PublicationData, ValueAndMax } from "../../data.ts";
 import { RawPredicate } from "../../system/predication.ts";
+
 type NPCSource = BaseCreatureSource<"npc", NPCSystemSource> & {
     flags: DeepPartial<NPCFlags>;
 };

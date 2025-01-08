@@ -7,6 +7,7 @@ import { CheckContextChatFlag } from "../../chat-message/data.ts";
 import { TokenDocumentPF2e } from "../../scene/index.ts";
 import { CheckDC, DegreeOfSuccessString } from "../../system/degree-of-success.ts";
 import { Statistic } from "../../system/statistic/statistic.ts";
+
 interface OpposingActorConstructorData<TActor extends ActorPF2e | null = ActorPF2e | null, TStatistic extends Statistic | StrikeData | null = Statistic | StrikeData | null, TItem extends ItemPF2e<ActorPF2e> | null = ItemPF2e<ActorPF2e> | null> {
     actor?: TActor;
     /** The statistic used for the roll */

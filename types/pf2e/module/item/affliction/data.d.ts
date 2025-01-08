@@ -3,6 +3,7 @@ import { AbstractEffectSystemData, AbstractEffectSystemSource, DurationData, Eff
 import { BaseItemSourcePF2e, ItemFlagsPF2e } from "../base/data/system.ts";
 import { ConditionSlug } from "../condition/index.ts";
 import { DamageCategoryUnique, DamageType } from "../../system/damage/index.ts";
+
 type AfflictionSource = BaseItemSourcePF2e<"affliction", AfflictionSystemSource> & {
     flags: DeepPartial<AfflictionFlags>;
 };

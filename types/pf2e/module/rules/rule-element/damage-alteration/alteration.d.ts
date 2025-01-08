@@ -5,6 +5,7 @@ import { BaseDamageData } from "../../../system/damage/types.ts";
 import { Predicate } from "../../../system/predication.ts";
 import { RuleValue } from "../data.ts";
 import { DamageAlterationProperty, DamageAlterationRuleElement, DamageAlterationValue } from "./rule-element.ts";
+
 declare class DamageAlteration {
     #private;
     slug: string | null;

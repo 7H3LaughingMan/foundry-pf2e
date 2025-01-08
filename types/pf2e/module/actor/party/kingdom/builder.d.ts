@@ -4,6 +4,7 @@ import { Kingdom } from "./model.ts";
 import { KingdomCHG } from "./schema.ts";
 import { KingdomAbility } from "./types.ts";
 import { KingdomCHGData } from "./values.ts";
+
 declare const KINGDOM_BUILD_CATEGORIES: readonly ["charter", "heartland", "government"];
 type KingdomBuildCategory = (typeof KINGDOM_BUILD_CATEGORIES)[number];
 type CurrentSelections = Record<KingdomBuildCategory, string | null>;

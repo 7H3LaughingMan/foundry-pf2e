@@ -6,6 +6,7 @@ import { Predicate } from "../../system/predication.ts";
 import { Statistic } from "../../system/statistic/statistic.ts";
 import { SpellCollection } from "./collection.ts";
 import { CastOptions, SpellcastingEntry, SpellcastingSheetData } from "./types.ts";
+
 /** An in-memory spellcasting entry for items-only spellcasting */
 declare class ItemSpellcasting<TActor extends CreaturePF2e = CreaturePF2e> implements SpellcastingEntry<TActor> {
     id: string;

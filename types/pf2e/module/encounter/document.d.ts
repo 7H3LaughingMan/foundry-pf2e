@@ -4,6 +4,7 @@ import { SkillSlug } from "../actor/types.ts";
 import { ScenePF2e, TokenDocumentPF2e } from "../scene/index.ts";
 import { ThreatRating } from "../../scripts/macros/xp/index.ts";
 import { CombatantPF2e, RolledCombatant } from "./combatant.ts";
+
 declare class EncounterPF2e extends Combat {
     /** Has this document completed `DataModel` initialization? */
     initialized: boolean;

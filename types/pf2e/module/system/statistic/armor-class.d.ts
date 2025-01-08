@@ -3,6 +3,7 @@ import { AttributeString } from "../../actor/types.ts";
 import { ArmorPF2e } from "../../item/index.ts";
 import { ZeroToFour } from "../../data.ts";
 import { Statistic, StatisticData, StatisticTraceData } from "./index.ts";
+
 declare class ArmorStatistic<TActor extends ActorPF2e = ActorPF2e> extends Statistic<TActor> {
     #private;
     details: string;

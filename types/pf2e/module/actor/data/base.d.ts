@@ -14,6 +14,7 @@ import { DamageRoll } from "../../system/damage/roll.ts";
 import { StatisticTraceData } from "../../system/statistic/data.ts";
 import { Immunity, ImmunitySource, Resistance, ResistanceSource, Weakness, WeaknessSource } from "./iwr.ts";
 import { ActorSizePF2e } from "./size.ts";
+
 /** Base interface for all actor data */
 type BaseActorSourcePF2e<TType extends ActorType, TSystemSource extends ActorSystemSource = ActorSystemSource> = foundry.documents.ActorSource<TType, TSystemSource, ItemSourcePF2e> & {
     flags: DeepPartial<ActorFlagsPF2e>;

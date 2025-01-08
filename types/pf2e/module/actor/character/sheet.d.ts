@@ -20,6 +20,7 @@ import { CharacterPF2e } from "./document.ts";
 import { ElementalBlastConfig } from "./elemental-blast.ts";
 import { FeatGroup } from "./feats/index.ts";
 import { CHARACTER_SHEET_TABS } from "./values.ts";
+
 declare class CharacterSheetPF2e<TActor extends CharacterPF2e> extends CreatureSheetPF2e<TActor> {
     #private;
     protected readonly actorConfigClass: typeof CharacterConfig;
@@ -73,6 +74,7 @@ interface CraftingSheetData {
     dailyCraftingComplete: boolean;
     knownFormulas: FormulaByLevel[];
     abilities: {
+        spontaneous: CraftingAbilitySheetData[];
         prepared: CraftingAbilitySheetData[];
         alchemical: {
             entries: CraftingAbilitySheetData[];

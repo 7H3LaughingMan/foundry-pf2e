@@ -1,4 +1,5 @@
 import { MigrationBase } from "../base.ts";
+
 /** Unnest actor traits by one object level */
 export declare class Migration782UnnestActorTraits extends MigrationBase {
     static version: number;

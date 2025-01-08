@@ -2,6 +2,7 @@ import { ActorType, CreaturePF2e } from "../../actor/index.ts";
 import { ActorCommitData } from "../../actor/types.ts";
 import { RuleElementPF2e, RuleElementOptions } from "./base.ts";
 import { ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+
 import fields = foundry.data.fields;
 declare class SpecialResourceRuleElement extends RuleElementPF2e<SpecialResourceSchema> {
     #private;

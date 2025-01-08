@@ -4,6 +4,7 @@ import { Sense } from "../../actor/creature/sense.ts";
 import { AttributeString } from "../../actor/types.ts";
 import { StatisticData, StatisticTraceData } from "./data.ts";
 import { Statistic, RollOptionConfig } from "./statistic.ts";
+
 declare class PerceptionStatistic<TActor extends ActorPF2e = ActorPF2e> extends Statistic<TActor> {
     #private;
     /** Special senses possessed by the actor */

@@ -5,6 +5,7 @@ import { ActiveEffectPF2e } from "../../active-effect.ts";
 import { UserPF2e } from "../../user/document.ts";
 import { TokenDocumentPF2e } from "../../scene/index.ts";
 import { LootSource, LootSystemData } from "./data.ts";
+
 declare class LootPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     armorClass: null;
     get allowedItemTypes(): (ItemType | "physical")[];

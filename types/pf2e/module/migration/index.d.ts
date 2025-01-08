@@ -1,4 +1,5 @@
 import { MigrationBase } from "./base.ts";
+
 export { MigrationRunner } from './runner/index.ts';
 export declare class MigrationList {
     #private;

@@ -4,6 +4,7 @@ import { EquipmentTrait } from "../equipment/types.ts";
 import { ShieldTrait } from "../shield/types.ts";
 import { WeaponTrait } from "../weapon/types.ts";
 import { PHYSICAL_ITEM_TYPES, PRECIOUS_MATERIAL_GRADES, PRECIOUS_MATERIAL_TYPES } from "./values.ts";
+
 type BaseMaterialType = "bone" | "cloth" | "glass" | "leather" | "paper" | "rope" | "steel" | "stone" | "wood";
 type BaseMaterialThickness = "thin" | "standard" | "structure";
 type BaseMaterial = {

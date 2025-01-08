@@ -7,6 +7,7 @@ import { CheckContextData, CheckContextOptions, CheckMacroContext, CheckResultCa
 import { CheckDC } from "../../system/degree-of-success.ts";
 import { BaseAction, BaseActionData, BaseActionVariant, BaseActionVariantData } from "./base.ts";
 import { ActionUseOptions } from "./types.ts";
+
 type SingleCheckActionRollNoteData = Omit<RollNoteSource, "selector"> & {
     selector?: string;
 };

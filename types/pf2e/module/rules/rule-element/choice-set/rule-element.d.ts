@@ -4,6 +4,7 @@ import { PickableThing } from "../../../apps/pick-a-thing-prompt.ts";
 import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
 import { ModelPropsFromRESchema } from "../data.ts";
 import { AllowedDropsData, ChoiceSetPackQuery, ChoiceSetSchema, ChoiceSetSource, UninflatedChoiceSet } from "./data.ts";
+
 /**
  * Present a set of options to the user and assign their selection to an injectable property
  * @category RuleElement

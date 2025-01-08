@@ -3,6 +3,7 @@ import { MaterialSheetData, PhysicalItemSheetData, PhysicalItemSheetPF2e, RUNE_D
 import { SheetOptions } from "../../sheet/helpers.ts";
 import { ComboWeaponMeleeUsage, SpecificWeaponData } from "./data.ts";
 import { WeaponPF2e } from "./document.ts";
+
 export declare class WeaponSheetPF2e extends PhysicalItemSheetPF2e<WeaponPF2e> {
     protected get validTraits(): Record<string, string>;
     getData(options?: Partial<ItemSheetOptions>): Promise<WeaponSheetData>;

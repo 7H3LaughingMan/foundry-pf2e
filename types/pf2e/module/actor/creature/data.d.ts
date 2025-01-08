@@ -6,6 +6,7 @@ import { LabeledNumber, Size, ValueAndMax, ValueAndMaybeMax, ZeroToThree } from 
 import { ArmorClassTraceData } from "../../system/statistic/index.ts";
 import { PerceptionTraceData } from "../../system/statistic/perception.ts";
 import { CreatureActorType, CreatureTrait, Language, SenseAcuity, SenseType, SpecialVisionType } from "./types.ts";
+
 type BaseCreatureSource<TType extends CreatureActorType, TSystemSource extends CreatureSystemSource> = BaseActorSourcePF2e<TType, TSystemSource>;
 /** Skill and Lore statistics for rolling. */
 interface CreatureSystemSource extends ActorSystemSource {

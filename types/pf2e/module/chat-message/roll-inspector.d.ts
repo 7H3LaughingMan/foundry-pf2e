@@ -1,5 +1,6 @@
 import { RawDamageDice, RawModifier } from "../actor/modifiers.ts";
 import { ChatContextFlag, ChatMessagePF2e } from "./index.ts";
+
 declare class RollInspector extends Application {
     message: ChatMessagePF2e;
     constructor(message: ChatMessagePF2e, options?: Partial<ApplicationOptions>);
@@ -17,6 +18,10 @@ interface ChatRollDetailsData {
     modifiers: PreparedModifier[];
     dice: PreparedDice[];
     rollOptions: string[];
+    contextualOptions: {
+        header: string;
+        options: string[];
+    }[];
 }
 interface PreparedModifier extends Omit<Partial<RawModifier>, "critical"> {
     value: string;

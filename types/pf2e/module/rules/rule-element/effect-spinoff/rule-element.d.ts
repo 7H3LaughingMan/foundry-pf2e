@@ -1,9 +1,10 @@
 import { ActorPF2e } from "../../../actor/index.ts";
 import { PhysicalItemPF2e } from "../../../item/index.ts";
 import { SlugField } from "../../../system/schema-data-fields.ts";
-import { ArrayField, NumberField, SchemaField, StringField } from "../../../../../foundry/common/data/fields.ts";
 import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource } from "../data.ts";
+
+import fields = foundry.data.fields;
 declare class EffectSpinoffRuleElement extends RuleElementPF2e<EffectSpinoffSchema> {
     constructor(source: RuleElementSource, options: RuleElementOptions);
     static defineSchema(): EffectSpinoffSchema;
@@ -17,14 +18,14 @@ interface EffectSpinoffRuleElement extends RuleElementPF2e<EffectSpinoffSchema>,
 }
 type ActivateTimeUnit = "actions" | "reaction" | "minutes" | "hours";
 type ActivationTrait = "concentrate" | "manipulate";
-type ActivationSchema = SchemaField<{
-    label: StringField<string, string, true, true, true>;
-    time: SchemaField<{
-        value: NumberField<number, number, true, false, true>;
-        unit: StringField<ActivateTimeUnit, ActivateTimeUnit, true, false, false>;
+type ActivationSchema = fields.SchemaField<{
+    label: fields.StringField<string, string, true, true, true>;
+    time: fields.SchemaField<{
+        value: fields.NumberField<number, number, true, false, true>;
+        unit: fields.StringField<ActivateTimeUnit, ActivateTimeUnit, true, false, false>;
     }>;
-    traits: ArrayField<StringField<"concentrate" | "manipulate", "concentrate" | "manipulate", true, false, false>>;
-    details: StringField<string, string, false, true, true>;
+    traits: fields.ArrayField<fields.StringField<"concentrate" | "manipulate", "concentrate" | "manipulate", true, false, false>>;
+    details: fields.StringField<string, string, false, true, true>;
 }, {
     label: string | null;
     time: {
@@ -45,6 +46,6 @@ type ActivationSchema = SchemaField<{
 type EffectSpinoffSchema = Omit<RuleElementSchema, "slug"> & {
     slug: SlugField<true, false, false>;
     activation: ActivationSchema;
-    description: StringField<string, string, false, true, true>;
+    description: fields.StringField<string, string, false, true, true>;
 };
 export { EffectSpinoffRuleElement };

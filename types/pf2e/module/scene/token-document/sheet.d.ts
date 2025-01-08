@@ -1,4 +1,5 @@
 import { TokenDocumentPF2e } from "./index.ts";
+
 declare class TokenConfigPF2e<TDocument extends TokenDocumentPF2e> extends TokenConfig<TDocument> {
     #private;
     static get defaultOptions(): DocumentSheetOptions;

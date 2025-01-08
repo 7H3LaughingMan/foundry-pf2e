@@ -3,6 +3,7 @@ import { FeatPF2e, HeritagePF2e, ItemPF2e } from "../../../item/index.ts";
 import { ItemSystemData } from "../../../item/base/data/index.ts";
 import { FeatOrFeatureCategory } from "../../../item/feat/types.ts";
 import { FeatGroup } from "./group.ts";
+
 /** Any document that is similar enough to a feat/feature to be used as a feat for the purposes of feat groups */
 interface FeatLike<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     readonly level: number | null;

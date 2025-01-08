@@ -3,6 +3,7 @@ import { SenseAcuity } from "../../module/actor/creature/types.ts";
 import { AbilityItemPF2e, AfflictionPF2e, AncestryPF2e, ArmorPF2e, BackgroundPF2e, BookPF2e, CampaignFeaturePF2e, ClassPF2e, ConditionPF2e, ConsumablePF2e, ContainerPF2e, DeityPF2e, EffectPF2e, EquipmentPF2e, FeatPF2e, HeritagePF2e, KitPF2e, LorePF2e, MeleePF2e, ShieldPF2e, SpellPF2e, SpellcastingEntryPF2e, TreasurePF2e, WeaponPF2e } from "../../module/item/index.ts";
 import { WeaponReloadTime } from "../../module/item/weapon/types.ts";
 import { JournalSheetPF2e } from "../../module/journal-entry/sheet.ts";
+
 export type StatusEffectIconTheme = "default" | "blackWhite";
 export declare const PF2ECONFIG: {
     defaultPartyId: string;
@@ -862,12 +863,12 @@ export declare const PF2ECONFIG: {
         "worn-under-armor": string;
     };
     magicTraditions: Record<"arcane" | "divine" | "occult" | "primal", string>;
-    deityDomains: Record<"healing" | "magic" | "metal" | "water" | "wood" | "air" | "cold" | "earth" | "fire" | "void" | "wealth" | "abomination" | "ambition" | "change" | "cities" | "confidence" | "creation" | "darkness" | "death" | "decay" | "destruction" | "dreams" | "dust" | "duty" | "family" | "fate" | "freedom" | "glyph" | "indulgence" | "introspection" | "knowledge" | "lightning" | "luck" | "might" | "moon" | "naga" | "nature" | "nightmares" | "pain" | "passion" | "perfection" | "plague" | "protection" | "repose" | "secrecy" | "sorrow" | "soul" | "star" | "sun" | "swarm" | "time" | "toil" | "travel" | "trickery" | "truth" | "tyranny" | "undeath" | "vigil" | "zeal" | "airapocryphal" | "ambitionapocryphal" | "confidenceapocryphal" | "darknessapocryphal" | "deathapocryphal" | "delirium" | "fateapocryphal" | "fireapocryphal" | "indulgenceapocryphal" | "knowledgeapocryphal" | "mightapocryphal" | "secrecyapocryphal" | "travelapocryphal" | "waterapocryphal" | "wyrmkin", {
+    deityDomains: Record<"time" | "healing" | "magic" | "metal" | "water" | "wood" | "air" | "cold" | "earth" | "fire" | "void" | "wealth" | "abomination" | "ambition" | "change" | "cities" | "confidence" | "creation" | "darkness" | "death" | "decay" | "destruction" | "dreams" | "dust" | "duty" | "family" | "fate" | "freedom" | "glyph" | "indulgence" | "introspection" | "knowledge" | "lightning" | "luck" | "might" | "moon" | "naga" | "nature" | "nightmares" | "pain" | "passion" | "perfection" | "plague" | "protection" | "repose" | "secrecy" | "sorrow" | "soul" | "star" | "sun" | "swarm" | "toil" | "travel" | "trickery" | "truth" | "tyranny" | "undeath" | "vigil" | "zeal" | "airapocryphal" | "ambitionapocryphal" | "confidenceapocryphal" | "darknessapocryphal" | "deathapocryphal" | "delirium" | "fateapocryphal" | "fireapocryphal" | "indulgenceapocryphal" | "knowledgeapocryphal" | "mightapocryphal" | "secrecyapocryphal" | "travelapocryphal" | "waterapocryphal" | "wyrmkin", {
         label: string;
         description: string;
     }>;
     otherArmorTags: Record<"shoddy", string>;
-    otherConsumableTags: Record<"herbal", string>;
+    otherConsumableTags: Record<import('../../module/item/consumable/types.ts').OtherConsumableTag, string>;
     otherWeaponTags: Record<import('../../module/item/weapon/types.ts').OtherWeaponTag, string>;
     actionTraits: {
         "certain-kill": string;
@@ -3040,7 +3041,10 @@ export declare const PF2ECONFIG: {
         injection: string;
         intelligent: string;
         invested: string;
+        "jousting-d4": string;
         "jousting-d6": string;
+        "jousting-d8": string;
+        "jousting-d10": string;
         kickback: string;
         light: string;
         magical: string;
@@ -3429,7 +3433,10 @@ export declare const PF2ECONFIG: {
         injection: string;
         intelligent: string;
         invested: string;
+        "jousting-d4": string;
         "jousting-d6": string;
+        "jousting-d8": string;
+        "jousting-d10": string;
         kickback: string;
         light: string;
         magical: string;
@@ -4068,7 +4075,10 @@ export declare const PF2ECONFIG: {
         gunslinger: string;
         hag: string;
         halfling: string;
+        "jousting-d4": string;
         "jousting-d6": string;
+        "jousting-d8": string;
+        "jousting-d10": string;
         hampering: string;
         harnessed: string;
         haunt: string;
@@ -4200,11 +4210,11 @@ export declare const PF2ECONFIG: {
         skirmisher: string;
     };
     creatureTypes: {
+        time: string;
         plant: string;
         spirit: string;
         vitality: string;
         void: string;
-        time: string;
         fungus: string;
         shadow: string;
         beast: string;
@@ -4260,7 +4270,7 @@ export declare const PF2ECONFIG: {
         5: string;
     };
     weaponReload: Record<WeaponReloadTime, string>;
-    armorCategories: Record<"light" | "unarmored" | "medium" | "heavy" | "light-barding" | "heavy-barding", string>;
+    armorCategories: Record<"medium" | "light" | "unarmored" | "heavy" | "light-barding" | "heavy-barding", string>;
     armorGroups: Record<"wood" | "composite" | "chain" | "cloth" | "leather" | "plate" | "skeletal", string>;
     consumableCategories: Record<"poison" | "catalyst" | "elixir" | "fulu" | "gadget" | "mutagen" | "oil" | "potion" | "scroll" | "snare" | "talisman" | "wand" | "drug" | "ammo" | "other" | "toolkit", string>;
     identification: {

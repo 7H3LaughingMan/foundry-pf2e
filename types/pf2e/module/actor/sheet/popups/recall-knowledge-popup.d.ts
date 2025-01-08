@@ -1,4 +1,5 @@
 import { CreatureIdentificationData } from "../../../recall-knowledge.ts";
+
 export declare class RecallKnowledgePopup extends Application {
     #private;
     constructor(options: Partial<ApplicationOptions>, data: CreatureIdentificationData);

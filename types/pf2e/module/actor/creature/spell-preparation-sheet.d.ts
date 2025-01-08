@@ -4,6 +4,7 @@ import { ItemPF2e } from "../../item/index.ts";
 import { ItemSourcePF2e } from "../../item/base/data/index.ts";
 import { SpellcastingEntryPF2e, SpellcastingSheetData } from "../../item/spellcasting-entry/index.ts";
 import { ZeroToTen } from "../../data.ts";
+
 /**
  * Sheet used to render the the spell list for prepared casting.
  * It overrides the actor sheet to inherit important drag/drop behavior for actor items (the spells).

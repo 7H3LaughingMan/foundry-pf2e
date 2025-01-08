@@ -5,6 +5,7 @@ import { AbilityItemPF2e, ArmorPF2e, WeaponPF2e } from "../../item/index.ts";
 import { ItemCarryType } from "../../item/physical/index.ts";
 import { ZeroToThree, ZeroToTwo } from "../../data.ts";
 import { SheetOptions } from "../../sheet/helpers.ts";
+
 /** Handle weapon traits that introduce modifiers or add other weapon traits */
 declare class PCAttackTraitHelpers extends AttackTraitHelpers {
     static adjustWeapon(weapon: WeaponPF2e): void;

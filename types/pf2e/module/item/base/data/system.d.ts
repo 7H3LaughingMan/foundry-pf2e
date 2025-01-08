@@ -3,6 +3,7 @@ import { RuleElementSource } from "../../../rules/index.ts";
 import { Predicate } from "../../../system/predication.ts";
 import { ItemTrait } from "../types.ts";
 import { ItemType } from "./index.ts";
+
 import type * as fields from "../../../../../foundry/common/data/fields.ts";
 type BaseItemSourcePF2e<TType extends ItemType, TSystemSource extends ItemSystemSource = ItemSystemSource> = foundry.documents.ItemSource<TType, TSystemSource> & {
     flags: ItemSourceFlagsPF2e;
@@ -110,4 +111,4 @@ type ItemSchemaPF2e = Omit<foundry.documents.ItemSchema, "system"> & {
 interface Frequency extends FrequencySource {
     value: number;
 }
-export type { ActionCost, ActionType, BaseItemSourcePF2e, Frequency, FrequencyInterval, FrequencySource, ItemDescriptionData, ItemFlagsPF2e, ItemGrantData, ItemGrantDeleteAction, ItemGrantSource, ItemSchemaPF2e, ItemSourceFlagsPF2e, ItemSystemData, ItemSystemSource, ItemTrait, ItemTraits, ItemTraitsNoRarity, OtherTagsOnly, RarityTraitAndOtherTags, };
+export type { ActionCost, ActionType, BaseItemSourcePF2e, Frequency, FrequencyInterval, FrequencySource, ItemDescriptionData, ItemFlagsPF2e, ItemGrantData, ItemGrantDeleteAction, ItemGrantSource, ItemGranterSource, ItemSchemaPF2e, ItemSourceFlagsPF2e, ItemSystemData, ItemSystemSource, ItemTrait, ItemTraits, ItemTraitsNoRarity, OtherTagsOnly, RarityTraitAndOtherTags, };

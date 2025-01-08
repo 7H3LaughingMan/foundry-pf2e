@@ -8,7 +8,7 @@ import { ItemPF2e, PhysicalItemPF2e } from "./module/item/index.ts";
 import { ConditionSource } from "./module/item/condition/data.ts";
 import { CoinsPF2e } from "./module/item/physical/helpers.ts";
 import { ActiveEffectPF2e } from "./module/active-effect.ts";
-import { CompendiumBrowser, CompendiumBrowserSettings, CompendiumBrowserSources } from "./module/apps/compendium-browser/index.ts";
+import { CompendiumBrowser, CompendiumBrowserSettings, CompendiumBrowserSources } from "./module/apps/compendium-browser/browser.ts";
 import { EffectsPanel } from "./module/apps/effects-panel.ts";
 import { HotbarPF2e } from "./module/apps/hotbar.ts";
 import { LicenseViewer } from "./module/apps/license-viewer/app.ts";
@@ -36,6 +36,7 @@ import { Predicate } from "./module/system/predication.ts";
 import { CustomDamageData, HomebrewTag, HomebrewTraitSettingsKey, LanguageSettings } from "./module/system/settings/homebrew/index.ts";
 import { TextEditorPF2e } from "./module/system/text-editor.ts";
 import { sluggify } from "./util/index.ts";
+
 interface GamePF2e extends Game<ActorPF2e<null>, ActorsPF2e<ActorPF2e<null>>, ChatMessagePF2e, EncounterPF2e, ItemPF2e<null>, MacroPF2e, ScenePF2e, UserPF2e> {
     pf2e: {
         actions: Record<string, Function> & Collection<Action>;
@@ -259,4 +260,5 @@ declare global {
     const ROLL_PARSER: string;
     const UUID_REDIRECTS: Record<CompendiumUUID, CompendiumUUID>;
 }
-export {};
+
+export { GamePF2e };

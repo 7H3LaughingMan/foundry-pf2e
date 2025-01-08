@@ -1,10 +1,12 @@
 import "./foundry/index.d.ts";
 import "./pf2e/index.d.ts";
 
-export type { HitPointsStatistic } from "./pf2e/module/actor/data/base.d.ts";
 export type { ActionCost } from "./pf2e/module/item/base/data/system.d.ts";
+export type { CompendiumBrowser } from "./pf2e/module/apps/compendium-browser/browser.d.ts";
+export type { HitPointsStatistic } from "./pf2e/module/actor/data/base.d.ts";
 export type { PrerequisiteTagData } from "./pf2e/module/item/feat/data.d.ts";
 
+export type * from "./pf2e/global.d.ts";
 export type * from "./pf2e/module/active-effect.d.ts";
 export type * from "./pf2e/module/data.d.ts";
 export type * from "./pf2e/module/dc.d.ts";
@@ -138,11 +140,12 @@ export type * from "./pf2e/module/apps/item-attacher.d.ts";
 export type * from "./pf2e/module/apps/migration-summary.d.ts";
 export type * from "./pf2e/module/apps/pick-a-thing-prompt.d.ts";
 export type * from "./pf2e/module/apps/scene-darkness-adjuster.d.ts";
+export type * from "./pf2e/module/apps/compendium-browser/browser.d.ts";
 export type * from "./pf2e/module/apps/compendium-browser/data.d.ts";
 export type * from "./pf2e/module/apps/compendium-browser/index.d.ts";
 export type * from "./pf2e/module/apps/compendium-browser/loader.d.ts";
+export type * from "./pf2e/module/apps/compendium-browser/settings.d.ts";
 export type * from "./pf2e/module/apps/compendium-browser/tabs/action.d.ts";
-export type * from "./pf2e/module/apps/compendium-browser/tabs/base.d.ts";
 export type * from "./pf2e/module/apps/compendium-browser/tabs/bestiary.d.ts";
 export type * from "./pf2e/module/apps/compendium-browser/tabs/campaign-feature.d.ts";
 export type * from "./pf2e/module/apps/compendium-browser/tabs/data.d.ts";

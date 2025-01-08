@@ -3,6 +3,7 @@ import { ActionCheckPreview, SingleCheckAction, SingleCheckActionVariant, Single
 import { ItemPF2e } from "../../../item/index.ts";
 import { CheckContextData, CheckContextOptions, CheckMacroContext } from "../types.ts";
 import { SkillActionOptions } from "../index.ts";
+
 declare function escape(options: SkillActionOptions): void;
 declare class EscapeActionVariant extends SingleCheckActionVariant {
     #private;

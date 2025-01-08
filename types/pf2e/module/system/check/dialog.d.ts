@@ -1,6 +1,7 @@
 import { RawModifier, StatisticModifier } from "../../actor/modifiers.ts";
 import { RollSubstitution } from "../../rules/synthetics.ts";
 import { CheckCheckContext } from "./types.ts";
+
 /**
  * Dialog for excluding certain modifiers before rolling a check.
  * @category Other

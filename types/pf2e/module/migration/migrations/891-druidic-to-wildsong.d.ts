@@ -1,6 +1,7 @@
 import { ActorSourcePF2e } from "../../actor/data/index.ts";
 import { ItemSourcePF2e } from "../../item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
+
 /** Remove AE-likes that increase the size of a PC's focus pool. */
 export declare class Migration891DruidicToWildsong extends MigrationBase {
     static version: number;

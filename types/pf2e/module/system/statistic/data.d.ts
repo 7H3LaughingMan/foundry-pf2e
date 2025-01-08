@@ -2,6 +2,7 @@ import { ModifierPF2e, RawModifier } from "../../actor/modifiers.ts";
 import { AttributeString } from "../../actor/types.ts";
 import { ZeroToFour } from "../../data.ts";
 import { CheckType } from "../check/index.ts";
+
 interface BaseStatisticData {
     /** An identifier such as "reflex" or "ac" or "deception" */
     slug: string;

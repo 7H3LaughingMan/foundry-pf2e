@@ -4,6 +4,7 @@ import { ActorSizePF2e } from "../data/size.ts";
 import { PublicationData, Rarity, Size } from "../../data.ts";
 import { ArmorClassTraceData, StatisticTraceData } from "../../system/statistic/index.ts";
 import { VehicleTrait } from "./types.ts";
+
 /** The stored source data of a vehicle actor */
 type VehicleSource = BaseActorSourcePF2e<"vehicle", VehicleSystemSource>;
 interface VehicleSystemSource extends ActorSystemSource {

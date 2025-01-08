@@ -3,6 +3,7 @@ import { ZeroToTen } from "../../data.ts";
 import { Statistic } from "../../system/statistic/statistic.ts";
 import { SpellSlotGroupId } from "./collection.ts";
 import { SpellcastingEntry } from "./types.ts";
+
 /** Create a statistic that draws from limited domains for the purpose of counteracting. */
 declare function createCounteractStatistic<TActor extends ActorPF2e>(ability: SpellcastingEntry<TActor>): Statistic<TActor>;
 declare function spellSlotGroupIdToNumber(groupId: SpellSlotGroupId): ZeroToTen;

@@ -18,13 +18,14 @@ import { ArmorStatistic, PerceptionStatistic, Statistic, StatisticDifficultyClas
 import { EnrichmentOptionsPF2e } from "../system/text-editor.ts";
 import { ActorConditions } from "./conditions.ts";
 import { Abilities, VisionLevel } from "./creature/data.ts";
-import { GetReachParameters, ModeOfBeing } from "./creature/types.ts";
+import { GetReachParameters, ModeOfBeing, ResourceData } from "./creature/types.ts";
 import { ActorFlagsPF2e, ActorSystemData, PrototypeTokenPF2e, RollOptionFlags } from "./data/base.ts";
 import { ActorSourcePF2e } from "./data/index.ts";
 import { ActorInitiative } from "./initiative.ts";
 import { ActorInventory } from "./inventory/index.ts";
 import { ActorSheetPF2e } from "./sheet/base.ts";
 import { ActorSpellcasting } from "./spellcasting.ts";
+
 /**
  * Extend the base Actor class to implement additional logic specialized for PF2e.
  * @category Actor
@@ -126,6 +127,8 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     checkItemValidity(source: PreCreate<ItemSourcePF2e>): boolean;
     /** Get (almost) any statistic by slug: handling expands in `ActorPF2e` subclasses */
     getStatistic(slug: string): Statistic<this> | null;
+    /** Returns a resource by slug or by key */
+    getResource(_resource: string): ResourceData | null;
     /** Get roll options from this actor's effects, traits, and other properties */
     getSelfRollOptions(prefix?: "self" | "target" | "origin"): string[];
     /** The actor's reach: a meaningful implementation is found in `CreaturePF2e` and `HazardPF2e`. */
