@@ -1,73 +1,6 @@
-import * as smooth from "@pixi/graphics-smooth";
-import * as particles from "@pixi/particle-emitter";
-import {
-    ALPHA_MODES,
-    AccessibilityManager,
-    AlphaFilter,
-    Application,
-    BLEND_MODES,
-    BaseTexture,
-    BatchGeometry,
-    BatchRenderer,
-    BatchShaderGenerator,
-    BlurFilter,
-    Bounds,
-    CLEAR_MODES,
-    Circle,
-    Color,
-    ColorSource,
-    Container,
-    DisplayObject,
-    Ellipse,
-    EventBoundary,
-    Extract,
-    FORMATS,
-    FederatedEvent,
-    FederatedPointerEvent,
-    FederatedWheelEvent,
-    Filter,
-    FilterState,
-    FilterSystem,
-    Geometry,
-    Graphics,
-    IBaseTextureOptions,
-    IBatchableElement,
-    IDestroyOptions,
-    IPointData,
-    ITextStyle,
-    Graphics as LegacyGraphics,
-    MIPMAP_MODES,
-    MSAA_QUALITY,
-    Matrix,
-    Mesh,
-    ObservablePoint,
-    ParticleContainer,
-    ParticleRenderer,
-    Point,
-    Polygon,
-    Prepare,
-    Program,
-    Rectangle,
-    RenderTexture,
-    Renderer,
-    RoundedRectangle,
-    SCALE_MODES,
-    SHAPES,
-    Shader,
-    Sprite,
-    Spritesheet,
-    TYPES,
-    Text,
-    TextStyle,
-    Texture,
-    TextureUvs,
-    TilingSpriteRenderer,
-    Transform,
-    UniformGroup,
-    ViewableBuffer,
-    settings,
-    utils,
-} from "pixi.js";
+import * as _smooth from "@pixi/graphics-smooth";
+import * as _particles from "@pixi/particle-emitter";
+import * as _PIXI from "pixi.js";
 import "./board.d.ts";
 import "./core/index.d.ts";
 import "./fog-manager.d.ts";
@@ -83,76 +16,247 @@ import "./webgl/index.d.ts";
 
 declare global {
     module PIXI {
-        export {
-            AccessibilityManager,
-            AlphaFilter,
-            Application,
-            ALPHA_MODES,
-            BLEND_MODES,
-            BaseTexture,
-            BatchGeometry,
-            BatchRenderer,
-            BatchShaderGenerator,
-            BlurFilter,
-            Bounds,
-            CLEAR_MODES,
-            Circle,
-            Color,
-            ColorSource,
-            Container,
-            DisplayObject,
-            Ellipse,
-            EventBoundary,
-            Extract,
-            FederatedEvent,
-            FederatedPointerEvent,
-            FederatedWheelEvent,
-            Filter,
-            FilterState,
-            FilterSystem,
-            FORMATS,
-            Geometry,
-            Graphics,
-            IBaseTextureOptions,
-            IBatchableElement,
-            IDestroyOptions,
-            IPointData,
-            ITextStyle,
-            LegacyGraphics,
-            Matrix,
-            Mesh,
-            MIPMAP_MODES,
-            MSAA_QUALITY,
-            ParticleContainer,
-            ParticleRenderer,
-            Point,
-            Polygon,
-            Prepare,
-            Program,
-            ObservablePoint,
-            Rectangle,
-            RenderTexture,
-            Renderer,
-            RoundedRectangle,
-            SCALE_MODES,
-            SHAPES,
-            Shader,
-            Sprite,
-            Spritesheet,
-            TYPES,
-            Text,
-            TextStyle,
-            Texture,
-            TextureAlphaData,
-            TextureUvs,
-            TilingSpriteRenderer,
-            Transform,
-            UniformGroup,
-            ViewableBuffer,
-            particles,
-            settings,
-            smooth,
-            utils,
-        };
+        export import ALPHA_MODES = _PIXI.ALPHA_MODES;
+        export import AbstractMultiResource = _PIXI.AbstractMultiResource;
+        export import AccessibilityManager = _PIXI.AccessibilityManager;
+        export import AlphaFilter = _PIXI.AlphaFilter;
+        export import AnimatedSprite = _PIXI.AnimatedSprite;
+        export import Application = _PIXI.Application;
+        export import ArrayResource = _PIXI.ArrayResource;
+        export import Assets = _PIXI.Assets;
+        export import AssetsClass = _PIXI.AssetsClass;
+        export import Attribute = _PIXI.Attribute;
+        export import BLEND_MODES = _PIXI.BLEND_MODES;
+        export import BUFFER_BITS = _PIXI.BUFFER_BITS;
+        export import BUFFER_TYPE = _PIXI.BUFFER_TYPE;
+        export import BackgroundSystem = _PIXI.BackgroundSystem;
+        export import BaseImageResource = _PIXI.BaseImageResource;
+        export import BasePrepare = _PIXI.BasePrepare;
+        export import BaseRenderTexture = _PIXI.BaseRenderTexture;
+        export import BaseTexture = _PIXI.BaseTexture;
+        export import BatchDrawCall = _PIXI.BatchDrawCall;
+        export import BatchGeometry = _PIXI.BatchGeometry;
+        export import BatchRenderer = _PIXI.BatchRenderer;
+        export import BatchShaderGenerator = _PIXI.BatchShaderGenerator;
+        export import BatchSystem = _PIXI.BatchSystem;
+        export import BatchTextureArray = _PIXI.BatchTextureArray;
+        export import BitmapFont = _PIXI.BitmapFont;
+        export import BitmapFontData = _PIXI.BitmapFontData;
+        export import BitmapText = _PIXI.BitmapText;
+        export import BlobResource = _PIXI.BlobResource;
+        export import BlurFilter = _PIXI.BlurFilter;
+        export import BlurFilterPass = _PIXI.BlurFilterPass;
+        export import Bounds = _PIXI.Bounds;
+        export import BrowserAdapter = _PIXI.BrowserAdapter;
+        export import Buffer = _PIXI.Buffer;
+        export import BufferResource = _PIXI.BufferResource;
+        export import BufferSystem = _PIXI.BufferSystem;
+        export import CLEAR_MODES = _PIXI.CLEAR_MODES;
+        export import COLOR_MASK_BITS = _PIXI.COLOR_MASK_BITS;
+        export import Cache = _PIXI.Cache;
+        export import CanvasResource = _PIXI.CanvasResource;
+        export import Circle = _PIXI.Circle;
+        export import Color = _PIXI.Color;
+        export import ColorMatrixFilter = _PIXI.ColorMatrixFilter;
+        export import CompressedTextureResource = _PIXI.CompressedTextureResource;
+        export import Container = _PIXI.Container;
+        export import ContextSystem = _PIXI.ContextSystem;
+        export import CountLimiter = _PIXI.CountLimiter;
+        export import CubeResource = _PIXI.CubeResource;
+        export import DEG_TO_RAD = _PIXI.DEG_TO_RAD;
+        export import DRAW_MODES = _PIXI.DRAW_MODES;
+        export import DisplacementFilter = _PIXI.DisplacementFilter;
+        export import DisplayObject = _PIXI.DisplayObject;
+        export import ENV = _PIXI.ENV;
+        export import Ellipse = _PIXI.Ellipse;
+        export import EventBoundary = _PIXI.EventBoundary;
+        export import EventSystem = _PIXI.EventSystem;
+        export import ExtensionType = _PIXI.ExtensionType;
+        export import Extract = _PIXI.Extract;
+        export import FORMATS = _PIXI.FORMATS;
+        export import FORMATS_TO_COMPONENTS = _PIXI.FORMATS_TO_COMPONENTS;
+        export import FXAAFilter = _PIXI.FXAAFilter;
+        export import FederatedDisplayObject = _PIXI.FederatedDisplayObject;
+        export import FederatedEvent = _PIXI.FederatedEvent;
+        export import FederatedMouseEvent = _PIXI.FederatedMouseEvent;
+        export import FederatedPointerEvent = _PIXI.FederatedPointerEvent;
+        export import FederatedWheelEvent = _PIXI.FederatedWheelEvent;
+        export import FillStyle = _PIXI.FillStyle;
+        export import Filter = _PIXI.Filter;
+        export import FilterState = _PIXI.FilterState;
+        export import FilterSystem = _PIXI.FilterSystem;
+        export import Framebuffer = _PIXI.Framebuffer;
+        export import FramebufferSystem = _PIXI.FramebufferSystem;
+        export import GC_MODES = _PIXI.GC_MODES;
+        export import GLFramebuffer = _PIXI.GLFramebuffer;
+        export import GLProgram = _PIXI.GLProgram;
+        export import GLTexture = _PIXI.GLTexture;
+        export import GRAPHICS_CURVES = _PIXI.GRAPHICS_CURVES;
+        export import GenerateTextureSystem = _PIXI.GenerateTextureSystem;
+        export import Geometry = _PIXI.Geometry;
+        export import GeometrySystem = _PIXI.GeometrySystem;
+        export import Graphics = _smooth.SmoothGraphics;
+        export import GraphicsData = _PIXI.GraphicsData;
+        export import GraphicsGeometry = _PIXI.GraphicsGeometry;
+        export import HTMLText = _PIXI.HTMLText;
+        export import HTMLTextStyle = _PIXI.HTMLTextStyle;
+        export import IGLUniformData = _PIXI.IGLUniformData;
+        export import INSTALLED = _PIXI.INSTALLED;
+        export import INTERNAL_FORMATS = _PIXI.INTERNAL_FORMATS;
+        export import INTERNAL_FORMAT_TO_BYTES_PER_PIXEL = _PIXI.INTERNAL_FORMAT_TO_BYTES_PER_PIXEL;
+        export import ImageBitmapResource = _PIXI.ImageBitmapResource;
+        export import ImageResource = _PIXI.ImageResource;
+        export import LegacyGraphics = _PIXI.Graphics;
+        export import LINE_CAP = _PIXI.LINE_CAP;
+        export import LINE_JOIN = _PIXI.LINE_JOIN;
+        export import LineStyle = _PIXI.LineStyle;
+        export import LoaderParserPriority = _PIXI.LoaderParserPriority;
+        export import MASK_TYPES = _PIXI.MASK_TYPES;
+        export import MIPMAP_MODES = _PIXI.MIPMAP_MODES;
+        export import MSAA_QUALITY = _PIXI.MSAA_QUALITY;
+        export import MaskData = _PIXI.MaskData;
+        export import MaskSystem = _PIXI.MaskSystem;
+        export import Matrix = _PIXI.Matrix;
+        export import Mesh = _PIXI.Mesh;
+        export import MeshBatchUvs = _PIXI.MeshBatchUvs;
+        export import MeshGeometry = _PIXI.MeshGeometry;
+        export import MeshMaterial = _PIXI.MeshMaterial;
+        export import MultisampleSystem = _PIXI.MultisampleSystem;
+        export import NineSlicePlane = _PIXI.NineSlicePlane;
+        export import NoiseFilter = _PIXI.NoiseFilter;
+        export import ObjectRenderer = _PIXI.ObjectRenderer;
+        export import ObjectRendererSystem = _PIXI.ObjectRendererSystem;
+        export import ObservablePoint = _PIXI.ObservablePoint;
+        export import PI_2 = _PIXI.PI_2;
+        export import PRECISION = _PIXI.PRECISION;
+        export import ParticleContainer = _PIXI.ParticleContainer;
+        export import ParticleRenderer = _PIXI.ParticleRenderer;
+        export import PlaneGeometry = _PIXI.PlaneGeometry;
+        export import PluginSystem = _PIXI.PluginSystem;
+        export import Point = _PIXI.Point;
+        export import Polygon = _PIXI.Polygon;
+        export import Prepare = _PIXI.Prepare;
+        export import Program = _PIXI.Program;
+        export import ProjectionSystem = _PIXI.ProjectionSystem;
+        export import Quad = _PIXI.Quad;
+        export import QuadUv = _PIXI.QuadUv;
+        export import RAD_TO_DEG = _PIXI.RAD_TO_DEG;
+        export import RENDERER_TYPE = _PIXI.RENDERER_TYPE;
+        export import Rectangle = _PIXI.Rectangle;
+        export import RenderTexture = _PIXI.RenderTexture;
+        export import RenderTexturePool = _PIXI.RenderTexturePool;
+        export import RenderTextureSystem = _PIXI.RenderTextureSystem;
+        export import Renderer = _PIXI.Renderer;
+        export import ResizePlugin = _PIXI.ResizePlugin;
+        export import Resource = _PIXI.Resource;
+        export import RopeGeometry = _PIXI.RopeGeometry;
+        export import RoundedRectangle = _PIXI.RoundedRectangle;
+        export import Runner = _PIXI.Runner;
+        export import SAMPLER_TYPES = _PIXI.SAMPLER_TYPES;
+        export import SCALE_MODES = _PIXI.SCALE_MODES;
+        export import SHAPES = _PIXI.SHAPES;
+        export import SVGResource = _PIXI.SVGResource;
+        export import ScissorSystem = _PIXI.ScissorSystem;
+        export import Shader = _PIXI.Shader;
+        export import ShaderSystem = _PIXI.ShaderSystem;
+        export import SimpleMesh = _PIXI.SimpleMesh;
+        export import SimplePlane = _PIXI.SimplePlane;
+        export import SimpleRope = _PIXI.SimpleRope;
+        export import Sprite = _PIXI.Sprite;
+        export import SpriteMaskFilter = _PIXI.SpriteMaskFilter;
+        export import Spritesheet = _PIXI.Spritesheet;
+        export import StartupSystem = _PIXI.StartupSystem;
+        export import State = _PIXI.State;
+        export import StateSystem = _PIXI.StateSystem;
+        export import StencilSystem = _PIXI.StencilSystem;
+        export import SystemManager = _PIXI.SystemManager;
+        export import TARGETS = _PIXI.TARGETS;
+        export import TEXT_GRADIENT = _PIXI.TEXT_GRADIENT;
+        export import TYPES = _PIXI.TYPES;
+        export import TYPES_TO_BYTES_PER_COMPONENT = _PIXI.TYPES_TO_BYTES_PER_COMPONENT;
+        export import TYPES_TO_BYTES_PER_PIXEL = _PIXI.TYPES_TO_BYTES_PER_PIXEL;
+        export import TemporaryDisplayObject = _PIXI.TemporaryDisplayObject;
+        export import Text = _PIXI.Text;
+        export import TextFormat = _PIXI.TextFormat;
+        export import TextMetrics = _PIXI.TextMetrics;
+        export import TextStyle = _PIXI.TextStyle;
+        export import Texture = _PIXI.Texture;
+        export import TextureGCSystem = _PIXI.TextureGCSystem;
+        export import TextureMatrix = _PIXI.TextureMatrix;
+        export import TextureSystem = _PIXI.TextureSystem;
+        export import TextureUvs = _PIXI.TextureUvs;
+        export import Ticker = _PIXI.Ticker;
+        export import TickerPlugin = _PIXI.TickerPlugin;
+        export import TilingSprite = _PIXI.TilingSprite;
+        export import TilingSpriteRenderer = _PIXI.TilingSpriteRenderer;
+        export import TimeLimiter = _PIXI.TimeLimiter;
+        export import Transform = _PIXI.Transform;
+        export import TransformFeedback = _PIXI.TransformFeedback;
+        export import TransformFeedbackSystem = _PIXI.TransformFeedbackSystem;
+        export import UPDATE_PRIORITY = _PIXI.UPDATE_PRIORITY;
+        export import UniformGroup = _PIXI.UniformGroup;
+        export import VERSION = _PIXI.VERSION;
+        export import VideoResource = _PIXI.VideoResource;
+        export import ViewSystem = _PIXI.ViewSystem;
+        export import ViewableBuffer = _PIXI.ViewableBuffer;
+        export import WRAP_MODES = _PIXI.WRAP_MODES;
+        export import XMLFormat = _PIXI.XMLFormat;
+        export import XMLStringFormat = _PIXI.XMLStringFormat;
+        export import accessibleTarget = _PIXI.accessibleTarget;
+        export import autoDetectFormat = _PIXI.autoDetectFormat;
+        export import autoDetectRenderer = _PIXI.autoDetectRenderer;
+        export import autoDetectResource = _PIXI.autoDetectResource;
+        export import cacheTextureArray = _PIXI.cacheTextureArray;
+        export import checkDataUrl = _PIXI.checkDataUrl;
+        export import checkExtension = _PIXI.checkExtension;
+        export import checkMaxIfStatementsInShader = _PIXI.checkMaxIfStatementsInShader;
+        export import convertToList = _PIXI.convertToList;
+        export import copySearchParams = _PIXI.copySearchParams;
+        export import createStringVariations = _PIXI.createStringVariations;
+        export import createTexture = _PIXI.createTexture;
+        export import createUBOElements = _PIXI.createUBOElements;
+        export import curves = _PIXI.curves;
+        export import defaultFilterVertex = _PIXI.defaultFilterVertex;
+        export import defaultVertex = _PIXI.defaultVertex;
+        export import detectAvif = _PIXI.detectAvif;
+        export import detectCompressedTextures = _PIXI.detectCompressedTextures;
+        export import detectDefaults = _PIXI.detectDefaults;
+        export import detectMp4 = _PIXI.detectMp4;
+        export import detectOgv = _PIXI.detectOgv;
+        export import detectWebm = _PIXI.detectWebm;
+        export import detectWebp = _PIXI.detectWebp;
+        export import extensions = _PIXI.extensions;
+        export import filters = _PIXI.filters;
+        export import generateProgram = _PIXI.generateProgram;
+        export import generateUniformBufferSync = _PIXI.generateUniformBufferSync;
+        export import getFontFamilyName = _PIXI.getFontFamilyName;
+        export import getTestContext = _PIXI.getTestContext;
+        export import getUBOData = _PIXI.getUBOData;
+        export import graphicsUtils = _PIXI.graphicsUtils;
+        export import groupD8 = _PIXI.groupD8;
+        export import isMobile = _PIXI.isMobile;
+        export import isSingleItem = _PIXI.isSingleItem;
+        export import loadBitmapFont = _PIXI.loadBitmapFont;
+        export import loadDDS = _PIXI.loadDDS;
+        export import loadImageBitmap = _PIXI.loadImageBitmap;
+        export import loadJson = _PIXI.loadJson;
+        export import loadKTX = _PIXI.loadKTX;
+        export import loadSVG = _PIXI.loadSVG;
+        export import loadTextures = _PIXI.loadTextures;
+        export import loadTxt = _PIXI.loadTxt;
+        export import loadVideo = _PIXI.loadVideo;
+        export import loadWebFont = _PIXI.loadWebFont;
+        export import parseDDS = _PIXI.parseDDS;
+        export import parseKTX = _PIXI.parseKTX;
+        export import resolveCompressedTextureUrl = _PIXI.resolveCompressedTextureUrl;
+        export import resolveTextureUrl = _PIXI.resolveTextureUrl;
+        export import settings = _PIXI.settings;
+        export import spritesheetAsset = _PIXI.spritesheetAsset;
+        export import uniformParsers = _PIXI.uniformParsers;
+        export import unsafeEvalSupported = _PIXI.unsafeEvalSupported;
+        export import utils = _PIXI.utils;
+
+        export import smooth = _smooth;
+        export import particles = _particles;
     }
 }
