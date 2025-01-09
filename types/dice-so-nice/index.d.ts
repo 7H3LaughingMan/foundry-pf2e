@@ -42,3 +42,11 @@ declare global {
         ): number;
     }
 }
+
+declare module "../pf2e/global.js" {
+    interface GamePF2e {
+        dice3d: {
+            waitFor3DAnimationByMessageID(messageId: string): Promise<boolean>;
+        };
+    }
+}
