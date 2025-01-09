@@ -4,6 +4,7 @@ import "./pf2e/index.d.ts";
 export type { ActionCost } from "./pf2e/module/item/base/data/system.d.ts";
 export type { CompendiumBrowser } from "./pf2e/module/apps/compendium-browser/browser.d.ts";
 export type { HitPointsStatistic } from "./pf2e/module/actor/data/base.d.ts";
+export type { ItemFlagsPF2e } from "./pf2e/module/item/base/data/system.d.ts";
 export type { PrerequisiteTagData } from "./pf2e/module/item/feat/data.d.ts";
 
 export type * from "./pf2e/global.d.ts";
