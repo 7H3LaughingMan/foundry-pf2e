@@ -1,3 +1,94 @@
+/**
+ * A helper class providing utility methods for PIXI Canvas animation
+ */
+declare class CanvasAnimation {
+    /**
+     * The ticker used for animations.
+     */
+    static get ticker(): PIXI.Ticker;
+
+    /**
+     * Apply an animation from the current value of some attribute to a new value
+     * Resolve a Promise once the animation has concluded and the attributes have reached their new target
+     *
+     * @param {CanvasAnimationAttribute[]} attributes   An array of attributes to animate
+     * @param {CanvasAnimationOptions} options          Additional options which customize the animation
+     *
+     * @returns {Promise<boolean>}                      A Promise which resolves to true once the animation has concluded
+     *                                                  or false if the animation was prematurely terminated
+     *
+     * @example Animate Token Position
+     * ```js
+     * let animation = [
+     *   {
+     *     parent: token,
+     *     attribute: "x",
+     *     to: 1000
+     *   },
+     *   {
+     *     parent: token,
+     *     attribute: "y",
+     *     to: 2000
+     *   }
+     * ];
+     * CanvasAnimation.animate(attributes, {duration:500});
+     * ```
+     */
+    static animate(attributes: CanvasAnimationAttribute[], options?: CanvasAnimationOptions): Promise<boolean>;
+
+    /**
+     * Retrieve an animation currently in progress by its name
+     * @param {string} name             The animation name to retrieve
+     * @returns {CanvasAnimationData}   The animation data, or undefined
+     */
+    static getAnimation(name: string): CanvasAnimationData;
+
+    /**
+     * If an animation using a certain name already exists, terminate it
+     * @param {string} name       The animation name to terminate
+     */
+    static terminateAnimation(name: string): void;
+
+    /**
+     * Cosine based easing with smooth in-out.
+     * @param {number} pt     The proportional animation timing on [0,1]
+     * @returns {number}      The eased animation progress on [0,1]
+     */
+    static easeInOutCosine(pt: number): number;
+
+    /**
+     * Shallow ease out.
+     * @param {number} pt     The proportional animation timing on [0,1]
+     * @returns {number}      The eased animation progress on [0,1]
+     */
+    static easeOutCircle(pt: number): number;
+
+    /**
+     * Shallow ease in.
+     * @param {number} pt     The proportional animation timing on [0,1]
+     * @returns {number}      The eased animation progress on [0,1]
+     */
+    static easeInCircle(pt: number): number;
+
+    /**
+     * Generic ticker function to implement the animation.
+     * This animation wrapper executes once per frame for the duration of the animation event.
+     * Once the animated attributes have converged to their targets, it resolves the original Promise.
+     * The user-provided ontick function runs each frame update to apply additional behaviors.
+     *
+     * @param {number} deltaTime                The incremental time which has elapsed
+     * @param {CanvasAnimationData} animation   The animation which is being performed
+     */
+    static #animateFrame(deltaTime: number, animation: CanvasAnimationData): void;
+
+    /**
+     * Update a single attribute according to its animation completion percentage
+     * @param {CanvasAnimationAttribute} attribute    The attribute being animated
+     * @param {number} percentage                     The animation completion percentage
+     */
+    static #updateAttribute(attribute: CanvasAnimationAttribute, percentage: number): void;
+}
+
 interface CanvasAnimationAttribute {
     /** The attribute name being animated */
     attribute: string;
