@@ -93,7 +93,7 @@ interface CanvasAnimationAttribute {
     /** The attribute name being animated */
     attribute: string;
     /** The object within which the attribute is stored */
-    parent: Record<string, unknown>;
+    parent: Object;
     /** The destination value of the attribute */
     to: number;
     /** An initial value of the attribute, otherwise parent[attribute] is used */
