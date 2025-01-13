@@ -15,7 +15,7 @@ declare global {
         settings: ClientSettingsMap;
 
         /** Registered settings menus which trigger secondary applications */
-        menus: Map<string, { type: SettingsMenuConstructor }>;
+        menus: Map<string, SettingSubmenuConfig>;
 
         /**
          * The storage interfaces used for persisting settings

@@ -1,3 +1,4 @@
+import type ApplicationV2 from "../client-esm/applications/api/application.d.ts";
 import type { DataModel, Document } from "./abstract/module.d.ts";
 
 declare global {
@@ -70,14 +71,9 @@ declare global {
         /** The classname of an Icon to render */
         icon: string;
         /** The FormApplication to render */
-        type: SettingsMenuConstructor;
+        type: (new () => FormApplication) | (new () => ApplicationV2);
         /** If true, only a GM can edit this Setting */
         restricted: boolean;
-    }
-
-    interface SettingsMenuConstructor {
-        new (object?: object, options?: Partial<FormApplicationOptions>): FormApplication;
-        registerSettings(): void;
     }
 
     /** A Client Keybinding Action Configuration */
