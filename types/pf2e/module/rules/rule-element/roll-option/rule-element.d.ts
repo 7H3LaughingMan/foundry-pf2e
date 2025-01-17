@@ -1,6 +1,6 @@
 import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSource } from "../data.ts";
-import { RollOptionSchema } from "./data.ts";
+import { Suboption, RollOptionSchema } from "./data.ts";
 
 /**
  * Set a roll option at a specificed domain
@@ -8,6 +8,8 @@ import { RollOptionSchema } from "./data.ts";
  */
 declare class RollOptionRuleElement extends RuleElementPF2e<RollOptionSchema> {
     #private;
+    /** True if this roll option has a suboptions configuration */
+    hasSubOptions: boolean;
     constructor(source: RollOptionSource, options: RuleElementOptions);
     static defineSchema(): RollOptionSchema;
     static validateJoint(source: SourceFromSchema<RollOptionSchema>): void;
@@ -18,6 +20,8 @@ declare class RollOptionRuleElement extends RuleElementPF2e<RollOptionSchema> {
     afterPrepareData(): void;
     /** Force false totm toggleable roll options if the totmToggles setting is disabled */
     resolveValue(): boolean;
+    /** Retrieves the self sub options without handling any merge families */
+    getSelfSuboptions(): Suboption[];
     /**
      * Toggle the provided roll option (swapping it from true to false or vice versa).
      * @param value The new roll option value

@@ -603,6 +603,7 @@ export declare const PF2ECONFIG: {
         "mithral-tree": string;
         "monkeys-fist": string;
         morningstar: string;
+        nails: string;
         naginata: string;
         nightstick: string;
         nodachi: string;

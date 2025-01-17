@@ -1,4 +1,4 @@
-import { DataUnionField, PredicateField, StrictBooleanField, StrictStringField } from "../../../system/schema-data-fields.ts";
+import { DataUnionField, PredicateField, StrictArrayField, StrictBooleanField, StrictStringField } from "../../../system/schema-data-fields.ts";
 import { AELikeDataPrepPhase } from "../ae-like.ts";
 import { ResolvableValueField, RuleElementSchema } from "../data.ts";
 import { RollOptionRuleElement } from "./rule-element.ts";
@@ -16,7 +16,7 @@ type RollOptionSchema = RuleElementSchema & {
     phase: fields.StringField<AELikeDataPrepPhase, AELikeDataPrepPhase, false, false, true>;
     option: fields.StringField<string, string, true, false, false>;
     /** Suboptions for a toggle, appended to the option string */
-    suboptions: fields.ArrayField<SuboptionField>;
+    suboptions: DataUnionField<fields.SchemaField<SuboptionConfigSchema, SourceFromSchema<SuboptionConfigSchema>, ModelPropsFromSchema<SuboptionConfigSchema>, false, false> | StrictArrayField<SuboptionField>, false, false, true>;
     /**
      * The value of the roll option: either a boolean or a string resolves to a boolean If omitted, it defaults to
      * `true` unless also `togglable`, in which case to `false`.
@@ -51,5 +51,9 @@ type SuboptionSchema = {
 };
 type SuboptionSource = SourceFromSchema<SuboptionSchema>;
 type SuboptionField = fields.EmbeddedDataField<Suboption, true, false, false>;
+type SuboptionConfigSchema = {
+    config: fields.StringField<string, string, true, false, false>;
+    predicate: PredicateField<false, false>;
+};
 export { Suboption };
 export type { RollOptionSchema, SuboptionField, SuboptionSource };

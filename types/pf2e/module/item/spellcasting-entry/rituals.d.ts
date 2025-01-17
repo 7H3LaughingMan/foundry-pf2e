@@ -15,10 +15,7 @@ export declare class RitualSpellcasting<TActor extends ActorPF2e> implements Bas
     get tradition(): null;
     get isFlexible(): false;
     get isFocusPool(): false;
-    get isInnate(): false;
-    get isPrepared(): false;
     get isRitual(): true;
-    get isSpontaneous(): false;
     get isEphemeral(): true;
     canCast(spell: SpellPF2e): boolean;
     cast(spell: SpellPF2e, options?: CastOptions): Promise<void>;

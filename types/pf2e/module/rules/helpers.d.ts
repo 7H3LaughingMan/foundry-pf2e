@@ -2,6 +2,7 @@ import { ActorPF2e } from "../actor/index.ts";
 import { DamageDicePF2e, DeferredDamageDiceOptions, DeferredValueParams, ModifierAdjustment, ModifierPF2e } from "../actor/modifiers.ts";
 import { ItemPF2e } from "../item/index.ts";
 import { ConditionSource, EffectSource } from "../item/base/data/index.ts";
+import { PickableThing } from "../apps/pick-a-thing-prompt.ts";
 import { RollNotePF2e } from "../notes.ts";
 import { BaseDamageData } from "../system/damage/index.ts";
 import { DegreeOfSuccessAdjustment } from "../system/degree-of-success.ts";
@@ -43,4 +44,5 @@ declare function processPreUpdateActorHooks(changed: Record<string, unknown>, { 
 }): Promise<void>;
 /** Gets the item update info that applies an update to all given rules */
 declare function createBatchRuleElementUpdate(rules: RuleElementPF2e[], update: Record<string, unknown>): EmbeddedDocumentUpdateData[];
-export { createBatchRuleElementUpdate, extractDamageAlterations, extractDamageDice, extractDegreeOfSuccessAdjustments, extractEphemeralEffects, extractModifierAdjustments, extractModifiers, extractNotes, extractRollSubstitutions, extractRollTwice, isBracketedValue, processDamageCategoryStacking, processPreUpdateActorHooks, };
+declare function processChoicesFromData(data: unknown): PickableThing<string>[];
+export { createBatchRuleElementUpdate, extractDamageAlterations, extractDamageDice, extractDegreeOfSuccessAdjustments, extractEphemeralEffects, extractModifierAdjustments, extractModifiers, extractNotes, extractRollSubstitutions, extractRollTwice, isBracketedValue, processChoicesFromData, processDamageCategoryStacking, processPreUpdateActorHooks, };

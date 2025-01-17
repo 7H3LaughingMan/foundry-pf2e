@@ -15,7 +15,9 @@ export declare class ActorSpellcasting<TActor extends ActorPF2e> extends Delegat
     base: Statistic;
     /** All available spell lists on this actor */
     collections: Collection<SpellCollection<TActor>>;
-    constructor(actor: TActor, entries: BaseSpellcastingEntry<TActor>[]);
+    constructor(actor: TActor);
+    /** Initializes spellcasting data. Must be called every data preparation */
+    initialize(entries: BaseSpellcastingEntry<TActor>[]): void;
     /** Returns a list of entries pre-filtered to SpellcastingEntryPF2e */
     get regular(): SpellcastingEntryPF2e<TActor>[];
     /** Get this actor's ritual casting ability */

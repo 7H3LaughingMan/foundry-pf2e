@@ -20,7 +20,7 @@ declare class SpecialResourceRuleElement extends RuleElementPF2e<SpecialResource
         checkLevel?: boolean;
     }): Promise<void>;
     /** If an item uuid is specified, create it when this resource is first attached */
-    preCreate(args: RuleElementPF2e.PreCreateParams): Promise<void>;
+    preCreate({ tempItems, pendingItems }: RuleElementPF2e.PreCreateParams): Promise<void>;
     /** Treat special resources as upgrades during the AELike phase */
     onApplyActiveEffects(): void;
     /** Finish initializing the special resource, flooring values and assigning the value. If its from an item, use as the source of truth */

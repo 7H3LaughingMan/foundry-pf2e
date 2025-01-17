@@ -24,10 +24,6 @@ declare class ItemSpellcasting<TActor extends CreaturePF2e = CreaturePF2e> imple
     get spells(): null;
     get isFlexible(): false;
     get isFocusPool(): false;
-    get isInnate(): false;
-    get isPrepared(): false;
-    get isSpontaneous(): false;
-    get isRitual(): false;
     get isEphemeral(): true;
     canCast(spell: SpellPF2e, { origin }?: {
         origin?: Maybe<PhysicalItemPF2e>;
