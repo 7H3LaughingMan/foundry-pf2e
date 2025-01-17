@@ -101,7 +101,7 @@ declare global {
          * @param [data={}] Additional data, such as x, y, rotation, etc. for the created token data
          * @returns The created TokenDocument instance
          */
-        getTokenDocument(data?: DeepPartial<foundry.documents.TokenSource>): Promise<NonNullable<TParent>>;
+        getTokenDocument(data?: DeepPartial<foundry.documents.TokenSource>, options?: DocumentConstructionContext<Scene>): Promise<NonNullable<TParent>>;
 
         /** Get an Array of Token images which could represent this Actor */
         getTokenImages(): Promise<(ImageFilePath | VideoFilePath)[]>;
