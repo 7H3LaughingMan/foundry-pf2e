@@ -1,18 +1,23 @@
 import { ActorPF2e, CharacterPF2e, LootPF2e } from "../pf2e/module/actor/index.js";
 import { SaveType } from "../pf2e/module/actor/types.js";
 import { EquipmentFilters } from "../pf2e/module/apps/compendium-browser/tabs/data.js";
-import { TokenPF2e } from "../pf2e/module/canvas/index.js";
-import { ChatMessageSourcePF2e } from "../pf2e/module/chat-message/index.js";
+import { ChatMessagePF2e, ChatMessageSourcePF2e } from "../pf2e/module/chat-message/index.js";
 import { AbilityItemPF2e, FeatPF2e, ItemPF2e } from "../pf2e/module/item/index.js";
 import { Coins, CoinsPF2e, PhysicalItemPF2e, PhysicalItemType } from "../pf2e/module/item/physical/index.js";
 import { RollNoteSource } from "../pf2e/module/notes.js";
+import { TokenDocumentPF2e } from "../pf2e/module/scene/index.js";
+import { CheckRoll } from "../pf2e/module/system/check/roll.js";
 import { DegreeAdjustmentsRecord, DegreeOfSuccessString } from "../pf2e/module/system/degree-of-success.js";
 
 export {};
 
 declare global {
-    namespace pf2eToolbelt {
-        namespace betterMerchant {
+    namespace PF2e_Toolbelt {
+        namespace BetterMerchant {
+            type BuyMaxSetting = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+            type SellMaxSetting = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+            type ServicesMaxSetting = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+
             type ItemFilterType = "buy" | "sell";
 
             type ItemFilter = ItemFilterBuy | ItemFilterSell;
@@ -37,32 +42,6 @@ declare global {
                 purse: number;
             };
 
-            type TraderData = {
-                actor: ActorPF2e;
-                token?: TokenPF2e;
-            };
-
-            type ServiceCardData = {
-                actor: ActorPF2e;
-                tokenId: string | undefined;
-                service: ServiceData;
-                tradeMsg?: string;
-            };
-
-            type ServiceMsgFlag = {
-                buyerUUID: string;
-                sellerUUID: string;
-                serviceId: string;
-                forceFree: boolean;
-            };
-
-            type ServiceData = Required<ServiceFlag> & {
-                enrichedDescription: string;
-                enrichedPrice: string;
-                isInfinite: boolean;
-                macro: Macro | null;
-            };
-
             type ServiceFlag = {
                 id: string;
                 level?: number;
@@ -76,12 +55,16 @@ declare global {
             };
         }
 
-        namespace heroActions {
+        namespace Giveth {
+            type EffectSetting = "disabled" | "ally" | "all";
+        }
+
+        namespace HeroActions {
             type CountSetting = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
             type HeroActionFlag = { uuid: string; name: string };
         }
 
-        namespace identify {
+        namespace Identify {
             type IdentifyFailedFlag = Record<string, string>;
 
             type IdenfifiedFlag = Partial<
@@ -96,7 +79,7 @@ declare global {
             >;
         }
 
-        namespace mergeDamage {
+        namespace MergeDamage {
             type MessageData = {
                 source: PreCreate<ChatMessageSourcePF2e>;
                 name: string;
@@ -108,19 +91,19 @@ declare global {
             };
         }
 
-        namespace share {
+        namespace Share {
             type ConfigFlags = {
-                master: string;
-                health: boolean;
                 turn: boolean;
-                skills: boolean;
-                hero: boolean;
-                weapon: boolean;
                 armor: boolean;
+                weapon: boolean;
+                skills: boolean;
+                health: boolean;
+                hero: boolean;
+                master: string;
             };
         }
 
-        namespace targetHelper {
+        namespace TargetHelper {
             type MessageSaveFlag = {
                 statistic: SaveType;
                 basic: boolean;
@@ -135,42 +118,66 @@ declare global {
                 success: DegreeOfSuccessString;
                 roll: string;
                 notes: RollNoteSource[];
-                dosAdjustments?: DegreeAdjustmentsRecord;
+                dosAdjustments: DegreeAdjustmentsRecord | undefined;
                 unadjustedOutcome?: DegreeOfSuccessString | null;
                 modifiers: { label: string; modifier: number }[];
-                significantModifiers?: {
-                    appliedTo: "roll" | "dc";
-                    name: string;
-                    value: number;
-                    significance: "ESSENTIAL" | "HELPFUL" | "HARMFUL" | "DETRIMENTAL";
-                };
+                significantModifiers:
+                    | {
+                          appliedTo: "roll" | "dc";
+                          name: string;
+                          value: number;
+                          significance: "ESSENTIAL" | "HELPFUL" | "HARMFUL" | "DETRIMENTAL";
+                      }
+                    | undefined;
                 rerolled?: "hero" | "new" | "lower" | "higher";
             };
 
+            type TargetMessageType = "damage" | "spell-damage" | "spell-save" | "action" | "check";
+
             type MessageFlag = {
-                type?: "damage" | "spell-damage" | "spell-save" | "action" | "check";
+                type?: TargetMessageType;
                 targets?: string[];
                 save?: MessageSaveFlag;
                 saves?: Record<string, MessageTargetSave>;
                 splashIndex?: number;
                 isRegen?: boolean;
                 applied?: Record<string, boolean[]>;
-                rollOptions?: string[];
+                options?: string[];
+                traits?: string[];
+                item?: ItemUUID;
+                splashTargets?: string[];
+            };
+
+            type RollSaveHook = {
+                roll: Rolled<CheckRoll>;
+                message: ChatMessagePF2e;
+                rollMessage: ChatMessagePF2e;
+                target: TokenDocumentPF2e;
+                data: MessageTargetSave;
+            };
+
+            type RerollSaveHook = {
+                oldRoll: Rolled<CheckRoll>;
+                newRoll: Rolled<CheckRoll>;
+                keptRoll: Rolled<CheckRoll>;
+                message: ChatMessagePF2e;
+                target: TokenDocumentPF2e;
+                data: MessageTargetSave;
             };
         }
 
-        namespace templateHelper {
+        namespace TemplateHelper {
             type DismissSetting = "disabled" | "orphan" | "all";
         }
 
-        namespace underground {
+        namespace Underground {
             type ModeSetting = "normal" | "greyscale" | "sepia";
             type AlphaSetting = 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1.0;
             type ContrastSetting = 0.0 | 0.1 | 0.2 | 0.3 | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1.0;
         }
     }
 
-    class pf2eToolbeltModule extends Module {
+    class PF2e_Toolbelt_Module extends Module {
         api: {
             actionable: {
                 getActionMacro(item: Maybe<ItemPF2e>): Promise<Macro | null>;
@@ -180,9 +187,23 @@ declare global {
                 testItem(
                     actor: LootPF2e,
                     item: PhysicalItemPF2e,
-                    type: pf2eToolbelt.betterMerchant.ItemFilter,
+                    type: PF2e_Toolbelt.BetterMerchant.ItemFilterType,
                     quantity?: number,
-                ): { price: CoinsPF2e; filter: pf2eToolbelt.betterMerchant.ExtractedFilter } | undefined;
+                ): { price: CoinsPF2e; filter: PF2e_Toolbelt.BetterMerchant.ExtractedFilter } | undefined;
+            };
+            droppeth: {
+                droppethRequest(
+                    options: {
+                        item: PhysicalItemPF2e | string;
+                        x: number;
+                        y: number;
+                        quantity?: number;
+                    },
+                    userId?: string,
+                ): void;
+            };
+            giveth: {
+                canDropEffectOnActor(item: ItemPF2e, actor: ActorPF2e): boolean;
             };
             heroActions: {
                 canTrade(): boolean;
@@ -245,10 +266,37 @@ declare global {
         get(module: "pf2e-toolbelt", setting: "betterMerchant.enabled"): boolean;
         /** Better Merchant - Services Above Items */
         get(module: "pf2e-toolbelt", setting: "betterMerchant.servicesTop"): boolean;
+        /** Better Merchant - Buy Max Ratio */
+        get(module: "pf2e-toolbelt", setting: "betterMerchant.buyMax"): PF2e_Toolbelt.BetterMerchant.BuyMaxSetting;
+        /** Better Merchant - Sell Max Ratio */
+        get(module: "pf2e-toolbelt", setting: "betterMerchant.sellMax"): PF2e_Toolbelt.BetterMerchant.SellMaxSetting;
+        /** Better Merchant - Service Max Ratio */
+        get(
+            module: "pf2e-toolbelt",
+            setting: "betterMerchant.servicesMax",
+        ): PF2e_Toolbelt.BetterMerchant.ServicesMaxSetting;
         /** Better Merchant - Enabled */
         set(module: "pf2e-toolbelt", setting: "betterMerchant.enabled", value: boolean): Promise<boolean>;
         /** Better Merchant - Services Above Items */
         set(module: "pf2e-toolbelt", setting: "betterMerchant.servicesTop", value: boolean): Promise<boolean>;
+        /** Better Merchant - Buy Max Ratio */
+        set(
+            module: "pf2e-toolbelt",
+            setting: "betterMerchant.buyMax",
+            value: PF2e_Toolbelt.BetterMerchant.BuyMaxSetting,
+        ): Promise<PF2e_Toolbelt.BetterMerchant.BuyMaxSetting>;
+        /** Better Merchant - Sell Max Ratio */
+        set(
+            module: "pf2e-toolbelt",
+            setting: "betterMerchant.sellMax",
+            value: PF2e_Toolbelt.BetterMerchant.SellMaxSetting,
+        ): Promise<PF2e_Toolbelt.BetterMerchant.SellMaxSetting>;
+        /** Better Merchant - Service Max Ratio */
+        set(
+            module: "pf2e-toolbelt",
+            setting: "betterMerchant.servicesMax",
+            value: PF2e_Toolbelt.BetterMerchant.ServicesMaxSetting,
+        ): Promise<PF2e_Toolbelt.BetterMerchant.ServicesMaxSetting>;
         // #endregion
 
         // #region Debug
@@ -258,26 +306,56 @@ declare global {
         set(module: "pf2e-toolbelt", setting: "debug.enabled", value: boolean): Promise<boolean>;
         // #endregion
 
+        // #region Droppeth
+        /** Droppeth - Enabled */
+        get(module: "pf2e-toolbelt", setting: "droppeth.enabled"): boolean;
+        /** Droppeth - Remove on Empty */
+        get(module: "pf2e-toolbelt", setting: "droppeth.removeOnEmpty"): boolean;
+        /** Droppeth - Light Source */
+        get(module: "pf2e-toolbelt", setting: "droppeth.light"): boolean;
+        /** Droppeth - Send Message to Chat */
+        get(module: "pf2e-toolbelt", setting: "droppeth.message"): boolean;
+        /** Droppeth - Enabled */
+        set(module: "pf2e-toolbelt", setting: "droppeth.enabled", value: boolean): Promise<boolean>;
+        /** Droppeth - Remove on Empty */
+        set(module: "pf2e-toolbelt", setting: "droppeth.removeOnEmpty", value: boolean): Promise<boolean>;
+        /** Droppeth - Light Source */
+        set(module: "pf2e-toolbelt", setting: "droppeth.light", value: boolean): Promise<boolean>;
+        /** Droppeth - Send Message to Chat */
+        set(module: "pf2e-toolbelt", setting: "droppeth.message", value: boolean): Promise<boolean>;
+        // #endregion
+
         // #region Effects Panel
         /** Effects Panel - Remove Effect Shortcut */
         get(module: "pf2e-toolbelt", setting: "effectsPanel.remove"): boolean;
-        /** Effects Panel - Condition Sheet Icon */
-        get(module: "pf2e-toolbelt", setting: "effectsPanel.condition"): boolean;
         /** Effects Panel - Remove Effect Shortcut */
         set(module: "pf2e-toolbelt", setting: "effectsPanel.remove", value: boolean): Promise<boolean>;
-        /** Effects Panel - Condition Sheet Icon */
-        set(module: "pf2e-toolbelt", setting: "effectsPanel.condition", value: boolean): Promise<boolean>;
         // #endregion
 
         // #region Giveth
         /** Giveth - Enabled */
         get(module: "pf2e-toolbelt", setting: "giveth.enabled"): boolean;
+        /** Giveth - Include Effects/Conditions */
+        get(module: "pf2e-toolbelt", setting: "giveth.effect"): PF2e_Toolbelt.Giveth.EffectSetting;
         /** Giveth - Send Message to Chat */
         get(module: "pf2e-toolbelt", setting: "giveth.message"): boolean;
         /** Giveth - Enabled */
         set(module: "pf2e-toolbelt", setting: "giveth.enabled", value: boolean): Promise<boolean>;
+        /** Giveth - Include Effects/Conditions */
+        set(
+            module: "pf2e-toolbelt",
+            setting: "giveth.effect",
+            value: PF2e_Toolbelt.Giveth.EffectSetting,
+        ): Promise<PF2e_Toolbelt.Giveth.EffectSetting>;
         /** Giveth - Send Message to Chat */
         set(module: "pf2e-toolbelt", setting: "giveth.message", value: boolean): Promise<boolean>;
+        // #endregion
+
+        // #region Global
+        /** Global - With Container Content */
+        get(module: "pf2e-toolbelt", setting: "global.withContent"): boolean;
+        /** Global - With Container Content */
+        set(module: "pf2e-toolbelt", setting: "global.withContent", value: boolean): Promise<boolean>;
         // #endregion
 
         // #region Hero Actions
@@ -286,7 +364,7 @@ declare global {
         /** Hero Actions - Table UUID */
         get(module: "pf2e-toolbelt", setting: "heroActions.table"): string;
         /** Hero Actions - Hero Set Variant */
-        get(module: "pf2e-toolbelt", setting: "heroActions.count"): pf2eToolbelt.heroActions.CountSetting;
+        get(module: "pf2e-toolbelt", setting: "heroActions.count"): PF2e_Toolbelt.HeroActions.CountSetting;
         /** Hero Actions - Allow Trade */
         get(module: "pf2e-toolbelt", setting: "heroActions.trade"): boolean;
         /** Hero Actions - Private Draw */
@@ -299,8 +377,8 @@ declare global {
         set(
             module: "pf2e-toolbelt",
             setting: "heroActions.count",
-            value: pf2eToolbelt.heroActions.CountSetting,
-        ): Promise<pf2eToolbelt.heroActions.CountSetting>;
+            value: PF2e_Toolbelt.HeroActions.CountSetting,
+        ): Promise<PF2e_Toolbelt.HeroActions.CountSetting>;
         /** Hero Actions - Allow Trade */
         set(module: "pf2e-toolbelt", setting: "heroActions.trade", value: boolean): Promise<boolean>;
         /** Hero Actions - Private Draw */
@@ -399,46 +477,46 @@ declare global {
         /** Template Helper - Enabled */
         get(module: "pf2e-toolbelt", setting: "templateHelper.enabled"): boolean;
         /** Template Helper - Auto Dismiss */
-        get(module: "pf2e-toolbelt", setting: "dismiss.enabled"): pf2eToolbelt.templateHelper.DismissSetting;
+        get(module: "pf2e-toolbelt", setting: "dismiss.enabled"): PF2e_Toolbelt.TemplateHelper.DismissSetting;
         /** Template Helper - Enabled */
         set(module: "pf2e-toolbelt", setting: "templateHelper.enabled", value: boolean): Promise<boolean>;
         /** Template Helper - Auto Dismiss */
         set(
             module: "pf2e-toolbelt",
             setting: "dismiss.enabled",
-            value: pf2eToolbelt.templateHelper.DismissSetting,
-        ): Promise<pf2eToolbelt.templateHelper.DismissSetting>;
+            value: PF2e_Toolbelt.TemplateHelper.DismissSetting,
+        ): Promise<PF2e_Toolbelt.TemplateHelper.DismissSetting>;
         // #endregion
 
         // #region Underground
         /** Underground - Enabled */
         get(module: "pf2e-toolbelt", setting: "underground.enabled"): boolean;
         /** Underground - Applied Filter */
-        get(module: "pf2e-toolbelt", setting: "underground.mode"): pf2eToolbelt.underground.ModeSetting;
+        get(module: "pf2e-toolbelt", setting: "underground.mode"): PF2e_Toolbelt.Underground.ModeSetting;
         /** Underground - Opacity */
-        get(module: "pf2e-toolbelt", setting: "underground.alpha"): pf2eToolbelt.underground.AlphaSetting;
+        get(module: "pf2e-toolbelt", setting: "underground.alpha"): PF2e_Toolbelt.Underground.AlphaSetting;
         /** Underground - Contrast */
-        get(module: "pf2e-toolbelt", setting: "underground.contrast"): pf2eToolbelt.underground.ContrastSetting;
+        get(module: "pf2e-toolbelt", setting: "underground.contrast"): PF2e_Toolbelt.Underground.ContrastSetting;
         /** Underground - Enabled */
         set(module: "pf2e-toolbelt", setting: "underground.enabled", value: boolean): Promise<boolean>;
         /** Underground - Applied Filter */
         set(
             module: "pf2e-toolbelt",
             setting: "underground.mode",
-            value: pf2eToolbelt.underground.ModeSetting,
-        ): Promise<pf2eToolbelt.underground.ModeSetting>;
+            value: PF2e_Toolbelt.Underground.ModeSetting,
+        ): Promise<PF2e_Toolbelt.Underground.ModeSetting>;
         /** Underground - Opacity */
         set(
             module: "pf2e-toolbelt",
             setting: "underground.alpha",
-            value: pf2eToolbelt.underground.AlphaSetting,
-        ): Promise<pf2eToolbelt.underground.AlphaSetting>;
+            value: PF2e_Toolbelt.Underground.AlphaSetting,
+        ): Promise<PF2e_Toolbelt.Underground.AlphaSetting>;
         /** Underground - Contrast */
         set(
             module: "pf2e-toolbelt",
             setting: "underground.contrast",
-            value: pf2eToolbelt.underground.ContrastSetting,
-        ): Promise<pf2eToolbelt.underground.ContrastSetting>;
+            value: PF2e_Toolbelt.Underground.ContrastSetting,
+        ): Promise<PF2e_Toolbelt.Underground.ContrastSetting>;
         // #endregion
 
         // #region Set Un-Identified Image
@@ -464,80 +542,90 @@ declare global {
         // #endregion
 
         // #region Use Button
-        /** Use Button - Add To Actions */
-        get(module: "pf2e-toolbelt", setting: "useButton.actions"): boolean;
         /** Use Button - Add To Consumables */
         get(module: "pf2e-toolbelt", setting: "useButton.consumables"): boolean;
         /** Use Button - Auto Self-Applied */
         get(module: "pf2e-toolbelt", setting: "useButton.selfApplied"): boolean;
-        /** Use Button - Add To Actions */
-        set(module: "pf2e-toolbelt", setting: "useButton.actions", value: boolean): Promise<boolean>;
         /** Use Button - Add To Consumables */
         set(module: "pf2e-toolbelt", setting: "useButton.consumables", value: boolean): Promise<boolean>;
         /** Use Button - Auto Self-Applied */
         set(module: "pf2e-toolbelt", setting: "useButton.selfApplied", value: boolean): Promise<boolean>;
         // #endregion
     }
+
+    namespace Hooks {
+        function on(
+            ...args: HookParameters<"pf2e-toolbelt.rollSave", [PF2e_Toolbelt.TargetHelper.RollSaveHook]>
+        ): number;
+        function on(
+            ...args: HookParameters<"pf2e-toolbelt.rerollSave", [PF2e_Toolbelt.TargetHelper.RerollSaveHook]>
+        ): number;
+    }
 }
 
-declare module "../pf2e/module/item/base/data/system.js" {
+declare module "../index.js" {
+    interface GamePF2e {
+        toolbelt?: {
+            api: PF2e_Toolbelt_Module["api"];
+            active: boolean;
+            getToolSetting(name: string, setting: string): unknown;
+        };
+    }
+
     interface ItemFlagsPF2e {
         "pf2e-toolbelt"?: {
             actionable?: {
                 macro?: string;
             };
             identify?: {
-                failed?: pf2eToolbelt.identify.IdentifyFailedFlag;
+                failed?: PF2e_Toolbelt.Identify.IdentifyFailedFlag;
             };
         };
     }
-}
 
-declare module "../pf2e/module/chat-message/data.js" {
     interface ChatMessageFlagsPF2e {
         "pf2e-toolbelt"?: {
-            betterMerchant?: {
-                service?: pf2eToolbelt.betterMerchant.ServiceMsgFlag;
-            };
             hideDamage?: {
                 revealed?: boolean;
             };
             mergeDamage?: {
-                data?: pf2eToolbelt.mergeDamage.MessageData;
+                data?: PF2e_Toolbelt.MergeDamage.MessageData[];
                 injected?: boolean;
                 merged?: boolean;
                 splitted?: boolean;
                 type?: string;
             };
-            targetHelper?: pf2eToolbelt.targetHelper.MessageFlag;
+            targetHelper?: PF2e_Toolbelt.TargetHelper.MessageFlag;
         };
     }
-}
 
-declare module "../pf2e/module/actor/data/base.js" {
     interface ActorFlagsPF2e {
         "pf2e-toolbelt"?: {
             betterMerchant?: {
                 default?: {
-                    buy?: pf2eToolbelt.betterMerchant.ItemFilter;
-                    sell?: pf2eToolbelt.betterMerchant.ItemFilter;
+                    buy?: PF2e_Toolbelt.BetterMerchant.ItemFilter;
+                    sell?: PF2e_Toolbelt.BetterMerchant.ItemFilter;
                 };
                 filters?: {
-                    buy?: pf2eToolbelt.betterMerchant.ItemFilter[];
-                    sell?: pf2eToolbelt.betterMerchant.ItemFilter[];
+                    buy?: PF2e_Toolbelt.BetterMerchant.ItemFilter[];
+                    sell?: PF2e_Toolbelt.BetterMerchant.ItemFilter[];
                 };
                 infiniteAll?: boolean;
-                services?: pf2eToolbelt.betterMerchant.ServiceFlag[];
+                services?: PF2e_Toolbelt.BetterMerchant.ServiceFlag[];
                 serviceRatio?: number;
             };
+            droppeth?: {
+                temporary?: boolean;
+                tokenUuid?: string;
+            };
             heroActions?: {
-                actions?: pf2eToolbelt.heroActions.HeroActionFlag[];
+                actions?: PF2e_Toolbelt.HeroActions.HeroActionFlag[];
             };
             identify?: {
-                identified: pf2eToolbelt.identify.IdenfifiedFlag;
+                identified: PF2e_Toolbelt.Identify.IdenfifiedFlag;
             };
             share?: {
-                config?: pf2eToolbelt.share.ConfigFlags;
+                config?: PF2e_Toolbelt.Share.ConfigFlags;
             };
         };
     }

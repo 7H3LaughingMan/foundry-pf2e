@@ -45,7 +45,7 @@ declare global {
 
 declare module "../index.js" {
     interface GamePF2e {
-        dice3d: {
+        dice3d?: {
             waitFor3DAnimationByMessageID(messageId: string): Promise<boolean>;
         };
     }

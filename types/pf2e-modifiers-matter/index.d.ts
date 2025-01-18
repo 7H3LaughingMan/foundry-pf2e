@@ -7,7 +7,7 @@ import { TokenDocumentPF2e } from "../pf2e/module/scene/index.js";
 export {};
 
 declare global {
-    namespace pf2eModifiersMatter {
+    namespace PF2e_Modifiers_Matter {
         interface HookParameters {
             rollingActor: ActorPF2e;
             actorWithDc?: ActorPF2e;
@@ -37,7 +37,7 @@ declare global {
 
     interface Window {
         pf2eMm?: {
-            getSignificantModifiersOfMessage(chatMessage: ChatMessagePF2e): pf2eModifiersMatter.SignificantModifier[];
+            getSignificantModifiersOfMessage(chatMessage: ChatMessagePF2e): PF2e_Modifiers_Matter.SignificantModifier[];
 
             checkIfChatMessageShouldHaveHighlights(chatMessage: ChatMessagePF2e): boolean;
 
@@ -61,7 +61,7 @@ declare global {
                 rollingActor: ActorPF2e;
                 deltaFromDc: number;
                 dieRoll: number;
-                currentDegreeOfSuccess: pf2eModifiersMatter.Degree;
+                currentDegreeOfSuccess: PF2e_Modifiers_Matter.Degree;
                 dcSlug: string;
                 isStrike: boolean;
                 isSpell: boolean;
@@ -114,12 +114,12 @@ declare global {
                 dcMods: RawModifier[];
                 originalDeltaFromDc: number;
                 dieRoll: number;
-                currentDegreeOfSuccess: pf2eModifiersMatter.Degree;
+                currentDegreeOfSuccess: PF2e_Modifiers_Matter.Degree;
                 isStrike: boolean;
             }): {
-                significantRollModifiers: pf2eModifiersMatter.SignificantModifier[];
-                significantDcModifiers: pf2eModifiersMatter.SignificantModifier[];
-                insignificantDcModifiers: pf2eModifiersMatter.InsignificantModifier[];
+                significantRollModifiers: PF2e_Modifiers_Matter.SignificantModifier[];
+                significantDcModifiers: PF2e_Modifiers_Matter.SignificantModifier[];
+                insignificantDcModifiers: PF2e_Modifiers_Matter.InsignificantModifier[];
             };
 
             checkHighlightPotentials({
@@ -134,7 +134,7 @@ declare global {
                 dcMods: RawModifier[];
                 originalDeltaFromDc: number;
                 dieRoll: number;
-                currentDegreeOfSuccess: pf2eModifiersMatter.Degree;
+                currentDegreeOfSuccess: PF2e_Modifiers_Matter.Degree;
                 isStrike: boolean;
             }): {
                 plus1StatusHasPotential: boolean;
@@ -181,20 +181,20 @@ declare global {
         get(
             module: "pf2e-modifiers-matter",
             setting: "highlight-potentials-preset",
-        ): pf2eModifiersMatter.HighlightPotentialsSetting;
+        ): PF2e_Modifiers_Matter.HighlightPotentialsSetting;
         /** Highlight Potentials */
         set(
             module: "pf2e-modifiers-matter",
             setting: "highlight-potentials-preset",
-            value: pf2eModifiersMatter.HighlightPotentialsSetting,
-        ): Promise<pf2eModifiersMatter.HighlightPotentialsSetting>;
+            value: PF2e_Modifiers_Matter.HighlightPotentialsSetting,
+        ): Promise<PF2e_Modifiers_Matter.HighlightPotentialsSetting>;
     }
 
     namespace Hooks {
-        function on(...args: HookParameters<"modifiersMatter", [pf2eModifiersMatter.HookParameters]>): number;
+        function on(...args: HookParameters<"modifiersMatter", [PF2e_Modifiers_Matter.HookParameters]>): number;
 
-        function callAll(hook: "modifiersMatter", arg: pf2eModifiersMatter.HookParameters): boolean;
+        function callAll(hook: "modifiersMatter", arg: PF2e_Modifiers_Matter.HookParameters): boolean;
 
-        function call(hook: "modifiersMatter", arg: pf2eModifiersMatter.HookParameters): boolean;
+        function call(hook: "modifiersMatter", arg: PF2e_Modifiers_Matter.HookParameters): boolean;
     }
 }
