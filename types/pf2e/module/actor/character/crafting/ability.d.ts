@@ -28,21 +28,25 @@ declare class CraftingAbility implements CraftingAbilityData {
     /** Initializes this crafting ability with data. Call during actor data preparation. */
     initialize(data: CraftingAbilityData): void;
     getPreparedCraftingFormulas(): Promise<PreparedFormula[]>;
-    getSheetData(): Promise<CraftingAbilitySheetData>;
+    /** Calculates the resources needed to craft all prepared crafting items */
     calculateResourceCost(): Promise<number>;
     /** Returns true if the item can be created by this ability, which requires it to pass predication and be of sufficient level */
     canCraft(item: PhysicalItemPF2e, { warn }?: {
         warn?: boolean | undefined;
     }): boolean;
-    prepareFormula(formula: CraftingFormula): Promise<void>;
-    unprepareFormula(indexOrUuid: number | ItemUUID): Promise<void>;
-    setFormulaQuantity(index: number, value: "increase" | "decrease" | number): Promise<void>;
+    /** Returns all items that this ability can craft including the batch size produced by this ability */
+    getValidFormulas(): Promise<CraftingFormula[]>;
+    prepareFormula(uuid: string): Promise<void>;
+    unprepareFormula(indexOrUuid: number | string): Promise<void>;
+    /** Sets a formula's prepared quantity to a specific value, preparing it if necessary */
+    setFormulaQuantity(indexOrUuid: number | string, value: "increase" | "decrease" | number): Promise<void>;
     toggleFormulaExpended(index: number, value?: boolean): Promise<void>;
     toggleSignatureItem(itemUUID: string): Promise<void>;
     updateFormulas(formulas: PreparedFormulaData[], operation?: Partial<DatabaseUpdateOperation<CharacterPF2e>> | undefined): Promise<void>;
     craft(itemOrUUIDOrIndex: PhysicalItemPF2e | ItemUUID | number, { consume, destination }?: CraftParameters): Promise<PhysicalItemPF2e | null>;
     /** Returns what items should be created by this ability during daily preparation, and what the resource expenditure should be */
     calculateDailyCrafting(): Promise<DailyCraftingResult>;
+    getSheetData(): Promise<CraftingAbilitySheetData>;
 }
 interface CraftingAbilitySheetData {
     slug: string;

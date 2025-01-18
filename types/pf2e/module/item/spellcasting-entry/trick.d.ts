@@ -30,10 +30,6 @@ declare class TrickMagicItemEntry<TActor extends ActorPF2e = ActorPF2e> implemen
     get spells(): null;
     get isFlexible(): false;
     get isFocusPool(): false;
-    get isInnate(): false;
-    get isPrepared(): false;
-    get isRitual(): false;
-    get isSpontaneous(): false;
     get isEphemeral(): true;
     /** Currently no checks for whether a magic item can be tricked */
     canCast(): boolean;
