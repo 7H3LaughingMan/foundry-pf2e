@@ -199,6 +199,10 @@ declare global {
         export(): string;
     }
 
+    interface ChatMessage {
+        get uuid(): ChatMessageUUID;
+    }
+
     namespace ChatMessage {
         function create<TDocument extends ChatMessage>(
             this: ConstructorOf<TDocument>,
@@ -239,4 +243,6 @@ declare global {
         canDelete: boolean;
         whisperTo: string;
     }
+
+    type ChatMessageUUID = `ChatMessage.${string}`;
 }
