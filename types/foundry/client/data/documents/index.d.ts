@@ -46,6 +46,7 @@ declare global {
         | Playlist
         | RollTable
         | Scene
+        | Setting
         | User;
 
     type WorldDocumentUUID<T extends WorldDocument = WorldDocument> = `${T["documentName"]}.${string}`;
