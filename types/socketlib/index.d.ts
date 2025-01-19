@@ -35,12 +35,12 @@ declare global {
         >;
 
         register(name: string, func: Function): void;
-        executeAsGM(handler: string | Function, ...args: any[]): Promise<unknown>;
-        executeAsUser(handler: string | Function, userId: string, ...args: any[]): Promise<unknown>;
-        executeForAllGMs(handler: string | Function, ...args: any[]): Promise<unknown>;
-        executeForOtherGMs(handler: string | Function, ...args: any[]): Promise<unknown>;
-        executeForEveryone(handler: string | Function, ...args: any[]): Promise<unknown>;
-        executeForOthers(handler: string | Function, ...args: any[]): Promise<unknown>;
-        executeForUsers(handler: string | Function, recipients: string[], ...args: any[]): Promise<unknown>;
+        executeAsGM<T = unknown>(handler: string | Function, ...args: any[]): Promise<T>;
+        executeAsUser<T = unknown>(handler: string | Function, userId: string, ...args: any[]): Promise<T>;
+        executeForAllGMs<T = unknown>(handler: string | Function, ...args: any[]): Promise<T>;
+        executeForOtherGMs<T = unknown>(handler: string | Function, ...args: any[]): Promise<T>;
+        executeForEveryone<T = unknown>(handler: string | Function, ...args: any[]): Promise<T>;
+        executeForOthers<T = unknown>(handler: string | Function, ...args: any[]): Promise<T>;
+        executeForUsers<T = unknown>(handler: string | Function, recipients: string[], ...args: any[]): Promise<T>;
     }
 }
