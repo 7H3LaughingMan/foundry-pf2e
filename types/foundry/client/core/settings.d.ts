@@ -106,7 +106,7 @@ declare global {
         get(
             module: "core",
             key: "compendiumConfiguration",
-        ): Record<string, { locked: boolean; folder: string; sort: number }>;
+        ): Record<string, { locked?: boolean; folder?: string; sort?: number }>;
         get(module: "core", key: "defaultToken"): Partial<foundry.data.PrototypeTokenSource>;
         get(module: "core", key: "fontSize"): number;
         get(module: "core", key: "noCanvas"): boolean;
