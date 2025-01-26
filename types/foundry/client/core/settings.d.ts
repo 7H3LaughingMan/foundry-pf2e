@@ -103,7 +103,10 @@ declare global {
          * @param module    The module namespace under which the setting is registered
          * @param key       The setting key to retrieve
          */
-        get(module: "core", key: "compendiumConfiguration"): Record<string, { private: boolean; locked: boolean }>;
+        get(
+            module: "core",
+            key: "compendiumConfiguration",
+        ): Record<string, { locked: boolean; folder: string; sort: number }>;
         get(module: "core", key: "defaultToken"): Partial<foundry.data.PrototypeTokenSource>;
         get(module: "core", key: "fontSize"): number;
         get(module: "core", key: "noCanvas"): boolean;
