@@ -256,6 +256,7 @@ export const DRAWING_FILL_TYPES: {
  */
 export const FOLDER_DOCUMENT_TYPES: [
     "Actor",
+    "Adventure",
     "Item",
     "Scene",
     "JournalEntry",
@@ -263,6 +264,7 @@ export const FOLDER_DOCUMENT_TYPES: [
     "RollTable",
     "Cards",
     "Macro",
+    "Compendium",
 ];
 
 /** The maximum allowed level of depth for Folder nesting */
