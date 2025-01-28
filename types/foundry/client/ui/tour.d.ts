@@ -6,7 +6,7 @@ declare global {
      * @param config           The configuration of the Tour
      */
     class Tour {
-        constructor(config: TourConfig, override: { id?: string; namspace?: string });
+        constructor(config: TourConfig, override?: { id?: string; namspace?: string });
 
         static STATUS: {
             UNSTARTED: "unstarted";
