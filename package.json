@@ -43,6 +43,7 @@
         "gsap": "3.11.5",
         "handlebars": "4.7.8",
         "pixi.js": "^7.4.2",
+        "showdown": "^2.1.0",
         "socket.io-client": "^4.5.1",
         "socket.io": "^4.5.1",
         "svelte": "^5.2.2",
