@@ -154,6 +154,17 @@ declare global {
         protected _reloadProgress(): void;
     }
 
+    /**
+     * A tour for demonstrating an aspect of Canvas functionality.
+     * Automatically activates a certain canvas layer or tool depending on the needs of the step.
+     */
+    class CanvasTour extends Tour {}
+
+    /**
+     * A Tour subclass for the Sidebar Tour
+     */
+    class SidebarTour extends Tour {}
+
     /** A singleton Tour Collection class responsible for registering and activating Tours, accessible as game.tours */
     class Tours extends Collection {
         /**
