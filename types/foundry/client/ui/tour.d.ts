@@ -189,7 +189,7 @@ declare global {
         /** A DOM selector which denotes an element to highlight during this step.
          *  If omitted, the step is displayed in the center of the screen. */
         selector?: string;
-        /** Activates a particular sidebar tab. */
+        /** Activates a particular sidebar tab. Only works for `SidebarTour` instances. */
         sidebarTab?: string;
         /** How the tooltip for the step should be displayed relative to the target element.
          *  If omitted, the best direction will be attempted to be auto-selected.
