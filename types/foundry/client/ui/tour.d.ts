@@ -6,7 +6,7 @@ declare global {
      * @param config           The configuration of the Tour
      */
     class Tour {
-        constructor(config: TourConfig, override: { id?: string; namspace?: string });
+        constructor(config: TourConfig, override?: { id?: string; namspace?: string });
 
         static STATUS: {
             UNSTARTED: "unstarted";
@@ -154,6 +154,17 @@ declare global {
         protected _reloadProgress(): void;
     }
 
+    /**
+     * A tour for demonstrating an aspect of Canvas functionality.
+     * Automatically activates a certain canvas layer or tool depending on the needs of the step.
+     */
+    class CanvasTour extends Tour {}
+
+    /**
+     * A Tour subclass for the Sidebar Tour
+     */
+    class SidebarTour extends Tour {}
+
     /** A singleton Tour Collection class responsible for registering and activating Tours, accessible as game.tours */
     class Tours extends Collection {
         /**
@@ -178,6 +189,8 @@ declare global {
         /** A DOM selector which denotes an element to highlight during this step.
          *  If omitted, the step is displayed in the center of the screen. */
         selector?: string;
+        /** Activates a particular sidebar tab. Only works in `SidebarTour` instances. */
+        sidebarTab?: string;
         /** How the tooltip for the step should be displayed relative to the target element.
          *  If omitted, the best direction will be attempted to be auto-selected.
          */
