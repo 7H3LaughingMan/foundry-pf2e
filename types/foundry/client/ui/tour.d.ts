@@ -189,8 +189,10 @@ declare global {
         /** A DOM selector which denotes an element to highlight during this step.
          *  If omitted, the step is displayed in the center of the screen. */
         selector?: string;
-        /** Activates a particular sidebar tab. Only works in `SidebarTour` instances. */
+        /** Activates a particular sidebar tab. Only usable in `SidebarTour` instances. */
         sidebarTab?: string;
+        /** Activates a particular canvas layer and its respective control group. Only usable in `CanvasTour` instances. */
+        layer?: string;
         /** How the tooltip for the step should be displayed relative to the target element.
          *  If omitted, the best direction will be attempted to be auto-selected.
          */
