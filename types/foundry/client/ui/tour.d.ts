@@ -193,6 +193,8 @@ declare global {
         sidebarTab?: string;
         /** Activates a particular canvas layer and its respective control group. Only usable in `CanvasTour` instances. */
         layer?: string;
+        /** Activates a particular tool. Requires `layer` to be defined to have any effect. Only usable in `CanvasTour` instances. */
+        tool?: string;
         /** How the tooltip for the step should be displayed relative to the target element.
          *  If omitted, the best direction will be attempted to be auto-selected.
          */
