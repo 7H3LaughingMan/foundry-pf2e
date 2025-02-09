@@ -102,6 +102,15 @@ declare global {
             >;
         };
 
+        /** Configuration for the Adventure document. */
+        Adventure: {
+            documentClass: ConstructorOf<Adventure>;
+            exporterClass: ConstructorOf<DocumentSheet>;
+            compendiumIndexFields: string[];
+            compendiumBanner: ImageFilePath;
+            sidebarIcon: string;
+        };
+
         /** Configuration for the Cards primary Document type */
         Cards: {
             collection: WorldCollection<Cards>;
