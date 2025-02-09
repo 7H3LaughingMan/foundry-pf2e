@@ -1,7 +1,11 @@
 import type DataModel from "./common/abstract/data.d.ts";
 import type { DataSchema } from "./common/data/fields.d.ts";
 
+type _DeepPartial<T> = T extends object ? (T extends AnyArray | AnyFunction | AnyConstructor ? T : DeepPartial<T>) : T;
+
 declare global {
+    type AnyArray = readonly unknown[];
+
     type AnyFunction = (arg0: never, ...args: never[]) => unknown;
 
     type AnyConstructor = abstract new (arg0: never, ...args: never[]) => unknown;
@@ -11,7 +15,7 @@ declare global {
     type Maybe<T> = T | null | undefined;
 
     type DeepPartial<T extends object> = {
-        [P in keyof T]?: T[P] extends object | undefined ? DeepPartial<NonNullable<T[P]>> : T[P];
+        [K in keyof T]?: _DeepPartial<T[K]>;
     };
 
     type CollectionValue<T> = T extends Collection<infer U> ? U : never;

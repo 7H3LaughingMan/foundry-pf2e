@@ -1,9 +1,9 @@
 export {};
 
 declare global {
-    interface ClientSettingsStorage extends Map<string, Storage | WorldSettingsStorage> {
+    interface ClientSettingsStorage extends Map<string, Storage | WorldSettings> {
         get(key: "client"): Storage;
-        get(key: "world"): WorldSettingsStorage;
+        get(key: "world"): WorldSettings;
     }
 
     /**
@@ -137,12 +137,24 @@ declare global {
         get<TDefault>(key: string): SettingConfig & { default: TDefault };
     }
 
-    /** A simple interface for World settings storage which imitates the API provided by localStorage */
-    class WorldSettingsStorage extends Collection<Setting> {
-        constructor(settings: object);
+    /**
+     * The Collection of Setting documents which exist within the active World.
+     * This collection is accessible as game.settings.storage.get("world")
+     * @extends {WorldCollection}
+     *
+     * @see {@link Setting} The Setting document
+     */
+    class WorldSettings extends WorldCollection<Setting> {
+        /**
+         * Return the Setting document with the given key.
+         * @param key The setting key
+         */
+        getSetting(key: string): Setting;
 
+        /**
+         * Return the serialized value of the world setting as a string
+         * @param key The setting key
+         */
         getItem(key: string): string | null;
-
-        setItem(key: string, value: unknown): void;
     }
 }

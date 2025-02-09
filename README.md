@@ -11,7 +11,7 @@ In order to use this library you will need to install it, at the moment it can o
 npm install https://github.com/7H3LaughingMan/foundry-pf2e
 ```
 
-This will install the library using the latest available commit. You will also need to add `foundry-pf2e` to `types` in your `tsconfig.json` in order to use the PF2e/Foundry types. If you would like to use the types from a third party module like (PF2e Toolbelt)[https://github.com/reonZ/pf2e-toolbelt] you will need to include `foundry-pf2e/pf2e-toolbelt` to your `types` in `tsconfig.json`.
+This will install the library using the latest available commit. You will also need to add `foundry-pf2e` to `types` in your `tsconfig.json` in order to use the PF2e/Foundry types. If you would like to use the types from a third party module like [PF2e Toolbelt](https://github.com/reonZ/pf2e-toolbelt) you will need to include `foundry-pf2e/pf2e-toolbelt` to your `types` in `tsconfig.json`.
 
 If there are any updates to the library you will have to manually update using the below command to get the latest version.
 
