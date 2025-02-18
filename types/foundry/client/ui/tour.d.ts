@@ -228,4 +228,16 @@ declare global {
          */
         suggestedNextTours?: string[];
     }
+
+    /**
+     * A management app for configuring which Tours are available or have been completed.
+     */
+    class ToursManagement extends PackageConfiguration {
+        protected override _prepareCategoryData(): { categories: object[]; total: number };
+        protected override _updateObject(event: Event, formData: Record<string, unknown>): Promise<unknown>;
+        protected override _onResetDefaults(event: Event): Promise<any>;
+
+        /** Handle Control clicks */
+        private _onClickControl(event: MouseEvent): any;
+    }
 }
