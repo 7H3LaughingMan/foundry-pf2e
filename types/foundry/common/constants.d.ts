@@ -884,6 +884,10 @@ export const REGION_EVENTS: {
     TOKEN_EXIT: "tokenExit";
     /** Triggered when a Token moves in a Region. */
     TOKEN_MOVE: "tokenMove";
+    /** Triggered when a Token moves into a Region. */
+    TOKEN_MOVE_IN: "tokenMoveIn";
+    /** Triggered when a Token moves out of a Region. */
+    TOKEN_MOVE_OUT: "tokenMoveOut";
     /** Triggered when a Token is about to move into, out of, through, or within a Region. */
     TOKEN_PRE_MOVE: "tokenPreMove";
     /** Triggered when a Token starts its Combat turn in a Region. */
