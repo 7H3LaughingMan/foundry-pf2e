@@ -127,6 +127,7 @@ declare global {
     > extends Omit<SettingConfig<TChoices>, "config" | "key" | "namespace" | "scope"> {
         config?: boolean;
         scope?: "client" | "world";
+        filePicker?: true | "audio" | "image" | "video" | "imagevideo" | "folder";
     }
 
     interface ClientSettingsMap extends Map<string, SettingConfig> {
