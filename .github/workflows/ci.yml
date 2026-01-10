@@ -3,10 +3,10 @@ name: PF2e/Foundry Types CI
 on:
     push:
         branches:
-            - main
+            - v13
     pull_request:
         branches:
-            - main
+            - v13
 
 jobs:
     build:
