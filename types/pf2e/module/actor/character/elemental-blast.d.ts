@@ -1,5 +1,5 @@
-import { Rolled } from "./../../../../foundry/client/dice/roll.mjs";
-import { ImageFilePath } from "./../../../../foundry/common/constants.mjs";
+import { Rolled } from "#client/dice/roll.mjs";
+import { ImageFilePath } from "#common/constants.mjs";
 import { AbilityItemPF2e } from "./../../item/index.ts";
 import { EffectTrait } from "./../../item/abstract-effect/types.ts";
 import { RangeData } from "./../../item/types.ts";
@@ -88,7 +88,9 @@ interface ElementalBlastConfig extends Omit<fields.ModelPropsFromSchema<BlastCon
         label: string;
     };
     statistic: Statistic;
+    item: AbilityItemPF2e<CharacterPF2e>;
     actionCost: 1 | 2;
+    ready: boolean;
     maps: {
         melee: {
             map0: string;

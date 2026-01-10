@@ -1,9 +1,9 @@
 import {
     DocumentSheetConfiguration,
     DocumentSheetRenderContext,
+    DocumentSheetRenderOptions,
     DocumentSheetV2,
     HandlebarsApplicationMixin,
-    HandlebarsRenderOptions,
     HandlebarsTemplatePart,
 } from "../api/_module.mjs";
 
@@ -15,5 +15,5 @@ export default class MeasuredTemplateConfig extends HandlebarsApplicationMixin(D
 
     static override PARTS: Record<string, HandlebarsTemplatePart>;
 
-    protected override _prepareContext(options: HandlebarsRenderOptions): Promise<DocumentSheetRenderContext>;
+    override _prepareContext(options: DocumentSheetRenderOptions): Promise<DocumentSheetRenderContext>;
 }

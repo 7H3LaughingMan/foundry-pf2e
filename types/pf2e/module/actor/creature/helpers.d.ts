@@ -1,11 +1,11 @@
 import { ActorPF2e, CreaturePF2e } from "./../index.ts";
-import { ModifierPF2e } from "./../modifiers.ts";
+import { Modifier } from "./../modifiers.ts";
 import { AbilityItemPF2e, MeleePF2e, WeaponPF2e } from "./../../item/index.ts";
 /** A static class of helper functions for applying automation for certain weapon traits on attack rolls */
 declare class AttackTraitHelpers {
     protected static getLabel(traitOrTag: string): string;
     protected static getUnannotatedTrait(trait: string): string;
-    static createAttackModifiers({ item, domains }: CreateAttackModifiersParams): ModifierPF2e[];
+    static createAttackModifiers({ item, domains }: CreateAttackModifiersParams): Modifier[];
 }
 interface CreateAttackModifiersParams {
     item: AbilityItemPF2e<ActorPF2e> | WeaponPF2e<ActorPF2e> | MeleePF2e<ActorPF2e>;

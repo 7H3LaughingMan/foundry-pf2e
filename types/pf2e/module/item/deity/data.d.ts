@@ -1,5 +1,5 @@
 import { AttributeString, SkillSlug } from "./../../actor/types.ts";
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
 import { BaseItemSourcePF2e, ItemSystemData, ItemSystemSource, OtherTagsOnly } from "./../base/data/system.ts";
 import { BaseWeaponType } from "./../weapon/types.ts";
 import { DeityDomain, Sanctification } from "./types.ts";

@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { DatabaseUpdateCallbackOptions } from "./../../../../foundry/common/abstract/_module.mjs";
+import { DatabaseUpdateCallbackOptions } from "#common/abstract/_module.mjs";
 import { RawItemChatData } from "./../base/data/index.ts";
 import { PhysicalItemPF2e } from "./../physical/index.ts";
 import { EnrichmentOptionsPF2e } from "./../../system/text-editor.ts";
@@ -24,6 +24,7 @@ declare class ArmorPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ext
             includeGranter?: boolean;
         },
     ): string[];
+    acceptsSubitem(candidate: PhysicalItemPF2e): boolean;
     isStackableWith(item: PhysicalItemPF2e<TParent>): boolean;
     prepareBaseData(): void;
     prepareDerivedData(): void;

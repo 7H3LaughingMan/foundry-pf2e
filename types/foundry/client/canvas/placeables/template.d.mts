@@ -162,8 +162,9 @@ export default class MeasuredTemplate<
     protected override _onClickRight(event: PIXI.FederatedPointerEvent): void;
 }
 
-export default interface MeasuredTemplate<TDocument extends MeasuredTemplateDocument = MeasuredTemplateDocument>
-    extends PlaceableObject<TDocument> {
+export default interface MeasuredTemplate<
+    TDocument extends MeasuredTemplateDocument = MeasuredTemplateDocument,
+> extends PlaceableObject<TDocument> {
     get layer(): TemplateLayer<this>;
 }
 

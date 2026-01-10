@@ -1,6 +1,5 @@
 import { ClientDocument, DocumentCollection } from "./../../client/documents/abstract/_module.mjs";
 import Document from "./../abstract/document.mjs";
-import { CompatibilityMode } from "./../constants.mjs";
 
 /**
  * Wrap a callback in a debounced timeout.
@@ -10,6 +9,18 @@ import { CompatibilityMode } from "./../constants.mjs";
  * @return A wrapped function which can be called to debounce execution
  */
 export function debounce<T extends unknown[]>(callback: (...args: T) => unknown, delay: number): (...args: T) => void;
+
+/**
+ * Recursively freezes (`Object.freeze`) the object (or value).
+ * This method DOES NOT support cyclical data structures.
+ * This method DOES NOT support advanced object types like Set, Map, or other specialized classes.
+ * @param obj The object (or value)
+ * @param options Options to configure the behaviour of deepFreeze
+ * @param options.strict Throw an Error if deepFreeze is unable to seal something instead of
+ *                                            returning the original
+ * @returns The same object (or value) that was passed in
+ */
+export function deepFreeze<T extends object>(obj: T, options?: { strict?: boolean }): DeepReadonly<T>;
 
 /**
  * Quickly clone a simple piece of data, returning a copy which can be mutated safely.
@@ -26,6 +37,11 @@ export function deepClone<T>(original: T): T;
  * @param original Some sort of data
  */
 export function duplicate<T>(original: T): T;
+
+/**
+ * Is a string key of an object used for certain deletion or forced replacement operations.
+ */
+export function isDeletionKey(key: string): key is "-=";
 
 /**
  * Test whether a value is empty-like; either undefined or a content-less object.
@@ -141,6 +157,13 @@ export function diffObject<T extends Record<string, unknown> = Record<string, un
     original: object,
     other: object,
 ): T;
+
+/**
+ * Recurse through an object, applying all special keys.
+ * Deletion keys ("-=") are removed.
+ * Forced replacement keys ("==") are assigned.
+ */
+export function applySpecialKeys<T>(obj: T): T;
 
 /**
  * Test if two objects contain the same enumerable keys and values.
@@ -274,45 +297,27 @@ export function randomID(length?: number): string;
 export function parseUuid(uuid: Maybe<string>, options?: { relative?: Maybe<Document> }): ResolvedUUID | null;
 
 export interface ResolvedUUID {
+    /** The original UUID. */
     uuid?: string;
     /**
      * The type of Document referenced. Legacy compendium UUIDs will not populate this field if the compendium is
      * not active in the World.
      */
     type: string | undefined;
-    /** The parent collection. */
+    /** The ID of the Document referenced. */
+    id: string;
+    /** The primary Document type of this UUID. Only present if the Document is embedded. */
+    primaryType: string | undefined;
+    /** The primary Document ID of this UUID. Only present if the Document is embedded. */
+    primaryId: string | undefined;
+    /**
+     * The Collection containing the referenced Document unless that Documentis embedded, in which case the Collection
+     * of the primary Document.
+     */
     collection?: DocumentCollection<ClientDocument> | undefined;
-    /** The parent document. */
-    documentId?: string | undefined;
-    /** The parent document type. */
-    documentType?: string;
-    /** An already-resolved document. */
-    doc?: ClientDocument | null;
-    /** Any remaining Embedded Document parts. */
+    /** Additional Embedded Document parts. */
     embedded: string[];
 }
-
-/**
- * Log a compatibility warning which is filtered based on the client's defined compatibility settings.
- * @param message              The original warning or error message
- * @param [options={}]         Additional options which customize logging
- * @param [options.mode]       A logging level in COMPATIBILITY_MODES which overrides the configured default
- * @param [options.since]      A version identifier since which a change was made
- * @param [options.until]      A version identifier until which a change remains supported
- * @param [options.details]    Additional details to append to the logged message
- * @param [options.stack=true] Include the message stack trace
- * @throws An Error if the mode is ERROR
- */
-export function logCompatibilityWarning(
-    message: string,
-    options?: {
-        mode?: CompatibilityMode;
-        since?: number | string;
-        until?: number | string;
-        details?: string;
-        stack?: boolean;
-    },
-): void;
 
 declare global {
     interface MergeObjectOptions {

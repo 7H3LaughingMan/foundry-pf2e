@@ -5,8 +5,8 @@ import {
     RollParseNode,
     RollRenderOptions,
     Rolled,
-} from "./../../../../foundry/client/dice/_module.mjs";
-import { DiceTerm, RollTerm, RollTermData } from "./../../../../foundry/client/dice/terms/_module.mjs";
+} from "#client/dice/_module.mjs";
+import { DiceTerm, RollTerm, RollTermData } from "#client/dice/terms/_module.mjs";
 import { DamageRollFlag } from "./../../chat-message/index.ts";
 import { UserPF2e } from "./../../user/index.ts";
 import { DegreeOfSuccessIndex } from "./../degree-of-success.ts";
@@ -36,6 +36,7 @@ declare class DamageRoll extends AbstractDamageRoll {
     static CHAT_TEMPLATE: string;
     static TOOLTIP_TEMPLATE: string;
     static parse(formula: string, data: Record<string, unknown>): InstancePool[];
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     constructor(formula: string, data?: {}, options?: DamageRollData);
     get roller(): UserPF2e | null;
     /** Ensure the roll is parsable as `PoolTermData` */
@@ -85,6 +86,7 @@ declare class DamageInstance extends AbstractDamageRoll {
     persistent: boolean;
     materials: Set<MaterialDamageEffect>;
     critRule: CriticalDoublingRule | null;
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     constructor(formula: string, data?: {}, { flavor, ...options }?: DamageInstanceData);
     static parse(formula: string, data: Record<string, unknown>): RollTerm[];
     static fromData<TRoll extends Roll>(this: ConstructorOf<TRoll>, data: RollJSON): TRoll;

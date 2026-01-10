@@ -35,13 +35,18 @@ interface AncestrySystemSource extends ABCSystemSource {
     };
     hp: number;
     languages: ValuesList<Language>;
+    /** This ancestry's base land speed */
     speed: number;
+    /** This ancestry's default size category */
     size: Size;
+    /** The number of hands this ancestry provides */
+    hands: number;
+    /** The reach using this ancestry's hands */
     reach: number;
+    /** This ancestry's default vision level */
     vision: "normal" | "darkvision" | "low-light-vision";
     level?: never;
 }
 interface AncestrySystemData
-    extends Omit<AncestrySystemSource, "description" | "items">,
-        Omit<ABCSystemData, "level" | "traits"> {}
+    extends Omit<AncestrySystemSource, "description" | "items">, Omit<ABCSystemData, "level" | "traits"> {}
 export type { AncestrySource, AncestrySystemData, AncestrySystemSource, AncestryTraits, CreatureTraits };

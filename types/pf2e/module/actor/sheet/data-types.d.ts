@@ -2,27 +2,36 @@ import { ActorPF2e } from "./../base.ts";
 import { TraitViewData } from "./../data/base.ts";
 import { ActorSizePF2e } from "./../data/size.ts";
 import { InventoryBulk } from "./../inventory/index.ts";
-import { FormSelectOption } from "./../../../../foundry/client/applications/forms/fields.mjs";
-import { AppV1RenderOptions } from "./../../../../foundry/client/appv1/api/application-v1.mjs";
-import { ActorSheetData } from "./../../../../foundry/client/appv1/sheets/actor-sheet.mjs";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
+import { AppV1RenderOptions } from "#client/appv1/api/application-v1.mjs";
+import { ActorSheetData } from "#client/appv1/sheets/actor-sheet.mjs";
+import { ItemUUID } from "#common/documents/_module.mjs";
 import { PhysicalItemPF2e } from "./../../item/index.ts";
 import { Frequency } from "./../../item/base/data/index.ts";
-import { Coins } from "./../../item/physical/data.ts";
+import { RawCoins } from "./../../item/physical/data.ts";
 import { RollOptionToggle } from "./../../rules/synthetics.ts";
 import { SheetOptions } from "./../../sheet/helpers.ts";
 interface InventoryItem<TItem extends PhysicalItemPF2e = PhysicalItemPF2e> {
     item: TItem;
+    subitems: PhysicalItemPF2e[];
     /** Item size if it causes any weight difference relative to the actor */
     itemSize?: ActorSizePF2e | null;
     isContainer: boolean;
     canBeEquipped: boolean;
+    /** If true, the quantity cannot be edited, and the controls should be hidden. Used for containers and cred sticks */
+    canEditQuantity: boolean;
     /** Bulk for each item is shown on an individual basis from merchant sheets */
     unitBulk: string | null;
     isInvestable: boolean;
     isSellable: boolean;
     hasCharges: boolean;
     heldItems?: InventoryItem[] | null;
-    notifyInvestment?: boolean;
+    notifyEquip?: boolean;
+    notifyInvest?: boolean;
+    /** The sale price label per sold minimum unit. For example, arrows are 1sp per 10 */
+    unitPrice: string;
+    /** Total asset value of the entire stack of the inventory item */
+    assetValue: string;
     /** Whether the item should be hidden if the user isn't the owner */
     hidden: boolean;
 }
@@ -30,9 +39,13 @@ interface CoinDisplayData {
     value: number;
     label: string;
 }
-export type CoinageSummary = {
-    [K in keyof Coins]?: CoinDisplayData;
-};
+interface CurrencySummary {
+    units: {
+        [K in keyof RawCoins]?: CoinDisplayData;
+    };
+    totalCurrency: string;
+    totalWealth: string;
+}
 interface SheetItemList {
     label: string;
     types: string[];
@@ -60,10 +73,7 @@ interface ActorSheetDataPF2e<TActor extends ActorPF2e> extends ActorSheetData<TA
     isLootSheet: boolean;
     isTargetFlatFooted: boolean;
     toggles: Record<string, RollOptionToggle[]>;
-    totalCoinage: CoinageSummary;
-    totalCoinageGold: string;
-    totalWealth: Coins;
-    totalWealthGold: string;
+    currency: CurrencySummary;
     traits: SheetOptions;
     user: {
         isGM: boolean;
@@ -71,6 +81,7 @@ interface ActorSheetDataPF2e<TActor extends ActorPF2e> extends ActorSheetData<TA
     publicationLicenses: FormSelectOption[];
 }
 interface AbilityViewData {
+    uuid: ItemUUID;
     id: string;
     name: string;
     img: string;
@@ -88,4 +99,11 @@ interface ActorSheetRenderOptionsPF2e extends AppV1RenderOptions {
     /** What tab to switch to when rendering the sheet */
     tab?: string;
 }
-export type { AbilityViewData, ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e, InventoryItem, SheetInventory };
+export type {
+    AbilityViewData,
+    ActorSheetDataPF2e,
+    ActorSheetRenderOptionsPF2e,
+    CurrencySummary,
+    InventoryItem,
+    SheetInventory,
+};

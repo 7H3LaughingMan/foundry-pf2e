@@ -3,7 +3,7 @@ import { AttributeString } from ".//types.ts";
 import { ItemPF2e } from "./../item/index.ts";
 import { ZeroToFour } from "./../data.ts";
 import { RollNotePF2e } from "./../notes.ts";
-import { RuleElementPF2e } from "./../rules/index.ts";
+import { RuleElement } from "./../rules/index.ts";
 import { DamageAlteration } from "./../rules/rule-element/damage-alteration/alteration.ts";
 import { DamageCategoryUnique, DamageDiceFaces, DamageDieSize, DamageType } from "./../system/damage/types.ts";
 import { Predicate, RawPredicate } from "./../system/predication.ts";
@@ -16,7 +16,7 @@ declare const PROFICIENCY_RANK_OPTION: readonly [
 ];
 declare function ensureProficiencyOption(options: Set<string>, rank: number): void;
 declare const MODIFIER_TYPES: Set<
-    "item" | "untyped" | "ability" | "circumstance" | "potency" | "proficiency" | "status"
+    "item" | "untyped" | "status" | "ability" | "proficiency" | "circumstance" | "potency"
 >;
 type ModifierType = SetElement<typeof MODIFIER_TYPES>;
 interface RawModifier {
@@ -64,6 +64,8 @@ interface ModifierAdjustment {
     damageType?: DamageType;
     relabel?: string;
     suppress?: boolean;
+    /** The number of times this adjustment has been applied to a single statistic */
+    applications?: number;
     getNewValue?: (current: number) => number;
     getDamageType?: (current: DamageType | null) => DamageType | null;
 }
@@ -84,7 +86,7 @@ interface DeferredDamageDiceOptions extends TestableDeferredValueParams {
 type DeferredValue<T> = (options?: DeferredValueParams) => T | null;
 type DeferredPromise<T> = (options?: DeferredValueParams) => Promise<T | null>;
 /** Represents a discrete modifier, bonus, or penalty, to a statistic or check. */
-declare class ModifierPF2e implements RawModifier {
+declare class Modifier implements RawModifier {
     #private;
     slug: string;
     label: string;
@@ -99,7 +101,7 @@ declare class ModifierPF2e implements RawModifier {
     enabled: boolean;
     ignored: boolean;
     /** The originating rule element of this modifier, if any: used to retrieve "parent" item roll options */
-    rule: RuleElementPF2e | null;
+    rule: RuleElement | null;
     source: string | null;
     custom: boolean;
     damageType: DamageType | null;
@@ -142,7 +144,7 @@ declare class ModifierPF2e implements RawModifier {
         options?: {
             test?: Set<string> | string[] | null;
         },
-    ): ModifierPF2e;
+    ): Modifier;
     /**
      * Get roll options for this modifier. The current data structure makes for occasional inability to distinguish
      * bonuses and penalties.
@@ -155,7 +157,7 @@ declare class ModifierPF2e implements RawModifier {
 }
 interface ModifierObjectParams extends RawModifier {
     name?: string;
-    rule?: RuleElementPF2e | null;
+    rule?: RuleElement | null;
     alterations?: DamageAlteration[];
 }
 type ModifierOrderedParams = [
@@ -171,7 +173,7 @@ type ModifierOrderedParams = [
  * Create a modifier for a given attribute type.
  * @returns The modifier of the given attribute
  */
-declare function createAttributeModifier({ actor, attribute, domains, max }: CreateAbilityModifierParams): ModifierPF2e;
+declare function createAttributeModifier({ actor, attribute, domains, max }: CreateAbilityModifierParams): Modifier;
 interface CreateAbilityModifierParams {
     actor: CharacterPF2e | NPCPF2e;
     attribute: AttributeString;
@@ -189,7 +191,7 @@ declare function createProficiencyModifier({
     domains,
     level,
     addLevel,
-}: CreateProficiencyModifierParams): ModifierPF2e;
+}: CreateProficiencyModifierParams): Modifier;
 interface CreateProficiencyModifierParams {
     actor: ActorPF2e;
     rank: ZeroToFour;
@@ -205,7 +207,7 @@ interface CreateProficiencyModifierParams {
  * @param modifiers The list of modifiers to apply stacking rules for.
  * @returns The total modifier provided by the given list of modifiers.
  */
-declare function applyStackingRules(modifiers: ModifierPF2e[]): number;
+declare function applyStackingRules(modifiers: Modifier[]): number;
 /**
  * Represents a statistic on an actor and its commonly applied modifiers. Each statistic or check can have multiple
  * modifiers, even of the same type, but the stacking rules are applied to ensure that only a single bonus and penalty
@@ -217,7 +219,7 @@ declare class StatisticModifier {
     /** The display label of this statistic */
     label?: string;
     /** The list of modifiers which affect the statistic. */
-    protected _modifiers: ModifierPF2e[];
+    protected _modifiers: Modifier[];
     /** The total modifier for the statistic, after applying stacking rules. */
     totalModifier: number;
     /** A textual breakdown of the modifiers factoring into this statistic */
@@ -231,19 +233,19 @@ declare class StatisticModifier {
      * @param modifiers All relevant modifiers for this statistic.
      * @param rollOptions Roll options used for initial total calculation
      */
-    constructor(slug: string, modifiers?: ModifierPF2e[], rollOptions?: string[] | Set<string>);
+    constructor(slug: string, modifiers?: Modifier[], rollOptions?: string[] | Set<string>);
     /** Get the list of all modifiers in this collection */
-    get modifiers(): ModifierPF2e[];
+    get modifiers(): Modifier[];
     /** Add a modifier to the end of this collection. */
-    push(modifier: ModifierPF2e): number;
+    push(modifier: Modifier): number;
     /** Add a modifier to the beginning of this collection. */
-    unshift(modifier: ModifierPF2e): number;
+    unshift(modifier: Modifier): number;
     /** Delete a modifier from this collection by name or reference */
-    delete(modifierSlug: string | ModifierPF2e): boolean;
+    delete(modifierSlug: string | Modifier): boolean;
     /** Obtain the total modifier, optionally retesting predicates, and finally applying stacking rules. */
     calculateTotal(rollOptions?: Set<string>): void;
 }
-declare function adjustModifiers(modifiers: ModifierPF2e[], rollOptions: Set<string>): void;
+declare function adjustModifiers(modifiers: Modifier[], rollOptions: Set<string>): void;
 /**
  * Represents the list of modifiers for a specific check.
  * @category PF2
@@ -257,9 +259,9 @@ declare class CheckModifier extends StatisticModifier {
     constructor(
         slug: string,
         statistic: {
-            modifiers: readonly ModifierPF2e[];
+            modifiers: readonly Modifier[];
         },
-        modifiers?: ModifierPF2e[],
+        modifiers?: Modifier[],
         rollOptions?: string[] | Set<string>,
     );
 }
@@ -330,8 +332,8 @@ export {
     createProficiencyModifier,
     DamageDicePF2e,
     ensureProficiencyOption,
+    Modifier,
     MODIFIER_TYPES,
-    ModifierPF2e,
     PROFICIENCY_RANK_OPTION,
     StatisticModifier,
 };

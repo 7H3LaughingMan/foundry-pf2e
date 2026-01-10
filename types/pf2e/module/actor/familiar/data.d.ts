@@ -3,6 +3,7 @@ import {
     CreatureAttributes,
     CreatureDetails,
     CreatureLanguagesData,
+    CreatureMovementData,
     CreaturePerceptionData,
     CreatureResources,
     CreatureSaves,
@@ -10,14 +11,14 @@ import {
     SkillData,
 } from "./../creature/data.ts";
 import { ActorSystemModel, ActorSystemSchema } from "./../data/model.ts";
-import { ModifierPF2e } from "./../modifiers.ts";
+import { Modifier } from "./../modifiers.ts";
 import { AttributeString } from "./../types.ts";
 import {
     ModelPropFromDataField,
     ModelPropsFromSchema,
     SourceFromDataField,
     SourceFromSchema,
-} from "./../../../../foundry/common/data/fields.mjs";
+} from "#common/data/fields.mjs";
 import { StatisticTraceData } from "./../../system/statistic/data.ts";
 import { FamiliarPF2e } from "./document.ts";
 import fields = foundry.data.fields;
@@ -29,14 +30,18 @@ declare class FamiliarSystemData extends ActorSystemModel<FamiliarPF2e, Familiar
     skills: Record<string, SkillData>;
     attack: StatisticTraceData;
     resources: CreatureResources;
+    movement: CreatureMovementData;
     static defineSchema(): FamiliarSystemSchema;
+    prepareBaseData(): void;
+    prepareDerivedData(): void;
 }
 interface FamiliarSystemData
-    extends foundry.abstract.TypeDataModel<FamiliarPF2e, FamiliarSystemSchema>,
+    extends
+        foundry.abstract.TypeDataModel<FamiliarPF2e, FamiliarSystemSchema>,
         ModelPropsFromSchema<FamiliarSystemSchema> {
     attributes: CreatureAttributes;
     details: FamiliarDetails;
-    customModifiers: Record<string, ModifierPF2e[]>;
+    customModifiers: Record<string, Modifier[]>;
 }
 type FamiliarSystemSchema = ActorSystemSchema & {
     master: fields.SchemaField<{

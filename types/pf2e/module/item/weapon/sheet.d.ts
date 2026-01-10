@@ -1,6 +1,12 @@
-import { FormSelectOption } from "./../../../../foundry/client/applications/forms/fields.mjs";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { ItemSheetOptions } from "./../base/sheet/sheet.ts";
-import { MaterialSheetData, PhysicalItemSheetData, PhysicalItemSheetPF2e, RUNE_DATA } from "./../physical/index.ts";
+import {
+    Grade,
+    MaterialSheetData,
+    PhysicalItemSheetData,
+    PhysicalItemSheetPF2e,
+    RUNE_DATA,
+} from "./../physical/index.ts";
 import { AdjustedValue, SheetOptions } from "./../../sheet/helpers.ts";
 import { ComboWeaponMeleeUsage, SpecificWeaponData } from "./data.ts";
 import { WeaponPF2e } from "./document.ts";
@@ -20,7 +26,8 @@ interface WeaponSheetData extends PhysicalItemSheetData<WeaponPF2e> {
     abpEnabled: boolean;
     adjustedDiceHint: string | null;
     adjustedLevelHint: string | null;
-    adjustedPriceHint: string | null;
+    ammoTypes: foundry.applications.fields.FormSelectOption[];
+    canHaveCapacity: boolean;
     baseTypes: typeof CONFIG.PF2E.baseWeaponTypes;
     categories: typeof CONFIG.PF2E.weaponCategories;
     conditionTypes: typeof CONFIG.PF2E.conditionTypes;
@@ -48,6 +55,7 @@ interface WeaponSheetData extends PhysicalItemSheetData<WeaponPF2e> {
             name: string;
         }[];
     };
+    grades: Record<Grade, string>;
     specificMagicData: SpecificWeaponData;
     weaponMAP: typeof CONFIG.PF2E.weaponMAP;
     weaponRanges: Record<number, string>;

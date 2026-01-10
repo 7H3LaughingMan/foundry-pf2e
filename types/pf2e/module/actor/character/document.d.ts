@@ -1,9 +1,7 @@
 import { CreaturePF2e, FamiliarPF2e } from "./../index.ts";
-import { CreatureSpeeds, LabeledSpeed } from "./../creature/data.ts";
 import { CreatureUpdateCallbackOptions, ResourceData } from "./../creature/types.ts";
 import { ActorInitiative } from "./../initiative.ts";
-import { StatisticModifier } from "./../modifiers.ts";
-import { AttributeString, MovementType } from "./../types.ts";
+import { AttributeString } from "./../types.ts";
 import {
     AncestryPF2e,
     BackgroundPF2e,
@@ -11,10 +9,10 @@ import {
     DeityPF2e,
     FeatPF2e,
     HeritagePF2e,
+    ItemPF2e,
     WeaponPF2e,
 } from "./../../item/index.ts";
-import { ItemType } from "./../../item/base/data/index.ts";
-import { ZeroToTwo } from "./../../data.ts";
+import { ItemType } from "./../../item/types.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { RollParameters } from "./../../system/rolls.ts";
 import { Statistic } from "./../../system/statistic/index.ts";
@@ -22,9 +20,9 @@ import { CharacterCrafting } from "./crafting/index.ts";
 import {
     BaseWeaponProficiencyKey,
     CharacterAbilities,
+    CharacterAttack,
     CharacterFlags,
     CharacterSource,
-    CharacterStrike,
     CharacterSystemData,
     WeaponGroupProficiencyKey,
 } from "./data.ts";
@@ -56,9 +54,9 @@ declare class CharacterPF2e<
     get keyAttribute(): AttributeString;
     /** This PC's ability scores */
     get abilities(): CharacterAbilities;
-    get handsFree(): ZeroToTwo;
+    get handsFree(): number;
     /** The number of hands this PC "really" has free, ignoring allowances for shields and the Free-Hand trait */
-    get handsReallyFree(): ZeroToTwo;
+    get handsReallyFree(): number;
     get hitPoints(): CharacterHitPointsSummary;
     get heroPoints(): {
         value: number;
@@ -66,7 +64,12 @@ declare class CharacterPF2e<
     };
     /** Retrieve lore skills, class statistics, and tradition-specific spellcasting */
     getStatistic(slug: GuaranteedGetStatisticSlug): Statistic<this>;
-    getStatistic(slug: string): Statistic<this> | null;
+    getStatistic(
+        slug: string,
+        options?: {
+            item: ItemPF2e | null;
+        },
+    ): Statistic<this> | null;
     protected _initialize(options?: Record<string, unknown>): void;
     /** If one exists, prepare this character's familiar */
     prepareData(): void;
@@ -79,6 +82,8 @@ declare class CharacterPF2e<
      * modifiers according to them.
      */
     prepareDataFromItems(): void;
+    /** Determine hands free from held items. */
+    protected prepareHandsData(): void;
     prepareDerivedData(): void;
     private prepareBuildData;
     /** Set roll operations for ability scores, proficiency ranks, and number of hands free */
@@ -86,19 +91,16 @@ declare class CharacterPF2e<
     private createArmorStatistic;
     private prepareSaves;
     private prepareSkills;
-    prepareSpeed(movementType: "land"): CreatureSpeeds;
-    prepareSpeed(movementType: Exclude<MovementType, "land">): (LabeledSpeed & StatisticModifier) | null;
-    prepareSpeed(movementType: MovementType): CreatureSpeeds | (LabeledSpeed & StatisticModifier) | null;
+    prepareMovementData(): void;
     private prepareFeats;
     private prepareClassDC;
     /** Prepare this character's strike actions */
-    prepareStrikes({ includeBasicUnarmed }?: { includeBasicUnarmed?: boolean | undefined }): CharacterStrike[];
+    prepareAttacks({ includeBasicUnarmed }?: { includeBasicUnarmed?: boolean | undefined }): CharacterAttack[];
+    private prepareAreaAttack;
     /** Prepare a strike action from a weapon */
     private prepareStrike;
     getStrikeDescription(weapon: WeaponPF2e): {
         description: string;
-        criticalSuccess: string;
-        success: string;
     };
     consumeAmmo(weapon: WeaponPF2e<CharacterPF2e>, params: RollParameters): boolean;
     /** Prepare stored and synthetic martial proficiencies */
@@ -113,8 +115,9 @@ declare class CharacterPF2e<
         user: fd.BaseUser,
     ): Promise<boolean | void>;
 }
-interface CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null>
-    extends CreaturePF2e<TParent> {
+interface CharacterPF2e<
+    TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null,
+> extends CreaturePF2e<TParent> {
     flags: CharacterFlags;
     readonly _source: CharacterSource;
     system: CharacterSystemData;

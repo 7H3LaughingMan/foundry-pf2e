@@ -1,14 +1,15 @@
 import { ActorAlliance, ActorDimensions, ActorInstances, ApplyDamageParams, AuraData, SaveType } from ".//types.ts";
-import { DialogV2Configuration } from "./../../../foundry/client/applications/api/dialog.mjs";
-import { ActorUUID } from "./../../../foundry/client/documents/_module.mjs";
-import { DocumentConstructionContext } from "./../../../foundry/common/_types.mjs";
+import { DialogV2Configuration } from "#client/applications/api/dialog.mjs";
+import { ActorUUID } from "#client/documents/_module.mjs";
+import { ToCompendiumOptions } from "#client/documents/abstract/_module.mjs";
+import { DocumentConstructionContext } from "#common/_types.mjs";
 import {
     DatabaseCreateOperation,
     DatabaseDeleteCallbackOptions,
     DatabaseUpdateOperation,
     Document,
-} from "./../../../foundry/common/abstract/_module.mjs";
-import { ImageFilePath, VideoFilePath } from "./../../../foundry/common/constants.mjs";
+} from "#common/abstract/_module.mjs";
+import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
 import {
     AbstractEffectPF2e,
     ConditionPF2e,
@@ -17,16 +18,17 @@ import {
     ShieldPF2e,
     ItemPF2e,
 } from "./../item/index.ts";
-import { ItemSourcePF2e, ItemType, PhysicalItemSource } from "./../item/base/data/index.ts";
+import { ItemSourcePF2e, PhysicalItemSource } from "./../item/base/data/index.ts";
 import { ConditionKey, ConditionSlug, ConditionSource } from "./../item/condition/index.ts";
 import { EffectSource } from "./../item/effect/data.ts";
+import { ItemType } from "./../item/types.ts";
 import { ActiveEffectPF2e } from "./../active-effect.ts";
 import { TokenPF2e } from "./../canvas/index.ts";
 import { AppliedDamageFlag } from "./../chat-message/index.ts";
 import { Size } from "./../data.ts";
 import { CombatantPF2e, EncounterPF2e } from "./../encounter/index.ts";
 import { RuleElementSynthetics } from "./../rules/index.ts";
-import { RuleElementPF2e } from "./../rules/rule-element/base.ts";
+import { RuleElement } from "./../rules/rule-element/base.ts";
 import { UserPF2e } from "./../user/document.ts";
 import { ScenePF2e } from "./../scene/document.ts";
 import { TokenDocumentPF2e } from "./../scene/token-document/document.ts";
@@ -63,8 +65,8 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     /** A separate collection of owned spellcasting entries for convenience */
     spellcasting: ActorSpellcasting<this> | null;
     /** Rule elements drawn from owned items */
-    rules: RuleElementPF2e[];
-    synthetics: RuleElementSynthetics<this>;
+    rules: RuleElement[];
+    synthetics: RuleElementSynthetics;
     /** Saving throw statistics */
     saves?: {
         [K in SaveType]?: Statistic;
@@ -142,7 +144,12 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     /** Checks if the item can be added to this actor by checking the valid item types. */
     checkItemValidity(source: PreCreate<ItemSourcePF2e>): boolean;
     /** Get (almost) any statistic by slug: handling expands in `ActorPF2e` subclasses */
-    getStatistic(slug: string): Statistic<this> | null;
+    getStatistic(
+        slug: string,
+        options?: {
+            item: ItemPF2e | null;
+        },
+    ): Statistic<this> | null;
     /** Returns a resource by slug or by key */
     getResource(_resource: string): ResourceData | null;
     /** Get roll options from this actor's effects, traits, and other properties */
@@ -165,7 +172,7 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
         },
     ): Promise<void>;
     /** Recharges all abilities after some time has elapsed. */
-    recharge(options: RechargeOptions): Promise<ActorRechargeData<this>>;
+    recharge(options: RechargeOptions): Promise<ActorRechargeData>;
     /** Don't allow the user to create in-development actor types. */
     static createDialog<T extends Document>(
         this: ConstructorOf<T>,
@@ -204,7 +211,7 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     prepareEmbeddedDocuments(): void;
     /** Prepare data among owned items as well as actor-data preparation performed by items */
     protected prepareDataFromItems(): void;
-    protected prepareRuleElements(): RuleElementPF2e[];
+    protected prepareRuleElements(): RuleElement[];
     /** Collect all rule element output */
     protected prepareSynthetics(): void;
     /** Set traits as roll options */
@@ -259,6 +266,9 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     undoDamage(appliedDamage: AppliedDamageFlag): Promise<void>;
     /** Can a user loot this actor? Same as update modification permission but overridable by subclasses */
     isLootableBy(user: User): boolean;
+    exportToJSON(options?: ToCompendiumOptions): void;
+    /** Assess and pre-process this JSON data, ensuring it's importable and fully migrated */
+    importFromJSON(json: string): Promise<this>;
     /**
      * Moves an item to another actor's inventory.
      * @param targetActor Instance of actor to be receiving the item.
@@ -349,6 +359,19 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
             active?: boolean;
         },
     ): Promise<boolean | void>;
+    /** Redirect to `toggleCondition` if possible. */
+    toggleStatusEffect(
+        statusId: string,
+        options?: {
+            active?: boolean;
+            overlay?: boolean;
+        },
+    ): Promise<boolean | void | ActiveEffect<this>>;
+    protected _preUpdate(
+        changed: DeepPartial<this["_source"]>,
+        options: ActorUpdateCallbackOptions,
+        user: fd.BaseUser,
+    ): Promise<boolean | void>;
     /** Store certain data to be checked in _onUpdateDescendantDocuments */
     protected _preUpdateDescendantDocuments(
         parent: Document,
@@ -372,21 +395,6 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
         },
         userId: string,
     ): void;
-    /** Redirect to `toggleCondition` if possible. */
-    toggleStatusEffect(
-        statusId: string,
-        options?: {
-            active?: boolean;
-            overlay?: boolean;
-        },
-    ): Promise<boolean | void | ActiveEffect<this>>;
-    /** Assess and pre-process this JSON data, ensuring it's importable and fully migrated */
-    importFromJSON(json: string): Promise<this>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: ActorUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
     protected _onUpdate(
         changed: DeepPartial<this["_source"]>,
         options: ActorUpdateCallbackOptions,
@@ -464,8 +472,10 @@ interface ActorUpdateOperation<TParent extends TokenDocumentPF2e | null> extends
         maxHitPoints?: number;
     };
 }
-interface ActorUpdateCallbackOptions
-    extends Omit<ActorUpdateOperation<null>, "action" | "pack" | "parent" | "restoreDelta" | "noHook" | "updates"> {}
+interface ActorUpdateCallbackOptions extends Omit<
+    ActorUpdateOperation<null>,
+    "action" | "pack" | "parent" | "restoreDelta" | "noHook" | "updates"
+> {}
 interface EmbeddedItemUpdateOperation<TParent extends ActorPF2e> extends DatabaseUpdateOperation<TParent> {
     checkHP?: boolean;
 }

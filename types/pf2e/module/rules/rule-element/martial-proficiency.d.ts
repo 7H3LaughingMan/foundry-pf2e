@@ -3,10 +3,10 @@ import { ArmorCategory } from "./../../item/armor/types.ts";
 import { ProficiencyRank } from "./../../item/base/data/index.ts";
 import { WeaponCategory } from "./../../item/weapon/types.ts";
 import { PredicateField } from "./../../system/schema-data-fields.ts";
-import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
+import { RuleElement, RuleElementOptions } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
 import fields = foundry.data.fields;
-declare class MartialProficiencyRuleElement extends RuleElementPF2e<MartialProficiencySchema> {
+declare class MartialProficiencyRuleElement extends RuleElement<MartialProficiencySchema> {
     protected static validActorTypes: ActorType[];
     slug: string;
     constructor(data: RuleElementSource, options: RuleElementOptions);
@@ -14,8 +14,7 @@ declare class MartialProficiencyRuleElement extends RuleElementPF2e<MartialProfi
     onApplyActiveEffects(): void;
 }
 interface MartialProficiencyRuleElement
-    extends RuleElementPF2e<MartialProficiencySchema>,
-        ModelPropsFromRESchema<MartialProficiencySchema> {
+    extends RuleElement<MartialProficiencySchema>, ModelPropsFromRESchema<MartialProficiencySchema> {
     get actor(): CharacterPF2e;
 }
 type MartialProficiencySchema = RuleElementSchema & {

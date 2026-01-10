@@ -1,5 +1,5 @@
 declare const PHYSICAL_ITEM_TYPES: Set<
-    "armor" | "shield" | "consumable" | "backpack" | "book" | "equipment" | "treasure" | "weapon"
+    "armor" | "shield" | "consumable" | "ammo" | "backpack" | "book" | "equipment" | "treasure" | "weapon"
 >;
 declare const PRECIOUS_MATERIAL_TYPES: Set<
     | "abysium"
@@ -10,6 +10,7 @@ declare const PRECIOUS_MATERIAL_TYPES: Set<
     | "inubrix"
     | "noqual"
     | "orichalcum"
+    | "peachwood"
     | "siccatite"
     | "silver"
     | "cold-iron"
@@ -17,7 +18,6 @@ declare const PRECIOUS_MATERIAL_TYPES: Set<
     | "dreamweb"
     | "grisantian-pelt"
     | "keep-stone"
-    | "peachwood"
     | "sisterstone"
     | "sisterstone-dusk"
     | "sisterstone-scarlet"
@@ -26,5 +26,21 @@ declare const PRECIOUS_MATERIAL_TYPES: Set<
     | "warpglass"
 >;
 declare const PRECIOUS_MATERIAL_GRADES: Set<"low" | "standard" | "high">;
-declare const DENOMINATIONS: readonly ["pp", "gp", "sp", "cp"];
-export { DENOMINATIONS, PHYSICAL_ITEM_TYPES, PRECIOUS_MATERIAL_GRADES, PRECIOUS_MATERIAL_TYPES };
+declare const COIN_DENOMINATIONS: readonly ["pp", "gp", "sp", "cp"];
+declare const CURRENCY_TYPES: readonly ["pp", "gp", "sp", "cp", "credits", "upb"];
+declare const DENOMINATION_RATES: {
+    cp: number;
+    sp: number;
+    gp: number;
+    pp: number;
+    credits: number;
+    upb: number;
+};
+export {
+    COIN_DENOMINATIONS,
+    CURRENCY_TYPES,
+    DENOMINATION_RATES,
+    PHYSICAL_ITEM_TYPES,
+    PRECIOUS_MATERIAL_GRADES,
+    PRECIOUS_MATERIAL_TYPES,
+};

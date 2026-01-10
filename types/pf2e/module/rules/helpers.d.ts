@@ -3,25 +3,25 @@ import {
     DamageDicePF2e,
     DeferredDamageDiceOptions,
     DeferredValueParams,
+    Modifier,
     ModifierAdjustment,
-    ModifierPF2e,
 } from "./../actor/modifiers.ts";
 import { ItemPF2e } from "./../item/index.ts";
 import { ConditionSource, EffectSource } from "./../item/base/data/index.ts";
-import { PickableThing } from "./../apps/pick-a-thing-prompt.ts";
+import { PickableThing } from "./../apps/pick-a-thing-prompt/app.ts";
 import { RollNotePF2e } from "./../notes.ts";
 import { BaseDamageData } from "./../system/damage/index.ts";
 import { DegreeOfSuccessAdjustment } from "./../system/degree-of-success.ts";
 import { RollTwiceOption } from "./../system/rolls.ts";
 import { DamageAlteration } from "./rule-element/damage-alteration/alteration.ts";
-import { BracketedValue, RuleElementPF2e } from "./rule-element/index.ts";
+import { RuleElement } from "./rule-element/index.ts";
 import { DamageDiceSynthetics, RollSubstitution, RollTwiceSynthetic, RuleElementSynthetics } from "./synthetics.ts";
 /** Extracts a list of all cloned modifiers across all given keys in a single list. */
 declare function extractModifiers(
     synthetics: RuleElementSynthetics,
     domains: string[],
     options?: DeferredValueParams,
-): ModifierPF2e[];
+): Modifier[];
 declare function extractModifierAdjustments(
     adjustmentsRecord: RuleElementSynthetics["modifierAdjustments"],
     selectors: string[],
@@ -41,12 +41,12 @@ declare function extractDamageDice(
 declare function processDamageCategoryStacking(
     base: BaseDamageData[],
     options: {
-        modifiers: ModifierPF2e[];
+        modifiers: Modifier[];
         dice: DamageDicePF2e[];
         test: Set<string>;
     },
 ): {
-    modifiers: ModifierPF2e[];
+    modifiers: Modifier[];
     dice: DamageDicePF2e[];
 };
 declare function extractEphemeralEffects({
@@ -79,7 +79,6 @@ declare function extractDegreeOfSuccessAdjustments(
     synthetics: Pick<RuleElementSynthetics, "degreeOfSuccessAdjustments">,
     selectors: string[],
 ): DegreeOfSuccessAdjustment[];
-declare function isBracketedValue(value: unknown): value is BracketedValue;
 declare function processPreUpdateActorHooks(
     changed: Record<string, unknown>,
     {
@@ -90,7 +89,7 @@ declare function processPreUpdateActorHooks(
 ): Promise<void>;
 /** Gets the item update info that applies an update to all given rules */
 declare function createBatchRuleElementUpdate(
-    rules: RuleElementPF2e[],
+    rules: RuleElement[],
     update: Record<string, unknown>,
 ): EmbeddedDocumentUpdateData[];
 declare function processChoicesFromData(data: unknown): PickableThing<string>[];
@@ -105,7 +104,6 @@ export {
     extractNotes,
     extractRollSubstitutions,
     extractRollTwice,
-    isBracketedValue,
     processChoicesFromData,
     processDamageCategoryStacking,
     processPreUpdateActorHooks,

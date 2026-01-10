@@ -1,4 +1,4 @@
-import { ImageFilePath } from "./../../../../foundry/common/constants.mjs";
+import { ImageFilePath } from "#common/constants.mjs";
 import { DamageCategory, DamageType } from "./types.ts";
 declare const PHYSICAL_DAMAGE_TYPES: readonly ["bludgeoning", "piercing", "slashing", "bleed"];
 declare const ENERGY_DAMAGE_TYPES: readonly [
@@ -80,8 +80,8 @@ export {
     DAMAGE_CATEGORIES_UNIQUE,
     DAMAGE_DICE_FACES,
     DAMAGE_DIE_SIZES,
-    DAMAGE_TYPES,
     DAMAGE_TYPE_ICONS,
+    DAMAGE_TYPES,
     ENERGY_DAMAGE_TYPES,
     MATERIAL_DAMAGE_EFFECTS,
     PERSISTENT_DAMAGE_IMAGES,

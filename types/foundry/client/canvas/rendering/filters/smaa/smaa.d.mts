@@ -56,7 +56,15 @@ export default class SMAAFilter extends PIXI.Filter {
     /**
      * @param {Partial<SMAAFilterConfig>} [config]
      */
-    constructor({ threshold, localContrastAdaptionFactor, maxSearchSteps, maxSearchStepsDiag, cornerRounding, disableDiagDetection, disableCornerDetection }?: Partial<SMAAFilterConfig> | undefined);
+    constructor({
+        threshold,
+        localContrastAdaptionFactor,
+        maxSearchSteps,
+        maxSearchStepsDiag,
+        cornerRounding,
+        disableDiagDetection,
+        disableCornerDetection,
+    }?: Partial<SMAAFilterConfig> | undefined);
     /** @override */
     override apply(filterManager: any, input: any, output: any, clearMode: any, currentState: any): void;
     #private;

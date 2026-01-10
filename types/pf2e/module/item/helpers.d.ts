@@ -1,8 +1,12 @@
 import { ActorPF2e } from "./../actor/index.ts";
-import { ItemSourcePF2e, ItemType } from "./base/data/index.ts";
+import { MeasuredTemplatePF2e } from "./../canvas/measured-template.ts";
+import { ChatMessagePF2e } from "./../chat-message/document.ts";
+import { ItemSourcePF2e } from "./base/data/index.ts";
+import { ItemTraits, ItemTraitsNoRarity } from "./base/data/system.ts";
 import { ItemPF2e } from "./base/document.ts";
+import { ItemTrait } from "./base/types.ts";
 import { PhysicalItemPF2e } from "./physical/document.ts";
-import { ItemInstances } from "./types.ts";
+import { EffectAreaShape, ItemInstances, ItemType } from "./types.ts";
 type ItemOrSource = PreCreate<ItemSourcePF2e> | ItemPF2e;
 /** Determine in a type-safe way whether an `ItemPF2e` or `ItemSourcePF2e` is among certain types */
 declare function itemIsOfType<TParent extends ActorPF2e | null, TType extends ItemType>(
@@ -29,4 +33,49 @@ declare function reduceItemName(label: string): string;
  */
 declare function performLatePreparation(item: ItemPF2e): void;
 declare function markdownToHTML(markdown: string): string;
-export { itemIsOfType, markdownToHTML, performLatePreparation, reduceItemName };
+/**
+ * Add a trait to an array of traits--unless it matches an existing trait except by annotation. Replace the trait if
+ * the new trait is an upgrade, or otherwise do nothing. Note: the array is mutated as part of this process.
+ */
+declare function addOrUpgradeTrait<TTrait extends ItemTrait>(
+    traits: ItemTraits<TTrait> | ItemTraitsNoRarity<TTrait> | TTrait[],
+    newTrait: TTrait,
+    {
+        mode,
+    }?: {
+        mode?: "upgrade" | "override";
+    },
+): void;
+/**
+ * Removes the trait from the traits object, and also updates the annotation if relevant
+ * @param traits the traits object to update
+ * @param trait the trait being removed
+ */
+declare function removeTrait<TTrait extends ItemTrait>(
+    traits: Pick<ItemTraits<TTrait>, "value" | "config">,
+    trait: string,
+): void;
+declare function createEffectAreaLabel(areaData: { type: EffectAreaShape; value: number }): string;
+declare function placeItemTemplate(
+    area: {
+        type: EffectAreaShape;
+        value: number;
+    },
+    {
+        message,
+        item,
+    }: {
+        message?: ChatMessagePF2e;
+        item: ItemPF2e;
+    },
+): Promise<MeasuredTemplatePF2e>;
+export {
+    addOrUpgradeTrait,
+    createEffectAreaLabel,
+    itemIsOfType,
+    markdownToHTML,
+    performLatePreparation,
+    placeItemTemplate,
+    reduceItemName,
+    removeTrait,
+};

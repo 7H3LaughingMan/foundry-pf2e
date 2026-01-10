@@ -3,14 +3,14 @@ import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteCallbackOptions,
     DataModelConstructionContext,
-} from "./../../../foundry/common/abstract/_types.mjs";
+} from "#common/abstract/_types.mjs";
+import { DocumentFlags } from "#common/data/_types.mjs";
 import { ItemPF2e } from "./../item/index.ts";
-import { EffectAreaShape } from "./../item/spell/types.ts";
+import { EffectAreaShape } from "./../item/types.ts";
 import { MeasuredTemplatePF2e } from "./../canvas/measured-template.ts";
 import { ItemOriginFlag } from "./../chat-message/data.ts";
 import { ChatMessagePF2e } from "./../chat-message/document.ts";
 import { ScenePF2e } from "./document.ts";
-import { DocumentFlags } from "../../../foundry/common/data/_module.mjs";
 declare class MeasuredTemplateDocumentPF2e<
     TParent extends ScenePF2e | null = ScenePF2e | null,
 > extends MeasuredTemplateDocument<TParent> {
@@ -26,8 +26,9 @@ declare class MeasuredTemplateDocumentPF2e<
     /** If present, hide the clear-template button on the message from which this template was spawned */
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 }
-interface MeasuredTemplateDocumentPF2e<TParent extends ScenePF2e | null = ScenePF2e | null>
-    extends MeasuredTemplateDocument<TParent> {
+interface MeasuredTemplateDocumentPF2e<
+    TParent extends ScenePF2e | null = ScenePF2e | null,
+> extends MeasuredTemplateDocument<TParent> {
     get object(): MeasuredTemplatePF2e<this> | null;
     flags: DocumentFlags & {
         pf2e: {

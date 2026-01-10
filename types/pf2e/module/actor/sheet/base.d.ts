@@ -1,23 +1,16 @@
 import { ActorPF2e } from "./../index.ts";
-import { StrikeData } from "./../data/base.ts";
-import { AppV1RenderOptions } from "./../../../../foundry/client/appv1/api/application-v1.mjs";
-import { ActorSheetOptions } from "./../../../../foundry/client/appv1/sheets/actor-sheet.mjs";
-import { DropCanvasData } from "./../../../../foundry/client/helpers/hooks.mjs";
+import { AttackAction } from "./../data/base.ts";
+import { default as Tabs } from "#client/applications/ux/tabs.mjs";
+import { AppV1RenderOptions } from "#client/appv1/api/application-v1.mjs";
+import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
+import { DropCanvasData } from "#client/helpers/hooks.mjs";
 import { PhysicalItemPF2e, ItemPF2e } from "./../../item/index.ts";
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
-import { Coins } from "./../../item/physical/data.ts";
-import { DropCanvasItemDataPF2e } from "./../../canvas/drop-canvas-data.ts";
+import { DropCanvasItemData } from "./../../canvas/drop-canvas-data.ts";
 import { BasicConstructorOptions, TagSelectorOptions, TagSelectorType } from "./../../system/tag-selector/index.ts";
 import { Plugin } from "prosemirror-state";
-import {
-    ActorSheetDataPF2e,
-    ActorSheetRenderOptionsPF2e,
-    CoinageSummary,
-    InventoryItem,
-    SheetInventory,
-} from "./data-types.ts";
+import { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e, InventoryItem, SheetInventory } from "./data-types.ts";
 import { ItemSummaryRenderer } from "./item-summary-renderer.ts";
-import { Tabs } from "../../../../foundry/client/applications/ux/_module.mjs";
 /**
  * Extend the basic ActorSheet class to do all the PF2e things!
  * This sheet is an Abstract layer which is not used.
@@ -36,12 +29,11 @@ declare abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.she
     protected prepareInventory(): SheetInventory;
     protected prepareInventoryItem(item: PhysicalItemPF2e): InventoryItem;
     protected _onSearchFilter(event: KeyboardEvent, query: string, rgx: RegExp, html: HTMLElement | null): void;
-    protected static coinsToSheetData(coins: Coins): CoinageSummary;
-    protected getStrikeFromDOM(button: HTMLElement, readyOnly?: boolean): StrikeData | null;
+    protected getAttackActionFromDOM(button: HTMLElement, readyOnly?: boolean): AttackAction | null;
     activateListeners($html: JQuery): void;
     /** Sheet-wide click listeners for elements selectable as `a[data-action]` */
     protected activateClickListener(html: HTMLElement): SheetClickActionHandlers;
-    protected deleteItem<TItem extends ItemPF2e>(item: TItem, event?: MouseEvent): Promise<TItem | undefined>;
+    protected deleteItem<TItem extends ItemPF2e>(item: TItem, event?: PointerEvent): Promise<TItem | undefined>;
     protected _canDragStart(selector: string): boolean;
     protected _canDragDrop(selector: string): boolean;
     /** Add support for dropping actions and toggles */
@@ -49,7 +41,7 @@ declare abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.she
     _onDrop(event: DragEvent): Promise<boolean | void>;
     protected _onDropItem(
         event: DragEvent,
-        data: DropCanvasItemDataPF2e & {
+        data: DropCanvasItemData & {
             fromInventory?: boolean;
         },
     ): Promise<ItemPF2e[]>;
@@ -65,21 +57,20 @@ declare abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.she
     protected _handleDroppedItem(
         event: DragEvent,
         item: ItemPF2e<ActorPF2e | null>,
-        data: DropCanvasItemDataPF2e,
+        data: DropCanvasItemData,
     ): Promise<ItemPF2e<ActorPF2e | null>[]>;
     protected _onDropFolder(_event: DragEvent, data: DropCanvasData<"Folder", Folder>): Promise<ItemPF2e<TActor>[]>;
     /**
      * Update the aria-selected attribute on each tab after finishing the normal logic on tab change.
      */
-    protected _onChangeTab(event: MouseEvent, tabs: Tabs, active: string): void;
+    protected _onChangeTab(event: PointerEvent, tabs: Tabs, active: string): void;
     /**
      * Moves an item between two actors' inventories.
-     * @param event         Event that fired this method.
-     * @param sourceActorId ID of the actor who originally owns the item.
-     * @param targetActorId ID of the actor where the item will be stored.
-     * @param itemId           ID of the item to move between the two actors.
+     * @param event The triggering event
+     * @param item The item to move between the two actors
+     * @param recipient The receiving actor
      */
-    moveItemBetweenActors(event: DragEvent, item: PhysicalItemPF2e, targetActor: ActorPF2e): Promise<void>;
+    moveItemBetweenActors(event: DragEvent, item: PhysicalItemPF2e, recipient: ActorPF2e): Promise<void>;
     protected openTagSelector(anchor: HTMLElement, options?: Partial<TagSelectorOptions>): void;
     /** Construct and render a tag selection menu */
     protected tagSelector(selectorType: Exclude<TagSelectorType, "basic">, options?: Partial<TagSelectorOptions>): void;
@@ -90,7 +81,6 @@ declare abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.she
     protected _renderInner(data: Record<string, unknown>, options: AppV1RenderOptions): Promise<JQuery>;
     /** Overriden _render to maintain focus on tagify elements */
     protected _render(force?: boolean, options?: ActorSheetRenderOptionsPF2e): Promise<void>;
-    protected _getSubmitData(updateData?: Record<string, unknown>): Record<string, unknown>;
     protected _configureProseMirrorPlugins(
         name: string,
         options: {
@@ -104,6 +94,6 @@ interface ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.sheets.ActorShee
 }
 type SheetClickActionHandlers = Record<
     string,
-    ((event: MouseEvent, actionTarget: HTMLElement) => Promise<void | unknown> | void | unknown) | undefined
+    ((event: PointerEvent, actionTarget: HTMLElement) => Promise<void | unknown> | void | unknown) | undefined
 >;
 export { ActorSheetPF2e, type SheetClickActionHandlers };

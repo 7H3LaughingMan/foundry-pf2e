@@ -1,1 +1,1 @@
-export declare function stealthForSelected(event: JQuery.ClickEvent): Promise<void>;
+export declare function stealthForSelected(event: Event): Promise<void>;

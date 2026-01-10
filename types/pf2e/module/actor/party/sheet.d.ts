@@ -3,12 +3,12 @@ import { HitPointsSummary } from "./../base.ts";
 import { ResourceData } from "./../creature/index.ts";
 import { ActorSheetPF2e } from "./../sheet/base.ts";
 import { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e } from "./../sheet/data-types.ts";
-import { ActorSheetOptions } from "./../../../../foundry/client/appv1/sheets/actor-sheet.mjs";
-import { DropCanvasData } from "./../../../../foundry/client/helpers/hooks.mjs";
+import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
+import { DropCanvasData } from "#client/helpers/hooks.mjs";
 import { ItemPF2e } from "./../../item/index.ts";
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
 import { Bulk } from "./../../item/physical/index.ts";
-import { DropCanvasItemDataPF2e } from "./../../canvas/drop-canvas-data.ts";
+import { DropCanvasItemData } from "./../../canvas/drop-canvas-data.ts";
 import { ZeroToFour } from "./../../data.ts";
 import { SheetOptions } from "./../../sheet/helpers.ts";
 import { PartyPF2e } from "./document.ts";
@@ -30,7 +30,7 @@ declare class PartySheetPF2e extends ActorSheetPF2e<PartyPF2e> {
     /** Override to allow divvying/outward transfer of items via party member blocks in inventory members sidebar. */
     protected _onDropItem(
         event: DragEvent,
-        data: DropCanvasItemDataPF2e & {
+        data: DropCanvasItemData & {
             fromInventory?: boolean;
         },
     ): Promise<ItemPF2e[]>;
@@ -58,8 +58,8 @@ interface PartySheetData extends ActorSheetDataPF2e<PartyPF2e> {
         };
     } | null;
     inventorySummary: {
-        totalCoins: number;
-        totalWealth: number;
+        totalCurrency: string;
+        totalWealth: string;
         totalBulk: Bulk;
     };
     explorationSummary: {
@@ -107,6 +107,8 @@ interface MemberBreakdown {
         img: string;
         traits: SheetOptions;
     }[];
+    currency: string;
+    wealth: string;
     /** If true, the current user is restricted from seeing meta details */
     restricted: boolean;
 }

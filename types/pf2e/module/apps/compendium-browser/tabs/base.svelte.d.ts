@@ -1,4 +1,4 @@
-import { CompendiumIndexData } from "./../../../../../foundry/client/documents/collections/compendium-collection.mjs";
+import { CompendiumIndexData } from "#client/documents/collections/compendium-collection.mjs";
 import { default as MiniSearch } from "minisearch";
 import { CompendiumBrowser, CompendiumBrowserOpenTabOptions } from "../browser.ts";
 import { BrowserTabs, ContentTabName } from "../data.ts";

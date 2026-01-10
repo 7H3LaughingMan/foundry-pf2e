@@ -1,11 +1,12 @@
 import { BoostFlawState } from "./../../character/apps/attribute-builder.ts";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { PartyPF2e } from "../document.ts";
 import { Kingdom } from "./model.ts";
 import { KingdomCHG } from "./schema.ts";
 import { KingdomAbility } from "./types.ts";
 import { KingdomCHGData } from "./values.ts";
 import appv1 = foundry.appv1;
-import { FormSelectOption } from "../../../../../foundry/client/applications/forms/fields.mjs";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare const KINGDOM_BUILD_CATEGORIES: readonly ["charter", "heartland", "government"];
 type KingdomBuildCategory = (typeof KINGDOM_BUILD_CATEGORIES)[number];
 type CurrentSelections = Record<KingdomBuildCategory, string | null>;

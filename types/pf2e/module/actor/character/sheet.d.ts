@@ -3,7 +3,7 @@ import { Sense } from "./../creature/sense.ts";
 import { SheetClickActionHandlers } from "./../sheet/base.ts";
 import { AbilityViewData, InventoryItem } from "./../sheet/data-types.ts";
 import { AttributeString, SaveType } from "./../types.ts";
-import { ActorSheetOptions } from "./../../../../foundry/client/appv1/sheets/actor-sheet.mjs";
+import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
 import {
     AncestryPF2e,
     BackgroundPF2e,
@@ -16,10 +16,9 @@ import {
 } from "./../../item/index.ts";
 import { TraitToggleViewData } from "./../../item/ability/trait-toggles.ts";
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
-import { CoinsPF2e } from "./../../item/physical/coins.ts";
 import { MagicTradition } from "./../../item/spell/types.ts";
 import { SpellcastingSheetData } from "./../../item/spellcasting-entry/types.ts";
-import { DropCanvasItemDataPF2e } from "./../../canvas/drop-canvas-data.ts";
+import { DropCanvasItemData } from "./../../canvas/drop-canvas-data.ts";
 import { LabeledValueAndMax, ZeroToFour } from "./../../data.ts";
 import { DamageType } from "./../../system/damage/types.ts";
 import { CreatureSheetPF2e } from "../creature/sheet.ts";
@@ -50,14 +49,14 @@ declare class CharacterSheetPF2e<TActor extends CharacterPF2e> extends CreatureS
     protected activateClickListener(html: HTMLElement): SheetClickActionHandlers;
     /** Toggle availability of the roll-initiative link on the sidebar */
     toggleInitiativeLink(link?: HTMLElement | null): void;
-    protected _onDropItem(event: DragEvent, data: DropCanvasItemDataPF2e): Promise<ItemPF2e[]>;
+    protected _onDropItem(event: DragEvent, data: DropCanvasItemData): Promise<ItemPF2e[]>;
     _onDrop(event: DragEvent): Promise<boolean | void>;
     /** Handle a drop event for an existing Owned Item to sort that item */
     protected _onSortItem(event: DragEvent, itemData: ItemSourcePF2e): Promise<ItemPF2e[]>;
     protected _updateObject(event: Event, formData: Record<string, unknown>): Promise<void>;
 }
 interface CharacterSheetPF2e<TActor extends CharacterPF2e> extends CreatureSheetPF2e<TActor> {
-    getStrikeFromDOM(target: HTMLElement): CharacterStrike | null;
+    getAttackActionFromDOM(target: HTMLElement): CharacterStrike | null;
 }
 type CharacterSheetOptions = ActorSheetOptions;
 type CharacterSystemSheetData = CharacterSystemData & {
@@ -80,7 +79,7 @@ interface FormulaSheetData {
     item: ItemPF2e;
     dc: number;
     batchSize: number;
-    cost: CoinsPF2e;
+    cost: string;
 }
 interface FormulaByLevel {
     level: string;

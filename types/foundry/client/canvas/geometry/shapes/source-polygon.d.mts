@@ -6,9 +6,9 @@ import Ray from "./ray.mjs";
 /**
  * An extension of Polygon which is used to represent the line of sight for a point source.
  */
-export default abstract class PointSourcePolygon<
-    TConfig extends PointSourcePolygonConfig = PointSourcePolygonConfig,
-> extends PIXI.Polygon {
+export default abstract class PointSourcePolygon<TConfig extends PointSourcePolygonConfig = PointSourcePolygonConfig>
+    extends PIXI.Polygon
+{
     /**
      * Customize how wall direction of one-way walls is applied
      */

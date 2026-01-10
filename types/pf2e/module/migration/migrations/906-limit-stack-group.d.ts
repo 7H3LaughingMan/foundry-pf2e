@@ -1,5 +1,9 @@
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+declare const AMMO_STACK_GROUPS: Set<
+    "arrows" | "bolts" | "rounds5" | "rounds10" | "slingBullets" | "blowgunDarts" | "woodenTaws" | "sprayPellets"
+>;
 /** Limit `stackGroup` property to consumables and treasure */
 export declare class Migration906LimitStackGroup extends MigrationBase {
     static version: number;
@@ -7,6 +11,7 @@ export declare class Migration906LimitStackGroup extends MigrationBase {
 }
 type MaybeWithToBeDeletedStackGroup = ItemSourcePF2e & {
     system: {
+        stackGroup?: SetElement<typeof AMMO_STACK_GROUPS> | "coins" | "gems" | null;
         "-=stackGroup"?: null;
     };
 };

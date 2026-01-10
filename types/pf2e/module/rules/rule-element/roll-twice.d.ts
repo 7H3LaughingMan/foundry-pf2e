@@ -1,15 +1,13 @@
-import { RuleElementPF2e } from "./base.ts";
+import { RuleElement } from "./base.ts";
 import { ModelPropsFromRESchema, RuleElementSchema } from "./data.ts";
 import fields = foundry.data.fields;
 /** Roll Twice and keep either the higher or lower result */
-declare class RollTwiceRuleElement extends RuleElementPF2e<RollTwiceRuleSchema> {
+declare class RollTwiceRuleElement extends RuleElement<RollTwiceRuleSchema> {
     static defineSchema(): RollTwiceRuleSchema;
     beforePrepareData(): void;
-    afterRoll({ domains, roll, rollOptions }: RuleElementPF2e.AfterRollParams): Promise<void>;
+    afterRoll({ domains, roll, rollOptions }: RuleElement.AfterRollParams): Promise<void>;
 }
-interface RollTwiceRuleElement
-    extends RuleElementPF2e<RollTwiceRuleSchema>,
-        ModelPropsFromRESchema<RollTwiceRuleSchema> {}
+interface RollTwiceRuleElement extends RuleElement<RollTwiceRuleSchema>, ModelPropsFromRESchema<RollTwiceRuleSchema> {}
 type RollTwiceRuleSchema = RuleElementSchema & {
     selector: fields.ArrayField<
         fields.StringField<string, string, true, false, false>,

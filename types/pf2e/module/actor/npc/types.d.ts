@@ -1,15 +1,15 @@
 import { CreatureSheetData } from "./../creature/sheet.ts";
-import { HitPointsStatistic, TraitViewData } from "./../data/base.ts";
+import { HitPointsStatistic } from "./../data/base.ts";
 import { AbilityViewData } from "./../sheet/data-types.ts";
 import { MovementType, SaveType, SkillSlug } from "./../types.ts";
+import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
 import { ItemPF2e } from "./../../item/index.ts";
 import { SpellcastingSheetData } from "./../../item/spellcasting-entry/index.ts";
 import { ZeroToFour } from "./../../data.ts";
-import { TagifyEntry } from "./../../sheet/helpers.ts";
+import { NPCAttackTraitOrTag, TagifyEntry } from "./../../sheet/helpers.ts";
 import { ArmorClassTraceData } from "./../../system/statistic/index.ts";
 import { NPCAttributes, NPCPerceptionData, NPCSaveData, NPCSkillData, NPCSystemData } from "./data.ts";
-import { NPCPF2e, NPCStrike } from "./index.ts";
-import { ImageFilePath, VideoFilePath } from "../../../../foundry/common/constants.mjs";
+import { NPCPF2e } from "./index.ts";
 interface ActionsDetails {
     label: string;
     actions: AbilityViewData[];
@@ -62,10 +62,14 @@ interface NPCStrikeSheetData {
     id: string;
     name: string;
     sort: number;
-    breakdown: string;
-    variants: NPCStrike["variants"];
+    variants: {
+        label: string;
+        breakdown: string | null;
+    }[];
     attackType: string;
-    traits: TraitViewData[];
+    glyph: string;
+    /** A list of traits or tags to show next to the strike. */
+    traitsAndTags: NPCAttackTraitOrTag[];
     description: string | null;
     /** The damage formula of the strike for display on sheets */
     damageFormula: string | null;
@@ -113,7 +117,7 @@ interface NPCSpeedSheetData {
     adjustedHigher: boolean;
     adjustedLower: boolean;
 }
-type NPCSheetItemData<TItem extends ItemPF2e<NPCPF2e>> = Omit<RawObject<TItem>, "traits"> & {
+type NPCSheetItemData<TItem extends ItemPF2e<NPCPF2e>> = Omit<TItem["_source"], "traits"> & {
     glyph: string;
     traits: {
         label: string;
@@ -130,7 +134,6 @@ type NPCSheetItemData<TItem extends ItemPF2e<NPCPF2e>> = Omit<RawObject<TItem>, 
             ritual: boolean;
             focus: boolean;
         };
-        weaponType?: string;
     };
     hasAura: boolean;
 };

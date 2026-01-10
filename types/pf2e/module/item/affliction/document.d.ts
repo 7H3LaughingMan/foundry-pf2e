@@ -1,9 +1,6 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { DocumentConstructionContext } from "./../../../../foundry/common/_types.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "./../../../../foundry/common/abstract/_types.mjs";
+import { DocumentConstructionContext } from "#common/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { ItemPF2e } from "./../index.ts";
 import { AbstractEffectPF2e, EffectBadgeCounter } from "./../abstract-effect/index.ts";
 import { AfflictionDamageTemplate, DamageDamageContext } from "./../../system/damage/index.ts";
@@ -30,7 +27,7 @@ declare class AfflictionPF2e<TParent extends ActorPF2e | null = ActorPF2e | null
     createStageMessage(): Promise<void>;
     /** Set the start time and initiative roll of a newly created effect */
     protected _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: fd.BaseUser,
     ): Promise<boolean | void>;

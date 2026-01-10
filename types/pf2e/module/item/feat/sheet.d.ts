@@ -3,7 +3,6 @@ import { SelfEffectReference } from "./../ability/index.ts";
 import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
 import { FeatPF2e } from "./../feat/document.ts";
 import { OneToFour } from "./../../data.ts";
-import { FormSelectOption } from "../../../../foundry/client/applications/forms/fields.mjs";
 declare class FeatSheetPF2e extends ItemSheetPF2e<FeatPF2e> {
     #private;
     static get defaultOptions(): ItemSheetOptions;
@@ -27,7 +26,7 @@ interface FeatSheetData extends ItemSheetDataPF2e<FeatPF2e> {
     hasSenses: boolean;
     languages: LanguageOptions;
     mandatoryTakeOnce: boolean;
-    maxTakableOptions: FormSelectOption[];
+    maxTakableOptions: fa.fields.FormSelectOption[];
     proficiencies: ProficiencyOptions;
     proficiencyRankOptions: Record<string, string>;
     selfEffect: SelfEffectReference | null;
@@ -65,6 +64,7 @@ interface ProficiencyOptionGroup<TGroup extends string | null = string> {
         slug: string;
         label: string;
         rank: OneToFour | null;
+        invalid?: boolean;
     }[];
 }
 interface SenseOption {

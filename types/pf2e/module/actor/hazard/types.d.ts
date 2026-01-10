@@ -1,10 +1,12 @@
-import { HazardPF2e } from "./../index.ts";
+import { ActorPF2e, HazardPF2e } from "./../index.ts";
 import { TraitViewData } from "./../data/base.ts";
 import { ActorSheetDataPF2e } from "./../sheet/data-types.ts";
 import { SaveType } from "./../types.ts";
-import { AbilityItemPF2e } from "./../../item/index.ts";
-import { FormSelectOption } from "../../../../foundry/client/applications/forms/fields.mjs";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
+import { AbilityItemPF2e, MeleePF2e } from "./../../item/index.ts";
+import { NPCAttackTraitOrTag } from "./../../sheet/helpers.ts";
 interface HazardSheetData extends ActorSheetDataPF2e<HazardPF2e> {
+    attacks: HazardAttackSheedData[];
     actions: HazardActionSheetData;
     complexityOptions: FormSelectOption[];
     emitsSoundOptions: FormSelectOption[];
@@ -24,6 +26,23 @@ interface HazardSheetData extends ActorSheetDataPF2e<HazardPF2e> {
     hasRoutineDetails: boolean;
     hasResetDetails: boolean;
 }
+interface HazardAttackSheedData {
+    description: string | null;
+    damageFormula: string;
+    breakdown: string;
+    additionalEffects: {
+        tag?: string;
+        label?: string;
+    }[];
+    attackRollType: string;
+    glyph: string;
+    variants: {
+        label: string;
+    }[];
+    item: MeleePF2e<ActorPF2e>;
+    /** A list of traits or tags to show next to the strike. */
+    traitsAndTags: NPCAttackTraitOrTag[];
+}
 interface HazardActionSheetData {
     reaction: AbilityItemPF2e[];
     action: AbilityItemPF2e[];
@@ -34,4 +53,4 @@ interface HazardSaveSheetData {
     mod?: number;
 }
 type HazardTrait = keyof ConfigPF2e["PF2E"]["hazardTraits"];
-export type { HazardActionSheetData, HazardSaveSheetData, HazardSheetData, HazardTrait };
+export type { HazardActionSheetData, HazardAttackSheedData, HazardSaveSheetData, HazardSheetData, HazardTrait };

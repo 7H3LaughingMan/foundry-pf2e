@@ -9,7 +9,9 @@ export declare class AutomationSettings extends SettingsMenuPF2e {
         "flankingDetection",
         "encumbrance",
         "lootableNPCs",
+        "reachEnforcement",
     ];
+    static get defaultOptions(): fav1.api.FormApplicationOptions;
     protected static get settings(): Record<ConfigPF2eListName, PartialSettingsData>;
 }
 export {};

@@ -12,7 +12,7 @@ export interface ItemTransferData {
     quantity: number;
     containerId?: string;
     /** Whether this is a merchant transaction. If null, presume yes if merchant */
-    isPurchase?: boolean | null;
+    mode?: "move" | "purchase" | "credits" | null;
 }
 export declare class ItemTransfer implements ItemTransferData {
     #private;
@@ -20,7 +20,7 @@ export declare class ItemTransfer implements ItemTransferData {
     target: ItemTransferData["target"];
     quantity: number;
     containerId?: string;
-    isPurchase: boolean | null;
+    mode: "move" | "purchase" | "credits" | null;
     constructor(data: ItemTransferData);
     request(): Promise<void>;
     enact(requester: UserPF2e): Promise<void>;

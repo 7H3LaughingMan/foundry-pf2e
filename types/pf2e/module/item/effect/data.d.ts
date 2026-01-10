@@ -1,4 +1,4 @@
-import { ModelPropsFromSchema, SourceFromSchema } from "./../../../../foundry/common/data/fields.mjs";
+import { ModelPropsFromSchema, SourceFromSchema } from "#common/data/fields.mjs";
 import {
     DurationDataSchema,
     EffectBadgeCounterSchema,
@@ -23,7 +23,8 @@ declare class EffectSystemData extends ItemSystemModel<EffectPF2e, EffectSystemS
     prepareBaseData(): void;
 }
 interface EffectSystemData
-    extends ItemSystemModel<EffectPF2e, EffectSystemSchema>,
+    extends
+        ItemSystemModel<EffectPF2e, EffectSystemSchema>,
         Omit<ModelPropsFromSchema<EffectSystemSchema>, "description" | "badge"> {
     expired: boolean;
     badge: EffectBadge | null;

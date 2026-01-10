@@ -1,4 +1,4 @@
-import { CollectionGetOptions } from "./../../../foundry/common/utils/collection.mjs";
+import { CollectionGetOptions } from "#common/utils/collection.mjs";
 import { ConditionPF2e } from "./../item/index.ts";
 import { ConditionSlug, PersistentDamagePF2e } from "./../item/condition/index.ts";
 import { DelegatedCollection } from "./../../util/index.ts";

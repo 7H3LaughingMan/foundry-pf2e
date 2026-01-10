@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../index.ts";
-import { ModifierPF2e, RawModifier } from "./../modifiers.ts";
+import { Modifier, RawModifier } from "./../modifiers.ts";
 import { DCSlug } from "./../types.ts";
 import { ItemPF2e } from "./../../item/index.ts";
 import { RollNoteSource } from "./../../notes.ts";
@@ -19,6 +19,7 @@ interface SingleCheckActionVariantData extends BaseActionVariantData {
     difficultyClass?: CheckDC | DCSlug;
     modifiers?: RawModifier[];
     notes?: SingleCheckActionRollNoteData[];
+    /** Additional roll options beyond the base action's and `action:${actionSlug}:${variantSlug}` */
     rollOptions?: string[];
     statistic?: string | string[];
 }
@@ -26,6 +27,7 @@ interface SingleCheckActionData extends BaseActionData<SingleCheckActionVariantD
     difficultyClass?: CheckDC | DCSlug;
     modifiers?: RawModifier[];
     notes?: SingleCheckActionRollNoteData[];
+    /** Additional roll options beyond `action:${slug}`, which is implicit */
     rollOptions?: string[];
     statistic: string | string[];
 }
@@ -42,7 +44,7 @@ interface ActionCheckPreview {
 }
 interface SingleCheckActionUseOptions extends ActionUseOptions {
     difficultyClass: CheckDC | DCSlug | number;
-    modifiers: ModifierPF2e[];
+    modifiers: Modifier[];
     multipleAttackPenalty: number;
     notes: SingleCheckActionRollNoteData[];
     rollOptions: string[];

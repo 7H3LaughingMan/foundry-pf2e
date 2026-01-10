@@ -40,7 +40,13 @@ export default class OccludableSamplerShader extends BaseSamplerShader {
     /** @override */
     static override _preRenderBatch(batchRenderer: any): void;
     /** @override */
-    static override _packInterleavedGeometry(element: any, attributeBuffer: any, indexBuffer: any, aIndex: any, iIndex: any): void;
+    static override _packInterleavedGeometry(
+        element: any,
+        attributeBuffer: any,
+        indexBuffer: any,
+        aIndex: any,
+        iIndex: any,
+    ): void;
     /** @override */
     static override get batchVertexShader(): string;
     /**

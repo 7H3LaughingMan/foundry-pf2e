@@ -1,3 +1,4 @@
+import { CreatureReach } from "./../creature/index.ts";
 import { ActorAttributes, ActorDetails, BaseActorSourcePF2e } from "./../data/base.ts";
 import { ActorSystemModel, ActorSystemSchema } from "./../data/model.ts";
 import {
@@ -5,24 +6,26 @@ import {
     ModelPropsFromSchema,
     SourceFromDataField,
     SourceFromSchema,
-} from "./../../../../foundry/common/data/fields.mjs";
-import { ActorUUID } from "./../../../../foundry/common/documents/_module.mjs";
+} from "#common/data/fields.mjs";
+import { ActorUUID } from "#common/documents/_module.mjs";
 import { PartyPF2e } from "./document.ts";
 import { KingdomSchema } from "./kingdom/schema.ts";
 import fields = foundry.data.fields;
 type PartySource = BaseActorSourcePF2e<"party", PartySystemSource>;
 declare class PartySystemData extends ActorSystemModel<PartyPF2e, PartySystemSchema> {
     static defineSchema(): PartySystemSchema;
+    prepareBaseData(): void;
+    prepareDerivedData(): void;
 }
 interface PartySystemData
-    extends ActorSystemModel<PartyPF2e, PartySystemSchema>,
-        ModelPropsFromSchema<PartySystemSchema> {
+    extends ActorSystemModel<PartyPF2e, PartySystemSchema>, ModelPropsFromSchema<PartySystemSchema> {
     attributes: PartyAttributes;
     details: PartyDetails;
+    movement: PartyMovementData;
 }
 type PartySystemSchema = ActorSystemSchema & {
     details: fields.SchemaField<{
-        description: fields.HTMLField<string, string, true, false, true>;
+        description: fields.HTMLField;
         members: fields.ArrayField<
             fields.SchemaField<{
                 uuid: fields.DocumentUUIDField<ActorUUID, true, false, false>;
@@ -48,12 +51,17 @@ interface PartyDetailsSource extends SourceFromDataField<PartySystemSchema["deta
     readonly alliance?: never;
     readonly level?: never;
 }
-interface PartyAttributes extends Omit<ActorAttributes, "initiative" | "ac" | "hp"> {
+interface PartyAttributes extends Omit<ActorAttributes, "attributes" | "initiative" | "ac" | "hp"> {
+    reach: CreatureReach;
     immunities: never[];
     weaknesses: never[];
     resistances: never[];
-    speed: {
-        total: number;
+}
+interface PartyMovementData {
+    speeds: {
+        travel: {
+            value: number;
+        };
     };
 }
 interface PartyDetails extends ModelPropFromDataField<PartySystemSchema["details"]>, ActorDetails {}
@@ -61,4 +69,4 @@ type PartyCampaignSource = {
     type: string;
 } & Record<string, JSONValue>;
 export { PartySystemData };
-export type { PartyCampaignSource, PartySource };
+export type { PartyAttributes, PartyCampaignSource, PartySource };

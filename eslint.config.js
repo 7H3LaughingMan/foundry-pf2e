@@ -1,21 +1,17 @@
-// @ts-check
-
 import json from "@eslint/json";
 import ts from "@typescript-eslint/eslint-plugin";
-import jest from "eslint-plugin-jest";
 import prettier from "eslint-plugin-prettier";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
     { ignores: ["build/files/*.ts", "*.mjs"] },
-    { plugins: { jest, prettier, json, "@typescript-eslint": ts } },
+    { plugins: { prettier, json, "@typescript-eslint": ts } },
     {
         files: ["**/*.ts"],
         languageOptions: {
             globals: {
                 ...globals.browser,
-                ...jest.environments.globals.globals,
             },
             ecmaVersion: 2023,
             sourceType: "module",

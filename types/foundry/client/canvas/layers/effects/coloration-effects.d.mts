@@ -8,11 +8,6 @@ export default class CanvasColorationEffects extends CanvasLayer {
     constructor();
 
     /**
-     * Temporary solution for the "white scene" bug (foundryvtt/foundryvtt#9957).
-     */
-    #background: PIXI.Graphics;
-
-    /**
      * The filter used to mask visual effects on this layer
      */
     filter: VisualEffectsMaskingFilter;
@@ -22,7 +17,7 @@ export default class CanvasColorationEffects extends CanvasLayer {
      */
     clear(): void;
 
-    protected override _draw(options?: object): Promise<void>;
+    protected override _draw(): Promise<void>;
 
-    protected override _tearDown(options?: object): Promise<void>;
+    protected override _tearDown(): Promise<void>;
 }

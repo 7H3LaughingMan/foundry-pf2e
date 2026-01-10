@@ -1,4 +1,4 @@
-import { DocumentFlags } from "./../../../foundry/common/data/_types.mjs";
+import { DocumentFlags } from "#common/data/_types.mjs";
 import { ZeroToTwo } from "./../data.ts";
 type SceneFlagsPF2e = DocumentFlags & {
     pf2e: {

@@ -1,5 +1,12 @@
-import { DataModelConstructionContext } from "./../abstract/_types.mjs";
-import { ImageFilePath, ShapeDataType, TileOcclusionMode, VideoFilePath } from "./../constants.mjs";
+import { DatabaseUpdateOperation, DataModelConstructionContext } from "./../abstract/_types.mjs";
+import {
+    DocumentOwnershipLevel,
+    DocumentOwnershipString,
+    ImageFilePath,
+    ShapeDataType,
+    TileOcclusionMode,
+    VideoFilePath,
+} from "./../constants.mjs";
 import DataModel from "../abstract/data.mjs";
 import * as documents from "../documents/_module.mjs";
 import { TokenSchema } from "../documents/token.mjs";
@@ -35,12 +42,11 @@ export interface DarknessActivation {
 export class LightData<TParent extends DataModel | null> extends DataModel<TParent, LightDataSchema> {
     static override defineSchema(): LightDataSchema;
 
-    static override migrateData<TSource extends Record<string, JSONValue>>(source: TSource): TSource;
+    static override migrateData(source: Record<string, unknown>): Record<string, unknown>;
 }
 
 export interface LightData<TParent extends DataModel | null>
-    extends DataModel<TParent, LightDataSchema>,
-        fields.ModelPropsFromSchema<LightDataSchema> {}
+    extends DataModel<TParent, LightDataSchema>, fields.ModelPropsFromSchema<LightDataSchema> {}
 
 export type LightSource = fields.SourceFromSchema<LightDataSchema>;
 
@@ -96,8 +102,7 @@ export class ShapeData<TParent extends DataModel | null> extends DataModel<TPare
 }
 
 export interface ShapeData<TParent extends DataModel | null>
-    extends DataModel<TParent, ShapeDataSchema>,
-        fields.ModelPropsFromSchema<ShapeDataSchema> {}
+    extends DataModel<TParent, ShapeDataSchema>, fields.ModelPropsFromSchema<ShapeDataSchema> {}
 
 type ShapeDataSchema = {
     /**
@@ -137,8 +142,7 @@ export class BaseShapeData<TSchema extends BaseShapeDataSchema> extends DataMode
 }
 
 interface BaseShapeData<TSchema extends BaseShapeDataSchema = BaseShapeDataSchema>
-    extends DataModel<DataModel | null, TSchema>,
-        fields.ModelPropsFromSchema<BaseShapeDataSchema> {}
+    extends DataModel<DataModel | null, TSchema>, fields.ModelPropsFromSchema<BaseShapeDataSchema> {}
 
 type BaseShapeDataSchema = {
     /** The type of shape, a value in BaseShapeData.TYPES. */
@@ -155,8 +159,7 @@ export class RectangleShapeData extends BaseShapeData<RectangleShapeDataSchema> 
 }
 
 interface RectangleShapeData
-    extends BaseShapeData<RectangleShapeDataSchema>,
-        fields.ModelPropsFromSchema<RectangleShapeDataSchema> {
+    extends BaseShapeData<RectangleShapeDataSchema>, fields.ModelPropsFromSchema<RectangleShapeDataSchema> {
     readonly _source: Omit<fields.SourceFromSchema<RectangleShapeDataSchema>, "type"> & { type: "rectangle" };
     type: "rectangle";
 }
@@ -182,8 +185,7 @@ export class CircleShapeData extends BaseShapeData<CircleShapeDataSchema> {
 }
 
 interface CircleShapeData
-    extends BaseShapeData<CircleShapeDataSchema>,
-        fields.ModelPropsFromSchema<CircleShapeDataSchema> {
+    extends BaseShapeData<CircleShapeDataSchema>, fields.ModelPropsFromSchema<CircleShapeDataSchema> {
     readonly _source: Omit<fields.SourceFromSchema<CircleShapeDataSchema>, "type"> & { type: "circle" };
     type: "circle";
 }
@@ -205,8 +207,7 @@ export class EllipseShapeData extends BaseShapeData<EllipseShapeDataSchema> {
 }
 
 interface EllipseShapeData
-    extends BaseShapeData<EllipseShapeDataSchema>,
-        fields.ModelPropsFromSchema<EllipseShapeDataSchema> {
+    extends BaseShapeData<EllipseShapeDataSchema>, fields.ModelPropsFromSchema<EllipseShapeDataSchema> {
     readonly _source: Omit<fields.SourceFromSchema<EllipseShapeDataSchema>, "type"> & { type: "ellipse" };
     type: "ellipse";
 }
@@ -232,8 +233,7 @@ export class PolygonShapeData extends BaseShapeData<PolygonShapeDataSchema> {
 }
 
 interface PolygonShapeData
-    extends BaseShapeData<PolygonShapeDataSchema>,
-        fields.ModelPropsFromSchema<PolygonShapeDataSchema> {
+    extends BaseShapeData<PolygonShapeDataSchema>, fields.ModelPropsFromSchema<PolygonShapeDataSchema> {
     readonly _source: Omit<fields.SourceFromSchema<PolygonShapeDataSchema>, "type"> & { type: "polygon" };
     type: "polygon";
 }
@@ -299,11 +299,57 @@ export class PrototypeToken<TParent extends documents.BaseActor | null> extends 
     protected override _initialize(): void;
 
     override toJSON(): this["_source"];
+
+    /* -------------------------------------------- */
+    /*  Document Compatibility Methods              */
+    /* -------------------------------------------- */
+
+    /**
+     * @see {@link foundry.abstract.Document#update}
+     * @ignore
+     */
+    update(
+        data: Record<string, unknown>,
+        operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>,
+    ): Promise<this | undefined>;
+
+    /**
+     * @see {@link foundry.abstract.Document#getFlag}
+     * @ignore
+     */
+    getFlag(scope: string, key: string): unknown;
+
+    /**
+     * @see {@link foundry.abstract.Document#getFlag}
+     * @ignore
+     */
+    setFlag(scope: string, key: string, value: unknown): Promise<this>;
+
+    /**
+     * @see {@link foundry.abstract.Document#unsetFlag}
+     * @ignore
+     */
+    unsetFlag(scope: string, key: string): Promise<this | undefined>;
+
+    /**
+     * @see {@link foundry.abstract.Document#testUserPermission}
+     * @ignore
+     */
+    testUserPermission(
+        user: documents.BaseUser,
+        permission: DocumentOwnershipString | DocumentOwnershipLevel,
+        { exact }?: { exact?: boolean },
+    ): boolean;
+
+    /**
+     * @see {@link foundry.documents.BaseActor#isOwner}
+     * @ignore
+     */
+    get isOwner(): boolean;
 }
 
 export interface PrototypeToken<TParent extends documents.BaseActor | null>
-    extends DataModel<TParent, PrototypeTokenSchema>,
-        fields.ModelPropsFromSchema<PrototypeTokenSchema> {}
+    extends DataModel<TParent, PrototypeTokenSchema>, fields.ModelPropsFromSchema<PrototypeTokenSchema> {}
 
 type PrototypeTokenSchema = Omit<
     TokenSchema,
@@ -331,8 +377,8 @@ export class TombstoneData<
 
 export interface TombstoneData<
     TParent extends documents.BaseActorDelta<documents.BaseToken<documents.BaseScene | null> | null> | null,
-> extends DataModel<TParent, TombstoneDataSchema>,
-        fields.SourceFromSchema<TombstoneDataSchema> {
+>
+    extends DataModel<TParent, TombstoneDataSchema>, fields.SourceFromSchema<TombstoneDataSchema> {
     readonly _source: TombstoneSource;
 }
 

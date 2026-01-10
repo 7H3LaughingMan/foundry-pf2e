@@ -1,4 +1,4 @@
-import { PlaceableHUDContext } from "./../../../foundry/client/applications/hud/placeable-hud.mjs";
+import { PlaceableHUDContext } from "#client/applications/hud/placeable-hud.mjs";
 import { ConditionSlug } from "./../item/condition/types.ts";
 import { EncounterPF2e } from "./../encounter/index.ts";
 import { StatusEffectIconTheme } from "./../../scripts/config/index.ts";

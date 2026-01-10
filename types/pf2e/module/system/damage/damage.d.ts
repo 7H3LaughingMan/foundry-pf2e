@@ -1,4 +1,4 @@
-import { Rolled } from "./../../../../foundry/client/dice/_module.mjs";
+import { Rolled } from "#client/dice/_module.mjs";
 import { DamageRoll } from "./roll.ts";
 import { DamageDamageContext, DamageTemplate } from "./types.ts";
 /** Create a chat message containing a damage roll */

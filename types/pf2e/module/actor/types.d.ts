@@ -1,6 +1,6 @@
 import { ActorPF2e } from "./index.ts";
-import { Rolled } from "./../../../foundry/client/dice/roll.mjs";
-import { ImageFilePath, VideoFilePath } from "./../../../foundry/common/constants.mjs";
+import { Rolled } from "#client/dice/roll.mjs";
+import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
 import { ItemPF2e } from "./../item/index.ts";
 import { EffectTrait } from "./../item/abstract-effect/types.ts";
 import { ItemSourcePF2e } from "./../item/base/data/index.ts";
@@ -12,6 +12,7 @@ import { immunityTypes, resistanceTypes, weaknessTypes } from "./../../scripts/c
 import { DamageRoll } from "./../system/damage/roll.ts";
 import { DegreeOfSuccessString } from "./../system/degree-of-success.ts";
 import { Predicate } from "./../system/predication.ts";
+import { ActorSourcePF2e } from "./data/index.ts";
 import {
     ACTOR_TYPES,
     ATTRIBUTE_ABBREVIATIONS,
@@ -91,12 +92,13 @@ interface AuraAppearanceData {
         playbackRate: number;
     } | null;
 }
-interface ActorCommitData<T extends ActorPF2e = ActorPF2e> {
-    actorUpdates: DeepPartial<T["_source"]> | null;
+interface ActorGroupUpdate {
+    actorUpdates: DeepPartial<ActorSourcePF2e> & Record<string, unknown>;
     itemCreates: PreCreate<ItemSourcePF2e>[];
     itemUpdates: EmbeddedDocumentUpdateData[];
+    itemDeletes: string[];
 }
-interface ActorRechargeData<T extends ActorPF2e> extends ActorCommitData<T> {
+interface ActorRechargeData extends ActorGroupUpdate {
     affected: {
         frequencies: boolean;
         spellSlots: boolean;
@@ -126,8 +128,8 @@ type UnaffectedType = SetElement<typeof UNAFFECTED_TYPES>;
 type IWRType = ImmunityType | WeaknessType | ResistanceType;
 export type {
     ActorAlliance,
-    ActorCommitData,
     ActorDimensions,
+    ActorGroupUpdate,
     ActorInstances,
     ActorRechargeData,
     ActorType,

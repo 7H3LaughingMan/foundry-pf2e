@@ -2,21 +2,21 @@ import { ActorType, CharacterPF2e, NPCPF2e } from "./../../actor/index.ts";
 import { DegreeOfSuccessString } from "./../../system/degree-of-success.ts";
 import { RecordField } from "./../../system/schema-data-fields.ts";
 import { ModelPropsFromRESchema } from "./data.ts";
-import { RuleElementPF2e, RuleElementSchema } from "./index.ts";
+import { RuleElement, RuleElementSchema } from "./index.ts";
 import fields = foundry.data.fields;
 /**
  * @category RuleElement
  */
-declare class AdjustDegreeOfSuccessRuleElement extends RuleElementPF2e<AdjustDegreeRuleSchema> {
+declare class AdjustDegreeOfSuccessRuleElement extends RuleElement<AdjustDegreeRuleSchema> {
     protected static validActorTypes: ActorType[];
     static defineSchema(): AdjustDegreeRuleSchema;
     beforePrepareData(): void;
 }
 interface AdjustDegreeOfSuccessRuleElement
-    extends RuleElementPF2e<AdjustDegreeRuleSchema>,
-        ModelPropsFromRESchema<AdjustDegreeRuleSchema> {
+    extends RuleElement<AdjustDegreeRuleSchema>, ModelPropsFromRESchema<AdjustDegreeRuleSchema> {
     get actor(): CharacterPF2e | NPCPF2e;
 }
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare const degreeAdjustmentAmountString: readonly [
     "one-degree-better",
     "one-degree-worse",

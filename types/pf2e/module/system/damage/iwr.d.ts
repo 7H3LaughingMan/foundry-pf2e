@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { Rolled } from "./../../../../foundry/client/dice/_module.mjs";
+import { Rolled } from "#client/dice/_module.mjs";
 import { DamageInstance, DamageRoll } from "./roll.ts";
 /** Apply an actor's IWR applications to an evaluated damage roll's instances */
 declare function applyIWR(actor: ActorPF2e, roll: Rolled<DamageRoll>, rollOptions: Set<string>): IWRApplicationData;

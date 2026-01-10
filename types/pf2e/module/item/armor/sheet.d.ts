@@ -1,6 +1,7 @@
 import { ItemSheetOptions } from "./../base/sheet/sheet.ts";
 import {
-    CoinsPF2e,
+    Coins,
+    Grade,
     MaterialSheetData,
     PhysicalItemSheetData,
     PhysicalItemSheetPF2e,
@@ -14,7 +15,7 @@ declare class ArmorSheetPF2e extends PhysicalItemSheetPF2e<ArmorPF2e> {
 }
 interface ArmorSheetData extends PhysicalItemSheetData<ArmorPF2e> {
     abpEnabled: boolean;
-    basePrice: CoinsPF2e;
+    basePrice: Coins;
     baseTypes: Record<BaseArmorType, string>;
     categories: Record<ArmorCategory, string>;
     groups: Record<ArmorGroup, string>;
@@ -27,6 +28,7 @@ interface ArmorSheetData extends PhysicalItemSheetData<ArmorPF2e> {
             name: string;
         }[];
     };
+    grades: Record<Grade, string>;
     specificMagicData: SpecificArmorData;
 }
 interface PropertyRuneSheetSlot {

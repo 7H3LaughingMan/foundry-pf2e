@@ -1,7 +1,7 @@
 import { SkillSlug } from "./../../actor/types.ts";
-import { FormSelectOption } from "./../../../../foundry/client/applications/forms/fields.mjs";
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
-import { ImageFilePath } from "./../../../../foundry/common/constants.mjs";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
+import { ImageFilePath } from "#common/constants.mjs";
 import { DeityPF2e } from "./../index.ts";
 import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
 import { SheetOptions } from "./../../sheet/helpers.ts";

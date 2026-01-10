@@ -1,6 +1,6 @@
 import { json } from "@codemirror/lang-json";
 import { Extension } from "@codemirror/state";
-import { DataSchema } from "./../../../../../foundry/common/abstract/_types.mjs";
+import { DataSchema } from "#common/abstract/_types.mjs";
 import { EditorView } from "codemirror";
 export declare const CodeMirror: {
     EditorView: typeof EditorView;

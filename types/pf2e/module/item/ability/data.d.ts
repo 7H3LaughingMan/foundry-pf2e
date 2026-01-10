@@ -1,5 +1,5 @@
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
-import { ImageFilePath } from "./../../../../foundry/common/constants.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
+import { ImageFilePath } from "#common/constants.mjs";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import {
     ActionType,
@@ -37,7 +37,8 @@ declare class AbilitySystemData extends ItemSystemModel<AbilityItemPF2e, Ability
     prepareDerivedData(): void;
 }
 interface AbilitySystemData
-    extends ItemSystemModel<AbilityItemPF2e, AbilitySystemSchema>,
+    extends
+        ItemSystemModel<AbilityItemPF2e, AbilitySystemSchema>,
         Omit<fields.ModelPropsFromSchema<AbilitySystemSchema>, "description"> {}
 type AbilitySystemSchema = Omit<ItemSystemSchema, "traits"> & {
     traits: fields.SchemaField<{

@@ -1,10 +1,10 @@
-import { SceneUpdateOptions } from "./../../../foundry/client/documents/scene.mjs";
+import { SceneUpdateOptions } from "#client/documents/scene.mjs";
 import {
     DatabaseDeleteOperation,
     DatabaseUpdateOperation,
     Document,
     EmbeddedCollection,
-} from "./../../../foundry/common/abstract/_module.mjs";
+} from "#common/abstract/_module.mjs";
 import { SceneFlagsPF2e } from "./data.ts";
 import {
     AmbientLightDocumentPF2e,
@@ -14,8 +14,6 @@ import {
     TokenDocumentPF2e,
 } from "./index.ts";
 import { SceneConfigPF2e } from "./sheet.ts";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 declare class ScenePF2e extends Scene {
     #private;
     /** Is the rules-based vision setting enabled? */

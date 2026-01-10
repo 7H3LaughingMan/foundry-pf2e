@@ -24,6 +24,7 @@ declare const DamageCategorization: {
         | "inubrix"
         | "noqual"
         | "orichalcum"
+        | "peachwood"
         | "physical"
         | "siccatite"
         | "silver"
@@ -31,7 +32,6 @@ declare const DamageCategorization: {
         | "splash"
         | "cold-iron"
         | "keep-stone"
-        | "peachwood"
         | "sisterstone-dusk"
         | "sisterstone-scarlet"
         | "sovereign-steel"
@@ -50,6 +50,7 @@ declare const DamageCategorization: {
         | "inubrix"
         | "noqual"
         | "orichalcum"
+        | "peachwood"
         | "physical"
         | "siccatite"
         | "silver"
@@ -57,7 +58,6 @@ declare const DamageCategorization: {
         | "splash"
         | "cold-iron"
         | "keep-stone"
-        | "peachwood"
         | "sisterstone-dusk"
         | "sisterstone-scarlet"
         | "sovereign-steel"
@@ -147,9 +147,9 @@ declare function getDamageDiceValueLabel(
 ): string;
 declare function getDamageDiceOverrideLabel(d: DamageDicePF2e | RawDamageDice): string;
 export {
-    DamageCategorization,
     applyBaseDamageAlterations,
     applyDamageDiceOverrides,
+    DamageCategorization,
     damageDiceIcon,
     damageDieSizeToFaces,
     deepFindTerms,

@@ -1,8 +1,8 @@
 import { ActorPF2e } from "./actor/index.ts";
-import { MathFunctionName } from "./../../foundry/client/dice/terms/function.mjs";
-import { EnfolderableDocument } from "./../../foundry/client/documents/folder.mjs";
+import { MathFunctionName } from "#client/dice/terms/function.mjs";
+import { EnfolderableDocument } from "#client/documents/folder.mjs";
 import { ItemPF2e } from "./item/index.ts";
-import type * as fields from "./../../foundry/common/data/fields.mjs";
+import type * as fields from "#common/data/fields.mjs";
 /** The size property of creatures and equipment */
 declare const SIZES: readonly ["tiny", "sm", "med", "lg", "huge", "grg"];
 declare const SIZE_SLUGS: readonly ["tiny", "small", "medium", "large", "huge", "gargantuan"];
@@ -91,7 +91,7 @@ type EnfolderableDocumentPF2e =
     | ActorPF2e<null>
     | ItemPF2e<null>
     | Exclude<EnfolderableDocument, Actor<null> | Item<null>>;
-export { RARITIES, SIZES, SIZE_SLUGS, goesToEleven };
+export { goesToEleven, RARITIES, SIZE_SLUGS, SIZES };
 export type {
     EnfolderableDocumentPF2e,
     LabeledNumber,

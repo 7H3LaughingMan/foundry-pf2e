@@ -1,5 +1,5 @@
-import { default as Localization, TranslationDictionaryValue } from "./../../foundry/client/helpers/localization.mjs";
-import { ImageFilePath, VideoFilePath } from "./../../foundry/common/constants.mjs";
+import { default as Localization, TranslationDictionaryValue } from "#client/helpers/localization.mjs";
+import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
 import { ActionCost } from "./../module/item/base/data/system.ts";
 import { default as Sortable } from "sortablejs";
 /**
@@ -66,12 +66,6 @@ declare function getActionTypeLabel(
     type: Maybe<"action" | "free" | "reaction" | "passive">,
     cost: Maybe<number>,
 ): string | null;
-declare function getActionIcon(actionType: string | ActionCost | null, fallback: ImageFilePath): ImageFilePath;
-declare function getActionIcon(
-    actionType: string | ActionCost | null,
-    fallback: ImageFilePath | null,
-): ImageFilePath | null;
-declare function getActionIcon(actionType: string | ActionCost | null): ImageFilePath;
 /**
  * Returns a character that can be used with the Pathfinder action font
  * to display an icon. If null it returns empty string.
@@ -111,13 +105,6 @@ declare function fontAwesomeIcon(
         fixedWidth?: boolean;
     },
 ): HTMLElement;
-/** Short form of type and non-null check */
-declare function isObject<T extends object>(value: unknown): value is DeepPartial<T>;
-declare function isObject<T extends string>(
-    value: unknown,
-): value is {
-    [K in T]?: unknown;
-};
 /** Create a copy of a record with its insertion order sorted by label */
 declare function sortLabeledRecord<
     T extends Record<
@@ -132,7 +119,7 @@ declare function sortStringRecord<T extends Record<string, string>>(record: T): 
 /** JSON.stringify with recursive key sorting */
 declare function sortObjByKey(value: unknown): unknown;
 /** Walk an object tree and replace any string values found according to a provided function */
-declare function recursiveReplaceString<T>(source: T, replace: (s: string) => string): T;
+declare function recursiveReplaceString<T>(source: T, replace: (s: string) => string | number): T;
 /** Create a localization function with a prefixed localization object path */
 declare function localizer(prefix: string): (...args: Parameters<Localization["format"]>) => string;
 /** Walk a localization object and recursively map the keys as localization strings starting with a given prefix */
@@ -152,12 +139,10 @@ export {
     ErrorPF2e,
     fontAwesomeIcon,
     getActionGlyph,
-    getActionIcon,
     getActionTypeLabel,
     groupBy,
     isImageFilePath,
     isImageOrVideoPath,
-    isObject,
     isVideoFilePath,
     localizeList,
     localizer,

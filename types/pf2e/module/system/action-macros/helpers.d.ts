@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { ModifierPF2e } from "./../../actor/modifiers.ts";
+import { Modifier } from "./../../actor/modifiers.ts";
 import { ItemPF2e, WeaponPF2e } from "./../../item/index.ts";
 import { WeaponTrait } from "./../../item/weapon/types.ts";
 import { RollNotePF2e } from "./../../notes.ts";
@@ -36,7 +36,7 @@ declare class ActionMacroHelpers {
         token: TokenDocumentPF2e | null;
         actor: ActorPF2e | null;
     };
-    static getWeaponPotencyModifier(item: WeaponPF2e<ActorPF2e>, selector: string): ModifierPF2e | null;
+    static getWeaponPotencyModifier(item: WeaponPF2e<ActorPF2e>, selector: string): Modifier | null;
     static getBestEquippedItemForAction(
         actor: ActorPF2e,
         traits: WeaponTrait[],

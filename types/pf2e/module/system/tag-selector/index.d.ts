@@ -13,7 +13,6 @@ declare const SELECTABLE_TAG_FIELDS: readonly [
     "otherWeaponTags",
     "senses",
     "skills",
-    "speedTypes",
     "vehicleTraits",
     "weaponTraits",
 ];

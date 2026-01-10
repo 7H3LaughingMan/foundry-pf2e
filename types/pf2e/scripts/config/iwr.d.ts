@@ -1,5 +1,6 @@
 declare const immunityTypes: {
     acid: string;
+    aging: string;
     air: string;
     alchemical: string;
     "area-damage": string;
@@ -59,6 +60,7 @@ declare const immunityTypes: {
     polymorph: string;
     possession: string;
     precision: string;
+    prediction: string;
     prone: string;
     radiation: string;
     restrained: string;
@@ -75,6 +77,7 @@ declare const immunityTypes: {
     stupefied: string;
     "swarm-attacks": string;
     "swarm-mind": string;
+    time: string;
     trip: string;
     "unarmed-attacks": string;
     unconscious: string;
@@ -98,6 +101,7 @@ declare const immunityTypes: {
     inubrix: string;
     noqual: string;
     orichalcum: string;
+    peachwood: string;
     siccatite: string;
     silver: string;
     "cold-iron": string;
@@ -144,6 +148,7 @@ declare const weaknessTypes: {
     spells: string;
     spirit: string;
     "splash-damage": string;
+    time: string;
     "unarmed-attacks": string;
     "vampire-weaknesses": string;
     vitality: string;
@@ -169,6 +174,7 @@ declare const weaknessTypes: {
     inubrix: string;
     noqual: string;
     orichalcum: string;
+    peachwood: string;
     siccatite: string;
     silver: string;
     "cold-iron": string;
@@ -214,6 +220,7 @@ declare const resistanceTypes: {
     sonic: string;
     spells: string;
     spirit: string;
+    time: string;
     "unarmed-attacks": string;
     vitality: string;
     void: string;
@@ -237,6 +244,7 @@ declare const resistanceTypes: {
     inubrix: string;
     noqual: string;
     orichalcum: string;
+    peachwood: string;
     siccatite: string;
     silver: string;
     "cold-iron": string;

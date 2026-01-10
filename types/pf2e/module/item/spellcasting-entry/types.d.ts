@@ -1,6 +1,6 @@
 import { ActorPF2e } from "./../../actor/index.ts";
 import { AttributeString } from "./../../actor/types.ts";
-import { RollMode } from "./../../../../foundry/common/constants.mjs";
+import { RollMode } from "#common/constants.mjs";
 import { PhysicalItemPF2e } from "./../physical/index.ts";
 import { SpellPF2e } from "./../spell/document.ts";
 import { MagicTradition } from "./../spell/types.ts";
@@ -61,7 +61,8 @@ type UnusedProperties = "actor" | "spells" | "getSheetData" | "cast" | "canCast"
 type OptionalProperties = "isFlexible" | "isFocusPool" | "isInnate" | "isPrepared" | "isRitual" | "isSpontaneous";
 /** Spell list render data for a `BaseSpellcastingEntry` */
 interface SpellcastingSheetData
-    extends Omit<BaseSpellcastingEntry<ActorPF2e>, "statistic" | OptionalProperties | UnusedProperties>,
+    extends
+        Omit<BaseSpellcastingEntry<ActorPF2e>, "statistic" | OptionalProperties | UnusedProperties>,
         SpellCollectionData {
     statistic: StatisticChatData | null;
     hasCollection: boolean;

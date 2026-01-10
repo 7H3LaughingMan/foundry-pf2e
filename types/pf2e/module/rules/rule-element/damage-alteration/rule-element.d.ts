@@ -1,12 +1,13 @@
 import { DamageType } from "./../../../system/damage/types.ts";
-import { StrictArrayField } from "./../../../system/schema-data-fields.ts";
 import { AELikeChangeMode } from "../ae-like.ts";
 import { ModelPropsFromRESchema, RuleElementSchema } from "../data.ts";
-import { ResolvableValueField, RuleElementPF2e } from "../index.ts";
+import { ResolvableValueField, RuleElement } from "../index.ts";
 import fields = foundry.data.fields;
 /** Alter certain aspects of individual components (modifiers and dice) of a damage roll. */
-declare class DamageAlterationRuleElement extends RuleElementPF2e<DamageAlterationSchema> {
+declare class DamageAlterationRuleElement extends RuleElement<DamageAlterationSchema> {
+    static autogenForms: boolean;
     static defineSchema(): DamageAlterationSchema;
+    static LOCALIZATION_PREFIXES: string[];
     resolveValue(
         value: unknown,
         defaultValue: null,
@@ -17,17 +18,17 @@ declare class DamageAlterationRuleElement extends RuleElementPF2e<DamageAlterati
     beforePrepareData(): void;
 }
 interface DamageAlterationRuleElement
-    extends RuleElementPF2e<DamageAlterationSchema>,
-        ModelPropsFromRESchema<DamageAlterationSchema> {}
+    extends RuleElement<DamageAlterationSchema>, ModelPropsFromRESchema<DamageAlterationSchema> {}
 type DamageAlterationProperty = "dice-faces" | "dice-number" | "damage-type" | "tags";
 type DamageAlterationSchema = RuleElementSchema & {
-    selectors: StrictArrayField<fields.StringField<string, string, true, false, false>>;
-    mode: fields.StringField<AELikeChangeMode, AELikeChangeMode, true, false, false>;
+    selectors: fields.SetField<fields.StringField<string, string, true, false, false>>;
+    mode: fields.StringField<AELikeChangeMode, AELikeChangeMode, true, false, true>;
     property: fields.StringField<DamageAlterationProperty, DamageAlterationProperty, true, false, false>;
     value: ResolvableValueField<true, true, true>;
     /** An optional relabeling of the altered unit of damage */
     relabel: fields.StringField<string, string, false, true, true>;
 };
+type DamageAlterationSource = fields.SourceFromSchema<DamageAlterationSchema>;
 type DamageAlterationValue = DamageType | number | string[];
 export { DamageAlterationRuleElement };
-export type { DamageAlterationProperty, DamageAlterationValue };
+export type { DamageAlterationProperty, DamageAlterationSource, DamageAlterationValue };

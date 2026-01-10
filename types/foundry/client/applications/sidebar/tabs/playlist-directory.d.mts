@@ -1,5 +1,8 @@
 import { ApplicationRenderContext } from "./../../../applications/_types.mjs";
-import { HandlebarsRenderOptions, HandlebarsTemplatePart } from "./../../../applications/api/handlebars-application.mjs";
+import {
+    HandlebarsRenderOptions,
+    HandlebarsTemplatePart,
+} from "./../../../applications/api/handlebars-application.mjs";
 import HTMLRangePickerElement from "./../../../applications/elements/range-picker.mjs";
 import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
 import Folder from "./../../../documents/folder.mjs";

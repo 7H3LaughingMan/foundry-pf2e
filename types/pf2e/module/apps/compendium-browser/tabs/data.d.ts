@@ -1,6 +1,6 @@
 import { CreatureTrait } from "./../../../actor/creature/types.ts";
 import { HazardTrait } from "./../../../actor/hazard/types.ts";
-import { CompendiumIndexData } from "./../../../../../foundry/client/documents/collections/compendium-collection.mjs";
+import { CompendiumIndexData } from "#client/documents/collections/compendium-collection.mjs";
 import { AbilityTrait } from "./../../../item/ability/index.ts";
 import { KingmakerTrait } from "./../../../item/campaign-feature/types.ts";
 import { FeatTrait } from "./../../../item/feat/types.ts";

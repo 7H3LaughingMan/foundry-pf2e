@@ -1,5 +1,5 @@
 import { CreatureTrait } from "./../../actor/creature/index.ts";
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import { BaseItemSourcePF2e, ItemSystemSource } from "./../base/data/system.ts";
 import { RarityField } from "./../../model.ts";
@@ -11,7 +11,8 @@ declare class HeritageSystemData extends ItemSystemModel<HeritagePF2e, HeritageS
     static defineSchema(): HeritageSystemSchema;
 }
 interface HeritageSystemData
-    extends ItemSystemModel<HeritagePF2e, HeritageSystemSchema>,
+    extends
+        ItemSystemModel<HeritagePF2e, HeritageSystemSchema>,
         Omit<fields.ModelPropsFromSchema<HeritageSystemSchema>, "description"> {
     level?: never;
 }

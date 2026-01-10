@@ -1,27 +1,27 @@
 import { ActorPF2e, PartyPF2e } from "./../index.ts";
 import { HitPointsSummary } from "./../base.ts";
 import { CreatureSource } from "./../data/index.ts";
-import { StatisticModifier } from "./../modifiers.ts";
+import { Modifier } from "./../modifiers.ts";
 import { ActorSpellcasting } from "./../spellcasting.ts";
-import { MovementType, SaveType, SkillSlug } from "./../types.ts";
-import { Rolled } from "./../../../../foundry/client/dice/_module.mjs";
+import { SaveType, SkillSlug } from "./../types.ts";
+import { Rolled } from "#client/dice/_module.mjs";
 import {
     DatabaseDeleteCallbackOptions,
     DatabaseDeleteOperation,
     DatabaseUpdateOperation,
-} from "./../../../../foundry/common/abstract/_types.mjs";
+} from "#common/abstract/_types.mjs";
 import { ArmorPF2e, ItemPF2e, PhysicalItemPF2e, ShieldPF2e } from "./../../item/index.ts";
-import { ItemType } from "./../../item/base/data/index.ts";
 import { ItemCarryType } from "./../../item/physical/data.ts";
+import { ItemType } from "./../../item/types.ts";
 import { ActiveEffectPF2e } from "./../../active-effect.ts";
 import { Rarity, ZeroToTwo } from "./../../data.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { CheckRoll } from "./../../system/check/index.ts";
 import { Statistic, StatisticDifficultyClass, ArmorStatistic } from "./../../system/statistic/index.ts";
 import { PerceptionStatistic } from "./../../system/statistic/perception.ts";
-import { CreatureSpeeds, CreatureSystemData, LabeledSpeed, VisionLevel } from "./data.ts";
+import { CreatureSystemData, VisionLevel } from "./data.ts";
 import {
-    CreatureTrait,
+    CreatureMovement,
     CreatureType,
     CreatureUpdateCallbackOptions,
     CreatureUpdateOperation,
@@ -42,6 +42,7 @@ declare abstract class CreaturePF2e<
     /** Saving throw rolls for the creature, built during data prep */
     saves: Record<SaveType, Statistic>;
     perception: PerceptionStatistic;
+    movement: CreatureMovement<this>;
     get allowedItemTypes(): (ItemType | "physical")[];
     /** Types of creatures (as provided by bestiaries 1-3) of which this creature is a member */
     get creatureTypes(): CreatureType[];
@@ -68,7 +69,12 @@ declare abstract class CreaturePF2e<
     get heldShield(): ShieldPF2e<this> | null;
     /** Retrieve percpetion and spellcasting statistics */
     getStatistic(slug: SaveType | SkillSlug | "perception"): Statistic<this>;
-    getStatistic(slug: string): Statistic<this> | null;
+    getStatistic(
+        slug: string,
+        options?: {
+            item: ItemPF2e | null;
+        },
+    ): Statistic<this> | null;
     protected _initialize(options?: Record<string, unknown>): void;
     prepareData(): void;
     /** Setup base ephemeral data to be modified by active effects and derived-data preparation */
@@ -76,6 +82,7 @@ declare abstract class CreaturePF2e<
     prepareEmbeddedDocuments(): void;
     protected prepareDataFromItems(): void;
     prepareDerivedData(): void;
+    /** Extract and add custom modifiers. */
     protected prepareSynthetics(): void;
     /**
      * Changes the carry type of an item (held/worn/stowed/etc) and/or regrips/reslots
@@ -94,10 +101,9 @@ declare abstract class CreaturePF2e<
     /** Removes a custom modifier by slug */
     removeCustomModifier(stat: string, slug: string): Promise<void>;
     /**
-     * Roll a Recovery Check
-     * Prompt the user for input regarding Advantage/Disadvantage and any Situational Bonus
+     * Roll a Dying Recovery Check
      */
-    rollRecovery(event?: MouseEvent): Promise<Rolled<CheckRoll> | null>;
+    rollRecovery(event?: PointerEvent): Promise<Rolled<CheckRoll> | null>;
     /** Returns a resource by slug or by key */
     getResource(resource: string): ResourceData | null;
     /**
@@ -113,9 +119,11 @@ declare abstract class CreaturePF2e<
             render?: boolean;
         },
     ): Promise<void>;
-    prepareSpeed(movementType: "land"): this["system"]["attributes"]["speed"];
-    prepareSpeed(movementType: Exclude<MovementType, "land">): (LabeledSpeed & StatisticModifier) | null;
-    prepareSpeed(movementType: MovementType): CreatureSpeeds | (LabeledSpeed & StatisticModifier) | null;
+    /**
+     * Prepare this creature's movement data
+     * @param modifiers Modifiers in addition to those extracted
+     */
+    prepareMovementData(modifiers?: Modifier[]): void;
     /** Remove any features linked to a to-be-deleted ABC item */
     deleteEmbeddedDocuments(
         embeddedName: "ActiveEffect" | "Item",
@@ -133,7 +141,6 @@ declare abstract class CreaturePF2e<
 interface CreaturePF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     readonly _source: CreatureSource;
     system: CreatureSystemData;
-    get traits(): Set<CreatureTrait>;
     get hitPoints(): HitPointsSummary;
     /** Extend `DatabaseUpdateOperation` for creatures */
     update(

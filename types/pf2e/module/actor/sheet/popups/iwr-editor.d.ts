@@ -1,7 +1,7 @@
 import { ActorPF2e } from "./../../index.ts";
 import { Immunity, IWRSource, Resistance, Weakness } from "./../../data/iwr.ts";
 import { ImmunityType, ResistanceType, WeaknessType } from "./../../types.ts";
-import { ApplicationV1HeaderButton } from "./../../../../../foundry/client/appv1/api/application-v1.mjs";
+import { ApplicationV1HeaderButton } from "#client/appv1/api/application-v1.mjs";
 import appv1 = foundry.appv1;
 declare class IWREditor<TActor extends ActorPF2e> extends appv1.api.DocumentSheet<TActor, IWREditorOptions> {
     #private;

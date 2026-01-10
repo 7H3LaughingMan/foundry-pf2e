@@ -1,7 +1,7 @@
 import { ActorPF2e } from "./../module/actor/index.ts";
-import { ApplicationV1Options } from "./../../foundry/client/appv1/api/_module.mjs";
+import { ApplicationV1Options } from "#client/appv1/api/_module.mjs";
+import { RollMode } from "#common/constants.mjs";
 import { ItemPF2e } from "./../module/item/index.ts";
-import { RollMode } from "../../foundry/common/constants.mjs";
 /**
  * @category Other
  */
@@ -42,7 +42,7 @@ declare class DicePF2e {
         rollMode,
         rollType,
     }: {
-        event: MouseEvent | JQuery.TriggeredEvent;
+        event: PointerEvent | JQuery.TriggeredEvent;
         item?: ItemPF2e<ActorPF2e> | null;
         parts: (string | number)[];
         actor?: ActorPF2e;

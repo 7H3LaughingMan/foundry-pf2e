@@ -1,6 +1,6 @@
 import { AttributeString } from "./../../actor/types.ts";
-import { ActorUUID, ItemUUID, TokenDocumentUUID } from "./../../../../foundry/client/documents/_module.mjs";
-import { ModelPropsFromSchema, SourceFromSchema } from "./../../../../foundry/common/data/fields.mjs";
+import { ActorUUID, ItemUUID, TokenDocumentUUID } from "#client/documents/_module.mjs";
+import { ModelPropsFromSchema, SourceFromSchema } from "#common/data/fields.mjs";
 import { ItemSystemSchema } from "./../base/data/model.ts";
 import { ItemDescriptionData } from "./../base/data/system.ts";
 import { MagicTradition } from "./../spell/index.ts";
@@ -43,13 +43,13 @@ interface EffectContextData {
         token: TokenDocumentUUID | null;
         item: ItemUUID | null;
         spellcasting: EffectContextSpellcastingData | null;
-        rollOptions?: string[];
+        rollOptions: string[];
     };
     target: {
         actor: ActorUUID;
         token: TokenDocumentUUID | null;
     } | null;
-    roll: Pick<CheckRoll, "total" | "degreeOfSuccess"> | null;
+    roll: Pick<foundry.dice.Rolled<CheckRoll>, "total" | "degreeOfSuccess"> | null;
 }
 interface EffectContextSpellcastingData {
     attribute: {

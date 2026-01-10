@@ -1,66 +1,14 @@
 import { ActorPF2e, CharacterPF2e } from "./../index.ts";
 import { AttackTraitHelpers } from "./../creature/helpers.ts";
-import { ModifierPF2e } from "./../modifiers.ts";
-import { AbilityItemPF2e, ArmorPF2e, WeaponPF2e } from "./../../item/index.ts";
-import { ItemCarryType } from "./../../item/physical/index.ts";
-import { ZeroToThree, ZeroToTwo } from "./../../data.ts";
-import { SheetOptions } from "./../../sheet/helpers.ts";
+import { AttackAmmunitionData } from "./../data/base.ts";
+import { Modifier } from "./../modifiers.ts";
+import { AbilityItemPF2e, AmmoPF2e, ArmorPF2e, WeaponPF2e } from "./../../item/index.ts";
+import { ZeroToFour } from "./../../data.ts";
+import { WeaponAuxiliaryAction } from "./auxiliary.ts";
 /** Handle weapon traits that introduce modifiers or add other weapon traits */
 declare class PCAttackTraitHelpers extends AttackTraitHelpers {
     static adjustWeapon(weapon: WeaponPF2e): void;
-    static createAttackModifiers({ item, domains }: CreateAttackModifiersParams): ModifierPF2e[];
-}
-interface AuxiliaryInteractParams {
-    weapon: WeaponPF2e<CharacterPF2e>;
-    action: "interact";
-    annotation: "draw" | "grip" | "modular" | "pick-up" | "retrieve" | "sheathe";
-    hands?: ZeroToTwo;
-}
-interface AuxiliaryWeaponParryParams {
-    weapon: WeaponPF2e<CharacterPF2e>;
-    action: "parry";
-    annotation?: never;
-    hands?: never;
-}
-interface AuxiliaryShieldParams {
-    weapon: WeaponPF2e<CharacterPF2e>;
-    action: "end-cover" | "raise-a-shield" | "take-cover";
-    annotation?: "tower-shield";
-    hands?: never;
-}
-interface AuxiliaryReleaseParams {
-    weapon: WeaponPF2e<CharacterPF2e>;
-    action: "release";
-    annotation: "grip" | "drop";
-    hands: 0 | 1;
-}
-type AuxiliaryActionParams =
-    | AuxiliaryInteractParams
-    | AuxiliaryWeaponParryParams
-    | AuxiliaryShieldParams
-    | AuxiliaryReleaseParams;
-type AuxiliaryActionType = AuxiliaryActionParams["action"];
-type AuxiliaryActionPurpose = AuxiliaryActionParams["annotation"];
-/** Create an "auxiliary" action, an Interact or Release action using a weapon */
-declare class WeaponAuxiliaryAction {
-    readonly weapon: WeaponPF2e<CharacterPF2e>;
-    readonly action: AuxiliaryActionType;
-    readonly actions: ZeroToThree;
-    readonly carryType: ItemCarryType | null;
-    readonly hands: ZeroToTwo | null;
-    readonly annotation: NonNullable<AuxiliaryActionPurpose> | null;
-    /** A "full purpose" reflects the options to draw, sheathe, etc. a weapon */
-    readonly fullAnnotation: string | null;
-    constructor({ weapon, action, annotation, hands }: AuxiliaryActionParams);
-    get actor(): CharacterPF2e;
-    get label(): string;
-    get glyph(): string;
-    get options(): SheetOptions | null;
-    /**
-     * Execute an auxiliary action.
-     * [options.selection] A choice of some kind: currently only has meaning for modular trait toggling
-     */
-    execute({ selection }?: { selection?: string | null }): Promise<void>;
+    static createAttackModifiers({ item, domains }: CreateAttackModifiersParams): Modifier[];
 }
 /** Make a PC Clumsy 1 when wielding an oversized weapon */
 declare function imposeOversizedWeaponCondition(actor: CharacterPF2e): void;
@@ -68,32 +16,45 @@ interface CreateAttackModifiersParams {
     item: AbilityItemPF2e<CharacterPF2e> | WeaponPF2e<CharacterPF2e>;
     domains: string[];
 }
+/** Get the proficiency rank of of a weapon or armor for a PC. */
+declare function getItemProficiencyRank(
+    actor: CharacterPF2e,
+    item: ArmorPF2e | WeaponPF2e,
+    itemOptions?: Set<string>,
+): ZeroToFour;
 /** Create a penalty for attempting to Force Open without a crowbar or equivalent tool */
-declare function createForceOpenPenalty(actor: CharacterPF2e, domains: string[]): ModifierPF2e;
+declare function createForceOpenPenalty(actor: CharacterPF2e, domains: string[]): Modifier;
 declare function createShoddyPenalty(
     actor: ActorPF2e,
     item: WeaponPF2e | ArmorPF2e | null,
     domains: string[],
-): ModifierPF2e | null;
-/**
- * Create a penalty for wearing armor with the "ponderous" trait
- * "You take a –5 penalty to all your Speeds (to a minimum of a 5-foot Speed). This is separate from and in addition to
- * the armor's Speed penalty, and affects you even if your Strength or an ability lets you reduce or ignore the armor's
- * Speed penalty."
- */
-declare function createHinderingPenalty(actor: CharacterPF2e): ModifierPF2e | null;
+): Modifier | null;
 /**
  * Create a penalty for wearing armor with the "ponderous" trait
  * "While wearing the armor, you take a –1 penalty to initiative checks. If you don't meet the armor's required Strength
  * score, this penalty increases to be equal to the armor's check penalty if it's worse."
  */
-declare function createPonderousPenalty(actor: CharacterPF2e): ModifierPF2e | null;
+declare function createPonderousPenalty(actor: CharacterPF2e): Modifier | null;
+declare function getWeaponAuxiliaryActions(weapon: WeaponPF2e<CharacterPF2e>): WeaponAuxiliaryAction[];
+/**
+ * Returns data for usable ammo if the weapon requires ammo.
+ * Built in ammo will require special handling, and isn't supported yet.
+ */
+declare function getAttackAmmo(
+    weapon: WeaponPF2e<CharacterPF2e>,
+    {
+        ammos,
+    }: {
+        ammos: (AmmoPF2e<CharacterPF2e> | WeaponPF2e<CharacterPF2e>)[];
+    },
+): AttackAmmunitionData | null;
 export {
-    PCAttackTraitHelpers,
-    WeaponAuxiliaryAction,
     createForceOpenPenalty,
-    createHinderingPenalty,
     createPonderousPenalty,
     createShoddyPenalty,
+    getAttackAmmo,
+    getItemProficiencyRank,
+    getWeaponAuxiliaryActions,
     imposeOversizedWeaponCondition,
+    PCAttackTraitHelpers,
 };

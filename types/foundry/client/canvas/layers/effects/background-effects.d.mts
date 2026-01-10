@@ -6,9 +6,24 @@ import CanvasLayer from "../base/canvas-layer.mjs";
 export default class CanvasBackgroundAlterationEffects extends CanvasLayer {
     constructor();
 
-    protected override _draw(options?: object): Promise<void>;
+    /**
+     * A collection of effects which provide background vision alterations.
+     */
+    vision: PIXI.Container;
 
-    protected override _tearDown(options?: object): Promise<void>;
+    /**
+     * A collection of effects which provide background preferred vision alterations.
+     */
+    visionPreferred: PIXI.Container;
+
+    /**
+     * A collection of effects which provide other background alterations.
+     */
+    lighting: PIXI.Container;
+
+    protected override _draw(): Promise<void>;
+
+    protected override _tearDown(): Promise<void>;
 
     /**
      * Clear background alteration effects vision and lighting containers

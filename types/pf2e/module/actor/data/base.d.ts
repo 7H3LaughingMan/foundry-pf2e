@@ -2,10 +2,11 @@ import { ActorPF2e, ActorType } from "./../index.ts";
 import { DexterityModifierCapData } from "./../character/types.ts";
 import { Abilities } from "./../creature/data.ts";
 import { InitiativeTraceData } from "./../initiative.ts";
-import { StatisticModifier } from "./../modifiers.ts";
+import { Modifier, StatisticModifier } from "./../modifiers.ts";
 import { ActorAlliance, AttributeString, SkillSlug } from "./../types.ts";
-import { Rolled } from "./../../../../foundry/client/dice/roll.mjs";
-import { DocumentFlags, DocumentFlagsSource } from "./../../../../foundry/common/data/_module.mjs";
+import { Rolled } from "#client/dice/roll.mjs";
+import { ImageFilePath } from "#common/constants.mjs";
+import { DocumentFlags, DocumentFlagsSource } from "#common/data/_module.mjs";
 import { MeleePF2e, WeaponPF2e } from "./../../item/index.ts";
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
 import { MigrationRecord, Rarity, Size, ValueAndMaybeMax, ZeroToTwo } from "./../../data.ts";
@@ -14,6 +15,7 @@ import { AttackRollParams, DamageRollParams, RollParameters } from "./../../syst
 import { CheckRoll } from "./../../system/check/roll.ts";
 import { DamageRoll } from "./../../system/damage/roll.ts";
 import { StatisticTraceData } from "./../../system/statistic/data.ts";
+import { Statistic } from "./../../system/statistic/statistic.ts";
 import { Immunity, ImmunitySource, Resistance, ResistanceSource, Weakness, WeaknessSource } from "./iwr.ts";
 import { ActorSizePF2e } from "./size.ts";
 /** Base interface for all actor data */
@@ -66,7 +68,7 @@ interface ActorDetailsSource {
 interface ActorSystemData extends ActorSystemSource {
     abilities?: Abilities;
     details: ActorDetails;
-    actions?: StrikeData[];
+    actions?: AttackAction[];
     attributes: ActorAttributes;
     traits?: ActorTraitsData<string>;
     /** Initiative, used to determine turn order in encounters */
@@ -201,64 +203,88 @@ interface TraitViewData {
     /** The description of the trait */
     description: string | null;
 }
-/** An strike which a character can use. */
-interface StrikeData extends StatisticModifier {
+interface BasicAttackAction {
     slug: string;
     label: string;
-    /** The type of action; currently just 'strike'. */
-    type: "strike";
-    /** The glyph for this strike (how many actions it takes, reaction, etc). */
-    glyph: string;
-    /** A description of this strike. */
-    description: string;
-    /** A description of what happens on a critical success. */
-    criticalSuccess: string;
-    /** A description of what happens on a success. */
-    success: string;
-    /** Action traits associated with this strike */
+    type: string;
+    /** Action traits associated with this action */
     traits: TraitViewData[];
-    /** Any options always applied to this strike */
-    options: string[];
+    /** The glyph for this attack (how many actions it takes, reaction, etc). */
+    glyph: string;
+    /** A description of this attack. */
+    description: string;
     /**
      * Whether the strike and its auxiliary actions are available (usually when the weapon corresponding with the
      * strike is equipped)
      */
     ready: boolean;
     /** Whether striking itself, independent of the auxiliary actions, is possible */
-    canStrike: boolean;
-    /** Alias for `attack`. */
-    roll?: RollFunction<AttackRollParams>;
-    /** Roll to attack with the given strike (with no MAP; see `variants` for MAPs.) */
-    attack?: RollFunction<AttackRollParams>;
+    canAttack: boolean;
+    /** The weapon or melee item--possibly ephemeral--being used for the strike */
+    item: WeaponPF2e<ActorPF2e> | MeleePF2e<ActorPF2e>;
+    altUsages?: AttackAction[];
     /** Roll normal (non-critical) damage for this weapon. */
     damage?: DamageRollFunction;
     /** Roll critical damage for this weapon. */
     critical?: DamageRollFunction;
+    readonly modifiers: Modifier[];
+    /** Ammunition choices and selected ammo if this is a ammo consuming weapon. */
+    ammunition?: AttackAmmunitionData | null;
+}
+interface AttackAmmunitionData {
+    compatible: {
+        id: string;
+        label: string;
+    }[];
+    loaded: {
+        id: string;
+        img: ImageFilePath;
+        name: string;
+        quantity: number;
+        max: number;
+        isTemporary: boolean;
+    }[];
+    selected: {
+        id: string;
+        compatible: boolean;
+    } | null;
+    requiresReload: boolean;
+    reloadGlyph: string | null;
+    capacity: number;
+    remaining: number;
+}
+/** An strike which an actor can use. */
+interface StrikeData extends StatisticModifier, BasicAttackAction {
+    label: string;
+    /** The type of action; currently just 'strike'. */
+    type: "strike";
+    /** Any options always applied to this strike */
+    options: string[];
+    /** Alias for `attack`. */
+    roll?: RollFunction<AttackRollParams>;
+    /** Roll to attack with the given strike (with no MAP; see `variants` for MAPs.) */
+    attack?: RollFunction<AttackRollParams>;
     /** Alternative usages of a strike weapon: thrown, combination-melee, etc. */
-    altUsages?: StrikeData[];
+    altUsages?: AttackAction[];
     /** A list of attack variants which apply the Multiple Attack Penalty. */
     variants: {
         label: string;
         roll: RollFunction<AttackRollParams>;
     }[];
-    /** Ammunition choices and selected ammo if this is a ammo consuming weapon. */
-    ammunition?: {
-        compatible: {
-            id: string;
-            label: string;
-        }[];
-        incompatible: {
-            id: string;
-            label: string;
-        }[];
-        selected: {
-            id: string;
-            compatible: boolean;
-        } | null;
-    };
-    /** The weapon or melee item--possibly ephemeral--being used for the strike */
-    item: WeaponPF2e<ActorPF2e> | MeleePF2e<ActorPF2e>;
 }
+interface AreaAttack extends BasicAttackAction {
+    type: "area-fire" | "auto-fire";
+    item: MeleePF2e<ActorPF2e> | WeaponPF2e<ActorPF2e>;
+    /** The type of attack as a localization string */
+    attackRollType: string;
+    statistic: Statistic;
+    /** A list of buttons to show. In practice there is only one */
+    variants: {
+        label: string;
+        roll: () => void;
+    }[];
+}
+type AttackAction = StrikeData | AreaAttack;
 /** Any skill or similar which provides a roll option for rolling this save. */
 interface Rollable {
     /** Roll this save or skill with the given options (caused by the given event, and with the given optional callback). */
@@ -292,10 +318,14 @@ export type {
     ActorSystemSource,
     ActorTraitsData,
     ActorTraitsSource,
+    AreaAttack,
     ArmorClassData,
+    AttackAction,
+    AttackAmmunitionData,
     AttributeBasedTraceData,
     BaseActorSourcePF2e,
     BaseHitPointsSource,
+    BasicAttackAction,
     DamageRollFunction,
     FlankingData,
     GangUpCircumstance,

@@ -1,18 +1,18 @@
-import { CoinsPF2e } from "./../../../module/item/physical/coins.ts";
+import { Coins } from "./../../../module/item/physical/coins.ts";
 import { OneToFour } from "./../../../module/data.ts";
 import { calculateDC } from "./../../../module/dc.ts";
 import { DegreeOfSuccessIndex, RollBrief } from "./../../../module/system/degree-of-success.ts";
 /**
  * Implementation of Earn Income rules on https://2e.aonprd.com/Skills.aspx?ID=2&General=true
  */
-type Rewards = Record<OneToFour, CoinsPF2e>;
+type Rewards = Record<OneToFour, Coins>;
 type IncomeForLevel = {
-    failure: CoinsPF2e;
+    failure: Coins;
     rewards: Rewards;
 };
 declare function getIncomeForLevel(level: number): IncomeForLevel;
 interface PerDayEarnIncomeResult {
-    rewards: CoinsPF2e;
+    rewards: Coins;
     degreeOfSuccess: DegreeOfSuccessIndex;
 }
 interface EarnIncomeOptions {
@@ -37,8 +37,8 @@ interface EarnIncomeParams {
 }
 interface EarnIncomeResult {
     rewards: {
-        perDay: CoinsPF2e;
-        combined: CoinsPF2e;
+        perDay: Coins;
+        combined: Coins;
     };
     degreeOfSuccess: DegreeOfSuccessIndex;
     daysSpentWorking: number;

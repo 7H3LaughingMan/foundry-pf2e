@@ -4,7 +4,7 @@ import { RecordField } from "./../../../system/schema-data-fields.ts";
 import { ResolvableValueField, RuleElementSchema } from "../data.ts";
 import { ImmunityRuleElement, ResistanceRuleElement, WeaknessRuleElement } from "../iwr/index.ts";
 import { BattleFormSkills, BattleFormSpeeds, BattleFormStrike } from "./types.ts";
-import type * as fields from "./../../../../../foundry/common/data/fields.mjs";
+import type * as fields from "#common/data/fields.mjs";
 type OverrideACSchema = {
     modifier: ResolvableValueField<false, false, true>;
     ignoreCheckPenalty: fields.BooleanField<boolean, boolean, false, false, true>;
@@ -42,7 +42,12 @@ type BattleFormRuleOverrideSchema = {
     resistances: fields.ArrayField<fields.ObjectField<Omit<ResistanceRuleElement["_source"], "key">>>;
 };
 type BattleFormRuleSchema = RuleElementSchema & {
-    value: ResolvableValueField<false, false, false>;
+    brackets: fields.ArrayField<
+        fields.SchemaField<{
+            start: fields.NumberField<number, number, true, false, true>;
+            value: fields.ObjectField<object, object, true, false, true>;
+        }>
+    >;
     overrides: fields.SchemaField<BattleFormRuleOverrideSchema>;
     canCast: fields.BooleanField<boolean, boolean, false, false, true>;
     canSpeak: fields.BooleanField<boolean, boolean, false, false, true>;
@@ -50,4 +55,4 @@ type BattleFormRuleSchema = RuleElementSchema & {
     /** Whether the actor uses its own unarmed attacks while in battle form */
     ownUnarmed: fields.BooleanField<boolean, boolean, false, false, true>;
 };
-export type { BattleFormRuleOverrideSchema, BattleFormRuleSchema };
+export type { BattleFormRuleSchema };

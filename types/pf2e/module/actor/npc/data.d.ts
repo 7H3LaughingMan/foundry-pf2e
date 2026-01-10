@@ -11,7 +11,6 @@ import {
     CreaturePerceptionData,
     CreatureResources,
     CreatureResourcesSource,
-    CreatureSpeeds,
     CreatureSystemData,
     CreatureSystemSource,
     CreatureTraitsSource,
@@ -23,12 +22,13 @@ import {
 import {
     ActorAttributesSource,
     ActorFlagsPF2e,
+    AreaAttack,
     AttributeBasedTraceData,
     HitPointsStatistic,
     StrikeData,
 } from "./../data/base.ts";
 import { InitiativeTraceData } from "./../initiative.ts";
-import { ModifierPF2e, StatisticModifier } from "./../modifiers.ts";
+import { Modifier, StatisticModifier } from "./../modifiers.ts";
 import { ActorAlliance, SaveType, SkillSlug } from "./../types.ts";
 import { MeleePF2e } from "./../../item/index.ts";
 import { PublicationData, ValueAndMax } from "./../../data.ts";
@@ -139,14 +139,14 @@ interface NPCSystemData extends Omit<NPCSystemSource, "attributes" | "perception
     /** Skills that this actor possesses; skills the actor is actually trained on are marked 'visible'. */
     skills: Record<string, NPCSkillData>;
     /** Special strikes which the creature can take. */
-    actions: NPCStrike[];
+    actions: NPCAttackAction[];
     resources: NPCResources;
     spellcasting: {
         rituals: {
             dc: number;
         };
     };
-    customModifiers: Record<string, ModifierPF2e[]>;
+    customModifiers: Record<string, Modifier[]>;
 }
 interface NPCPerceptionData extends CreaturePerceptionData {
     mod: number;
@@ -154,7 +154,6 @@ interface NPCPerceptionData extends CreaturePerceptionData {
 interface NPCAttributes extends Omit<NPCAttributesSource, AttributesSourceOmission>, CreatureAttributes {
     adjustment: "elite" | "weak" | null;
     hp: NPCHitPoints;
-    speed: NPCSpeeds;
     /**
      * Data related to the currently equipped shield. This is copied from the shield data itself, and exists to
      * allow for the shield health to be shown in a token.
@@ -178,7 +177,7 @@ interface NPCAttributes extends Omit<NPCAttributesSource, AttributesSourceOmissi
         value: number;
     };
 }
-type AttributesSourceOmission = "ac" | "initiative" | "immunities" | "weaknesses" | "resistances";
+type AttributesSourceOmission = "ac" | "initiative" | "immunities" | "weaknesses" | "resistances" | "speed";
 interface NPCDetails extends NPCDetailsSource, CreatureDetails {
     level: {
         value: number;
@@ -191,7 +190,7 @@ interface NPCDetails extends NPCDetailsSource, CreatureDetails {
 interface NPCStrike extends StrikeData {
     item: MeleePF2e<ActorPF2e>;
     /** The type of attack as a localization string */
-    attackRollType?: string;
+    attackRollType: string;
     /** The id of the item this strike is generated from */
     sourceId?: string;
     /** Additional effects from a successful strike, like "Grab" */
@@ -202,6 +201,16 @@ interface NPCStrike extends StrikeData {
     /** A melee usage of a firearm: not available on NPC strikes */
     altUsages?: never;
 }
+interface NPCAreaAttack extends AreaAttack {
+    item: MeleePF2e<ActorPF2e>;
+    /** Additional effects from a successful strike, like "Grab" */
+    additionalEffects: {
+        tag: string;
+        label: string;
+    }[];
+    altUsages?: never;
+}
+type NPCAttackAction = NPCStrike | NPCAreaAttack;
 /** Save data with an additional "base" value */
 interface NPCSaveData extends SaveData {
     base?: number;
@@ -230,9 +239,6 @@ interface NPCSkillData extends NPCSkillSource, AttributeBasedTraceData {
     itemId?: string;
     special: NPCSpecialSkill[];
 }
-interface NPCSpeeds extends CreatureSpeeds {
-    details: string;
-}
 interface NPCResources extends CreatureResources {
     /** The current number of focus points and pool size */
     focus: ValueAndMax & {
@@ -241,6 +247,8 @@ interface NPCResources extends CreatureResources {
     mythicPoints: ValueAndMax;
 }
 export type {
+    NPCAreaAttack,
+    NPCAttackAction,
     NPCAttributes,
     NPCAttributesSource,
     NPCFlags,

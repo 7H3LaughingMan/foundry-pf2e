@@ -11,16 +11,7 @@ type RuleElementSource = {
     requiresEquipped?: JSONValue;
     removeUponCreate?: JSONValue;
 };
-type RuleValue = string | number | boolean | object | BracketedValue;
-interface Bracket<T extends object | number | string> {
-    start?: number;
-    end?: number;
-    value: T;
-}
-interface BracketedValue<T extends object | number | string = object | number | string> {
-    field?: string;
-    brackets: Bracket<T>[];
-}
+type RuleValue = Exclude<JSONValue, undefined>;
 type RuleElementSchema = {
     key: fields.StringField<string, string, true, false, false>;
     /** An identifying slug for the rule element: its significance and restrictions are determined per RE type */
@@ -32,11 +23,11 @@ type RuleElementSchema = {
     /** A test of whether the rules element is to be applied */
     predicate: PredicateField;
     /** Whether the rule element is ignored and deactivated */
-    ignored: fields.BooleanField<boolean, boolean, false, false, true>;
+    ignored: fields.BooleanField<boolean, boolean, true, false, true>;
     /** Whether the rule element requires that the parent item (if physical) be equipped */
-    requiresEquipped: fields.BooleanField<boolean, boolean, false, true, false>;
+    requiresEquipped: fields.BooleanField<boolean, boolean, false, true, true>;
     /** Whether the rule element requires that the parent item (if physical) be invested */
-    requiresInvestment: fields.BooleanField<boolean, boolean, false, true, false>;
+    requiresInvestment: fields.BooleanField<boolean, boolean, false, true, true>;
     /** A grouping slug to mark a rule as a part of a spinoff effect, which some item types can compose */
     spinoff: SlugField<false, false, false>;
 };
@@ -46,11 +37,12 @@ declare class ResolvableValueField<
     THasInitial extends boolean = false,
 > extends fields.DataField<RuleValue, RuleValue, TRequired, TNullable, THasInitial> {
     #private;
-    protected _validateType(value: JSONValue): boolean;
+    protected _validateType(value: JSONValue): false | void;
     /** No casting is applied to this value */
     protected _cast(value: JSONValue): JSONValue;
-    protected _cleanType(value: RuleValue): RuleValue;
+    protected _cleanType(value: JSONValue): RuleValue | undefined;
+    protected _toInput(config: foundry.data.FormInputConfig<string>): HTMLInputElement;
 }
 type ModelPropsFromRESchema<TSchema extends RuleElementSchema> = Omit<fields.ModelPropsFromSchema<TSchema>, "label">;
 export { ResolvableValueField };
-export type { Bracket, BracketedValue, ModelPropsFromRESchema, RuleElementSchema, RuleElementSource, RuleValue };
+export type { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource, RuleValue };

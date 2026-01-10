@@ -10,11 +10,11 @@ declare const materialDamageEffects: {
     inubrix: string;
     noqual: string;
     orichalcum: string;
+    peachwood: string;
     siccatite: string;
     silver: string;
     "cold-iron": string;
     "keep-stone": string;
-    peachwood: string;
     "sisterstone-dusk": string;
     "sisterstone-scarlet": string;
     "sovereign-steel": string;
@@ -31,11 +31,11 @@ declare const damageCategories: {
     inubrix: string;
     noqual: string;
     orichalcum: string;
+    peachwood: string;
     siccatite: string;
     silver: string;
     "cold-iron": string;
     "keep-stone": string;
-    peachwood: string;
     "sisterstone-dusk": string;
     "sisterstone-scarlet": string;
     "sovereign-steel": string;

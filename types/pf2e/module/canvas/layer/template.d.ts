@@ -1,5 +1,5 @@
-import { PlaceablesLayerPointerEvent } from "./../../../../foundry/client/canvas/layers/base/placeables-layer.mjs";
-import { Point } from "./../../../../foundry/common/_types.mjs";
+import { PlaceablesLayerPointerEvent } from "#client/canvas/layers/base/placeables-layer.mjs";
+import { Point } from "#common/_types.mjs";
 import { MeasuredTemplatePF2e } from "../measured-template.ts";
 declare class TemplateLayerPF2e<TObject extends MeasuredTemplatePF2e = MeasuredTemplatePF2e> extends fc.layers
     .TemplateLayer<TObject> {

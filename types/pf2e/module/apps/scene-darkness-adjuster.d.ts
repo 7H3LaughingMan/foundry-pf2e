@@ -1,4 +1,4 @@
-import { HandlebarsRenderOptions } from "./../../../foundry/client/applications/api/handlebars-application.mjs";
+import { HandlebarsRenderOptions } from "#client/applications/api/handlebars-application.mjs";
 import { ScenePF2e } from "./../scene/index.ts";
 export declare class SceneDarknessAdjuster extends fa.api.ApplicationV2 {
     #private;

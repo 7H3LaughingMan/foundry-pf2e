@@ -111,18 +111,6 @@ export default abstract class PlaceableObject<
      */
     getSnappedPosition(position?: Point): Point;
 
-    /**
-     * Get the data of the copied object pasted at the position given by the offset.
-     * Called by {@link foundry.canvas.layers.PlaceablesLayer.pasteObjects} for each copied object.
-     * @param offset The offset relative from the current position to the destination
-     * @param options Options of {@link foundry.canvas.layers.PlaceablesLayer.pasteObjects}
-     * @param options.hidden Paste in a hidden state, if applicable. Default is false.
-     * @param options.snap Snap to the grid. Default is true.
-     * @returns The update data
-     * @internal
-     */
-    _pasteObject(offset: Point, { hidden, snap }: { hidden?: boolean; snap?: boolean }): object;
-
     /* -------------------------------------------- */
     /*  Rendering                                   */
     /* -------------------------------------------- */
@@ -194,8 +182,9 @@ export default abstract class PlaceableObject<
     /** Register pending canvas operations which should occur after a new PlaceableObject of this type is created */
     protected _onCreate(data: TDocument["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    /** Define additional steps taken when an existing placeable object of this type is updated with new data */
-
+    /**
+     * Define additional steps taken when an existing placeable object of this type is updated with new data
+     */
     protected _onUpdate(
         changed: DeepPartial<TDocument["_source"]>,
         options: DatabaseUpdateCallbackOptions,
@@ -359,9 +348,6 @@ export default abstract class PlaceableObject<
     /** Callback actions which occur when a mouse-drag action is first begun. */
     protected _onDragLeftStart(event: PIXI.FederatedPointerEvent): void;
 
-    /** Initialize the left-drag operation. */
-    protected _initializeDragLeft(event: PIXI.FederatedEvent): void;
-
     /**
      * Begin a drag operation from the perspective of the preview clone.
      * Modify the appearance of both the clone (this) and the original (_original) object.
@@ -390,9 +376,6 @@ export default abstract class PlaceableObject<
     /** Callback actions which occur on a mouse-move operation. */
     protected _onDragLeftCancel(event: PlaceablesLayerPointerEvent<this>): void;
 
-    /** Finalize the left-drag operation. */
-    protected _finalizeDragLeft(event: PIXI.FederatedEvent): void;
-
     /** Callback actions which occur on a right mouse-drag operation. */
     protected _onDragRightStart(event: PlaceablesLayerPointerEvent<this>): void;
 
@@ -413,8 +396,9 @@ export default abstract class PlaceableObject<
     protected _onLongPress(event: PIXI.FederatedPointerEvent, origin: PIXI.Point): void;
 }
 
-export default interface PlaceableObject<TDocument extends CanvasDocument = CanvasDocument>
-    extends RenderFlagsContainer<TDocument> {
+export default interface PlaceableObject<
+    TDocument extends CanvasDocument = CanvasDocument,
+> extends RenderFlagsContainer<TDocument> {
     hitArea: PIXI.Rectangle;
 }
 

@@ -1,10 +1,10 @@
 import * as fields from "./../../../common/data/fields.mjs";
-import { RegionBehaviorType } from "./base.mjs";
+import RegionBehaviorType from "./base.mjs";
 
 /**
  * The data model for a behavior that allows to suppress weather effects within the Region
  */
-export class AdjustDarknessLevelRegionBehaviorType extends RegionBehaviorType<AdjustDarknessLevelRegionBehaviorSchema> {
+export default class AdjustDarknessLevelRegionBehaviorType extends RegionBehaviorType<AdjustDarknessLevelRegionBehaviorSchema> {
     static override defineSchema(): AdjustDarknessLevelRegionBehaviorSchema;
 
     /** Darkness level behavior modes. */
@@ -18,8 +18,9 @@ export class AdjustDarknessLevelRegionBehaviorType extends RegionBehaviorType<Ad
     };
 }
 
-export interface AdjustDarknessLevelRegionBehaviorType
-    extends RegionBehaviorType<AdjustDarknessLevelRegionBehaviorSchema>,
+export default interface AdjustDarknessLevelRegionBehaviorType
+    extends
+        RegionBehaviorType<AdjustDarknessLevelRegionBehaviorSchema>,
         fields.ModelPropsFromSchema<AdjustDarknessLevelRegionBehaviorSchema> {}
 
 export type AdjustDarknessLevelRegionBehaviorSchema = {

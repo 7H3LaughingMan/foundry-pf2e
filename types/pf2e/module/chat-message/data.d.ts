@@ -1,10 +1,11 @@
 import { RawDamageDice, RawModifier } from "./../actor/modifiers.ts";
-import { ActorUUID, TokenDocumentUUID } from "./../../../foundry/client/documents/_module.mjs";
-import { DocumentUUID } from "./../../../foundry/client/utils/_module.mjs";
-import { RollMode } from "./../../../foundry/common/constants.mjs";
-import { ChatMessageFlags } from "./../../../foundry/common/documents/chat-message.mjs";
-import { ItemType, SpellSource } from "./../item/base/data/index.ts";
+import { ActorUUID, TokenDocumentUUID } from "#client/documents/_module.mjs";
+import { DocumentUUID } from "#client/utils/_module.mjs";
+import { RollMode } from "#common/constants.mjs";
+import { ChatMessageFlags } from "#common/documents/chat-message.mjs";
+import { SpellSource } from "./../item/base/data/index.ts";
 import { MagicTradition } from "./../item/spell/types.ts";
+import { EffectAreaShape, ItemType } from "./../item/types.ts";
 import { ZeroToTwo } from "./../data.ts";
 import { RollNoteSource } from "./../notes.ts";
 import { CheckCheckContext } from "./../system/check/index.ts";
@@ -21,10 +22,10 @@ export interface ItemOriginFlag {
     messageId?: string;
     variant?: {
         overlays: string[];
-    };
+    } | null;
     rollOptions?: string[];
 }
-interface ChatMessageFlagsPF2e extends ChatMessageFlags {
+type ChatMessageFlagsPF2e = ChatMessageFlags & {
     pf2e: {
         damageRoll?: DamageRollFlag;
         context?: ChatContextFlag;
@@ -36,7 +37,7 @@ interface ChatMessageFlagsPF2e extends ChatMessageFlags {
         } | null;
         modifiers?: RawModifier[];
         dice?: RawDamageDice[];
-        journalEntry?: DocumentUUID;
+        journalEntry?: DocumentUUID | null;
         appliedDamage?: AppliedDamageFlag | null;
         treatWoundsMacroFlag?: {
             bonus: number;
@@ -44,13 +45,14 @@ interface ChatMessageFlagsPF2e extends ChatMessageFlags {
         [key: string]: unknown;
     };
     core: NonNullable<ChatMessageFlags["core"]>;
-}
+};
 type ChatContextFlag =
     | CheckContextChatFlag
     | DamageDamageContextFlag
     | SpellCastContextFlag
     | SelfEffectContextFlag
-    | DamageTakenContextFlag;
+    | DamageTakenContextFlag
+    | AreaAttackContextFlag;
 interface DamageRollFlag {
     outcome: DegreeOfSuccessString;
     total: number;
@@ -118,6 +120,17 @@ interface SpellCastContextFlag {
     /** The roll mode (i.e., 'roll', 'blindroll', etc) to use when rendering this roll. */
     rollMode?: RollMode;
 }
+interface AreaAttackContextFlag {
+    type: "area-fire" | "auto-fire";
+    area: {
+        type: EffectAreaShape;
+        value: number;
+    };
+    identifier: string;
+    domains: string[];
+    options: string[];
+    outcome?: never;
+}
 interface SelfEffectContextFlag {
     type: "self-effect";
     item: string;
@@ -148,6 +161,7 @@ interface AppliedDamageFlag {
 export type {
     ActorTokenFlag,
     AppliedDamageFlag,
+    AreaAttackContextFlag,
     ChatContextFlag,
     ChatMessageFlagsPF2e,
     ChatMessageSourcePF2e,

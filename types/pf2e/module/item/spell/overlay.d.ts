@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { DatabaseUpdateOperation } from "./../../../../foundry/common/abstract/_types.mjs";
+import { DatabaseUpdateOperation } from "#common/abstract/_types.mjs";
 import { SpellOverlay, SpellOverlayType, SpellSource } from "./data.ts";
 import { SpellPF2e } from "./document.ts";
 declare class SpellOverlayCollection extends Collection<string, SpellOverlay> {

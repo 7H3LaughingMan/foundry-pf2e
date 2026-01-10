@@ -1,6 +1,6 @@
 import { ActorPF2e } from "./../../actor/index.ts";
 import { AttributeString } from "./../../actor/types.ts";
-import { DatabaseUpdateCallbackOptions } from "./../../../../foundry/common/abstract/_types.mjs";
+import { DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { ItemPF2e, PhysicalItemPF2e, SpellPF2e } from "./../index.ts";
 import { MagicTradition } from "./../spell/types.ts";
 import { ZeroToFour, ZeroToTen } from "./../../data.ts";

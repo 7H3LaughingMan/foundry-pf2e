@@ -18,8 +18,7 @@ interface EquipmentSystemSource extends Investable<PhysicalSystemSource> {
 }
 interface EquipmentTraits extends PhysicalItemTraits<EquipmentTrait> {}
 interface EquipmentSystemData
-    extends Omit<EquipmentSystemSource, SourceOmission>,
-        Omit<Investable<PhysicalSystemData>, "subitems" | "traits"> {
+    extends Omit<EquipmentSystemSource, SourceOmission>, Omit<Investable<PhysicalSystemData>, "subitems" | "traits"> {
     stackGroup: null;
 }
 type SourceOmission =

@@ -1,10 +1,7 @@
-import {
-    ApplicationConfiguration,
-    ApplicationRenderContext,
-} from "./../../../../foundry/client/applications/_types.mjs";
-import { HandlebarsRenderOptions } from "./../../../../foundry/client/applications/api/handlebars-application.mjs";
-import { ContextMenuEntry } from "./../../../../foundry/client/applications/ux/context-menu.mjs";
-import { CompendiumIndexData } from "./../../../../foundry/client/documents/collections/compendium-collection.mjs";
+import { ApplicationConfiguration, ApplicationRenderContext } from "#client/applications/_types.mjs";
+import { HandlebarsRenderOptions } from "#client/applications/api/handlebars-application.mjs";
+import { ContextMenuEntry } from "#client/applications/ux/context-menu.mjs";
+import { CompendiumIndexData } from "#client/documents/collections/compendium-collection.mjs";
 import { default as MiniSearch } from "minisearch";
 /** Extend CompendiumDirectory to support a search bar */
 declare class CompendiumDirectoryPF2e extends fa.sidebar.tabs.CompendiumDirectory {
@@ -12,7 +9,6 @@ declare class CompendiumDirectoryPF2e extends fa.sidebar.tabs.CompendiumDirector
     static readonly STOP_WORDS: Set<string>;
     /** Include ability to search and drag document search results */
     static DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;
-    matchDragDrop: fa.ux.DragDrop;
     static PARTS: {
         match: {
             template: string;

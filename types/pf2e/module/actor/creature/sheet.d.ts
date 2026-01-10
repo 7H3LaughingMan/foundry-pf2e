@@ -1,12 +1,12 @@
 import { ActorPF2e, CreaturePF2e } from "./../index.ts";
 import { ActorSheetDataPF2e } from "./../sheet/data-types.ts";
-import { FormSelectOption } from "./../../../../foundry/client/applications/forms/fields.mjs";
-import { ApplicationV1HeaderButton } from "./../../../../foundry/client/appv1/api/application-v1.mjs";
-import { ActorSheetOptions } from "./../../../../foundry/client/appv1/sheets/actor-sheet.mjs";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
+import { ApplicationV1HeaderButton } from "#client/appv1/api/application-v1.mjs";
+import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
 import { ItemPF2e } from "./../../item/index.ts";
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
 import { SpellcastingSheetData } from "./../../item/spellcasting-entry/index.ts";
-import { DropCanvasItemDataPF2e } from "./../../canvas/drop-canvas-data.ts";
+import { DropCanvasItemData } from "./../../canvas/drop-canvas-data.ts";
 import { ZeroToFour } from "./../../data.ts";
 import { ActorSheetPF2e, SheetClickActionHandlers } from "../sheet/base.ts";
 import { CreatureConfig } from "./config.ts";
@@ -25,14 +25,14 @@ declare abstract class CreatureSheetPF2e<TActor extends CreaturePF2e> extends Ac
     protected getProficiencyIcon(level: ZeroToFour): string;
     activateListeners($html: JQuery): void;
     protected activateClickListener(html: HTMLElement): SheetClickActionHandlers;
-    protected _onDropItem(event: DragEvent, data: DropCanvasItemDataPF2e): Promise<ItemPF2e[]>;
+    protected _onDropItem(event: DragEvent, data: DropCanvasItemData): Promise<ItemPF2e[]>;
     /** Adds support for moving spells between spell levels, spell collections, and spell preparation */
     protected _onSortItem(event: DragEvent, itemData: ItemSourcePF2e): Promise<ItemPF2e[]>;
     /** Handle dragging spells onto spell slots. */
     protected _handleDroppedItem(
         event: DragEvent,
         item: ItemPF2e<ActorPF2e | null>,
-        data: DropCanvasItemDataPF2e,
+        data: DropCanvasItemData,
     ): Promise<ItemPF2e<ActorPF2e | null>[]>;
     /** Replace sheet config with a special PC config form application */
     protected _getHeaderButtons(): ApplicationV1HeaderButton[];

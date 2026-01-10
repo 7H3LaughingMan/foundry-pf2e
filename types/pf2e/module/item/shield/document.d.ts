@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { DatabaseUpdateCallbackOptions } from "./../../../../foundry/common/abstract/_types.mjs";
+import { DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { WeaponPF2e } from "./../index.ts";
 import { RawItemChatData } from "./../base/data/index.ts";
 import { PhysicalItemPF2e } from "./../physical/index.ts";

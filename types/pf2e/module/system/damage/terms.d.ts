@@ -1,4 +1,4 @@
-import { Evaluated } from "./../../../../foundry/client/dice/terms/term.mjs";
+import { Evaluated } from "#client/dice/terms/term.mjs";
 import { DamageInstance } from "./roll.ts";
 import terms = foundry.dice.terms;
 declare class ArithmeticExpression extends terms.RollTerm<ArithmeticExpressionData> {

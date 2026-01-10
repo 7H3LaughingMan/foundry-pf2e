@@ -55,8 +55,7 @@ export default class CalendarData<TComponents extends TimeComponents = TimeCompo
 }
 
 export default interface CalendarData<TComponents extends TimeComponents = TimeComponents>
-    extends DataModel<null, CalendarDataSchema>,
-        fields.ModelPropsFromSchema<CalendarDataSchema> {}
+    extends DataModel<null, CalendarDataSchema>, fields.ModelPropsFromSchema<CalendarDataSchema> {}
 
 export type CalendarDataSchema = {
     /** The name of the calendar being used. */

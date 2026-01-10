@@ -6,7 +6,7 @@ import { BaseSpellcastingEntry } from "./../item/spellcasting-entry/types.ts";
 import { Statistic } from "./../system/statistic/statistic.ts";
 import { DelegatedCollection } from "./../../util/index.ts";
 import { CreatureSource } from "./data/index.ts";
-import { ActorCommitData } from "./types.ts";
+import { ActorGroupUpdate } from "./types.ts";
 export declare class ActorSpellcasting<TActor extends ActorPF2e> extends DelegatedCollection<
     BaseSpellcastingEntry<TActor>
 > {
@@ -38,5 +38,5 @@ export declare class ActorSpellcasting<TActor extends ActorPF2e> extends Delegat
      * Recharges all spellcasting entries based on the type of entry it is
      * @todo Support a timespan property of some sort and handle 1/hour innate spells
      */
-    recharge(): ActorCommitData<TActor>;
+    recharge(): ActorGroupUpdate;
 }

@@ -1,9 +1,13 @@
 import { ActorPF2e } from "./../actor/index.ts";
-import { default as Application } from "./../../../foundry/client/appv1/api/application-v1.mjs";
-import { TooltipDirection } from "./../../../foundry/client/helpers/interaction/tooltip-manager.mjs";
-import { RollMode } from "./../../../foundry/common/constants.mjs";
-import { ItemUUID } from "./../../../foundry/common/documents/_module.mjs";
-import { ItemPF2e } from "./../item/index.ts";
+import { default as Application } from "#client/appv1/api/application-v1.mjs";
+import { TooltipDirection } from "#client/helpers/interaction/tooltip-manager.mjs";
+import { RollMode } from "#common/constants.mjs";
+import { ImageFilePath } from "#common/constants.mjs";
+import { ItemUUID } from "#common/documents/_module.mjs";
+import { ItemPF2e, MeleePF2e, PhysicalItemPF2e } from "./../item/index.ts";
+import { ActionCost, TraitChatData } from "./../item/base/data/index.ts";
+import { ItemType } from "./../item/types.ts";
+import { Rarity } from "./../data.ts";
 /** Prepare form options on an item or actor sheet */
 declare function createSheetOptions(
     options: Record<
@@ -79,6 +83,8 @@ declare function eventToRollParams(
 ): ParamsFromEvent;
 /** Set roll mode from a user's input: used for messages that are not actually rolls. */
 declare function eventToRollMode(event: Maybe<Event>): RollMode | "roll";
+/** Returns true if the control key is held down, handling mac */
+declare function isControlDown(event: PointerEvent | KeyboardEvent | TouchEvent | WheelEvent): boolean;
 /** Given a uuid, loads the item and sends it to chat, potentially recontextualizing it with a given actor */
 declare function sendItemToChat(
     itemUuid: ItemUUID,
@@ -87,6 +93,7 @@ declare function sendItemToChat(
         actor?: ActorPF2e;
     },
 ): Promise<void>;
+declare function getBasePhysicalItemViewData(item: PhysicalItemPF2e): BasePhysicalItemViewData;
 /** Creates a listener that can be used to create tooltips with dynamic content */
 declare function createTooltipListener(
     element: HTMLElement,
@@ -101,6 +108,13 @@ declare function createTooltipListener(
         render: (element: HTMLElement) => Promise<HTMLElement | null>;
     },
 ): void;
+declare function createNPCAttackTraitsAndTags(item: MeleePF2e): NPCAttackTraitOrTag[];
+declare function getActionIcon(actionType: string | ActionCost | null, fallback: ImageFilePath): ImageFilePath;
+declare function getActionIcon(
+    actionType: string | ActionCost | null,
+    fallback: ImageFilePath | null,
+): ImageFilePath | null;
+declare function getActionIcon(actionType: string | ActionCost | null): ImageFilePath;
 interface SheetOption {
     value: string;
     label: string;
@@ -130,17 +144,42 @@ interface TagifyEntry {
     hidden?: true;
     "data-tooltip"?: string;
 }
+/**
+ * An NPC trait or tag to show next to a strike (or area/auto fire in SF2e).
+ * Sometimes Paizo will include a non-trait in the traits list.
+ * "As Melee, but also lists range or range increment *with* traits" - Monster Core Pg 5
+ */
+interface NPCAttackTraitOrTag {
+    name?: string;
+    label: string;
+    description?: string | null;
+}
+interface BasePhysicalItemViewData {
+    id: string;
+    uuid: ItemUUID;
+    type: ItemType;
+    img: string;
+    name: string;
+    traits: TraitChatData[];
+    level: number | null;
+    rarity: Rarity | null;
+    isTemporary: boolean;
+}
 export {
+    createNPCAttackTraitsAndTags,
     createSheetOptions,
     createSheetTags,
     createTagifyTraits,
     createTooltipListener,
     eventToRollMode,
     eventToRollParams,
+    getActionIcon,
     getAdjustedValue,
     getAdjustment,
+    getBasePhysicalItemViewData,
     getItemFromDragEvent,
+    isControlDown,
     maintainFocusInRender,
     sendItemToChat,
 };
-export type { AdjustedValue, SheetOption, SheetOptions, TagifyEntry };
+export type { AdjustedValue, BasePhysicalItemViewData, NPCAttackTraitOrTag, SheetOption, SheetOptions, TagifyEntry };

@@ -14,17 +14,18 @@ import {
     SaveData,
     SkillData,
 } from "./../creature/data.ts";
-import { CreatureInitiativeSource, CreatureSpeeds, Language } from "./../creature/index.ts";
+import { CreatureInitiativeSource, Language } from "./../creature/index.ts";
 import {
     ActorAttributesSource,
     ActorFlagsPF2e,
+    AreaAttack,
     AttributeBasedTraceData,
     HitPointsStatistic,
     InitiativeData,
     StrikeData,
     TraitViewData,
 } from "./../data/base.ts";
-import { AttributeString, MovementType, SaveType, SkillSlug } from "./../types.ts";
+import { AttributeString, SaveType, SkillSlug } from "./../types.ts";
 import { WeaponPF2e } from "./../../item/index.ts";
 import { ArmorCategory } from "./../../item/armor/types.ts";
 import { ProficiencyRank } from "./../../item/base/data/index.ts";
@@ -34,8 +35,8 @@ import { BaseWeaponType, WeaponCategory, WeaponGroup } from "./../../item/weapon
 import { ValueAndMax, ZeroToFour } from "./../../data.ts";
 import { DamageType } from "./../../system/damage/types.ts";
 import { Predicate } from "./../../system/predication.ts";
+import { WeaponAuxiliaryAction } from "./auxiliary.ts";
 import { CharacterPF2e } from "./document.ts";
-import { WeaponAuxiliaryAction } from "./helpers.ts";
 import { CharacterSheetTabVisibility } from "./sheet.ts";
 type CharacterSource = BaseCreatureSource<"character", CharacterSystemSource> & {
     flags: DeepPartial<CharacterFlags>;
@@ -60,6 +61,10 @@ type CharacterFlags = ActorFlagsPF2e & {
         showBasicUnarmed: boolean;
         /** The limit for each feat group that supports a custom limit. */
         featLimits: Record<string, number>;
+        /** Whether this actor is under a polymorph effect */
+        polymorphed?: boolean;
+        /** Whether this actor is under a battle form polymorph effect */
+        battleForm?: boolean;
     };
 };
 interface CharacterSystemSource extends CreatureSystemSource {
@@ -106,13 +111,6 @@ interface CharacterAttributesSource extends ActorAttributesSource {
         sp?: {
             value: number;
         };
-    };
-    speed: {
-        value: number;
-        otherSpeeds: {
-            type: Exclude<MovementType, "land">;
-            value: number;
-        }[];
     };
 }
 interface CharacterDetailsSource extends CreatureDetailsSource {
@@ -256,12 +254,19 @@ interface CharacterSystemData extends Omit<CharacterSystemSource, SourceOmission
     attributes: CharacterAttributes;
     perception: CharacterPerceptionData;
     initiative: InitiativeData;
+    /**
+     * A character's hands (or some other grasping appendage): typically a maximum of 2 and actively usable of 2
+     * - A creature may have a certain number of hands but only have a subset of them be active.
+     *   An action may be needed to change the "live" subset.
+     * - Hands that are "really" free are literally not occupied in any sense of the word.
+     */
+    hands: CharacterHandsData;
     /** A catch-all for character proficiencies */
     proficiencies: {
         /** Proficiencies in the four weapon categories as well as groups, base weapon types, etc. */
-        attacks: Record<WeaponCategory, MartialProficiency> & Record<string, MartialProficiency | undefined>;
+        attacks: Record<string, MartialProficiency>;
         /** Proficiencies in the four armor categories as well as groups, base armor types, etc. */
-        defenses: Record<ArmorCategory, MartialProficiency> & Record<string, MartialProficiency | undefined>;
+        defenses: Record<string, MartialProficiency>;
         /** Zero or more class DCs, used for saves related to class abilities. */
         classDCs: Record<string, ClassDCData>;
         /** Spellcasting attack modifier and dc for all spellcasting */
@@ -272,13 +277,13 @@ interface CharacterSystemData extends Omit<CharacterSystemSource, SourceOmission
     /** Player skills, used for various skill checks. */
     skills: Record<string, CharacterSkillData>;
     /** Special strikes which the character can take. */
-    actions: CharacterStrike[];
+    actions: CharacterAttack[];
     resources: CharacterResources;
     /** Crafting-related data, including known formulas */
     crafting: CharacterCraftingData;
     exploration: string[];
 }
-type SourceOmission = "customModifiers" | "perception" | "resources" | "saves" | "traits";
+type SourceOmission = "attributes" | "customModifiers" | "perception" | "resources" | "saves" | "speed" | "traits";
 interface CharacterSkillData extends SkillData {
     attribute: AttributeString;
     /** The proficiency rank ("TEML") */
@@ -369,23 +374,31 @@ interface ClassDCData extends Required<AttributeBasedTraceData> {
     rank: ZeroToFour;
     primary: boolean;
 }
-/** The full data for a character strike */
-interface CharacterStrike extends StrikeData {
-    item: WeaponPF2e<CharacterPF2e>;
+interface BasicAttackData {
     /** Whether this attack is visible on the sheet */
     visible: boolean;
-    /** Domains/selectors from which modifiers are drawn */
-    domains: string[];
-    /** Whether the character has sufficient hands available to wield this weapon or use this unarmed attack */
-    handsAvailable: boolean;
-    altUsages: CharacterStrike[];
     auxiliaryActions: WeaponAuxiliaryAction[];
     weaponTraits: TraitViewData[];
+    /** Whether the character has sufficient hands available to wield this weapon or use this unarmed attack */
+    handsAvailable: boolean;
+}
+/** The full data for a character strike */
+interface CharacterStrike extends StrikeData, BasicAttackData {
+    item: WeaponPF2e<CharacterPF2e>;
+    /** Domains/selectors from which modifiers are drawn */
+    domains: string[];
+    altUsages: CharacterAttack[];
     doubleBarrel: {
         selected: boolean;
     } | null;
     versatileOptions: VersatileWeaponOption[];
 }
+interface CharacterAreaAttack extends AreaAttack, BasicAttackData {
+    item: WeaponPF2e<CharacterPF2e>;
+    /** Whether this attack is visible on the sheet */
+    altUsages: CharacterAttack[];
+}
+type CharacterAttack = CharacterStrike | CharacterAreaAttack;
 interface VersatileWeaponOption {
     value: DamageType;
     selected: boolean;
@@ -413,6 +426,16 @@ type CharacterResources = CreatureResources & {
 };
 interface CharacterPerceptionData extends CreaturePerceptionData {
     rank: ZeroToFour;
+}
+interface CharacterHandsData {
+    max: {
+        value: number;
+        active: number;
+    };
+    free: {
+        value: number;
+        really: number;
+    };
 }
 interface CharacterDetails extends Omit<CharacterDetailsSource, "alliance">, CreatureDetails {
     /** Convenience information for easy access when the item class instance isn't available */
@@ -471,18 +494,13 @@ interface CharacterAttributes extends Omit<CharacterAttributesSource, Attributes
     };
     /** Data related to character hitpoints. */
     hp: CharacterHitPoints;
-    speed: CreatureSpeeds;
     /**
      * Data related to the currently equipped shield. This is copied from the shield data itself and exists to
      * allow for the shield health to be shown on an actor shield and token.
      */
     shield: HeldShieldData;
-    /** Whether this actor is under a polymorph effect */
-    polymorphed: boolean;
-    /** Whether this actor is under a battle form polymorph effect */
-    battleForm: boolean;
 }
-type AttributesSourceOmission = "immunities" | "weaknesses" | "resistances";
+type AttributesSourceOmission = "immunities" | "weaknesses" | "resistances" | "speed";
 interface CharacterHitPoints extends HitPointsStatistic {
     recoveryMultiplier: number;
     recoveryAddend: number;
@@ -492,12 +510,15 @@ export type {
     BaseWeaponProficiencyKey,
     CategoryProficiencies,
     CharacterAbilities,
+    CharacterAreaAttack,
+    CharacterAttack,
     CharacterAttributes,
     CharacterAttributesSource,
     CharacterBiography,
     CharacterDetails,
     CharacterDetailsSource,
     CharacterFlags,
+    CharacterHandsData,
     CharacterProficiency,
     CharacterResources,
     CharacterResourcesSource,

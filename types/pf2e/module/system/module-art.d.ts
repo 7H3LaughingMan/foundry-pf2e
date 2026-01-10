@@ -1,5 +1,5 @@
-import { CompendiumUUID } from "./../../../foundry/client/utils/_module.mjs";
-import { ImageFilePath, VideoFilePath } from "./../../../foundry/common/constants.mjs";
+import { CompendiumUUID } from "#client/utils/_module.mjs";
+import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
 /** A mapping of module-provided art to be used for compendium actors and their prototype tokens */
 declare class ModuleArt {
     #private;

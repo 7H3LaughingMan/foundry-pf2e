@@ -4,7 +4,7 @@ import { CheckDC } from "./../../degree-of-success.ts";
 import { SkillActionOptions } from "../types.ts";
 declare function repair(options: RepairActionOptions): Promise<void>;
 declare function onRepairChatCardEvent(
-    event: MouseEvent,
+    event: PointerEvent,
     message: ChatMessagePF2e | undefined,
     card: HTMLElement,
 ): Promise<void>;

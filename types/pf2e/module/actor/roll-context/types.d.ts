@@ -1,6 +1,6 @@
 import { ActorPF2e } from "./../index.ts";
 import { StrikeData } from "./../data/base.ts";
-import { ModifierPF2e } from "./../modifiers.ts";
+import { Modifier } from "./../modifiers.ts";
 import { ItemPF2e } from "./../../item/index.ts";
 import { AbilityTrait } from "./../../item/ability/types.ts";
 import { CheckContextChatFlag } from "./../../chat-message/data.ts";
@@ -44,7 +44,7 @@ interface RollOrigin<
     /** The item used for the strike */
     item: TItem;
     /** Bonuses and penalties added at the time of a check */
-    modifiers: ModifierPF2e[];
+    modifiers: Modifier[];
 }
 interface RollTarget {
     actor: ActorPF2e | null;

@@ -1,8 +1,9 @@
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
+import { EffectAreaShape } from "./../types.ts";
 import { TagifyEntry } from "./../../sheet/helpers.ts";
 import { DamageCategoryUnique, DamageType } from "./../../system/damage/types.ts";
-import { EffectAreaShape, SpellPF2e, SpellSystemData, SpellSystemSource } from "./index.ts";
-import { FormSelectOption } from "../../../../foundry/client/applications/forms/fields.mjs";
+import { SpellPF2e, SpellSystemData, SpellSystemSource } from "./index.ts";
 export declare class SpellSheetPF2e extends ItemSheetPF2e<SpellPF2e> {
     #private;
     static get defaultOptions(): ItemSheetOptions;

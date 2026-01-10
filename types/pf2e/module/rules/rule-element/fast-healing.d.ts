@@ -1,5 +1,5 @@
 import { ActorType } from "./../../actor/types.ts";
-import { RuleElementPF2e } from "./base.ts";
+import { RuleElement } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
 import fields = foundry.data.fields;
 /**
@@ -7,7 +7,7 @@ import fields = foundry.data.fields;
  * Creates a chat card every round of combat.
  * @category RuleElement
  */
-declare class FastHealingRuleElement extends RuleElementPF2e<FastHealingRuleSchema> {
+declare class FastHealingRuleElement extends RuleElement<FastHealingRuleSchema> {
     static validActorTypes: ActorType[];
     static defineSchema(): FastHealingRuleSchema;
     static validateJoint(data: fields.SourceFromSchema<FastHealingRuleSchema>): void;
@@ -28,8 +28,7 @@ type FastHealingRuleSchema = RuleElementSchema & {
     >;
 };
 interface FastHealingRuleElement
-    extends RuleElementPF2e<FastHealingRuleSchema>,
-        ModelPropsFromRESchema<FastHealingRuleSchema> {}
+    extends RuleElement<FastHealingRuleSchema>, ModelPropsFromRESchema<FastHealingRuleSchema> {}
 type FastHealingType = "fast-healing" | "regeneration";
 type FastHealingSource = fields.SourceFromSchema<FastHealingRuleSchema>;
 export { FastHealingRuleElement };

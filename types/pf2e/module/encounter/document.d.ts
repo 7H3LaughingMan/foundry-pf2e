@@ -6,8 +6,8 @@ import {
     DatabaseCreateOperation,
     DatabaseDeleteCallbackOptions,
     DatabaseUpdateCallbackOptions,
-} from "./../../../foundry/common/abstract/_types.mjs";
-import { default as EmbeddedCollection } from "./../../../foundry/common/abstract/embedded-collection.mjs";
+} from "#common/abstract/_types.mjs";
+import { default as EmbeddedCollection } from "#common/abstract/embedded-collection.mjs";
 import { ScenePF2e, TokenDocumentPF2e } from "./../scene/index.ts";
 import { ThreatRating } from "./../../scripts/macros/xp/index.ts";
 import { CombatantPF2e, RolledCombatant } from "./combatant.ts";
@@ -47,6 +47,7 @@ declare class EncounterPF2e extends Combat {
     ): void;
     /** Disable the initiative link on PC sheets if this was the only encounter */
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
+    protected _onEndTurn(combatant: fd.Combatant<this>): Promise<void>;
 }
 interface EncounterPF2e extends Combat {
     readonly combatants: EmbeddedCollection<CombatantPF2e<this, TokenDocumentPF2e | null>>;

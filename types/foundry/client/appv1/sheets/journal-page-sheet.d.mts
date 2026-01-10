@@ -109,7 +109,8 @@ export class JournalTextTinyMCESheet<
     protected override _render(force?: boolean, options?: AppV1RenderOptions): Promise<void>;
 }
 
-export interface JournalTextTinyMCESheet<TDocument extends JournalEntryPage<JournalEntry | null>>
-    extends JournalTextPageSheet<TDocument> {
+export interface JournalTextTinyMCESheet<
+    TDocument extends JournalEntryPage<JournalEntry | null>,
+> extends JournalTextPageSheet<TDocument> {
     activateEditor(name: string, options?: EditorCreateOptions, initialContent?: string): Promise<TinyMCE.Editor>;
 }

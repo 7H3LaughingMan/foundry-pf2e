@@ -1,4 +1,4 @@
-import { DamageDicePF2e, ModifierPF2e } from "./../../actor/modifiers.ts";
+import { DamageDicePF2e, Modifier } from "./../../actor/modifiers.ts";
 import { RollOrigin, RollTarget } from "./../../actor/roll-context/types.ts";
 import { ImmunityType, ResistanceType } from "./../../actor/types.ts";
 import { ZeroToTwo } from "./../../data.ts";
@@ -52,7 +52,7 @@ interface DamageDamageContext extends BaseRollContext {
 interface DamageFormulaData {
     base: BaseDamageData[];
     dice: DamageDicePF2e[];
-    modifiers: ModifierPF2e[];
+    modifiers: Modifier[];
     /** Maximum number of die increases. Weapons should be set to 1 */
     maxIncreases?: number;
     bypass?: DamageIRBypassData;
@@ -119,7 +119,7 @@ interface WeaponBaseDamageData extends BaseDamageData {
 interface BaseDamageTemplate {
     name: string;
     materials: MaterialDamageEffect[];
-    modifiers?: (ModifierPF2e | DamageDicePF2e)[];
+    modifiers?: (Modifier | DamageDicePF2e)[];
 }
 interface WeaponDamageTemplate extends BaseDamageTemplate {
     damage: ResolvedDamageFormulaData;

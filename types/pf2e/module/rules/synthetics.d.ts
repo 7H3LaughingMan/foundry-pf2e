@@ -6,20 +6,20 @@ import {
     DeferredDamageDiceOptions,
     DeferredPromise,
     DeferredValue,
+    Modifier,
     ModifierAdjustment,
-    ModifierPF2e,
 } from "./../actor/modifiers.ts";
 import { MovementType } from "./../actor/types.ts";
-import { TokenDocumentUUID } from "./../../../foundry/client/documents/_module.mjs";
-import { ImageFilePath, VideoFilePath } from "./../../../foundry/common/constants.mjs";
-import { TokenSource } from "./../../../foundry/common/documents/token.mjs";
-import { MeleePF2e, WeaponPF2e } from "./../item/index.ts";
+import { TokenAnimationOptions } from "#client/_module.mjs";
+import { TokenDocumentUUID } from "#client/documents/_module.mjs";
+import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
+import { TokenSource } from "#common/documents/token.mjs";
+import { ItemPF2e, MeleePF2e, WeaponPF2e } from "./../item/index.ts";
 import { AbilityTrait } from "./../item/ability/index.ts";
 import { ConditionSource, EffectSource } from "./../item/base/data/index.ts";
 import { WeaponRuneSource } from "./../item/weapon/data.ts";
 import { WeaponPropertyRuneType } from "./../item/weapon/types.ts";
 import { ActiveEffectPF2e } from "./../active-effect.ts";
-import { TokenAnimationOptionsPF2e } from "./../canvas/token/object.ts";
 import { RollNotePF2e } from "./../notes.ts";
 import { MaterialDamageEffect } from "./../system/damage/types.ts";
 import { DegreeOfSuccessAdjustment } from "./../system/degree-of-success.ts";
@@ -30,7 +30,7 @@ import { ItemAlterationRuleElement } from "./rule-element/item-alteration/rule-e
 import { Suboption } from "./rule-element/roll-option/data.ts";
 import { SpecialResourceRuleElement } from "./rule-element/special-resource.ts";
 /** Defines a list of data provided by rule elements that an actor can pull from during its data preparation lifecycle */
-interface RuleElementSynthetics<TActor extends ActorPF2e = ActorPF2e> {
+interface RuleElementSynthetics {
     criticalSpecializations: {
         standard: CritSpecSynthetic[];
         alternate: CritSpecSynthetic[];
@@ -64,7 +64,7 @@ interface RuleElementSynthetics<TActor extends ActorPF2e = ActorPF2e> {
     strikes: Record<string, DeferredStrike>;
     striking: Record<string, StrikingSynthetic[]>;
     toggles: Record<string, Record<string, RollOptionToggle>>;
-    tokenEffectIcons: ActiveEffectPF2e<TActor>[];
+    tokenEffectIcons: ActiveEffectPF2e<ItemPF2e>[];
     tokenMarks: Map<TokenDocumentUUID, string[]>;
     tokenOverrides: DeepPartial<Pick<TokenSource, "light" | "name">> & {
         alpha?: number | null;
@@ -84,11 +84,11 @@ interface RuleElementSynthetics<TActor extends ActorPF2e = ActorPF2e> {
             colors: TokenDocument["ring"]["colors"];
             effects: TokenDocument["ring"]["effects"];
         };
-        animation?: TokenAnimationOptionsPF2e;
+        animation?: TokenAnimationOptions;
     };
     weaponPotency: Record<string, PotencySynthetic[]>;
 }
-type CritSpecEffect = (DamageDicePF2e | ModifierPF2e | RollNotePF2e)[];
+type CritSpecEffect = (DamageDicePF2e | Modifier | RollNotePF2e)[];
 type CritSpecSynthetic = (weapon: WeaponPF2e | MeleePF2e, options: Set<string>) => CritSpecEffect | null;
 type DamageDiceSynthetics = {
     damage: DeferredDamageDice[];
@@ -98,7 +98,7 @@ type ModifierAdjustmentSynthetics = {
     all: ModifierAdjustment[];
     damage: ModifierAdjustment[];
 } & Record<string, ModifierAdjustment[] | undefined>;
-type DeferredModifier = DeferredValue<ModifierPF2e>;
+type DeferredModifier = DeferredValue<Modifier>;
 type DeferredDamageDice = (args: DeferredDamageDiceOptions) => DamageDicePF2e | null;
 type DeferredMovementType = DeferredValue<BaseSpeedSynthetic | null>;
 type DeferredEphemeralEffect = DeferredPromise<EffectSource | ConditionSource | null>;

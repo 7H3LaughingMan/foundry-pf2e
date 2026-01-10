@@ -1,4 +1,4 @@
-import { MacroSource } from "../../../../foundry/common/documents/macro.mjs";
+import { MacroSource } from "#common/documents/_module.mjs";
 import { MigrationBase } from "../base.ts";
 /** Migrate rollActionMacro function parameters to an object */
 export declare class Migration871MigrateRollActionMacroParams extends MigrationBase {

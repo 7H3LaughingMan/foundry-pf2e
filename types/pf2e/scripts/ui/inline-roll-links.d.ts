@@ -1,4 +1,4 @@
-import { ClientDocument } from "./../../../foundry/client/documents/abstract/client-document.mjs";
+import { ClientDocument } from "#client/documents/abstract/client-document.mjs";
 export declare class InlineRollLinks {
     #private;
     static activatePF2eListeners(): void;

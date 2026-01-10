@@ -1,4 +1,5 @@
 import { SkillSlug } from "./../actor/types.ts";
+import { ImageFilePath } from "#common/constants.mjs";
 import { DCOptions } from "../dc.ts";
 import { PhysicalItemPF2e } from "./physical/index.ts";
 type MagicSkill = Extract<SkillSlug, "arcana" | "nature" | "religion" | "occultism">;
@@ -13,6 +14,6 @@ declare function getItemIdentificationDCs(
     item: PhysicalItemPF2e,
     { pwol, notMatchingTraditionModifier }: IdentifyItemOptions,
 ): IdentifyMagicDCs | IdentifyAlchemyDCs;
-declare function getUnidentifiedPlaceholderImage(item: PhysicalItemPF2e): string;
+declare function getUnidentifiedPlaceholderImage(item: PhysicalItemPF2e): ImageFilePath;
 export { getItemIdentificationDCs, getUnidentifiedPlaceholderImage };
 export type { IdentifyAlchemyDCs, IdentifyMagicDCs };

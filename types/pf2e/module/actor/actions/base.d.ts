@@ -40,9 +40,10 @@ declare abstract class BaseActionVariant implements ActionVariant {
     toMessage(options?: Partial<ActionMessageOptions>): Promise<ChatMessagePF2e | undefined>;
     abstract use(options?: Partial<ActionVariantUseOptions>): Promise<unknown>;
 }
-declare abstract class BaseAction<TData extends BaseActionVariantData, TAction extends BaseActionVariant>
-    implements Action
-{
+declare abstract class BaseAction<
+    TData extends BaseActionVariantData,
+    TAction extends BaseActionVariant,
+> implements Action {
     #private;
     readonly cost?: ActionCost;
     readonly description?: string;

@@ -1,9 +1,7 @@
-import { ApplicationTab } from "./../../../foundry/client//applications/_module.mjs";
-import { DocumentSheetRenderOptions } from "./../../../foundry/client/applications/api/document-sheet.mjs";
 import { UserPF2e } from "./document.ts";
 /** Player-specific settings, stored as flags on each User */
 declare class UserConfigPF2e extends fa.sheets.UserConfig<UserPF2e> {
-    #private;
+    static DEFAULT_OPTIONS: DeepPartial<fa.ApplicationConfiguration>;
     static PARTS: {
         tabs: {
             template: string;
@@ -12,13 +10,11 @@ declare class UserConfigPF2e extends fa.sheets.UserConfig<UserPF2e> {
             template: string;
         };
     };
-    tabGroups: {
-        primary: string;
-    };
-    _prepareContext(options: DocumentSheetRenderOptions): Promise<UserConfigRenderContextPF2e>;
+    static TABS: Record<string, fa.ApplicationTabsConfiguration>;
+    _prepareContext(options: fa.api.DocumentSheetRenderOptions): Promise<UserConfigRenderContextPF2e>;
 }
 interface UserConfigRenderContextPF2e extends fa.sheets.UserConfigRenderContext<UserPF2e> {
-    tabs: Partial<ApplicationTab>[];
-    tabGroups: Record<string, string>;
+    tabs: Record<string, fa.ApplicationTab>;
+    activeTab: string;
 }
 export { UserConfigPF2e };

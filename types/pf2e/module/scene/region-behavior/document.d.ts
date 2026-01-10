@@ -1,4 +1,4 @@
-import { DatabaseUpdateCallbackOptions } from "./../../../../foundry/common/abstract/_types.mjs";
+import { DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { RegionDocumentPF2e } from "./../index.ts";
 declare class RegionBehaviorPF2e<
     TParent extends RegionDocumentPF2e | null = RegionDocumentPF2e | null,

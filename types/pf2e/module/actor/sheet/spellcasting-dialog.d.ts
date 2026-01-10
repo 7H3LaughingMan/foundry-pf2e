@@ -12,8 +12,9 @@ declare class SpellcastingCreateAndEditDialog extends appv1.api.FormApplication<
     protected _updateObject(event: Event, formData: Record<string, unknown>): Promise<void>;
     private updateAndClose;
 }
-interface SpellcastingCreateAndEditDialogSheetData
-    extends appv1.api.FormApplicationData<SpellcastingEntryPF2e<CreaturePF2e>> {
+interface SpellcastingCreateAndEditDialogSheetData extends appv1.api.FormApplicationData<
+    SpellcastingEntryPF2e<CreaturePF2e>
+> {
     actor: CreaturePF2e;
     system: SpellcastingEntrySystemSource;
     magicTraditions: typeof CONFIG.PF2E.magicTraditions;

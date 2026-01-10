@@ -1,4 +1,4 @@
-import { default as EmbeddedCollection } from "./../../../../foundry/common/abstract/embedded-collection.mjs";
+import { default as EmbeddedCollection } from "#common/abstract/embedded-collection.mjs";
 import { RegionPF2e } from "./../../canvas/region.ts";
 import { ScenePF2e } from "./../index.ts";
 import { SpecificRegionBehavior } from "./../region-behavior/types.ts";

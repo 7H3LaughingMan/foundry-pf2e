@@ -1,44 +1,4 @@
 {
     "printWidth": 120,
-    "tabWidth": 4,
-    "plugins": [
-        "prettier-plugin-svelte"
-    ],
-    "overrides": [
-        {
-            "files": [
-                "*.scss",
-                "*.css"
-            ],
-            "options": {
-                "requirePragma": false,
-                "parser": "scss"
-            }
-        },
-        {
-            "files": [
-                "*.svelte"
-            ],
-            "options": {
-                "parser": "svelte",
-                "htmlWhitespaceSensitivity": "ignore"
-            }
-        },
-        {
-            "files": [
-                "*.yml"
-            ],
-            "options": {
-                "tabWidth": 2
-            }
-        },
-        {
-            "files": "*.html",
-            "options": {
-                "requirePragma": false,
-                "parser": "html",
-                "htmlWhitespaceSensitivity": "ignore"
-            }
-        }
-    ]
+    "tabWidth": 4
 }

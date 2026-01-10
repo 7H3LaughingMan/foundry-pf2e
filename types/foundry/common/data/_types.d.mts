@@ -22,7 +22,10 @@ import { DataModelValidationFailure } from "./validation-failure.mjs";
  *
  * An Error may be thrown which provides a custom error message explaining the reason the value is invalid.
  */
-type DataFieldValidator = (value: unknown, options: DataFieldValidationOptions) => boolean | void;
+type DataFieldValidator = (
+    value: unknown,
+    options: DataFieldValidationOptions,
+) => boolean | DataModelValidationFailure | void;
 
 export interface DataFieldOptions<
     TSourceProp,
@@ -87,7 +90,7 @@ export interface DataFieldValidationOptions {
     /** Whether to allow replacing invalid values with valid fallbacks. */
     fallback?: boolean;
     /** The full source object being evaluated. */
-    source?: object;
+    source?: Record<string, JSONValue>;
     /**
      * If true, invalid embedded documents will emit a warning and be placed in the invalidDocuments collection rather
      * than causing the parent to be considered invalid.
@@ -147,7 +150,7 @@ interface FormInputConfig<TValue = unknown> {
     /**
      * The current value of the form element
      */
-    value?: TValue;
+    value?: Maybe<TValue>;
     /**
      * An id to assign to the element
      */
@@ -191,7 +194,7 @@ interface FormInputConfig<TValue = unknown> {
     input?: CustomFormInput;
 }
 
-interface StringFieldInputConfig {
+interface StringFieldInputConfig<TValue extends string = string> extends FormInputConfig<TValue> {
     /** The element to create for this form field
      */
     elementType?: "input" | "textarea" | "prose-mirror" | "code-mirror";
@@ -298,8 +301,11 @@ export interface ObjectFieldOptions<
     THasInitial extends boolean = true,
 > extends DataFieldOptions<TSourceProp, TRequired, TNullable, THasInitial> {}
 
-interface DocumentUUIDFieldOptions<TRequired extends boolean, TNullable extends boolean, THasInitial extends boolean>
-    extends StringFieldOptions<DocumentUUID, TRequired, TNullable, THasInitial> {
+interface DocumentUUIDFieldOptions<
+    TRequired extends boolean,
+    TNullable extends boolean,
+    THasInitial extends boolean,
+> extends StringFieldOptions<DocumentUUID, TRequired, TNullable, THasInitial> {
     /** A specific document type in {@link CONST.ALL_DOCUMENT_TYPES} required by this field */
     type?: DocumentType;
     /** Does this field require (or prohibit) embedded documents? */

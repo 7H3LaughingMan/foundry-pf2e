@@ -1,14 +1,14 @@
 import { ActorPF2e } from "./../../actor/index.ts";
 import { AttributeString } from "./../../actor/types.ts";
-import { Rolled } from "./../../../../foundry/client/dice/roll.mjs";
-import { DocumentConstructionContext } from "./../../../../foundry/common/_types.mjs";
+import { Rolled } from "#client/dice/roll.mjs";
+import { DocumentConstructionContext } from "#common/_types.mjs";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseUpdateCallbackOptions,
     DatabaseUpdateOperation,
-} from "./../../../../foundry/common/abstract/_types.mjs";
-import { RollMode } from "./../../../../foundry/common/constants.mjs";
-import { ItemUUID } from "./../../../../foundry/common/documents/_module.mjs";
+} from "#common/abstract/_types.mjs";
+import { RollMode } from "#common/constants.mjs";
+import { ItemUUID } from "#common/documents/_module.mjs";
 import { ConsumablePF2e, ItemPF2e } from "./../index.ts";
 import { ItemSourcePF2e, RawItemChatData } from "./../base/data/index.ts";
 import { ItemDescriptionData } from "./../base/data/system.ts";
@@ -115,7 +115,7 @@ declare class SpellPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ext
         },
     ): string[];
     toMessage(
-        event?: Maybe<MouseEvent>,
+        event?: Maybe<PointerEvent>,
         { create, data, rollMode }?: SpellToMessageOptions,
     ): Promise<ChatMessagePF2e | undefined>;
     getDescriptionData(): Promise<ItemDescriptionData>;
@@ -129,24 +129,24 @@ declare class SpellPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ext
     ): Promise<RawItemChatData>;
     rollAttack(
         this: SpellPF2e<ActorPF2e>,
-        event: MouseEvent,
+        event: PointerEvent,
         attackNumber?: number,
         context?: StatisticRollParameters,
     ): Promise<Rolled<CheckRoll> | null>;
     rollDamage(
         this: SpellPF2e<ActorPF2e>,
-        event: MouseEvent,
+        event: PointerEvent,
         mapIncreases?: ZeroToTwo,
     ): Promise<Rolled<DamageRoll> | null>;
     /** Roll counteract check */
-    rollCounteract(event?: MouseEvent): Promise<Rolled<CheckRoll> | null>;
+    rollCounteract(event?: PointerEvent): Promise<Rolled<CheckRoll> | null>;
     getOriginData(): ItemOriginFlag;
     update(
         data: Record<string, unknown>,
         operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>,
     ): Promise<this | undefined>;
     protected _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: fd.BaseUser,
     ): Promise<boolean | void>;

@@ -1,10 +1,7 @@
-import { FormSelectOption } from "./../../../../../foundry/client/applications/forms/fields.mjs";
-import { ProseMirrorEditor } from "./../../../../../foundry/client/applications/ux/_module.mjs";
-import {
-    ApplicationV1HeaderButton,
-    AppV1RenderOptions,
-} from "./../../../../../foundry/client/appv1/api/application-v1.mjs";
-import { DataField } from "./../../../../../foundry/common/data/fields.mjs";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
+import { ProseMirrorEditor } from "#client/applications/ux/_module.mjs";
+import { ApplicationV1HeaderButton, AppV1RenderOptions } from "#client/appv1/api/application-v1.mjs";
+import { DataField } from "#common/data/fields.mjs";
 import { ItemPF2e } from "./../../index.ts";
 import { Rarity } from "./../../../data.ts";
 import { RuleElementSource } from "./../../../rules/index.ts";
@@ -40,7 +37,8 @@ declare class ItemSheetPF2e<TItem extends ItemPF2e> extends fav1.sheets.ItemShee
     activateListeners($html: JQuery): void;
     /** Add button to refresh from compendium if setting is enabled. */
     protected _getHeaderButtons(): ApplicationV1HeaderButton[];
-    protected _canDragDrop(_selector: string): boolean;
+    /** Actor sheets have this upstream, but items do not. Verify if this is a foundry bug */
+    protected _canDragDrop(): boolean;
     protected _updateObject(event: Event, formData: Record<string, unknown>): Promise<void>;
     /** Overriden _render to maintain focus on tagify elements */
     protected _render(force?: boolean, options?: AppV1RenderOptions): Promise<void>;
@@ -84,6 +82,8 @@ interface ItemSheetDataPF2e<TItem extends ItemPF2e> extends fav1.sheets.ItemShee
     publicationLicenses: FormSelectOption[];
     /** Lore only, will be removed later */
     proficiencyRanks: typeof CONFIG.PF2E.proficiencyLevels;
+    /** A prefix for label and form elements ids */
+    rootId: string;
 }
 interface ItemSheetOptions extends fav1.api.DocumentSheetV1Options {
     hasSidebar: boolean;

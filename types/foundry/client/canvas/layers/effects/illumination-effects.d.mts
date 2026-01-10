@@ -1,13 +1,10 @@
-import CanvasLayer from "../base/canvas-layer.mjs";
-import SpriteMesh from "../../containers/elements/sprite-mesh.mjs";
-import PointSourceMesh from "../../containers/elements/point-source-mesh.mjs";
+import VisualEffectsMaskingFilter from "./../../../canvas/rendering/filters/effects-masking.mjs";
 import CachedContainer from "../../containers/advanced/cached-container.mjs";
-import BaselineIlluminationSamplerShader from "../../rendering/shaders/samplers/baseline-illumination.mjs";
-import { VisualEffectsMaskingFilter } from "./../../../canvas/rendering/filters/_module.mjs";
+import SpriteMesh from "../../containers/elements/sprite-mesh.mjs";
+import CanvasLayer from "../base/canvas-layer.mjs";
 
 /**
  * A CanvasLayer for displaying illumination visual effects
- * @category Canvas
  */
 export default class CanvasIlluminationEffects extends CanvasLayer {
     constructor();
@@ -30,7 +27,7 @@ export default class CanvasIlluminationEffects extends CanvasLayer {
     /**
      * The cached container holding the illumination meshes.
      */
-    darknessLevelMeshes: CachedContainer;
+    darknessLevelMeshes: DarknessLevelContainer;
 
     /**
      * To know if dynamic darkness level is active on this scene.
@@ -43,11 +40,6 @@ export default class CanvasIlluminationEffects extends CanvasLayer {
     get renderTexture(): PIXI.RenderTexture;
 
     /**
-     * Initialize the layer.
-     */
-    #initialize(): void;
-
-    /**
      * Clear illumination effects container
      */
     clear(): void;
@@ -58,9 +50,9 @@ export default class CanvasIlluminationEffects extends CanvasLayer {
      */
     invalidateDarknessLevelContainer(force?: boolean): void;
 
-    protected override _draw(options?: object): Promise<void>;
+    protected override _draw(): Promise<void>;
 
-    protected override _tearDown(options?: object): Promise<void>;
+    protected override _tearDown(): Promise<void>;
 }
 
 /**
@@ -71,15 +63,10 @@ export default class CanvasIlluminationEffects extends CanvasLayer {
 export class DarknessLevelContainer extends CachedContainer {
     constructor(sprite: PIXI.Sprite | SpriteMesh);
 
-    static textureConfiguration: {
+    static override textureConfiguration: {
         multisample: PIXI.MSAA_QUALITY;
         scaleMode: PIXI.SCALE_MODES;
         format: PIXI.FORMATS;
         mipmap?: PIXI.MIPMAP_MODES;
     };
-
-    /**
-     * Called when a display object is added or removed from this container.
-     */
-    #onChildChange(): void;
 }

@@ -40,8 +40,7 @@ export default class BaseMeasuredTemplate<TParent extends BaseScene | null> exte
 }
 
 export default interface BaseMeasuredTemplate<TParent extends BaseScene | null>
-    extends Document<TParent, MeasuredTemplateSchema>,
-        fields.ModelPropsFromSchema<MeasuredTemplateSchema> {
+    extends Document<TParent, MeasuredTemplateSchema>, fields.ModelPropsFromSchema<MeasuredTemplateSchema> {
     get documentName(): MeasuredTemplateMetadata["name"];
 }
 

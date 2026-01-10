@@ -1,5 +1,4 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { DatabaseUpdateCallbackOptions } from "./../../../../foundry/common/abstract/_module.mjs";
 import { ItemPF2e, PhysicalItemPF2e } from "./../index.ts";
 import { ClassTrait } from "./../class/types.ts";
 import { Price } from "./../physical/data.ts";
@@ -15,11 +14,6 @@ declare class KitPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exten
         containerId?: string;
         size?: Size;
     }): Promise<PhysicalItemPF2e<null>[]>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
 }
 interface KitPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     readonly _source: KitSource;

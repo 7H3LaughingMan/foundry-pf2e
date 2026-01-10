@@ -1,8 +1,5 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteCallbackOptions,
-} from "./../../../../foundry/common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseDeleteCallbackOptions } from "#common/abstract/_types.mjs";
 import { ItemPF2e } from "./../index.ts";
 import { AbstractEffectSource } from "./../base/data/index.ts";
 import { AbstractEffectSystemData, EffectBadge } from "./data.ts";
@@ -41,7 +38,7 @@ declare abstract class AbstractEffectPF2e<
     prepareActorData(): void;
     /** Log whether this effect originated from a spell */
     protected _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: fd.BaseUser,
     ): Promise<boolean | void>;

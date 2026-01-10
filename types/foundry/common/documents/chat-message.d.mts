@@ -25,8 +25,7 @@ export default class BaseChatMessage<TUser extends BaseUser | null = BaseUser | 
 }
 
 export default interface BaseChatMessage<TUser extends BaseUser | null>
-    extends Document<null, ChatMessageSchema>,
-        Omit<fields.ModelPropsFromSchema<ChatMessageSchema>, "author"> {
+    extends Document<null, ChatMessageSchema>, Omit<fields.ModelPropsFromSchema<ChatMessageSchema>, "author"> {
     get documentName(): ChatMessageMetadata["name"];
 
     author: TUser;

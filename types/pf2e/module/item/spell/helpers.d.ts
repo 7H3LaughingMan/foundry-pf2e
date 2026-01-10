@@ -1,6 +1,5 @@
-import { SpellArea, SpellPF2e } from "./index.ts";
+import { SpellPF2e } from "./index.ts";
 declare function createSpellRankLabel(spell: SpellPF2e, castRank?: number): string;
-declare function createSpellAreaLabel(areaData: SpellArea): string;
 declare function createDescriptionPrepend(
     spell: SpellPF2e,
     {
@@ -17,4 +16,4 @@ declare function getPassiveDefenseLabel(
         localize?: boolean | undefined;
     },
 ): string | null;
-export { createDescriptionPrepend, createSpellAreaLabel, createSpellRankLabel, getPassiveDefenseLabel };
+export { createDescriptionPrepend, createSpellRankLabel, getPassiveDefenseLabel };

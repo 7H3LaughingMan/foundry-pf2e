@@ -3,7 +3,7 @@ import { Statistic } from "./../../../module/system/statistic/index.ts";
 declare function runEarnIncome({ actor, event, skill, level, days }: RunEarnIncomeParams): void;
 interface RunEarnIncomeParams {
     actor: CharacterPF2e;
-    event: JQuery.TriggeredEvent | Event | undefined;
+    event: Event | undefined;
     skill: Statistic;
     level: number;
     days: number;

@@ -567,7 +567,7 @@ export const GRID_DIAGONALS: Readonly<{
     ILLEGAL: 6;
 }>;
 
-export type GridDiagonal = (typeof GRID_DIAGONALS)[keyof typeof GRID_DIAGONALS];
+export type GridDiagonalRule = (typeof GRID_DIAGONALS)[keyof typeof GRID_DIAGONALS];
 
 /**
  * The grid snapping modes.
@@ -1050,8 +1050,6 @@ export const TOKEN_TURN_MARKER_MODES: Readonly<{
      */
     CUSTOM: 2;
 }>;
-
-export type TokenTurnMarkerMode = (typeof TOKEN_TURN_MARKER_MODES)[keyof typeof TOKEN_TURN_MARKER_MODES];
 
 /**
  * The possible shapes of Tokens.

@@ -1,9 +1,9 @@
 import { ItemPF2e } from "./../../../index.ts";
-import { RuleElementPF2e, RuleElementSource } from "./../../../../rules/index.ts";
+import { RuleElement, RuleElementSource } from "./../../../../rules/index.ts";
 import { RuleElementSchema } from "./../../../../rules/rule-element/data.ts";
 import { LaxSchemaField } from "./../../../../system/schema-data-fields.ts";
 import { ItemSheetPF2e } from "../index.ts";
-interface RuleElementFormOptions<TSource extends RuleElementSource, TObject extends RuleElementPF2e | null> {
+interface RuleElementFormOptions<TSource extends RuleElementSource, TObject extends RuleElement | null> {
     sheet: ItemSheetPF2e<ItemPF2e>;
     index: number;
     rule: TSource;
@@ -12,7 +12,7 @@ interface RuleElementFormOptions<TSource extends RuleElementSource, TObject exte
 /** Base Rule Element form handler. Form handlers intercept sheet events to support new UI */
 declare class RuleElementForm<
     TSource extends RuleElementSource = RuleElementSource,
-    TObject extends RuleElementPF2e | null = RuleElementPF2e | null,
+    TObject extends RuleElement | null = RuleElement | null,
 > {
     #private;
     template: string;
@@ -31,7 +31,7 @@ declare class RuleElementForm<
     get item(): ItemPF2e;
     get fieldIdPrefix(): string;
     /** Returns the initial value of the schema. Arrays are stripped due to how they're handled in forms */
-    protected getInitialValue(): object;
+    protected getInitialValue({ autogenerate }?: { autogenerate?: boolean | undefined }): object;
     getData(): Promise<RuleElementFormSheetData<TSource, TObject>>;
     render(): Promise<string>;
     /**
@@ -44,8 +44,10 @@ declare class RuleElementForm<
     protected activateTab(html: HTMLElement, tabName: Maybe<string>): void;
     updateObject(source: TSource & Partial<Record<string, JSONValue>>): void;
 }
-interface RuleElementFormSheetData<TSource extends RuleElementSource, TObject extends RuleElementPF2e | null>
-    extends Omit<RuleElementFormOptions<TSource, TObject>, "sheet"> {
+interface RuleElementFormSheetData<TSource extends RuleElementSource, TObject extends RuleElement | null> extends Omit<
+    RuleElementFormOptions<TSource, TObject>,
+    "sheet"
+> {
     item: ItemPF2e;
     label: string;
     /** A prefix for use in label-input/select pairs */
@@ -54,8 +56,11 @@ interface RuleElementFormSheetData<TSource extends RuleElementSource, TObject ex
     basePath: string;
     fields: RuleElementSchema | undefined;
     /** A collection of additional handlebars functions */
-    form: Record<string, unknown>;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+    form: Record<string, Function>;
     validationFailures: string[];
+    hiddenFields: string[];
+    omittedFields: string[];
 }
 interface RuleElementFormTabData {
     /** Valid tab names for this form */

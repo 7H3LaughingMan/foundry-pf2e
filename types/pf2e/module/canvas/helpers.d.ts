@@ -1,4 +1,4 @@
-import { Point } from "./../../../foundry/common/_types.mjs";
+import { Point } from "#common/_types.mjs";
 import { TokenPF2e } from "./index.ts";
 /**
  * Measure the minimum distance between two rectangles

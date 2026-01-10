@@ -1,6 +1,7 @@
-import { ApplicationRenderContext } from "./../../../../foundry/client/applications/_types.mjs";
-import { ContextMenuEntry } from "./../../../../foundry/client/applications/ux/context-menu.mjs";
-import { ChatSpeakerData } from "./../../../../foundry/common/documents/chat-message.mjs";
+import { ApplicationRenderContext, ApplicationRenderOptions } from "#client/applications/_types.mjs";
+import { default as ChatPopout } from "#client/applications/sidebar/apps/chat-popout.mjs";
+import { ContextMenuEntry } from "#client/applications/ux/context-menu.mjs";
+import { ChatSpeakerData } from "#common/documents/chat-message.mjs";
 import { ChatMessagePF2e } from "./../../chat-message/index.ts";
 declare class ChatLogPF2e extends fa.sidebar.tabs.ChatLog {
     #private;
@@ -13,6 +14,7 @@ declare class ChatLogPF2e extends fa.sidebar.tabs.ChatLog {
             speaker?: ChatSpeakerData;
         },
     ): Promise<ChatMessagePF2e | undefined>;
+    static onRenderChatPopout(popout: ChatPopout, options: ApplicationRenderOptions): Promise<void>;
     protected _getEntryContextOptions(): ContextMenuEntry[];
 }
 export { ChatLogPF2e };

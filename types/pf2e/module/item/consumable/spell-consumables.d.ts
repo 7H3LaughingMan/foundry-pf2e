@@ -1,17 +1,18 @@
 import { ConsumablePF2e, SpellPF2e } from "./../index.ts";
 import { ConsumableSource } from "./../base/data/index.ts";
 import { DCOptions } from "./../../dc.ts";
-type SpellConsumableItemType = "cantripDeck5" | "scroll" | "wand";
-declare function isSpellConsumable(itemId: string): boolean;
+declare const CANTRIP_DECK_UUID = "Compendium.pf2e.equipment-srd.Item.tLa4bewBhyqzi6Ow";
+type SpellConsumableItemType = "cantripDeck5" | keyof ConfigPF2e["PF2E"]["spellcastingItems"];
+declare function isSpellConsumableUUID(itemId: string): boolean;
 declare function createConsumableFromSpell(
     spell: SpellPF2e,
     {
         type,
-        heightenedLevel,
+        rank,
         mystified,
     }: {
-        type: SpellConsumableItemType;
-        heightenedLevel?: number;
+        type: string;
+        rank?: number;
         mystified?: boolean;
     },
 ): Promise<ConsumableSource>;
@@ -25,5 +26,5 @@ declare function calculateTrickMagicItemCheckDC(
     item: ConsumablePF2e,
     options?: DCOptions,
 ): TrickMagicItemDifficultyData;
-export { calculateTrickMagicItemCheckDC, createConsumableFromSpell, isSpellConsumable };
+export { CANTRIP_DECK_UUID, calculateTrickMagicItemCheckDC, createConsumableFromSpell, isSpellConsumableUUID };
 export type { SpellConsumableItemType, TrickMagicItemDifficultyData };

@@ -6,7 +6,7 @@ import { LootSource } from "./../loot/data.ts";
 import { NPCSource } from "./../npc/data.ts";
 import { PartySource } from "./../party/data.ts";
 import { VehicleSource } from "./../vehicle/data.ts";
-import { RollInitiativeOptions } from "./../../../../foundry/client/documents/combat.mjs";
+import { RollInitiativeOptions } from "#client/documents/combat.mjs";
 import { StatisticRollParameters } from "./../../system/statistic/index.ts";
 type CreatureSource = CharacterSource | NPCSource | FamiliarSource;
 type ActorSourcePF2e = ArmySource | CreatureSource | HazardSource | LootSource | PartySource | VehicleSource;

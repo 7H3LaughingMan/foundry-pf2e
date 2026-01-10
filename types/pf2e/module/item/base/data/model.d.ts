@@ -11,8 +11,8 @@ declare abstract class ItemSystemModel<TParent extends ItemPF2e, TSchema extends
     static defineSchema(): ItemSystemSchema;
     get actor(): ActorPF2e | null;
 }
-interface ItemSystemModel<TParent extends ItemPF2e, TSchema extends ItemSystemSchema>
-    extends foundry.abstract.TypeDataModel<TParent, TSchema> {
+interface ItemSystemModel<TParent extends ItemPF2e, TSchema extends ItemSystemSchema> extends foundry.abstract
+    .TypeDataModel<TParent, TSchema> {
     description: ItemDescriptionData;
 }
 type ItemSystemSchema = {

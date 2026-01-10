@@ -12,6 +12,7 @@ import { SenseAcuity } from "./../../module/actor/creature/types.ts";
 import {
     AbilityItemPF2e,
     AfflictionPF2e,
+    AmmoPF2e,
     AncestryPF2e,
     ArmorPF2e,
     BackgroundPF2e,
@@ -149,6 +150,8 @@ export declare const PF2ECONFIG: {
         gp: string;
         sp: string;
         cp: string;
+        credits: string;
+        upb: string;
     };
     preciousMaterialGrades: Record<"low" | "standard" | "high", string>;
     preciousMaterials: Record<
@@ -160,6 +163,7 @@ export declare const PF2ECONFIG: {
         | "inubrix"
         | "noqual"
         | "orichalcum"
+        | "peachwood"
         | "siccatite"
         | "silver"
         | "cold-iron"
@@ -167,7 +171,6 @@ export declare const PF2ECONFIG: {
         | "dreamweb"
         | "grisantian-pelt"
         | "keep-stone"
-        | "peachwood"
         | "sisterstone"
         | "sisterstone-dusk"
         | "sisterstone-scarlet"
@@ -262,11 +265,11 @@ export declare const PF2ECONFIG: {
         inubrix: string;
         noqual: string;
         orichalcum: string;
+        peachwood: string;
         siccatite: string;
         silver: string;
         "cold-iron": string;
         "keep-stone": string;
-        peachwood: string;
         "sisterstone-dusk": string;
         "sisterstone-scarlet": string;
         "sovereign-steel": string;
@@ -294,11 +297,11 @@ export declare const PF2ECONFIG: {
         inubrix: string;
         noqual: string;
         orichalcum: string;
+        peachwood: string;
         siccatite: string;
         silver: string;
         "cold-iron": string;
         "keep-stone": string;
-        peachwood: string;
         "sisterstone-dusk": string;
         "sisterstone-scarlet": string;
         "sovereign-steel": string;
@@ -351,6 +354,7 @@ export declare const PF2ECONFIG: {
         sonic: string;
         spells: string;
         spirit: string;
+        time: string;
         "unarmed-attacks": string;
         vitality: string;
         void: string;
@@ -374,21 +378,14 @@ export declare const PF2ECONFIG: {
         inubrix: string;
         noqual: string;
         orichalcum: string;
+        peachwood: string;
         siccatite: string;
         silver: string;
         "cold-iron": string;
     };
     stackGroups: {
-        arrows: string;
-        blowgunDarts: string;
-        bolts: string;
         coins: string;
         gems: string;
-        rounds5: string;
-        rounds10: string;
-        slingBullets: string;
-        sprayPellets: string;
-        woodenTaws: string;
     };
     weaknessTypes: {
         acid: string;
@@ -432,6 +429,7 @@ export declare const PF2ECONFIG: {
         spells: string;
         spirit: string;
         "splash-damage": string;
+        time: string;
         "unarmed-attacks": string;
         "vampire-weaknesses": string;
         vitality: string;
@@ -457,6 +455,7 @@ export declare const PF2ECONFIG: {
         inubrix: string;
         noqual: string;
         orichalcum: string;
+        peachwood: string;
         siccatite: string;
         silver: string;
         "cold-iron": string;
@@ -567,6 +566,8 @@ export declare const PF2ECONFIG: {
         "asp-coil": string;
         atlatl: string;
         "axe-musket": string;
+        "backpack-ballista": string;
+        "backpack-catapult": string;
         "barricade-buster": string;
         "bastard-sword": string;
         "battle-axe": string;
@@ -579,6 +580,7 @@ export declare const PF2ECONFIG: {
         "bladed-gauntlet": string;
         "bladed-hoop": string;
         "bladed-scarf": string;
+        bladesweeper: string;
         blowgun: string;
         "blowgun-darts": string;
         blunderbuss: string;
@@ -670,6 +672,7 @@ export declare const PF2ECONFIG: {
         greatclub: string;
         greatpick: string;
         greatsword: string;
+        grenade: string;
         "griffon-cane": string;
         guisarme: string;
         "gun-sword": string;
@@ -724,6 +727,7 @@ export declare const PF2ECONFIG: {
         "main-gauche": string;
         mambele: string;
         maul: string;
+        "maul-spade": string;
         "meteor-hammer": string;
         mikazuki: string;
         "mithral-tree": string;
@@ -864,6 +868,7 @@ export declare const PF2ECONFIG: {
         bomb: string;
     };
     usages: {
+        "affixed-or-held-in-one-hand": string;
         "affixed-to-a-creature": string;
         "affixed-to-a-magical-staff": string;
         "affixed-to-a-metal-weapon": string;
@@ -995,13 +1000,26 @@ export declare const PF2ECONFIG: {
         wornwrist: string;
         "worn-and-attached-to-two-weapons": string;
         "worn-under-armor": string;
+        "installed-in-armor-with-the-energy-shielding-upgrade": string;
+        "installed-in-armor-with-the-exposed-trait": string;
+        "installed-in-armor": string;
+        "installed-in-a-grenade-launcher-or-two-handed-weapon-with-an-undermounted-grenade-launcher": string;
+        "installed-in-a-weapon-sight": string;
+        "installed-in-a-weapon-with-the-kickback-trait": string;
+        "installed-in-a-weapon": string;
+        "installed-in-one-handed-weapon-grip": string;
+        "installed-in-ranged-weapon-without-a-loudener": string;
+        "installed-in-two-handed-weapon": string;
+        "installed-on-a-weapon-without-a-silencer": string;
     };
     magicTraditions: Record<"arcane" | "divine" | "occult" | "primal", string>;
     deityDomains: Record<
         | "darkness"
+        | "nature"
         | "healing"
         | "magic"
         | "metal"
+        | "time"
         | "water"
         | "wood"
         | "air"
@@ -1034,7 +1052,6 @@ export declare const PF2ECONFIG: {
         | "might"
         | "moon"
         | "naga"
-        | "nature"
         | "nightmares"
         | "pain"
         | "passion"
@@ -1048,7 +1065,6 @@ export declare const PF2ECONFIG: {
         | "star"
         | "sun"
         | "swarm"
-        | "time"
         | "toil"
         | "travel"
         | "trickery"
@@ -1186,9 +1202,11 @@ export declare const PF2ECONFIG: {
         bard: string;
         champion: string;
         cleric: string;
+        commander: string;
         druid: string;
         exemplar: string;
         fighter: string;
+        guardian: string;
         gunslinger: string;
         kineticist: string;
         inventor: string;
@@ -1244,10 +1262,12 @@ export declare const PF2ECONFIG: {
         trap: string;
         virulent: string;
         wand: string;
+        whetstone: string;
         aftermath: string;
         apparition: string;
         archetype: string;
         artifact: string;
+        brandish: string;
         bravado: string;
         calling: string;
         circus: string;
@@ -1281,6 +1301,7 @@ export declare const PF2ECONFIG: {
         social: string;
         spellshot: string;
         stamina: string;
+        tactic: string;
         tandem: string;
         time: string;
         transcendence: string;
@@ -1304,6 +1325,7 @@ export declare const PF2ECONFIG: {
         conrasu: string;
         dhampir: string;
         dragonblood: string;
+        dragonet: string;
         dromaar: string;
         duskwalker: string;
         dwarf: string;
@@ -1322,6 +1344,7 @@ export declare const PF2ECONFIG: {
         hobgoblin: string;
         human: string;
         hungerseed: string;
+        jotunborn: string;
         kashrishi: string;
         kitsune: string;
         leshy: string;
@@ -1373,6 +1396,7 @@ export declare const PF2ECONFIG: {
         conrasu: string;
         dhampir: string;
         dragonblood: string;
+        dragonet: string;
         dromaar: string;
         duskwalker: string;
         dwarf: string;
@@ -1391,6 +1415,7 @@ export declare const PF2ECONFIG: {
         hobgoblin: string;
         human: string;
         hungerseed: string;
+        jotunborn: string;
         kashrishi: string;
         kitsune: string;
         kobold: string;
@@ -1429,6 +1454,7 @@ export declare const PF2ECONFIG: {
     armorTraits: {
         adjusted: string;
         alchemical: string;
+        analog: string;
         apex: string;
         aquadynamic: string;
         artifact: string;
@@ -1443,9 +1469,9 @@ export declare const PF2ECONFIG: {
         "entrench-melee": string;
         "entrench-ranged": string;
         extradimensional: string;
+        flexible: string;
         focused: string;
         force: string;
-        flexible: string;
         healing: string;
         hindering: string;
         illusion: string;
@@ -1460,6 +1486,10 @@ export declare const PF2ECONFIG: {
         plant: string;
         ponderous: string;
         relic: string;
+        "resilient-1": string;
+        "resilient-2": string;
+        "resilient-3": string;
+        tech: string;
         arcane: string;
         divine: string;
         occult: string;
@@ -1490,9 +1520,11 @@ export declare const PF2ECONFIG: {
         | "bard"
         | "champion"
         | "cleric"
+        | "commander"
         | "druid"
         | "exemplar"
         | "fighter"
+        | "guardian"
         | "gunslinger"
         | "kineticist"
         | "inventor"
@@ -1576,6 +1608,7 @@ export declare const PF2ECONFIG: {
         virulent: string;
         visual: string;
         wand: string;
+        whetstone: string;
         amp: string;
         beast: string;
         cantrip: string;
@@ -1644,9 +1677,11 @@ export declare const PF2ECONFIG: {
         bard: string;
         champion: string;
         cleric: string;
+        commander: string;
         druid: string;
         exemplar: string;
         fighter: string;
+        guardian: string;
         gunslinger: string;
         kineticist: string;
         inventor: string;
@@ -1715,6 +1750,8 @@ export declare const PF2ECONFIG: {
         ghoul: string;
         ghul: string;
         giant: string;
+        gigas: string;
+        girtablilu: string;
         golem: string;
         graveknight: string;
         gremlin: string;
@@ -1734,6 +1771,7 @@ export declare const PF2ECONFIG: {
         light: string;
         lilu: string;
         locathah: string;
+        maftet: string;
         mental: string;
         merfolk: string;
         mindless: string;
@@ -1842,6 +1880,7 @@ export declare const PF2ECONFIG: {
         conrasu: string;
         dhampir: string;
         dragonblood: string;
+        dragonet: string;
         dromaar: string;
         duskwalker: string;
         dwarf: string;
@@ -1859,6 +1898,7 @@ export declare const PF2ECONFIG: {
         hobgoblin: string;
         human: string;
         hungerseed: string;
+        jotunborn: string;
         kashrishi: string;
         kitsune: string;
         kobold: string;
@@ -1996,9 +2036,11 @@ export declare const PF2ECONFIG: {
             bard: string;
             champion: string;
             cleric: string;
+            commander: string;
             druid: string;
             exemplar: string;
             fighter: string;
+            guardian: string;
             gunslinger: string;
             kineticist: string;
             inventor: string;
@@ -2054,10 +2096,12 @@ export declare const PF2ECONFIG: {
             trap: string;
             virulent: string;
             wand: string;
+            whetstone: string;
             aftermath: string;
             apparition: string;
             archetype: string;
             artifact: string;
+            brandish: string;
             bravado: string;
             calling: string;
             circus: string;
@@ -2091,6 +2135,7 @@ export declare const PF2ECONFIG: {
             social: string;
             spellshot: string;
             stamina: string;
+            tactic: string;
             tandem: string;
             time: string;
             transcendence: string;
@@ -2114,6 +2159,7 @@ export declare const PF2ECONFIG: {
             conrasu: string;
             dhampir: string;
             dragonblood: string;
+            dragonet: string;
             dromaar: string;
             duskwalker: string;
             dwarf: string;
@@ -2132,6 +2178,7 @@ export declare const PF2ECONFIG: {
             hobgoblin: string;
             human: string;
             hungerseed: string;
+            jotunborn: string;
             kashrishi: string;
             kitsune: string;
             leshy: string;
@@ -2173,9 +2220,11 @@ export declare const PF2ECONFIG: {
         | "bard"
         | "champion"
         | "cleric"
+        | "commander"
         | "druid"
         | "exemplar"
         | "fighter"
+        | "guardian"
         | "gunslinger"
         | "kineticist"
         | "inventor"
@@ -2224,6 +2273,7 @@ export declare const PF2ECONFIG: {
         | "conrasu"
         | "dhampir"
         | "dragonblood"
+        | "dragonet"
         | "dromaar"
         | "duskwalker"
         | "dwarf"
@@ -2242,6 +2292,7 @@ export declare const PF2ECONFIG: {
         | "hobgoblin"
         | "human"
         | "hungerseed"
+        | "jotunborn"
         | "kashrishi"
         | "kitsune"
         | "kobold"
@@ -2355,6 +2406,7 @@ export declare const PF2ECONFIG: {
         adjusted: string;
         adjustment: string;
         alchemical: string;
+        analog: string;
         apex: string;
         artifact: string;
         auditory: string;
@@ -2365,12 +2417,13 @@ export declare const PF2ECONFIG: {
         coagulant: string;
         coda: string;
         companion: string;
-        contract: string;
         consecration: string;
+        contract: string;
         cursed: string;
         darkness: string;
         death: string;
         detection: string;
+        dream: string;
         eidolon: string;
         emotion: string;
         expandable: string;
@@ -2419,6 +2472,7 @@ export declare const PF2ECONFIG: {
         steam: string;
         structure: string;
         tattoo: string;
+        tech: string;
         teleportation: string;
         visual: string;
         wand: string;
@@ -2458,6 +2512,7 @@ export declare const PF2ECONFIG: {
         conrasu: string;
         dhampir: string;
         dragonblood: string;
+        dragonet: string;
         dromaar: string;
         duskwalker: string;
         dwarf: string;
@@ -2476,6 +2531,7 @@ export declare const PF2ECONFIG: {
         hobgoblin: string;
         human: string;
         hungerseed: string;
+        jotunborn: string;
         kashrishi: string;
         kitsune: string;
         kobold: string;
@@ -2523,6 +2579,7 @@ export declare const PF2ECONFIG: {
         artifact: string;
         auditory: string;
         aura: string;
+        brandish: string;
         bravado: string;
         calling: string;
         circus: string;
@@ -2570,6 +2627,7 @@ export declare const PF2ECONFIG: {
         spellshot: string;
         stamina: string;
         stance: string;
+        tactic: string;
         talisman: string;
         tandem: string;
         time: string;
@@ -2657,9 +2715,11 @@ export declare const PF2ECONFIG: {
         bard: string;
         champion: string;
         cleric: string;
+        commander: string;
         druid: string;
         exemplar: string;
         fighter: string;
+        guardian: string;
         gunslinger: string;
         kineticist: string;
         inventor: string;
@@ -2693,6 +2753,7 @@ export declare const PF2ECONFIG: {
         conrasu: string;
         dhampir: string;
         dragonblood: string;
+        dragonet: string;
         dromaar: string;
         duskwalker: string;
         dwarf: string;
@@ -2711,6 +2772,7 @@ export declare const PF2ECONFIG: {
         hobgoblin: string;
         human: string;
         hungerseed: string;
+        jotunborn: string;
         kashrishi: string;
         kitsune: string;
         kobold: string;
@@ -2755,6 +2817,7 @@ export declare const PF2ECONFIG: {
         inhaled: string;
         kaiju: string;
         mechanical: string;
+        nightmare: string;
         poison: string;
         polymorph: string;
         snare: string;
@@ -2839,6 +2902,8 @@ export declare const PF2ECONFIG: {
         ghoul: string;
         ghul: string;
         giant: string;
+        gigas: string;
+        girtablilu: string;
         golem: string;
         graveknight: string;
         gremlin: string;
@@ -2856,6 +2921,7 @@ export declare const PF2ECONFIG: {
         kovintus: string;
         lilu: string;
         locathah: string;
+        maftet: string;
         merfolk: string;
         mindless: string;
         minion: string;
@@ -2941,6 +3007,7 @@ export declare const PF2ECONFIG: {
         conrasu: string;
         dhampir: string;
         dragonblood: string;
+        dragonet: string;
         dromaar: string;
         duskwalker: string;
         dwarf: string;
@@ -2958,6 +3025,7 @@ export declare const PF2ECONFIG: {
         hobgoblin: string;
         human: string;
         hungerseed: string;
+        jotunborn: string;
         kashrishi: string;
         kitsune: string;
         kobold: string;
@@ -3107,9 +3175,11 @@ export declare const PF2ECONFIG: {
         bard: string;
         champion: string;
         cleric: string;
+        commander: string;
         druid: string;
         exemplar: string;
         fighter: string;
+        guardian: string;
         gunslinger: string;
         kineticist: string;
         inventor: string;
@@ -3165,10 +3235,12 @@ export declare const PF2ECONFIG: {
         trap: string;
         virulent: string;
         wand: string;
+        whetstone: string;
         aftermath: string;
         apparition: string;
         archetype: string;
         artifact: string;
+        brandish: string;
         bravado: string;
         calling: string;
         circus: string;
@@ -3202,6 +3274,7 @@ export declare const PF2ECONFIG: {
         social: string;
         spellshot: string;
         stamina: string;
+        tactic: string;
         tandem: string;
         time: string;
         transcendence: string;
@@ -3225,6 +3298,7 @@ export declare const PF2ECONFIG: {
         conrasu: string;
         dhampir: string;
         dragonblood: string;
+        dragonet: string;
         dromaar: string;
         duskwalker: string;
         dwarf: string;
@@ -3243,6 +3317,7 @@ export declare const PF2ECONFIG: {
         hobgoblin: string;
         human: string;
         hungerseed: string;
+        jotunborn: string;
         kashrishi: string;
         kitsune: string;
         leshy: string;
@@ -3277,6 +3352,7 @@ export declare const PF2ECONFIG: {
         yaoguai: string;
     };
     npcAttackTraits: {
+        area: string;
         concentrate: string;
         curse: string;
         "deadly-2d8": string;
@@ -3310,78 +3386,6 @@ export declare const PF2ECONFIG: {
         "reload-2": string;
         "reload-1-min": string;
         sanctified: string;
-        "range-5": string;
-        "range-10": string;
-        "range-15": string;
-        "range-20": string;
-        "range-25": string;
-        "range-30": string;
-        "range-40": string;
-        "range-50": string;
-        "range-60": string;
-        "range-70": string;
-        "range-80": string;
-        "range-90": string;
-        "range-100": string;
-        "range-110": string;
-        "range-120": string;
-        "range-140": string;
-        "range-150": string;
-        "range-160": string;
-        "range-170": string;
-        "range-180": string;
-        "range-190": string;
-        "range-200": string;
-        "range-210": string;
-        "range-220": string;
-        "range-230": string;
-        "range-240": string;
-        "range-250": string;
-        "range-260": string;
-        "range-270": string;
-        "range-280": string;
-        "range-290": string;
-        "range-300": string;
-        "range-310": string;
-        "range-320": string;
-        "range-500": string;
-        "range-increment-5": string;
-        "range-increment-10": string;
-        "range-increment-15": string;
-        "range-increment-20": string;
-        "range-increment-25": string;
-        "range-increment-30": string;
-        "range-increment-35": string;
-        "range-increment-40": string;
-        "range-increment-50": string;
-        "range-increment-60": string;
-        "range-increment-70": string;
-        "range-increment-75": string;
-        "range-increment-80": string;
-        "range-increment-90": string;
-        "range-increment-100": string;
-        "range-increment-110": string;
-        "range-increment-120": string;
-        "range-increment-130": string;
-        "range-increment-140": string;
-        "range-increment-150": string;
-        "range-increment-160": string;
-        "range-increment-170": string;
-        "range-increment-180": string;
-        "range-increment-190": string;
-        "range-increment-200": string;
-        "range-increment-210": string;
-        "range-increment-220": string;
-        "range-increment-230": string;
-        "range-increment-240": string;
-        "range-increment-250": string;
-        "range-increment-260": string;
-        "range-increment-270": string;
-        "range-increment-280": string;
-        "range-increment-290": string;
-        "range-increment-300": string;
-        "range-increment-310": string;
-        "range-increment-320": string;
         abysium: string;
         adamantine: string;
         dawnsilver: string;
@@ -3390,6 +3394,7 @@ export declare const PF2ECONFIG: {
         inubrix: string;
         noqual: string;
         orichalcum: string;
+        peachwood: string;
         siccatite: string;
         silver: string;
         "cold-iron": string;
@@ -3397,7 +3402,6 @@ export declare const PF2ECONFIG: {
         dreamweb: string;
         "grisantian-pelt": string;
         "keep-stone": string;
-        peachwood: string;
         sisterstone: string;
         "sisterstone-dusk": string;
         "sisterstone-scarlet": string;
@@ -3405,14 +3409,16 @@ export declare const PF2ECONFIG: {
         "sovereign-steel": string;
         warpglass: string;
         adjusted: string;
-        alchemical: string;
         agile: string;
+        alchemical: string;
+        analog: string;
         apex: string;
         artifact: string;
         attached: string;
         "attached-to-shield": string;
         "attached-to-crossbow-or-firearm": string;
         auditory: string;
+        automatic: string;
         backstabber: string;
         backswing: string;
         bomb: string;
@@ -3512,7 +3518,11 @@ export declare const PF2ECONFIG: {
         "thrown-80": string;
         "thrown-100": string;
         "thrown-200": string;
+        time: string;
         training: string;
+        "tracking-1": string;
+        "tracking-2": string;
+        "tracking-3": string;
         trip: string;
         twin: string;
         "two-hand-d6": string;
@@ -3536,6 +3546,7 @@ export declare const PF2ECONFIG: {
         "versatile-spirit": string;
         "versatile-vitality": string;
         "versatile-void": string;
+        visual: string;
         "volley-20": string;
         "volley-30": string;
         "volley-50": string;
@@ -3577,6 +3588,7 @@ export declare const PF2ECONFIG: {
         conrasu: string;
         dhampir: string;
         dragonblood: string;
+        dragonet: string;
         dromaar: string;
         duskwalker: string;
         dwarf: string;
@@ -3595,6 +3607,7 @@ export declare const PF2ECONFIG: {
         hobgoblin: string;
         human: string;
         hungerseed: string;
+        jotunborn: string;
         kashrishi: string;
         kitsune: string;
         kobold: string;
@@ -3632,6 +3645,7 @@ export declare const PF2ECONFIG: {
     };
     shieldTraits: {
         alchemical: string;
+        analog: string;
         apex: string;
         artifact: string;
         aura: string;
@@ -3650,9 +3664,11 @@ export declare const PF2ECONFIG: {
         invested: string;
         "launching-dart": string;
         magical: string;
+        mythic: string;
         relic: string;
         "shield-throw-20": string;
         "shield-throw-30": string;
+        tech: string;
         arcane: string;
         divine: string;
         occult: string;
@@ -3773,9 +3789,11 @@ export declare const PF2ECONFIG: {
         bard: string;
         champion: string;
         cleric: string;
+        commander: string;
         druid: string;
         exemplar: string;
         fighter: string;
+        guardian: string;
         gunslinger: string;
         kineticist: string;
         inventor: string;
@@ -3797,18 +3815,21 @@ export declare const PF2ECONFIG: {
         artifact: string;
         clockwork: string;
         magical: string;
+        tech: string;
         teleportation: string;
     };
     weaponTraits: {
         adjusted: string;
-        alchemical: string;
         agile: string;
+        alchemical: string;
+        analog: string;
         apex: string;
         artifact: string;
         attached: string;
         "attached-to-shield": string;
         "attached-to-crossbow-or-firearm": string;
         auditory: string;
+        automatic: string;
         backstabber: string;
         backswing: string;
         bomb: string;
@@ -3909,7 +3930,11 @@ export declare const PF2ECONFIG: {
         "thrown-80": string;
         "thrown-100": string;
         "thrown-200": string;
+        time: string;
         training: string;
+        "tracking-1": string;
+        "tracking-2": string;
+        "tracking-3": string;
         trip: string;
         twin: string;
         "two-hand-d6": string;
@@ -3933,6 +3958,7 @@ export declare const PF2ECONFIG: {
         "versatile-spirit": string;
         "versatile-vitality": string;
         "versatile-void": string;
+        visual: string;
         "volley-20": string;
         "volley-30": string;
         "volley-50": string;
@@ -3974,6 +4000,7 @@ export declare const PF2ECONFIG: {
         conrasu: string;
         dhampir: string;
         dragonblood: string;
+        dragonet: string;
         dromaar: string;
         duskwalker: string;
         dwarf: string;
@@ -3992,6 +4019,7 @@ export declare const PF2ECONFIG: {
         hobgoblin: string;
         human: string;
         hungerseed: string;
+        jotunborn: string;
         kashrishi: string;
         kitsune: string;
         kobold: string;
@@ -4054,239 +4082,6 @@ export declare const PF2ECONFIG: {
         sloughstone: string;
         "sovereign-steel": string;
         warpglass: string;
-        "ranged-trip": string;
-        rare: string;
-        ratfolk: string;
-        razing: string;
-        reach: string;
-        "reach-0": string;
-        "reach-10": string;
-        "reach-100": string;
-        "reach-120": string;
-        "reach-1000": string;
-        "reach-15": string;
-        "reach-20": string;
-        "reach-200": string;
-        "reach-25": string;
-        "reach-30": string;
-        "reach-40": string;
-        "reach-50": string;
-        "reach-60": string;
-        recovery: string;
-        reincarnated: string;
-        reflection: string;
-        relic: string;
-        reload: string;
-        "reload-0": string;
-        "reload-1": string;
-        "reload-1-min": string;
-        "reload-2": string;
-        repeating: string;
-        resonant: string;
-        revelation: string;
-        rogue: string;
-        saggorak: string;
-        sanctified: string;
-        "scatter-10": string;
-        "scatter-15": string;
-        "scatter-20": string;
-        "scatter-5": string;
-        scroll: string;
-        scrying: string;
-        secret: string;
-        sedacthy: string;
-        serpentfolk: string;
-        shadow: string;
-        "shield-throw-20": string;
-        "shield-throw-30": string;
-        shisk: string;
-        shoony: string;
-        shove: string;
-        skeleton: string;
-        skill: string;
-        sleep: string;
-        snare: string;
-        social: string;
-        sonic: string;
-        sorcerer: string;
-        soulbound: string;
-        spellgun: string;
-        spellheart: string;
-        spellshape: string;
-        spellshot: string;
-        spirit: string;
-        splash: string;
-        "splash-10": string;
-        sprite: string;
-        staff: string;
-        stance: string;
-        steam: string;
-        strix: string;
-        structure: string;
-        subtle: string;
-        suli: string;
-        summon: string;
-        summoned: string;
-        summoner: string;
-        surki: string;
-        swashbuckler: string;
-        swarm: string;
-        sweep: string;
-        sylph: string;
-        talisman: string;
-        talos: string;
-        tandem: string;
-        tane: string;
-        tattoo: string;
-        tea: string;
-        tearing: string;
-        tech: string;
-        telepathy: string;
-        teleportation: string;
-        tengu: string;
-        tethered: string;
-        thaumaturge: string;
-        thrown: string;
-        "thrown-10": string;
-        "thrown-100": string;
-        "thrown-15": string;
-        "thrown-20": string;
-        "thrown-200": string;
-        "thrown-25": string;
-        "thrown-30": string;
-        "thrown-40": string;
-        "thrown-50": string;
-        "thrown-60": string;
-        "thrown-80": string;
-        tiefling: string;
-        time: string;
-        training: string;
-        transcendence: string;
-        trap: string;
-        trip: string;
-        troll: string;
-        "true-name": string;
-        twin: string;
-        "two-hand-d10": string;
-        "two-hand-d12": string;
-        "two-hand-d6": string;
-        "two-hand-d8": string;
-        unarmed: string;
-        uncommon: string;
-        undine: string;
-        undead: string;
-        unholy: string;
-        unique: string;
-        unstable: string;
-        vampire: string;
-        vanara: string;
-        vishkanya: string;
-        vehicular: string;
-        venomous: string;
-        "versatile-acid": string;
-        "versatile-b": string;
-        "versatile-cold": string;
-        "versatile-electricity": string;
-        "versatile-fire": string;
-        "versatile-force": string;
-        "versatile-p": string;
-        "versatile-poison": string;
-        "versatile-s": string;
-        "versatile-sonic": string;
-        "versatile-spirit": string;
-        "versatile-vitality": string;
-        "versatile-void": string;
-        virulent: string;
-        visual: string;
-        vitality: string;
-        void: string;
-        "volley-20": string;
-        "volley-30": string;
-        "volley-50": string;
-        "volley-60": string;
-        wand: string;
-        wandering: string;
-        water: string;
-        werecreature: string;
-        wight: string;
-        witch: string;
-        wizard: string;
-        wraith: string;
-        wood: string;
-        xulgath: string;
-        zombie: string;
-        "range-5": string;
-        "range-10": string;
-        "range-15": string;
-        "range-20": string;
-        "range-25": string;
-        "range-30": string;
-        "range-40": string;
-        "range-50": string;
-        "range-60": string;
-        "range-70": string;
-        "range-80": string;
-        "range-90": string;
-        "range-100": string;
-        "range-110": string;
-        "range-120": string;
-        "range-140": string;
-        "range-150": string;
-        "range-160": string;
-        "range-170": string;
-        "range-180": string;
-        "range-190": string;
-        "range-200": string;
-        "range-210": string;
-        "range-220": string;
-        "range-230": string;
-        "range-240": string;
-        "range-250": string;
-        "range-260": string;
-        "range-270": string;
-        "range-280": string;
-        "range-290": string;
-        "range-300": string;
-        "range-310": string;
-        "range-320": string;
-        "range-500": string;
-        "range-increment-5": string;
-        "range-increment-10": string;
-        "range-increment-15": string;
-        "range-increment-20": string;
-        "range-increment-25": string;
-        "range-increment-30": string;
-        "range-increment-35": string;
-        "range-increment-40": string;
-        "range-increment-50": string;
-        "range-increment-60": string;
-        "range-increment-70": string;
-        "range-increment-75": string;
-        "range-increment-80": string;
-        "range-increment-90": string;
-        "range-increment-100": string;
-        "range-increment-110": string;
-        "range-increment-120": string;
-        "range-increment-130": string;
-        "range-increment-140": string;
-        "range-increment-150": string;
-        "range-increment-160": string;
-        "range-increment-170": string;
-        "range-increment-180": string;
-        "range-increment-190": string;
-        "range-increment-200": string;
-        "range-increment-210": string;
-        "range-increment-220": string;
-        "range-increment-230": string;
-        "range-increment-240": string;
-        "range-increment-250": string;
-        "range-increment-260": string;
-        "range-increment-270": string;
-        "range-increment-280": string;
-        "range-increment-290": string;
-        "range-increment-300": string;
-        "range-increment-310": string;
-        "range-increment-320": string;
         aasimar: string;
         aberration: string;
         abjuration: string;
@@ -4309,6 +4104,7 @@ export declare const PF2ECONFIG: {
         alchemist: string;
         amphibious: string;
         anadi: string;
+        analog: string;
         android: string;
         angel: string;
         animal: string;
@@ -4323,6 +4119,7 @@ export declare const PF2ECONFIG: {
         archon: string;
         ardande: string;
         astral: string;
+        asura: string;
         artifact: string;
         athamaru: string;
         attached: string;
@@ -4365,6 +4162,7 @@ export declare const PF2ECONFIG: {
         "certain-kill": string;
         champion: string;
         changeling: string;
+        "charau-ka": string;
         class: string;
         cleric: string;
         climbing: string;
@@ -4428,11 +4226,14 @@ export declare const PF2ECONFIG: {
         disarm: string;
         disease: string;
         divination: string;
+        div: string;
         divine: string;
         "double-barrel": string;
         downtime: string;
         dragon: string;
         dragonblood: string;
+        dragonet: string;
+        dream: string;
         dromaar: string;
         drug: string;
         druid: string;
@@ -4447,7 +4248,7 @@ export declare const PF2ECONFIG: {
         emotion: string;
         "entrench-melee": string;
         "entrench-ranged": string;
-        environment: string;
+        environmental: string;
         esoterica: string;
         ethereal: string;
         evolution: string;
@@ -4493,6 +4294,7 @@ export declare const PF2ECONFIG: {
         ghoul: string;
         ghul: string;
         giant: string;
+        girtablilu: string;
         gnoll: string;
         gnome: string;
         goblin: string;
@@ -4501,6 +4303,7 @@ export declare const PF2ECONFIG: {
         gremlin: string;
         grimoire: string;
         grippli: string;
+        grioth: string;
         gunslinger: string;
         hag: string;
         halfling: string;
@@ -4513,6 +4316,7 @@ export declare const PF2ECONFIG: {
         haunt: string;
         healing: string;
         "hefty-14": string;
+        herald: string;
         hex: string;
         hindering: string;
         hobgoblin: string;
@@ -4521,12 +4325,14 @@ export declare const PF2ECONFIG: {
         human: string;
         humanoid: string;
         naari: string;
+        nightmare: string;
         ikon: string;
         illusion: string;
         impulse: string;
         incapacitation: string;
         incarnate: string;
         incorporeal: string;
+        inevitable: string;
         infused: string;
         infusion: string;
         ingested: string;
@@ -4542,6 +4348,7 @@ export declare const PF2ECONFIG: {
         inventor: string;
         invested: string;
         investigator: string;
+        kami: string;
         kashrishi: string;
         "keep-stone": string;
         kholo: string;
@@ -4549,6 +4356,7 @@ export declare const PF2ECONFIG: {
         kineticist: string;
         kitsune: string;
         kobold: string;
+        kovintus: string;
         laminar: string;
         "launching-dart": string;
         leshy: string;
@@ -4557,6 +4365,7 @@ export declare const PF2ECONFIG: {
         litany: string;
         lizardfolk: string;
         lozenge: string;
+        maftet: string;
         magical: string;
         magus: string;
         manipulate: string;
@@ -4574,11 +4383,14 @@ export declare const PF2ECONFIG: {
         modular: string;
         monitor: string;
         monk: string;
+        morlock: string;
         morph: string;
+        mortic: string;
         mounted: string;
         move: string;
         multiclass: string;
         mummy: string;
+        munavri: string;
         mutagen: string;
         mutant: string;
         mythic: string;
@@ -4598,6 +4410,7 @@ export declare const PF2ECONFIG: {
         orc: string;
         oread: string;
         overflow: string;
+        paaridar: string;
         palinthanos: string;
         parry: string;
         peachwood: string;
@@ -4633,6 +4446,184 @@ export declare const PF2ECONFIG: {
         rage: string;
         akshasa: string;
         ranger: string;
+        "ranged-trip": string;
+        rare: string;
+        ratfolk: string;
+        razing: string;
+        reach: string;
+        "reach-0": string;
+        "reach-10": string;
+        "reach-100": string;
+        "reach-120": string;
+        "reach-1000": string;
+        "reach-15": string;
+        "reach-20": string;
+        "reach-200": string;
+        "reach-25": string;
+        "reach-30": string;
+        "reach-40": string;
+        "reach-50": string;
+        "reach-60": string;
+        recovery: string;
+        reincarnated: string;
+        reflection: string;
+        relic: string;
+        reload: string;
+        "reload-0": string;
+        "reload-1": string;
+        "reload-1-min": string;
+        "reload-2": string;
+        repeating: string;
+        resonant: string;
+        revelation: string;
+        rogue: string;
+        saggorak: string;
+        sahkil: string;
+        samsaran: string;
+        sanctified: string;
+        "scatter-10": string;
+        "scatter-15": string;
+        "scatter-20": string;
+        "scatter-5": string;
+        scroll: string;
+        scrying: string;
+        "sea-devil": string;
+        secret: string;
+        sedacthy: string;
+        serpentfolk: string;
+        shabti: string;
+        shadow: string;
+        "shield-throw-20": string;
+        "shield-throw-30": string;
+        shisk: string;
+        shoony: string;
+        shove: string;
+        skeleton: string;
+        skelm: string;
+        skill: string;
+        skulk: string;
+        sleep: string;
+        snare: string;
+        social: string;
+        sonic: string;
+        sorcerer: string;
+        soulbound: string;
+        spellgun: string;
+        spellheart: string;
+        spellshape: string;
+        spellshot: string;
+        spirit: string;
+        splash: string;
+        "splash-10": string;
+        spriggan: string;
+        sprite: string;
+        staff: string;
+        stance: string;
+        steam: string;
+        stheno: string;
+        strix: string;
+        structure: string;
+        subtle: string;
+        suli: string;
+        "subjective-gravity": string;
+        summon: string;
+        summoned: string;
+        summoner: string;
+        surki: string;
+        swashbuckler: string;
+        swarm: string;
+        sweep: string;
+        sylph: string;
+        talisman: string;
+        talos: string;
+        tandem: string;
+        tane: string;
+        tanggal: string;
+        tattoo: string;
+        tea: string;
+        tearing: string;
+        tech: string;
+        telepathy: string;
+        teleportation: string;
+        tengu: string;
+        tethered: string;
+        thaumaturge: string;
+        thrown: string;
+        "thrown-10": string;
+        "thrown-100": string;
+        "thrown-15": string;
+        "thrown-20": string;
+        "thrown-200": string;
+        "thrown-25": string;
+        "thrown-30": string;
+        "thrown-40": string;
+        "thrown-50": string;
+        "thrown-60": string;
+        "thrown-80": string;
+        tiefling: string;
+        time: string;
+        titan: string;
+        training: string;
+        transcendence: string;
+        trap: string;
+        trip: string;
+        troll: string;
+        troop: string;
+        "true-name": string;
+        twin: string;
+        "two-hand-d10": string;
+        "two-hand-d12": string;
+        "two-hand-d6": string;
+        "two-hand-d8": string;
+        unarmed: string;
+        uncommon: string;
+        undine: string;
+        undead: string;
+        unholy: string;
+        unique: string;
+        unstable: string;
+        urdefhan: string;
+        vampire: string;
+        vanara: string;
+        vishkanya: string;
+        vehicular: string;
+        velstrac: string;
+        venomous: string;
+        "versatile-acid": string;
+        "versatile-b": string;
+        "versatile-cold": string;
+        "versatile-electricity": string;
+        "versatile-fire": string;
+        "versatile-force": string;
+        "versatile-p": string;
+        "versatile-poison": string;
+        "versatile-s": string;
+        "versatile-sonic": string;
+        "versatile-spirit": string;
+        "versatile-vitality": string;
+        "versatile-void": string;
+        vigilante: string;
+        virulent: string;
+        visual: string;
+        vitality: string;
+        void: string;
+        "volley-20": string;
+        "volley-30": string;
+        "volley-50": string;
+        "volley-60": string;
+        wand: string;
+        wandering: string;
+        water: string;
+        wayang: string;
+        werecreature: string;
+        wight: string;
+        witch: string;
+        wizard: string;
+        wraith: string;
+        wood: string;
+        wyrwood: string;
+        xulgath: string;
+        zombie: string;
         cavalry: string;
         infantry: string;
         siege: string;
@@ -4640,17 +4631,17 @@ export declare const PF2ECONFIG: {
     };
     creatureTypes: {
         plant: string;
+        time: string;
         spirit: string;
         vitality: string;
         void: string;
-        time: string;
         fungus: string;
         shadow: string;
+        animal: string;
         beast: string;
         dream: string;
         fey: string;
         aberration: string;
-        animal: string;
         astral: string;
         celestial: string;
         construct: string;
@@ -4698,6 +4689,147 @@ export declare const PF2ECONFIG: {
         4: string;
         5: string;
     };
+    grades: {
+        commercial: string;
+        tactical: string;
+        advanced: string;
+        superior: string;
+        elite: string;
+        ultimate: string;
+        paragon: string;
+    };
+    weaponImprovements: {
+        commercial: {
+            level: number;
+            tracking: 0;
+            dice: number;
+            credits: number;
+        };
+        tactical: {
+            level: number;
+            tracking: 1;
+            dice: number;
+            credits: number;
+        };
+        advanced: {
+            level: number;
+            tracking: 1;
+            dice: number;
+            credits: number;
+        };
+        superior: {
+            level: number;
+            tracking: 2;
+            dice: number;
+            credits: number;
+        };
+        elite: {
+            level: number;
+            tracking: 2;
+            dice: number;
+            credits: number;
+        };
+        ultimate: {
+            level: number;
+            tracking: 3;
+            dice: number;
+            credits: number;
+        };
+        paragon: {
+            level: number;
+            tracking: 3;
+            dice: number;
+            credits: number;
+        };
+    };
+    armorImprovements: {
+        commercial: {
+            level: number;
+            bonus: number;
+            resilient: 0;
+            credits: number;
+        };
+        tactical: {
+            level: number;
+            bonus: number;
+            resilient: 0;
+            credits: number;
+        };
+        advanced: {
+            level: number;
+            bonus: number;
+            resilient: 1;
+            credits: number;
+        };
+        superior: {
+            level: number;
+            bonus: number;
+            resilient: 1;
+            credits: number;
+        };
+        elite: {
+            level: number;
+            bonus: number;
+            resilient: 2;
+            credits: number;
+        };
+        ultimate: {
+            level: number;
+            bonus: number;
+            resilient: 2;
+            credits: number;
+        };
+        paragon: {
+            level: number;
+            bonus: number;
+            resilient: 3;
+            credits: number;
+        };
+    };
+    shieldImprovements: {
+        commercial: {
+            level: number;
+            hardness: number;
+            maxHP: number;
+            credits: number;
+        };
+        tactical: {
+            level: number;
+            hardness: number;
+            maxHP: number;
+            credits: number;
+        };
+        advanced: {
+            level: number;
+            hardness: number;
+            maxHP: number;
+            credits: number;
+        };
+        superior: {
+            level: number;
+            hardness: number;
+            maxHP: number;
+            credits: number;
+        };
+        elite: {
+            level: number;
+            hardness: number;
+            maxHP: number;
+            credits: number;
+        };
+        ultimate: {
+            level: number;
+            hardness: number;
+            maxHP: number;
+            credits: number;
+        };
+        paragon: {
+            level: number;
+            hardness: number;
+            maxHP: number;
+            credits: number;
+        };
+    };
     weaponReload: Record<WeaponReloadTime, string>;
     armorCategories: Record<"light" | "medium" | "unarmored" | "heavy" | "light-barding" | "heavy-barding", string>;
     armorGroups: Record<"wood" | "composite" | "chain" | "cloth" | "leather" | "plate" | "skeletal", string>;
@@ -4715,7 +4847,6 @@ export declare const PF2ECONFIG: {
         | "snare"
         | "talisman"
         | "drug"
-        | "ammo"
         | "other"
         | "toolkit",
         string
@@ -4767,6 +4898,8 @@ export declare const PF2ECONFIG: {
             Tool: string;
         };
     };
+    /** Base weapons that should always be treated as thrown */
+    thrownBaseWeapons: readonly ["alchemical-bomb", "grenade"];
     preparationType: {
         prepared: string;
         spontaneous: string;
@@ -4775,12 +4908,2274 @@ export declare const PF2ECONFIG: {
         items: string;
         ritual: string;
     };
+    spellcastingItems: {
+        scroll: {
+            name: string;
+            nameTemplate: string;
+            compendiumUuids: {
+                1: string;
+                2: string;
+                3: string;
+                4: string;
+                5: string;
+                6: string;
+                7: string;
+                8: string;
+                9: string;
+                10: string;
+            };
+        };
+        wand: {
+            name: string;
+            nameTemplate: string;
+            compendiumUuids: {
+                1: string;
+                2: string;
+                3: string;
+                4: string;
+                5: string;
+                6: string;
+                7: string;
+                8: string;
+                9: string;
+                10: null;
+            };
+        };
+    };
     attitude: {
         hostile: string;
         unfriendly: string;
         indifferent: string;
         friendly: string;
         helpful: string;
+    };
+    ammoTypes: {
+        "8-round-magazine": {
+            parent: string;
+            label: string;
+            magazine: true;
+            stackGroup: null;
+            weapon: string;
+        };
+        "magazine-with-6-pellets": {
+            parent: string;
+            label: string;
+            magazine: true;
+            stackGroup: null;
+            weapon: string;
+        };
+        "magazine-with-8-pellets": {
+            parent: string;
+            label: string;
+            magazine: true;
+            stackGroup: null;
+            weapon: string;
+        };
+        "backpack-ballista-bolts": {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: null;
+            weapon: string;
+        };
+        "backpack-catapult-stones": {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: null;
+            weapon: string;
+        };
+        "repeating-crossbow-magazine": {
+            parent: string;
+            label: string;
+            magazine: true;
+            stackGroup: null;
+            weapon: "repeating-crossbow" | "repeating-hand-crossbow" | "repeating-heavy-crossbow";
+        };
+        "repeating-hand-crossbow-magazine": {
+            parent: string;
+            label: string;
+            magazine: true;
+            stackGroup: null;
+            weapon: "repeating-crossbow" | "repeating-hand-crossbow" | "repeating-heavy-crossbow";
+        };
+        "repeating-heavy-crossbow-magazine": {
+            parent: string;
+            label: string;
+            magazine: true;
+            stackGroup: null;
+            weapon: "repeating-crossbow" | "repeating-hand-crossbow" | "repeating-heavy-crossbow";
+        };
+        cutlery: {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon: string;
+        };
+        "rounds-arquebus": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-axe-musket": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-black-powder-knuckle-dusters": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-blunderbuss": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-cane-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-clan-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-coat-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-dagger-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-double-barreled-musket": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-double-barreled-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-dragon-mouth-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-dueling-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-fire-lance": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-flintlock-musket": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-flintlock-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-gnome-amalgam-musket": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-gun-sword": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-hammer-gun": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-hand-cannon": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-jezail": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-mace-multipistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-mithral-tree": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-pepperbox": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-piercing-wind": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-rapier-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-shield-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-shobhad-longrifle": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-slide-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-three-peaked-tree": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-triggerbrand": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-alicorn-trigger": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-breath-blaster": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-drake-rifle": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-fulmination-fang": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-howler-pistol": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-leydroth-spellbreaker": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-nightmares-lament": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-petrification-cannon": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-screech-shooter": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-spider-gun": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-spike-launcher": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-tentacle-cannon": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon:
+                | "arquebus"
+                | "axe-musket"
+                | "black-powder-knuckle-dusters"
+                | "blunderbuss"
+                | "cane-pistol"
+                | "clan-pistol"
+                | "coat-pistol"
+                | "dagger-pistol"
+                | "double-barreled-musket"
+                | "double-barreled-pistol"
+                | "dragon-mouth-pistol"
+                | "dueling-pistol"
+                | "fire-lance"
+                | "flintlock-musket"
+                | "flintlock-pistol"
+                | "gnome-amalgam-musket"
+                | "gun-sword"
+                | "hammer-gun"
+                | "hand-cannon"
+                | "jezail"
+                | "mace-multipistol"
+                | "mithral-tree"
+                | "pepperbox"
+                | "piercing-wind"
+                | "rapier-pistol"
+                | "shield-pistol"
+                | "shobhad-longrifle"
+                | "slide-pistol"
+                | "three-peaked-tree"
+                | "triggerbrand"
+                | "alicorn-trigger"
+                | "breath-blaster"
+                | "drake-rifle"
+                | "fulmination-fang"
+                | "howler-pistol"
+                | "leydroth-spellbreaker"
+                | "nightmares-lament"
+                | "petrification-cannon"
+                | "screech-shooter"
+                | "spider-gun"
+                | "spike-launcher"
+                | "tentacle-cannon";
+        };
+        "rounds-dwarven-scattergun": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon: "dwarven-scattergun" | "explosive-dogslicer" | "flingflenser" | "harmona-gun";
+        };
+        "rounds-explosive-dogslicer": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon: "dwarven-scattergun" | "explosive-dogslicer" | "flingflenser" | "harmona-gun";
+        };
+        "rounds-flingflenser": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon: "dwarven-scattergun" | "explosive-dogslicer" | "flingflenser" | "harmona-gun";
+        };
+        "rounds-harmona-gun": {
+            parent: string;
+            label: string;
+            magazine: false;
+            stackGroup: string;
+            weapon: "dwarven-scattergun" | "explosive-dogslicer" | "flingflenser" | "harmona-gun";
+        };
+        magazine: {
+            parent: null;
+            label: string;
+            magazine: true;
+            stackGroup: null;
+            weapon: null;
+        };
+        battery: {
+            parent: null;
+            label: string;
+            magazine: true;
+            stackGroup: null;
+            weapon: null;
+        };
+        "chem-tank": {
+            parent: null;
+            label: string;
+            magazine: true;
+            stackGroup: null;
+            weapon: null;
+        };
+        "blowgun-darts": {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: string | null;
+            weapon: null;
+        };
+        "sling-bullets": {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: string | null;
+            weapon: null;
+        };
+        "wooden-taws": {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: string | null;
+            weapon: null;
+        };
+        arrows: {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: string | null;
+            weapon: null;
+        };
+        bolts: {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: string | null;
+            weapon: null;
+        };
+        rounds: {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: string | null;
+            weapon: null;
+        };
+        "spray-pellets": {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: string | null;
+            weapon: null;
+        };
+        "projectile-ammo": {
+            parent: null;
+            label: string;
+            magazine: false;
+            stackGroup: string | null;
+            weapon: null;
+        };
     };
     skills: Readonly<{
         acrobatics: {
@@ -4915,7 +7310,6 @@ export declare const PF2ECONFIG: {
     };
     actorSizes: Record<"tiny" | "sm" | "med" | "lg" | "huge" | "grg", string>;
     actorTypes: Record<"character" | "army" | "familiar" | "hazard" | "loot" | "npc" | "party" | "vehicle", string>;
-    speedTypes: Record<"land" | "burrow" | "climb" | "fly" | "swim", string>;
     prerequisitePlaceholders: {
         prerequisite1: string;
         prerequisite2: string;
@@ -4924,6 +7318,7 @@ export declare const PF2ECONFIG: {
         prerequisite5: string;
     };
     senses: Record<
+        | "bloodsense"
         | "darkvision"
         | "echolocation"
         | "greater-darkvision"
@@ -5005,6 +7400,7 @@ export declare const PF2ECONFIG: {
     };
     immunityTypes: {
         acid: string;
+        aging: string;
         air: string;
         alchemical: string;
         "area-damage": string;
@@ -5064,6 +7460,7 @@ export declare const PF2ECONFIG: {
         polymorph: string;
         possession: string;
         precision: string;
+        prediction: string;
         prone: string;
         radiation: string;
         restrained: string;
@@ -5080,6 +7477,7 @@ export declare const PF2ECONFIG: {
         stupefied: string;
         "swarm-attacks": string;
         "swarm-mind": string;
+        time: string;
         trip: string;
         "unarmed-attacks": string;
         unconscious: string;
@@ -5103,6 +7501,7 @@ export declare const PF2ECONFIG: {
         inubrix: string;
         noqual: string;
         orichalcum: string;
+        peachwood: string;
         siccatite: string;
         silver: string;
         "cold-iron": string;
@@ -5225,35 +7624,6 @@ export declare const PF2ECONFIG: {
         urban: string;
     };
     SETTINGS: {
-        automation: {
-            rulesBasedVision: {
-                name: string;
-                hint: string;
-            };
-            iwr: {
-                name: string;
-                hint: string;
-            };
-            removeExpiredEffects: {
-                name: string;
-                hint: string;
-            };
-            flankingDetection: {
-                name: string;
-                hint: string;
-            };
-            actorsDeadAtZero: {
-                name: string;
-                hint: string;
-                neither: string;
-                npcsOnly: string;
-                both: string;
-            };
-            lootableNPCs: {
-                name: string;
-                hint: string;
-            };
-        };
         CampaignFeats: {
             name: string;
             hint: string;
@@ -5275,6 +7645,7 @@ export declare const PF2ECONFIG: {
         documentClasses: {
             action: typeof AbilityItemPF2e;
             affliction: typeof AfflictionPF2e;
+            ammo: typeof AmmoPF2e;
             ancestry: typeof AncestryPF2e;
             armor: typeof ArmorPF2e;
             background: typeof BackgroundPF2e;

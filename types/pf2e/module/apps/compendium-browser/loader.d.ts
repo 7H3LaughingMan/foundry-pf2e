@@ -1,8 +1,8 @@
-import { CompendiumDocument } from "./../../../../foundry/client/documents/_module.mjs";
+import { CompendiumDocument } from "#client/documents/_module.mjs";
 import {
     default as CompendiumCollection,
-    CompendiumIndex,
-} from "./../../../../foundry/client/documents/collections/compendium-collection.mjs";
+    CompendiumIndexData,
+} from "#client/documents/collections/compendium-collection.mjs";
 import { CompendiumBrowserSources } from "./browser.ts";
 declare class PackLoader {
     #private;
@@ -16,7 +16,7 @@ declare class PackLoader {
     ): AsyncGenerator<
         {
             pack: CompendiumCollection<CompendiumDocument>;
-            index: CompendiumIndex;
+            index: Collection<string, CompendiumIndexData>;
         },
         void,
         unknown

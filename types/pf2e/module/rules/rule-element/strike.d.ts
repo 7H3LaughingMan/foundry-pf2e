@@ -1,17 +1,17 @@
 import { ActorType, CharacterPF2e, NPCPF2e } from "./../../actor/index.ts";
-import { ImageFilePath } from "./../../../../foundry/common/constants.mjs";
+import { ImageFilePath } from "#common/constants.mjs";
 import { NPCAttackTrait } from "./../../item/melee/types.ts";
 import { BaseShieldType } from "./../../item/shield/types.ts";
 import { BaseWeaponType, OtherWeaponTag, WeaponCategory } from "./../../item/weapon/types.ts";
 import { DamageDieSize, DamageType } from "./../../system/damage/index.ts";
-import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
+import { RuleElement, RuleElementOptions } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
 import fields = foundry.data.fields;
 /**
  * Create an ephemeral strike on an actor
  * @category RuleElement
  */
-declare class StrikeRuleElement extends RuleElementPF2e<StrikeSchema> {
+declare class StrikeRuleElement extends RuleElement<StrikeSchema> {
     #private;
     protected static validActorTypes: ActorType[];
     graspingAppendage: boolean;
@@ -24,7 +24,7 @@ declare class StrikeRuleElement extends RuleElementPF2e<StrikeSchema> {
     /** Toggle the modular or versatile trait of this strike's weapon */
     toggleTrait({ trait, selected }: UpdateToggleParams): Promise<void>;
 }
-interface StrikeRuleElement extends RuleElementPF2e<StrikeSchema>, ModelPropsFromRESchema<StrikeSchema> {
+interface StrikeRuleElement extends RuleElement<StrikeSchema>, ModelPropsFromRESchema<StrikeSchema> {
     slug: string;
     fist: boolean;
     options: string[];
@@ -124,7 +124,6 @@ interface StrikeSource extends RuleElementSource {
     baseType?: unknown;
     damage?: unknown;
     range?: unknown;
-    maxRange?: unknown;
     traits?: unknown;
     traitToggles?: unknown;
     replaceAll?: unknown;
@@ -138,3 +137,4 @@ interface UpdateToggleParams {
     selected: DamageType | null;
 }
 export { StrikeRuleElement };
+export type { StrikeSource };

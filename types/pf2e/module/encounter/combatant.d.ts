@@ -4,9 +4,9 @@ import {
     DatabaseCreateOperation,
     DatabaseDeleteCallbackOptions,
     DatabaseUpdateCallbackOptions,
-} from "./../../../foundry/common/abstract/_types.mjs";
-import { default as Document } from "./../../../foundry/common/abstract/document.mjs";
-import { DocumentFlags } from "./../../../foundry/common/data/_module.mjs";
+} from "#common/abstract/_types.mjs";
+import { default as Document } from "#common/abstract/document.mjs";
+import { DocumentFlags } from "#common/data/_module.mjs";
 import { TokenDocumentPF2e } from "./../scene/index.ts";
 import { EncounterPF2e } from "./index.ts";
 declare class CombatantPF2e<

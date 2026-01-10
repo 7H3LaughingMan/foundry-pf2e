@@ -1,4 +1,4 @@
-import { TokenConstrainMovementPathOptions } from "./../_module.mjs";
+import { TokenAnimationOptions, TokenConstrainMovementPathOptions } from "./../_module.mjs";
 import TokenConfig from "./../applications/sheets/token/token-config.mjs";
 import { DocumentConstructionContext, ElevatedPoint, TokenDimensions, TokenPosition } from "./../../common/_types.mjs";
 import {
@@ -14,8 +14,9 @@ import {
 import Document from "./../../common/abstract/document.mjs";
 import { ImageFilePath } from "./../../common/constants.mjs";
 import { SchemaField } from "./../../common/data/fields.mjs";
+import { GridMeasurePathResult } from "./../../common/grid/_types.mjs";
 import Collection from "./../../common/utils/collection.mjs";
-import Token, { TokenAnimationOptions, TokenResourceData } from "../canvas/placeables/token.mjs";
+import Token, { TokenResourceData } from "../canvas/placeables/token.mjs";
 import {
     Actor,
     BaseToken,
@@ -592,9 +593,11 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
 
     /**
      * When the base Actor for a TokenDocument changes, we may need to update its Actor instance
+     * @param update The update delta
+     * @param options The database operation that was performed
      * @internal
      */
-    protected _onUpdateBaseActor(update?: Record<string, unknown>, options?: DatabaseUpdateCallbackOptions): void;
+    _onUpdateBaseActor(update?: Record<string, unknown>, options?: DatabaseUpdateCallbackOptions): void;
 
     /**
      * Whenever the token's actor delta changes, or the base actor changes, perform associated refreshes.
@@ -602,8 +605,8 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
      * @param options The options provided to the update.
      */
     protected _onRelatedUpdate(
-        update: { _id?: string; [key: string]: unknown } | { _id?: string; [key: string]: unknown }[],
-        options: Partial<DatabaseOperation<Document | null>>,
+        update?: { _id?: string; [key: string]: unknown } | { _id?: string; [key: string]: unknown }[],
+        options?: Partial<DatabaseOperation<Document | null>>,
     ): void;
 
     /** Get an Array of attribute choices which could be tracked for Actors in the Combat Tracker */
@@ -660,7 +663,9 @@ export interface TokenUpdateOperation<TParent extends Scene | null> extends Data
     animation?: TokenAnimationOptions;
 }
 
-export interface TokenUpdateCallbackOptions
-    extends Omit<TokenUpdateOperation<null>, "action" | "pack" | "parent" | "restoreDelta" | "noHook" | "updates"> {}
+export interface TokenUpdateCallbackOptions extends Omit<
+    TokenUpdateOperation<null>,
+    "action" | "pack" | "parent" | "restoreDelta" | "noHook" | "updates"
+> {}
 
 export {};

@@ -2,7 +2,7 @@ import { ArmyPF2e, PartyPF2e } from "./../../index.ts";
 import { FeatGroup } from "./../../character/feats/index.ts";
 import { RawModifier } from "./../../modifiers.ts";
 import { CampaignFeaturePF2e } from "./../../../item/index.ts";
-import { ItemType } from "./../../../item/base/data/index.ts";
+import { ItemType } from "./../../../item/types.ts";
 import { Statistic } from "./../../../system/statistic/index.ts";
 import { PartySystemData } from "../data.ts";
 import { PartyCampaign } from "../types.ts";

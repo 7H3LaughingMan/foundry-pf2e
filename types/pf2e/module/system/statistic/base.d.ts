@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { ModifierPF2e } from "./../../actor/modifiers.ts";
+import { Modifier } from "./../../actor/modifiers.ts";
 import { BaseStatisticData, BaseStatisticTraceData, StatisticData } from "./data.ts";
 /** Basic data forming any Pathfinder statistic */
 declare abstract class BaseStatistic<TActor extends ActorPF2e> {
@@ -14,7 +14,7 @@ declare abstract class BaseStatistic<TActor extends ActorPF2e> {
     /** String category identifiers: used to retrieve modifiers and other synthetics as well as create roll options  */
     domains: string[];
     /** Penalties, bonuses, and actual modifiers comprising a total modifier value */
-    modifiers: ModifierPF2e[];
+    modifiers: Modifier[];
     constructor(actor: TActor, data: BaseStatisticData);
     createRollOptions(domains?: string[]): Set<string>;
     abstract getTraceData(): BaseStatisticTraceData;

@@ -1,4 +1,4 @@
-import { ModifierPF2e, RawModifier } from "./../../actor/modifiers.ts";
+import { Modifier, RawModifier } from "./../../actor/modifiers.ts";
 import { AttributeString } from "./../../actor/types.ts";
 import { ZeroToFour } from "./../../data.ts";
 import { CheckType } from "./../check/index.ts";
@@ -9,7 +9,7 @@ interface BaseStatisticData {
     /** Base domains for fetching actor roll options */
     domains?: string[];
     /** Modifiers not retrieved from the actor's synthetics record */
-    modifiers?: ModifierPF2e[];
+    modifiers?: Modifier[];
 }
 /** Used to build the actual statistic object */
 interface StatisticData extends BaseStatisticData {
@@ -21,7 +21,7 @@ interface StatisticData extends BaseStatisticData {
     check?: StatisticCheckData;
     dc?: StatisticDifficultyClassData;
     /** If given, filters all automatically acquired modifiers */
-    filter?: (m: ModifierPF2e) => boolean;
+    filter?: (m: Modifier) => boolean;
     /**
      * Any static roll options that should be added to the list of roll options.
      * This does not include actor, rank, or basic item roll options.
@@ -34,14 +34,14 @@ interface StatisticCheckData {
     /** Additional domains for fetching actor roll options */
     domains?: string[];
     /** Modifiers not retrieved from the actor's synthetics record */
-    modifiers?: ModifierPF2e[];
+    modifiers?: Modifier[];
 }
 interface StatisticDifficultyClassData {
     /** Additional domains for fetching actor roll options */
     domains?: string[];
     label?: string;
     /** Modifiers not retrieved from the actor's synthetics record */
-    modifiers?: ModifierPF2e[];
+    modifiers?: Modifier[];
 }
 /** Defines view data for chat message and sheet rendering */
 interface StatisticChatData {
@@ -63,14 +63,15 @@ interface StatisticChatData {
 interface BaseStatisticTraceData {
     slug: string;
     label: string;
-    /** A numeric value of some kind: semantics determined by `AbstractBaseStatistic` subclass */
+    /** A numeric value of some kind: semantics determined by `BaseStatistic` subclass */
     value: number;
     breakdown: string;
     modifiers: Required<RawModifier>[];
 }
 /** Data intended to be merged back into actor data (usually for token attribute/RE purposes) */
-interface StatisticTraceData<TAttribute extends AttributeString | null = AttributeString | null>
-    extends BaseStatisticTraceData {
+interface StatisticTraceData<
+    TAttribute extends AttributeString | null = AttributeString | null,
+> extends BaseStatisticTraceData {
     /** Either the totalModifier or the dc depending on what the data is for */
     value: number;
     totalModifier: number;

@@ -1,14 +1,14 @@
 import { ActorType, CharacterPF2e } from "./../../actor/index.ts";
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
 import { ItemPF2e } from "./../../item/index.ts";
 import { PredicateField } from "./../../system/schema-data-fields.ts";
-import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
+import { RuleElement, RuleElementOptions } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
 import fields = foundry.data.fields;
 /**
  * @category RuleElement
  */
-declare class CraftingAbilityRuleElement extends RuleElementPF2e<CraftingAbilityRuleSchema> {
+declare class CraftingAbilityRuleElement extends RuleElement<CraftingAbilityRuleSchema> {
     protected static validActorTypes: ActorType[];
     constructor(data: CraftingAbilityRuleSource, options: RuleElementOptions);
     static defineSchema(): CraftingAbilityRuleSchema;
@@ -17,8 +17,7 @@ declare class CraftingAbilityRuleElement extends RuleElementPF2e<CraftingAbility
     afterPrepareData(): void;
 }
 interface CraftingAbilityRuleElement
-    extends RuleElementPF2e<CraftingAbilityRuleSchema>,
-        ModelPropsFromRESchema<CraftingAbilityRuleSchema> {
+    extends RuleElement<CraftingAbilityRuleSchema>, ModelPropsFromRESchema<CraftingAbilityRuleSchema> {
     readonly parent: ItemPF2e<CharacterPF2e>;
     slug: string;
     get actor(): CharacterPF2e;

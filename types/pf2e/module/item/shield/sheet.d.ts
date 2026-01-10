@@ -1,6 +1,6 @@
 import { ItemSheetOptions } from "./../base/sheet/sheet.ts";
 import {
-    CoinsPF2e,
+    Coins,
     MaterialSheetData,
     PhysicalItemSheetData,
     PhysicalItemSheetPF2e,
@@ -16,7 +16,7 @@ declare class ShieldSheetPF2e extends PhysicalItemSheetPF2e<ShieldPF2e> {
 }
 interface ShieldSheetData extends PhysicalItemSheetData<ShieldPF2e> {
     baseHardness: number;
-    basePrice: CoinsPF2e;
+    basePrice: Coins;
     baseTypes: Record<BaseShieldType, string>;
     canChangeMaterial: boolean;
     preciousMaterials: MaterialSheetData;
@@ -27,5 +27,6 @@ interface ShieldSheetData extends PhysicalItemSheetData<ShieldPF2e> {
     }[];
     reinforcing: Record<number, string | null>;
     weaponRunes: typeof RUNE_DATA.weapon | null;
+    grades: Record<string, string>;
 }
 export { ShieldSheetPF2e };

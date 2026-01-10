@@ -1,10 +1,11 @@
-import { DocumentFlags, DocumentFlagsSource } from "./../../../../../foundry/common/data/_types.mjs";
+import { DocumentFlags, DocumentFlagsSource } from "#common/data/_types.mjs";
+import { EffectAreaShape, ItemType } from "./../../types.ts";
 import { MigrationRecord, OneToThree, PublicationData, Rarity } from "./../../../data.ts";
 import { RuleElementSource } from "./../../../rules/index.ts";
+import { DamageType } from "./../../../system/damage/index.ts";
 import { Predicate } from "./../../../system/predication.ts";
 import { ItemTrait } from "../types.ts";
-import { ItemType } from "./index.ts";
-import type * as fields from "./../../../../../foundry/common/data/fields.mjs";
+import type * as fields from "#common/data/fields.mjs";
 type BaseItemSourcePF2e<
     TType extends ItemType,
     TSystemSource extends ItemSystemSource = ItemSystemSource,
@@ -16,23 +17,40 @@ interface ActionCost {
     type: Exclude<ActionType, "passive">;
     value: OneToThree | null;
 }
+interface TraitConfig {
+    area?: {
+        type: EffectAreaShape;
+        value: number | null;
+    };
+    deadly?: string;
+    fatal?: string;
+    resilient?: number;
+    thrown?: number;
+    tracking?: number;
+    versatile?: DamageType[];
+    volley?: number;
+    [key: string]: unknown | undefined;
+}
 interface ItemTraits<T extends ItemTrait = ItemTrait> {
     value: T[];
     rarity: Rarity;
     otherTags: string[];
+    config?: TraitConfig;
 }
 interface ItemTraitsNoRarity<T extends ItemTrait = ItemTrait> extends Omit<ItemTraits<T>, "rarity"> {
     rarity?: never;
 }
 interface RarityTraitAndOtherTags {
-    readonly value?: never;
     rarity: Rarity;
     otherTags: string[];
+    value?: never;
+    config?: never;
 }
 interface OtherTagsOnly {
-    readonly value?: never;
-    rarity?: never;
     otherTags: string[];
+    value?: never;
+    rarity?: never;
+    config?: never;
 }
 type ItemFlagsPF2e = DocumentFlags & {
     pf2e: {
@@ -101,6 +119,7 @@ interface AlteredDescriptionContent {
     text: string;
     divider: boolean;
     predicate: Predicate;
+    processed?: boolean;
 }
 type FrequencyInterval = keyof typeof CONFIG.PF2E.frequencies;
 interface FrequencySource {
@@ -137,4 +156,5 @@ export type {
     ItemTraitsNoRarity,
     OtherTagsOnly,
     RarityTraitAndOtherTags,
+    TraitConfig,
 };

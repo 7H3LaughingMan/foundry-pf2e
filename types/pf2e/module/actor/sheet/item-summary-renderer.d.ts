@@ -1,6 +1,6 @@
 import { ActorPF2e } from "./../base.ts";
-import { default as Application } from "./../../../../foundry/client/appv1/api/application-v1.mjs";
-import { ClientDocument } from "./../../../../foundry/client/documents/abstract/client-document.mjs";
+import { default as Application } from "#client/appv1/api/application-v1.mjs";
+import { ClientDocument } from "#client/documents/abstract/client-document.mjs";
 import { ItemPF2e } from "./../../item/index.ts";
 import { RawItemChatData } from "./../../item/base/data/index.ts";
 /**

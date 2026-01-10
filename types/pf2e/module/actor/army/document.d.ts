@@ -1,8 +1,9 @@
 import { FeatGroup } from "./../character/feats/index.ts";
 import { Kingdom } from "./../party/kingdom/model.ts";
-import { DatabaseDeleteCallbackOptions } from "./../../../../foundry/common/abstract/_types.mjs";
+import { DatabaseDeleteCallbackOptions } from "#common/abstract/_types.mjs";
 import { CampaignFeaturePF2e } from "./../../item/index.ts";
-import { ItemSourcePF2e, ItemType } from "./../../item/base/data/index.ts";
+import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
+import { ItemType } from "./../../item/types.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { ArmorStatistic, Statistic, StatisticDifficultyClass } from "./../../system/statistic/index.ts";
 import { ActorPF2e, ActorUpdateCallbackOptions, HitPointsSummary } from "../base.ts";
@@ -23,8 +24,6 @@ declare class ArmyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentP
     get strongSave(): "maneuver" | "morale";
     prepareData(): void;
     prepareBaseData(): void;
-    /** Run rule elements */
-    prepareEmbeddedDocuments(): void;
     prepareDerivedData(): void;
     usePotion(): Promise<void>;
     prepareArmyStrike(type: "melee" | "ranged"): ArmyStrike | null;

@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../module/actor/index.ts";
-import { ClientDocument } from "./../../foundry/client/documents/abstract/client-document.mjs";
+import { ClientDocument } from "#client/documents/abstract/client-document.mjs";
 import { ItemPF2e } from "./../module/item/index.ts";
 import { ChatMessagePF2e } from "./../module/chat-message/document.ts";
 /** Given an HTML element, resolves the sheet and its document */

@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../../index.ts";
-import { Rolled } from "./../../../../../foundry/client/dice/_module.mjs";
+import { Rolled } from "#client/dice/_module.mjs";
 import { ConsumablePF2e, PhysicalItemPF2e } from "./../../../item/index.ts";
 import { CheckRoll } from "./../../../system/check/index.ts";
 export declare function craftItem(

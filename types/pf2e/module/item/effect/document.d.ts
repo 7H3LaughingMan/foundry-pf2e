@@ -3,11 +3,11 @@ import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteCallbackOptions,
     DatabaseUpdateCallbackOptions,
-} from "./../../../../foundry/common/abstract/_types.mjs";
+} from "#common/abstract/_types.mjs";
 import { EffectBadge } from "./../abstract-effect/data.ts";
 import { AbstractEffectPF2e } from "./../abstract-effect/index.ts";
 import { BadgeReevaluationEventType } from "./../abstract-effect/types.ts";
-import { RuleElementOptions, RuleElementPF2e } from "./../../rules/index.ts";
+import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { EffectFlags, EffectSource, EffectSystemData } from "./data.ts";
 declare class EffectPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends AbstractEffectPF2e<TParent> {
     #private;
@@ -21,7 +21,7 @@ declare class EffectPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ex
     get fromAura(): boolean;
     prepareBaseData(): void;
     /** Unless this effect is temporarily constructed, ignore rule elements if it is expired */
-    prepareRuleElements(options?: RuleElementOptions): RuleElementPF2e[];
+    prepareRuleElements(options?: Omit<RuleElementOptions, "parent">): RuleElement[];
     /** Increases if this is a counter effect, otherwise ignored outright */
     increase(): Promise<void>;
     /** Decreases if this is a counter effect, otherwise deletes entirely */
@@ -35,7 +35,7 @@ declare class EffectPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ex
     ): string[];
     /** Set the start time and initiative roll of a newly created effect */
     protected _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: fd.BaseUser,
     ): Promise<boolean | void>;

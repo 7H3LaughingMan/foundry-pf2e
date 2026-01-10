@@ -1,10 +1,7 @@
 import { ActorPF2e } from "./../actor/index.ts";
-import { StrikeData } from "./../actor/data/base.ts";
-import { DataModelConstructionContext } from "./../../../foundry/common/abstract/_module.mjs";
-import {
-    ChatMessageCreateCallbackOptions,
-    ChatMessageCreateOperation,
-} from "./../../../foundry/common/documents/chat-message.mjs";
+import { AttackAction, StrikeData } from "./../actor/data/base.ts";
+import { DataModelConstructionContext } from "#common/abstract/_module.mjs";
+import { ChatMessageCreateCallbackOptions, ChatMessageCreateOperation } from "#common/documents/chat-message.mjs";
 import { ItemPF2e } from "./../item/index.ts";
 import { UserPF2e } from "./../user/index.ts";
 import { ScenePF2e, TokenDocumentPF2e } from "./../scene/index.ts";
@@ -32,8 +29,9 @@ declare class ChatMessagePF2e extends ChatMessage {
     get isRerollable(): boolean;
     /** Get the owned item associated with this chat message */
     get item(): ItemPF2e<ActorPF2e> | null;
-    /** If this message was for a strike, return the strike. Strikes will change in a future release */
     get _strike(): StrikeData | null;
+    /** If this message was for a strike, return the strike. Strikes will change in a future release */
+    get _attack(): AttackAction | null;
     showDetails(): Promise<void>;
     /** Get the token of the speaker if possible */
     get token(): TokenDocumentPF2e<ScenePF2e> | null;

@@ -1,15 +1,16 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
-import { DocumentConstructionContext } from "./../../../../foundry/common/_types.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
+import { DocumentConstructionContext } from "#common/_types.mjs";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteOperation,
     DatabaseUpdateCallbackOptions,
     DatabaseUpdateOperation,
-} from "./../../../../foundry/common/abstract/_types.mjs";
+} from "#common/abstract/_types.mjs";
 import { ItemPF2e, ContainerPF2e } from "./../index.ts";
 import { ItemSourcePF2e, PhysicalItemSource, RawItemChatData, TraitChatData } from "./../base/data/index.ts";
 import { Rarity, Size, ZeroToTwo } from "./../../data.ts";
+import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { EffectSpinoff } from "./../../rules/rule-element/effect-spinoff/spinoff.ts";
 import { Bulk } from "./bulk.ts";
 import {
@@ -22,7 +23,7 @@ import {
     PhysicalSystemData,
     Price,
 } from "./data.ts";
-import { CoinsPF2e } from "./helpers.ts";
+import { Coins } from "./helpers.ts";
 declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     /** The item in which this item is embedded */
     parentItem: PhysicalItemPF2e | null;
@@ -55,7 +56,7 @@ declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = Actor
     get isAttachable(): boolean;
     get price(): Price;
     /** The monetary value of the entire item stack */
-    get assetValue(): CoinsPF2e;
+    get assetValue(): Coins;
     get identificationStatus(): IdentificationStatus;
     get isIdentified(): boolean;
     get isAlchemical(): boolean;
@@ -92,6 +93,7 @@ declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = Actor
     /** Refresh certain derived properties in case of special data preparation from subclasses */
     prepareDerivedData(): void;
     prepareSiblingData(): void;
+    prepareRuleElements(options?: Omit<RuleElementOptions, "parent">): RuleElement[];
     /** After item alterations have occurred, ensure that this item's hit points are no higher than its maximum */
     onPrepareSynthetics(): void;
     prepareActorData(): void;
@@ -120,8 +122,32 @@ declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = Actor
             strict?: boolean;
         },
     ): foundry.abstract.Document | undefined;
+    /** Attaches an item to this item as a subitem. If it is an ammo to a weapon, also performs reloading */
+    attach(
+        item: PhysicalItemPF2e,
+        {
+            quantity,
+            stack,
+        }?: {
+            quantity?: number;
+            stack?: boolean;
+        },
+    ): Promise<boolean>;
     /**
-     * Can the provided item stack with this item?
+     * Detach a subitem from another physical item, either creating it as a new, independent item or incrementing the
+     * quantity of an existing stack.
+     */
+    detach({
+        skipConfirm,
+        quantity,
+        keepZero,
+    }?: {
+        skipConfirm?: boolean;
+        quantity?: number;
+        keepZero?: boolean;
+    }): Promise<void>;
+    /**
+     * Can the provided item stack with this item? This should be used on existing items.
      * @param item an item we are trying to add to the inventory
      */
     isStackableWith(item: PhysicalItemPF2e): boolean;
@@ -167,7 +193,7 @@ declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = Actor
     delete(operation?: Partial<Omit<DatabaseDeleteOperation<null>, "parent" | "pack">>): Promise<this | undefined>;
     /** Set to unequipped upon acquiring */
     protected _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: fd.BaseUser,
     ): Promise<boolean | void>;
@@ -183,8 +209,9 @@ interface PhysicalItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> 
     readonly _source: PhysicalItemSource;
     system: PhysicalSystemData;
 }
-interface PhysicalItemConstructionContext<TParent extends ActorPF2e | null>
-    extends DocumentConstructionContext<TParent> {
+interface PhysicalItemConstructionContext<
+    TParent extends ActorPF2e | null,
+> extends DocumentConstructionContext<TParent> {
     parentItem?: PhysicalItemPF2e<TParent>;
 }
 export { PhysicalItemPF2e, type PhysicalItemConstructionContext };

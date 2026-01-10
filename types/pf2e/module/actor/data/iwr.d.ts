@@ -34,6 +34,7 @@ type IWRDisplayData<TType extends IWRType> = Pick<IWR<TType>, "type" | "exceptio
 declare class Immunity extends IWR<ImmunityType> implements ImmunitySource {
     protected readonly typeLabels: {
         acid: string;
+        aging: string;
         air: string;
         alchemical: string;
         "area-damage": string;
@@ -93,6 +94,7 @@ declare class Immunity extends IWR<ImmunityType> implements ImmunitySource {
         polymorph: string;
         possession: string;
         precision: string;
+        prediction: string;
         prone: string;
         radiation: string;
         restrained: string;
@@ -109,6 +111,7 @@ declare class Immunity extends IWR<ImmunityType> implements ImmunitySource {
         stupefied: string;
         "swarm-attacks": string;
         "swarm-mind": string;
+        time: string;
         trip: string;
         "unarmed-attacks": string;
         unconscious: string;
@@ -132,6 +135,7 @@ declare class Immunity extends IWR<ImmunityType> implements ImmunitySource {
         inubrix: string;
         noqual: string;
         orichalcum: string;
+        peachwood: string;
         siccatite: string;
         silver: string;
         "cold-iron": string;
@@ -187,6 +191,7 @@ declare class Weakness extends IWR<WeaknessType> implements WeaknessSource {
         spells: string;
         spirit: string;
         "splash-damage": string;
+        time: string;
         "unarmed-attacks": string;
         "vampire-weaknesses": string;
         vitality: string;
@@ -212,15 +217,18 @@ declare class Weakness extends IWR<WeaknessType> implements WeaknessSource {
         inubrix: string;
         noqual: string;
         orichalcum: string;
+        peachwood: string;
         siccatite: string;
         silver: string;
         "cold-iron": string;
     };
     readonly doubleVs?: never;
     value: number;
+    readonly applyOnce: boolean;
     constructor(
         data: IWRConstructorData<WeaknessType> & {
             value: number;
+            applyOnce?: boolean;
         },
     );
     toObject(): Readonly<WeaknessDisplayData>;
@@ -228,6 +236,7 @@ declare class Weakness extends IWR<WeaknessType> implements WeaknessSource {
 type WeaknessDisplayData = IWRDisplayData<WeaknessType> & Pick<Weakness, "value">;
 interface WeaknessSource extends IWRSource<WeaknessType> {
     value: number;
+    applyOnce?: boolean;
 }
 declare class Resistance extends IWR<ResistanceType> implements ResistanceSource {
     protected readonly typeLabels: {
@@ -271,6 +280,7 @@ declare class Resistance extends IWR<ResistanceType> implements ResistanceSource
         sonic: string;
         spells: string;
         spirit: string;
+        time: string;
         "unarmed-attacks": string;
         vitality: string;
         void: string;
@@ -294,6 +304,7 @@ declare class Resistance extends IWR<ResistanceType> implements ResistanceSource
         inubrix: string;
         noqual: string;
         orichalcum: string;
+        peachwood: string;
         siccatite: string;
         silver: string;
         "cold-iron": string;
@@ -316,6 +327,6 @@ interface ResistanceSource extends IWRSource<ResistanceType> {
     doubleVs?: IWRException<ResistanceType>[];
 }
 /** Weaknesses to things that "[don't] normally deal damage, such as water": applied separately as untyped damage */
-declare const NON_DAMAGE_WEAKNESSES: Set<WeaknessType>;
-export { Immunity, NON_DAMAGE_WEAKNESSES, Resistance, Weakness };
+declare const APPLY_ONCE_WEAKNESSES: Set<WeaknessType>;
+export { APPLY_ONCE_WEAKNESSES, Immunity, Resistance, Weakness };
 export type { ImmunitySource, IWRSource, ResistanceSource, WeaknessSource };

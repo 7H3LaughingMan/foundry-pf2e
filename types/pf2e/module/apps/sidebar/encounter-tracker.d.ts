@@ -1,5 +1,5 @@
-import { ApplicationRenderContext } from "./../../../../foundry/client/applications/_types.mjs";
-import { HandlebarsRenderOptions } from "./../../../../foundry/client/applications/api/handlebars-application.mjs";
+import { ApplicationRenderContext } from "#client/applications/_types.mjs";
+import { HandlebarsRenderOptions } from "#client/applications/api/handlebars-application.mjs";
 import { CombatantPF2e, EncounterPF2e } from "./../../encounter/index.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import tabs = fa.sidebar.tabs;
@@ -17,6 +17,7 @@ export declare class EncounterTracker<TEncounter extends EncounterPF2e | null> e
         context: ApplicationRenderContext,
         options: HandlebarsRenderOptions,
     ): Promise<ApplicationRenderContext>;
+    protected _renderHTML(context: object, options: HandlebarsRenderOptions): Promise<Record<string, HTMLElement>>;
     /** Show encounter analysis data if obtainable */
     protected _onRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
     /** Refresh the list of users targeting a combatant's token as well as the active state of the target toggle */

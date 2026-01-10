@@ -1,8 +1,8 @@
+import { SettingConfig, SettingSubmenuConfig } from "./../_types.mjs";
 import ApplicationV2 from "./../applications/api/application.mjs";
 import SettingsConfig from "./../applications/settings/config.mjs";
 import Application from "./../appv1/api/application-v1.mjs";
 import Setting from "./../documents/setting.mjs";
-import { SettingConfig, SettingSubmenuConfig } from "./../../common/_types.mjs";
 import { RollMode } from "./../../common/constants.mjs";
 import Collection from "./../../common/utils/collection.mjs";
 
@@ -129,7 +129,7 @@ interface SettingRegistration<
     TChoices extends Record<string, unknown> | undefined = Record<string, unknown> | undefined,
 > extends Omit<SettingConfig<TChoices>, "config" | "key" | "namespace" | "scope"> {
     config?: boolean;
-    scope?: "client" | "world" | "user";
+    scope?: "client" | "world";
 }
 
 interface ClientSettingsMap extends Map<string, SettingConfig> {

@@ -15,8 +15,7 @@ export default class BaseRegion<TParent extends BaseScene | null = BaseScene | n
 }
 
 export default interface BaseRegion<TParent extends BaseScene | null = BaseScene | null>
-    extends Document<TParent, RegionSchema>,
-        fields.ModelPropsFromSchema<RegionSchema> {
+    extends Document<TParent, RegionSchema>, fields.ModelPropsFromSchema<RegionSchema> {
     get documentName(): RegionMetadata["name"];
 
     readonly behaviors: EmbeddedCollection<BaseRegionBehavior<this>>;

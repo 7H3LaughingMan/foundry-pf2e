@@ -1,4 +1,4 @@
-import { ActorUUID } from "./../../../foundry/client/documents/_module.mjs";
+import { ActorUUID } from "#client/documents/_module.mjs";
 import { ConditionPF2e, EffectPF2e } from "./../../module/item/index.ts";
 import { EffectTrait } from "./../../module/item/abstract-effect/types.ts";
 import { ChatMessagePF2e } from "./../../module/chat-message/document.ts";
@@ -28,6 +28,6 @@ interface RollActionMacroParams {
     itemId?: string;
     slug?: string;
     elementTrait?: EffectTrait;
-    type?: "blast" | "strike";
+    type?: "blast" | "strike" | "area-fire" | "auto-fire";
 }
 export {};

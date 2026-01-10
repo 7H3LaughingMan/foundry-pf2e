@@ -1,9 +1,9 @@
 import { AuraAppearanceData, AuraData } from "./../../../actor/types.ts";
+import { GridHighlight } from "#client/canvas/containers/_module.mjs";
 import { ItemTrait } from "./../../../item/base/data/system.ts";
 import { TokenAuraData } from "./../../../scene/token-document/aura/index.ts";
 import { EffectAreaSquare } from "../../effect-area-square.ts";
 import { TokenPF2e } from "../index.ts";
-import { GridHighlight } from "../../../../../foundry/client/canvas/containers/_module.mjs";
 /** Visual rendering of auras emanated by a token's actor */
 declare class AuraRenderer extends PIXI.Graphics implements TokenAuraData {
     #private;

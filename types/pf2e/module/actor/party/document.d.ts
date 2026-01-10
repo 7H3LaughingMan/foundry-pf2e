@@ -4,11 +4,11 @@ import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteCallbackOptions,
     DataModelValidationOptions,
-} from "./../../../../foundry/common/abstract/_module.mjs";
-import { UserAction } from "./../../../../foundry/common/constants.mjs";
-import { ActorUUID } from "./../../../../foundry/common/documents/_module.mjs";
-import { ItemType } from "./../../item/base/data/index.ts";
-import { RuleElementPF2e } from "./../../rules/index.ts";
+} from "#common/abstract/_module.mjs";
+import { UserAction } from "#common/constants.mjs";
+import { ActorUUID } from "#common/documents/_module.mjs";
+import { ItemType } from "./../../item/types.ts";
+import { RuleElement } from "./../../rules/index.ts";
 import { RuleElementSchema } from "./../../rules/rule-element/data.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { Statistic } from "./../../system/statistic/index.ts";
@@ -33,7 +33,7 @@ declare class PartyPF2e<
     validate(options?: DataModelValidationOptions): boolean;
     updateSource(data?: Record<string, unknown>, options?: DocumentSourceUpdateContext): DeepPartial<this["_source"]>;
     /** Only prepare rule elements for non-physical items (in case campaign items exist) */
-    protected prepareRuleElements(): RuleElementPF2e<RuleElementSchema>[];
+    protected prepareRuleElements(): RuleElement<RuleElementSchema>[];
     prepareBaseData(): void;
     prepareDerivedData(): void;
     addMembers(...membersToAdd: CreaturePF2e[]): Promise<void>;
@@ -46,7 +46,7 @@ declare class PartyPF2e<
     getStatistic(slug: string): Statistic<this> | null;
     private _resetAndRerenderDebounced;
     protected _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: fd.BaseUser,
     ): Promise<boolean | void>;

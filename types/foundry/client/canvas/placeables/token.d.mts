@@ -1,39 +1,27 @@
 import {
-    TokenAnimationTransition,
-    TokenConstrainMovementPathOptions,
-    TokenConstrainMovementPathWaypoint,
-    TokenFindMovementPathJob,
-    TokenFindMovementPathOptions,
-    TokenFindMovementPathWaypoint,
-    TokenGetTerrainMovementPathWaypoint,
-    TokenMeasureMovementPathOptions,
-    TokenMeasureMovementPathWaypoint,
-    TokenMovementCostFunction,
-    TokenMovementWaypoint,
+    ReticuleOptions,
+    TokenAnimationContext,
+    TokenAnimationData,
+    TokenAnimationOptions,
     TokenPlannedMovement,
-    TokenTerrainMovementWaypoint,
 } from "./../../_types.mjs";
 import { TokenDocument, User } from "./../../documents/_module.mjs";
-import { ColorSource, ElevatedPoint, Point, TokenDimensions, TokenPosition } from "./../../../common/_types.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "./../../../common/abstract/_types.mjs";
+import { TokenUpdateCallbackOptions } from "./../../documents/token.mjs";
+import { ColorSource, Point } from "./../../../common/_types.mjs";
+import { DatabaseCreateCallbackOptions } from "./../../../common/abstract/_types.mjs";
 import { TokenDisplayMode, WallRestrictionType } from "./../../../common/constants.mjs";
 import Color from "./../../../common/utils/color.mjs";
-import { CanvasAnimationAttribute, CanvasAnimationOptions } from "../animation/_types.mjs";
+import { CanvasAnimationAttribute } from "../animation/_types.mjs";
 import { PreciseText } from "../containers/_module.mjs";
 import PolygonVertex from "../geometry/edges/vertex.mjs";
 import { TokenLayer } from "../layers/_module.mjs";
 import { PlaceablesLayerPointerEvent } from "../layers/base/placeables-layer.mjs";
 import PrimarySpriteMesh from "../primary/primary-sprite-mesh.mjs";
-import { TextureTransitionType } from "../rendering/filters/transition.mjs";
 import { PointLightSource, PointVisionSource, VisionSourceData } from "../sources/_module.mjs";
 import { LightSourceData } from "../sources/base-light-source.mjs";
 import PlaceableObject, { PlaceableShape } from "./placeable-object.mjs";
 import Region, { RegionMovementSegment, RegionMovementWaypoint } from "./region.mjs";
-import { BaseTokenRuler, TokenRing, TokenTurnMarker } from "./tokens/_module.mjs";
+import { BaseTokenRuler } from "./tokens/_module.mjs";
 
 /** A Token is an implementation of PlaceableObject that represents an Actor within a viewed Scene on the game canvas. */
 export default class Token<TDocument extends TokenDocument = TokenDocument> extends PlaceableObject<TDocument> {
@@ -42,39 +30,19 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
     static override embeddedName: "Token";
 
     static override RENDER_FLAGS: {
-        redraw: { propagate: ["refresh"] };
+        redraw: { propagate: string[] };
         redrawEffects: object;
-        refresh: {
-            propagate: [
-                "refreshState",
-                "refreshTransform",
-                "refreshMesh",
-                "refreshNameplate",
-                "refreshElevation",
-                "refreshRingVisuals",
-            ];
-            alias: true;
-        };
-        refreshState: { propagate: ["refreshVisibility", "refreshTarget"] };
+        refresh: { propagate: string[]; alias: true };
+        refreshState: { propagate: string[] };
         refreshVisibility: object;
-        refreshTransform: { propagate: ["refreshPosition", "refreshRotation", "refreshSize"]; alias: true };
+        refreshTransform: { propagate: string[]; alias: true };
         refreshPosition: object;
         refreshRotation: object;
-        refreshSize: {
-            propagate: [
-                "refreshPosition",
-                "refreshShape",
-                "refreshBars",
-                "refreshEffects",
-                "refreshNameplate",
-                "refreshTarget",
-                "refreshTooltip",
-            ];
-        };
+        refreshSize: { propagate: string[] };
         refreshElevation: object;
-        refreshMesh: { propagate: ["refreshShader"] };
+        refreshMesh: { propagate: string[] };
         refreshShader: object;
-        refreshShape: { propagate: ["refreshVisibility", "refreshPosition", "refreshBorder", "refreshEffects"] };
+        refreshShape: { propagate: string[] };
         refreshBorder: object;
         refreshBars: object;
         refreshEffects: object;
@@ -103,19 +71,20 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
     /** The tooltip text of this Token, which contains its elevation. */
     tooltip: PreciseText;
 
-    /** The target arrows marker, which indicates that this Token is targeted by this User. */
-    targetArrows: PIXI.Graphics;
-
-    /** The target pips marker, which indicates that this Token is targeted by other User(s). */
-    targetPips: PIXI.Graphics;
+    /** The target marker, which indicates that this Token is targeted by this User or others. */
+    target: PIXI.Graphics;
 
     /** The nameplate of this Token, which displays its name. */
     nameplate: PreciseText;
 
-    /** The ruler of this Token. */
-    ruler: BaseTokenRuler | null;
+    /**
+     * The ruler of this Token.
+     */
+    ruler: BaseTokenRuler<this> | null;
 
-    /** The ruler data. */
+    /**
+     * The ruler data.
+     */
     protected _plannedMovement: Record<string, TokenPlannedMovement>;
 
     /** Track the set of User documents which are currently targeting this Token */
@@ -145,42 +114,23 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
      */
     light: PointLightSource<this>;
 
-    /**
-     * The Turn Marker of this Token.
-     * Only a subset of Token objects have a turn marker at any given time.
-     */
-    turnMarker: TokenTurnMarker | null;
-
     /** The current animations of this Token. */
     get animationContexts(): Map<string, TokenAnimationContext>;
-
-    /** The general animation name used for this Token. */
-    get animationName(): string;
-
-    /** The animation name used to animate this Token's movement. */
-    get movementAnimationName(): string;
-
-    /**
-     * The promise of the current movement animation chain of this Token
-     * or null if there isn't a movement animation in progress.
-     */
-    get movementAnimationPromise(): Promise<void> | null;
-
-    /** Should the ruler of this Token be visible? */
-    get showRuler(): boolean;
 
     /**
      * A TokenRing instance which is used if this Token applies a dynamic ring.
      * This property is null if the Token does not use a dynamic ring.
+     * todo: Replace with correct type
+     * @type {foundry.canvas.tokens.TokenRing|null}
      */
-    get ring(): TokenRing;
+    get ring(): object;
 
     /** A convenience boolean to test whether the Token is using a dynamic ring. */
     get hasDynamicRing(): boolean;
 
     /* -------------------------------------------- */
     /*  Permission Attributes
-    /* -------------------------------------------- */
+        /* -------------------------------------------- */
 
     /** A convenient reference to the Actor object associated with the Token embedded document. */
     get actor(): TDocument["actor"];
@@ -193,9 +143,9 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     /* -------------------------------------------- */
     /*  Rendering Attributes
-    /* -------------------------------------------- */
+        /* -------------------------------------------- */
 
-    override get bounds(): PIXI.Rectangle;
+    get bounds(): PIXI.Rectangle;
 
     /** Translate the token's grid width into a pixel width based on the canvas size */
     get w(): number;
@@ -203,10 +153,10 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
     /** Translate the token's grid height into a pixel height based on the canvas size */
     get h(): number;
 
-    override get center(): PIXI.Point;
+    /** The Token's current central position */
+    get center(): PIXI.Point;
 
     /** The Token's central position, adjusted in each direction by one or zero pixels to offset it relative to walls. */
-    getMovementAdjustedPoint(point: ElevatedPoint, options?: { offsetX: number; offsetY: number }): ElevatedPoint;
     getMovementAdjustedPoint(point: Point, options?: { offsetX: number; offsetY: number }): Point;
 
     /** The HTML source element for the primary Tile texture */
@@ -219,7 +169,7 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     /* -------------------------------------------- */
     /*  State Attributes
-    /* -------------------------------------------- */
+        /* -------------------------------------------- */
 
     /** An indicator for whether or not this token is currently involved in the active combat encounter. */
     get inCombat(): boolean;
@@ -229,9 +179,6 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     /** An indicator for whether the Token is currently targeted by the active game User */
     get isTargeted(): boolean;
-
-    /** Is this Token currently being dragged? */
-    get isDragged(): boolean;
 
     /** Return a reference to the detection modes array. */
     get detectionModes(): TDocument["detectionModes"];
@@ -247,6 +194,14 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
      */
     get isVisible(): boolean;
 
+    /** The animation name used for Token movement */
+    get animationName(): string;
+
+    /**
+     * The animation name used to animate this Token's movement.
+     */
+    get movementAnimationName(): string;
+
     /* -------------------------------------------- */
     /*  Lighting and Vision Attributes              */
     /* -------------------------------------------- */
@@ -257,10 +212,16 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
     /** Does this Token actively emit light given its properties and the current darkness level of the Scene? */
     protected _isLightSource(): boolean;
 
-    /** Does this Ambient Light actively emit darkness given its properties and the current darkness level of the Scene? */
+    /**
+     * Does this Ambient Light actively emit darkness given
+     * its properties and the current darkness level of the Scene?
+     */
     get emitsDarkness(): boolean;
 
-    /** Does this Ambient Light actively emit light given its properties and the current darkness level of the Scene? */
+    /**
+     * Does this Ambient Light actively emit light given
+     * its properties and the current darkness level of the Scene?
+     */
     get emitsLight(): boolean;
 
     /** Test whether the Token uses a limited angle of vision or light emission. */
@@ -286,14 +247,15 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     /**
      * Update the light and vision source objects associated with this Token.
-     * @param options Options which configure how perception sources are updated
-     * @param options.deleted Indicate that this light and vision source has been deleted
+     * @param [options={}]              Options which configure how perception sources are updated
+     * @param [options.deleted=false]   Indicate that this light and vision source has been deleted
      */
     initializeSources(options?: { deleted?: boolean }): void;
 
     /**
      * Update an emitted light source associated with this Token.
-     * @param options.deleted Indicate that this light source has been deleted.
+     * @param [options={}]
+     * @param [options.deleted]    Indicate that this light source has been deleted.
      */
     initializeLightSource(options?: { deleted?: boolean }): void;
 
@@ -302,8 +264,8 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     /**
      * Update the VisionSource instance associated with this Token.
-     * @param options Options which affect how the vision source is updated
-     * @param options.deleted Indicate that this vision source has been deleted.
+     * @param [options]           Options which affect how the vision source is updated
+     * @param [options.deleted]   Indicate that this vision source has been deleted.
      */
     initializeVisionSource(options?: { deleted?: boolean }): void;
 
@@ -332,17 +294,14 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     protected override _draw(options?: object): Promise<void>;
 
-    /**
-     * Create the BaseTokenRuler instance for this Token, if any.
-     * This function is called when the Token is drawn for the first time.
-     */
-    protected _initializeRuler(): BaseTokenRuler | null;
-
     /* -------------------------------------------- */
     /*  Incremental Refresh                         */
     /* -------------------------------------------- */
 
     protected override _applyRenderFlags(flags: Record<string, boolean>): void;
+
+    /** Recovering state after a preview. */
+    protected _recoverFromPreview(): void;
 
     /** Refresh the token ring visuals if necessary. */
     protected _refreshRingVisuals(): void;
@@ -356,14 +315,8 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
      */
     protected _refreshState(): void;
 
-    /** Resize mesh and handle scale adjustment. */
-    protected _refreshMeshSizeAndScale(): void;
-
     /** Refresh the size. */
     protected _refreshSize(): void;
-
-    /** Refresh the token mesh. */
-    protected _refreshMesh(): void;
 
     /** Refresh the shape. */
     protected _refreshShape(): void;
@@ -383,6 +336,9 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
     /** Refresh the text content, position, and visibility of the Token nameplate. */
     protected _refreshNameplate(): void;
 
+    /** Refresh the token mesh. */
+    protected _refreshMesh(): void;
+
     /** Refresh the token mesh shader. */
     protected _refreshShader(): void;
 
@@ -391,27 +347,22 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     /**
      * Get the hex color that should be used to render the Token border
-     * @returns The hex color used to depict the border color
+     * @returns    The hex color used to depict the border color
      */
     protected _getBorderColor(): number;
-
-    /** Get the Color used to represent the disposition of this Token. */
-    getDispositionColor(): number;
 
     /**
      * Refresh the target indicators for the Token.
      * Draw both target arrows for the primary User and indicator pips for other Users targeting the same Token.
+     * @param [reticule]  Additional parameters to configure how the targeting reticule is drawn.
      */
-    protected _refreshTarget(): void;
+    protected _refreshTarget(reticule?: ReticuleOptions): void;
 
     /**
      * Draw the targeting arrows around this token.
-     * @param reticule Additional parameters to configure how the targeting reticule is drawn.
+     * @param [reticule]  Additional parameters to configure how the targeting reticule is drawn.
      */
-    protected _drawTargetArrows(reticule?: ReticuleOptions): void;
-
-    /** Draw the targeting pips around this token. */
-    protected _drawTargetPips(): void;
+    protected _drawTarget(reticule?: ReticuleOptions): void;
 
     /**
      * Refresh the display of Token attribute bars, rendering its latest resource data.
@@ -438,12 +389,12 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     /**
      * Draw the effect icons for ActiveEffect documents which apply to the Token's Actor.
-     * Called by {@link Token.drawEffects}.
+     * Called by {@link Token#drawEffects}.
      */
     protected _drawEffects(): Promise<void>;
 
     /** Draw a status effect icon */
-    protected _drawEffect(src: string, tint: ColorSource | null): Promise<PIXI.Sprite | undefined>;
+    protected _drawEffect(src: string, tint: ColorSource | null): Promise<PIXI.Sprite | void>;
 
     /** Draw the overlay effect icon */
     protected _drawOverlay(src: string, tint: number | null): Promise<PIXI.Sprite>;
@@ -451,15 +402,9 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
     /** Refresh the display of status effects, adjusting their position for the token width and height. */
     protected _refreshEffects(): void;
 
-    /** Refresh presentation of the Token's combat turn marker, if any. */
-    protected _refreshTurnMarker(): void;
-
-    /** Refresh the display of the ruler. */
-    protected _refreshRuler(): void;
-
     /**
      * Helper method to determine whether a token attribute is viewable under a certain mode
-     * @param mode The mode from {@link CONST.TOKEN_DISPLAY_MODES}
+     * @param mode The mode from CONST.TOKEN_DISPLAY_MODES
      * @return Is the attribute viewable?
      */
     protected _canViewMode(mode: TokenDisplayMode): boolean;
@@ -483,245 +428,177 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     /**
      * Get the animation data for the current state of the document.
-     * @returns The target animation data object
+     * @returns    The target animation data object
      */
     protected _getAnimationData(): TokenAnimationData;
 
     /**
      * Animate from the old to the new state of this Token.
-     * @param to The animation data to animate to
-     * @param options The options that configure the animation behavior
-     * @returns A promise which resolves once the animation has finished or stopped
+     * @param to                           The animation data to animate to
+     * @param [options]                    The options that configure the animation behavior.
+     *                                     Passed to {@link Token#_getAnimationDuration}.
+     * @param [options.duration]           The duration of the animation in milliseconds
+     * @param [options.movementSpeed=6]    A desired token movement speed in grid spaces per second
+     * @param [options.transition]         The desired texture transition type
+     * @param [options.easing]             The easing function of the animation
+     * @param [options.name]               The name of the animation, or null if nameless.
+     *                                     The default is {@link Token#animationName}.
+     * @param [options.ontick]             A on-tick callback
+     * @returns    A promise which resolves once the animation has finished or stopped
      */
     animate(to: Partial<TokenAnimationData>, options?: TokenAnimationOptions): Promise<void>;
 
     /**
      * Get the duration of the animation.
-     * @param from The animation data to animate from
-     * @param to The animation data to animate to
-     * @param options The options that configure the animation behavior
-     * @returns The duration of the animation in milliseconds
+     * @param from                         The animation data to animate from
+     * @param to                           The animation data to animate to
+     * @param [options]                    The options that configure the animation behavior
+     * @param [options.movementSpeed=6]    A desired token movement speed in grid spaces per second
+     * @returns    The duration of the animation in milliseconds
      */
     protected _getAnimationDuration(
-        from: DeepReadonly<TokenAnimationData>,
-        to: DeepReadonly<Partial<TokenAnimationData>>,
-        options: TokenAnimationOptions,
+        from: TokenAnimationData,
+        to: Partial<TokenAnimationData>,
+        options?: { movementSpeed?: number },
     ): number;
 
     /**
-     * Get the base movement speed for the animation in grid size per second.
-     * The default implementation returns `CONFIG.Token.movement.defaultSpeed`.
-     * @param options The options that configure the animation behavior
-     * @returns The base movement speed in grid size per second
+     * Prepare the animation data changes: performs special handling required for animating rotation.
+     * @param from                         The animation data to animate from
+     * @param changes                      The animation data changes
+     * @param context                      The animation context
+     * @param [options]                    The options that configure the animation behavior
+     * @param [options.transition="fade"]  The desired texture transition type
+     * @returns    The animation attributes
      */
-    protected _getAnimationMovementSpeed(options: TokenAnimationOptions): number;
-
-    /**
-     * Modify the base movement speed of the animation.
-     * Divides by the terrain difficulty, if present, by default.
-     * @param speed The base movement speed in grid size per second
-     * @param options The options that configure the animation behavior
-     * @returns The modified movement speed in grid size per second
-     */
-    protected _modifyAnimationMovementSpeed(speed: number, options: TokenAnimationOptions): number;
-
-    /**
-     * Get the rotation speed for the animation in 60 degrees per second.
-     * Returns the movement speed by default.
-     * @param options The options that configure the animation behavior
-     * @returns The rotation speed in 60 degrees per second
-     */
-    protected _getAnimationRotationSpeed(options: TokenAnimationOptions): number;
-
-    /**
-     * Does this Token require rotation changes to be animated?
-     * If false is returned, the rotation speed is set to infinity.
-     */
-    protected _requiresRotationAnimation(): boolean;
+    protected _prepareAnimation(
+        from: TokenAnimationData,
+        changes: Partial<TokenAnimationData>,
+        context: Omit<TokenAnimationContext, "promise">,
+        options?: { transition: string },
+    ): CanvasAnimationAttribute[];
 
     /**
      * Called each animation frame.
-     * @param changed The animation data that changed
-     * @param context The animation context
+     * @param changed    The animation data that changed
+     * @param context    The animation context
      */
     protected _onAnimationUpdate(changed: Partial<TokenAnimationData>, context: TokenAnimationContext): void;
 
     /**
      * Terminate the animations of this particular Token, if exists.
-     * @param options Additional options.
-     * @param options.reset Reset the TokenDocument?
+     * @param [options]               Additional options.
+     * @param [options.reset=true]    Reset the TokenDocument?
      */
     stopAnimation(options?: { reset?: boolean }): void;
 
     /* -------------------------------------------- */
-    /*  Animation Preparation Methods               */
-    /* -------------------------------------------- */
-
-    /**
-     * Get the texture transition type.
-     * Returns `"fade"` by default.
-     * @param options The options that configure the animation behavior
-     * @returns The transition type
-     */
-    protected _getAnimationTransition(options: TokenAnimationOptions): TokenAnimationTransition;
-
-    /**
-     * Prepare the animation data changes: performs special handling required for animating rotation.
-     * @param from The animation data to animate from
-     * @param changes The animation data changes
-     * @param context The animation context
-     * @param options The options that configure the animation behavior
-     * @returns The animation attributes
-     */
-    protected _prepareAnimation(
-        from: DeepReadonly<TokenAnimationData>,
-        changes: Partial<TokenAnimationData>,
-        context: Omit<TokenAnimationContext, "promise">,
-        options: TokenAnimationOptions,
-    ): CanvasAnimationAttribute[];
-
-    /* -------------------------------------------- */
     /*  Methods
-    /* -------------------------------------------- */
+        /* -------------------------------------------- */
 
     /**
-     * Check for collision when attempting a move to a new position.
-     *
-     * The result of this function must not be affected by the animation of this Token.
-     * @param destination The central destination point of the attempted movement. The elevation defaults to the elevation of the origin.
-     * @param options Additional options forwarded to PointSourcePolygon.testCollision
-     * @param options.origin The origin to be used instead of the current origin. The elevation defaults to the current elevation.
-     * @param  options.type The collision type
-     * @param options.mode The collision mode to test: "any", "all", or "closest"
-     * @returns The collision result depends on the mode of the test:
-     *          * any: returns a boolean for whether any collision occurred
-     *          * all: returns a sorted array of PolygonVertex instances
-     *          * closest: returns a PolygonVertex instance or null
+     * Check for collision when attempting a move to a new position
+     * @param destination              The central destination point of the attempted movement
+     * @param [options={}]             Additional options forwarded to PointSourcePolygon.testCollision
+     * @param [options.origin]         The origin to be used instead of the current origin
+     * @param [options.type="move"]    The collision type
+     * @param [options.mode="any"]     The collision mode to test: "any", "all", or "closest"
+     * @returns                        The collision result depends on the mode of the test:
+     *                                     * any: returns a boolean for whether any collision occurred
+     *                                     * all: returns a sorted array of PolygonVertex instances
+     *                                     * closest: returns a PolygonVertex instance or null
      */
+    checkCollision(destination: Point, { type, mode }: { type?: WallRestrictionType; mode: "closest" }): PolygonVertex;
+    checkCollision(destination: Point, { type, mode }: { type?: WallRestrictionType; mode: "any" }): boolean;
+    checkCollision(destination: Point, { type, mode }: { type?: WallRestrictionType; mode: "all" }): PolygonVertex[];
     checkCollision(
-        destination: Point | ElevatedPoint,
-        { origin, type, mode }: { origin?: Point | ElevatedPoint; type?: WallRestrictionType; mode: "closest" },
-    ): PolygonVertex | null;
-    checkCollision(
-        destination: Point | ElevatedPoint,
-        { origin, type, mode }: { origin?: Point | ElevatedPoint; type?: WallRestrictionType; mode: "any" },
-    ): boolean;
-    checkCollision(
-        destination: Point | ElevatedPoint,
-        { origin, type, mode }: { origin?: Point | ElevatedPoint; type?: WallRestrictionType; mode: "all" },
+        destination: Point,
+        { type, mode }?: { type?: WallRestrictionType; mode?: undefined },
     ): PolygonVertex[];
     checkCollision(
-        destination: Point | ElevatedPoint,
-        { origin, type, mode }?: { origin?: Point | ElevatedPoint; type?: WallRestrictionType; mode?: undefined },
-    ): boolean;
-    checkCollision(
-        destination: Point | ElevatedPoint,
-        {
-            origin,
-            type,
-            mode,
-        }?: { origin?: Point | ElevatedPoint; type?: WallRestrictionType; mode?: "any" | "all" | "closest" },
-    ): boolean | PolygonVertex | PolygonVertex[] | null;
+        destination: Point,
+        { type, mode }?: { type?: WallRestrictionType; mode?: "any" | "all" | "closest" },
+    ): boolean | PolygonVertex | PolygonVertex[];
+
+    /**
+     * Get the width and height of the Token in pixels.
+     * @returns The size in pixels
+     */
+    getSize(): { width: number; height: number };
 
     /** Get the shape of this Token. */
     getShape(): TokenShape;
 
     /**
      * Get the center point for a given position or the current position.
-     * @param position The position to be used instead of the current position
-     * @returns The center point
+     * @param [position]    The position to be used instead of the current position
+     * @returns    The center point
      */
     getCenterPoint(position?: Point): Point;
 
     override getSnappedPosition(position?: Point): Point;
 
-    override _pasteObject(offset: Point, { hidden, snap }: { hidden?: boolean; snap?: boolean }): object;
-
     /**
-     * Measure the movement path for this Token.
-     * @param waypoints The waypoints of movement
-     * @param options Additional options that affect cost calculations (passed to {@link Token._getMovementCostFunction})
-     */
-    measureMovementPath(
-        waypoints: TokenMeasureMovementPathWaypoint[],
-        options: TokenMeasureMovementPathOptions,
-    ): GridMeasurePathResult;
-
-    /**
-     * Create the movement cost function for this Token.
-     * In square and hexagonal grids it calculates the cost for single grid space move between two grid space offsets.
-     * For tokens that occupy more than one grid space the cost of movement is calculated as the median of all individual
-     * grid space moves unless the cost of any of these is infinite, in which case total cost is always infinite.
-     * In gridless grids the `from` and `to` parameters of the cost function are top-left offsets.
-     * If the movement cost function is undefined, the cost equals the distance moved.
-     * @param options Additional options that affect cost calculations
-     */
-    protected _getMovementCostFunction(options: TokenMeasureMovementPathOptions): TokenMovementCostFunction | void;
-
-    /**
-     * Constrain the given movement path.
+     * Test whether the Token is inside the Region.
+     * This function determines the state of {@link TokenDocument#regions} and {@link RegionDocument#tokens}.
      *
-     * The result of this function must not be affected by the animation of this Token.
-     * @param waypoints The waypoints of movement
-     * @param options Additional options
-     * @returns  The (constrained) path of movement and a boolean that is true if and only if the path was constrained.
-     * If it wasn't constrained, then a copy of the path of all given waypoints with all default values filled in is returned.
-     */
-    constrainMovementPath(
-        waypoints: TokenConstrainMovementPathWaypoint[],
-        options?: TokenConstrainMovementPathOptions,
-    ): [constrainedPath: TokenMovementWaypoint[], wasConstrained: boolean];
-
-    /**
-     * Find a movement path through the waypoints.
-     * The path may not necessarily be one with the least cost.
-     * The path returned may be partial, i.e. it doesn't go through all waypoints, but must always start with the first
-     * waypoints unless the waypoints are empty, in which case an empty path is returned.
+     * Implementations of this function are restricted in the following ways:
+     *   - If the bounds (given by {@link Token#getSize}) of the Token do not intersect the Region, then the Token is not
+     *     contained within the Region.
+     *   - If the Token is inside the Region a particular elevation, then the Token is inside the Region at any elevation
+     *     within the elevation range of the Region.
      *
-     * The result of this function must not be affected by the animation of this Token.
-     * @param waypoints The waypoints of movement
-     * @param options Additional options
-     * @returns The job of the movement pathfinder
+     * If this function is overridden, then {@link Token#segmentizeRegionMovement} must be overridden too.
+     * @param region   The region.
+     * @param position The (x, y) and/or elevation to use instead of the current values.
+     * @returns Is the Token inside the Region?
      */
-    findMovementPath(
-        waypoints: TokenFindMovementPathWaypoint[],
-        options: TokenFindMovementPathOptions,
-    ): TokenFindMovementPathJob;
+    testInsideRegion(
+        region: Region,
+        position: Point | (Point & { elevation: number }) | { elevation: number },
+    ): boolean;
 
     /**
-     * This function adds intermediate waypoints pre/post enter and exit for a {@link Region} if the Region
-     * has at least one Behavior that could affect the movement, which is determined by
-     * {@link foundry.data.regionBehaviors.RegionBehaviorType._getTerrainEffects}.
-     * For each segment of the movement path the terrain data is created from all behaviors that
-     * could affect the movement of this Token with {@link CONFIG.Token.movement.TerrainData.resolveTerrainEffects}.
-     * This terrain data is included in the returned regionalized movement path.
-     * This terrain data may then be used in {@link Token._getMovementCostFunction} and
-     * {@link Token.constrainMovementPath}.
-     * @param waypoints The waypoints of movement
-     * @param options Additional options
-     * @param options.preview Is preview?
-     * @returns The movement path with terrain data
+     * Split the Token movement through the waypoints into its segments.
+     *
+     * Implementations of this function are restricted in the following ways:
+     *   - The segments must go through the waypoints.
+     *   - The *from* position matches the *to* position of the succeeding segment.
+     *   - The Token must be contained (w.r.t. {@link Token#testInsideRegion}) within the Region
+     *     at the *from* and *to* of MOVE segments.
+     *   - The Token must be contained (w.r.t. {@link Token#testInsideRegion}) within the Region
+     *     at the *to* position of ENTER segments.
+     *   - The Token must be contained (w.r.t. {@link Token#testInsideRegion}) within the Region
+     *     at the *from* position of EXIT segments.
+     *   - The Token must not be contained (w.r.t. {@link Token#testInsideRegion}) within the Region
+     *     at the *from* position of ENTER segments.
+     *   - The Token must not be contained (w.r.t. {@link Token#testInsideRegion}) within the Region
+     *     at the *to* position of EXIT segments.
+     * @param region    The region.
+     * @param waypoints The waypoints of movement.
+     * @param [options] Additional options
+     * @param [options.teleport=false] Is it teleportation?
+     * @returns The movement split into its segments.
      */
-    createTerrainMovementPath(
-        waypoints: TokenGetTerrainMovementPathWaypoint[],
-        { preview }: { preview?: boolean },
-    ): TokenTerrainMovementWaypoint[];
+    segmentizeRegionMovement(
+        region: Region,
+        waypoints: RegionMovementWaypoint[],
+        options?: { teleport?: boolean },
+    ): RegionMovementSegment[];
 
     /**
      * Set this Token as an active target for the current game User.
-     * @param targeted Is the Token now targeted?
-     * @param options Additional option which modify how targets are acquired
-     * @param options.releaseOthers Release other active targets?
+     * Note: If the context is set with groupSelection:true, you need to manually broadcast the activity for other users.
+     * @param targeted                        Is the Token now targeted?
+     * @param [context={}]                    Additional context options
+     * @param [context.user=null]             Assign the token as a target for a specific User
+     * @param [context.releaseOthers=true]    Release other active targets for the same player?
+     * @param [context.groupSelection=false]  Is this target being set as part of a group selection workflow?
      */
-    setTarget(targeted: boolean, { releaseOthers }: { releaseOthers?: boolean }): void;
-
-    /**
-     * Handle updating the targeting state of this Token for a particular User.
-     * @param targeted Is the token now targeted?
-     * @param user The user whose targeting state has changed
-     * @internal
-     */
-    _updateTarget(targeted: boolean, user: User): void;
+    setTarget(
+        targeted?: boolean,
+        context?: { user?: User | null; releaseOthers?: boolean; groupSelection?: boolean },
+    ): void;
 
     /** The external radius of the token in pixels. */
     get externalRadius(): number;
@@ -736,35 +613,6 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
     getLightRadius(units: number): number;
 
     protected override _getShiftedPosition(dx: number, dy: number): Point;
-
-    /**
-     * Get the movement action in {@link CONFIG.Token.movement | CONFIG.Token.movement.actions} to be used for keyboard
-     * movement.
-     * The default implementation returns `this.document.movementAction`.
-     */
-    protected _getKeyboardMovementAction(): string;
-
-    /**
-     * Get the position for movement via the Token HUD.
-     * @see {@link foundry.applications.hud.TokenHUD._onSubmit}
-     * @internal
-     */
-    _getHUDMovementPosition(elevation: number): Partial<TokenPosition>;
-
-    /**
-     * Get the movement action in {@link CONFIG.Token.movement | CONFIG.Token.movement.actions} to be used for movement
-     * via the Token HUD.
-     * The default implementation returns `this.document.movementAction`.
-     * @see {@link foundry.applications.hud.TokenHUD._onSubmit}
-     */
-    protected _getHUDMovementAction(): string;
-
-    /**
-     * Get the position for movement via the Token Config.
-     * @see {@link foundry.applications.sheets.TokenConfig._processSubmitData}
-     * @internal
-     */
-    _getConfigMovementPosition(changes: Partial<TokenPosition>): Partial<TokenPosition>;
 
     protected override _updateRotation({
         angle,
@@ -786,18 +634,17 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
         userId: string,
     ): void;
 
-    protected override _onUpdate(
+    override _onUpdate(
         changed: DeepPartial<TDocument["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
+        options: TokenUpdateCallbackOptions,
         userId: string,
     ): void;
 
-    protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
-
     /**
      * Handle changes to Token behavior when a significant status effect is applied
-     * @param statusId The status effect ID being applied, from {@link CONFIG.specialStatusEffects}
-     * @param active Is the special status effect now active?
+     * @param statusId      The status effect ID being applied, from CONFIG.specialStatusEffects
+     * @param active        Is the special status effect now active?
+     * @internal
      */
     protected _onApplyStatusEffect(statusId: string, active: boolean): void;
 
@@ -831,6 +678,13 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
     /*  Event Listeners and Handlers                */
     /* -------------------------------------------- */
 
+    /**
+     * Is the Ruler active and measuring or is moving this Token?
+     * If this is the case, the interaction with this Token is prevented.
+     * @internal
+     */
+    get _isRulerActive(): boolean;
+
     protected override _canControl(user: User, event?: PIXI.FederatedEvent): boolean;
 
     protected override _canHUD(user: User, event?: PIXI.FederatedEvent): boolean;
@@ -858,111 +712,13 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     protected override _onClickRight2(event: PIXI.FederatedPointerEvent): void;
 
-    protected override _initializeDragLeft(event: PIXI.FederatedEvent): void;
-
     protected override _onDragLeftStart(event: TokenPointerEvent<this>): void;
-
-    /**
-     * Get the constrain options used during the drag operation.
-     * @returns The constrain options
-     */
-    protected _getDragConstrainOptions(): Omit<TokenConstrainMovementPathOptions, "preview" | "history">;
-
-    /**
-     * Get the search options used during the drag operation to find the path of movement through the waypoints.
-     * @returns The search options
-     */
-    protected _getDragPathfindingOptions(): TokenFindMovementPathOptions;
-
-    /**
-     * Get the movement action for the waypoints placed during a drag operation.
-     * @returns The movement action
-     */
-    protected _getDragMovementAction(): string;
-
-    protected override _onDragLeftDrop(event: PlaceablesLayerPointerEvent<this>): Promise<void | TDocument[]>;
-
-    /** Prevent the drop event? Called by {@link Token._onDragLeftDrop}. */
-    protected _shouldPreventDragLeftDrop(event: PIXI.FederatedEvent): boolean;
 
     protected override _prepareDragLeftDropUpdates(event: PIXI.FederatedEvent): Record<string, unknown>[] | null;
 
     protected override _onDragLeftMove(event: TokenPointerEvent<this>): void;
 
-    /**
-     * Update the destinations of the drag previews and rulers
-     * @param point The (unsnapped) center point of the waypoint
-     * @param options Additional options
-     * @param options.snap Snap the destination?
-     * @protected
-     */
-    protected _updateDragDestination(point: Point, { snap }: { snap?: boolean }): void;
-
-    /**
-     * Get the origin of the drag operation.
-     * @internal
-     */
-    _getDragOrigin(): Point;
-
-    /** Called by {@link foundry.canvas.layers.TokenLayer._onClickLeft} while this Token is in a drag workflow. */
-    protected _onDragClickLeft(event: PIXI.FederatedEvent): void;
-
-    /**
-     * Add ruler waypoints and update ruler paths.
-     * @param point The (unsnapped) center point of the waypoint
-     * @param options Additional options
-     * @param options.snap Snap the added waypoint?
-     */
-    protected _addDragWaypoint(point: Point, { snap }: { snap?: boolean }): void;
-
-    /** Trigger drop event. This drop cannot be prevented by {@link Token._shouldPreventDragLeftDrop}. */
-    protected _triggerDragLeftDrop(): void;
-
-    /** Called by {@link foundry.canvas.layers.TokenLayer._onClickLeft2} while this Token is in a drag workflow. */
-    protected _onDragClickLeft2(event: PIXI.FederatedEvent): void;
-
-    /** Called by {@link foundry.canvas.layers.TokenLayer._onClickRight} while this Token is in a drag workflow. */
-    protected _onDragClickRight(event: PIXI.FederatedEvent): void;
-
-    /** Remove last ruler waypoints and update ruler paths. */
-    protected _removeDragWaypoint(): void;
-
-    /** Cancel the drag workflow. This cancellation cannot be prevented by {@link Token._onDragLeftCancel}. */
-    protected _triggerDragLeftCancel(): void;
-
-    /** Called by {@link foundry.canvas.layers.TokenLayer._onClickRight2} while this Token is in a drag workflow. */
-    protected _onDragClickRight2(event: PIXI.FederatedEvent): void;
-
-    protected override _onDragLeftCancel(event: PlaceablesLayerPointerEvent<this>): void;
-
-    protected override _finalizeDragLeft(event: PIXI.FederatedEvent): void;
-
     protected override _onDragEnd(): void;
-
-    /** Change the elevation of Token during dragging.  */
-    protected _onDragMouseWheel(event: WheelEvent): void;
-
-    /**
-     * Change the elevation of the dragged Tokens.
-     * @param delta The number vertical steps
-     * @param options Additional options
-     * @param options.precise Round elevations to multiples of the grid distance divided by `CONFIG.Canvas.elevationSnappingPrecision`?
-     * If false, rounds to multiples of the grid distance.
-     */
-    protected _changeDragElevation(delta: number, { precise }: { precise?: boolean }): void;
-
-    /**
-     * Get the drag waypoint position.
-     * @internal
-     */
-    _getDragWaypointPosition(
-        current: DeepReadonly<Pick<TokenPosition, "x" | "y" | "elevation">>,
-        changes: DeepReadonly<Partial<ElevatedPoint>>,
-        { snap }: { snap?: boolean },
-    ): Pick<TokenPosition, "x" | "y" | "elevation"> & Partial<TokenDimensions>;
-
-    /** Recalculate the planned movement path of this Token for the current User. */
-    recalculatePlannedMovementPath(): void;
 }
 
 export default interface Token<TDocument extends TokenDocument = TokenDocument> extends PlaceableObject<TDocument> {
@@ -983,95 +739,4 @@ interface TokenPointerEvent<T extends Token> extends PlaceablesLayerPointerEvent
     interactionData: PlaceablesLayerPointerEvent<T>["interactionData"] & {
         clones?: T[];
     };
-}
-
-interface TokenAnimationOptions extends Omit<CanvasAnimationOptions, "context"> {
-    /** A desired token movement speed in grid spaces per second */
-    movementSpeed?: number;
-    /** The desired texture transition type */
-    transition?: TextureTransitionType;
-}
-
-interface ReticuleOptions {
-    /**
-     * The amount of margin between the targeting arrows and the token's bounding
-     * box, expressed as a fraction of an arrow's size.
-     */
-    margin?: number;
-    /** The alpha value of the arrows. */
-    alpha?: number;
-    /** The size of the arrows as a proportion of grid size. */
-    size?: number;
-    /** The color of the arrows. */
-    color?: number;
-    /** The arrows' border style configuration. */
-    border?: {
-        /** The border color. */
-        color?: number;
-        /** The border width. */
-        width?: number;
-    };
-}
-
-interface TokenAnimationData {
-    /** The x position in pixels */
-    x: number;
-    /** The y position in pixels */
-    y: number;
-    /** The width in grid spaces */
-    width: number;
-    /** The height in grid spaces */
-    height: number;
-    /** The alpha value */
-    alpha: number;
-    /** The rotation in degrees */
-    rotation: number;
-    /** The texture data */
-    texture: {
-        /** The texture file path */
-        src: string;
-        /** The texture anchor X */
-        anchorX: number;
-        /** The texture anchor Y */
-        anchorY: number;
-        /** The texture scale X */
-        scaleX: number;
-        /** The texture scale Y */
-        scaleY: number;
-        /** The texture tint */
-        tint: Color;
-    };
-    /** The ring data */
-    ring: {
-        /** The ring subject data */
-        subject: {
-            /** The ring subject texture */
-            texture: string;
-            /** The ring subject scale */
-            scale: number;
-        };
-    };
-}
-
-export interface TokenAnimationContext {
-    /** The name of the animation */
-    name: string | symbol;
-    /** The final animation state */
-    to: Partial<TokenAnimationData>;
-    /** The duration of the animation */
-    duration: number;
-    /** The current time of the animation */
-    time: number;
-    /** Asynchronous functions that are executed before the animation starts */
-    preAnimate: ((context: TokenAnimationContext) => Promise<void>)[];
-    /** Synchronous functions that are executed after the animation ended.
-     *  They may be executed before the preAnimate functions have finished  if the animation is terminated.
-     */
-    postAnimate: ((context: TokenAnimationContext) => void)[];
-    /**
-     *  The promise of the animation, which resolves to true if the animation
-     *  completed, to false if it was terminated, and rejects if an error occurred.
-     *  Undefined in the first frame (at time 0) of the animation.
-     */
-    promise?: Promise<boolean>;
 }

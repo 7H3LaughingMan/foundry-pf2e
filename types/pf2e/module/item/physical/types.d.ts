@@ -11,15 +11,24 @@ type BaseMaterial = {
     thickness: BaseMaterialThickness;
 };
 type CoinDenomination = "pp" | "gp" | "sp" | "cp";
+type Currency = CoinDenomination | "credits" | "upb";
 type PhysicalItemTrait = ArmorTrait | ConsumableTrait | EquipmentTrait | ShieldTrait | WeaponTrait;
 type PhysicalItemType = SetElement<typeof PHYSICAL_ITEM_TYPES>;
 type PreciousMaterialType = SetElement<typeof PRECIOUS_MATERIAL_TYPES>;
 type PreciousMaterialGrade = SetElement<typeof PRECIOUS_MATERIAL_GRADES>;
+type Grade = keyof typeof CONFIG.PF2E.grades;
+interface StackDefinition {
+    size: number;
+    lightBulk: number;
+}
 export type {
     BaseMaterial,
     CoinDenomination,
+    Currency,
+    Grade,
     PhysicalItemTrait,
     PhysicalItemType,
     PreciousMaterialGrade,
     PreciousMaterialType,
+    StackDefinition,
 };

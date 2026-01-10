@@ -1,38 +1,51 @@
 import { ActorPF2e } from "./../../index.ts";
 import { PhysicalItemPF2e } from "./../../../item/index.ts";
-import appv1 = foundry.appv1;
-declare class ItemTransferDialog extends appv1.api.FormApplication<PhysicalItemPF2e, MoveLootOptions> {
+declare class ItemTransferDialog extends fa.api.DialogV2<ItemTransferConfiguration> {
     #private;
-    static get defaultOptions(): MoveLootOptions;
-    get title(): string;
-    get item(): PhysicalItemPF2e;
-    getData(): Promise<PopupData>;
-    /**
-     * Shows the dialog and resolves how many to transfer and what action to perform.
-     * In situations where there are no choices (quantity is 1 and its a player purchasing), this returns immediately.
-     */
-    resolve(): Promise<MoveLootFormData | null>;
-    activateListeners($html: JQuery<HTMLElement>): void;
-    _updateObject(event: SubmitEvent, formData: Record<string, unknown> & MoveLootFormData): Promise<void>;
-    close(options?: { force?: boolean }): Promise<void>;
+    static DEFAULT_OPTIONS: DeepPartial<ItemTransferConfiguration>;
+    protected _initializeApplicationOptions(options: DeepPartial<ItemTransferConfiguration>): ItemTransferConfiguration;
+    static wait(options: WaitParams): Promise<ResolutionData | null>;
+    static confirm(): Promise<never>;
+    static prompt(): Promise<never>;
+    static query(): Promise<never>;
+    protected _onRender(context: ItemTransferRenderContext, options: fa.api.HandlebarsRenderOptions): Promise<void>;
+    /** If the price element exists, update it and listen for quantity changes  */
+    protected _onChangeForm(formConfig: fa.ApplicationFormConfiguration, event: Event): void;
 }
-interface MoveLootOptions extends appv1.api.FormApplicationOptions {
-    targetActor?: ActorPF2e;
+/**
+ * A recognized transfer mode:
+ * - move: a simple transfer between one actor to another, only prompting to set the quantity to be moved
+ * - purchase: an exchange of coins for a quantity of an item
+ * - gift: a transfer between creatures; declinable by the recipient
+ * - credits: a credits transfer; transfers a number of credits
+ */
+type ItemTransferMode = "move" | "purchase" | "gift" | "credits";
+interface ItemTransferConfiguration extends fa.api.DialogV2Configuration {
+    item: PhysicalItemPF2e;
+    recipient: ActorPF2e;
+    mode: ItemTransferMode;
     newStack: boolean;
     lockStack: boolean;
-    isPurchase: boolean;
 }
-interface MoveLootFormData {
+interface WaitParams
+    extends
+        DeepPartial<Omit<ItemTransferConfiguration, "recipient" | "item">>,
+        Pick<ItemTransferConfiguration, "recipient" | "item"> {}
+interface ResolutionData {
+    /** The quantity being transferred. If this is a cred stick, this is the quantity of credits instead */
     quantity: number;
     newStack: boolean;
-    isPurchase: boolean;
+    mode: ItemTransferMode;
 }
-interface PopupData extends appv1.api.FormApplicationData {
+interface ItemTransferRenderContext extends fa.ApplicationRenderContext {
+    prompt: string;
     item: PhysicalItemPF2e;
     quantity: number;
+    mode: ItemTransferMode;
     canGift: boolean;
     newStack: boolean;
     lockStack: boolean;
-    prompt: string;
+    rootId: string;
+    buttons: fa.FormFooterButton[];
 }
 export { ItemTransferDialog };

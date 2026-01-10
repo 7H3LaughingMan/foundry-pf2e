@@ -64,10 +64,14 @@ export default class AbstractWeatherShader extends AbstractBaseShader {
      * Update the scale of this effect with new values
      * @param {number|{x: number, y: number}} scale    The desired scale
      */
-    set scale(scale: number | {
-        x: number;
-        y: number;
-    });
+    set scale(
+        scale:
+            | number
+            | {
+                  x: number;
+                  y: number;
+              },
+    );
     set scaleX(x: any);
     set scaleY(y: any);
     /**

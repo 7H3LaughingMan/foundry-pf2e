@@ -1,15 +1,12 @@
 import { ActorPF2e } from "./../../actor/index.ts";
 import { CraftingAbility } from "./../../actor/character/crafting/ability.ts";
 import { FeatGroup } from "./../../actor/character/feats/index.ts";
-import { DocumentHTMLEmbedConfig } from "./../../../../foundry/client/applications/ux/text-editor.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "./../../../../foundry/common/abstract/_types.mjs";
+import { DocumentHTMLEmbedConfig } from "#client/applications/ux/text-editor.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { ItemPF2e, HeritagePF2e } from "./../index.ts";
 import { ActionCost, Frequency, RawItemChatData } from "./../base/data/index.ts";
 import { Rarity } from "./../../data.ts";
-import { RuleElementOptions, RuleElementPF2e } from "./../../rules/index.ts";
+import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { EnrichmentOptionsPF2e } from "./../../system/text-editor.ts";
 import { FeatSource, FeatSystemData } from "./data.ts";
 import { FeatOrFeatureCategory, FeatTrait } from "./types.ts";
@@ -42,7 +39,7 @@ declare class FeatPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exte
     prepareSiblingData(): void;
     onPrepareSynthetics(this: FeatPF2e<ActorPF2e>): void;
     /** Overriden to not create rule elements when suppressed */
-    prepareRuleElements(options?: Omit<RuleElementOptions, "parent">): RuleElementPF2e[];
+    prepareRuleElements(options?: Omit<RuleElementOptions, "parent">): RuleElement[];
     getChatData(this: FeatPF2e<ActorPF2e>, htmlOptions?: EnrichmentOptionsPF2e): Promise<RawItemChatData>;
     /** Generate a list of strings for use in predication */
     getRollOptions(
@@ -56,8 +53,9 @@ declare class FeatPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exte
             hr?: boolean;
         },
     ): string;
+    /** In case this was copied from an actor, clear the location if there's no parent. */
     protected _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: fd.BaseUser,
     ): Promise<boolean | void>;

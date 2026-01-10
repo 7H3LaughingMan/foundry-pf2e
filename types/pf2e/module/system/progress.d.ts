@@ -1,4 +1,4 @@
-import { ProgressNotification } from "./../../../foundry/client/applications/ui/notifications.mjs";
+import { ProgressNotification } from "#client/applications/ui/notifications.mjs";
 /**
  * An alternative API for Notification loading bars
  * @category Other

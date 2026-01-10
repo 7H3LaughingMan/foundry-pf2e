@@ -1,10 +1,11 @@
-import { PlaceablesLayerPointerEvent } from "../../../foundry/client/canvas/layers/base/placeables-layer.mjs";
-import { Point } from "../../../foundry/common/_types.mjs";
+import { PlaceablesLayerPointerEvent } from "#client/canvas/layers/base/placeables-layer.mjs";
+import { Point } from "#common/_types.mjs";
 import { RegionDocumentPF2e } from "./../scene/region-document/document.ts";
 /** Add support for drag/drop repositioning of regions. */
 declare class RegionPF2e<TDocument extends RegionDocumentPF2e = RegionDocumentPF2e> extends fc.placeables
     .Region<TDocument> {
     static RENDER_FLAGS: {
+        // eslint-disable-next-line @typescript-eslint/no-empty-object-type
         refreshPosition: {};
         redraw: {
             propagate: ["refresh"];

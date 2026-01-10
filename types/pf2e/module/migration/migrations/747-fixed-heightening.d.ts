@@ -1,4 +1,4 @@
-import { ItemUUID } from "./../../../../foundry/common/documents/_module.mjs";
+import { ItemUUID } from "#common/documents/_module.mjs";
 import { SpellPF2e } from "./../../item/index.ts";
 import { ItemSourcePF2e, SpellSource } from "./../../item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";

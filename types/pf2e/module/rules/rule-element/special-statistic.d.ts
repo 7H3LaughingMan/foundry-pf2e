@@ -3,18 +3,17 @@ import { AttributeString } from "./../../actor/types.ts";
 import { MagicTradition } from "./../../item/spell/types.ts";
 import { Predicate, RawPredicate } from "./../../system/predication.ts";
 import { PredicateField } from "./../../system/schema-data-fields.ts";
-import { RuleElementPF2e } from "../index.ts";
+import { RuleElement } from "../index.ts";
 import { ModelPropsFromRESchema, RuleElementSchema } from "./data.ts";
 import fields = foundry.data.fields;
 /** Create a special-purpose statistic for use in checks and as a DC */
-declare class SpecialStatisticRuleElement extends RuleElementPF2e<SpecialStatisticSchema> {
+declare class SpecialStatisticRuleElement extends RuleElement<SpecialStatisticSchema> {
     static validActorTypes: ("character" | "npc")[];
     static defineSchema(): SpecialStatisticSchema;
     afterPrepareData(): void;
 }
 interface SpecialStatisticRuleElement
-    extends RuleElementPF2e<SpecialStatisticSchema>,
-        ModelPropsFromRESchema<SpecialStatisticSchema> {
+    extends RuleElement<SpecialStatisticSchema>, ModelPropsFromRESchema<SpecialStatisticSchema> {
     slug: string;
     get actor(): CreaturePF2e;
 }

@@ -44,15 +44,14 @@ export default class BaseActiveEffect<TParent extends BaseActor | BaseItem<BaseA
     /* -------------------------------------------- */
 
     protected override _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: BaseUser,
     ): Promise<boolean | void>;
 }
 
 export default interface BaseActiveEffect<TParent extends BaseActor | BaseItem<BaseActor | null> | null>
-    extends Document<TParent, ActiveEffectSchema>,
-        fields.ModelPropsFromSchema<ActiveEffectSchema> {
+    extends Document<TParent, ActiveEffectSchema>, fields.ModelPropsFromSchema<ActiveEffectSchema> {
     get documentName(): ActiveEffectMetadata["name"];
 }
 

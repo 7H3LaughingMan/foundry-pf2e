@@ -1,11 +1,16 @@
 import { ActorPF2e } from "./index.ts";
-import { HexColorString } from "./../../../foundry/common/constants.mjs";
+import { HexColorString } from "#common/constants.mjs";
 import { ItemPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "./../item/index.ts";
+import { AbilityTrait } from "./../item/ability/types.ts";
+import { ActionCost } from "./../item/base/data/system.ts";
+import { EffectAreaShape } from "./../item/types.ts";
 import { ZeroToFour } from "./../data.ts";
+import { Statistic } from "./../system/statistic/statistic.ts";
+import { DamageRollFunction } from "./data/base.ts";
 import { ActorSourcePF2e } from "./data/index.ts";
-import { ModifierPF2e } from "./modifiers.ts";
-import { NPCStrike } from "./npc/data.ts";
-import { ActorCommitData, AuraEffectData } from "./types.ts";
+import { Modifier } from "./modifiers.ts";
+import { NPCAttackAction, NPCStrike } from "./npc/data.ts";
+import { ActorGroupUpdate, AuraEffectData } from "./types.ts";
 /**
  * Reset and rerender a provided list of actors. Omit argument to reset all world and synthetic actors
  * @param actors A list of actors to refresh: if none are provided, all world and synthetic actors are retrieved
@@ -54,12 +59,61 @@ declare function getStrikeAttackDomains(
     proficiencyRank: ZeroToFour | null,
     baseRollOptions: string[] | Set<string>,
 ): string[];
-declare function getStrikeDamageDomains(
+declare function getAttackDamageDomains(
     weapon: WeaponPF2e<ActorPF2e> | MeleePF2e<ActorPF2e>,
     proficiencyRank: ZeroToFour | null,
+    action?: "strike" | "auto-fire" | "area-fire",
 ): string[];
-/** Create a strike statistic from a melee item: for use by NPCs and Hazards */
-declare function strikeFromMeleeItem(item: MeleePF2e<ActorPF2e>): NPCStrike;
+/** Create a strike or area/auto fire statistic from a melee item: for use by NPCs and Hazards */
+declare function attackFromMeleeItem(item: MeleePF2e<ActorPF2e>): NPCAttackAction;
+/**
+ * Helper function that creates damage roll functions for character and npc attacks.
+ * While it used for character area/auto fire, its not used for character strikes yet.
+ *
+ */
+declare function createDamageRollFunctions(
+    item: MeleePF2e<ActorPF2e> | WeaponPF2e<ActorPF2e>,
+    {
+        action,
+        statistic,
+        actionTraits,
+        baseOptions,
+        proficiencyRank,
+    }: {
+        action: "strike" | "area-fire" | "auto-fire";
+        statistic: NPCStrike | Statistic;
+        actionTraits: AbilityTrait[];
+        baseOptions: Iterable<string>;
+        proficiencyRank: ZeroToFour;
+    },
+): {
+    damage: DamageRollFunction;
+    critical: DamageRollFunction;
+};
+interface AreaAttackOptions {
+    action: "area-fire" | "auto-fire";
+    actor: ActorPF2e;
+    item: WeaponPF2e<ActorPF2e> | MeleePF2e<ActorPF2e>;
+    statistic: Statistic;
+    identifier: string;
+    actionCost: ActionCost;
+    options: string[];
+    area: {
+        type: EffectAreaShape;
+        value: number;
+    };
+}
+/** Creates an area fire message with buttons to roll saves and damage */
+declare function createAreaAttackMessage({
+    action,
+    actor,
+    item,
+    statistic,
+    identifier,
+    actionCost,
+    options,
+    area,
+}: AreaAttackOptions): Promise<void>;
 /** Get the range increment of a target for a given weapon */
 declare function getRangeIncrement(attackItem: ItemPF2e<ActorPF2e>, distance: number | null): number | null;
 /** Determine range penalty for a ranged attack roll */
@@ -68,7 +122,7 @@ declare function calculateRangePenalty(
     increment: number | null,
     selectors: string[],
     rollOptions: Set<string>,
-): ModifierPF2e | null;
+): Modifier | null;
 /** Whether this actor is of a the "character" type, excluding those from the PF2E Companion Compendia module */
 declare function isReallyPC(actor: ActorPF2e): boolean;
 /** Recursive generator function to iterate over all items and their sub items */
@@ -84,34 +138,41 @@ declare function transferItemsBetweenActors(
     dest: ActorPF2e,
     itemFilterFn?: (item: PhysicalItemPF2e) => boolean,
 ): Promise<void>;
+/** Creates an empty actor group update with optional additional data */
+declare function createActorGroupUpdate(data?: Partial<ActorGroupUpdate>): ActorGroupUpdate;
 /** Applies multiple batched updates to the actor, delaying rendering till the end */
-declare function applyActorUpdate<T extends ActorPF2e>(
-    actor: T,
-    data: Partial<ActorCommitData<T>>,
+declare function applyActorGroupUpdate(
+    actor: ActorPF2e,
+    data: Partial<ActorGroupUpdate>,
     {
         render,
+        keepId,
     }?: {
         render?: boolean;
+        keepId?: boolean;
     },
 ): Promise<void>;
 export {
-    applyActorUpdate,
+    applyActorGroupUpdate,
+    attackFromMeleeItem,
     auraAffectsActor,
     calculateMAPs,
     calculateRangePenalty,
     checkAreaEffects,
+    createActorGroupUpdate,
+    createAreaAttackMessage,
+    createDamageRollFunctions,
     createEncounterRollOptions,
     createEnvironmentRollOptions,
+    getAttackDamageDomains,
     getRangeIncrement,
     getStrikeAttackDomains,
-    getStrikeDamageDomains,
     isOffGuardFromFlanking,
     isReallyPC,
     iterateAllItems,
     migrateActorSource,
     resetActors,
     setHitPointsRollOptions,
-    strikeFromMeleeItem,
     transferItemsBetweenActors,
     userColorForActor,
 };

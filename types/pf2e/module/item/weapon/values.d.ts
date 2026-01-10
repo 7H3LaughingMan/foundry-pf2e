@@ -40,6 +40,7 @@ declare const WEAPON_PROPERTY_RUNE_TYPES: Set<
     | "unholy"
     | "vorpal"
     | "astral"
+    | "speed"
     | "ancestralEchoing"
     | "anchoring"
     | "ashen"
@@ -114,7 +115,6 @@ declare const WEAPON_PROPERTY_RUNE_TYPES: Set<
     | "shifting"
     | "shock"
     | "shockwave"
-    | "speed"
     | "spellStoring"
     | "swarming"
     | "thundering"
@@ -123,9 +123,9 @@ declare const WEAPON_PROPERTY_RUNE_TYPES: Set<
     | "underwater"
     | "wounding"
 >;
-declare const THROWN_RANGES: Set<40 | 10 | 20 | 30 | 15 | 100 | 60 | 80>;
+declare const THROWN_RANGES: Set<40 | 10 | 20 | 30 | 15 | 80 | 100 | 60>;
 declare const WEAPON_RANGES: Set<
-    40 | 10 | 20 | 30 | 50 | 15 | 100 | 60 | 80 | 70 | 90 | 110 | 120 | 140 | 150 | 180 | 200 | 240 | 300
+    40 | 10 | 20 | 30 | 50 | 15 | 80 | 100 | 120 | 240 | 60 | 70 | 90 | 110 | 140 | 150 | 180 | 200 | 300
 >;
 declare const RANGED_ONLY_TRAITS: Set<WeaponTrait>;
 declare const MELEE_ONLY_TRAITS: Set<WeaponTrait>;

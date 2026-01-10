@@ -1,5 +1,6 @@
 import { AbilitySource } from "./../../ability/data.ts";
 import { AfflictionSource } from "./../../affliction/data.ts";
+import { AmmoSource } from "./../../ammo/data.ts";
 import { AncestrySource } from "./../../ancestry/data.ts";
 import { ArmorSource } from "./../../armor/data.ts";
 import { BackgroundSource } from "./../../background/data.ts";
@@ -17,7 +18,6 @@ import { HeritageSource } from "./../../heritage/data.ts";
 import { KitSource } from "./../../kit/data.ts";
 import { LoreSource } from "./../../lore.ts";
 import { MeleeSource } from "./../../melee/data.ts";
-import { PhysicalItemType } from "./../../physical/types.ts";
 import { ShieldSource } from "./../../shield/data.ts";
 import { SpellSource } from "./../../spell/data.ts";
 import { SpellcastingEntrySource } from "./../../spellcasting-entry/data.ts";
@@ -43,9 +43,9 @@ type NonPhysicalItemType =
     | "melee"
     | "spell"
     | "spellcastingEntry";
-type ItemType = NonPhysicalItemType | PhysicalItemType;
 type AbstractEffectSource = EffectSource | ConditionSource | AfflictionSource;
 type PhysicalItemSource =
+    | AmmoSource
     | ArmorSource
     | BookSource
     | ConsumableSource
@@ -114,7 +114,6 @@ export type {
     EquipmentSource,
     FeatSource,
     ItemSourcePF2e,
-    ItemType,
     KitSource,
     LoreSource,
     MagicItemSource,

@@ -1,4 +1,4 @@
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
 import { EquipmentTrait } from "./../equipment/data.ts";
 import {
     BasePhysicalItemSource,
@@ -16,8 +16,7 @@ interface BookSystemSource extends PhysicalSystemSource {
     subitems?: never;
 }
 interface BookSystemData
-    extends Omit<BookSystemSource, SourceOmission>,
-        Omit<PhysicalSystemData, "subitems" | "traits"> {}
+    extends Omit<BookSystemSource, SourceOmission>, Omit<PhysicalSystemData, "subitems" | "traits"> {}
 type SourceOmission =
     | "apex"
     | "bulk"

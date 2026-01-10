@@ -1,6 +1,6 @@
-import { ModifierPF2e } from "./../actor/modifiers.ts";
+import { Modifier } from "./../actor/modifiers.ts";
 import { RollOrigin, RollTarget } from "./../actor/roll-context/types.ts";
-import { RollMode } from "./../../../foundry/common/constants.mjs";
+import { RollMode } from "#common/constants.mjs";
 import { AbilityTrait } from "./../item/ability/types.ts";
 import { TokenPF2e } from "./../canvas/index.ts";
 import { CheckContextChatFlag } from "./../chat-message/index.ts";
@@ -18,7 +18,7 @@ interface DiceRollOptionsPF2e extends dice.RollOptions {
 /** Possible parameters of a RollFunction */
 interface RollParameters {
     /** The triggering event */
-    event?: MouseEvent;
+    event?: PointerEvent;
     /** Any options which should be used in the roll. */
     options?: string[] | Set<string>;
     /** Optional DC data for the roll */
@@ -26,7 +26,7 @@ interface RollParameters {
     /** Callback called when the roll occurs. */
     callback?: (roll: dice.Rolled<Roll>) => void | Promise<void>;
     /** Additional modifiers */
-    modifiers?: ModifierPF2e[];
+    modifiers?: Modifier[];
     /** Whether to create a message from the roll */
     createMessage?: boolean;
 }

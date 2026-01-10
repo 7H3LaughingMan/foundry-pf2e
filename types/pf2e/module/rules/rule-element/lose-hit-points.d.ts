@@ -1,10 +1,10 @@
 import { ActorType, CreaturePF2e } from "./../../actor/index.ts";
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
-import { RuleElementPF2e } from "./base.ts";
+import { RuleElement } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
 import fields = foundry.data.fields;
 /** Reduce current hit points without applying damage */
-declare class LoseHitPointsRuleElement extends RuleElementPF2e<LoseHitPointsRuleSchema> {
+declare class LoseHitPointsRuleElement extends RuleElement<LoseHitPointsRuleSchema> {
     static validActorTypes: ActorType[];
     static defineSchema(): LoseHitPointsRuleSchema;
     onCreate(actorUpdates: Record<string, unknown>): void;
@@ -12,8 +12,7 @@ declare class LoseHitPointsRuleElement extends RuleElementPF2e<LoseHitPointsRule
     preUpdate(changes: DeepPartial<ItemSourcePF2e>): Promise<void>;
 }
 interface LoseHitPointsRuleElement
-    extends RuleElementPF2e<LoseHitPointsRuleSchema>,
-        ModelPropsFromRESchema<LoseHitPointsRuleSchema> {
+    extends RuleElement<LoseHitPointsRuleSchema>, ModelPropsFromRESchema<LoseHitPointsRuleSchema> {
     get actor(): CreaturePF2e;
 }
 type LoseHitPointsRuleSchema = RuleElementSchema & {

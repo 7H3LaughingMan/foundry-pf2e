@@ -5,7 +5,7 @@ import { SelectableTagField, TagSelectorOptions } from "./index.ts";
 declare class SpeedSelector<TActor extends ActorPF2e> extends BaseTagSelector<TActor> {
     static get defaultOptions(): TagSelectorOptions;
     protected objectProperty: string;
-    choices: Omit<Record<"land" | "burrow" | "climb" | "fly" | "swim", string>, "land">;
+    choices: Record<"burrow" | "climb" | "fly" | "swim", string>;
     protected get configTypes(): readonly SelectableTagField[];
     getData(options?: Partial<TagSelectorOptions>): Promise<SpeedSelectorData<TActor>>;
     activateListeners($html: JQuery): void;

@@ -1,8 +1,12 @@
 import { ActorPF2e, ActorUpdateCallbackOptions, ActorUpdateOperation } from "./../base.ts";
+import { MovementType } from "./../types.ts";
 import { CREATURE_ACTOR_TYPES } from "./../values.ts";
 import { AbilityItemPF2e, MeleePF2e, WeaponPF2e } from "./../../item/index.ts";
 import { LabeledValueAndMax } from "./../../data.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
+import { SpeedStatistic } from "./../../system/statistic/speed.ts";
+import { CreaturePF2e } from "./document.ts";
+import { CreatureMovementData } from "./index.ts";
 import { LANGUAGES_BY_RARITY, SENSE_TYPES } from "./values.ts";
 /** A `CreaturePF2e` subtype string */
 type CreatureActorType = (typeof CREATURE_ACTOR_TYPES)[number];
@@ -23,6 +27,17 @@ type SpecialVisionType = Extract<
     SenseType,
     "low-light-vision" | "darkvision" | "greater-darkvision" | "see-invisibility"
 >;
+type OtherCreatureSpeeds<A extends CreaturePF2e> = {
+    [T in Exclude<MovementType, "land">]: SpeedStatistic<A, T> | null;
+};
+interface CreatureSpeeds<TActor extends CreaturePF2e> extends OtherCreatureSpeeds<TActor> {
+    land: SpeedStatistic<TActor, "land">;
+    travel: SpeedStatistic<TActor, "travel">;
+}
+interface CreatureMovement<TActor extends CreaturePF2e> {
+    speeds: CreatureSpeeds<TActor>;
+    terrain: CreatureMovementData["terrain"];
+}
 interface GetReachParameters {
     action?: "interact" | "attack";
     weapon?: Maybe<AbilityItemPF2e<ActorPF2e> | WeaponPF2e<ActorPF2e> | MeleePF2e<ActorPF2e>>;
@@ -39,6 +54,8 @@ interface ResourceData extends LabeledValueAndMax {
 export type {
     Attitude,
     CreatureActorType,
+    CreatureMovement,
+    CreatureSpeeds,
     CreatureTrait,
     CreatureType,
     CreatureUpdateCallbackOptions,

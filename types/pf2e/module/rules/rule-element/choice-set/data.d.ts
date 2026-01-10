@@ -1,5 +1,5 @@
-import { ItemType } from "./../../../item/base/data/index.ts";
-import { PickableThing } from "./../../../apps/pick-a-thing-prompt.ts";
+import { ItemType } from "./../../../item/types.ts";
+import { PickableThing } from "./../../../apps/pick-a-thing-prompt/app.ts";
 import { RawPredicate } from "./../../../system/predication.ts";
 import {
     DataUnionField,
@@ -12,7 +12,6 @@ import {
 } from "./../../../system/schema-data-fields.ts";
 import { RuleElementSchema, RuleElementSource } from "../data.ts";
 import fields = foundry.data.fields;
-import { ModelPropsFromSchema, SourceFromSchema } from "../../../../../foundry/common/data/fields.mjs";
 type ChoiceSetSchema = RuleElementSchema & {
     /**
      * The options from which the user can choose. If a string is provided, it is treated as a reference to a record in
@@ -59,8 +58,8 @@ type ChoiceSetSchema = RuleElementSchema & {
     /** A predicate indicating valid dropped item selections */
     allowedDrops: fields.SchemaField<
         AllowedDropsSchema,
-        SourceFromSchema<AllowedDropsSchema>,
-        ModelPropsFromSchema<AllowedDropsSchema>,
+        fields.SourceFromSchema<AllowedDropsSchema>,
+        fields.ModelPropsFromSchema<AllowedDropsSchema>,
         false,
         true,
         false
@@ -72,7 +71,7 @@ type AllowedDropsSchema = {
     label: fields.StringField<string, string, true, true, true>;
     predicate: PredicateField;
 };
-type AllowedDropsData = ModelPropsFromSchema<AllowedDropsSchema>;
+type AllowedDropsData = fields.ModelPropsFromSchema<AllowedDropsSchema>;
 type ChoiceSetObject = ChoiceSetOwnedItems | ChoiceSetAttacks | ChoiceSetPackQuery | ChoiceSetConfig;
 type UninflatedChoiceSet = string | PickableThing[] | ChoiceSetObject;
 interface ChoiceSetSource extends RuleElementSource {

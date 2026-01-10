@@ -1,4 +1,4 @@
-import { SceneDimensions } from "./../../_types.mjs";
+import { SceneDimensions } from "./../../documents/_types.mjs";
 import { GridType } from "./../../../common/constants.mjs";
 import Color from "./../../../common/utils/color.mjs";
 import { GridHighlight, GridMesh } from "../containers/_module.mjs";

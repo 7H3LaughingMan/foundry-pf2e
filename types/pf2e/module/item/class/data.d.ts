@@ -1,5 +1,5 @@
 import { AttributeString, SkillSlug } from "./../../actor/types.ts";
-import { ModelPropsFromSchema, SourceFromSchema } from "./../../../../foundry/common/data/fields.mjs";
+import { ModelPropsFromSchema, SourceFromSchema } from "#common/data/fields.mjs";
 import { ABCFeatureEntryField } from "./../abc/data.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import { BaseItemSourcePF2e, ItemSystemSource, RarityTraitAndOtherTags } from "./../base/data/system.ts";
@@ -13,13 +13,14 @@ declare class ClassSystemData extends ItemSystemModel<ClassPF2e, ClassSystemSche
     static defineSchema(): ClassSystemSchema;
 }
 interface ClassSystemData
-    extends ItemSystemModel<ClassPF2e, ClassSystemSchema>,
+    extends
+        ItemSystemModel<ClassPF2e, ClassSystemSchema>,
         Omit<fields.ModelPropsFromSchema<ClassSystemSchema>, "description"> {
     level?: never;
     traits: RarityTraitAndOtherTags;
 }
 type ClassSystemSchema = Omit<ItemSystemSchema, "traits"> & {
-    items: RecordField<fields.StringField<string, string, true, false>, ABCFeatureEntryField>;
+    items: RecordField<fields.StringField<string, string, true, false>, ABCFeatureEntryField, true, false, true, true>;
     traits: fields.SchemaField<{
         otherTags: fields.ArrayField<SlugField<true, false, false>>;
         rarity: RarityField;

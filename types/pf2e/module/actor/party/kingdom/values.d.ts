@@ -34,7 +34,7 @@ declare const KINGDOM_SKILLS: readonly [
 declare const KINGDOM_LEADERSHIP_ABILITIES: Record<KingdomLeadershipRole, KingdomAbility>;
 declare const KINGDOM_SKILL_ABILITIES: Record<KingdomSkill, KingdomAbility>;
 declare const KINGDOM_ABILITY_LABELS: Record<"culture" | "economy" | "loyalty" | "stability", string>;
-declare const KINGDOM_COMMODITY_LABELS: Record<"stone" | "food" | "luxuries" | "lumber" | "ore", string>;
+declare const KINGDOM_COMMODITY_LABELS: Record<"stone" | "ore" | "food" | "luxuries" | "lumber", string>;
 /** Ruin label by ability slug */
 declare const KINGDOM_RUIN_LABELS: {
     culture: string;
@@ -95,7 +95,7 @@ declare const KINGDOM_SIZE_DATA: {
     };
 };
 declare const KINGDOM_SETTLEMENT_TYPES: readonly ["village", "town", "city", "metropolis"];
-declare const KINGDOM_SETTLEMENT_TYPE_LABELS: Record<"village" | "town" | "city" | "metropolis", string>;
+declare const KINGDOM_SETTLEMENT_TYPE_LABELS: Record<"city" | "village" | "town" | "metropolis", string>;
 declare const KINGDOM_SETTLEMENT_TYPE_DATA: {
     village: {
         blocks: number;

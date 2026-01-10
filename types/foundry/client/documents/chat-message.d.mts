@@ -1,4 +1,4 @@
-import Roll, { Rolled } from "./../dice/roll.mjs";
+import Roll, { Rolled, RollJSON } from "./../dice/roll.mjs";
 import { DocumentConstructionContext } from "./../../common/_types.mjs";
 import {
     DatabaseCreateCallbackOptions,
@@ -9,7 +9,7 @@ import {
 import Document from "./../../common/abstract/document.mjs";
 import { RollMode } from "./../../common/constants.mjs";
 import BaseChatMessage, { ChatMessageSource, ChatSpeakerData } from "./../../common/documents/chat-message.mjs";
-import { Actor, BaseUser, ChatMessageUUID, Scene, TokenDocument, User } from "./_module.mjs";
+import { Actor, BaseUser, Scene, TokenDocument, User } from "./_module.mjs";
 import { ClientDocument, ClientDocumentStatic } from "./abstract/client-document.mjs";
 
 interface ClientBaseChatMessageStatic extends Omit<typeof BaseChatMessage, "new">, ClientDocumentStatic {}
@@ -138,7 +138,7 @@ declare class ChatMessage<TUser extends User | null = User | null> extends Clien
     /* -------------------------------------------- */
 
     protected override _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: BaseUser,
     ): Promise<boolean | void>;
@@ -161,24 +161,22 @@ declare class ChatMessage<TUser extends User | null = User | null> extends Clien
     export(): string;
 }
 
-declare interface ChatMessage {
-    get uuid(): ChatMessageUUID;
-}
-
 declare namespace ChatMessage {
     function create<TDocument extends Document>(
         this: ConstructorOf<TDocument>,
-        data: DeepPartial<TDocument["_source"]>,
+        data: DeepPartial<TDocument["_source"] & { rolls: (string | RollJSON)[] }>,
         operation?: Partial<ChatMessageCreateOperation>,
     ): Promise<TDocument | undefined>;
     function create<TDocument extends Document>(
         this: ConstructorOf<TDocument>,
-        data: DeepPartial<TDocument["_source"]>[],
+        data: DeepPartial<TDocument["_source"] & { rolls: (string | RollJSON)[] }>[],
         operation?: Partial<ChatMessageCreateOperation>,
     ): Promise<TDocument[]>;
     function create<TDocument extends Document>(
         this: ConstructorOf<TDocument>,
-        data: DeepPartial<TDocument["_source"]> | PreCreate<TDocument["_source"]>[],
+        data:
+            | DeepPartial<TDocument["_source"] & { rolls: (string | RollJSON)[] }>
+            | DeepPartial<TDocument["_source"] & { rolls: (string | RollJSON)[] }>[],
         operation?: Partial<ChatMessageCreateOperation>,
     ): Promise<TDocument[] | TDocument | undefined>;
 }

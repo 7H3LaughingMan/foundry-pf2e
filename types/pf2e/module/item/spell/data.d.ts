@@ -1,8 +1,9 @@
 import { SaveType } from "./../../actor/types.ts";
 import { BaseItemSourcePF2e, ItemSystemData, ItemSystemSource, ItemTraits } from "./../base/data/system.ts";
+import { EffectAreaShape } from "./../types.ts";
 import { OneToTen, ValueAndMax, ZeroToThree } from "./../../data.ts";
 import { DamageCategoryUnique, DamageKind, DamageType, MaterialDamageEffect } from "./../../system/damage/index.ts";
-import { EffectAreaShape, MagicTradition, SpellTrait } from "./types.ts";
+import { MagicTradition, SpellTrait } from "./types.ts";
 type SpellSource = BaseItemSourcePF2e<"spell", SpellSystemSource>;
 interface SpellSystemSource extends ItemSystemSource {
     traits: SpellTraits;
@@ -96,8 +97,7 @@ interface SpellOverlayOverride {
     sort: number;
 }
 interface SpellSystemData
-    extends Omit<SpellSystemSource, "damage" | "description">,
-        Omit<ItemSystemData, "level" | "traits"> {
+    extends Omit<SpellSystemSource, "damage" | "description">, Omit<ItemSystemData, "level" | "traits"> {
     /** Time and resources consumed in the casting of this spell */
     cast: SpellCastData;
     damage: Record<string, SpellDamage>;

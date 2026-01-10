@@ -1,12 +1,7 @@
+import { ElevatedPoint, TokenDimensions, TokenPosition } from "./../_types.mjs";
 import Document, { DocumentMetadata } from "./../abstract/document.mjs";
-import {
-    ImageFilePath,
-    TokenDisplayMode,
-    TokenDisposition,
-    TokenShapeType,
-    TokenTurnMarkerMode,
-    VideoFilePath,
-} from "./../constants.mjs";
+import { ImageFilePath, TokenDisplayMode, TokenDisposition, VideoFilePath } from "./../constants.mjs";
+import { GridOffset3D } from "./../grid/_types.mjs";
 import * as data from "../data/data.mjs";
 import * as fields from "../data/fields.mjs";
 import { BaseActorDelta, BaseScene } from "./_module.mjs";
@@ -24,13 +19,59 @@ export default class BaseToken<TParent extends BaseScene | null = BaseScene | nu
 
     static override defineSchema(): TokenSchema;
 
+    static override LOCALIZATION_PREFIXES: string[];
+
+    /**
+     * The fields of the data model for which changes count as a movement action.
+     */
+    static readonly MOVEMENT_FIELDS: ["x", "y", "elevation", "width", "height", "shape"];
+
+    /**
+     * Are the given positions equal?
+     */
+    static arePositionsEqual(position1: TokenPosition, position2: TokenPosition): boolean;
+
     /** The default icon used for newly created Token documents */
     static DEFAULT_ICON: ImageFilePath | VideoFilePath;
+
+    /* -------------------------------------------- */
+    /*  Token Methods                               */
+    /* -------------------------------------------- */
+
+    /**
+     * Get the snapped position of the Token.
+     * @param data The position and dimensions
+     * @returns The snapped position
+     */
+    getSnappedPosition(data?: Partial<TokenPosition>): ElevatedPoint;
+
+    /**
+     * Get the top-left grid offset of the Token.
+     * @param data The position and dimensions
+     * @returns GridOffset3D The top-left grid offset
+     * @internal
+     */
+    _positionToGridOffset(data?: Partial<TokenPosition>): GridOffset3D;
+
+    /**
+     * Get the position of the Token from the top-left grid offset.
+     * @param offset The top-left grid offset
+     * @param data The dimensions that override the current dimensions
+     * @returns The snapped position
+     * @internal
+     */
+    _gridOffsetToPosition(offset: GridOffset3D, data?: Partial<TokenDimensions>): ElevatedPoint;
+
+    /**
+     * Get the width and height of the Token in pixels.
+     * @param data The width and/or height in grid units (must be positive)
+     * @returns The width and height in pixels
+     */
+    getSize(data?: { width?: number; height?: number }): { width: number; height: number };
 }
 
 export default interface BaseToken<TParent extends BaseScene | null = BaseScene | null>
-    extends Document<TParent, TokenSchema>,
-        fields.ModelPropsFromSchema<TokenSchema> {
+    extends Document<TParent, TokenSchema>, fields.ModelPropsFromSchema<TokenSchema> {
     delta: BaseActorDelta<this> | null;
     light: data.LightData<this>;
 }
@@ -57,30 +98,36 @@ type TokenSchema = {
     actorId: fields.ForeignDocumentField<string>;
     /** Does this Token uniquely represent a singular Actor, or is it one of many? */
     actorLink: fields.BooleanField;
-    /** The ActorDelta embedded document which stores the differences between this token and the base actor it represents. */
-    //delta: ActorDeltaField;
+    /**
+     * The ActorDelta embedded document which stores the differences between this token and the base actor it
+     * represents.
+     */
+    // delta: ActorDeltaField;
+    appendNumber: fields.BooleanField;
+    prependAdjective: fields.BooleanField;
     /** The width of the Token in grid units */
     width: fields.NumberField<number, number, true, false>;
     /** The height of the Token in grid units */
     height: fields.NumberField<number, number, true, false>;
     /** The token's texture on the canvas. */
     texture: data.TextureData;
-    /** The shape of the Token */
-    shape: fields.NumberField<TokenShapeType, TokenShapeType, true, false, true>;
+    hexagonalShape: fields.NumberField;
     /** The x-coordinate of the top-left corner of the Token */
     x: fields.NumberField<number, number, true, false>;
     /** The y-coordinate of the top-left corner of the Token */
     y: fields.NumberField<number, number, true, false>;
     /** The vertical elevation of the Token, in distance units */
     elevation: fields.NumberField<number, number, true, false>;
-    /** The sort order */
     sort: fields.NumberField<number, number, true, false, true>;
-    /** Is the Token currently locked? A locked token cannot be moved or rotated via standard keyboard or mouse interaction. */
     locked: fields.BooleanField;
     /** Prevent the Token image from visually rotating? */
     lockRotation: fields.BooleanField;
     /** The rotation of the Token in degrees, from 0 to 360. A value of 0 represents a southward-facing Token. */
     rotation: fields.AngleField;
+    /** An array of effect icon paths which are displayed on the Token */
+    effects: fields.ArrayField<
+        fields.FilePathField<ImageFilePath | VideoFilePath, ImageFilePath | VideoFilePath, true, false>
+    >;
     /** The opacity of the token image */
     alpha: fields.AlphaField;
     /** Is the Token currently hidden from player view? */
@@ -133,36 +180,29 @@ type TokenSchema = {
             range: fields.NumberField<number, number, true, true, true>;
         }>
     >;
-    /** Configuration of occlusion options */
     occludable: fields.SchemaField<{
-        /** Occlusion radius. */
         radius: fields.NumberField<number, number, false, false>;
     }>;
     ring: fields.SchemaField<{
-        /** Dynamic Token ring is enabled? */
         enabled: fields.BooleanField;
         colors: fields.SchemaField<{
-            /** Color of the ring. */
             ring: fields.ColorField;
-            /** Color of the background (behind the token, inside the ring). */
             background: fields.ColorField;
         }>;
-        /** Numerical bitmask to toggle effects. Default: 0x01 */
         effects: fields.NumberField<number, number, true, false, true>;
         subject: fields.SchemaField<{
-            /** Scale of the subject texture. */
             scale: fields.NumberField;
-            /** Path of the subject texture. */
             texture: fields.FilePathField<ImageFilePath>;
         }>;
     }>;
     turnMarker: fields.SchemaField<{
-        mode: fields.NumberField<TokenTurnMarkerMode, TokenTurnMarkerMode, true, false, true>;
+        mode: fields.NumberField<number, number, true, true, true>;
         animation: fields.StringField<string, string, true, true, true>;
         src: fields.FilePathField<ImageFilePath | VideoFilePath>;
         disposition: fields.BooleanField;
     }>;
     movementAction: fields.StringField<string, string, true, true, true>;
+
     /** An object of optional key/value flags */
     flags: fields.DocumentFlagsField;
 };
@@ -174,7 +214,7 @@ export class ActorDeltaField<
 > extends fields.EmbeddedDocumentField<TDocument> {
     override initialize(
         value: fields.MaybeSchemaProp<TDocument["_source"], true, true, true>,
-        model?: ConstructorOf<TDocument>,
+        model?: TDocument | null,
         options?: object,
     ): fields.MaybeSchemaProp<TDocument, true, true, true>;
 }

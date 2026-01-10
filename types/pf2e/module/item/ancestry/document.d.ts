@@ -1,7 +1,7 @@
 import { ActorPF2e, CharacterPF2e } from "./../../actor/index.ts";
 import { CreatureTrait } from "./../../actor/creature/types.ts";
 import { AttributeString } from "./../../actor/types.ts";
-import { DatabaseUpdateCallbackOptions } from "./../../../../foundry/common/abstract/_types.mjs";
+import { DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { ABCItemPF2e, FeatPF2e } from "./../index.ts";
 import { Size } from "./../../data.ts";
 import { AncestrySource, AncestrySystemData } from "./data.ts";
@@ -20,7 +20,7 @@ declare class AncestryPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> 
     prepareBaseData(): void;
     /** Prepare a character's data derived from their ancestry */
     prepareActorData(this: AncestryPF2e<CharacterPF2e>): void;
-    /** Ensure certain fields are positive integers. */
+    /** Ensure certain fields are integers. */
     protected _preUpdate(
         changed: DeepPartial<this["_source"]>,
         options: DatabaseUpdateCallbackOptions,

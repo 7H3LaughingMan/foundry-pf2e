@@ -1,5 +1,5 @@
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
-import { ImageFilePath } from "./../../../../foundry/common/constants.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
+import { ImageFilePath } from "#common/constants.mjs";
 import { KitPF2e } from "./../index.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import { BaseItemSourcePF2e, ItemSystemSource } from "./../base/data/system.ts";
@@ -24,7 +24,8 @@ declare class KitSystemData extends ItemSystemModel<KitPF2e, KitSystemSchema> {
     static defineSchema(): KitSystemSchema;
 }
 interface KitSystemData
-    extends ItemSystemModel<KitPF2e, KitSystemSchema>,
+    extends
+        ItemSystemModel<KitPF2e, KitSystemSchema>,
         Omit<fields.ModelPropsFromSchema<KitSystemSchema>, "description"> {}
 type KitEntryData = NonNullable<KitSystemData["items"][string]>;
 type KitEntryValueSchema = {

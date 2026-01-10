@@ -1,9 +1,8 @@
 import { ActorPF2e } from "./../index.ts";
+import { DataModelConstructionContext } from "#common/abstract/_module.mjs";
 import { SenseData } from "./data.ts";
 import { SenseAcuity, SenseType } from "./index.ts";
 import fields = foundry.data.fields;
-import { DataModelConstructionContext } from "../../../../foundry/common/abstract/_module.mjs";
-
 declare class Sense extends foundry.abstract.DataModel<ActorPF2e, SenseSchema> {
     constructor(data: SenseConstructorParams, options: DataModelConstructionContext<ActorPF2e>);
     static defineSchema(): SenseSchema;
@@ -29,7 +28,7 @@ type SenseSchema = {
     range: fields.NumberField<number, number, true, true, true>;
     source: fields.StringField<string, string, false, true, true>;
 };
-type LabeledSenseData<TModel extends Sense = Sense> = RawObject<TModel> & {
+type LabeledSenseData<TModel extends Sense = Sense> = TModel["_source"] & {
     range: number;
     label: string | null;
     emphasizeLabel: boolean;

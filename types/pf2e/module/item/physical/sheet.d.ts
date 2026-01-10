@@ -1,8 +1,8 @@
-import { AppV1RenderOptions } from "./../../../../foundry/client/appv1/api/application-v1.mjs";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
+import { AppV1RenderOptions } from "#client/appv1/api/application-v1.mjs";
 import { PhysicalItemPF2e } from "./../index.ts";
 import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
-import { CoinsPF2e, MaterialValuationData } from "./index.ts";
-import { FormSelectOption } from "../../../../foundry/client/applications/forms/fields.mjs";
+import { MaterialValuationData } from "./index.ts";
 declare class PhysicalItemSheetPF2e<TItem extends PhysicalItemPF2e> extends ItemSheetPF2e<TItem> {
     static get defaultOptions(): ItemSheetOptions;
     /** Show the identified data for editing purposes */
@@ -20,9 +20,13 @@ interface PhysicalItemSheetData<TItem extends PhysicalItemPF2e> extends ItemShee
     bulkAdjustment: string | null;
     adjustedBulkHint?: string | null;
     adjustedLevelHint: string | null;
-    basePrice: CoinsPF2e;
-    priceAdjustment: string | null;
-    adjustedPriceHint: string | null;
+    price: {
+        label: string;
+        base: string;
+        adjustment: string | null;
+        adjustmentHint: string | null;
+        per: number | null;
+    };
     attributes: typeof CONFIG.PF2E.abilities;
     actionTypes: typeof CONFIG.PF2E.actionTypes;
     actionsNumber: typeof CONFIG.PF2E.actionsNumber;

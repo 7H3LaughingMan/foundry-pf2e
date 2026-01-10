@@ -7,6 +7,7 @@ import {
     PhysicalSystemData,
     PhysicalSystemSource,
 } from "./../physical/data.ts";
+import { Grade } from "./../physical/types.ts";
 import { WornUsage } from "./../physical/usage.ts";
 import { ZeroToFour } from "./../../data.ts";
 import { ArmorCategory, ArmorGroup, ArmorPropertyRuneType, ArmorTrait, BaseArmorType, OtherArmorTag } from "./index.ts";
@@ -21,6 +22,7 @@ interface ArmorSystemSource extends Investable<PhysicalSystemSource> {
     dexCap: number;
     checkPenalty: number;
     speedPenalty: number;
+    grade: Grade | null;
     runes: ArmorRuneSource;
     /** Details of specific magic armor, storing the material and rune state when toggled on */
     specific: SpecificArmorData | null;
@@ -40,7 +42,8 @@ type SpecificArmorData = {
     runes: ArmorRuneSource;
 };
 interface ArmorSystemData
-    extends Omit<ArmorSystemSource, SourceOmission>,
+    extends
+        Omit<ArmorSystemSource, SourceOmission>,
         Omit<Investable<PhysicalSystemData>, "baseItem" | "subitems" | "traits"> {
     runes: ArmorRuneData;
     /** Armor is always worn in the "armor" slot. */

@@ -1,4 +1,4 @@
-import { DocumentFlags, DocumentFlagsSource } from "./../../../foundry/common/data/_module.mjs";
+import { DocumentFlags, DocumentFlagsSource } from "#common/data/_module.mjs";
 interface UserSettingsPF2e {
     showEffectPanel: boolean;
     showCheckDialogs: boolean;

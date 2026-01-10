@@ -13,8 +13,7 @@ declare class ArmySystemData extends ActorSystemModel<ArmyPF2e, ArmySystemSchema
     static defineSchema(): ArmySystemSchema;
 }
 interface ArmySystemData
-    extends ActorSystemModel<ArmyPF2e, ArmySystemSchema>,
-        fields.ModelPropsFromSchema<ArmySystemSchema> {
+    extends ActorSystemModel<ArmyPF2e, ArmySystemSchema>, fields.ModelPropsFromSchema<ArmySystemSchema> {
     attributes: fields.ModelPropsFromSchema<ArmyAttributesSchema> & {
         hp: {
             max: number;
@@ -97,7 +96,7 @@ type ArmyDetailsSchema = {
     level: fields.SchemaField<{
         value: fields.NumberField<number, number, true, false, true>;
     }>;
-    description: fields.StringField<string, string, true, false, true>;
+    description: fields.HTMLField;
 };
 type ArmyTraitsSchema = {
     value: fields.ArrayField<fields.StringField<string, string, true, false>>;

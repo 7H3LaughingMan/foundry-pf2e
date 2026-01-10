@@ -1,14 +1,14 @@
 import { ActorPF2e } from "./../../../actor/index.ts";
 import { ItemPF2e } from "./../../../item/index.ts";
-import { PickableThing } from "./../../../apps/pick-a-thing-prompt.ts";
-import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
+import { PickableThing } from "./../../../apps/pick-a-thing-prompt/app.ts";
+import { RuleElement, RuleElementOptions } from "../base.ts";
 import { ModelPropsFromRESchema } from "../data.ts";
 import { AllowedDropsData, ChoiceSetPackQuery, ChoiceSetSchema, ChoiceSetSource, UninflatedChoiceSet } from "./data.ts";
 /**
  * Present a set of options to the user and assign their selection to an injectable property
  * @category RuleElement
  */
-declare class ChoiceSetRuleElement extends RuleElementPF2e<ChoiceSetSchema> {
+declare class ChoiceSetRuleElement extends RuleElement<ChoiceSetSchema> {
     #private;
     choices: UninflatedChoiceSet;
     flag: string;
@@ -24,7 +24,7 @@ declare class ChoiceSetRuleElement extends RuleElementPF2e<ChoiceSetSchema> {
      * Adjust the effect's name and set the targetId from the user's selection, or set the entire rule element to be
      * ignored if no selection was made.
      */
-    preCreate({ itemSource, ruleSource, tempItems }: RuleElementPF2e.PreCreateParams<ChoiceSetSource>): Promise<void>;
+    preCreate({ itemSource, ruleSource, tempItems }: RuleElement.PreCreateParams<ChoiceSetSource>): Promise<void>;
     /**
      * If an array was passed, localize & sort the labels and return. If a string, look it up in CONFIG.PF2E and
      * create an array of choices.
@@ -40,5 +40,5 @@ declare class ChoiceSetRuleElement extends RuleElementPF2e<ChoiceSetSchema> {
         tempItems: ItemPF2e<ActorPF2e>[],
     ): Promise<PickableThing<string>[]>;
 }
-interface ChoiceSetRuleElement extends RuleElementPF2e<ChoiceSetSchema>, ModelPropsFromRESchema<ChoiceSetSchema> {}
+interface ChoiceSetRuleElement extends RuleElement<ChoiceSetSchema>, ModelPropsFromRESchema<ChoiceSetSchema> {}
 export { ChoiceSetRuleElement };

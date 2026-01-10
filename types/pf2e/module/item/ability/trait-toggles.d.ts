@@ -1,4 +1,4 @@
-import { ModelPropsFromSchema } from "./../../../../foundry/common/data/fields.mjs";
+import { ModelPropsFromSchema } from "#common/data/fields.mjs";
 import { AbilityItemPF2e, FeatPF2e } from "./../index.ts";
 import { FeatSystemData } from "./../feat/data.ts";
 import { DamageAlteration } from "./../../rules/rule-element/damage-alteration/alteration.ts";
@@ -20,7 +20,8 @@ declare class AbilityTraitToggles extends foundry.abstract.DataModel<
     update({ trait, selected }: { trait: "mindshift"; selected: boolean }): Promise<boolean>;
 }
 interface AbilityTraitToggles
-    extends foundry.abstract.DataModel<AbilitySystemData | FeatSystemData, TraitToggleSchema>,
+    extends
+        foundry.abstract.DataModel<AbilitySystemData | FeatSystemData, TraitToggleSchema>,
         ModelPropsFromSchema<TraitToggleSchema> {}
 type TraitToggleSchema = {
     mindshift: fields.SchemaField<

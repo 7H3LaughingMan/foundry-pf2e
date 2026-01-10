@@ -1,4 +1,4 @@
-import { FormSelectOption } from "./../../../../foundry/client/applications/forms/fields.mjs";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
 import { EffectPF2e } from "./document.ts";
 export declare class EffectSheetPF2e extends ItemSheetPF2e<EffectPF2e> {

@@ -1,4 +1,4 @@
-import { RollMode } from "./../../../../foundry/common/constants.mjs";
+import { RollMode } from "#common/constants.mjs";
 import { DegreeOfSuccessIndex } from "./../degree-of-success.ts";
 import { DamageCategoryUnique, DamageDamageContext, DamageFormulaData, DamageType } from "./types.ts";
 /**

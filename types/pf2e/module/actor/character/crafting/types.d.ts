@@ -1,4 +1,4 @@
-import { ItemUUID } from "./../../../../../foundry/client/documents/_module.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
 import { PhysicalItemPF2e } from "./../../../item/index.ts";
 import { Predicate, RawPredicate } from "./../../../system/predication.ts";
 interface CraftingFormulaData {

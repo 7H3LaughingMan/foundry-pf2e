@@ -1,18 +1,18 @@
 import { ModifierType } from "./../../actor/modifiers.ts";
 import { ActorType } from "./../../actor/types.ts";
 import { DamageCategoryUnique, DamageType } from "./../../system/damage/types.ts";
-import { RuleElementPF2e } from "./base.ts";
+import { RuleElement } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleValue } from "./data.ts";
 import fields = foundry.data.fields;
 /** Substitute a pre-determined result for a check's D20 roll */
-declare class CritSpecRuleElement extends RuleElementPF2e<CritSpecRuleSchema> {
+declare class CritSpecRuleElement extends RuleElement<CritSpecRuleSchema> {
     #private;
     static validActorTypes: ActorType[];
     static defineSchema(): CritSpecRuleSchema;
     static validateJoint(data: fields.SourceFromSchema<CritSpecRuleSchema>): void;
     beforePrepareData(): void;
 }
-interface CritSpecRuleElement extends RuleElementPF2e<CritSpecRuleSchema>, ModelPropsFromRESchema<CritSpecRuleSchema> {}
+interface CritSpecRuleElement extends RuleElement<CritSpecRuleSchema>, ModelPropsFromRESchema<CritSpecRuleSchema> {}
 type DamageDieFaces = 4 | 6 | 8 | 10 | 12;
 type CritSpecRuleSchema = RuleElementSchema & {
     /** Whether this critical specialization note substitutes for the standard one of a given weapon group */

@@ -8,7 +8,7 @@ import {
     StrictBooleanField,
     StrictStringField,
 } from "./../../system/schema-data-fields.ts";
-import { RuleElementOptions, RuleElementPF2e } from "./base.ts";
+import { RuleElement, RuleElementOptions } from "./base.ts";
 import {
     ModelPropsFromRESchema,
     ResolvableValueField,
@@ -21,18 +21,16 @@ import fields = foundry.data.fields;
  * Apply a constant modifier (or penalty/bonus) to a statistic or usage thereof
  * @category RuleElement
  */
-declare class FlatModifierRuleElement extends RuleElementPF2e<FlatModifierSchema> {
+declare class FlatModifierRuleElement extends RuleElement<FlatModifierSchema> {
     constructor(source: FlatModifierSource, options: RuleElementOptions);
     static validateJoint(data: fields.SourceFromSchema<FlatModifierSchema>): void;
     static defineSchema(): FlatModifierSchema;
     get selectors(): string[];
     beforePrepareData(): void;
     /** Remove this rule element's parent item after a roll */
-    afterRoll({ check, rollOptions }: RuleElementPF2e.AfterRollParams): Promise<void>;
+    afterRoll({ check, rollOptions }: RuleElement.AfterRollParams): Promise<void>;
 }
-interface FlatModifierRuleElement
-    extends RuleElementPF2e<FlatModifierSchema>,
-        ModelPropsFromRESchema<FlatModifierSchema> {
+interface FlatModifierRuleElement extends RuleElement<FlatModifierSchema>, ModelPropsFromRESchema<FlatModifierSchema> {
     value: RuleValue;
 }
 type FlatModifierSchema = RuleElementSchema & {
@@ -78,11 +76,13 @@ type FlatModifierSchema = RuleElementSchema & {
      * The value may be a boolean, "if-enabled", or a predicate to be tested against the roll options from the roll.
      */
     removeAfterRoll: DataUnionField<
-        StrictStringField<"if-enabled"> | StrictBooleanField | PredicateField<false, false, false>,
+        StrictStringField<"if-enabled"> | StrictBooleanField<false, false, false> | PredicateField<false, false, false>,
         false,
         false,
         true
     >;
+    /** Whether this rule element is for use with battle forms */
+    battleForm: fields.BooleanField;
 };
 interface FlatModifierSource extends RuleElementSource {
     selector?: JSONValue;

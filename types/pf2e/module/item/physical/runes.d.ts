@@ -2,9 +2,9 @@ import { CreatureTrait } from "./../../actor/creature/index.ts";
 import {
     DamageDicePF2e,
     DamageDiceParameters,
+    Modifier,
     ModifierAdjustment,
     ModifierObjectParams,
-    ModifierPF2e,
 } from "./../../actor/modifiers.ts";
 import { ResistanceType } from "./../../actor/types.ts";
 import { ArmorPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "./../index.ts";
@@ -24,7 +24,7 @@ declare function getPropertyRuneDamage(
     weapon: WeaponPF2e | MeleePF2e,
     runes: WeaponPropertyRuneType[],
     options: Set<string>,
-): (DamageDicePF2e | ModifierPF2e)[];
+): (DamageDicePF2e | Modifier)[];
 declare function getPropertyRuneStrikeAdjustments(runes: WeaponPropertyRuneType[]): StrikeAdjustment[];
 declare function getPropertyRuneModifierAdjustments(runes: WeaponPropertyRuneType[]): ModifierAdjustment[];
 type RuneDiceProperty = "slug" | "damageType" | "category" | "predicate" | "critical";
@@ -101,7 +101,6 @@ declare const RUNE_DATA: {
             shadow: ArmorPropertyRuneData<"shadow">;
             ethereal: ArmorPropertyRuneData<"ethereal">;
             portable: ArmorPropertyRuneData<"portable">;
-            ready: ArmorPropertyRuneData<"ready">;
             acidResistant: ArmorPropertyRuneData<"acidResistant">;
             advancing: ArmorPropertyRuneData<"advancing">;
             aimAiding: ArmorPropertyRuneData<"aimAiding">;
@@ -146,10 +145,12 @@ declare const RUNE_DATA: {
             moderateDread: ArmorPropertyRuneData<"moderateDread">;
             quenching: ArmorPropertyRuneData<"quenching">;
             raiment: ArmorPropertyRuneData<"raiment">;
+            ready: ArmorPropertyRuneData<"ready">;
             rockBraced: ArmorPropertyRuneData<"rockBraced">;
             sinisterKnight: ArmorPropertyRuneData<"sinisterKnight">;
             sizeChanging: ArmorPropertyRuneData<"sizeChanging">;
             slick: ArmorPropertyRuneData<"slick">;
+            spellwatch: ArmorPropertyRuneData<"spellwatch">;
             soaring: ArmorPropertyRuneData<"soaring">;
             stanching: ArmorPropertyRuneData<"stanching">;
             swallowSpike: ArmorPropertyRuneData<"swallowSpike">;
@@ -167,6 +168,7 @@ declare const RUNE_DATA: {
             unholy: WeaponPropertyRuneData<"unholy">;
             vorpal: WeaponPropertyRuneData<"vorpal">;
             astral: WeaponPropertyRuneData<"astral">;
+            speed: WeaponPropertyRuneData<"speed">;
             ancestralEchoing: WeaponPropertyRuneData<"ancestralEchoing">;
             anchoring: WeaponPropertyRuneData<"anchoring">;
             ashen: WeaponPropertyRuneData<"ashen">;
@@ -241,7 +243,6 @@ declare const RUNE_DATA: {
             shifting: WeaponPropertyRuneData<"shifting">;
             shock: WeaponPropertyRuneData<"shock">;
             shockwave: WeaponPropertyRuneData<"shockwave">;
-            speed: WeaponPropertyRuneData<"speed">;
             spellStoring: WeaponPropertyRuneData<"spellStoring">;
             swarming: WeaponPropertyRuneData<"swarming">;
             thundering: WeaponPropertyRuneData<"thundering">;

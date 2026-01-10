@@ -1,10 +1,7 @@
-import {
-    TokenAnimationOptions,
-    TokenResourceData,
-    TokenShape,
-} from "./../../../../foundry/client/canvas/placeables/token.mjs";
-import { TokenUpdateCallbackOptions } from "./../../../../foundry/client/documents/token.mjs";
-import { Point } from "./../../../../foundry/common/_types.mjs";
+import { TokenResourceData, TokenShape } from "#client/canvas/placeables/token.mjs";
+import { TokenUpdateCallbackOptions } from "#client/documents/token.mjs";
+import { Point } from "#common/_types.mjs";
+import { GridOffset2D } from "#common/grid/_types.mjs";
 import { UserPF2e } from "./../../user/document.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { TokenLayerPF2e } from "../index.ts";
@@ -12,22 +9,64 @@ import { AuraRenderers } from "./aura/index.ts";
 import { FlankingHighlightRenderer } from "./flanking-highlight/renderer.ts";
 declare class TokenPF2e<TDocument extends TokenDocumentPF2e = TokenDocumentPF2e> extends fc.placeables
     .Token<TDocument> {
+    #private;
+    constructor(document: TDocument);
+    static RENDER_FLAGS: {
+        redraw: {
+            propagate: string[];
+        };
+        redrawEffects: object;
+        refresh: {
+            propagate: string[];
+            alias: true;
+        };
+        refreshState: {
+            propagate: string[];
+        };
+        refreshVisibility: object;
+        refreshTransform: {
+            propagate: string[];
+            alias: true;
+        };
+        refreshPosition: object;
+        refreshRotation: object;
+        refreshSize: {
+            propagate: string[];
+        };
+        refreshElevation: object;
+        refreshMesh: {
+            propagate: string[];
+        };
+        refreshShader: object;
+        refreshShape: {
+            propagate: string[];
+        };
+        refreshBorder: object;
+        refreshBars: object;
+        refreshEffects: object;
+        refreshNameplate: object;
+        refreshTarget: object;
+        refreshTooltip: object;
+        refreshRingVisuals: object;
+        recoverFromPreview: object;
+    } & {
+        // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+        refreshDistanceLabel: {};
+    };
     /** Visual representation and proximity-detection facilities for auras */
     readonly auras: AuraRenderers;
     /** Visual rendering of lines from token to flanking buddy tokens on highlight */
     readonly flankingHighlight: FlankingHighlightRenderer;
-    constructor(document: TDocument);
-    get isTiny(): boolean;
     /** This token's shape at its canvas position */
     get localShape(): TokenShape;
     /** The grid offsets representing this token's shape */
-    get footprint(): GridOffset[];
+    get footprint(): GridOffset2D[];
     /**
      * Is this Token visible to the user? Increase center-to-center point tolerance to be more compliant with 2e rules.
      */
     get isVisible(): boolean;
     /** A reference to an animation that is currently in progress for this Token, if any */
-    get animation(): Promise<boolean> | null;
+    get animation(): Promise<void> | null;
     /** Is this token currently animating? */
     get isAnimating(): boolean;
     /** Is rules-based vision enabled, and does this token's actor have low-light vision (inclusive of darkvision)? */
@@ -91,14 +130,15 @@ declare class TokenPF2e<TDocument extends TokenDocumentPF2e = TokenDocumentPF2e>
     protected _applyRenderFlags(flags: Record<string, boolean>): void;
     /** Draw auras and flanking highlight lines if certain conditions are met */
     protected _refreshVisibility(): void;
+    protected _refreshState(): void;
     /** Overrides _drawBar(k) to also draw pf2e variants of normal resource bars (such as temp health) */
     protected _drawBar(number: number, bar: PIXI.Graphics, data: TokenResourceData): void;
     /** Draw auras along with effect icons */
     _drawEffects(): Promise<void>;
     /** Emulate a pointer hover ("pointerover") event */
-    emitHoverIn(nativeEvent: MouseEvent | PointerEvent): void;
+    emitHoverIn(nativeEvent: MouseEvent): void;
     /** Emulate a pointer hover ("pointerout") event */
-    emitHoverOut(nativeEvent: MouseEvent | PointerEvent): void;
+    emitHoverOut(nativeEvent: MouseEvent): void;
     /** If Party Vision is enabled, make all player-owned actors count as vision sources for non-GM users */
     protected _isVisionSource(): boolean;
     /** Include actor overrides in the clone if it is a preview */
@@ -118,7 +158,6 @@ declare class TokenPF2e<TDocument extends TokenDocumentPF2e = TokenDocumentPF2e>
             reach?: number | null;
         },
     ): number;
-    animate(updateData: Record<string, unknown>, options?: TokenAnimationOptionsPF2e): Promise<void>;
     /** Obscure the token's sprite if a hearing or tremorsense detection filter is applied to it */
     render(renderer: PIXI.Renderer): void;
     protected _destroy(): void;
@@ -132,6 +171,15 @@ declare class TokenPF2e<TDocument extends TokenDocumentPF2e = TokenDocumentPF2e>
     protected _onRelease(options?: Record<string, unknown>): void;
     /** Handle system-specific status effects (upstream handles invisible and blinded) */
     _onApplyStatusEffect(statusId: string, active: boolean): void;
+    protected _onHoverIn(
+        event: PIXI.FederatedPointerEvent,
+        options?: {
+            hoverOutOthers?: boolean;
+        },
+    ): boolean | void;
+    protected _onHoverOut(event: PIXI.FederatedPointerEvent): boolean | void;
+    /** Require that a loot actor or dead creature is in reach for a player to view its sheet. */
+    protected _onClickLeft2(event: PIXI.FederatedPointerEvent): void;
     /** Reset aura renders when token size or GM hidden changes. */
     _onUpdate(changed: DeepPartial<TDocument["_source"]>, options: TokenUpdateCallbackOptions, userId: string): void;
 }
@@ -153,15 +201,12 @@ type ShowFloatyEffectParams =
     | {
           delete: NumericFloatyEffect;
       };
-interface TokenAnimationOptionsPF2e extends TokenAnimationOptions {
-    spin?: boolean;
-}
 type TokenOrPoint =
     | TokenPF2e
     | (Point & {
           actor?: never;
           document?: never;
-          bounds?: never;
+          mechanicalBounds?: never;
       });
 export { TokenPF2e };
-export type { ShowFloatyEffectParams, TokenAnimationOptionsPF2e };
+export type { ShowFloatyEffectParams };

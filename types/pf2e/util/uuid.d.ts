@@ -7,9 +7,9 @@ import {
     ItemUUID,
     TokenDocumentUUID,
     WorldItemUUID,
-} from "./../../foundry/client/documents/_module.mjs";
-import { CompendiumUUID } from "./../../foundry/client/utils/_module.mjs";
-import { default as Document } from "./../../foundry/common/abstract/document.mjs";
+} from "#client/documents/_module.mjs";
+import { CompendiumUUID } from "#client/utils/_module.mjs";
+import { default as Document } from "#common/abstract/document.mjs";
 import { ItemPF2e } from "./../module/item/index.ts";
 declare class UUIDUtils {
     /** Retrieve multiple documents by UUID */

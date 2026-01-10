@@ -8,6 +8,6 @@ declare class TokenLightForm extends RuleElementForm<TokenLightRuleSource, Token
 interface TokenLightSheetData extends RuleElementFormSheetData<TokenLightRuleSource, TokenLightRuleElement> {
     colorationTechniques: typeof fc.rendering.shaders.AdaptiveLightingShader.SHADER_TECHNIQUES;
     light: TokenLightRuleSource["value"];
-    lightAnimations: Record<keyof typeof CONFIG.Canvas.lightAnimations, string>;
+    lightAnimations: Record<string, string>;
 }
 export { TokenLightForm };

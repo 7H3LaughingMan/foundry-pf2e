@@ -27,6 +27,7 @@ declare function createHTMLElement<K extends keyof HTMLElementTagNameMap>(
     options?: CreateHTMLElementOptionsWithNeither,
 ): HTMLElementTagNameMap[K];
 interface CreateHTMLElementOptions {
+    id?: string;
     classes?: string[];
     dataset?: Record<string, Maybe<string | number | boolean>>;
     aria?: Record<string, Maybe<string | false>>;

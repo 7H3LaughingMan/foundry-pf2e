@@ -1,6 +1,6 @@
 import { SaveType } from "./../../actor/types.ts";
-import { ModelPropsFromSchema, SourceFromSchema } from "./../../../../foundry/common/data/fields.mjs";
-import { ItemUUID } from "./../../../../foundry/common/documents/_module.mjs";
+import { ModelPropsFromSchema, SourceFromSchema } from "#common/data/fields.mjs";
+import { ItemUUID } from "#common/documents/_module.mjs";
 import { DurationDataSchema, EffectContextField } from "./../abstract-effect/data.ts";
 import { EffectAuraData } from "./../abstract-effect/index.ts";
 import { EffectTrait, TimeUnit } from "./../abstract-effect/types.ts";
@@ -25,7 +25,8 @@ declare class AfflictionSystemData extends ItemSystemModel<AfflictionPF2e, Affli
     prepareBaseData(): void;
 }
 interface AfflictionSystemData
-    extends ItemSystemModel<AfflictionPF2e, AfflictionSystemSchema>,
+    extends
+        ItemSystemModel<AfflictionPF2e, AfflictionSystemSchema>,
         Omit<ModelPropsFromSchema<AfflictionSystemSchema>, "description"> {}
 type AfflictionSystemSchema = Omit<ItemSystemSchema, "traits"> & {
     level: fields.SchemaField<{

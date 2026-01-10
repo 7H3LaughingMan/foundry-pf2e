@@ -4,5 +4,9 @@ import { MigrationBase } from "../base.ts";
 export declare class Migration899ArmorShieldToShieldShield extends MigrationBase {
     #private;
     static version: number;
-    updateItem(source: ItemSourcePF2e): Promise<void>;
+    updateItem(source: MaybeShieldData): Promise<void>;
 }
+type MaybeShieldData = ItemSourcePF2e & {
+    "==system"?: object;
+};
+export {};

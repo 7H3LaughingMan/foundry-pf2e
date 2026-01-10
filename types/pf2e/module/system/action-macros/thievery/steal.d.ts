@@ -1,5 +1,5 @@
-import { SkillActionOptions } from "../index.ts";
 import { SingleCheckAction } from "./../../../actor/actions/index.ts";
+import { SkillActionOptions } from "../index.ts";
 declare function steal(options: SkillActionOptions): void;
 declare const action: SingleCheckAction;
-export { steal as legacy, action };
+export { action, steal as legacy };

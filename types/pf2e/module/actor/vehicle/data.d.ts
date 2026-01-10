@@ -18,12 +18,19 @@ declare class VehicleSystemData extends ActorSystemModel<VehiclePF2e, VehicleSys
     static defineSchema(): VehicleSystemSchema;
     prepareBaseData(): void;
 }
+interface VehicleMovementData {
+    speeds: {
+        drive: {
+            value: number | null;
+        };
+    };
+}
 interface VehicleSystemData
-    extends ActorSystemModel<VehiclePF2e, VehicleSystemSchema>,
-        fields.ModelPropsFromSchema<VehicleSystemSchema> {
+    extends ActorSystemModel<VehiclePF2e, VehicleSystemSchema>, fields.ModelPropsFromSchema<VehicleSystemSchema> {
     traits: VehicleTraits;
     attributes: VehicleAttributes;
     details: VehicleDetails;
+    movement: VehicleMovementData;
 }
 type VehicleSystemSchema = ActorSystemSchema & {
     traits: fields.SchemaField<VehicleTraitsSchema>;
@@ -92,7 +99,7 @@ type VehicleAttributesSchema = {
 };
 type VehicleAttributesSource = fields.SourceFromSchema<VehicleAttributesSchema>;
 type VehicleDetailsSchema = {
-    description: fields.StringField<string, string, true, false, true>;
+    description: fields.HTMLField;
     level: fields.SchemaField<{
         value: fields.NumberField<number, number, true, false, true>;
     }>;
@@ -132,4 +139,4 @@ interface TokenDimensions {
     height: number;
 }
 export { VehicleSystemData };
-export type { TokenDimensions, VehicleSource, VehicleTrait };
+export type { TokenDimensions, VehicleSource, VehicleSystemSchema, VehicleTrait };

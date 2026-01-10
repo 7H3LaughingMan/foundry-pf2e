@@ -5,6 +5,7 @@ import {
     PhysicalSystemData,
     PhysicalSystemSource,
 } from "./../physical/data.ts";
+import { Grade } from "./../physical/types.ts";
 import { HeldUsage } from "./../physical/usage.ts";
 import { WeaponRuneData, WeaponRuneSource } from "./../weapon/data.ts";
 import { ZeroToSix } from "./../../data.ts";
@@ -18,6 +19,7 @@ interface ShieldSystemSource extends PhysicalSystemSource {
     speedPenalty: number;
     /** Data stored at the time of marking a shield as specific */
     specific: SpecificShieldData | null;
+    grade: Grade | null;
     /** Currently supports reinforcing runes */
     runes: ShieldRuneData;
     /** Usage for shields isn't stored. */
@@ -44,8 +46,7 @@ interface SpecificShieldData extends Pick<ShieldSystemSource, "material" | "rune
     } | null;
 }
 interface ShieldSystemData
-    extends Omit<ShieldSystemSource, SourceOmission>,
-        Omit<PhysicalSystemData, "baseItem" | "subitems" | "traits"> {
+    extends Omit<ShieldSystemSource, SourceOmission>, Omit<PhysicalSystemData, "baseItem" | "subitems" | "traits"> {
     traits: ShieldTraits;
     /** Shields are always held. */
     usage: HeldUsage;

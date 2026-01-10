@@ -1,4 +1,4 @@
-import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
+import { RuleElement, RuleElementOptions } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSource } from "../data.ts";
 import { Suboption, RollOptionSchema } from "./data.ts";
 import fields = foundry.data.fields;
@@ -6,7 +6,7 @@ import fields = foundry.data.fields;
  * Set a roll option at a specificed domain
  * @category RuleElement
  */
-declare class RollOptionRuleElement extends RuleElementPF2e<RollOptionSchema> {
+declare class RollOptionRuleElement extends RuleElement<RollOptionSchema> {
     #private;
     /** True if this roll option has a suboptions configuration */
     hasSubOptions: boolean;
@@ -35,9 +35,9 @@ declare class RollOptionRuleElement extends RuleElementPF2e<RollOptionSchema> {
      */
     beforeRoll(domains: string[], rollOptions: Set<string>): void;
     /** Remove the parent effect if configured so */
-    afterRoll({ domains, rollOptions }: RuleElementPF2e.AfterRollParams): Promise<void>;
+    afterRoll({ domains, rollOptions }: RuleElement.AfterRollParams): Promise<void>;
 }
-interface RollOptionRuleElement extends RuleElementPF2e<RollOptionSchema>, ModelPropsFromRESchema<RollOptionSchema> {
+interface RollOptionRuleElement extends RuleElement<RollOptionSchema>, ModelPropsFromRESchema<RollOptionSchema> {
     value: boolean | string;
 }
 interface RollOptionSource extends RuleElementSource {

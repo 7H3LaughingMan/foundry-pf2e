@@ -1,5 +1,6 @@
-import { SkillActionOptions } from "../index.ts";
 import { SingleCheckAction } from "./../../../actor/actions/index.ts";
+import { SkillActionOptions } from "../index.ts";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare const PERFORM_VARIANT_TRAITS: {
     readonly acting: readonly ["auditory", "linguistic", "visual"];
     readonly comedy: readonly ["auditory", "linguistic", "visual"];
@@ -18,4 +19,4 @@ declare function perform(
     } & SkillActionOptions,
 ): void;
 declare const action: SingleCheckAction;
-export { perform as legacy, action };
+export { action, perform as legacy };

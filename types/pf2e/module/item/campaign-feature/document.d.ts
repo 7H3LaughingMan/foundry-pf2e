@@ -1,10 +1,7 @@
 import { ActorPF2e } from "./../../actor/index.ts";
 import { FeatGroup } from "./../../actor/character/feats/index.ts";
-import { DocumentHTMLEmbedConfig } from "./../../../../foundry/client/applications/ux/text-editor.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "./../../../../foundry/common/abstract/_types.mjs";
+import { DocumentHTMLEmbedConfig } from "#client/applications/ux/text-editor.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { ItemPF2e } from "./../index.ts";
 import { ActionCost, Frequency } from "./../base/data/index.ts";
 import { CampaignFeatureSource, CampaignFeatureSystemData } from "./data.ts";
@@ -37,8 +34,9 @@ declare class CampaignFeaturePF2e<TParent extends ActorPF2e | null = ActorPF2e |
             includeGranter?: boolean;
         },
     ): string[];
+    /** In case this was copied from an actor, clear the location if there's no parent. */
     protected _preCreate(
-        data: this["_source"],
+        data: DeepPartial<this["_source"]>,
         options: DatabaseCreateCallbackOptions,
         user: fd.BaseUser,
     ): Promise<boolean | void>;

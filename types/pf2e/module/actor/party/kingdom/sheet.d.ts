@@ -2,13 +2,13 @@ import { ActorPF2e, ArmyPF2e, PartyPF2e } from "./../../index.ts";
 import { FeatGroup } from "./../../character/feats/index.ts";
 import { ActorSheetPF2e, SheetClickActionHandlers } from "./../../sheet/base.ts";
 import { ActorSheetDataPF2e } from "./../../sheet/data-types.ts";
-import { FormSelectOption } from "./../../../../../foundry/client/applications/forms/fields.mjs";
-import { ApplicationV1HeaderButton } from "./../../../../../foundry/client/appv1/api/application-v1.mjs";
-import { ActorSheetOptions } from "./../../../../../foundry/client/appv1/sheets/actor-sheet.mjs";
-import { DropCanvasData } from "./../../../../../foundry/client/helpers/hooks.mjs";
+import { FormSelectOption } from "#client/applications/forms/fields.mjs";
+import { ApplicationV1HeaderButton } from "#client/appv1/api/application-v1.mjs";
+import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
+import { DropCanvasData } from "#client/helpers/hooks.mjs";
 import { ItemPF2e, CampaignFeaturePF2e } from "./../../../item/index.ts";
 import { ItemSourcePF2e } from "./../../../item/base/data/index.ts";
-import { DropCanvasItemDataPF2e } from "./../../../canvas/drop-canvas-data.ts";
+import { DropCanvasItemData } from "./../../../canvas/drop-canvas-data.ts";
 import { ValueAndMax } from "./../../../data.ts";
 import { AdjustedValue, SheetOption, SheetOptions } from "./../../../sheet/helpers.ts";
 import { Statistic } from "./../../../system/statistic/index.ts";
@@ -41,7 +41,7 @@ declare class KingdomSheetPF2e extends ActorSheetPF2e<PartyPF2e> {
             instant?: boolean;
         },
     ): void;
-    protected _onDropItem(event: DragEvent, data: DropCanvasItemDataPF2e): Promise<ItemPF2e[]>;
+    protected _onDropItem(event: DragEvent, data: DropCanvasItemData): Promise<ItemPF2e[]>;
     /** Handle a drop event for an existing Owned Item to sort that item */
     protected _onSortItem(event: DragEvent, itemData: ItemSourcePF2e): Promise<ItemPF2e[]>;
     protected _onDropActor(event: DragEvent, data: DropCanvasData<"Actor", PartyPF2e>): Promise<false | void>;

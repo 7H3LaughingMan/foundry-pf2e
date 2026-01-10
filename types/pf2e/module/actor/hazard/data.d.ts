@@ -3,7 +3,7 @@ import { Immunity, Resistance, Weakness } from "./../data/iwr.ts";
 import { ActorHitPointsSchema, ActorSystemModel, ActorSystemSchema } from "./../data/model.ts";
 import { ActorSizePF2e } from "./../data/size.ts";
 import { InitiativeTraceData } from "./../initiative.ts";
-import { NPCStrike } from "./../npc/index.ts";
+import { NPCAttackAction } from "./../npc/index.ts";
 import { ImmunityType, ResistanceType, WeaknessType } from "./../types.ts";
 import { Rarity, Size } from "./../../data.ts";
 import { PublicationField } from "./../../model.ts";
@@ -18,12 +18,11 @@ declare class HazardSystemData extends ActorSystemModel<HazardPF2e, HazardSystem
     static defineSchema(): HazardSystemSchema;
 }
 interface HazardSystemData
-    extends ActorSystemModel<HazardPF2e, HazardSystemSchema>,
-        fields.ModelPropsFromSchema<HazardSystemSchema> {
+    extends ActorSystemModel<HazardPF2e, HazardSystemSchema>, fields.ModelPropsFromSchema<HazardSystemSchema> {
     traits: HazardTraits;
     attributes: HazardAttributes;
     details: HazardDetails;
-    actions: NPCStrike[];
+    actions: NPCAttackAction[];
     initiative?: InitiativeTraceData;
 }
 type HazardSystemSchema = ActorSystemSchema & {
@@ -95,7 +94,7 @@ type HazardAttributesSchema = {
 };
 type HazardAttributesSource = fields.SourceFromSchema<HazardAttributesSchema>;
 type HazardDetailsSchema = {
-    description: fields.StringField<string, string, true, false, true>;
+    description: fields.HTMLField;
     level: fields.SchemaField<{
         value: fields.NumberField<number, number, true, false, true>;
     }>;

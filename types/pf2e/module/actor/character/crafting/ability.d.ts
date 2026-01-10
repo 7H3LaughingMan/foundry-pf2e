@@ -1,7 +1,7 @@
 import { CharacterPF2e } from "./../../index.ts";
 import { ResourceData } from "./../../creature/index.ts";
-import { ItemUUID } from "./../../../../../foundry/client/documents/_module.mjs";
-import { DatabaseUpdateOperation } from "./../../../../../foundry/common/abstract/_types.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
+import { DatabaseUpdateOperation } from "#common/abstract/_types.mjs";
 import { PhysicalItemPF2e } from "./../../../item/index.ts";
 import { PhysicalItemSource } from "./../../../item/base/data/index.ts";
 import { Predicate } from "./../../../system/predication.ts";

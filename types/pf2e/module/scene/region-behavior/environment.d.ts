@@ -1,10 +1,5 @@
-import { RegionEventType } from "./../../../../foundry/client/data/region-behaviors/base.mjs";
-import {
-    ModelPropsFromSchema,
-    SetField,
-    SourceFromSchema,
-    StringField,
-} from "./../../../../foundry/common/data/fields.mjs";
+import { RegionEventType } from "#client/data/region-behaviors/base.mjs";
+import { ModelPropsFromSchema, SetField, SourceFromSchema, StringField } from "#common/data/fields.mjs";
 import { RegionBehaviorPF2e } from "./document.ts";
 import { RegionEventPF2e } from "./types.ts";
 declare class EnvironmentBehaviorType extends foundry.data.regionBehaviors.RegionBehaviorType<
@@ -16,7 +11,8 @@ declare class EnvironmentBehaviorType extends foundry.data.regionBehaviors.Regio
     protected _handleRegionEvent(event: RegionEventPF2e): Promise<void>;
 }
 interface EnvironmentBehaviorType
-    extends foundry.data.regionBehaviors.RegionBehaviorType<EnvironmentTypeSchema, RegionBehaviorPF2e | null>,
+    extends
+        foundry.data.regionBehaviors.RegionBehaviorType<EnvironmentTypeSchema, RegionBehaviorPF2e | null>,
         ModelPropsFromSchema<EnvironmentTypeSchema> {}
 type EnvironmentTypeSchema = {
     environmentTypes: SetField<StringField<string, string, true>>;

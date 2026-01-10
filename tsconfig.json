@@ -3,22 +3,10 @@
         "target": "ESNext",
         "module": "ESNext",
         "moduleResolution": "bundler",
-        "lib": [
-            "ESNext",
-            "DOM"
-        ],
+        "lib": ["ESNext", "DOM"],
         "noEmit": true,
         "strict": true,
         "allowImportingTsExtensions": true,
-        "types": [
-            "./types/foundry",
-            "./types/pf2e",
-            "jquery",
-            "node",
-            "tooltipster"
-        ]
-    },
-    "exclude": [
-        "build/files/**"
-    ]
+        "types": ["./types/foundry", "./types/pf2e", "jquery", "tooltipster"]
+    }
 }

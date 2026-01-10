@@ -35,7 +35,7 @@ export interface SceneControl {
 
 interface ToolclipConfiguration {
     /** The filename of the toolclip video. */
-    src?: string;
+    src: string;
     /** The heading string. */
     heading: string;
     /** The items in the toolclip body. */

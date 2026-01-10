@@ -1,12 +1,12 @@
-import { ApplicationV1HeaderButton } from "./../../../../../foundry/client/appv1/api/application-v1.mjs";
-import { ActorSheetOptions } from "./../../../../../foundry/client/appv1/sheets/actor-sheet.mjs";
+import { ApplicationV1HeaderButton } from "#client/appv1/api/application-v1.mjs";
+import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
 import { EffectTrait } from "./../../../item/abstract-effect/types.ts";
-import { CharacterStrike } from "../data.ts";
+import { CharacterAttack } from "../data.ts";
 import { CharacterPF2e } from "../document.ts";
 import { CharacterSheetPF2e, CharacterSheetData } from "../sheet.ts";
 declare class AttackPopout<TActor extends CharacterPF2e> extends CharacterSheetPF2e<TActor> {
     #private;
-    type: "strike" | "blast";
+    type: AttackPopoutOptions["type"];
     get template(): string;
     get id(): string;
     static get defaultOptions(): ActorSheetOptions;
@@ -20,9 +20,9 @@ interface BaseAttackPopoutOptions extends Partial<ActorSheetOptions> {
     type: string;
 }
 interface StrikePopoutOptions extends BaseAttackPopoutOptions {
-    type: "strike";
-    strikeSlug?: string;
-    strikeItemId?: string;
+    type: "strike" | "area-fire" | "auto-fire";
+    slug?: string;
+    itemId?: string;
 }
 interface BlastPopoutOptions extends BaseAttackPopoutOptions {
     type: "blast";
@@ -30,8 +30,8 @@ interface BlastPopoutOptions extends BaseAttackPopoutOptions {
 }
 type AttackPopoutOptions = StrikePopoutOptions | BlastPopoutOptions;
 interface AttackPopoutData<TActor extends CharacterPF2e> extends CharacterSheetData<TActor> {
-    strike?: CharacterStrike;
-    strikeIndex?: number;
+    attack?: CharacterAttack;
+    index?: number;
     popoutType: AttackPopoutOptions["type"];
 }
 export { AttackPopout };

@@ -1,6 +1,6 @@
-import { CompendiumIndexData } from "./../../../foundry/client/documents/collections/compendium-collection.mjs";
-import { DocumentConstructionContext } from "./../../../foundry/common/_types.mjs";
-import { DatabaseGetOperation, Document } from "./../../../foundry/common/abstract/_module.mjs";
+import { CompendiumIndexData } from "#client/documents/collections/compendium-collection.mjs";
+import { DocumentConstructionContext } from "#common/_types.mjs";
+import { DatabaseGetOperation, Document } from "#common/abstract/_module.mjs";
 declare class ClientDatabaseBackendPF2e extends foundry.data.ClientDatabaseBackend {
     protected _getDocuments<TDocument extends Document>(
         documentClass: AbstractConstructorOf<TDocument> & {

@@ -1,7 +1,7 @@
 import { Language, SenseAcuity, SenseType } from "./../../actor/creature/types.ts";
 import { AttributeString, SaveType } from "./../../actor/types.ts";
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
-import { SourceFromDataField } from "./../../../../foundry/common/data/fields.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
+import { SourceFromDataField } from "#common/data/fields.mjs";
 import { FrequencyField, SelfEffectReference } from "./../ability/index.ts";
 import { AbilityTraitToggles } from "./../ability/trait-toggles.ts";
 import { ArmorCategory } from "./../armor/types.ts";
@@ -27,7 +27,8 @@ declare class FeatSystemData extends ItemSystemModel<FeatPF2e, FeatSystemSchema>
     prepareDerivedData(): void;
 }
 interface FeatSystemData
-    extends ItemSystemModel<FeatPF2e, FeatSystemSchema>,
+    extends
+        ItemSystemModel<FeatPF2e, FeatSystemSchema>,
         Omit<fields.ModelPropsFromSchema<FeatSystemSchema>, "description"> {}
 type FeatSystemSchema = Omit<ItemSystemSchema, "traits"> & {
     level: fields.SchemaField<{
@@ -92,10 +93,7 @@ type FeatSystemSchema = Omit<ItemSystemSchema, "traits"> & {
             fields.SchemaField<{
                 rank: fields.NumberField<OneToFour, OneToFour, true, false, false>;
                 attribute: fields.StringField<AttributeString, AttributeString, true, true, true>;
-            }>,
-            false,
-            false,
-            false
+            }>
         >;
         senses: SensesField;
         suppressedFeatures: fields.ArrayField<fields.DocumentUUIDField<ItemUUID, true, false, false>>;

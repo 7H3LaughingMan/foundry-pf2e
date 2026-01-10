@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { ItemUUID } from "./../../../../foundry/common/documents/_module.mjs";
+import { ItemUUID } from "#common/documents/_module.mjs";
 import { ConditionPF2e } from "./../../item/index.ts";
 import { ConditionSource } from "./../../item/condition/data.ts";
 import { ConditionSlug } from "./../../item/condition/types.ts";

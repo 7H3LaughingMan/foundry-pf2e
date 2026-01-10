@@ -1,6 +1,6 @@
 import { Language } from "./../../../actor/creature/index.ts";
 import { AttributeString } from "./../../../actor/types.ts";
-import { ModelPropsFromSchema, SetField, StringField } from "./../../../../../foundry/common/data/fields.mjs";
+import { ModelPropsFromSchema, SetField, StringField } from "#common/data/fields.mjs";
 import { BaseArmorType } from "./../../../item/armor/types.ts";
 import { BaseWeaponType } from "./../../../item/weapon/types.ts";
 import { MenuTemplateData } from "../menu.ts";
@@ -8,6 +8,7 @@ declare const HOMEBREW_ELEMENT_KEYS: readonly [
     "languages",
     "armorGroups",
     "baseArmors",
+    "classTraits",
     "weaponCategories",
     "weaponGroups",
     "baseWeapons",
@@ -21,6 +22,7 @@ declare const HOMEBREW_ELEMENT_KEYS: readonly [
 /** Homebrew elements from some of the above records are propagated to related records */
 declare const TRAIT_PROPAGATIONS: {
     readonly actionTraits: readonly ["effectTraits"];
+    readonly classTraits: readonly ["featTraits", "spellTraits"];
     readonly creatureTraits: readonly ["ancestryTraits", "hazardTraits"];
     readonly equipmentTraits: readonly ["armorTraits", "consumableTraits"];
     readonly featTraits: readonly ["actionTraits"];
@@ -87,8 +89,7 @@ declare class LanguageSettings extends foundry.abstract.DataModel<null, Language
     onReady(): void;
 }
 interface LanguageSettings
-    extends foundry.abstract.DataModel<null, LanguageSettingsSchema>,
-        ModelPropsFromSchema<LanguageSettingsSchema> {}
+    extends foundry.abstract.DataModel<null, LanguageSettingsSchema>, ModelPropsFromSchema<LanguageSettingsSchema> {}
 type LanguageSettingsSchema = {
     /** The "common" tongue of the region, rather than languages of common rarity */
     commonLanguage: StringField<LanguageNotCommon, LanguageNotCommon, true, true, true>;
@@ -121,7 +122,7 @@ interface ModuleHomebrewData {
     traits: Record<HomebrewTraitKey, HomebrewTag[]>;
     traitDescriptions: Record<string, string>;
 }
-type RawLanguageSettings<TModel extends LanguageSettings = LanguageSettings> = RawObject<TModel> & {
+type RawLanguageSettings<TModel extends LanguageSettings = LanguageSettings> = TModel["_source"] & {
     common: LanguageNotCommon[];
     homebrew: LanguageNotCommon[];
 };

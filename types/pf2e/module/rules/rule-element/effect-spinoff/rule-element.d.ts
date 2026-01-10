@@ -1,10 +1,10 @@
 import { ActorPF2e } from "./../../../actor/index.ts";
 import { PhysicalItemPF2e } from "./../../../item/index.ts";
 import { SlugField } from "./../../../system/schema-data-fields.ts";
-import { RuleElementOptions, RuleElementPF2e } from "../base.ts";
+import { RuleElement, RuleElementOptions } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource } from "../data.ts";
 import fields = foundry.data.fields;
-declare class EffectSpinoffRuleElement extends RuleElementPF2e<EffectSpinoffSchema> {
+declare class EffectSpinoffRuleElement extends RuleElement<EffectSpinoffSchema> {
     constructor(source: RuleElementSource, options: RuleElementOptions);
     static defineSchema(): EffectSpinoffSchema;
     /** Allow an effect spinoff to be available even if its parent is an unequipped physical item. */
@@ -12,8 +12,7 @@ declare class EffectSpinoffRuleElement extends RuleElementPF2e<EffectSpinoffSche
     afterPrepareData(): void;
 }
 interface EffectSpinoffRuleElement
-    extends RuleElementPF2e<EffectSpinoffSchema>,
-        ModelPropsFromRESchema<EffectSpinoffSchema> {
+    extends RuleElement<EffectSpinoffSchema>, ModelPropsFromRESchema<EffectSpinoffSchema> {
     slug: string;
     get item(): PhysicalItemPF2e<ActorPF2e>;
 }

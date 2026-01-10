@@ -15,6 +15,7 @@ declare const SIZE_TO_REACH: {
     readonly grg: 15;
 };
 declare const SENSE_TYPES: Set<
+    | "bloodsense"
     | "darkvision"
     | "echolocation"
     | "greater-darkvision"
@@ -172,13 +173,13 @@ declare const LANGUAGES: Language[];
 declare const LANGUAGE_RARITIES: readonly ["common", "uncommon", "rare", "secret"];
 export {
     ALLIANCES,
+    LANGUAGE_RARITIES,
     LANGUAGES,
     LANGUAGES_BY_RARITY,
-    LANGUAGE_RARITIES,
     SAVING_THROW_ATTRIBUTES,
-    SENSES_WITH_MANDATORY_ACUITIES,
-    SENSES_WITH_UNLIMITED_RANGE,
     SENSE_ACUITIES,
     SENSE_TYPES,
+    SENSES_WITH_MANDATORY_ACUITIES,
+    SENSES_WITH_UNLIMITED_RANGE,
     SIZE_TO_REACH,
 };

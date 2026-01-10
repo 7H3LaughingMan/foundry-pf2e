@@ -46,8 +46,7 @@ export default class BaseItem<TParent extends BaseActor | null = BaseActor | nul
 }
 
 export default interface BaseItem<TParent extends BaseActor | null = BaseActor | null>
-    extends abstract.Document<TParent, ItemSchema>,
-        fields.ModelPropsFromSchema<ItemSchema> {
+    extends abstract.Document<TParent, ItemSchema>, fields.ModelPropsFromSchema<ItemSchema> {
     get documentName(): ItemMetadata["name"];
 
     readonly effects: abstract.EmbeddedCollection<BaseActiveEffect<this>>;

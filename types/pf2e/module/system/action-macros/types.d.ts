@@ -1,7 +1,8 @@
 import { ActorPF2e } from "./../../actor/index.ts";
 import { StrikeData } from "./../../actor/data/base.ts";
-import { ModifierPF2e } from "./../../actor/modifiers.ts";
+import { Modifier } from "./../../actor/modifiers.ts";
 import { DCSlug } from "./../../actor/types.ts";
+import { Rolled } from "#client/dice/_module.mjs";
 import { ItemPF2e } from "./../../item/index.ts";
 import { WeaponTrait } from "./../../item/weapon/types.ts";
 import { RollNotePF2e } from "./../../notes.ts";
@@ -9,7 +10,6 @@ import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { CheckRoll, CheckType } from "./../check/index.ts";
 import { CheckDC, DegreeOfSuccessString } from "./../degree-of-success.ts";
 import { Statistic } from "./../statistic/index.ts";
-import { Rolled } from "../../../../foundry/client/dice/_module.d.mjs";
 type ActionGlyph = "A" | "D" | "T" | "R" | "F" | "a" | "d" | "t" | "r" | "f" | 1 | 2 | 3 | "1" | "2" | "3";
 interface BuildCheckContextOptions<TItem extends ItemPF2e<ActorPF2e>> {
     actor: ActorPF2e;
@@ -29,7 +29,7 @@ interface CheckContextOptions<TItem extends ItemPF2e<ActorPF2e>> {
 }
 interface CheckContextData<TItem extends ItemPF2e<ActorPF2e>> {
     item?: TItem;
-    modifiers?: ModifierPF2e[];
+    modifiers?: Modifier[];
     rollOptions: string[];
     slug: string;
     target?: ActorPF2e | null;
@@ -37,7 +37,7 @@ interface CheckContextData<TItem extends ItemPF2e<ActorPF2e>> {
 interface CheckMacroContext<TItem extends ItemPF2e<ActorPF2e>> {
     type: CheckType;
     item?: TItem;
-    modifiers?: ModifierPF2e[];
+    modifiers?: Modifier[];
     rollOptions: string[];
     slug: string;
     statistic:
@@ -63,7 +63,7 @@ interface SimpleRollActionCheckOptions<TItem extends ItemPF2e<ActorPF2e>> {
     content?: (title: string) => Promise<string | null | undefined | void> | string | null | undefined | void;
     item?: (actor: ActorPF2e) => TItem | undefined;
     traits: string[];
-    event?: JQuery.TriggeredEvent | Event | null;
+    event?: Event | null;
     /**
      * A DC can be represented as a preassembled `CheckDC` object, a slug referencing a `Statistic`, or a function that
      * returns a `CheckDC` or `null`.
@@ -81,10 +81,10 @@ interface SimpleRollActionCheckOptions<TItem extends ItemPF2e<ActorPF2e>> {
 }
 type UnresolvedCheckDC = CheckDC | DCSlug | ((actor: ActorPF2e | null) => CheckDC | null);
 interface ActionDefaultOptions {
-    event?: JQuery.TriggeredEvent | Event | null;
+    event?: Event | null;
     actors?: ActorPF2e | ActorPF2e[];
     glyph?: ActionGlyph;
-    modifiers?: ModifierPF2e[];
+    modifiers?: Modifier[];
     callback?: (result: CheckResultCallback) => void;
 }
 interface SkillActionOptions extends ActionDefaultOptions {

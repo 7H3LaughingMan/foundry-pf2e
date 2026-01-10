@@ -1,10 +1,7 @@
 import { ActorPF2e } from "./../../actor/index.ts";
 import { AttributeString } from "./../../actor/types.ts";
-import {
-    DatabaseDeleteCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "./../../../../foundry/common/abstract/_types.mjs";
-import { ConsumablePF2e, MeleePF2e, ShieldPF2e, PhysicalItemPF2e } from "./../index.ts";
+import { DatabaseDeleteCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
+import { AmmoPF2e, MeleePF2e, ShieldPF2e, PhysicalItemPF2e } from "./../index.ts";
 import { ItemSourcePF2e, RawItemChatData } from "./../base/data/index.ts";
 import { NPCAttackTrait } from "./../melee/types.ts";
 import { PhysicalItemConstructionContext } from "./../physical/document.ts";
@@ -51,8 +48,9 @@ declare class WeaponPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ex
     get baseDamage(): WeaponDamage;
     /** Does this weapon deal damage? */
     get dealsDamage(): boolean;
-    get ammo(): ConsumablePF2e<ActorPF2e> | WeaponPF2e<ActorPF2e> | null;
+    get ammo(): AmmoPF2e<TParent> | WeaponPF2e<TParent> | null;
     get otherTags(): Set<OtherWeaponTag>;
+    /** Returns true if the given item can be embedded in this one */
     acceptsSubitem(candidate: PhysicalItemPF2e): boolean;
     isStackableWith(item: PhysicalItemPF2e): boolean;
     /** Whether this weapon can serve as ammunition for another weapon */
@@ -65,6 +63,7 @@ declare class WeaponPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ex
         },
     ): string[];
     prepareBaseData(): void;
+    private prepareTraits;
     /** Add the rule elements of this weapon's linked ammunition to its own list */
     prepareSiblingData(): void;
     onPrepareSynthetics(): void;

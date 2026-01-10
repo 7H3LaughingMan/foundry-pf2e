@@ -1,4 +1,4 @@
-import { ItemUUID } from "./../../../../foundry/client/documents/_module.mjs";
+import { ItemUUID } from "#client/documents/_module.mjs";
 import { AfflictionPF2e, ConditionPF2e } from "./../index.ts";
 import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
 import { DamageCategoryUnique } from "./../../system/damage/types.ts";
