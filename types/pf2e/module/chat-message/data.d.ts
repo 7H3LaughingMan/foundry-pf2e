@@ -25,7 +25,7 @@ export interface ItemOriginFlag {
     } | null;
     rollOptions?: string[];
 }
-type ChatMessageFlagsPF2e = ChatMessageFlags & {
+interface ChatMessageFlagsPF2e extends ChatMessageFlags {
     pf2e: {
         damageRoll?: DamageRollFlag;
         context?: ChatContextFlag;
@@ -45,7 +45,7 @@ type ChatMessageFlagsPF2e = ChatMessageFlags & {
         [key: string]: unknown;
     };
     core: NonNullable<ChatMessageFlags["core"]>;
-};
+}
 type ChatContextFlag =
     | CheckContextChatFlag
     | DamageDamageContextFlag
