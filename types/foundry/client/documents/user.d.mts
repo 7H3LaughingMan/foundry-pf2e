@@ -22,22 +22,16 @@ interface ClientBaseUser extends InstanceType<typeof ClientBaseUser> {}
  * @see {@link UserConfig} The User configuration application
  */
 export default class User extends ClientBaseUser {
-    /**
-     * Track whether the user is currently active in the game
-     */
+    /** Track whether the user is currently active in the game */
     active: boolean;
 
-    /**
-     * Track references to the current set of Tokens which are targeted by the User
-     */
+    /** Track references to the current set of Tokens which are targeted by the User */
     targets: UserTargets<Token>;
 
     /** Track the ID of the Scene that is currently being viewed by the User */
     viewedScene: string | null;
 
-    /**
-     * Track the Token documents that this User is currently moving.
-     */
+    /** Track the Token documents that this User is currently moving. */
     readonly movingTokens: ReadonlySet<TokenDocument>;
 
     /** A flag for whether the current User is a Trusted Player */
@@ -46,19 +40,13 @@ export default class User extends ClientBaseUser {
     /** A flag for whether this User is the connected client */
     get isSelf(): boolean;
 
-    /**
-     * Is this User the active GM?
-     */
+    /** Is this User the active GM? */
     get isActiveGM(): boolean;
 
-    /**
-     * A localized label for this User's role.
-     */
+    /** A localized label for this User's role. */
     get roleLabel(): string;
 
-    /**
-     * The timestamp of the last observed activity for the user.
-     */
+    /** The timestamp of the last observed activity for the user. */
     get lastActivityTime(): number;
 
     set lastActivityTime(timestamp);
