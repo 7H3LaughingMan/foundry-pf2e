@@ -12,7 +12,7 @@ declare function computeLevelRarityPrice(item: PhysicalItemPF2e): {
 };
 /**
  * Checks if a change in traits leads to the item converting to sf2e or pf2e.
- * If so, it prompts for confirmation, and allows the user to cancel.
+ * If so, it prompts for confirmation if data is being deleted, and allows the user to cancel.
  * @returns pf2e or sf2e based on the new traits, or `null` if no change is to be made.
  * @throws an error if the user does not make a selection
  */

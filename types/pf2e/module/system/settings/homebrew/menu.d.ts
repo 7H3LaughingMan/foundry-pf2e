@@ -10,7 +10,6 @@ import {
 } from "./data.ts";
 import { ReservedTermsRecord } from "./helpers.ts";
 import { LanguagesManager } from "./languages.ts";
-import appv1 = foundry.appv1;
 declare class HomebrewElements extends SettingsMenuPF2e {
     #private;
     static readonly namespace = "homebrew";
@@ -18,15 +17,13 @@ declare class HomebrewElements extends SettingsMenuPF2e {
     static get reservedTerms(): ReservedTermsRecord;
     static get moduleData(): ModuleHomebrewData;
     static get SETTINGS(): string[];
-    static get defaultOptions(): appv1.api.FormApplicationOptions;
+    static get defaultOptions(): fav1.api.FormApplicationOptions;
+    static register(): void;
     protected static get settings(): Record<HomebrewKey, PartialSettingsData>;
     activateListeners($html: JQuery): void;
     getData(): Promise<HomebrewElementsSheetData>;
     /** Tagify sets an empty input field to "" instead of "[]", which later causes the JSON parse to throw an error */
-    protected _onSubmit(
-        event: Event,
-        options?: appv1.api.OnSubmitFormOptions,
-    ): Promise<Record<string, unknown> | false>;
+    protected _onSubmit(event: Event, options?: fav1.api.OnSubmitFormOptions): Promise<Record<string, unknown> | false>;
     protected _getSubmitData(updateData?: Record<string, unknown> | undefined): Record<string, unknown>;
     protected _updateObject(event: Event, data: Record<HomebrewTraitKey, HomebrewTag[]>): Promise<void>;
     onInit(): void;

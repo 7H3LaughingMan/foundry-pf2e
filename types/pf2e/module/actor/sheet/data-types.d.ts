@@ -1,5 +1,5 @@
 import { ActorPF2e } from "./../base.ts";
-import { TraitViewData } from "./../data/base.ts";
+import { ActorFlagsPF2e, TraitViewData } from "./../data/base.ts";
 import { ActorSizePF2e } from "./../data/size.ts";
 import { InventoryBulk } from "./../inventory/index.ts";
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
@@ -65,6 +65,8 @@ interface SheetInventory {
 }
 interface ActorSheetDataPF2e<TActor extends ActorPF2e> extends ActorSheetData<TActor> {
     data: TActor["system"];
+    systemId: SystemId;
+    systemFlags: ActorFlagsPF2e[SystemId];
     canDistributeCoins?: {
         enabled: boolean;
     } | null;

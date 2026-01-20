@@ -6,7 +6,7 @@ export declare class SceneConfigPF2e<TDocument extends ScenePF2e> extends fa.she
     protected _configureRenderParts(
         options: fa.api.HandlebarsRenderOptions,
     ): Record<string, fa.api.HandlebarsTemplatePart>;
-    /** Prepare context data for the pf2e tab */
+    /** Prepare context data for the system tab. */
     protected _preparePartContext(
         partId: string,
         context: fa.api.DocumentSheetRenderContext,

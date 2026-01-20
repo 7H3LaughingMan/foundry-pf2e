@@ -167,10 +167,12 @@ declare const RUNE_DATA: {
             holy: WeaponPropertyRuneData<"holy">;
             unholy: WeaponPropertyRuneData<"unholy">;
             vorpal: WeaponPropertyRuneData<"vorpal">;
+            corrosive: WeaponPropertyRuneData<"corrosive">;
+            shock: WeaponPropertyRuneData<"shock">;
+            anchoring: WeaponPropertyRuneData<"anchoring">;
             astral: WeaponPropertyRuneData<"astral">;
             speed: WeaponPropertyRuneData<"speed">;
             ancestralEchoing: WeaponPropertyRuneData<"ancestralEchoing">;
-            anchoring: WeaponPropertyRuneData<"anchoring">;
             ashen: WeaponPropertyRuneData<"ashen">;
             authorized: WeaponPropertyRuneData<"authorized">;
             bane: WeaponPropertyRuneData<"bane">;
@@ -181,7 +183,6 @@ declare const RUNE_DATA: {
             called: WeaponPropertyRuneData<"called">;
             coating: WeaponPropertyRuneData<"coating">;
             conducting: WeaponPropertyRuneData<"conducting">;
-            corrosive: WeaponPropertyRuneData<"corrosive">;
             crushing: WeaponPropertyRuneData<"crushing">;
             cunning: WeaponPropertyRuneData<"cunning">;
             dancing: WeaponPropertyRuneData<"dancing">;
@@ -241,7 +242,6 @@ declare const RUNE_DATA: {
             rooting: WeaponPropertyRuneData<"rooting">;
             serrating: WeaponPropertyRuneData<"serrating">;
             shifting: WeaponPropertyRuneData<"shifting">;
-            shock: WeaponPropertyRuneData<"shock">;
             shockwave: WeaponPropertyRuneData<"shockwave">;
             spellStoring: WeaponPropertyRuneData<"spellStoring">;
             swarming: WeaponPropertyRuneData<"swarming">;

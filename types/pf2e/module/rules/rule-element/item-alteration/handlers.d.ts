@@ -90,8 +90,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -131,8 +131,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "subtract" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "upgrade" | "override" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -173,7 +173,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override" | "downgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -213,8 +213,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -255,7 +255,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -296,7 +296,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -336,8 +336,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -377,13 +377,13 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "upgrade" | "override" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
         >;
-        value: StrictNumberField<10 | 4 | 6 | 8 | 12, 10 | 4 | 6 | 8 | 12, true, true, true>;
+        value: StrictNumberField<4 | 6 | 8 | 10 | 12, 4 | 6 | 8 | 10 | 12, true, true, true>;
     }>;
     "damage-dice-number": ItemAlterationHandler<{
         itemType: fields.StringField<
@@ -418,8 +418,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -460,7 +460,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -523,7 +523,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -594,7 +594,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override" | "add",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -651,8 +651,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -692,8 +692,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "upgrade" | "override" | "add",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -733,8 +733,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "upgrade" | "override",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -781,7 +781,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -821,8 +821,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -862,8 +862,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -904,7 +904,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -971,8 +971,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1013,7 +1013,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1061,7 +1061,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1107,8 +1107,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "multiply" | "add" | "subtract" | "remove",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "override" | "multiply" | "add" | "subtract",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1148,8 +1148,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "multiply" | "add" | "subtract" | "remove",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "override" | "multiply" | "add" | "subtract",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1189,8 +1189,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1230,8 +1230,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "upgrade" | "override" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1295,8 +1295,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "add" | "subtract" | "remove",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "add" | "subtract",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1361,7 +1361,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
         >;
         mode: fields.StringField<
             "override",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1401,8 +1401,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "upgrade" | "override",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1442,8 +1442,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "upgrade" | "override",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1483,8 +1483,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "upgrade" | "override",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1524,8 +1524,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1565,8 +1565,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "override" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "upgrade" | "override" | "add" | "subtract" | "downgrade",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false
@@ -1627,8 +1627,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false
         >;
         mode: fields.StringField<
-            "add" | "subtract" | "remove",
-            "override" | "multiply" | "add" | "subtract" | "remove" | "downgrade" | "upgrade",
+            "remove" | "add" | "subtract",
+            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
             true,
             false,
             false

@@ -13,14 +13,7 @@ import { DamageRoll } from "./../system/damage/roll.ts";
 import { DegreeOfSuccessString } from "./../system/degree-of-success.ts";
 import { Predicate } from "./../system/predication.ts";
 import { ActorSourcePF2e } from "./data/index.ts";
-import {
-    ACTOR_TYPES,
-    ATTRIBUTE_ABBREVIATIONS,
-    CORE_SKILL_SLUGS,
-    MOVEMENT_TYPES,
-    SAVE_TYPES,
-    UNAFFECTED_TYPES,
-} from "./values.ts";
+import { ACTOR_TYPES, ATTRIBUTE_ABBREVIATIONS, CORE_SKILL_SLUGS, MOVEMENT_TYPES, SAVE_TYPES } from "./values.ts";
 import type * as ActorInstance from "./index.ts";
 type ActorType = (typeof ACTOR_TYPES)[number];
 /** Used exclusively to resolve `ActorPF2e#isOfType` */
@@ -123,8 +116,6 @@ interface ApplyDamageParams {
 type ImmunityType = keyof typeof immunityTypes;
 type WeaknessType = keyof typeof weaknessTypes;
 type ResistanceType = keyof typeof resistanceTypes;
-/** Damage types a creature or hazard is possibly unaffected by, outside the IWR framework */
-type UnaffectedType = SetElement<typeof UNAFFECTED_TYPES>;
 type IWRType = ImmunityType | WeaknessType | ResistanceType;
 export type {
     ActorAlliance,
@@ -146,6 +137,5 @@ export type {
     ResistanceType,
     SaveType,
     SkillSlug,
-    UnaffectedType,
     WeaknessType,
 };

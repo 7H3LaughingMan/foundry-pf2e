@@ -2,8 +2,7 @@ import { DocumentFlags } from "#common/data/_module.mjs";
 import { ModelPropsFromSchema } from "#common/data/fields.mjs";
 import { TokenSchema } from "#common/documents/token.mjs";
 type TokenFlagsPF2e = DocumentFlags & {
-    pf2e: {
-        [key: string]: unknown;
+    [SYSTEM_ID]: {
         linkToActorSize: boolean;
         autoscale: boolean;
     };

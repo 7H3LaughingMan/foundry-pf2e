@@ -27,6 +27,7 @@ interface HazardSheetData extends ActorSheetDataPF2e<HazardPF2e> {
     hasResetDetails: boolean;
 }
 interface HazardAttackSheedData {
+    label: string;
     description: string | null;
     damageFormula: string;
     breakdown: string;

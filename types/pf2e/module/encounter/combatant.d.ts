@@ -1,5 +1,3 @@
-import { ActorPF2e } from "./../actor/index.ts";
-import { SkillSlug } from "./../actor/types.ts";
 import {
     DatabaseCreateOperation,
     DatabaseDeleteCallbackOptions,
@@ -7,6 +5,8 @@ import {
 } from "#common/abstract/_types.mjs";
 import { default as Document } from "#common/abstract/document.mjs";
 import { DocumentFlags } from "#common/data/_module.mjs";
+import { SkillSlug } from "../actor/types.ts";
+import { ActorPF2e } from "./../actor/index.ts";
 import { TokenDocumentPF2e } from "./../scene/index.ts";
 import { EncounterPF2e } from "./index.ts";
 declare class CombatantPF2e<
@@ -76,7 +76,7 @@ interface CombatantPF2e<
     flags: CombatantFlags;
 }
 type CombatantFlags = DocumentFlags & {
-    pf2e: {
+    [SYSTEM_ID]: {
         initiativeStatistic: SkillSlug | "perception" | null;
         roundOfLastTurn: number | null;
         roundOfLastTurnEnd: number | null;

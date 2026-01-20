@@ -11,7 +11,6 @@ declare abstract class IWR<TType extends IWRType> {
     readonly definition: Predicate | null;
     source: string | null;
     protected abstract readonly typeLabels: Record<TType, string>;
-    static get disjuncter(): Intl.ListFormat;
     constructor(data: IWRConstructorData<TType>);
     get label(): string;
     /** A label showing the type, exceptions, and doubleVs but no value (in case of weaknesses and resistances) */

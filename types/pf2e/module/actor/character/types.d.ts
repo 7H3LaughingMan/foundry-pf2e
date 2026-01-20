@@ -8,7 +8,7 @@ interface CharacterHitPointsSummary extends HitPointsSummary {
     recoveryMultiplier: number;
     recoveryAddend: number;
 }
-type CharacterSkill<TActor extends CharacterPF2e> = Statistic<TActor> & {
+type CharacterSkill<TActor extends CharacterPF2e = CharacterPF2e> = Statistic<TActor> & {
     rank: ZeroToFour;
 };
 type CharacterSkills<TActor extends CharacterPF2e> = Record<string, CharacterSkill<TActor>>;

@@ -12,6 +12,7 @@ export declare class AutomationSettings extends SettingsMenuPF2e {
         "reachEnforcement",
     ];
     static get defaultOptions(): fav1.api.FormApplicationOptions;
+    static register(): void;
     protected static get settings(): Record<ConfigPF2eListName, PartialSettingsData>;
 }
 export {};

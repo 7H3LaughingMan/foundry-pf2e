@@ -1,12 +1,12 @@
-import { RawDamageDice, RawModifier } from "./../actor/modifiers.ts";
 import { ActorUUID, TokenDocumentUUID } from "#client/documents/_module.mjs";
 import { DocumentUUID } from "#client/utils/_module.mjs";
 import { RollMode } from "#common/constants.mjs";
 import { ChatMessageFlags } from "#common/documents/chat-message.mjs";
-import { SpellSource } from "./../item/base/data/index.ts";
-import { MagicTradition } from "./../item/spell/types.ts";
-import { EffectAreaShape, ItemType } from "./../item/types.ts";
+import { RawDamageDice, RawModifier } from "../actor/modifiers.ts";
+import { SpellSource } from "../item/base/data/index.ts";
+import { MagicTradition } from "../item/spell/types.ts";
 import { ZeroToTwo } from "./../data.ts";
+import { EffectAreaShape, ItemType } from "./../item/types.ts";
 import { RollNoteSource } from "./../notes.ts";
 import { CheckCheckContext } from "./../system/check/index.ts";
 import { DamageDamageContext } from "./../system/damage/types.ts";
@@ -25,27 +25,19 @@ export interface ItemOriginFlag {
     } | null;
     rollOptions?: string[];
 }
-interface ChatMessageFlagsPF2e extends ChatMessageFlags {
-    pf2e: {
+type ChatMessageFlagsPF2e = ChatMessageFlags & {
+    [SYSTEM_ID]: {
         damageRoll?: DamageRollFlag;
         context?: ChatContextFlag;
         origin?: ItemOriginFlag | null;
-        casting?: {
-            id: string;
-            tradition: MagicTradition;
-            embeddedSpell?: SpellSource;
-        } | null;
+        casting?: { id: string; tradition: MagicTradition; embeddedSpell?: SpellSource } | null;
         modifiers?: RawModifier[];
         dice?: RawDamageDice[];
         journalEntry?: DocumentUUID | null;
         appliedDamage?: AppliedDamageFlag | null;
-        treatWoundsMacroFlag?: {
-            bonus: number;
-        };
-        [key: string]: unknown;
+        treatWoundsMacroFlag?: { bonus: number };
     };
-    core: NonNullable<ChatMessageFlags["core"]>;
-}
+};
 type ChatContextFlag =
     | CheckContextChatFlag
     | DamageDamageContextFlag

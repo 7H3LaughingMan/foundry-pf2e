@@ -21,7 +21,15 @@ export declare class WorldClockSettings extends fa.api.HandlebarsApplicationMixi
     #private;
     constructor(options?: DeepPartial<ApplicationConfiguration>);
     static DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;
-    static PARTS: Record<string, fa.api.HandlebarsTemplatePart>;
+    static PARTS: {
+        settings: {
+            template: string;
+            root: boolean;
+        };
+        footer: {
+            template: string;
+        };
+    };
     /** Register World Clock settings and this menu. */
     static register(): void;
     static localizeSchema(): void;

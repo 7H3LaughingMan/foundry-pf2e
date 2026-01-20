@@ -6,8 +6,7 @@ declare const SAVE_TYPES: readonly ["fortitude", "reflex", "will"];
 declare const IMMUNITY_TYPES: Set<ImmunityType>;
 declare const WEAKNESS_TYPES: Set<WeaknessType>;
 declare const RESISTANCE_TYPES: Set<ResistanceType>;
-declare const UNAFFECTED_TYPES: Set<"bleed" | "spirit" | "vitality" | "void" | "evil" | "good" | "lawful" | "chaotic">;
-/** All skill slugs that are part of the core system. Used for validation. */
+/** All skill slugs that are part of the core system. Only used in migrations. */
 declare const CORE_SKILL_SLUGS: Set<
     | "acrobatics"
     | "arcana"
@@ -39,6 +38,5 @@ export {
     RESISTANCE_TYPES,
     SAVE_TYPES,
     SIZE_LINKABLE_ACTOR_TYPES,
-    UNAFFECTED_TYPES,
     WEAKNESS_TYPES,
 };

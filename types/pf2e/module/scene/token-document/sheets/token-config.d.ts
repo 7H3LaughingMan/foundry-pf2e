@@ -4,12 +4,12 @@ import { TokenConfigMixinPF2e } from "./mixin.ts";
 declare class TokenConfigPF2e extends TokenConfigMixinPF2e(fa.sheets.TokenConfig) {
     get linkToActorSize(): boolean;
     get autoscale(): boolean;
-    _processFormData(
+    protected _processFormData(
         event: SubmitEvent | null,
         form: HTMLFormElement,
         formData: FormDataExtended,
     ): Record<string, unknown>;
-    _processSubmitData(
+    protected _processSubmitData(
         event: SubmitEvent,
         form: HTMLFormElement,
         submitData: Record<string, unknown>,

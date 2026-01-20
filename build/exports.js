@@ -65,9 +65,7 @@ files.unshift(
     'import "./foundry/index.d.ts";',
     'import "./pf2e/index.d.ts";',
     "",
-    'export type { PrototypeTokenPF2e } from "./pf2e/module/actor/data/base.d.ts";',
     'export type { ActionCost } from "./pf2e/module/item/base/data/system.d.ts";',
-    'export type { TokenConfigPF2e } from "./pf2e/module/scene/token-document/sheet.d.ts";',
     'export type { HitPointsStatistic } from "./pf2e/module/system/statistic/hit-points.d.ts";',
     "",
 );

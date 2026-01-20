@@ -11,11 +11,7 @@ declare class ModuleArt {
 interface ActorArtPartial {
     img: ImageFilePath;
     prototypeToken: {
-        flags?: {
-            pf2e: {
-                autoscale: false;
-            };
-        };
+        flags?: { [SYSTEM_ID]: { autoscale: false } };
         randomImg?: boolean;
         texture: {
             src: ImageFilePath | VideoFilePath;

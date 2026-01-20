@@ -6,7 +6,6 @@ import {
     PhysicalItemSheetPF2e,
     RUNE_DATA,
 } from "./../physical/index.ts";
-import { WeaponPropertyRuneType } from "./../weapon/types.ts";
 import { ShieldPF2e } from "./document.ts";
 import { BaseShieldType } from "./types.ts";
 declare class ShieldSheetPF2e extends PhysicalItemSheetPF2e<ShieldPF2e> {
@@ -21,9 +20,10 @@ interface ShieldSheetData extends PhysicalItemSheetData<ShieldPF2e> {
     canChangeMaterial: boolean;
     preciousMaterials: MaterialSheetData;
     propertyRuneSlots: {
-        slug: WeaponPropertyRuneType | null;
+        slug: string | null;
+        label: string | null;
+        adjusted: boolean;
         disabled: boolean;
-        readOnly: boolean;
     }[];
     reinforcing: Record<number, string | null>;
     weaponRunes: typeof RUNE_DATA.weapon | null;

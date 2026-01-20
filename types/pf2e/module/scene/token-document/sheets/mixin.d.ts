@@ -505,7 +505,7 @@ declare function TokenConfigMixinPF2e<TBase extends ReturnType<typeof TokenAppli
     TBase;
 interface PrototypeTokenPF2e extends foundry.data.PrototypeToken<ActorPF2e> {
     flags: DocumentFlags & {
-        pf2e: {
+        [SYSTEM_ID]: {
             autoscale?: boolean;
             linkToActorSize?: boolean;
             rulesBasedVision?: boolean;

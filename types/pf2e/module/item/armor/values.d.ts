@@ -1,5 +1,15 @@
 declare const ARMOR_CATEGORIES: readonly ["unarmored", "light", "medium", "heavy", "light-barding", "heavy-barding"];
-declare const ARMOR_GROUPS: readonly ["chain", "cloth", "composite", "leather", "plate", "skeletal", "wood"];
+declare const ARMOR_GROUPS: readonly [
+    "ceramic",
+    "chain",
+    "cloth",
+    "composite",
+    "leather",
+    "plate",
+    "polymer",
+    "skeletal",
+    "wood",
+];
 declare const ARMOR_PROPERTY_RUNE_TYPES: Set<
     | "shadow"
     | "ethereal"

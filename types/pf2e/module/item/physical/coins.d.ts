@@ -46,4 +46,4 @@ interface CoinStringParams {
     /** If enabled, the result is shown with decimals regardless of value, unless its credits */
     decimal?: boolean;
 }
-export { Coins };
+export { Coins, type RawCoins };

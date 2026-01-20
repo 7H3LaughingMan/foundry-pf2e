@@ -1,9 +1,17 @@
 import { SettingRegistration } from "#client/helpers/client-settings.mjs";
 import fields = foundry.data.fields;
-export declare class VariantRulesSettings extends fa.api.HandlebarsApplicationMixin(fa.api.ApplicationV2) {
+import { ApplicationConfiguration } from "#client/applications/_types.mjs";
+export class VariantRulesSettings extends fa.api.HandlebarsApplicationMixin(fa.api.ApplicationV2) {
     #private;
-    static DEFAULT_OPTIONS: DeepPartial<fa.ApplicationConfiguration>;
-    static PARTS: Record<string, fa.api.HandlebarsTemplatePart>;
+    static DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;
+    static PARTS: {
+        settings: {
+            template: string;
+        };
+        footer: {
+            template: string;
+        };
+    };
     static register(): void;
     protected _prepareContext(options: fa.ApplicationRenderOptions): Promise<VariantRulesSettingsContext>;
     protected _onChangeForm(_formConfig: fa.ApplicationFormConfiguration, event: Event): void;

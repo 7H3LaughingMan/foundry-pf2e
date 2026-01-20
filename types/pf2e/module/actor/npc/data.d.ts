@@ -37,9 +37,7 @@ type NPCSource = BaseCreatureSource<"npc", NPCSystemSource> & {
     flags: DeepPartial<NPCFlags>;
 };
 type NPCFlags = ActorFlagsPF2e & {
-    pf2e: {
-        lootable: boolean;
-    };
+    [SYSTEM_ID]: { lootable: boolean };
 };
 interface NPCSystemSource extends CreatureSystemSource {
     traits: NPCTraitsSource;

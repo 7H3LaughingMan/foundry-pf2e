@@ -1,4 +1,5 @@
 declare const CONSUMABLE_CATEGORIES: Set<
+    | "scroll"
     | "poison"
     | "wand"
     | "catalyst"
@@ -8,14 +9,15 @@ declare const CONSUMABLE_CATEGORIES: Set<
     | "mutagen"
     | "oil"
     | "potion"
-    | "scroll"
     | "snare"
     | "talisman"
     | "drug"
     | "other"
+    | "spell-gem"
     | "toolkit"
 >;
 declare const DAMAGE_OR_HEALING_CONSUMABLE_CATEGORIES: Set<
+    | "scroll"
     | "poison"
     | "wand"
     | "catalyst"
@@ -25,14 +27,15 @@ declare const DAMAGE_OR_HEALING_CONSUMABLE_CATEGORIES: Set<
     | "mutagen"
     | "oil"
     | "potion"
-    | "scroll"
     | "snare"
     | "talisman"
     | "drug"
     | "other"
+    | "spell-gem"
     | "toolkit"
 >;
 declare const DAMAGE_ONLY_CONSUMABLE_CATEGORIES: Set<
+    | "scroll"
     | "poison"
     | "wand"
     | "catalyst"
@@ -42,11 +45,11 @@ declare const DAMAGE_ONLY_CONSUMABLE_CATEGORIES: Set<
     | "mutagen"
     | "oil"
     | "potion"
-    | "scroll"
     | "snare"
     | "talisman"
     | "drug"
     | "other"
+    | "spell-gem"
     | "toolkit"
 >;
 export { CONSUMABLE_CATEGORIES, DAMAGE_ONLY_CONSUMABLE_CATEGORIES, DAMAGE_OR_HEALING_CONSUMABLE_CATEGORIES };

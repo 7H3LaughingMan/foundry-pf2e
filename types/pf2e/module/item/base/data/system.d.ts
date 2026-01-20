@@ -22,6 +22,7 @@ interface TraitConfig {
         type: EffectAreaShape;
         value: number | null;
     };
+    capacity?: number;
     deadly?: string;
     fatal?: string;
     resilient?: number;
@@ -53,7 +54,7 @@ interface OtherTagsOnly {
     config?: never;
 }
 type ItemFlagsPF2e = DocumentFlags & {
-    pf2e: {
+    [SYSTEM_ID]: {
         rulesSelections: Record<string, string | number | object | null>;
         itemGrants: Record<string, ItemGranterData>;
         grantedBy: ItemGrantData | null;
@@ -61,7 +62,7 @@ type ItemFlagsPF2e = DocumentFlags & {
     };
 };
 type ItemSourceFlagsPF2e = DocumentFlagsSource & {
-    pf2e?: {
+    [SYSTEM_ID]?: {
         rulesSelections?: Record<string, string | number | object>;
         itemGrants?: Record<string, ItemGranterSource>;
         grantedBy?: ItemGrantSource | null;

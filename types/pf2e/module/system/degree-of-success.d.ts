@@ -30,6 +30,12 @@ declare class DegreeOfSuccess {
     static readonly FAILURE = 1;
     static readonly SUCCESS = 2;
     static readonly CRITICAL_SUCCESS = 3;
+    /** The degree in (dromedary) camel case; e.g., "criticalSuccess" */
+    key: string;
+    /** The degree in slug form; e.g., "critical-success" */
+    slug: string;
+    /** The localized degree-of-success label */
+    label: string;
 }
 type RollBrief = {
     dieValue: number;
@@ -53,8 +59,9 @@ type DegreeAdjustmentsRecord = {
     };
 };
 interface DegreeOfSuccessAdjustment {
-    adjustments: DegreeAdjustmentsRecord;
+    slug?: string;
     predicate?: Predicate;
+    adjustments: DegreeAdjustmentsRecord;
 }
 interface CheckDC {
     slug?: string | null;

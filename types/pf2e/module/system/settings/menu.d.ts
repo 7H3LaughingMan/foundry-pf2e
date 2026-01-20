@@ -8,7 +8,7 @@ declare abstract class SettingsMenuPF2e extends fav1.api.FormApplication {
     static readonly SETTINGS: readonly string[];
     /** Settings to be registered and also later referenced during user updates */
     protected static get settings(): Record<string, PartialSettingsData>;
-    static registerSettings(): void;
+    static register(): void;
     get namespace(): string;
     getData(): Promise<MenuTemplateData>;
     close(options?: { force?: boolean }): Promise<void>;

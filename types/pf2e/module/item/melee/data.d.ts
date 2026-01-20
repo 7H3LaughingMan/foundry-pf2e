@@ -13,7 +13,7 @@ type MeleeSource = BaseItemSourcePF2e<"melee", MeleeSystemSource> & {
     flags: DeepPartial<MeleeFlags>;
 };
 type MeleeFlags = ItemFlagsPF2e & {
-    pf2e: {
+    [SYSTEM_ID]: {
         linkedWeapon?: string;
     };
 };

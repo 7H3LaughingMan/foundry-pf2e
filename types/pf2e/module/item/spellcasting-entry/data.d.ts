@@ -62,9 +62,9 @@ interface SpellCollectionTypeData extends SpellCollectionTypeSource {
 }
 export type {
     SlotKey,
-    SpellDifficultyClass,
     SpellcastingEntrySlots,
     SpellcastingEntrySource,
     SpellcastingEntrySystemData,
     SpellcastingEntrySystemSource,
+    SpellDifficultyClass,
 };

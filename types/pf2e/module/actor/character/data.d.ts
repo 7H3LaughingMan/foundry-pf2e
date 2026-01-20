@@ -42,7 +42,7 @@ type CharacterSource = BaseCreatureSource<"character", CharacterSystemSource> & 
     flags: DeepPartial<CharacterFlags>;
 };
 type CharacterFlags = ActorFlagsPF2e & {
-    pf2e: {
+    [SYSTEM_ID]: {
         /** Has daily preparation crafting been completed for the day */
         dailyCraftingComplete?: boolean;
         /** If applicable, the character's proficiency rank in their deity's favored weapon */

@@ -1,8 +1,7 @@
 import { SaveType } from "./../../actor/types.ts";
 import { ModelPropsFromSchema, SourceFromSchema } from "#common/data/fields.mjs";
 import { ItemUUID } from "#common/documents/_module.mjs";
-import { DurationDataSchema, EffectContextField } from "./../abstract-effect/data.ts";
-import { EffectAuraData } from "./../abstract-effect/index.ts";
+import { DurationDataSchema, EffectAuraData, EffectContextField } from "./../abstract-effect/data.ts";
 import { EffectTrait, TimeUnit } from "./../abstract-effect/types.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import { BaseItemSourcePF2e, ItemFlagsPF2e, ItemSourceFlagsPF2e, ItemSystemSource } from "./../base/data/system.ts";
@@ -13,7 +12,7 @@ import { AfflictionPF2e } from "./document.ts";
 import fields = foundry.data.fields;
 type AfflictionSource = BaseItemSourcePF2e<"affliction", AfflictionSystemSource> & {
     flags: ItemSourceFlagsPF2e & {
-        pf2e?: {
+        [SYSTEM_ID]?: {
             aura?: EffectAuraData;
         };
     };
@@ -116,9 +115,7 @@ type AfflictionSystemSource = SourceFromSchema<AfflictionSystemSchema> & {
     schema?: ItemSystemSource["schema"];
 };
 type AfflictionFlags = ItemFlagsPF2e & {
-    pf2e: {
-        aura?: EffectAuraData;
-    };
+    [SYSTEM_ID]: { aura?: EffectAuraData };
 };
 type AfflictionDamage = ModelPropsFromSchema<AfflictionDamageSchema>;
 type AfflictionStageData = ModelPropsFromSchema<AfflictionStageSchema>;

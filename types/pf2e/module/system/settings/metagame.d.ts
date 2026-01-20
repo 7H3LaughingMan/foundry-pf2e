@@ -74,6 +74,7 @@ declare const MetagameSettingsConfig: {
 };
 declare class MetagameSettings extends SettingsMenuPF2e {
     static namespace: string;
+    static register(): void;
     static get settings(): typeof MetagameSettingsConfig;
     static get SETTINGS(): string[];
 }

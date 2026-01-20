@@ -1,9 +1,9 @@
+import { Action } from "./../../actor/actions/index.ts";
 import { arcaneSlam } from "./ancestry/automaton/arcane-slam.ts";
 import { whirlingThrow } from "./athletics/whirling-throw.ts";
 import { tamper } from "./class/inventor/tamper.ts";
 import { craft, repair } from "./crafting/index.ts";
 import { bonMot } from "./diplomacy/bon-mot.ts";
-import { Action } from "./../../actor/actions/index.ts";
 import * as balance from "./acrobatics/balance.ts";
 import * as maneuverInFlight from "./acrobatics/maneuver-in-flight.ts";
 import * as squeeze from "./acrobatics/squeeze.ts";
@@ -44,8 +44,8 @@ import * as createForgery from "./society/create-forgery.ts";
 import * as concealAnObject from "./stealth/conceal-an-object.ts";
 import * as hide from "./stealth/hide.ts";
 import * as sneak from "./stealth/sneak.ts";
-import * as palmAnObject from "./thievery/palm-an-object.ts";
 import * as disableDevice from "./thievery/disable-device.ts";
+import * as palmAnObject from "./thievery/palm-an-object.ts";
 import * as pickALock from "./thievery/pick-a-lock.ts";
 import * as steal from "./thievery/steal.ts";
 export { ActionMacroHelpers } from "./helpers.ts";
@@ -102,4 +102,6 @@ export declare const ActionMacros: {
     pickALock: typeof pickALock.legacy;
     steal: typeof steal.legacy;
 };
-export declare const SystemActions: Action[];
+declare const SystemActions: Action[];
+declare const SF2eOnlySystemActions: import("./../../actor/actions/index.ts").SingleCheckAction[];
+export { SF2eOnlySystemActions, SystemActions };

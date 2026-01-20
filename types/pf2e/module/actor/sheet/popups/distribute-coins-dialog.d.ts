@@ -1,6 +1,6 @@
 import { ActorPF2e } from "./../../index.ts";
 /** Allows the distribution and split of coins to multiple players */
-export declare class DistributeCoinsDialog extends fa.api.HandlebarsApplicationMixin(fa.api.ApplicationV2) {
+export class DistributeCoinsDialog extends fa.api.HandlebarsApplicationMixin(fa.api.ApplicationV2) {
     #private;
     constructor(options: Partial<DistributeCoinsConfiguration> & Required<Pick<DistributeCoinsConfiguration, "actor">>);
     static DEFAULT_OPTIONS: DeepPartial<DistributeCoinsConfiguration>;

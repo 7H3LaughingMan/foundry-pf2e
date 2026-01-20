@@ -1,12 +1,18 @@
 import { CreatureIdentificationData } from "./../../../recall-knowledge.ts";
-import appv1 = foundry.appv1;
-export declare class RecallKnowledgePopup extends appv1.api.Application {
+declare class RecallKnowledgePopup extends fa.api.HandlebarsApplicationMixin(fa.api.ApplicationV2) {
     #private;
-    constructor(options: Partial<appv1.api.ApplicationV1Options>, data: CreatureIdentificationData);
-    static get defaultOptions(): appv1.api.ApplicationV1Options;
-    getData(): Promise<PopupData>;
+    constructor(
+        options: Partial<RecallKnowledgePopupConfiguration> &
+            Required<Pick<RecallKnowledgePopupConfiguration, "identificationData">>,
+    );
+    static DEFAULT_OPTIONS: DeepPartial<RecallKnowledgePopupConfiguration>;
+    static PARTS: Record<string, fa.api.HandlebarsTemplatePart>;
+    protected _prepareContext(options: fa.ApplicationRenderOptions): Promise<RecallKnowledgePopupContext>;
 }
-interface PopupData {
+interface RecallKnowledgePopupConfiguration extends fa.ApplicationConfiguration {
+    identificationData: CreatureIdentificationData;
+}
+interface RecallKnowledgePopupContext extends fa.ApplicationRenderContext {
     standard: {
         label: string;
         attempts: string[];
@@ -14,4 +20,4 @@ interface PopupData {
     loreEasy: string[];
     loreVeryEasy: string[];
 }
-export {};
+export { RecallKnowledgePopup };

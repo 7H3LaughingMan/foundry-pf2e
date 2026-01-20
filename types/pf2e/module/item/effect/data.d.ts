@@ -1,19 +1,20 @@
 import { ModelPropsFromSchema, SourceFromSchema } from "#common/data/fields.mjs";
 import {
     DurationDataSchema,
+    EffectAuraData,
     EffectBadgeCounterSchema,
     EffectBadgeFormulaSchema,
     EffectBadgeValueSchema,
     EffectContextField,
 } from "./../abstract-effect/data.ts";
-import { AbstractEffectSchema, EffectAuraData, EffectBadge } from "./../abstract-effect/index.ts";
+import { AbstractEffectSchema, EffectBadge } from "./../abstract-effect/index.ts";
 import { ItemSystemModel } from "./../base/data/model.ts";
 import { BaseItemSourcePF2e, ItemFlagsPF2e, ItemSourceFlagsPF2e, ItemSystemSource } from "./../base/data/system.ts";
 import { EffectPF2e } from "./document.ts";
 import fields = foundry.data.fields;
 type EffectSource = BaseItemSourcePF2e<"effect", EffectSystemSource> & {
     flags: ItemSourceFlagsPF2e & {
-        pf2e?: {
+        [SYSTEM_ID]?: {
             aura?: EffectAuraData;
         };
     };
@@ -66,7 +67,7 @@ type EffectSystemSchema = AbstractEffectSchema & {
     context: EffectContextField;
 };
 type EffectFlags = ItemFlagsPF2e & {
-    pf2e: {
+    [SYSTEM_ID]: {
         aura?: EffectAuraData;
     };
 };

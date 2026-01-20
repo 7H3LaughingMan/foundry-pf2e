@@ -128,9 +128,11 @@ declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = Actor
         {
             quantity,
             stack,
+            render,
         }?: {
             quantity?: number;
             stack?: boolean;
+            render?: boolean;
         },
     ): Promise<boolean>;
     /**

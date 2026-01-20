@@ -1,15 +1,15 @@
-import { ActorPF2e } from "./../actor/index.ts";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteCallbackOptions,
     DataModelConstructionContext,
 } from "#common/abstract/_types.mjs";
 import { DocumentFlags } from "#common/data/_types.mjs";
+import { ItemOriginFlag } from "../chat-message/data.ts";
+import { ActorPF2e } from "./../actor/index.ts";
+import { MeasuredTemplatePF2e } from "./../canvas/measured-template.ts";
+import { ChatMessagePF2e } from "./../chat-message/document.ts";
 import { ItemPF2e } from "./../item/index.ts";
 import { EffectAreaShape } from "./../item/types.ts";
-import { MeasuredTemplatePF2e } from "./../canvas/measured-template.ts";
-import { ItemOriginFlag } from "./../chat-message/data.ts";
-import { ChatMessagePF2e } from "./../chat-message/document.ts";
 import { ScenePF2e } from "./document.ts";
 declare class MeasuredTemplateDocumentPF2e<
     TParent extends ScenePF2e | null = ScenePF2e | null,
@@ -31,7 +31,7 @@ interface MeasuredTemplateDocumentPF2e<
 > extends MeasuredTemplateDocument<TParent> {
     get object(): MeasuredTemplatePF2e<this> | null;
     flags: DocumentFlags & {
-        pf2e: {
+        [SYSTEM_ID]: {
             messageId?: string;
             origin?: ItemOriginFlag;
             areaShape: EffectAreaShape | null;

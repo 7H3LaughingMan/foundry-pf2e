@@ -1,8 +1,8 @@
 import { ActorType, CreaturePF2e } from "./../../actor/index.ts";
 import { Size } from "./../../data.ts";
 import { RecordField } from "./../../system/schema-data-fields.ts";
-import { RuleElement, RuleElementOptions } from "./base.ts";
-import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";
+import { RuleElement } from "./base.ts";
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
 import fields = foundry.data.fields;
 /**
  * @category RuleElement
@@ -11,7 +11,6 @@ import fields = foundry.data.fields;
 declare class CreatureSizeRuleElement extends RuleElement<CreatureSizeRuleSchema> {
     #private;
     protected static validActorTypes: ActorType[];
-    constructor(data: RuleElementSource, options: RuleElementOptions);
     static defineSchema(): CreatureSizeRuleSchema;
     beforePrepareData(): void;
 }

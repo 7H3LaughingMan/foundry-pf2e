@@ -26,7 +26,7 @@ interface UserPF2e extends User {
     flags: UserFlagsPF2e;
     readonly _source: UserSourcePF2e;
     query(
-        name: "pf2e.trade",
+        name: `${SystemId}.trade`,
         data: TradeQueryData,
         options?: {
             timeout?: number;
