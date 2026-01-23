@@ -28,6 +28,7 @@ export function localizeIfExist(...args: LocalizeArgs): string | undefined {
     if (game.i18n.has(path, true)) {
         return localizeOrFormat(path, data);
     }
+    return undefined;
 }
 
 export function localizePath(...path: string[]): string {
