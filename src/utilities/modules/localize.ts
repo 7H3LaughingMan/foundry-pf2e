@@ -1,10 +1,11 @@
 import * as R from "remeda";
-import { MODULE } from "./module";
+import { MODULE } from "./module.ts";
 
 export function foundryLocalizeIfExist(key: string): string | undefined {
     if (game.i18n.has(key, true)) {
         return game.i18n.localize(key);
     }
+    return undefined;
 }
 
 export function getLocalizeData(...args: LocalizeArgs): { path: string; data?: LocalizeData } {

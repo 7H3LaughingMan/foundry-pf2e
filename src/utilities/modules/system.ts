@@ -1,4 +1,4 @@
-import { joinString } from "./string";
+import { joinString } from "./string.ts";
 
 export const SYSTEM = {
     get id(): SystemId {

@@ -1,4 +1,4 @@
-import { createHTMLElement } from "./dom";
+import { createHTMLElement } from "./dom.ts";
 
 export function notesToHTML(
     notes: { title?: string | null; text: string; visibility?: "none" | "all" | "gm" | "owner" | null }[],
