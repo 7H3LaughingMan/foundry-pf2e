@@ -1,4 +1,4 @@
-import { joinString } from "./modules/string";
+import { joinString } from "./string";
 
 export const SYSTEM = {
     get id(): SystemId {
