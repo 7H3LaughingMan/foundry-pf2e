@@ -1,9 +1,3 @@
-export * from "./module";
-export * from "./system";
+import * as _Utilities from "./modules/index.ts";
 
-export * from "./compendium-collection";
-export * from "./dom";
-export * from "./localize";
-export * from "./notes";
-export * from "./rule-elements";
-export * from "./string";
+export import Utilities = _Utilities;
