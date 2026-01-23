@@ -9,20 +9,23 @@
     },
     "exports": {
         ".": "./types/index.d.ts",
-        "./*": "./types/*/index.d.ts",
         "./foundry/*": "./types/foundry/*",
-        "./pf2e/*": "./types/pf2e/*"
+        "./lib-wrapper": "./types/lib-wrapper/index.d.ts",
+        "./pf2e/*": "./types/pf2e/*",
+        "./socketlib": "./types/socketlib/index.d.ts",
+        "./utilities": "./src/utilities/index.ts"
     },
     "imports": {
         "#common/*": "./types/foundry/common/*",
-        "#client/*": "./types/foundry/client/*"
+        "#client/*": "./types/foundry/client/*",
+        "#foundry-pf2e": "./types/index.d.ts"
     },
     "devDependencies": {
         "@eslint/json": "^0.14.0",
         "eslint": "^9.39.2",
         "glob": "^13.0.0",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.52.0"
+        "typescript-eslint": "8.53.1"
     },
     "dependencies": {
         "@codemirror/lang-json": "^6.0.2",
@@ -59,6 +62,7 @@
         "prosemirror-tables": "^1.8.5",
         "prosemirror-transform": "^1.10.5",
         "prosemirror-view": "^1.41.4",
+        "remeda": "^2.33.4",
         "socket.io": "^4.8.3",
         "socket.io-client": "^4.8.3",
         "sortablejs": "^1.15.6",

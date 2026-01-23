@@ -1,5 +1,7 @@
 import {
     Actor,
+    Adventure,
+    Cards,
     ChatMessage,
     Combat,
     Item,
@@ -161,7 +163,9 @@ export default class Game<
     messages: collections.Messages<TChatMessage>;
     packs: Collection<
         string,
-        collections.CompendiumCollection<TActor | TItem | JournalEntry | TMacro | Playlist | RollTable | TScene>
+        collections.CompendiumCollection<
+            TActor | Adventure | Cards | TItem | JournalEntry | TMacro | Playlist | RollTable | TScene
+        >
     >;
     playlists: collections.Playlists;
     scenes: collections.Scenes<TScene>;
