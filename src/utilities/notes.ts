@@ -1,4 +1,4 @@
-import { DOM } from ".";
+import { createHTMLElement } from "./dom";
 
 export function notesToHTML(
     notes: { title?: string | null; text: string; visibility?: "none" | "all" | "gm" | "owner" | null }[],
@@ -12,7 +12,7 @@ export function notesToHTML(
         text: string;
         visibility?: "none" | "all" | "gm" | "owner" | null;
     }): HTMLLIElement {
-        const element = DOM.createHTMLElement("li", {
+        const element = createHTMLElement("li", {
             classes: ["roll-note"],
             dataset: {
                 visibility: visibility,
@@ -25,7 +25,7 @@ export function notesToHTML(
         }
 
         if (title) {
-            const strong = DOM.createHTMLElement("strong", { innerHTML: game.i18n.localize(title) });
+            const strong = createHTMLElement("strong", { innerHTML: game.i18n.localize(title) });
             element.prepend(strong, " ");
         }
 
@@ -33,7 +33,7 @@ export function notesToHTML(
     }
 
     if (notes.length === 0) return undefined;
-    return DOM.createHTMLElement("ul", {
+    return createHTMLElement("ul", {
         classes: ["notes"],
         children: [...notes.flatMap((note) => ["\n", toHTML(note), "\n"])],
     }).outerHTML;
