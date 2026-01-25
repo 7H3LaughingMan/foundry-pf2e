@@ -1,4 +1,4 @@
-import { joinString } from "./string.ts";
+import { joinString } from ".";
 
 const _MODULE = {
     id: "",

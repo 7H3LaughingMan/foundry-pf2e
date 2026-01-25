@@ -1,3 +1,4 @@
+export * from "./_types.mjs";
 export { default as BitMask } from "./bitmask.mjs";
 export { default as Collection } from "./collection.mjs";
 export { default as Color } from "./color.mjs";

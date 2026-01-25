@@ -1,5 +1,24 @@
-import { ClientDocument, DocumentCollection } from "./../../client/documents/abstract/_module.mjs";
 import Document from "./../abstract/document.mjs";
+import { ResolvedUUID } from "./_types.mjs";
+
+/**
+ * Benchmark the performance of a function, calling it a requested number of iterations.
+ * @param func The function to benchmark
+ * @param iterations The number of iterations to test
+ * @param args Additional arguments passed to the benchmarked function
+ */
+export function benchmark<T extends (...args: any) => any>(
+    func: T,
+    iterations: number,
+    ...args: Parameters<T>
+): Promise<void>;
+
+/**
+ * A debugging function to test latency or timeouts by forcibly locking the thread for an amount of time.
+ * @param ms A number of milliseconds to lock
+ * @param debug Log debugging information?
+ */
+export function threadLock(ms: number, debug?: boolean): Promise<void>;
 
 /**
  * Wrap a callback in a debounced timeout.
@@ -9,6 +28,20 @@ import Document from "./../abstract/document.mjs";
  * @return A wrapped function which can be called to debounce execution
  */
 export function debounce<T extends unknown[]>(callback: (...args: T) => unknown, delay: number): (...args: T) => void;
+
+/**
+ * Wrap a callback in a throttled timeout.
+ * Delay execution of the callback function when the last time the function was called was delay milliseconds ago
+ * @param callback A function to execute once the throttled threshold has been passed
+ * @param delay A maximum amount of time in milliseconds between to execution
+ * @returns A wrapped function which can be called to throttle execution
+ */
+export function throttle<T extends unknown[]>(callback: (...args: T) => unknown, delay: number): (...args: T) => void;
+
+/**
+ * A utility function to request a debounced page reload.
+ */
+export const debouncedReload: () => void;
 
 /**
  * Recursively freezes (`Object.freeze`) the object (or value).
@@ -23,6 +56,17 @@ export function debounce<T extends unknown[]>(callback: (...args: T) => unknown,
 export function deepFreeze<T extends object>(obj: T, options?: { strict?: boolean }): DeepReadonly<T>;
 
 /**
+ * Recursively seals (`Object.seal`) the object (or value).
+ * This method DOES NOT support cyclical data structures.
+ * This method DOES NOT support advanced object types like Set, Map, or other specialized classes.
+ * @param obj The object (or value)
+ * @param options Options to configure the behaviour of deepSeal
+ * @param options.strict Throw an Error if deepSeal is unable to seal something
+ * @returns The same object (or value) that was passed in
+ */
+export function deepSeal<T>(obj: T, options: { strict?: boolean }): T;
+
+/**
  * Quickly clone a simple piece of data, returning a copy which can be mutated safely.
  * This method DOES support recursive data structures containing inner objects or arrays.
  * This method DOES NOT support advanced object types like Set, Map, or other specialized classes.
@@ -30,6 +74,36 @@ export function deepFreeze<T extends object>(obj: T, options?: { strict?: boolea
  * @return The clone of that data
  */
 export function deepClone<T>(original: T): T;
+
+/**
+ * Deeply difference an object against some other, returning the update keys and values.
+ * @param original An object comparing data against which to compare
+ * @param other An object containing potentially different data
+ * @param options Additional options which configure the diff operation
+ * @param options.inner  Only recognize differences in other for keys which also exist in original
+ * @param options.deletionKeys Apply special logic to deletion keys. They will only be kept if the original object has a corresponding key that could be deleted.
+ * @param options._d An internal depth tracker
+ * @returns An object of the data in other which differs from that in original
+ */
+export function diffObject<T extends Record<string, unknown> = Record<string, unknown>>(
+    original: object,
+    other: object,
+    options?: { inner?: boolean; deletionKey?: boolean; _d?: number },
+): T;
+
+/**
+ * Recurse through an object, applying all special keys.
+ * Deletion keys ("-=") are removed.
+ * Forced replacement keys ("==") are assigned.
+ */
+export function applySpecialKeys<T>(obj: T): T;
+
+/**
+ * Test if two objects contain the same enumerable keys and values.
+ * @param a  The first object.
+ * @param b  The second object.
+ */
+export function objectsEqual(a: object, b: object): boolean;
 
 /**
  * A cheap data duplication trick which is relatively robust.
@@ -44,6 +118,152 @@ export function duplicate<T>(original: T): T;
 export function isDeletionKey(key: string): key is "-=";
 
 /**
+ * Test whether some class is a subclass of a parent.
+ * Returns true if the classes are identical.
+ * @param cls The class to test
+ * @param parent Some other class which may be a parent
+ * @returns Is the class a subclass of the parent?
+ */
+export function isSubclass(cls: ConstructorOf<Object>, parent: ConstructorOf<Object>): boolean;
+
+/**
+ * Search up the prototype chain and return the class that defines the given property.
+ * @param obj A class instance or class definition which contains a property. If a class instance is passed the property is treated as an instance attribute. If a class constructor is passed the property is treated as a static attribute.
+ * @param property The property name
+ * @returns The class that defines the property
+ */
+export function getDefiningClass(obj: Object | ConstructorOf<Object>, property: string): ConstructorOf<Object>;
+
+/**
+ * Encode an url-like string by replacing any characters which need encoding.
+ * To reverse this encoding, the native decodeURIComponent can be used on the whole encoded string, without adjustment.
+ * @param  path A fully-qualified URL or url component (like a relative path)
+ * @returns An encoded URL string
+ */
+export function encodeURL(path: string): string;
+
+/**
+ * Expand a flattened object to be a standard nested Object by converting all dot-notation keys to inner objects.
+ * Only simple objects will be expanded. Other Object types like class instances will be retained as-is.
+ * @param obj The object to expand
+ * @returns An expanded object
+ */
+export function expandObject<T extends object = Record<string, unknown>>(obj: object): T;
+
+/**
+ * Filter the contents of some source object using the structure of a template object.
+ * Only keys which exist in the template are preserved in the source object.
+ *
+ * @param source An object which contains the data you wish to filter
+ * @param template An object which contains the structure you wish to preserve
+ * @param options Additional options which customize the filtration
+ * @param options.deletionKeys Whether to keep deletion keys
+ * @param options.templateValues Instead of keeping values from the source, instead draw values from the template
+ * @returns The filtered object
+ *
+ * @example Filter an object
+ * ```js
+ * const source = {foo: {number: 1, name: "Tim", topping: "olives"}, bar: "baz"};
+ * const template = {foo: {number: 0, name: "Mit", style: "bold"}, other: 72};
+ * filterObject(source, template); // {foo: {number: 1, name: "Tim"}};
+ * filterObject(source, template, {templateValues: true}); // {foo: {number: 0, name: "Mit"}};
+ * ```
+ */
+export function filterObject(
+    source: object,
+    template: object,
+    options?: { deletionKeys?: boolean; templateValues?: boolean },
+): object;
+
+/**
+ * Flatten a possibly multidimensional object to a one-dimensional one by converting all nested keys to dot notation
+ * @param obj The object to flatten
+ * @param _d Track the recursion depth to prevent overflow
+ * @returns A flattened object
+ */
+export function flattenObject(obj: object, _d?: number): Record<string, unknown>;
+
+/**
+ * Obtain references to the parent classes of a certain class.
+ * @param cls An class definition
+ * @returns An array of parent classes which the provided class extends
+ */
+export function getParentClasses(cls: ConstructorOf<Object>): ConstructorOf<Object>[];
+
+/**
+ * Get the URL route for a certain path which includes a path prefix, if one is set
+ * @param path The Foundry URL path
+ * @param prefix A path prefix to apply
+ * @returns The absolute URL path
+ */
+export function getRoute(path: string, { prefix }?: { prefix?: string | null }): string;
+
+/**
+ * Learn the underlying data type of some variable. Supported identifiable types include:
+ * undefined, null, number, string, boolean, function, Array, Set, Map, Promise, Error,
+ * HTMLElement (client side only), Object (plain objects).
+ * If the type isn't identifiable, Unknown is returned.
+ * @param variable A provided variable
+ * @returns The named type of the token
+ */
+export function getType(variable: unknown): string;
+
+/**
+ * A helper function which tests whether an object has a property or nested property given a string key.
+ * The method also supports arrays if the provided key is an integer index of the array.
+ * The string key supports the notation a.b.c which would return true if object[a][b][c] exists
+ * @param object The object to traverse
+ * @param key An object property with notation a.b.c
+ * @returns An indicator for whether the property exists
+ */
+export function hasProperty(object: object, key: string): boolean;
+
+/**
+ * A helper function which searches through an object to retrieve a value by a string key.
+ * The method also supports arrays if the provided key is an integer index of the array.
+ * The string key supports the notation a.b.c which would return object[a][b][c]
+ * @param object The object to traverse
+ * @param key An object property with notation a.b.c
+ * @returns The value of the found property
+ */
+export function getProperty(object: object, key: string): unknown;
+
+/**
+ * A helper function which searches through an object to assign a value using a string key
+ * This string key supports the notation a.b.c which would target object[a][b][c]
+ * @param object The object to update
+ * @param key The string key
+ * @param value The value to be assigned
+ * @returns Whether the value was changed from its previous value
+ */
+export function setProperty(object: object, key: string, value: unknown): boolean;
+
+/**
+ * A helper function which searches through an object to delete a value by a string key.
+ * The string key supports the notation a.b.c which would delete object[a][b][c]
+ * @param object The object to traverse
+ * @param key An object property with notation a.b.c
+ * @returns Was the property deleted?
+ */
+export function deleteProperty(object: object, key: string): boolean;
+
+/**
+ * Invert an object by assigning its values as keys and its keys as values.
+ * @param obj The original object to invert
+ * @returns The inverted object with keys and values swapped
+ */
+export function invertObject(obj: object): object;
+
+/**
+ * Return whether a target version (v1) is more advanced than some other reference version (v0).
+ * Supports either numeric or string version comparison with version parts separated by periods.
+ * @param v1 The target version
+ * @param v0 The reference version
+ * @returns Is v1 a more advanced version than v0?
+ */
+export function isNewerVersion(v1: number | string, v0: number | string): boolean;
+
+/**
  * Test whether a value is empty-like; either undefined or a content-less object.
  * @param value The value to test
  * @returns Is the value empty-like?
@@ -53,10 +273,17 @@ export function isEmpty(value: unknown): boolean;
 /**
  * Update a source object by replacing its keys and values with those from a target object.
  *
- * @param original     The initial object which should be updated with values from the target
- * @param [other={}]   A new object whose values should replace those in the source
- * @param [options={}] Additional options which configure the merge
- * @param [_d=0]       A privately used parameter to track recursion depth.
+ * @param original The initial object which should be updated with values from the target
+ * @param other A new object whose values should replace those in the source
+ * @param options Additional options which configure the merge
+ * @param options.insertKeys Control whether to insert new top-level objects into the resulting structure which do not previously exist in the original object.
+ * @param options.insertValues Control whether to insert new nested values into child objects in the resulting structure which did not previously exist in the original object.
+ * @param options.overwrite Control whether to replace existing values in the source, or only merge values which do not already exist in the original object.
+ * @param options.recursive Control whether to merge inner-objects recursively (if true), or whether to simply replace inner objects with a provided new value.
+ * @param options.inplace Control whether to apply updates to the original object in-place (if true), otherwise the original object is duplicated and the copy is merged.
+ * @param options.enforceTypes Control whether strict type checking requires that the value of a key in the other object must match the data type in the original data to be merged.
+ * @param options.performDeletions Control whether to perform deletions on the original object if deletion keys are present in the other object.
+ * @param _d A privately used parameter to track recursion depth.
  * @returns The original source object including updated, inserted, or overwritten records.
  *
  * @example Control how new keys and values are added
@@ -83,276 +310,99 @@ export function isEmpty(value: unknown): boolean;
  * ```js
  * mergeObject({k1: "v1", k2: "v2"}, {"-=k1": null}, {performDeletions: true});   // {k2: "v2"}
  * ```
+ *
+ * @example Explicitly replacing an inner object key
+ * ```js
+ * mergeObject({k1: {i1: "v1"}}, {"==k1": {i2: "v2"}}, {performDeletions: true}); // {k1: {i2: "v2"}}
+ * ```
  */
 export function mergeObject<T extends object, U extends object = T>(
     original: T,
     other?: U | undefined,
-    options?: MergeObjectOptions,
+    options?: {
+        insertKeys?: boolean;
+        insertValues?: boolean;
+        overwrite?: boolean;
+        recursive?: boolean;
+        inplace?: boolean;
+        enforceTypes?: boolean;
+        performDeletions?: boolean;
+    },
     _d?: number,
 ): T & U;
 
 /**
- * Learn the named type of a token - extending the functionality of typeof to recognize some core Object types
- * @param token Some passed token
- * @return      The named type of the token
+ * Parse an S3 key to learn the bucket and the key prefix used for the request.
+ * @param key A fully qualified key name or prefix path.
  */
-export function getType(token: unknown): string;
+export function parseS3URL(key: string): {
+    bucket: string | null;
+    keyPrefix: string;
+};
 
 /**
- * A temporary shim to invert an object, flipping keys and values
- * @param obj    Some object where the values are unique
- * @return       An inverted object where the values of the original object are the keys of the new object
- */
-export function invertObject(obj: object): object;
-
-/**
- * Filter the contents of some source object using the structure of a template object.
- * Only keys which exist in the template are preserved in the source object.
- *
- * @param source           An object which contains the data you wish to filter
- * @param template         An object which contains the structure you wish to preserve
- * @param keepSpecial      Whether to keep special tokens like deletion keys
- * @param templateValues   Instead of keeping values from the source, instead draw values from the template
- *
- * @example
- * const source = {foo: {number: 1, name: "Tim", topping: "olives"}, bar: "baz"};
- * const template = {foo: {number: 0, name: "Mit", style: "bold"}, other: 72};
- * filterObject(source, template); // {foo: {number: 1, name: "Tim"}};
- * filterObject(source, template, {templateValues: true}); // {foo: {number: 0, name: "Mit"}};
- */
-export function filterObject(source: object, template: object, keepSpecial?: boolean, templateValues?: boolean): object;
-
-/**
- * Flatten a possibly multi-dimensional object to a one-dimensional one by converting all nested keys to dot notation
- * @param obj  The object to flatten
- * @param _d   Recursion depth, to prevent overflow
- * @return     A flattened object
- */
-export function flattenObject(obj: object, _d?: number): Record<string, unknown>;
-
-/**
- * Expand a flattened object to be a standard multi-dimensional nested Object by converting all dot-notation keys to
- * inner objects.
- *
- * @param obj  The object to expand
- * @param _d   Recursion depth, to prevent overflow
- * @return     An expanded object
- */
-export function expandObject<T extends object = Record<string, unknown>>(obj: object, _d?: number): T;
-
-/**
- * A simple function to test whether or not an Object is empty
- * @param obj    The object to test
- * @return       Is the object empty?
- */
-export function isObjectEmpty(obj: object): boolean;
-
-/**
- * Deeply difference an object against some other, returning the update keys and values
- * @param original
- * @param other
- * @return
- */
-export function diffObject<T extends Record<string, unknown> = Record<string, unknown>>(
-    original: object,
-    other: object,
-): T;
-
-/**
- * Recurse through an object, applying all special keys.
- * Deletion keys ("-=") are removed.
- * Forced replacement keys ("==") are assigned.
- */
-export function applySpecialKeys<T>(obj: T): T;
-
-/**
- * Test if two objects contain the same enumerable keys and values.
- * @param a  The first object.
- * @param b  The second object.
- */
-export function objectsEqual(a: object, b: object): boolean;
-
-/**
- * A helper function which tests whether an object has a property or nested property given a string key.
- * The string key supports the notation a.b.c which would return true if object[a][b][c] exists
- * @param object   The object to traverse
- * @param key      An object property with notation a.b.c
- *
- * @return         An indicator for whether the property exists
- */
-export function hasProperty(object: object, key: string): boolean;
-
-/**
- * A helper function which searches through an object to retrieve a value by a string key.
- * The string key supports the notation a.b.c which would return object[a][b][c]
- * @param object   The object to traverse
- * @param key      An object property with notation a.b.c
- *
- * @return         The value of the found property
- */
-export function getProperty(object: object, key: string): unknown;
-
-/**
- * A helper function which searches through an object to assign a value using a string key
- * This string key supports the notation a.b.c which would target object[a][b][c]
- *
- * @param object   The object to update
- * @param key      The string key
- * @param value    The value to be assigned
- *
- * @return A flag for whether or not the object was updated
- */
-export function setProperty(object: object, key: string, value: unknown): boolean;
-
-/**
- * Encode a url-like string by replacing any characters which need encoding
- * @param path     A fully-qualified URL or url component (like a relative path)
- * @return         An encoded URL string
- */
-export function encodeURL(path: string): string;
-
-/**
- * Converts an RGB color value to HSV. Conversion formula
- * adapted from http://en.wikipedia.org/wiki/HSV_color_space.
- * Assumes r, g, and b are contained in the set [0, 1] and
- * returns h, s, and v in the set [0, 1].
- *
- * @param  r       The red color value
- * @param  g       The green color value
- * @param  b       The blue color value
- * @return         The HSV representation
- */
-export function rgbToHsv(r: number, g: number, b: number): number[];
-
-/**
- * Converts an HSV color value to RGB. Conversion formula
- * adapted from http://en.wikipedia.org/wiki/HSV_color_space.
- * Assumes h, s, and v are contained in the set [0, 1] and
- * returns r, g, and b in the set [0, 1].
- *
- * @param  h       The hue
- * @param  s       The saturation
- * @param  v       The value
- * @return         The RGB representation
- */
-export function hsvToRgb(h: number, s: number, v: number): [number, number, number];
-
-/**
- * Converts a color as an [R, G, B] array of normalized floats to a hexadecimal number.
- * @param rgb - Array of numbers where all values are normalized floats from 0.0 to 1.0.
- * @return      Number in hexadecimal.
- */
-export function rgbToHex(rgb: [number, number, number]): number;
-
-/**
- * Convert a hex color code to an RGB array
- * @param hex    A hex color number
- * @return       An array of [r,g,b] colors normalized on the range of [0,1]
- */
-export function hexToRGB(hex: number): [number, number, number];
-
-/**
- * Convert a hex color code to an RGBA color string which can be used for CSS styling
- * @param hex    A hex color number
- * @param alpha  A level of transparency
- * @return       An rgba style string
- */
-export function hexToRGBAString(hex: number, alpha?: number): string;
-
-/**
- * Convert a string color to a hex integer
- * @param color    The string color
- * @return         The hexidecimal color code
- */
-export function colorStringToHex(color: string): number;
-
-/**
- * Return whether or not a version (v1) is more advanced than some other version (v0)
- * Supports numeric or string version numbers
- * @param v0
- * @param v1
- * @return
- */
-export function isNewerVersion(v1: number | string | null, v0: number | string): boolean;
-
-/**
- * Generate a random ID
- * Generate random number and convert it to base 36 and remove the '0.' at the beginning
- * As long as the string is not long enough, generate more random data into it
- * Use substring in case we generated a string with a length higher than the requested length
- *
- * @param length    The length of the random ID to generate
- * @return          Return a string containing random letters and numbers
+ * Generate a random alphanumeric string ID of a given requested length using `crypto.getRandomValues()`.
+ * @param length The length of the random string to generate, which must be at most 16384.
+ * @returns A string containing random letters (A-Z, a-z) and numbers (0-9).
  */
 export function randomID(length?: number): string;
 
 /**
- * Parse a UUID into its constituent parts.
- * @param uuid               The UUID to parse.
- * @param [options]          Options to configure parsing behavior.
- * @param [options.relative] A document to resolve relative UUIDs against.
- * @returns Returns the Collection, Document Type, and Document ID to resolve the parent
- *          document, as well as the remaining Embedded Document parts, if any.
+ * Format a file size to an appropriate order of magnitude.
+ * @param size The size in bytes.
+ * @param options.decimalPlaces The number of decimal places to round to.
+ * @param options.base The base to use. In base 10 a kilobyte is 1000 bytes. In base 2 it is 1024 bytes.
+ */
+export function formatFileSize(size: number, options?: { decimalPlaces?: number; base?: 2 | 10 }): string;
+
+/**
+ * Parse a UUID into its constituent parts, identifying the type and ID of the referenced document.
+ * The ResolvedUUID result also identifies a "primary" document which is a root-level document either in the game
+ * World or in a Compendium pack which is a parent of the referenced document.
+ * @param uuid The UUID to parse.
+ * @param options Options to configure parsing behavior.
+ * @param options.relative A document to resolve relative UUIDs against.
+ * @returns Returns, if possible, the Collection, Document Type, and Document ID to resolve the parent document, as well as the remaining Embedded Document parts, if any.
  */
 export function parseUuid(uuid: Maybe<string>, options?: { relative?: Maybe<Document> }): ResolvedUUID | null;
 
-export interface ResolvedUUID {
-    /** The original UUID. */
-    uuid?: string;
-    /**
-     * The type of Document referenced. Legacy compendium UUIDs will not populate this field if the compendium is
-     * not active in the World.
-     */
-    type: string | undefined;
-    /** The ID of the Document referenced. */
-    id: string;
-    /** The primary Document type of this UUID. Only present if the Document is embedded. */
-    primaryType: string | undefined;
-    /** The primary Document ID of this UUID. Only present if the Document is embedded. */
-    primaryId: string | undefined;
-    /**
-     * The Collection containing the referenced Document unless that Documentis embedded, in which case the Collection
-     * of the primary Document.
-     */
-    collection?: DocumentCollection<ClientDocument> | undefined;
-    /** Additional Embedded Document parts. */
-    embedded: string[];
-}
+/**
+ * Build a Universally Unique Identifier (uuid) from possibly limited data. An attempt will be made to resolve omitted
+ * components, but an identifier and at least one of documentName, parent, and pack are required.
+ * @param context Data for building the uuid
+ * @param context.id The identifier of the document
+ * @param context.documentName The document name (or type)
+ * @param context.parent The document's parent, if any
+ * @param context.pack The document's compendium pack, if applicable
+ * @returnsA well-formed Document uuid unless one is unable to be created
+ */
+export function buildUuid(context: {
+    id: Maybe<string>;
+    documentName?: string;
+    parent?: Maybe<Document>;
+    pack?: string | null;
+}): string | null;
 
-declare global {
-    interface MergeObjectOptions {
-        /**
-         * Control whether to insert new top-level objects into the resulting structure which do not previously exist
-         * in the original object.
-         */
-        insertKeys?: boolean;
-        /**
-         * Control whether to insert new nested values into child objects in the resulting structure which did not
-         * previously exist in the original object. */
-        insertValues?: boolean;
-        /**
-         * Control whether to replace existing values in the source, or only merge values which do not already exist
-         * in the original object.
-         */
-        overwrite?: boolean;
-        /**
-         * Control whether to merge inner-objects recursively (if true), or whether to simply replace inner objects
-         * with a provided new value.
-         */
-        recursive?: boolean;
-        /**
-         * Control whether to apply updates to the original object in-place (if true), otherwise the original object is
-         * duplicated and the copy is merged.
-         */
-        inplace?: boolean;
-        /**
-         * Control whether strict type checking requires that the value of a key in the other object must match the
-         * data type in the original data to be merged.
-         */
-        enforceTypes?: boolean;
-        /**
-         * Control whether to perform deletions on the original object if deletion keys are present in the other object.
-         */
-        performDeletions?: boolean;
-    }
-}
+/**
+ * Escape the given unescaped string.
+ *
+ * Escaped strings are safe to use inside inner HTML of most tags and in most quoted HTML attributes.
+ * They are not NOT safe to use in `<script>` tags, unquoted attributes, `href`, `onmouseover`, and similar.
+ * They must be unescaped first if they are used inside a context that would escape them.
+ *
+ * Handles only `&`, `<`, `>`, `"`, and `'`.
+ * @see {@link foundry.utils.unescapeHTML}
+ * @param value An unescaped string
+ * @returns The escaped string
+ */
+export function escapeHTML(value: string | unknown): string;
+
+/**
+ * Unescape the given escaped string.
+ *
+ * Handles only `&amp;`, `&lt;`, `&gt;`, `&quot;`, and `&#x27;`.
+ * @see {@link foundry.utils.escapeHTML}
+ * @param value An escaped string
+ * @returns The escaped string
+ */
+export function unescapeHTML(value: string): string;

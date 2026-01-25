@@ -1,4 +1,5 @@
-import { joinString } from "./string.ts";
+import { GamePF2e } from "#foundry-pf2e";
+import { joinString } from ".";
 
 export const SYSTEM = {
     get id(): SystemId {
@@ -22,12 +23,8 @@ export const SYSTEM = {
     getFlag<T>(obj: foundry.abstract.Document, ...path: string[]): T {
         return obj.getFlag(this.id, joinString(".", ...path)) as T;
     },
-    getPack<T extends foundry.documents.CompendiumDocument>(
-        name: string,
-    ): foundry.documents.collections.CompendiumCollection<T> | undefined {
-        return game.packs.get(`${this.id}.${name}`) as
-            | foundry.documents.collections.CompendiumCollection<T>
-            | undefined;
+    getPack<T extends PackContent>(name: string): foundry.documents.collections.CompendiumCollection<T> | undefined {
+        return game.packs.get(`${this.id}.${name}`);
     },
     getPath<T extends string>(tail: T): `systems/${SystemId}/${T}` {
         return `systems/${this.id}/${tail}`;
@@ -36,3 +33,6 @@ export const SYSTEM = {
         return this.isPF2e ? pf2e : sf2e;
     },
 };
+
+type PackCollection = GamePF2e["packs"] extends Collection<string, infer V> ? V : never;
+type PackContent = PackCollection extends foundry.documents.collections.CompendiumCollection<infer T> ? T : never;

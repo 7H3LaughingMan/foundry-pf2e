@@ -47,6 +47,22 @@ declare global {
 
     type ValueOf<T extends object> = T[keyof T];
 
+    type ExtractKeys<T extends Record<string, unknown>, V extends PropertyKey = PropertyKey> = {
+        [K in keyof T]: T[K] extends V ? K : never;
+    }[keyof T];
+
+    type WithRequired<T extends Record<string, unknown>, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>;
+
+    type WithPartial<T extends Record<string, unknown>, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+    type Expand<T> = T extends infer O ? { [K in keyof O]: O[K] } : never;
+
+    type ExpandRecursively<T> = T extends object
+        ? T extends infer O
+            ? { [K in keyof O]: ExpandRecursively<O[K]> }
+            : never
+        : T;
+
     /** A JSON-compatible value, plus `undefined` */
     type JSONValue = string | number | boolean | object | null | undefined;
 }

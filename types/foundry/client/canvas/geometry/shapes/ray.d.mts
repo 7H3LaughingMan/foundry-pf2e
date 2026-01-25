@@ -1,4 +1,5 @@
-import { Point } from "./../../../../common/_types.mjs";
+import { Point } from "#common/_types.mjs";
+import { LineIntersection } from "#common/utils/_types.mjs";
 
 /**
  * A ray for the purposes of computing sight and collision
@@ -14,39 +15,25 @@ import { Point } from "./../../../../common/_types.mjs";
 export default class Ray {
     constructor(A: Point, B: Point);
 
-    /**
-     * The origin point, {x, y}
-     */
+    /** The origin point, {x, y} */
     A: Point;
 
-    /**
-     * The destination point, {x, y}
-     */
+    /** The destination point, {x, y} */
     B: Point;
 
-    /**
-     * The origin y-coordinate
-     */
+    /** The origin y-coordinate */
     y0: number;
 
-    /**
-     * The origin x-coordinate
-     */
+    /** The origin x-coordinate */
     x0: number;
 
-    /**
-     * The horizontal distance of the ray, x1 - x0
-     */
+    /** The horizontal distance of the ray, x1 - x0 */
     dx: number;
 
-    /**
-     * The vertical distance of the ray, y1 - y0
-     */
+    /** The vertical distance of the ray, y1 - y0 */
     dy: number;
 
-    /**
-     * The slope of the ray, dy over dx
-     */
+    /** The slope of the ray, dy over dx */
     slope: number;
 
     /* -------------------------------------------- */
@@ -61,9 +48,7 @@ export default class Ray {
 
     set angle(value: number);
 
-    /**
-     * A normalized bounding rectangle that encompasses the Ray
-     */
+    /** A normalized bounding rectangle that encompasses the Ray */
     get bounds(): PIXI.Rectangle;
 
     /**
@@ -137,5 +122,5 @@ export default class Ray {
      * Find the point I[x,y] and distance t* on ray R(t) which intersects another ray
      * http://paulbourke.net/geometry/pointlineplane/
      */
-    intersectSegment(coords: [number]): Vector2;
+    intersectSegment(coords: [number]): LineIntersection | null;
 }

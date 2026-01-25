@@ -1,4 +1,5 @@
 import { Point } from "../_types.mjs";
+import { LineCircleIntersection, LineIntersection } from "./_types.mjs";
 
 /**
  * Determine the relative orientation of three points in two-dimensional space.
@@ -103,51 +104,3 @@ export function closestPointToSegment(c: Point, a: Point, b: Point): Point;
  * @param [epsilon=0] A small tolerance for floating point precision
  */
 export function quadraticIntersection(p0: Point, p1: Point, center: Point, radius: number, epsilon?: number): Point[];
-
-declare global {
-    /**
-     * @property x  The x-coordinate of intersection
-     * @property y  The y-coordinate of intersection
-     * @property t0 The proximity to the Ray origin, as a ratio of distance
-     * @property t1 The proximity to the Ray destination, as a ratio of distance
-     */
-    interface RayIntersection {
-        x: number;
-        y: number;
-        t0: number;
-        t1: number;
-    }
-
-    interface Vector2 {
-        x: number;
-        y: number;
-        t0: number;
-        t1: number;
-    }
-
-    interface LineIntersection {
-        /** The x-coordinate of intersection */
-        x: number;
-        /** The y-coordinate of intersection */
-        y: number;
-        /** The vector distance from A to B on segment AB  */
-        t0: number;
-        /** The vector distance from C to D on segment CD */
-        t1: number;
-    }
-
-    interface LineCircleIntersection {
-        /** Is point A inside the circle? */
-        aInside: boolean;
-        /** Is point B inside the circle? */
-        bInside: boolean;
-        /** Is the segment AB contained within the circle? */
-        contained: boolean;
-        /** Is the segment AB fully outside the circle? */
-        outside: boolean;
-        /** Is the segment AB tangent to the circle? */
-        tangent: boolean;
-        /** Intersection points: zero, one, or two */
-        intersections: Point[];
-    }
-}

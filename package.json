@@ -11,8 +11,10 @@
         ".": "./types/index.d.ts",
         "./foundry/*": "./types/foundry/*",
         "./lib-wrapper": "./types/lib-wrapper/index.d.ts",
+        "./pf2e-modifiers-matter": "./types/pf2e-modifiers-matter/index.d.ts",
         "./pf2e/*": "./types/pf2e/*",
         "./socketlib": "./types/socketlib/index.d.ts",
+        "./tcal": "./types/tcal/index.d.ts",
         "./utilities": "./src/utilities/index.ts"
     },
     "imports": {

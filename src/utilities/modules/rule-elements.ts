@@ -1,5 +1,4 @@
 import {
-    RuleElementSource,
     AELikeRuleElement,
     AELikeSchema,
     ActorTraitsRuleElement,
@@ -20,7 +19,6 @@ import {
     FastHealingRuleElement,
     FlatModifierRuleElement,
     ImmunityRuleElement,
-    GrantItemRuleElement,
     ItemAlterationRuleElement,
     LoseHitPointsRuleElement,
     MartialProficiencyRuleElement,
@@ -41,8 +39,47 @@ import {
     TokenMarkRuleElement,
     TokenNameRuleElement,
     WeaknessRuleElement,
+    RawPredicate,
+    AELikeChangeMode,
+    ItemAlterationProperty,
 } from "#foundry-pf2e";
 import * as R from "remeda";
+
+export type RuleElementSource = {
+    key: string;
+    slug?: string | null;
+    label?: string;
+    priority?: number;
+    ignore?: boolean;
+    predicate?: RawPredicate;
+    requiresEquipped?: boolean | null;
+    requiresInvestment?: boolean | null;
+    spinoff?: string;
+};
+
+export type ItemAlterationSource = {
+    mode: AELikeChangeMode;
+    property: ItemAlterationProperty;
+    value?: string | number | boolean | object;
+    fromEquipment?: boolean;
+};
+
+export type GrantItemSource = RuleElementSource & {
+    key: "GrantItem";
+    uuid: string;
+    flag?: string | null;
+    reevaluateOnUpdate?: boolean;
+    inMemoryOnly?: boolean;
+    allowDuplicate?: boolean;
+    nestUnderGranter?: boolean;
+    alterations?: ItemAlterationSource[];
+    track?: boolean;
+    preselectChoices?: Record<string, string | number>;
+    onDeleteActions?: {
+        granter?: "cascade" | "detach" | "restrict";
+        grantee?: "cascade" | "detach" | "restrict";
+    };
+};
 
 export function isAELike(source: Maybe<RuleElementSource>): source is AELikeRuleElement<AELikeSchema>["_source"] {
     return R.isNonNullish(source) && source.key === "ActiveEffectLike";
@@ -120,7 +157,7 @@ export function isFlatModifier(source: Maybe<RuleElementSource>): source is Flat
     return R.isNonNullish(source) && source.key === "FlatModifier";
 }
 
-export function isGrantItem(source: Maybe<RuleElementSource>): source is GrantItemRuleElement["_source"] {
+export function isGrantItem(source: Maybe<RuleElementSource>): source is GrantItemSource {
     return R.isNonNullish(source) && source.key === "GrantItem";
 }
 

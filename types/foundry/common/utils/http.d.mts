@@ -27,6 +27,13 @@ export function fetchJsonWithTimeout(
 ): Promise<JSONValue>;
 
 /**
+ * Test whether a file source exists by performing a HEAD request against it
+ * @param src The source URL or path to test
+ * @returns Does the file exist at the provided url?
+ */
+export function srcExists(src: string): Promise<boolean>;
+
+/**
  * Represents an HTTP Error when a non-OK response is returned by Fetch
  * @extends {Error}
  */

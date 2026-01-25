@@ -2,6 +2,7 @@ import PlaceableObject from "./../../../canvas/placeables/placeable-object.mjs";
 import { Point } from "./../../../../common/_types.mjs";
 import { WallSenseType } from "./../../../../common/constants.mjs";
 import PolygonVertex from "./vertex.mjs";
+import { LineIntersection } from "#common/utils/_types.mjs";
 
 /**
  * A data structure used to represent potential edges used by the ClockwiseSweepPolygon.
