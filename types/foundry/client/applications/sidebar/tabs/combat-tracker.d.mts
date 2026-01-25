@@ -1,12 +1,12 @@
-import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_types.mjs";
-import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
-import { Token } from "./../../../canvas/placeables/_module.mjs";
-import { Combat, Combatant } from "./../../../documents/_module.mjs";
 import HandlebarsApplicationMixin, {
     HandlebarsRenderOptions,
     HandlebarsTemplatePart,
 } from "../../api/handlebars-application.mjs";
 import AbstractSidebarTab from "../sidebar-tab.mjs";
+import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_types.mjs";
+import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
+import { Token } from "./../../../canvas/placeables/_module.mjs";
+import { Combat, Combatant } from "./../../../documents/_module.mjs";
 
 /**
  * An Application that manages switching between Combats and tracking the Combatants in those Combats.

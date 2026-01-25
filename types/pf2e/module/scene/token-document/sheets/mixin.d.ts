@@ -1,10 +1,10 @@
-import { ActorPF2e } from "./../../../actor/index.ts";
 import { ApplicationRenderContext } from "#client/applications/_module.mjs";
 import { DocumentSheetConfiguration, DocumentSheetRenderContext } from "#client/applications/api/_module.mjs";
 import { HandlebarsRenderOptions } from "#client/applications/api/handlebars-application.mjs";
 import { TokenApplicationMixin } from "#client/applications/sheets/_module.mjs";
 import { DocumentFlags } from "#common/data/_module.mjs";
 import { TokenDocumentPF2e } from "../document.ts";
+import { ActorPF2e } from "./../../../actor/index.ts";
 import { PrototypeTokenConfigPF2e } from "./prototype-config.ts";
 declare function TokenConfigMixinPF2e<TBase extends ReturnType<typeof TokenApplicationMixin>>(
     Base: TBase,

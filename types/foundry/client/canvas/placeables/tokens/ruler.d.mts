@@ -1,6 +1,6 @@
-import { TokenMovementActionConfig, TokenRulerData, TokenRulerWaypoint } from "./../../../_module.mjs";
-import { GridOffset3D } from "./../../../../common/grid/_types.mjs";
 import { Token } from "../_module.mjs";
+import { GridOffset3D } from "./../../../../common/grid/_types.mjs";
+import { TokenMovementActionConfig, TokenRulerData, TokenRulerWaypoint } from "./../../../_module.mjs";
 import BaseTokenRuler from "./base-ruler.mjs";
 
 /**

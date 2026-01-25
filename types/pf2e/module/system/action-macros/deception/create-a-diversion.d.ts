@@ -9,4 +9,4 @@ declare function createADiversion(
     } & SkillActionOptions,
 ): void;
 declare const action: SingleCheckAction;
-export { createADiversion as legacy, action };
+export { action, createADiversion as legacy };

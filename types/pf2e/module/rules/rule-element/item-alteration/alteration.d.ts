@@ -1,9 +1,9 @@
-import { ActorPF2e } from "./../../../actor/index.ts";
-import { ItemPF2e } from "./../../../item/index.ts";
-import { ItemSourcePF2e } from "./../../../item/base/data/index.ts";
 import { AELikeChangeMode } from "../ae-like.ts";
 import { RuleElement } from "../base.ts";
 import { ResolvableValueField } from "../data.ts";
+import { ActorPF2e } from "./../../../actor/index.ts";
+import { ItemSourcePF2e } from "./../../../item/base/data/index.ts";
+import { ItemPF2e } from "./../../../item/index.ts";
 import { ITEM_ALTERATION_HANDLERS } from "./handlers.ts";
 import fields = foundry.data.fields;
 declare class ItemAlteration extends foundry.abstract.DataModel<RuleElement, ItemAlterationSchema> {

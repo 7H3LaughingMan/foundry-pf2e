@@ -1,6 +1,6 @@
-import DocumentSheetV2 from "./../applications/api/document-sheet.mjs";
 import { ImageFilePath } from "./../../common/constants.mjs";
 import { CardsSource } from "./../../common/documents/cards.mjs";
+import DocumentSheetV2 from "./../applications/api/document-sheet.mjs";
 import { BaseCards } from "./_module.mjs";
 import ClientDocumentMixin from "./abstract/client-document.mjs";
 import Card from "./card.mjs";

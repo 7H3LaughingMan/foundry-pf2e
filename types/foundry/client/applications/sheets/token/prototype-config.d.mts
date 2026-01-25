@@ -1,3 +1,5 @@
+import ApplicationV2 from "../../api/application.mjs";
+import { PrototypeToken, PrototypeTokenSchema } from "./../../../../common/data/data.mjs";
 import {
     ApplicationClosingOptions,
     ApplicationConfiguration,
@@ -9,8 +11,6 @@ import { DocumentSheetRenderContext } from "./../../../applications/api/_module.
 import { HandlebarsRenderOptions } from "./../../../applications/api/handlebars-application.mjs";
 import FormDataExtended from "./../../../applications/ux/form-data-extended.mjs";
 import { Actor } from "./../../../documents/_module.mjs";
-import { PrototypeToken, PrototypeTokenSchema } from "./../../../../common/data/data.mjs";
-import ApplicationV2 from "../../api/application.mjs";
 import TokenApplicationMixin from "./mixin.mjs";
 
 /**

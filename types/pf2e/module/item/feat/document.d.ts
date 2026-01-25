@@ -1,13 +1,13 @@
-import { ActorPF2e } from "./../../actor/index.ts";
-import { CraftingAbility } from "./../../actor/character/crafting/ability.ts";
-import { FeatGroup } from "./../../actor/character/feats/index.ts";
 import { DocumentHTMLEmbedConfig } from "#client/applications/ux/text-editor.mjs";
 import { DatabaseCreateCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
-import { ItemPF2e, HeritagePF2e } from "./../index.ts";
-import { ActionCost, Frequency, RawItemChatData } from "./../base/data/index.ts";
+import { CraftingAbility } from "./../../actor/character/crafting/ability.ts";
+import { FeatGroup } from "./../../actor/character/feats/index.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { Rarity } from "./../../data.ts";
 import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { EnrichmentOptionsPF2e } from "./../../system/text-editor.ts";
+import { ActionCost, Frequency, RawItemChatData } from "./../base/data/index.ts";
+import { HeritagePF2e, ItemPF2e } from "./../index.ts";
 import { FeatSource, FeatSystemData } from "./data.ts";
 import { FeatOrFeatureCategory, FeatTrait } from "./types.ts";
 declare class FeatPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {

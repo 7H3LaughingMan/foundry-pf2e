@@ -1,5 +1,5 @@
-import { ActorFlagsPF2e } from "./../data/base.ts";
 import { SheetOptions } from "./../../sheet/helpers.ts";
+import { ActorFlagsPF2e } from "./../data/base.ts";
 import { CreaturePF2e } from "./document.ts";
 /** A DocumentSheet presenting additional, per-actor settings */
 declare abstract class CreatureConfig<TActor extends CreaturePF2e> extends fav1.api.DocumentSheet<TActor> {

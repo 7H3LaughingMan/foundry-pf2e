@@ -1,6 +1,6 @@
-import { SlugField } from "./../../../system/schema-data-fields.ts";
 import { RuleElement } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSchema } from "../data.ts";
+import { SlugField } from "./../../../system/schema-data-fields.ts";
 import fields = foundry.data.fields;
 /** Remember a token for later referencing */
 declare class TokenMarkRuleElement extends RuleElement<TokenMarkSchema> {

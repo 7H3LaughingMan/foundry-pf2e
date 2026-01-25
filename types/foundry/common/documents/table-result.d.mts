@@ -1,6 +1,6 @@
-import { DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath, TableResultType } from "./../constants.mjs";
 import { Document, DocumentMetadata } from "../abstract/_module.mjs";
 import * as fields from "../data/fields.mjs";
+import { DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath, TableResultType } from "./../constants.mjs";
 import * as documents from "./_module.mjs";
 
 /** The TableResult document model. */

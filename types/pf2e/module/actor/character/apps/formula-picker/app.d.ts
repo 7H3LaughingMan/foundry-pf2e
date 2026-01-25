@@ -1,14 +1,14 @@
-import { ActorPF2e, CharacterPF2e } from "./../../../index.ts";
-import { CraftingAbility } from "./../../../character/crafting/ability.ts";
-import { ResourceData } from "./../../../creature/index.ts";
 import { default as ApplicationV2 } from "#client/applications/api/application.mjs";
 import { ItemUUID } from "#common/documents/_module.mjs";
-import { AbilityItemPF2e, FeatPF2e, PhysicalItemPF2e } from "./../../../../item/index.ts";
-import { TraitChatData } from "./../../../../item/base/data/index.ts";
-import { ItemType } from "./../../../../item/types.ts";
-import { Rarity } from "./../../../../data.ts";
-import { SvelteApplicationMixin, SvelteApplicationRenderContext } from "./../../../../sheet/mixin.svelte.ts";
 import { default as MiniSearch } from "minisearch";
+import { Rarity } from "./../../../../data.ts";
+import { TraitChatData } from "./../../../../item/base/data/index.ts";
+import { AbilityItemPF2e, FeatPF2e, PhysicalItemPF2e } from "./../../../../item/index.ts";
+import { ItemType } from "./../../../../item/types.ts";
+import { SvelteApplicationMixin, SvelteApplicationRenderContext } from "./../../../../sheet/mixin.svelte.ts";
+import { CraftingAbility } from "./../../../character/crafting/ability.ts";
+import { ResourceData } from "./../../../creature/index.ts";
+import { ActorPF2e, CharacterPF2e } from "./../../../index.ts";
 interface FormulaPickerConfiguration extends fa.ApplicationConfiguration {
     actor: CharacterPF2e;
     ability: CraftingAbility;

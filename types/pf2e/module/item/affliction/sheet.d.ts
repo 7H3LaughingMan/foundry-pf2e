@@ -1,7 +1,7 @@
 import { ItemUUID } from "#client/documents/_module.mjs";
-import { AfflictionPF2e, ConditionPF2e } from "./../index.ts";
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
 import { DamageCategoryUnique } from "./../../system/damage/types.ts";
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
+import { AfflictionPF2e, ConditionPF2e } from "./../index.ts";
 import { AfflictionConditionData, AfflictionStageData } from "./data.ts";
 declare class AfflictionSheetPF2e extends ItemSheetPF2e<AfflictionPF2e> {
     #private;

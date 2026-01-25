@@ -1,5 +1,3 @@
-import { ActorPF2e, CreaturePF2e } from "./../index.ts";
-import { ActorUpdateCallbackOptions } from "./../base.ts";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteCallbackOptions,
@@ -12,6 +10,8 @@ import { RuleElement } from "./../../rules/index.ts";
 import { RuleElementSchema } from "./../../rules/rule-element/data.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { Statistic } from "./../../system/statistic/index.ts";
+import { ActorUpdateCallbackOptions } from "./../base.ts";
+import { ActorPF2e, CreaturePF2e } from "./../index.ts";
 import { PartySource, PartySystemData } from "./data.ts";
 import { PartyCampaign } from "./types.ts";
 declare class PartyPF2e<

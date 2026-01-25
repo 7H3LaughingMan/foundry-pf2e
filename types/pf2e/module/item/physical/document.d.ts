@@ -1,4 +1,3 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import { ItemUUID } from "#client/documents/_module.mjs";
 import { DocumentConstructionContext } from "#common/_types.mjs";
 import {
@@ -7,11 +6,12 @@ import {
     DatabaseUpdateCallbackOptions,
     DatabaseUpdateOperation,
 } from "#common/abstract/_types.mjs";
-import { ItemPF2e, ContainerPF2e } from "./../index.ts";
-import { ItemSourcePF2e, PhysicalItemSource, RawItemChatData, TraitChatData } from "./../base/data/index.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { Rarity, Size, ZeroToTwo } from "./../../data.ts";
 import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { EffectSpinoff } from "./../../rules/rule-element/effect-spinoff/spinoff.ts";
+import { ItemSourcePF2e, PhysicalItemSource, RawItemChatData, TraitChatData } from "./../base/data/index.ts";
+import { ContainerPF2e, ItemPF2e } from "./../index.ts";
 import { Bulk } from "./bulk.ts";
 import {
     IdentificationStatus,

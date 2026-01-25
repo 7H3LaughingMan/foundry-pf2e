@@ -1,8 +1,8 @@
-import User from "./../../documents/user.mjs";
-import { ElevatedPoint, Point, Rectangle } from "./../../../common/_types.mjs";
 import { UnboundContainer } from "../containers/_module.mjs";
 import Cursor from "../containers/elements/cursor.mjs";
 import { BaseRuler, PingData, PingOptions } from "../interaction/_module.mjs";
+import { ElevatedPoint, Point, Rectangle } from "./../../../common/_types.mjs";
+import User from "./../../documents/user.mjs";
 import { CanvasLayerOptions } from "./base/canvas-layer.mjs";
 import InteractionLayer from "./base/interaction-layer.mjs";
 

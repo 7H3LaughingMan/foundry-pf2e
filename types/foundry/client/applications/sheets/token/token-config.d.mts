@@ -1,10 +1,10 @@
-import FormDataExtended from "./../../../applications/ux/form-data-extended.mjs";
-import { Actor, Scene, TokenDocument } from "./../../../documents/_module.mjs";
-import { DatabaseCreateOperation, DatabaseUpdateOperation } from "./../../../../common/abstract/_types.mjs";
-import { TokenSchema } from "./../../../../common/documents/token.mjs";
 import { ApplicationClosingOptions, ApplicationFormConfiguration, ApplicationRenderContext } from "../../_types.mjs";
 import DocumentSheetV2, { DocumentSheetRenderContext } from "../../api/document-sheet.mjs";
 import { HandlebarsRenderOptions } from "../../api/handlebars-application.mts";
+import { DatabaseCreateOperation, DatabaseUpdateOperation } from "./../../../../common/abstract/_types.mjs";
+import { TokenSchema } from "./../../../../common/documents/token.mjs";
+import FormDataExtended from "./../../../applications/ux/form-data-extended.mjs";
+import { Actor, Scene, TokenDocument } from "./../../../documents/_module.mjs";
 import TokenApplicationMixin from "./mixin.mts";
 
 /**

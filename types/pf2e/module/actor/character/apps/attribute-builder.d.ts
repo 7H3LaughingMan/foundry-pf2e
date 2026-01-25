@@ -1,6 +1,6 @@
+import { AncestryPF2e, BackgroundPF2e, ClassPF2e } from "./../../../item/index.ts";
 import { CharacterPF2e } from "./../../index.ts";
 import { AttributeString } from "./../../types.ts";
-import { AncestryPF2e, BackgroundPF2e, ClassPF2e } from "./../../../item/index.ts";
 import appv1 = foundry.appv1;
 declare class AttributeBuilder extends appv1.api.Application {
     #private;

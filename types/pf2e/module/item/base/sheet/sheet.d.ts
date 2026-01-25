@@ -2,11 +2,11 @@ import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { ProseMirrorEditor } from "#client/applications/ux/_module.mjs";
 import { ApplicationV1HeaderButton, AppV1RenderOptions } from "#client/appv1/api/application-v1.mjs";
 import { DataField } from "#common/data/fields.mjs";
-import { ItemPF2e } from "./../../index.ts";
+import { Plugin } from "prosemirror-state";
 import { Rarity } from "./../../../data.ts";
 import { RuleElementSource } from "./../../../rules/index.ts";
 import { SheetOptions, TagifyEntry } from "./../../../sheet/helpers.ts";
-import { Plugin } from "prosemirror-state";
+import { ItemPF2e } from "./../../index.ts";
 declare class ItemSheetPF2e<TItem extends ItemPF2e> extends fav1.sheets.ItemSheet<TItem, ItemSheetOptions> {
     #private;
     constructor(item: TItem, options?: Partial<fav1.sheets.ItemSheetData<TItem>>);

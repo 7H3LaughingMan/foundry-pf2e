@@ -1,11 +1,11 @@
 import { DocumentFlags, DocumentFlagsSource } from "#common/data/_types.mjs";
-import { EffectAreaShape, ItemType } from "./../../types.ts";
+import type * as fields from "#common/data/fields.mjs";
+import { ItemTrait } from "../types.ts";
 import { MigrationRecord, OneToThree, PublicationData, Rarity } from "./../../../data.ts";
 import { RuleElementSource } from "./../../../rules/index.ts";
 import { DamageType } from "./../../../system/damage/index.ts";
 import { Predicate } from "./../../../system/predication.ts";
-import { ItemTrait } from "../types.ts";
-import type * as fields from "#common/data/fields.mjs";
+import { EffectAreaShape, ItemType } from "./../../types.ts";
 type BaseItemSourcePF2e<
     TType extends ItemType,
     TSystemSource extends ItemSystemSource = ItemSystemSource,

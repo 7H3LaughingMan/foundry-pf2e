@@ -1,9 +1,9 @@
 import { ApplicationV1HeaderButton } from "#client/appv1/api/application-v1.mjs";
 import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
-import { EffectTrait } from "./../../../item/abstract-effect/types.ts";
 import { CharacterAttack } from "../data.ts";
 import { CharacterPF2e } from "../document.ts";
-import { CharacterSheetPF2e, CharacterSheetData } from "../sheet.ts";
+import { CharacterSheetData, CharacterSheetPF2e } from "../sheet.ts";
+import { EffectTrait } from "./../../../item/abstract-effect/types.ts";
 declare class AttackPopout<TActor extends CharacterPF2e> extends CharacterSheetPF2e<TActor> {
     #private;
     type: AttackPopoutOptions["type"];

@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../actor/index.ts";
 import { PrototypeTokenPF2e } from "./../actor/data/base.ts";
+import { ActorPF2e } from "./../actor/index.ts";
 import { TokenDocumentPF2e } from "./index.ts";
 /** Check for auras containing newly-placed or moved tokens */
 declare const checkAuras: () => void;

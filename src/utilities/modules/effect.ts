@@ -1,4 +1,5 @@
 import { ImageFilePath } from "#common/constants.mjs";
+import { ActorUUID, ItemUUID, TokenDocumentUUID } from "#common/documents/_module.mjs";
 import {
     ActorPF2e,
     ConditionSlug,
@@ -7,12 +8,11 @@ import {
     EffectBadge,
     EffectSource,
     ItemPF2e,
+    TokenDocumentPF2e,
 } from "foundry-pf2e";
-import { SYSTEM } from "./system.ts";
 import { isDecimal, isNonNegative } from "./index.ts";
-import { TokenDocumentPF2e } from "foundry-pf2e";
-import { ActorUUID, ItemUUID, TokenDocumentUUID } from "#common/documents/_module.mjs";
 import { GrantItemSource, ItemAlterationSource, RuleElementSource } from "./rule-elements.ts";
+import { SYSTEM } from "./system.ts";
 
 const PERSISTENT_DAMAGE_IMAGES: Partial<Record<DamageType, () => ImageFilePath>> = {
     acid: () => "icons/magic/acid/dissolve-arm-flesh.webp",

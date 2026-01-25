@@ -37,5 +37,5 @@ export class PulseColorationShader extends AdaptiveColorationShader {
         globalLightThresholds: number[];
     };
 }
-import AdaptiveIlluminationShader from "../illumination-lighting.mjs";
 import AdaptiveColorationShader from "../coloration-lighting.mjs";
+import AdaptiveIlluminationShader from "../illumination-lighting.mjs";

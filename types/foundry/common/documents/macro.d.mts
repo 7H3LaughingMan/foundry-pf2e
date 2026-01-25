@@ -1,7 +1,7 @@
-import { ImageFilePath, MacroScope, MacroType } from "./../constants.mjs";
 import { Document, DocumentMetadata, MetadataPermission } from "../abstract/_module.mjs";
 import { DatabaseCreateCallbackOptions } from "../abstract/_types.mjs";
 import * as fields from "../data/fields.mjs";
+import { ImageFilePath, MacroScope, MacroType } from "./../constants.mjs";
 import BaseUser from "./user.mjs";
 
 /**

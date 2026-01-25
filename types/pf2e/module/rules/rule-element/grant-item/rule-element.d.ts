@@ -1,9 +1,9 @@
-import { ActorType } from "./../../../actor/index.ts";
 import { SourceFromSchema } from "#common/data/fields.mjs";
-import { ItemSourcePF2e } from "./../../../item/base/data/index.ts";
-import { ItemGrantDeleteAction } from "./../../../item/base/data/system.ts";
 import { RuleElement, RuleElementOptions } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSource } from "../data.ts";
+import { ActorType } from "./../../../actor/index.ts";
+import { ItemSourcePF2e } from "./../../../item/base/data/index.ts";
+import { ItemGrantDeleteAction } from "./../../../item/base/data/system.ts";
 import { GrantItemSchema } from "./schema.ts";
 declare class GrantItemRuleElement extends RuleElement<GrantItemSchema> {
     #private;

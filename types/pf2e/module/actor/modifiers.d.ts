@@ -1,12 +1,12 @@
-import { ActorPF2e, CharacterPF2e, NPCPF2e } from "./index.ts";
-import { AttributeString } from ".//types.ts";
-import { ItemPF2e } from "./../item/index.ts";
 import { ZeroToFour } from "./../data.ts";
+import { ItemPF2e } from "./../item/index.ts";
 import { RollNotePF2e } from "./../notes.ts";
 import { RuleElement } from "./../rules/index.ts";
 import { DamageAlteration } from "./../rules/rule-element/damage-alteration/alteration.ts";
 import { DamageCategoryUnique, DamageDiceFaces, DamageDieSize, DamageType } from "./../system/damage/types.ts";
 import { Predicate, RawPredicate } from "./../system/predication.ts";
+import { AttributeString } from ".//types.ts";
+import { ActorPF2e, CharacterPF2e, NPCPF2e } from "./index.ts";
 declare const PROFICIENCY_RANK_OPTION: readonly [
     "proficiency:untrained",
     "proficiency:trained",

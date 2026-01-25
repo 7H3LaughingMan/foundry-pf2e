@@ -1,5 +1,5 @@
-import { DocumentConstructionContext } from "./../_types.mjs";
 import Collection, { CollectionGetOptions } from "../utils/collection.mjs";
+import { DocumentConstructionContext } from "./../_types.mjs";
 import Document from "./document.mjs";
 
 /** Used for the specific task of containing embedded Document instances within a parent Document. */

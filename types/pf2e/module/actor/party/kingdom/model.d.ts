@@ -1,11 +1,11 @@
-import { ArmyPF2e, PartyPF2e } from "./../../index.ts";
-import { FeatGroup } from "./../../character/feats/index.ts";
-import { RawModifier } from "./../../modifiers.ts";
+import { PartySystemData } from "../data.ts";
+import { PartyCampaign } from "../types.ts";
 import { CampaignFeaturePF2e } from "./../../../item/index.ts";
 import { ItemType } from "./../../../item/types.ts";
 import { Statistic } from "./../../../system/statistic/index.ts";
-import { PartySystemData } from "../data.ts";
-import { PartyCampaign } from "../types.ts";
+import { FeatGroup } from "./../../character/feats/index.ts";
+import { ArmyPF2e, PartyPF2e } from "./../../index.ts";
+import { RawModifier } from "./../../modifiers.ts";
 import { KingdomCHG, KingdomCharter, KingdomData, KingdomGovernment, KingdomSchema, KingdomSource } from "./schema.ts";
 import { KingdomNationType, KingdomSkill } from "./types.ts";
 /** Model for the Kingmaker campaign data type, which represents a Kingdom */

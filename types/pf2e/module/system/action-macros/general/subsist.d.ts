@@ -1,9 +1,9 @@
+import { SkillActionOptions } from "../index.ts";
 import {
     SingleCheckAction,
     SingleCheckActionVariant,
     SingleCheckActionVariantData,
 } from "./../../../actor/actions/index.ts";
-import { SkillActionOptions } from "../index.ts";
 declare function subsist(options: SkillActionOptions): void;
 declare class SubsistAction extends SingleCheckAction {
     constructor();

@@ -1,8 +1,8 @@
-import { NPCPF2e } from "./../index.ts";
-import { CreatureSheetPF2e } from "./../creature/sheet.ts";
-import { SheetClickActionHandlers } from "./../sheet/base.ts";
 import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
 import { UserPF2e } from "./../../user/document.ts";
+import { CreatureSheetPF2e } from "./../creature/sheet.ts";
+import { NPCPF2e } from "./../index.ts";
+import { SheetClickActionHandlers } from "./../sheet/base.ts";
 import { NPCConfig } from "./config.ts";
 import { NPCSheetData, NPCSpellcastingSheetData } from "./types.ts";
 declare abstract class AbstractNPCSheet extends CreatureSheetPF2e<NPCPF2e> {

@@ -1,14 +1,14 @@
-import { ActorPF2e, CreaturePF2e } from "./../index.ts";
-import { ActorSheetDataPF2e } from "./../sheet/data-types.ts";
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { ApplicationV1HeaderButton } from "#client/appv1/api/application-v1.mjs";
 import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
-import { ItemPF2e } from "./../../item/index.ts";
-import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
-import { SpellcastingSheetData } from "./../../item/spellcasting-entry/index.ts";
+import { ActorSheetPF2e, SheetClickActionHandlers } from "../sheet/base.ts";
 import { DropCanvasItemData } from "./../../canvas/drop-canvas-data.ts";
 import { ZeroToFour } from "./../../data.ts";
-import { ActorSheetPF2e, SheetClickActionHandlers } from "../sheet/base.ts";
+import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
+import { ItemPF2e } from "./../../item/index.ts";
+import { SpellcastingSheetData } from "./../../item/spellcasting-entry/index.ts";
+import { ActorPF2e, CreaturePF2e } from "./../index.ts";
+import { ActorSheetDataPF2e } from "./../sheet/data-types.ts";
 import { CreatureConfig } from "./config.ts";
 import { Language, ResourceData } from "./index.ts";
 /**

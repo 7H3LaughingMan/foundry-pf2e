@@ -1,8 +1,8 @@
+import DocumentDirectory from "../document-directory.mjs";
 import { ApplicationConfiguration } from "./../../../applications/_types.mjs";
 import { HandlebarsRenderOptions } from "./../../../applications/api/handlebars-application.mjs";
 import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
 import Scene from "./../../../documents/scene.mjs";
-import DocumentDirectory from "../document-directory.mjs";
 
 /**
  * The World Scene directory listing.

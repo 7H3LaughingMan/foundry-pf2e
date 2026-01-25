@@ -1,6 +1,6 @@
+import PlaceableObject from "../placeables/placeable-object.mjs";
 import { ElevatedPoint } from "./../../../common/_types.mjs";
 import Collection from "./../../../common/utils/collection.mjs";
-import PlaceableObject from "../placeables/placeable-object.mjs";
 
 export interface BaseEffectSourceOptions<TObject extends PlaceableObject | null> {
     /** An optional PlaceableObject which is responsible for this source */

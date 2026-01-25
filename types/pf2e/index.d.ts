@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./module/actor/index.js";
 import "./global.d.ts";
+import { ActorPF2e } from "./module/actor/index.js";
 import { ChatMessagePF2e } from "./module/chat-message/index.js";
 import { CombatantPF2e } from "./module/encounter/index.js";
 import { ItemPF2e } from "./module/item/index.js";

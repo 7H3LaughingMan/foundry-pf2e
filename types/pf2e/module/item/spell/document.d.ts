@@ -1,5 +1,3 @@
-import { ActorPF2e } from "./../../actor/index.ts";
-import { AttributeString } from "./../../actor/types.ts";
 import { Rolled } from "#client/dice/roll.mjs";
 import { DocumentConstructionContext } from "#common/_types.mjs";
 import {
@@ -9,12 +7,8 @@ import {
 } from "#common/abstract/_types.mjs";
 import { RollMode } from "#common/constants.mjs";
 import { ItemUUID } from "#common/documents/_module.mjs";
-import { ConsumablePF2e, ItemPF2e } from "./../index.ts";
-import { ItemSourcePF2e, RawItemChatData } from "./../base/data/index.ts";
-import { ItemDescriptionData } from "./../base/data/system.ts";
-import { SpellSlotGroupId } from "./../spellcasting-entry/collection.ts";
-import { BaseSpellcastingEntry } from "./../spellcasting-entry/types.ts";
-import { RangeData } from "./../types.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
+import { AttributeString } from "./../../actor/types.ts";
 import { MeasuredTemplatePF2e } from "./../../canvas/index.ts";
 import { ChatMessagePF2e, ItemOriginFlag } from "./../../chat-message/index.ts";
 import { OneToTen, Rarity, ZeroToTwo } from "./../../data.ts";
@@ -24,6 +18,12 @@ import { DamageRoll } from "./../../system/damage/roll.ts";
 import { DamageDamageContext, DamageKind, SpellDamageTemplate } from "./../../system/damage/types.ts";
 import { StatisticRollParameters } from "./../../system/statistic/index.ts";
 import { EnrichmentOptionsPF2e, RollDataPF2e } from "./../../system/text-editor.ts";
+import { ItemSourcePF2e, RawItemChatData } from "./../base/data/index.ts";
+import { ItemDescriptionData } from "./../base/data/system.ts";
+import { ConsumablePF2e, ItemPF2e } from "./../index.ts";
+import { SpellSlotGroupId } from "./../spellcasting-entry/collection.ts";
+import { BaseSpellcastingEntry } from "./../spellcasting-entry/types.ts";
+import { RangeData } from "./../types.ts";
 import { SpellArea, SpellHeightenLayer, SpellOverlayType, SpellSource, SpellSystemData } from "./data.ts";
 import { SpellOverlayCollection } from "./overlay.ts";
 import { MagicTradition, SpellTrait } from "./types.ts";

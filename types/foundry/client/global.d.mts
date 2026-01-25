@@ -1,4 +1,3 @@
-import * as constants from "./../common/constants.mjs";
 import * as PixiGraphicsSmooth from "@pixi/graphics-smooth";
 import * as PixiParticles from "@pixi/particle-emitter";
 import "gsap";
@@ -7,6 +6,7 @@ import clipperlib from "js-angusj-clipper";
 import PixiJS from "pixi.js";
 import "showdown";
 import * as SocketIO from "socket.io-client";
+import * as constants from "./../common/constants.mjs";
 import { TinyMCE as tinymce } from "./../tinymce-stub.mjs";
 import * as globalFoundry from "./client.mjs";
 

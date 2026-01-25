@@ -1,4 +1,3 @@
-import User from "./../../documents/user.mjs";
 import {
     ApplicationClosingOptions,
     ApplicationConfiguration,
@@ -9,6 +8,7 @@ import {
 } from "../_types.mjs";
 import { HandlebarsApplicationMixin, HandlebarsRenderOptions, HandlebarsTemplatePart } from "../api/_module.mjs";
 import ApplicationV2 from "../api/application.mjs";
+import User from "./../../documents/user.mjs";
 
 export type FilePickerSource = "data" | "public" | "s3";
 

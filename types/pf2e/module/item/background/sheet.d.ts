@@ -1,6 +1,6 @@
-import { ItemSheetOptions } from "./../base/sheet/sheet.ts";
-import { SheetOptions } from "./../../sheet/helpers.ts";
 import { ABCSheetData, ABCSheetPF2e } from "../abc/sheet.ts";
+import { SheetOptions } from "./../../sheet/helpers.ts";
+import { ItemSheetOptions } from "./../base/sheet/sheet.ts";
 import { BackgroundPF2e } from "./document.ts";
 export declare class BackgroundSheetPF2e extends ABCSheetPF2e<BackgroundPF2e> {
     getData(options?: Partial<ItemSheetOptions>): Promise<BackgroundSheetData>;

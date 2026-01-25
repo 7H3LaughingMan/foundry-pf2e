@@ -1,7 +1,7 @@
-import VisualEffectsMaskingFilter from "./../../../canvas/rendering/filters/effects-masking.mjs";
 import CachedContainer from "../../containers/advanced/cached-container.mjs";
 import SpriteMesh from "../../containers/elements/sprite-mesh.mjs";
 import CanvasLayer from "../base/canvas-layer.mjs";
+import VisualEffectsMaskingFilter from "./../../../canvas/rendering/filters/effects-masking.mjs";
 
 /**
  * A CanvasLayer for displaying illumination visual effects

@@ -1,8 +1,8 @@
+import { RuleElement, RuleElementOptions } from "../base.ts";
+import { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource } from "../data.ts";
 import { ActorPF2e } from "./../../../actor/index.ts";
 import { ItemPF2e } from "./../../../item/index.ts";
 import { ItemType } from "./../../../item/types.ts";
-import { RuleElement, RuleElementOptions } from "../base.ts";
-import { ModelPropsFromRESchema, RuleElementSchema, RuleElementSource } from "../data.ts";
 import { ItemAlterationSchema } from "./alteration.ts";
 import fields = foundry.data.fields;
 declare class ItemAlterationRuleElement extends RuleElement<ItemAlterationRuleSchema> {

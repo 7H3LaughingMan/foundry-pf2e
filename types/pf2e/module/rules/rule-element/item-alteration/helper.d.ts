@@ -1,5 +1,5 @@
-import { ItemPF2e, PhysicalItemPF2e } from "./../../../item/index.ts";
 import { FrequencyInterval, ItemSourcePF2e, PhysicalItemSource } from "./../../../item/base/data/index.ts";
+import { ItemPF2e, PhysicalItemPF2e } from "./../../../item/index.ts";
 import validation = foundry.data.validation;
 declare const itemHasCounterBadge: (item: ItemPF2e | ItemSourcePF2e) => validation.DataModelValidationFailure | void;
 /** Adjust creature shield data due it being set before item alterations occur */

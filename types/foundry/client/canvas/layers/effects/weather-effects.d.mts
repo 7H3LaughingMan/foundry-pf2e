@@ -1,8 +1,8 @@
-import { ParticleEffect } from "./../../../canvas/containers/_module.mjs";
-import { WeatherShaderEffect } from "./../../../canvas/rendering/shaders/_module.mjs";
 import FullCanvasObjectMixin from "../../containers/advanced/full-canvas-mixin.mjs";
 import WeatherOcclusionMaskFilter from "../../rendering/filters/weather-occlusion-mask.mjs";
 import CanvasLayer, { CanvasLayerOptions } from "../base/canvas-layer.mjs";
+import { ParticleEffect } from "./../../../canvas/containers/_module.mjs";
+import { WeatherShaderEffect } from "./../../../canvas/rendering/shaders/_module.mjs";
 
 interface WeatherTerrainMaskConfiguration {
     /** Enable or disable this mask. */

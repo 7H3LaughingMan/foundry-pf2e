@@ -1,10 +1,10 @@
-import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_module.mjs";
 import {
     ApplicationV2,
     HandlebarsApplicationMixin,
     HandlebarsRenderOptions,
     HandlebarsTemplatePart,
 } from "../../api/_module.mjs";
+import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_module.mjs";
 
 /**
  * A bundle of metrics for Support

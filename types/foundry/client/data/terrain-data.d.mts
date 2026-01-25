@@ -1,10 +1,10 @@
-import Token from "./../canvas/placeables/token.mjs";
-import { TokenMovementCostFunction } from "./../documents/_types.mjs";
-import TokenDocument from "./../documents/token.mjs";
+import { TokenMeasureMovementPathOptions } from "../_types.mjs";
 import { DataSchema } from "./../../common/abstract/_types.mjs";
 import DataModel from "./../../common/abstract/data.mjs";
 import * as fields from "./../../common/data/fields.mjs";
-import { TokenMeasureMovementPathOptions } from "../_types.mjs";
+import Token from "./../canvas/placeables/token.mjs";
+import { TokenMovementCostFunction } from "./../documents/_types.mjs";
+import TokenDocument from "./../documents/token.mjs";
 
 /**
  * The base TerrainData.

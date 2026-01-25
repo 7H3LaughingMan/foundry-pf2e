@@ -1,9 +1,9 @@
-import { DocumentUUID } from "./../../client/utils/helpers.mjs";
-import { DocumentOwnershipLevel, FilePath, HexColorString } from "./../constants.mjs";
 import * as abstract from "../abstract/_module.mjs";
 import { EffectChangeData } from "../documents/active-effect.mjs";
 import Collection from "../utils/collection.mjs";
 import Color from "../utils/color.mjs";
+import { DocumentUUID } from "./../../client/utils/helpers.mjs";
+import { DocumentOwnershipLevel, FilePath, HexColorString } from "./../constants.mjs";
 import {
     ArrayFieldOptions,
     DataFieldContext,

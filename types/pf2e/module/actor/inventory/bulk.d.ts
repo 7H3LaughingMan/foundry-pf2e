@@ -1,6 +1,6 @@
-import { ActorPF2e } from "./../index.ts";
 import { PhysicalItemPF2e } from "./../../item/index.ts";
 import { Bulk } from "./../../item/physical/bulk.ts";
+import { ActorPF2e } from "./../index.ts";
 export declare class InventoryBulk {
     #private;
     actor: ActorPF2e;

@@ -1,4 +1,5 @@
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
+import { AdjustedValue, SheetOptions } from "./../../sheet/helpers.ts";
 import { ItemSheetOptions } from "./../base/sheet/sheet.ts";
 import {
     Grade,
@@ -7,7 +8,6 @@ import {
     PhysicalItemSheetPF2e,
     RUNE_DATA,
 } from "./../physical/index.ts";
-import { AdjustedValue, SheetOptions } from "./../../sheet/helpers.ts";
 import { ComboWeaponMeleeUsage, SpecificWeaponData } from "./data.ts";
 import { WeaponPF2e } from "./document.ts";
 export declare class WeaponSheetPF2e extends PhysicalItemSheetPF2e<WeaponPF2e> {

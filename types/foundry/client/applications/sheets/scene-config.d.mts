@@ -1,4 +1,3 @@
-import Scene from "./../../documents/scene.mjs";
 import { ApplicationClosingOptions, ApplicationFormConfiguration, ApplicationTabsConfiguration } from "../_types.mjs";
 import DocumentSheetV2, { DocumentSheetConfiguration, DocumentSheetRenderContext } from "../api/document-sheet.mjs";
 import HandlebarsApplicationMixin, {
@@ -6,6 +5,7 @@ import HandlebarsApplicationMixin, {
     HandlebarsTemplatePart,
 } from "../api/handlebars-application.mjs";
 import FormDataExtended from "../ux/form-data-extended.mjs";
+import Scene from "./../../documents/scene.mjs";
 
 /**
  * The Application responsible for configuring a single Scene document.

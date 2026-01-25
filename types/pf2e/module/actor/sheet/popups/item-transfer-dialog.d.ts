@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../../index.ts";
 import { PhysicalItemPF2e } from "./../../../item/index.ts";
+import { ActorPF2e } from "./../../index.ts";
 declare class ItemTransferDialog extends fa.api.DialogV2<ItemTransferConfiguration> {
     #private;
     static DEFAULT_OPTIONS: DeepPartial<ItemTransferConfiguration>;

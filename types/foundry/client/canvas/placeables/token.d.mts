@@ -1,3 +1,15 @@
+import { CanvasAnimationAttribute } from "../animation/_types.mjs";
+import { PreciseText } from "../containers/_module.mjs";
+import PolygonVertex from "../geometry/edges/vertex.mjs";
+import { TokenLayer } from "../layers/_module.mjs";
+import { PlaceablesLayerPointerEvent } from "../layers/base/placeables-layer.mjs";
+import PrimarySpriteMesh from "../primary/primary-sprite-mesh.mjs";
+import { PointLightSource, PointVisionSource, VisionSourceData } from "../sources/_module.mjs";
+import { LightSourceData } from "../sources/base-light-source.mjs";
+import { ColorSource, Point } from "./../../../common/_types.mjs";
+import { DatabaseCreateCallbackOptions } from "./../../../common/abstract/_types.mjs";
+import { TokenDisplayMode, WallRestrictionType } from "./../../../common/constants.mjs";
+import Color from "./../../../common/utils/color.mjs";
 import {
     ReticuleOptions,
     TokenAnimationContext,
@@ -7,18 +19,6 @@ import {
 } from "./../../_types.mjs";
 import { TokenDocument, User } from "./../../documents/_module.mjs";
 import { TokenUpdateCallbackOptions } from "./../../documents/token.mjs";
-import { ColorSource, Point } from "./../../../common/_types.mjs";
-import { DatabaseCreateCallbackOptions } from "./../../../common/abstract/_types.mjs";
-import { TokenDisplayMode, WallRestrictionType } from "./../../../common/constants.mjs";
-import Color from "./../../../common/utils/color.mjs";
-import { CanvasAnimationAttribute } from "../animation/_types.mjs";
-import { PreciseText } from "../containers/_module.mjs";
-import PolygonVertex from "../geometry/edges/vertex.mjs";
-import { TokenLayer } from "../layers/_module.mjs";
-import { PlaceablesLayerPointerEvent } from "../layers/base/placeables-layer.mjs";
-import PrimarySpriteMesh from "../primary/primary-sprite-mesh.mjs";
-import { PointLightSource, PointVisionSource, VisionSourceData } from "../sources/_module.mjs";
-import { LightSourceData } from "../sources/base-light-source.mjs";
 import PlaceableObject, { PlaceableShape } from "./placeable-object.mjs";
 import Region, { RegionMovementSegment, RegionMovementWaypoint } from "./region.mjs";
 import { BaseTokenRuler } from "./tokens/_module.mjs";

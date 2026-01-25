@@ -1,8 +1,8 @@
-import { DatabaseOperation } from "./../abstract/_types.mjs";
-import { GridType, ImageFilePath, VideoFilePath } from "./../constants.mjs";
 import { Document, DocumentMetadata, EmbeddedCollection } from "../abstract/_module.mjs";
 import * as data from "../data/data.mjs";
 import * as fields from "../data/fields.mjs";
+import { DatabaseOperation } from "./../abstract/_types.mjs";
+import { GridType, ImageFilePath, VideoFilePath } from "./../constants.mjs";
 import * as documents from "./_module.mjs";
 
 /**

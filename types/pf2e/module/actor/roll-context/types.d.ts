@@ -1,12 +1,12 @@
-import { ActorPF2e } from "./../index.ts";
-import { StrikeData } from "./../data/base.ts";
-import { Modifier } from "./../modifiers.ts";
-import { ItemPF2e } from "./../../item/index.ts";
-import { AbilityTrait } from "./../../item/ability/types.ts";
 import { CheckContextChatFlag } from "./../../chat-message/data.ts";
+import { AbilityTrait } from "./../../item/ability/types.ts";
+import { ItemPF2e } from "./../../item/index.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { CheckDC, DegreeOfSuccessString } from "./../../system/degree-of-success.ts";
 import { Statistic } from "./../../system/statistic/statistic.ts";
+import { StrikeData } from "./../data/base.ts";
+import { ActorPF2e } from "./../index.ts";
+import { Modifier } from "./../modifiers.ts";
 interface OpposingActorConstructorData<
     TActor extends ActorPF2e | null = ActorPF2e | null,
     TStatistic extends Statistic | StrikeData | null = Statistic | StrikeData | null,

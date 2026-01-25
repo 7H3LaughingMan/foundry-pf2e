@@ -1,9 +1,9 @@
-import { ActorPF2e } from "./../../actor/index.ts";
-import { FeatGroup } from "./../../actor/character/feats/index.ts";
 import { DocumentHTMLEmbedConfig } from "#client/applications/ux/text-editor.mjs";
 import { DatabaseCreateCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
-import { ItemPF2e } from "./../index.ts";
+import { FeatGroup } from "./../../actor/character/feats/index.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { ActionCost, Frequency } from "./../base/data/index.ts";
+import { ItemPF2e } from "./../index.ts";
 import { CampaignFeatureSource, CampaignFeatureSystemData } from "./data.ts";
 import { BehaviorType, KingmakerCategory, KingmakerTrait } from "./types.ts";
 declare class CampaignFeaturePF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {

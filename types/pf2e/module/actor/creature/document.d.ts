@@ -1,24 +1,24 @@
-import { ActorPF2e, PartyPF2e } from "./../index.ts";
-import { HitPointsSummary } from "./../base.ts";
-import { CreatureSource } from "./../data/index.ts";
-import { Modifier } from "./../modifiers.ts";
-import { ActorSpellcasting } from "./../spellcasting.ts";
-import { SaveType, SkillSlug } from "./../types.ts";
 import { Rolled } from "#client/dice/_module.mjs";
 import {
     DatabaseDeleteCallbackOptions,
     DatabaseDeleteOperation,
     DatabaseUpdateOperation,
 } from "#common/abstract/_types.mjs";
+import { ActiveEffectPF2e } from "./../../active-effect.ts";
+import { Rarity, ZeroToTwo } from "./../../data.ts";
 import { ArmorPF2e, ItemPF2e, PhysicalItemPF2e, ShieldPF2e } from "./../../item/index.ts";
 import { ItemCarryType } from "./../../item/physical/data.ts";
 import { ItemType } from "./../../item/types.ts";
-import { ActiveEffectPF2e } from "./../../active-effect.ts";
-import { Rarity, ZeroToTwo } from "./../../data.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { CheckRoll } from "./../../system/check/index.ts";
-import { Statistic, StatisticDifficultyClass, ArmorStatistic } from "./../../system/statistic/index.ts";
+import { ArmorStatistic, Statistic, StatisticDifficultyClass } from "./../../system/statistic/index.ts";
 import { PerceptionStatistic } from "./../../system/statistic/perception.ts";
+import { HitPointsSummary } from "./../base.ts";
+import { CreatureSource } from "./../data/index.ts";
+import { ActorPF2e, PartyPF2e } from "./../index.ts";
+import { Modifier } from "./../modifiers.ts";
+import { ActorSpellcasting } from "./../spellcasting.ts";
+import { SaveType, SkillSlug } from "./../types.ts";
 import { CreatureSystemData, VisionLevel } from "./data.ts";
 import {
     CreatureMovement,

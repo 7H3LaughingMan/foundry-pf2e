@@ -1,7 +1,7 @@
-import { ClientDocument } from "./../../documents/abstract/client-document.mjs";
 import { EditorState, Plugin } from "prosemirror-state";
 import { Step } from "prosemirror-transform";
 import { EditorView } from "prosemirror-view";
+import { ClientDocument } from "./../../documents/abstract/client-document.mjs";
 
 export interface ProseMirrorHistory {
     /** The ID of the user who submitted the step. */

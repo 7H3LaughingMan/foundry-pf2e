@@ -1,7 +1,7 @@
 import { ActorPF2e } from "./../actor/index.ts";
 import { Size } from "./../data.ts";
-import { ITEM_TYPES, EFFECT_AREA_SHAPES } from "./values.ts";
 import type * as ItemInstance from "./index.ts";
+import { EFFECT_AREA_SHAPES, ITEM_TYPES } from "./values.ts";
 type ItemType = (typeof ITEM_TYPES)[number];
 interface ItemInstances<TParent extends ActorPF2e | null> {
     action: ItemInstance.AbilityItemPF2e<TParent>;

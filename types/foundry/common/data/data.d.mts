@@ -1,3 +1,6 @@
+import DataModel from "../abstract/data.mjs";
+import * as documents from "../documents/_module.mjs";
+import { TokenSchema } from "../documents/token.mjs";
 import { DatabaseUpdateOperation, DataModelConstructionContext } from "./../abstract/_types.mjs";
 import {
     DocumentOwnershipLevel,
@@ -7,9 +10,6 @@ import {
     TileOcclusionMode,
     VideoFilePath,
 } from "./../constants.mjs";
-import DataModel from "../abstract/data.mjs";
-import * as documents from "../documents/_module.mjs";
-import { TokenSchema } from "../documents/token.mjs";
 import { DataFieldOptions } from "./_types.mjs";
 import * as fields from "./fields.mjs";
 

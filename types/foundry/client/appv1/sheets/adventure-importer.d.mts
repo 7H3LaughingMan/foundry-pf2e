@@ -1,6 +1,6 @@
-import { Adventure } from "./../../documents/_module.mjs";
 import { ApplicationV1HeaderButton } from "../api/application-v1.mjs";
 import DocumentSheet, { DocumentSheetData, DocumentSheetV1Options } from "../api/document-sheet-v1.mjs";
+import { Adventure } from "./../../documents/_module.mjs";
 
 /**
  * An interface for importing an adventure from a compendium pack.

@@ -1,5 +1,5 @@
-import Item from "./../../documents/item.mjs";
 import DocumentSheet, { DocumentSheetData, DocumentSheetV1Options } from "../api/document-sheet-v1.mjs";
+import Item from "./../../documents/item.mjs";
 
 /**
  * The default Item Sheet

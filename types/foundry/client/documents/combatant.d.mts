@@ -1,4 +1,4 @@
-import CombatantConfig from "./../applications/sheets/combatant-config.mjs";
+import Roll, { Rolled } from "../dice/roll.mjs";
 import {
     DatabaseCreateOperation,
     DatabaseDeleteOperation,
@@ -6,7 +6,7 @@ import {
 } from "./../../common/abstract/_types.mjs";
 import Document from "./../../common/abstract/document.mjs";
 import { DocumentOwnershipLevel } from "./../../common/constants.mjs";
-import Roll, { Rolled } from "../dice/roll.mjs";
+import CombatantConfig from "./../applications/sheets/combatant-config.mjs";
 import { BaseCombatant, BaseUser, Combat, TokenDocument, User } from "./_module.mjs";
 import { ClientDocument, ClientDocumentStatic } from "./abstract/client-document.mjs";
 

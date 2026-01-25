@@ -1,6 +1,6 @@
 import { ActorPF2e } from "./../../../../actor/index.ts";
-import { SpellPF2e } from "./../../../spell/document.ts";
 import { SvelteApplicationMixin, SvelteApplicationRenderContext } from "./../../../../sheet/mixin.svelte.ts";
+import { SpellPF2e } from "./../../../spell/document.ts";
 import fapi = foundry.applications.api;
 /** An application to create a scroll or wand out of a spell */
 declare class SpellcastingItemCreator extends SvelteApplicationMixin(fapi.ApplicationV2) {

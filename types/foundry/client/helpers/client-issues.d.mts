@@ -1,8 +1,8 @@
+import Document from "./../../common/abstract/document.mjs";
+import { DataModelValidationError } from "./../../common/data/validation-failure.mjs";
 import { Setting, WorldDocument } from "./../documents/_module.mjs";
 import WorldCollection from "./../documents/abstract/world-collection.mjs";
 import Module from "./../packages/module.mjs";
-import Document from "./../../common/abstract/document.mjs";
-import { DataModelValidationError } from "./../../common/data/validation-failure.mjs";
 
 /**
  * An object structure of document types at the top level, with a count of different sub-types for that document type.

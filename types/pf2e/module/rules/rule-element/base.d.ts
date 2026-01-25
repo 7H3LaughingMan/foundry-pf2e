@@ -1,5 +1,3 @@
-import { ActorPF2e, ActorType } from "./../../actor/index.ts";
-import { CheckModifier, DamageDicePF2e, Modifier } from "./../../actor/modifiers.ts";
 import { Rolled } from "#client/dice/roll.mjs";
 import {
     DatabaseCreateOperation,
@@ -8,8 +6,10 @@ import {
     DataModelValidationOptions,
 } from "#common/abstract/_types.mjs";
 import { ModelPropsFromSchema } from "#common/data/fields.mjs";
-import { ItemPF2e, WeaponPF2e } from "./../../item/index.ts";
+import { ActorPF2e, ActorType } from "./../../actor/index.ts";
+import { CheckModifier, DamageDicePF2e, Modifier } from "./../../actor/modifiers.ts";
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
+import { ItemPF2e, WeaponPF2e } from "./../../item/index.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { CheckCheckContext, CheckRoll } from "./../../system/check/index.ts";
 import { LaxSchemaField } from "./../../system/schema-data-fields.ts";

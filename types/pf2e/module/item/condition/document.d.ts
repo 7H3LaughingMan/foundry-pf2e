@@ -1,9 +1,9 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import { DatabaseUpdateOperation } from "#common/abstract/_module.mjs";
-import { ItemPF2e } from "./../index.ts";
-import { AbstractEffectPF2e, EffectBadge } from "./../abstract-effect/index.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
+import { AbstractEffectPF2e, EffectBadge } from "./../abstract-effect/index.ts";
+import { ItemPF2e } from "./../index.ts";
 import { ConditionSource, ConditionSystemData, PersistentDamageData } from "./data.ts";
 import { ConditionKey, ConditionSlug } from "./types.ts";
 declare class ConditionPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends AbstractEffectPF2e<TParent> {

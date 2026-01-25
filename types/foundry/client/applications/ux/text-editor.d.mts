@@ -1,7 +1,7 @@
+import Document from "./../../../common/abstract/document.mjs";
 import { TextEditorEnricherConfig } from "./../../config.mjs";
 import { ClientDocument } from "./../../documents/abstract/client-document.mjs";
 import ChatMessage from "./../../documents/chat-message.mjs";
-import Document from "./../../../common/abstract/document.mjs";
 import ProseMirrorEditor from "./prosemirror-editor.mjs";
 
 interface EnrichmentOptions {

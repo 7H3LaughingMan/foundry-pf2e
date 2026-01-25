@@ -1,6 +1,6 @@
+import { ZeroToThree, ZeroToTwo } from "./../../data.ts";
 import { WeaponPF2e } from "./../../item/index.ts";
 import { ItemCarryType } from "./../../item/physical/index.ts";
-import { ZeroToThree, ZeroToTwo } from "./../../data.ts";
 import { SheetOptions } from "./../../sheet/helpers.ts";
 import { CharacterPF2e } from "./document.ts";
 interface AuxiliaryInteractParams {

@@ -1,10 +1,10 @@
-import { ActorPF2e, CharacterPF2e, NPCPF2e } from "./../../actor/index.ts";
 import { ActorUUID, UserUUID } from "#common/documents/_module.mjs";
+import { default as MiniSearch } from "minisearch";
+import { localizer } from "./../../../util/index.ts";
+import { ActorPF2e, CharacterPF2e, NPCPF2e } from "./../../actor/index.ts";
 import { ItemPF2e, PhysicalItemPF2e } from "./../../item/index.ts";
 import { SvelteApplicationMixin, SvelteApplicationRenderContext } from "./../../sheet/mixin.svelte.ts";
 import { UserPF2e } from "./../../user/document.ts";
-import { localizer } from "./../../../util/index.ts";
-import { default as MiniSearch } from "minisearch";
 /** An application to facilitate trading between two creature actors */
 declare class TradeDialog extends SvelteApplicationMixin(fa.api.ApplicationV2) {
     #private;

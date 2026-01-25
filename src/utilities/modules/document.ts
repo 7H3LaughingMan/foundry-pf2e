@@ -1,7 +1,7 @@
 import { ClientDocument } from "#client/documents/abstract/client-document.mjs";
 import { MacroPF2e } from "foundry-pf2e";
-import { MODULE } from "./module.ts";
 import * as R from "remeda";
+import { MODULE } from "./module.ts";
 
 export function getInMemory<T>(
     obj: foundry.documents.abstract.ClientDocument | foundry.canvas.placeables.Token,

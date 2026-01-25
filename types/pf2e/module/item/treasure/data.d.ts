@@ -1,4 +1,6 @@
 import { ImageFilePath } from "#common/constants.mjs";
+import { RarityField } from "./../../model.ts";
+import { SlugField } from "./../../system/schema-data-fields.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import { ItemDescriptionData } from "./../base/data/system.ts";
 import {
@@ -16,8 +18,6 @@ import { PriceField } from "./../physical/schema.ts";
 import { PreciousMaterialGrade, PreciousMaterialType } from "./../physical/types.ts";
 import { CarriedUsage } from "./../physical/usage.ts";
 import { ItemSize } from "./../types.ts";
-import { RarityField } from "./../../model.ts";
-import { SlugField } from "./../../system/schema-data-fields.ts";
 import { TreasurePF2e } from "./document.ts";
 import { TreasureCategory } from "./types.ts";
 import fields = foundry.data.fields;

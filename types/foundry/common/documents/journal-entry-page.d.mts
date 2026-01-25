@@ -1,6 +1,6 @@
-import { DocumentOwnershipLevel, JournalEntryPageFormat } from "./../constants.mjs";
 import { Document, DocumentMetadata } from "../abstract/_module.mjs";
 import * as fields from "../data/fields.mjs";
+import { DocumentOwnershipLevel, JournalEntryPageFormat } from "./../constants.mjs";
 import { BaseJournalEntry, BaseUser } from "./_module.mjs";
 
 /** The JournalEntryPage document model. */

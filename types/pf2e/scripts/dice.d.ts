@@ -1,6 +1,6 @@
-import { ActorPF2e } from "./../module/actor/index.ts";
 import { ApplicationV1Options } from "#client/appv1/api/_module.mjs";
 import { RollMode } from "#common/constants.mjs";
+import { ActorPF2e } from "./../module/actor/index.ts";
 import { ItemPF2e } from "./../module/item/index.ts";
 /**
  * @category Other

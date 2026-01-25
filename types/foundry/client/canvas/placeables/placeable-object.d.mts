@@ -1,5 +1,7 @@
-import { CanvasDocument } from "./../../documents/abstract/canvas-document.mjs";
-import User from "./../../documents/user.mjs";
+import { ControlIcon } from "../containers/_module.mjs";
+import { MouseInteractionManager, RenderFlag, RenderFlags } from "../interaction/_module.mjs";
+import { PlaceablesLayer } from "../layers/_module.mjs";
+import { PlaceablesLayerPointerEvent } from "../layers/base/placeables-layer.mjs";
 import { Point } from "./../../../common/_types.mjs";
 import {
     DatabaseCreateCallbackOptions,
@@ -7,10 +9,8 @@ import {
     DatabaseUpdateCallbackOptions,
 } from "./../../../common/abstract/_types.mjs";
 import { UserAction } from "./../../../common/constants.mjs";
-import { ControlIcon } from "../containers/_module.mjs";
-import { MouseInteractionManager, RenderFlag, RenderFlags } from "../interaction/_module.mjs";
-import { PlaceablesLayer } from "../layers/_module.mjs";
-import { PlaceablesLayerPointerEvent } from "../layers/base/placeables-layer.mjs";
+import { CanvasDocument } from "./../../documents/abstract/canvas-document.mjs";
+import User from "./../../documents/user.mjs";
 
 /**
  * An Abstract Base Class which defines a Placeable Object which represents an Entity placed on the Canvas

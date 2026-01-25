@@ -1,4 +1,4 @@
-import Token from "./../canvas/placeables/token.mjs";
+import ActorSheet from "../appv1/sheets/actor-sheet.mjs";
 import { DocumentConstructionContext } from "./../../common/_types.mjs";
 import {
     DatabaseCreateOperation,
@@ -9,7 +9,7 @@ import {
 import Document from "./../../common/abstract/document.mjs";
 import { ImageFilePath, VideoFilePath } from "./../../common/constants.mjs";
 import { IterableWeakMap, IterableWeakSet } from "./../../common/utils/_module.mjs";
-import ActorSheet from "../appv1/sheets/actor-sheet.mjs";
+import Token from "./../canvas/placeables/token.mjs";
 import { ActiveEffect, ActorSource, ActorUUID, BaseActor, Combat, Item, Scene, TokenDocument } from "./_module.mjs";
 import { ClientDocument, ClientDocumentStatic } from "./abstract/client-document.mjs";
 import Actors from "./collections/actors.mjs";

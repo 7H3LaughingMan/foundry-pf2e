@@ -1,8 +1,8 @@
+import { OneToThree } from "./../../data.ts";
+import { SlugField } from "./../../system/schema-data-fields.ts";
 import { FrequencyField } from "./../ability/data.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import { ActionType, BaseItemSourcePF2e, ItemSystemSource } from "./../base/data/system.ts";
-import { OneToThree } from "./../../data.ts";
-import { SlugField } from "./../../system/schema-data-fields.ts";
 import { CampaignFeaturePF2e } from "./document.ts";
 import { KingmakerCategory, KingmakerTrait } from "./types.ts";
 import fields = foundry.data.fields;

@@ -1,5 +1,5 @@
-import AmbientLight from "./../canvas/placeables/light.mjs";
 import { DatabaseUpdateCallbackOptions } from "./../../common/abstract/_types.mjs";
+import AmbientLight from "./../canvas/placeables/light.mjs";
 import { BaseAmbientLight } from "./_module.mjs";
 import { CanvasDocument, CanvasDocumentStatic } from "./abstract/canvas-document.mjs";
 import Scene from "./scene.mjs";

@@ -1,5 +1,5 @@
-import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_module.mjs";
 import { ApplicationV2, HandlebarsApplicationMixin, HandlebarsTemplatePart } from "../../api/_module.mjs";
+import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_module.mjs";
 
 export default class InvitationLinks extends HandlebarsApplicationMixin(ApplicationV2) {
     static override DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;

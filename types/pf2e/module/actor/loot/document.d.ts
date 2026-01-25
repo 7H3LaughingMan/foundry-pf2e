@@ -1,5 +1,3 @@
-import { ActorPF2e } from "./../index.ts";
-import { ActorUpdateCallbackOptions } from "./../base.ts";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseCreateOperation,
@@ -9,6 +7,8 @@ import { default as Document } from "#common/abstract/document.mjs";
 import { UserAction } from "#common/constants.mjs";
 import { ItemType } from "./../../item/types.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
+import { ActorUpdateCallbackOptions } from "./../base.ts";
+import { ActorPF2e } from "./../index.ts";
 import { LootSource, LootSystemData } from "./data.ts";
 declare class LootPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     armorClass: null;

@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import { default as CompendiumCollection } from "#client/documents/collections/compendium-collection.mjs";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { ItemPF2e } from "./../../item/index.ts";
 import { MigrationBase } from "./../../migration/base.ts";
 import { MigrationRunnerBase } from "./../../migration/runner/base.ts";

@@ -1,9 +1,9 @@
-import { MeasuredTemplateDocument, User } from "./../../documents/_module.mjs";
-import { Point } from "./../../../common/_types.mjs";
-import { DatabaseUpdateCallbackOptions } from "./../../../common/abstract/_types.mjs";
 import { ControlIcon, PreciseText } from "../containers/_module.mjs";
 import { Ray } from "../geometry/_module.mjs";
 import { TemplateLayer } from "../layers/_module.mjs";
+import { Point } from "./../../../common/_types.mjs";
+import { DatabaseUpdateCallbackOptions } from "./../../../common/abstract/_types.mjs";
+import { MeasuredTemplateDocument, User } from "./../../documents/_module.mjs";
 import PlaceableObject, { PlaceableShape } from "./placeable-object.mjs";
 
 /**

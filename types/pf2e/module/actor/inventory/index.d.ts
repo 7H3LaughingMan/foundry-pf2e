@@ -1,10 +1,10 @@
-import { ActorPF2e } from "./../index.ts";
 import { DatabaseDeleteOperation } from "#common/abstract/_module.mjs";
-import { ContainerPF2e, KitPF2e, PhysicalItemPF2e } from "./../../item/index.ts";
+import { DelegatedCollection } from "./../../../util/index.ts";
 import { ItemSourcePF2e, KitSource, PhysicalItemSource } from "./../../item/base/data/index.ts";
+import { ContainerPF2e, KitPF2e, PhysicalItemPF2e } from "./../../item/index.ts";
 import { Coins } from "./../../item/physical/helpers.ts";
 import { Currency } from "./../../item/physical/types.ts";
-import { DelegatedCollection } from "./../../../util/index.ts";
+import { ActorPF2e } from "./../index.ts";
 import { InventoryBulk } from "./bulk.ts";
 declare class ActorInventory<TActor extends ActorPF2e> extends DelegatedCollection<PhysicalItemPF2e<TActor>> {
     #private;

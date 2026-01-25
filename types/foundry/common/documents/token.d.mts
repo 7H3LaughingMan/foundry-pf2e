@@ -1,9 +1,9 @@
+import * as data from "../data/data.mjs";
+import * as fields from "../data/fields.mjs";
 import { ElevatedPoint, TokenDimensions, TokenPosition } from "./../_types.mjs";
 import Document, { DocumentMetadata } from "./../abstract/document.mjs";
 import { ImageFilePath, TokenDisplayMode, TokenDisposition, VideoFilePath } from "./../constants.mjs";
 import { GridOffset3D } from "./../grid/_types.mjs";
-import * as data from "../data/data.mjs";
-import * as fields from "../data/fields.mjs";
 import { BaseActorDelta, BaseScene } from "./_module.mjs";
 
 /**

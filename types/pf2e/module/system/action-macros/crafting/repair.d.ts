@@ -1,7 +1,7 @@
-import { PhysicalItemPF2e } from "./../../../item/index.ts";
-import { ChatMessagePF2e } from "./../../../chat-message/index.ts";
-import { CheckDC } from "./../../degree-of-success.ts";
 import { SkillActionOptions } from "../types.ts";
+import { ChatMessagePF2e } from "./../../../chat-message/index.ts";
+import { PhysicalItemPF2e } from "./../../../item/index.ts";
+import { CheckDC } from "./../../degree-of-success.ts";
 declare function repair(options: RepairActionOptions): Promise<void>;
 declare function onRepairChatCardEvent(
     event: PointerEvent,

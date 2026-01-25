@@ -1,12 +1,12 @@
 import { DataSchema } from "#common/abstract/_types.mjs";
+import { AELikeDataPrepPhase } from "../ae-like.ts";
+import { ResolvableValueField, RuleElementSchema } from "../data.ts";
 import {
     DataUnionField,
     PredicateField,
     StrictArrayField,
     StrictBooleanField,
 } from "./../../../system/schema-data-fields.ts";
-import { AELikeDataPrepPhase } from "../ae-like.ts";
-import { ResolvableValueField, RuleElementSchema } from "../data.ts";
 import { RollOptionRuleElement } from "./rule-element.ts";
 import fields = foundry.data.fields;
 declare class Suboption extends foundry.abstract.DataModel<RollOptionRuleElement, SuboptionSchema> {

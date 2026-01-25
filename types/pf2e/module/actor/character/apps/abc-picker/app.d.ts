@@ -1,9 +1,9 @@
-import { CharacterPF2e } from "./../../../index.ts";
 import { ImageFilePath } from "#common/constants.mjs";
 import { ItemUUID } from "#common/documents/_module.mjs";
-import { ItemType } from "./../../../../item/types.ts";
 import { Rarity } from "./../../../../data.ts";
+import { ItemType } from "./../../../../item/types.ts";
 import { SvelteApplicationMixin, SvelteApplicationRenderContext } from "./../../../../sheet/mixin.svelte.ts";
+import { CharacterPF2e } from "./../../../index.ts";
 type AhBCDType = Extract<ItemType, "ancestry" | "heritage" | "background" | "class" | "deity">;
 interface ABCPickerConfiguration extends fa.ApplicationConfiguration {
     actor: CharacterPF2e;

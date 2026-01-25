@@ -1,8 +1,8 @@
-import { CanvasVisibilityTest, CanvasVisibilityTestConfiguration } from "./../../_module.mjs";
-import DataModel from "./../../../common/abstract/data.mjs";
 import * as fields from "../../../common/data/fields.mjs";
 import { PlaceableObject, Token } from "../placeables/_module.mjs";
 import PointVisionSource from "../sources/point-vision-source.mjs";
+import DataModel from "./../../../common/abstract/data.mjs";
+import { CanvasVisibilityTest, CanvasVisibilityTestConfiguration } from "./../../_module.mjs";
 
 /**
  * A Detection Mode which can be associated with any kind of sense/vision/perception.

@@ -2,8 +2,8 @@ import { ClientDocument } from "#client/documents/abstract/_module.mjs";
 import { CompendiumIndexData } from "#client/documents/collections/compendium-collection.mjs";
 import { HexColorString } from "#common/constants.mjs";
 import { SourceFromSchema } from "#common/data/fields.mjs";
-import { ItemPF2e } from "./../../../index.ts";
 import { AuraRuleElement, AuraRuleElementSchema } from "./../../../../rules/rule-element/aura.ts";
+import { ItemPF2e } from "./../../../index.ts";
 import { RuleElementForm, RuleElementFormSheetData, RuleElementFormTabData } from "./base.ts";
 declare class AuraForm extends RuleElementForm<AuraRuleElementSource, AuraRuleElement> {
     #private;

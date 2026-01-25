@@ -1,8 +1,8 @@
-import { WorldDocument } from "./../documents/_module.mjs";
-import { CompendiumCollection } from "./../documents/collections/_module.mjs";
 import Document from "./../../common/abstract/document.mjs";
 import { StringTreeNode, WordTreeEntry } from "./../../common/utils/_types.mjs";
 import WordTree from "./../../common/utils/word-tree.mjs";
+import { WorldDocument } from "./../documents/_module.mjs";
+import { CompendiumCollection } from "./../documents/collections/_module.mjs";
 
 /**
  * This class is responsible for indexing all documents available in the world and storing them in a word tree

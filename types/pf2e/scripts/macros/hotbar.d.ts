@@ -1,7 +1,7 @@
 import { ActorUUID } from "#client/documents/_module.mjs";
-import { ConditionPF2e, EffectPF2e } from "./../../module/item/index.ts";
-import { EffectTrait } from "./../../module/item/abstract-effect/types.ts";
 import { ChatMessagePF2e } from "./../../module/chat-message/document.ts";
+import { EffectTrait } from "./../../module/item/abstract-effect/types.ts";
+import { ConditionPF2e, EffectPF2e } from "./../../module/item/index.ts";
 /** Given an item's id or uuid, retrieves the item and uses it.  */
 export declare function rollItemMacro(itemIdOrUuid: string, event?: Event | null): Promise<ChatMessagePF2e | null>;
 export declare function createActionMacro({

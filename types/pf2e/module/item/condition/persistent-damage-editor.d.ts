@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import { ApplicationConfiguration } from "#client/applications/_module.mjs";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { DamageType } from "./../../system/damage/types.ts";
 declare class PersistentDamageEditor extends fa.api.HandlebarsApplicationMixin(fa.api.ApplicationV2) {
     #private;

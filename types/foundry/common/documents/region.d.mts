@@ -1,7 +1,7 @@
-import { Document, DocumentMetadata, EmbeddedCollection } from "./../abstract/_module.mjs";
 import { REGION_VISIBILITY } from "../constants.mjs";
 import { BaseShapeData } from "../data/data.mjs";
 import * as fields from "../data/fields.mjs";
+import { Document, DocumentMetadata, EmbeddedCollection } from "./../abstract/_module.mjs";
 import BaseRegionBehavior from "./region-behavior.mjs";
 import BaseScene from "./scene.mjs";
 

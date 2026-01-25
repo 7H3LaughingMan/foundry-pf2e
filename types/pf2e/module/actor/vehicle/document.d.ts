@@ -1,8 +1,8 @@
-import { ActorDimensions } from "./../types.ts";
+import { ActorPF2e, ActorUpdateCallbackOptions, HitPointsSummary } from "../base.ts";
 import { ItemType } from "./../../item/types.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { ArmorStatistic, Statistic, StatisticDifficultyClass } from "./../../system/statistic/index.ts";
-import { ActorPF2e, ActorUpdateCallbackOptions, HitPointsSummary } from "../base.ts";
+import { ActorDimensions } from "./../types.ts";
 import { VehicleSource, VehicleSystemData } from "./data.ts";
 declare class VehiclePF2e<
     TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null,

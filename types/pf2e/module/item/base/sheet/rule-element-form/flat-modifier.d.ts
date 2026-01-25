@@ -1,5 +1,5 @@
-import { ModifierType } from "./../../../../actor/modifiers.ts";
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
+import { ModifierType } from "./../../../../actor/modifiers.ts";
 import { FlatModifierRuleElement, FlatModifierSource } from "./../../../../rules/rule-element/flat-modifier.ts";
 import { DamageCategoryUnique } from "./../../../../system/damage/types.ts";
 import { RuleElementForm, RuleElementFormSheetData } from "./base.ts";

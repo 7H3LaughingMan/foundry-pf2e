@@ -1,6 +1,3 @@
-import { ActorPF2e } from "./../actor/index.ts";
-import { RollInitiativeOptionsPF2e } from "./../actor/data/index.ts";
-import { SkillSlug } from "./../actor/types.ts";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseCreateOperation,
@@ -8,8 +5,11 @@ import {
     DatabaseUpdateCallbackOptions,
 } from "#common/abstract/_types.mjs";
 import { default as EmbeddedCollection } from "#common/abstract/embedded-collection.mjs";
-import { ScenePF2e, TokenDocumentPF2e } from "./../scene/index.ts";
 import { ThreatRating } from "./../../scripts/macros/xp/index.ts";
+import { RollInitiativeOptionsPF2e } from "./../actor/data/index.ts";
+import { ActorPF2e } from "./../actor/index.ts";
+import { SkillSlug } from "./../actor/types.ts";
+import { ScenePF2e, TokenDocumentPF2e } from "./../scene/index.ts";
 import { CombatantPF2e, RolledCombatant } from "./combatant.ts";
 declare class EncounterPF2e extends Combat {
     /** Threat assessment and XP award of this encounter */

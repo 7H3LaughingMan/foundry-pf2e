@@ -1,6 +1,6 @@
+import { default as Tagify, TagifySettings } from "@yaireo/tagify";
 import { TraitViewData } from "./../module/actor/data/base.ts";
 import { HTMLTagifyTagsElement } from "./../module/system/html-elements/tagify-tags.ts";
-import { default as Tagify, TagifySettings } from "@yaireo/tagify";
 declare function traitSlugToObject(
     trait: string,
     dictionary: Record<string, string | undefined>,

@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../../index.ts";
 import { ItemPF2e } from "./../../../item/index.ts";
+import { ActorPF2e } from "./../../index.ts";
 import { Kingdom } from "./model.ts";
 import { KingdomCHG } from "./schema.ts";
 import { KingdomAbility, KingdomCommodity } from "./types.ts";

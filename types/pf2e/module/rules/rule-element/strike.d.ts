@@ -1,5 +1,5 @@
-import { ActorType, CharacterPF2e, NPCPF2e } from "./../../actor/index.ts";
 import { ImageFilePath } from "#common/constants.mjs";
+import { ActorType, CharacterPF2e, NPCPF2e } from "./../../actor/index.ts";
 import { NPCAttackTrait } from "./../../item/melee/types.ts";
 import { BaseShieldType } from "./../../item/shield/types.ts";
 import { BaseWeaponType, OtherWeaponTag, WeaponCategory } from "./../../item/weapon/types.ts";

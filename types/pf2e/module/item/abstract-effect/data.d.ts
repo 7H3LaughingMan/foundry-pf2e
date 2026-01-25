@@ -1,12 +1,12 @@
-import { AttributeString } from "./../../actor/types.ts";
 import { ActorUUID, ItemUUID, TokenDocumentUUID } from "#client/documents/_module.mjs";
 import { ModelPropsFromSchema, SourceFromSchema } from "#common/data/fields.mjs";
-import { ItemSystemSchema } from "./../base/data/model.ts";
-import { ItemDescriptionData } from "./../base/data/system.ts";
-import { MagicTradition } from "./../spell/index.ts";
+import { AttributeString } from "./../../actor/types.ts";
 import { CheckRoll } from "./../../system/check/index.ts";
 import { DegreeOfSuccessIndex } from "./../../system/degree-of-success.ts";
 import { SlugField } from "./../../system/schema-data-fields.ts";
+import { ItemSystemSchema } from "./../base/data/model.ts";
+import { ItemDescriptionData } from "./../base/data/system.ts";
+import { MagicTradition } from "./../spell/index.ts";
 import { BadgeReevaluationEventType, EffectExpiryType, EffectTrait, TimeUnit } from "./types.ts";
 import fields = foundry.data.fields;
 type AbstractEffectSchema = Omit<ItemSystemSchema, "traits"> & {

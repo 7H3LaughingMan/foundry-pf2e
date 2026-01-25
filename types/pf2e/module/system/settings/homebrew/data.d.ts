@@ -1,9 +1,9 @@
+import { ModelPropsFromSchema, SetField, StringField } from "#common/data/fields.mjs";
+import { MenuTemplateData } from "../menu.ts";
 import { Language } from "./../../../actor/creature/index.ts";
 import { AttributeString } from "./../../../actor/types.ts";
-import { ModelPropsFromSchema, SetField, StringField } from "#common/data/fields.mjs";
 import { BaseArmorType } from "./../../../item/armor/types.ts";
 import { BaseWeaponType } from "./../../../item/weapon/types.ts";
-import { MenuTemplateData } from "../menu.ts";
 declare const HOMEBREW_ELEMENT_KEYS: readonly [
     "languages",
     "armorGroups",

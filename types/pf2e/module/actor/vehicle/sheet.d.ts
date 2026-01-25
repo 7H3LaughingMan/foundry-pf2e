@@ -1,9 +1,9 @@
-import { AbilityViewData, ActorSheetDataPF2e } from "./../sheet/data-types.ts";
-import { VehiclePF2e } from "./../vehicle/index.ts";
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
-import { AdjustedValue } from "./../../sheet/helpers.ts";
 import { ActorSheetPF2e } from "../sheet/base.ts";
+import { AdjustedValue } from "./../../sheet/helpers.ts";
+import { AbilityViewData, ActorSheetDataPF2e } from "./../sheet/data-types.ts";
+import { VehiclePF2e } from "./../vehicle/index.ts";
 import { VehicleSystemSchema } from "./data.ts";
 export declare class VehicleSheetPF2e extends ActorSheetPF2e<VehiclePF2e> {
     static get defaultOptions(): ActorSheetOptions;

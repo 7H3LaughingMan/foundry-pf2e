@@ -1,5 +1,5 @@
-import { SingleCheckAction } from "./../../../actor/actions/index.ts";
 import { SkillActionOptions } from "../index.ts";
+import { SingleCheckAction } from "./../../../actor/actions/index.ts";
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare const ADMINISTER_FIRST_AID_VARIANTS: readonly ["stabilize", "stop-bleeding"];
 type AdministerFirstAidVariant = (typeof ADMINISTER_FIRST_AID_VARIANTS)[number];

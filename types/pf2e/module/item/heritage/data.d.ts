@@ -1,9 +1,9 @@
-import { CreatureTrait } from "./../../actor/creature/index.ts";
 import { ItemUUID } from "#client/documents/_module.mjs";
-import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
-import { BaseItemSourcePF2e, ItemSystemSource } from "./../base/data/system.ts";
+import { CreatureTrait } from "./../../actor/creature/index.ts";
 import { RarityField } from "./../../model.ts";
 import { SlugField } from "./../../system/schema-data-fields.ts";
+import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
+import { BaseItemSourcePF2e, ItemSystemSource } from "./../base/data/system.ts";
 import { HeritagePF2e } from "./document.ts";
 import fields = foundry.data.fields;
 type HeritageSource = BaseItemSourcePF2e<"heritage", HeritageSystemSource>;

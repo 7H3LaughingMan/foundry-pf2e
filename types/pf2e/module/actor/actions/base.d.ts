@@ -1,6 +1,6 @@
+import { ChatMessagePF2e } from "./../../chat-message/document.ts";
 import { AbilityTrait } from "./../../item/ability/index.ts";
 import { ProficiencyRank } from "./../../item/base/data/index.ts";
-import { ChatMessagePF2e } from "./../../chat-message/document.ts";
 import {
     Action,
     ActionCost,

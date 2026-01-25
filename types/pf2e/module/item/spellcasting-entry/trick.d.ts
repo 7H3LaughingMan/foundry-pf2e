@@ -1,8 +1,8 @@
 import { ActorPF2e } from "./../../actor/index.ts";
 import { AttributeString, SkillSlug } from "./../../actor/types.ts";
+import { Statistic } from "./../../system/statistic/index.ts";
 import { SpellPF2e } from "./../index.ts";
 import { MagicTradition } from "./../spell/types.ts";
-import { Statistic } from "./../../system/statistic/index.ts";
 import { CastOptions, SpellcastingEntry, SpellcastingSheetData } from "./types.ts";
 declare const TRICK_MAGIC_SKILLS: readonly ["arcana", "nature", "occultism", "religion"];
 type TrickMagicItemSkill = (typeof TRICK_MAGIC_SKILLS)[number];
@@ -35,5 +35,5 @@ declare class TrickMagicItemEntry<TActor extends ActorPF2e = ActorPF2e> implemen
     cast(spell: SpellPF2e, options?: CastOptions): Promise<void>;
     getSheetData(): Promise<SpellcastingSheetData>;
 }
-export { TRICK_MAGIC_SKILLS, TrickMagicItemEntry, traditionSkills };
+export { traditionSkills, TRICK_MAGIC_SKILLS, TrickMagicItemEntry };
 export type { TrickMagicItemSkill };

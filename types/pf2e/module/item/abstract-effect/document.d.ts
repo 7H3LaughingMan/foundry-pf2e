@@ -1,7 +1,7 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import { DatabaseCreateCallbackOptions, DatabaseDeleteCallbackOptions } from "#common/abstract/_types.mjs";
-import { ItemPF2e } from "./../index.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { AbstractEffectSource } from "./../base/data/index.ts";
+import { ItemPF2e } from "./../index.ts";
 import { AbstractEffectSystemData, EffectBadge } from "./data.ts";
 import { EffectTrait } from "./types.ts";
 /** Base effect type for all PF2e effects including conditions and afflictions */

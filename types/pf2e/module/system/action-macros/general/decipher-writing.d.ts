@@ -10,4 +10,4 @@ declare class DecipherWritingAction extends SingleCheckAction {
     protected toActionVariant(data?: SingleCheckActionVariantData): SingleCheckActionVariant;
 }
 declare const action: DecipherWritingAction;
-export { decipherWriting as legacy, action };
+export { action, decipherWriting as legacy };

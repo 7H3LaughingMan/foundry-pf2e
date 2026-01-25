@@ -1,12 +1,12 @@
-import { FeatGroup } from "./../character/feats/index.ts";
-import { Kingdom } from "./../party/kingdom/model.ts";
 import { DatabaseDeleteCallbackOptions } from "#common/abstract/_types.mjs";
-import { CampaignFeaturePF2e } from "./../../item/index.ts";
+import { ActorPF2e, ActorUpdateCallbackOptions, HitPointsSummary } from "../base.ts";
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
+import { CampaignFeaturePF2e } from "./../../item/index.ts";
 import { ItemType } from "./../../item/types.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { ArmorStatistic, Statistic, StatisticDifficultyClass } from "./../../system/statistic/index.ts";
-import { ActorPF2e, ActorUpdateCallbackOptions, HitPointsSummary } from "../base.ts";
+import { FeatGroup } from "./../character/feats/index.ts";
+import { Kingdom } from "./../party/kingdom/model.ts";
 import { ArmySource, ArmySystemData } from "./data.ts";
 import { ArmyStrike } from "./types.ts";
 declare class ArmyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {

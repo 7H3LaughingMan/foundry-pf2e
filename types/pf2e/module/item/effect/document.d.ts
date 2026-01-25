@@ -1,13 +1,13 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteCallbackOptions,
     DatabaseUpdateCallbackOptions,
 } from "#common/abstract/_types.mjs";
+import { ActorPF2e } from "./../../actor/index.ts";
+import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { EffectBadge } from "./../abstract-effect/data.ts";
 import { AbstractEffectPF2e } from "./../abstract-effect/index.ts";
 import { BadgeReevaluationEventType } from "./../abstract-effect/types.ts";
-import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { EffectFlags, EffectSource, EffectSystemData } from "./data.ts";
 declare class EffectPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends AbstractEffectPF2e<TParent> {
     #private;

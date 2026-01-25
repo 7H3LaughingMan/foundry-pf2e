@@ -1,6 +1,6 @@
-import { ActorPF2e } from "./../actor/index.ts";
 import { default as UserTargets } from "#client/canvas/placeables/tokens/targets.mjs";
 import { DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
+import { ActorPF2e } from "./../actor/index.ts";
 import { TradeQueryData, TradeQueryResponse } from "./../apps/trade-dialog/app.ts";
 import { TokenPF2e } from "./../canvas/index.ts";
 import { ScenePF2e, TokenDocumentPF2e } from "./../scene/index.ts";

@@ -1,15 +1,15 @@
-import { AmbientLightDocument, Scene, User } from "./../../documents/_module.mjs";
+import { ControlIcon } from "../containers/_module.mjs";
+import { RenderFlag } from "../interaction/_types.mjs";
+import { LightingLayer } from "../layers/_module.mjs";
+import { PointDarknessSource, PointLightSource } from "../sources/_module.mjs";
+import { LightSourceData } from "../sources/base-light-source.mjs";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteCallbackOptions,
     DatabaseUpdateCallbackOptions,
 } from "./../../../common/abstract/_types.mjs";
 import { LightData } from "./../../../common/data/_module.mjs";
-import { ControlIcon } from "../containers/_module.mjs";
-import { RenderFlag } from "../interaction/_types.mjs";
-import { LightingLayer } from "../layers/_module.mjs";
-import { PointDarknessSource, PointLightSource } from "../sources/_module.mjs";
-import { LightSourceData } from "../sources/base-light-source.mjs";
+import { AmbientLightDocument, Scene, User } from "./../../documents/_module.mjs";
 import PlaceableObject from "./placeable-object.mjs";
 
 export default class AmbientLight<

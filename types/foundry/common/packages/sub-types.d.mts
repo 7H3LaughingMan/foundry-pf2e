@@ -1,5 +1,5 @@
-import { ObjectFieldOptions } from "./../data/_module.mjs";
 import * as fields from "../data/fields.mjs";
+import { ObjectFieldOptions } from "./../data/_module.mjs";
 
 /**
  * A special `ObjectField` available to packages which configures any additional Document sub-types

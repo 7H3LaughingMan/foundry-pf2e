@@ -1,6 +1,6 @@
-import { DrawingDocument, Scene, User } from "./../../documents/_module.mjs";
-import { DatabaseDeleteCallbackOptions } from "./../../../common/abstract/_types.mjs";
 import { DrawingsLayer } from "../layers/_module.mjs";
+import { DatabaseDeleteCallbackOptions } from "./../../../common/abstract/_types.mjs";
+import { DrawingDocument, Scene, User } from "./../../documents/_module.mjs";
 import PlaceableObject from "./placeable-object.mjs";
 
 /**

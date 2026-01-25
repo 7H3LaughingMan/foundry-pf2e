@@ -1,10 +1,10 @@
+import { EditorView } from "prosemirror-view";
+import { AppV1RenderOptions } from "../api/application-v1.mjs";
+import DocumentSheet, { DocumentSheetData, DocumentSheetV1Options } from "../api/document-sheet-v1.mjs";
 import { JournalEntryPageHeading } from "./../../_module.mjs";
 import { EditorCreateOptions } from "./../../applications/ux/prosemirror-editor.mjs";
 import JournalEntryPage from "./../../documents/journal-entry-page.mjs";
 import JournalEntry from "./../../documents/journal-entry.mjs";
-import { EditorView } from "prosemirror-view";
-import { AppV1RenderOptions } from "../api/application-v1.mjs";
-import DocumentSheet, { DocumentSheetData, DocumentSheetV1Options } from "../api/document-sheet-v1.mjs";
 
 /**
  * The Application responsible for displaying and editing a single JournalEntryPage document.

@@ -1,5 +1,5 @@
-import { TileOcclusionMode } from "./../../../common/constants.mjs";
 import Token from "../placeables/token.mjs";
+import { TileOcclusionMode } from "./../../../common/constants.mjs";
 import PrimaryCanvasObjectMixin from "./primary-canvas-object.mjs";
 
 /**

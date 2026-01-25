@@ -1,6 +1,6 @@
-import { ImageFilePath } from "./../constants.mjs";
 import { Document, DocumentMetadata, EmbeddedCollection } from "../abstract/_module.mjs";
 import * as fields from "../data/fields.mjs";
+import { ImageFilePath } from "./../constants.mjs";
 import { BaseFolder, BaseTableResult } from "./_module.mjs";
 
 /**

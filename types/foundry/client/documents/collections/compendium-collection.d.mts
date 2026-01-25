@@ -1,4 +1,6 @@
-import { CompendiumDocumentType, CompendiumUUID } from "./../../utils/helpers.mjs";
+import { ApplicationRenderOptions } from "../../applications/_types.mjs";
+import { CompendiumDocument, User } from "../_module.mjs";
+import DocumentCollection from "../abstract/document-collection.mjs";
 import {
     DatabaseAction,
     DatabaseCreateOperation,
@@ -7,9 +9,7 @@ import {
 } from "./../../../common/abstract/_module.mjs";
 import { DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath } from "./../../../common/constants.mjs";
 import Collection from "./../../../common/utils/collection.mjs";
-import { ApplicationRenderOptions } from "../../applications/_types.mjs";
-import { CompendiumDocument, User } from "../_module.mjs";
-import DocumentCollection from "../abstract/document-collection.mjs";
+import { CompendiumDocumentType, CompendiumUUID } from "./../../utils/helpers.mjs";
 
 /**
  * A singleton Collection of Compendium-level Document objects within the Foundry Virtual Tabletop.

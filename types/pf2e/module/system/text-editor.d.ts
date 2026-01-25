@@ -1,7 +1,7 @@
-import { ActorPF2e } from "./../actor/index.ts";
 import { EnrichmentOptions } from "#client/applications/ux/text-editor.mjs";
-import { ItemPF2e } from "./../item/index.ts";
 import { UserVisibility } from "./../../scripts/ui/user-visibility.ts";
+import { ActorPF2e } from "./../actor/index.ts";
+import { ItemPF2e } from "./../item/index.ts";
 /** Censor enriched HTML according to metagame knowledge settings */
 declare class TextEditorPF2e extends foundry.applications.ux.TextEditor {
     #private;

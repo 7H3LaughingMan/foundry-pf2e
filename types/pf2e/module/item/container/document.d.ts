@@ -1,6 +1,6 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import { EnrichmentOptions } from "#client/applications/ux/text-editor.mjs";
 import { DatabaseUpdateCallbackOptions } from "#common/abstract/_module.mjs";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { RawItemChatData } from "./../base/data/index.ts";
 import { EquipmentTrait } from "./../equipment/data.ts";
 import { Bulk } from "./../physical/bulk.ts";

@@ -1,6 +1,11 @@
-import { ActorPF2e } from "./../actor/index.ts";
+import { TokenAnimationOptions } from "#client/_module.mjs";
+import { TokenDocumentUUID } from "#client/documents/_module.mjs";
+import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
+import { TokenSource } from "#common/documents/token.mjs";
+import { ActiveEffectPF2e } from "./../active-effect.ts";
 import { DexterityModifierCapData } from "./../actor/character/types.ts";
 import { LabeledSpeed, SenseData } from "./../actor/creature/data.ts";
+import { ActorPF2e } from "./../actor/index.ts";
 import {
     DamageDicePF2e,
     DeferredDamageDiceOptions,
@@ -10,16 +15,11 @@ import {
     ModifierAdjustment,
 } from "./../actor/modifiers.ts";
 import { MovementType } from "./../actor/types.ts";
-import { TokenAnimationOptions } from "#client/_module.mjs";
-import { TokenDocumentUUID } from "#client/documents/_module.mjs";
-import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
-import { TokenSource } from "#common/documents/token.mjs";
-import { ItemPF2e, MeleePF2e, WeaponPF2e } from "./../item/index.ts";
 import { AbilityTrait } from "./../item/ability/index.ts";
 import { ConditionSource, EffectSource } from "./../item/base/data/index.ts";
+import { ItemPF2e, MeleePF2e, WeaponPF2e } from "./../item/index.ts";
 import { WeaponRuneSource } from "./../item/weapon/data.ts";
 import { WeaponPropertyRuneType } from "./../item/weapon/types.ts";
-import { ActiveEffectPF2e } from "./../active-effect.ts";
 import { RollNotePF2e } from "./../notes.ts";
 import { MaterialDamageEffect } from "./../system/damage/types.ts";
 import { DegreeOfSuccessAdjustment } from "./../system/degree-of-success.ts";

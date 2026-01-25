@@ -1,7 +1,7 @@
-import { CanvasVisibilityTest } from "./../../../_module.mjs";
 import { PlaceableObject, Token } from "../../placeables/_module.mjs";
 import PointVisionSource from "../../sources/point-vision-source.mjs";
 import DetectionMode, { TokenDetectionMode } from "../detection-mode.mjs";
+import { CanvasVisibilityTest } from "./../../../_module.mjs";
 
 /**
  * This detection mode tests whether the target is visible due to being illuminated by a light source.

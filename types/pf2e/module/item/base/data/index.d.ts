@@ -1,3 +1,4 @@
+import { PROFICIENCY_RANKS, Rarity } from "./../../../data.ts";
 import { AbilitySource } from "./../../ability/data.ts";
 import { AfflictionSource } from "./../../affliction/data.ts";
 import { AmmoSource } from "./../../ammo/data.ts";
@@ -23,7 +24,6 @@ import { SpellSource } from "./../../spell/data.ts";
 import { SpellcastingEntrySource } from "./../../spellcasting-entry/data.ts";
 import { TreasureSource } from "./../../treasure/data.ts";
 import { WeaponSource } from "./../../weapon/data.ts";
-import { PROFICIENCY_RANKS, Rarity } from "./../../../data.ts";
 import { ItemDescriptionData } from "./system.ts";
 type ProficiencyRank = (typeof PROFICIENCY_RANKS)[number];
 type NonPhysicalItemType =

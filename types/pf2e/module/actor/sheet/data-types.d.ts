@@ -1,16 +1,16 @@
-import { ActorPF2e } from "./../base.ts";
-import { ActorFlagsPF2e, TraitViewData } from "./../data/base.ts";
-import { ActorSizePF2e } from "./../data/size.ts";
-import { InventoryBulk } from "./../inventory/index.ts";
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { AppV1RenderOptions } from "#client/appv1/api/application-v1.mjs";
 import { ActorSheetData } from "#client/appv1/sheets/actor-sheet.mjs";
 import { ItemUUID } from "#common/documents/_module.mjs";
-import { PhysicalItemPF2e } from "./../../item/index.ts";
 import { Frequency } from "./../../item/base/data/index.ts";
+import { PhysicalItemPF2e } from "./../../item/index.ts";
 import { RawCoins } from "./../../item/physical/data.ts";
 import { RollOptionToggle } from "./../../rules/synthetics.ts";
 import { SheetOptions } from "./../../sheet/helpers.ts";
+import { ActorPF2e } from "./../base.ts";
+import { ActorFlagsPF2e, TraitViewData } from "./../data/base.ts";
+import { ActorSizePF2e } from "./../data/size.ts";
+import { InventoryBulk } from "./../inventory/index.ts";
 interface InventoryItem<TItem extends PhysicalItemPF2e = PhysicalItemPF2e> {
     item: TItem;
     subitems: PhysicalItemPF2e[];

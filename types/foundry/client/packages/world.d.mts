@@ -1,7 +1,7 @@
-import ClientPackageMixin from "./../packages/client-package.mjs";
 import { DataModelConstructionContext } from "./../../common/abstract/_types.mjs";
 import BaseWorld, { WorldSource } from "./../../common/packages/base-world.mjs";
 import Collection from "./../../common/utils/collection.mjs";
+import ClientPackageMixin from "./../packages/client-package.mjs";
 import { Module, PackageCompatibilityBadge, PackageManifestData, RelatedPackage, System } from "./_module.mjs";
 
 export default class World extends ClientPackageMixin(BaseWorld) {

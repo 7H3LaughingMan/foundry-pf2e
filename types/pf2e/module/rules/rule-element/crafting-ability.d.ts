@@ -1,5 +1,5 @@
-import { ActorType, CharacterPF2e } from "./../../actor/index.ts";
 import { ItemUUID } from "#client/documents/_module.mjs";
+import { ActorType, CharacterPF2e } from "./../../actor/index.ts";
 import { ItemPF2e } from "./../../item/index.ts";
 import { PredicateField } from "./../../system/schema-data-fields.ts";
 import { RuleElement, RuleElementOptions } from "./base.ts";

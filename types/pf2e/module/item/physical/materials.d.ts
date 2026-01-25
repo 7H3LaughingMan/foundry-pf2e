@@ -185,5 +185,5 @@ declare const MATERIAL_DATA: {
         >
     >;
 };
-export { MATERIAL_DATA, OBJECT_MATERIAL_VALUATION_DATA, getMaterialValuationData };
+export { getMaterialValuationData, MATERIAL_DATA, OBJECT_MATERIAL_VALUATION_DATA };
 export type { MaterialGradeData, MaterialValuationData };

@@ -2,6 +2,7 @@ import { LaxSchemaField } from "./../system/schema-data-fields.ts";
 import { RuleElement } from "./rule-element/base.ts";
 import { RuleElementOptions, RuleElementSchema, RuleElementSource } from "./rule-element/index.ts";
 export type { RuleElementSynthetics } from "./synthetics.ts";
+export { RuleElement, RuleElementOptions, RuleElements, RuleElementSource };
 /**
  * @category RuleElement
  */
@@ -15,4 +16,3 @@ type RuleElementConstructor = {
     schema: LaxSchemaField<RuleElementSchema>;
     LOCALIZATION_PREFIXES: string[];
 } & (new (data: RuleElementSource, options: RuleElementOptions) => RuleElement);
-export { RuleElement, RuleElementOptions, RuleElements, RuleElementSource };

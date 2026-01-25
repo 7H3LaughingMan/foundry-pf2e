@@ -1,9 +1,9 @@
+import { ZeroToTen } from "./../../data.ts";
+import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
+import { ItemPF2e } from "./../../item/index.ts";
+import { SpellcastingEntryPF2e, SpellcastingSheetData } from "./../../item/spellcasting-entry/index.ts";
 import { ActorPF2e, CreaturePF2e } from "./../index.ts";
 import { ItemSummaryRenderer } from "./../sheet/item-summary-renderer.ts";
-import { ItemPF2e } from "./../../item/index.ts";
-import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
-import { SpellcastingEntryPF2e, SpellcastingSheetData } from "./../../item/spellcasting-entry/index.ts";
-import { ZeroToTen } from "./../../data.ts";
 import appv1 = foundry.appv1;
 /**
  * Sheet used to render the the spell list for prepared casting.

@@ -1,8 +1,8 @@
-import Collection from "./../../../common/utils/collection.mjs";
 import { WorldDocument } from "../_module.mjs";
 import DirectoryCollectionMixin from "../abstract/directory-collection-mixin.mjs";
 import DocumentCollection from "../abstract/document-collection.mjs";
 import Folder from "../folder.mjs";
+import Collection from "./../../../common/utils/collection.mjs";
 import CompendiumCollection from "./compendium-collection.mjs";
 
 declare const MixedCompendiumPacks: ReturnType<

@@ -1,10 +1,10 @@
+import { CanvasQuadtree } from "../geometry/_module.mjs";
+import { Token } from "../placeables/_module.mjs";
+import { ElevatedPoint, Point, Rectangle } from "./../../../common/_types.mjs";
 import { TokenPlannedMovement } from "./../../_module.mjs";
 import TokenHUD from "./../../applications/hud/token-hud.mjs";
 import { SceneControl } from "./../../applications/ui/scene-controls.mjs";
 import User from "./../../documents/user.mjs";
-import { ElevatedPoint, Point, Rectangle } from "./../../../common/_types.mjs";
-import { CanvasQuadtree } from "../geometry/_module.mjs";
-import { Token } from "../placeables/_module.mjs";
 import { CanvasHistoryEvent, PlaceablesLayerOptions } from "./_types.mjs";
 import PlaceablesLayer, { MinusOneToOne, PlaceablesLayerPointerEvent } from "./base/placeables-layer.mjs";
 

@@ -1,10 +1,10 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import { DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
-import { SpellPF2e, PhysicalItemPF2e } from "./../index.ts";
-import { RawItemChatData } from "./../base/data/index.ts";
-import { TrickMagicItemEntry } from "./../spellcasting-entry/trick.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { ValueAndMax } from "./../../data.ts";
 import { EnrichmentOptionsPF2e } from "./../../system/text-editor.ts";
+import { RawItemChatData } from "./../base/data/index.ts";
+import { PhysicalItemPF2e, SpellPF2e } from "./../index.ts";
+import { TrickMagicItemEntry } from "./../spellcasting-entry/trick.ts";
 import { ConsumableSource, ConsumableSystemData } from "./data.ts";
 import { ConsumableCategory, ConsumableTrait, OtherConsumableTag } from "./types.ts";
 declare class ConsumablePF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {

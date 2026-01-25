@@ -1,9 +1,9 @@
+import type DataModel from "../abstract/data.mjs";
+import type * as fields from "../data/fields.mjs";
 import { CompendiumDocumentType } from "./../../client/utils/helpers.mjs";
 import { DataModelConstructionContext } from "./../abstract/_types.mjs";
 import { DocumentOwnershipLevel, PackageAvailabilityCode, PackageType, UserRole } from "./../constants.mjs";
 import { DataFieldOptions, ObjectFieldOptions } from "./../data/_module.mjs";
-import type DataModel from "../abstract/data.mjs";
-import type * as fields from "../data/fields.mjs";
 import { PackageManifestData } from "./_types.mjs";
 
 /** A custom SchemaField for defining package compatibility versions. */

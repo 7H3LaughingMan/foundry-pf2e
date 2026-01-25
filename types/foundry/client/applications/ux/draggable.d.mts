@@ -1,5 +1,5 @@
-import { Application } from "./../../appv1/api/_module.mjs";
 import { ApplicationV2 } from "../api/_module.mjs";
+import { Application } from "./../../appv1/api/_module.mjs";
 
 interface DraggableResizeOptions {
     /** A CSS selector for the resize handle. */

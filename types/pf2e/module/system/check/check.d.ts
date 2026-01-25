@@ -1,8 +1,8 @@
+import { Rolled } from "#client/dice/_module.mjs";
+import { DegreeOfSuccessString } from "../degree-of-success.ts";
 import { ResourceData } from "./../../actor/creature/types.ts";
 import { CheckModifier } from "./../../actor/modifiers.ts";
-import { Rolled } from "#client/dice/_module.mjs";
 import { ChatMessagePF2e } from "./../../chat-message/index.ts";
-import { DegreeOfSuccessString } from "../degree-of-success.ts";
 import { CheckRoll } from "./roll.ts";
 import { CheckCheckContext } from "./types.ts";
 interface RerollOptions {

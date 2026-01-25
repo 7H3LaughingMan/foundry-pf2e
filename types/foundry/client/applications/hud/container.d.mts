@@ -1,6 +1,6 @@
-import { ChatBubbles } from "./../../canvas/animation/_module.mjs";
 import type { ApplicationConfiguration, ApplicationRenderOptions } from "../_types.mjs";
 import type ApplicationV2 from "../api/application.mjs";
+import { ChatBubbles } from "./../../canvas/animation/_module.mjs";
 import type DrawingHUD from "./drawing-hud.mjs";
 import type TileHUD from "./tile-hud.mjs";
 import type TokenHUD from "./token-hud.mjs";

@@ -1,7 +1,7 @@
-import { DocumentOwnershipLevel, DocumentOwnershipString, DrawingFillType, ImageFilePath } from "./../constants.mjs";
 import * as abstract from "../abstract/_module.mjs";
 import * as data from "../data/data.mjs";
 import * as fields from "../data/fields.mjs";
+import { DocumentOwnershipLevel, DocumentOwnershipString, DrawingFillType, ImageFilePath } from "./../constants.mjs";
 import { BaseScene, BaseUser } from "./_module.mjs";
 
 /**

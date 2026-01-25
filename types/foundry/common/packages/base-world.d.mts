@@ -1,5 +1,5 @@
-import { PackageAvailabilityCode } from "./../constants.mjs";
 import * as fields from "../data/fields.mjs";
+import { PackageAvailabilityCode } from "./../constants.mjs";
 import * as packages from "./_module.mjs";
 import { PackageManifestData } from "./_types.mjs";
 

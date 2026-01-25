@@ -1,6 +1,6 @@
-import { ActorPF2e } from "./../../actor/index.ts";
-import { SenseAcuity, SenseType } from "./../../actor/creature/types.ts";
 import { OnSubmitFormOptions } from "#client/appv1/api/form-application-v1.mjs";
+import { SenseAcuity, SenseType } from "./../../actor/creature/types.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { BaseTagSelector, TagSelectorData, TagSelectorOptions } from "./base.ts";
 import { SelectableTagField } from "./index.ts";
 declare class SenseSelector<TActor extends ActorPF2e> extends BaseTagSelector<TActor> {

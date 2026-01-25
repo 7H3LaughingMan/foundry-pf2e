@@ -1,8 +1,8 @@
+import * as packages from "../packages/_module.mjs";
 import { HTMLDocumentEmbedElement } from "./../../client/applications/elements/_module.mjs";
 import { DocumentHTMLEmbedConfig, EnrichmentOptions } from "./../../client/applications/ux/text-editor.mjs";
 import User from "./../../client/documents/user.mjs";
 import { SourceFromSchema } from "./../data/fields.mjs";
-import * as packages from "../packages/_module.mjs";
 import * as abstract from "./_module.mjs";
 
 /**

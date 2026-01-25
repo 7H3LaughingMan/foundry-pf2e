@@ -1,12 +1,12 @@
-import { PlaceablesLayer } from "./../../canvas/layers/_module.mjs";
-import PlaceableObject from "./../../canvas/placeables/placeable-object.mjs";
+import { BaseUser } from "../_module.mjs";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteCallbackOptions,
     DatabaseUpdateCallbackOptions,
 } from "./../../../common/abstract/_module.mjs";
 import Document from "./../../../common/abstract/document.mjs";
-import { BaseUser } from "../_module.mjs";
+import { PlaceablesLayer } from "./../../canvas/layers/_module.mjs";
+import PlaceableObject from "./../../canvas/placeables/placeable-object.mjs";
 import { ClientDocument, ClientDocumentStatic } from "./client-document.mjs";
 
 /**

@@ -1,4 +1,3 @@
-import { RawModifier } from "./../../modifiers.ts";
 import { DataSchema } from "#common/abstract/_types.mjs";
 import { ImageFilePath } from "#common/constants.mjs";
 import { ItemUUID } from "#common/documents/_module.mjs";
@@ -9,6 +8,7 @@ import {
     StrictBooleanField,
     StrictStringField,
 } from "./../../../system/schema-data-fields.ts";
+import { RawModifier } from "./../../modifiers.ts";
 import {
     FameType,
     KingdomAbility,

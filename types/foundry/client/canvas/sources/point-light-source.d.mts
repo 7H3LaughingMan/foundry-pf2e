@@ -1,6 +1,6 @@
-import { CanvasVisibilityTestConfiguration } from "./../../_module.mjs";
 import { PointSourcePolygonConfig } from "../geometry/_types.mjs";
 import { AmbientLight, PlaceableObject, Token } from "../placeables/_module.mjs";
+import { CanvasVisibilityTestConfiguration } from "./../../_module.mjs";
 import BaseLightSource from "./base-light-source.mjs";
 import { PointEffectSource } from "./point-effect-source.mjs";
 

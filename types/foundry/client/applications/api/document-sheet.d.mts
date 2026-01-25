@@ -1,6 +1,3 @@
-import User from "./../../documents/user.mjs";
-import { DatabaseCreateOperation, DatabaseUpdateOperation, DataSchema } from "./../../../common/abstract/_types.mjs";
-import Document from "./../../../common/abstract/document.mjs";
 import {
     ApplicationClosingOptions,
     ApplicationConfiguration,
@@ -10,6 +7,9 @@ import {
     ApplicationRenderOptions,
 } from "../_types.mjs";
 import FormDataExtended from "../ux/form-data-extended.mjs";
+import { DatabaseCreateOperation, DatabaseUpdateOperation, DataSchema } from "./../../../common/abstract/_types.mjs";
+import Document from "./../../../common/abstract/document.mjs";
+import User from "./../../documents/user.mjs";
 import ApplicationV2 from "./application.mjs";
 
 export interface DocumentSheetRenderContext extends ApplicationRenderContext {

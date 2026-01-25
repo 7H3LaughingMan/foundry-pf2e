@@ -1,9 +1,9 @@
-import { ActorPF2e, CharacterPF2e } from "./../../actor/index.ts";
-import { CreatureTrait } from "./../../actor/creature/types.ts";
-import { AttributeString } from "./../../actor/types.ts";
 import { DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
-import { ABCItemPF2e, FeatPF2e } from "./../index.ts";
+import { CreatureTrait } from "./../../actor/creature/types.ts";
+import { ActorPF2e, CharacterPF2e } from "./../../actor/index.ts";
+import { AttributeString } from "./../../actor/types.ts";
 import { Size } from "./../../data.ts";
+import { ABCItemPF2e, FeatPF2e } from "./../index.ts";
 import { AncestrySource, AncestrySystemData } from "./data.ts";
 declare class AncestryPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ABCItemPF2e<TParent> {
     static get validTraits(): Record<CreatureTrait, string>;

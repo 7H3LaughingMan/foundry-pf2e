@@ -1,8 +1,8 @@
+import { RingColorBand, RingData, Token } from "../_module.mjs";
+import Color from "./../../../../common/utils/color.mjs";
 import { CanvasAnimationOptions } from "./../../../canvas/animation/_types.mjs";
 import PrimarySpriteMesh from "./../../../canvas/primary/primary-sprite-mesh.mjs";
 import { TokenRingSamplerShader } from "./../../../canvas/rendering/shaders/_module.mjs";
-import Color from "./../../../../common/utils/color.mjs";
-import { RingColorBand, RingData, Token } from "../_module.mjs";
 
 /**
  * @import Token from "../token.mjs";

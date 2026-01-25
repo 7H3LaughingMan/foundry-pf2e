@@ -1,10 +1,10 @@
+import { RollMode } from "./../../common/constants.mjs";
+import Collection from "./../../common/utils/collection.mjs";
 import { SettingConfig, SettingSubmenuConfig } from "./../_types.mjs";
 import ApplicationV2 from "./../applications/api/application.mjs";
 import SettingsConfig from "./../applications/settings/config.mjs";
 import Application from "./../appv1/api/application-v1.mjs";
 import Setting from "./../documents/setting.mjs";
-import { RollMode } from "./../../common/constants.mjs";
-import Collection from "./../../common/utils/collection.mjs";
 
 export interface ClientSettingsStorage extends Map<"client" | "world" | "user", Storage | WorldSettings> {
     get(key: "client"): Storage;

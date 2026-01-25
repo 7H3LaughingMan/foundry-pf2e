@@ -1,5 +1,5 @@
-import { GridDiagonalRule, MovementDirection } from "./../constants.mjs";
 import { ElevatedPoint, Point, Rectangle } from "../_types.mjs";
+import { GridDiagonalRule, MovementDirection } from "./../constants.mjs";
 import {
     GridConfiguration,
     GridCoordinates2D,

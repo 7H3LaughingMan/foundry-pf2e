@@ -1,9 +1,9 @@
-import RegionLegend from "./../../applications/ui/region-legend.mjs";
-import User from "./../../documents/user.mjs";
-import { Point } from "./../../../common/_types.mjs";
-import { BaseShapeData } from "./../../../common/data/data.mjs";
 import { SceneControl } from "../../applications/ui/scene-controls.mjs";
 import Region from "../placeables/region.mjs";
+import { Point } from "./../../../common/_types.mjs";
+import { BaseShapeData } from "./../../../common/data/data.mjs";
+import RegionLegend from "./../../applications/ui/region-legend.mjs";
+import User from "./../../documents/user.mjs";
 import { CanvasHistoryEvent, PlaceablesLayerOptions } from "./_types.mjs";
 import PlaceablesLayer, { PlaceablesLayerPointerEvent } from "./base/placeables-layer.mjs";
 

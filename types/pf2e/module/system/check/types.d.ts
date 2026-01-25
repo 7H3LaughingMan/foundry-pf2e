@@ -1,6 +1,6 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { ItemPF2e } from "./../../item/index.ts";
 import { ZeroToTwo } from "./../../data.ts";
+import { ItemPF2e } from "./../../item/index.ts";
 import { RollSubstitution } from "./../../rules/synthetics.ts";
 import { TokenDocumentPF2e } from "./../../scene/token-document/index.ts";
 import { CheckDC, DegreeOfSuccessAdjustment } from "./../degree-of-success.ts";

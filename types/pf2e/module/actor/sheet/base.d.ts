@@ -1,14 +1,14 @@
-import { ActorPF2e } from "./../index.ts";
-import { AttackAction } from "./../data/base.ts";
 import { default as Tabs } from "#client/applications/ux/tabs.mjs";
 import { AppV1RenderOptions } from "#client/appv1/api/application-v1.mjs";
 import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
 import { DropCanvasData } from "#client/helpers/hooks.mjs";
-import { PhysicalItemPF2e, ItemPF2e } from "./../../item/index.ts";
-import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
-import { DropCanvasItemData } from "./../../canvas/drop-canvas-data.ts";
-import { BasicConstructorOptions, TagSelectorOptions, TagSelectorType } from "./../../system/tag-selector/index.ts";
 import { Plugin } from "prosemirror-state";
+import { DropCanvasItemData } from "./../../canvas/drop-canvas-data.ts";
+import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
+import { ItemPF2e, PhysicalItemPF2e } from "./../../item/index.ts";
+import { BasicConstructorOptions, TagSelectorOptions, TagSelectorType } from "./../../system/tag-selector/index.ts";
+import { AttackAction } from "./../data/base.ts";
+import { ActorPF2e } from "./../index.ts";
 import { ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e, InventoryItem, SheetInventory } from "./data-types.ts";
 import { ItemSummaryRenderer } from "./item-summary-renderer.ts";
 /**

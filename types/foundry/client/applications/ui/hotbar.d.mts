@@ -1,9 +1,9 @@
-import { Macro, RollTable } from "./../../documents/_module.mjs";
-import { DocumentUUID } from "./../../utils/_module.mjs";
-import Document from "./../../../common/abstract/document.mjs";
 import { ApplicationConfiguration } from "../_types.mjs";
 import { ApplicationV2, HandlebarsApplicationMixin, HandlebarsTemplatePart } from "../api/_module.mjs";
 import { ContextMenuEntry } from "../ux/context-menu.mjs";
+import Document from "./../../../common/abstract/document.mjs";
+import { Macro, RollTable } from "./../../documents/_module.mjs";
+import { DocumentUUID } from "./../../utils/_module.mjs";
 
 interface HotbarSlotData {
     slot: number;

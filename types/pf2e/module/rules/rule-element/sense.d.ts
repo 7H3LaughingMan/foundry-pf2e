@@ -1,5 +1,5 @@
-import { ActorType, CharacterPF2e, FamiliarPF2e } from "./../../actor/index.ts";
 import { SenseAcuity, SenseType } from "./../../actor/creature/types.ts";
+import { ActorType, CharacterPF2e, FamiliarPF2e } from "./../../actor/index.ts";
 import { RuleElement } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema } from "./data.ts";
 import fields = foundry.data.fields;

@@ -1,3 +1,15 @@
+import type ApplicationV2 from "../applications/api/application.mjs";
+import type TokenHUD from "../applications/hud/token-hud.mjs";
+import { ChatLog, CompendiumDirectory, ItemDirectory, Settings } from "../applications/sidebar/tabs/_module.mjs";
+import type ActorDirectory from "../applications/sidebar/tabs/actor-directory.mjs";
+import type Hotbar from "../applications/ui/hotbar.mjs";
+import type SceneControls from "../applications/ui/scene-controls.mjs";
+import type { SceneControl } from "../applications/ui/scene-controls.mjs";
+import Application from "../appv1/api/application-v1.mjs";
+import Dialog from "../appv1/api/dialog-v1.mjs";
+import { JournalPageSheet, JournalTextPageSheet } from "../appv1/sheets/journal-page-sheet.mjs";
+import { DatabaseCreateOperation } from "./../../common/abstract/_types.mjs";
+import Document from "./../../common/abstract/document.mjs";
 import { ApplicationRenderContext, ApplicationRenderOptions } from "./../applications/_module.mjs";
 import type { DialogV2 } from "./../applications/api/_module.mjs";
 import type { CombatTrackerConfig } from "./../applications/apps/_module.mjs";
@@ -23,18 +35,6 @@ import {
     User,
 } from "./../documents/_module.mjs";
 import { DocumentUUID } from "./../utils/helpers.mjs";
-import { DatabaseCreateOperation } from "./../../common/abstract/_types.mjs";
-import Document from "./../../common/abstract/document.mjs";
-import type ApplicationV2 from "../applications/api/application.mjs";
-import type TokenHUD from "../applications/hud/token-hud.mjs";
-import { ChatLog, CompendiumDirectory, ItemDirectory, Settings } from "../applications/sidebar/tabs/_module.mjs";
-import type ActorDirectory from "../applications/sidebar/tabs/actor-directory.mjs";
-import type Hotbar from "../applications/ui/hotbar.mjs";
-import type SceneControls from "../applications/ui/scene-controls.mjs";
-import type { SceneControl } from "../applications/ui/scene-controls.mjs";
-import Application from "../appv1/api/application-v1.mjs";
-import Dialog from "../appv1/api/dialog-v1.mjs";
-import { JournalPageSheet, JournalTextPageSheet } from "../appv1/sheets/journal-page-sheet.mjs";
 
 interface HookedFunction {
     hook: string;

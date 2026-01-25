@@ -1,6 +1,6 @@
 import { RuleElement, RuleElementOptions } from "../base.ts";
 import { ModelPropsFromRESchema, RuleElementSource } from "../data.ts";
-import { Suboption, RollOptionSchema } from "./data.ts";
+import { RollOptionSchema, Suboption } from "./data.ts";
 import fields = foundry.data.fields;
 /**
  * Set a roll option at a specificed domain

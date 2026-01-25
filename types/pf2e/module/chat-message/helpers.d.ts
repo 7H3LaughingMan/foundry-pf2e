@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../actor/index.ts";
 import { RollMode } from "#common/constants.mjs";
+import { ActorPF2e } from "./../actor/index.ts";
 import { AbilityItemPF2e, FeatPF2e } from "./../item/index.ts";
 import { ChatContextFlag, CheckContextChatFlag } from "./data.ts";
 import { ChatMessagePF2e } from "./document.ts";

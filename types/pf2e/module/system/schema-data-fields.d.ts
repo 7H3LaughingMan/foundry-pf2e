@@ -14,8 +14,8 @@ import {
     SourceFromDataField,
     SourceFromSchema,
 } from "#common/data/fields.mjs";
-import { Predicate, PredicateStatement, RawPredicate } from ".//predication.ts";
 import { SlugCamel } from "./../../util/index.ts";
+import { Predicate, PredicateStatement, RawPredicate } from ".//predication.ts";
 import fields = foundry.data.fields;
 import validation = foundry.data.validation;
 /** A SchemaField that prunes undefined values */

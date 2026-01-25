@@ -1,3 +1,12 @@
+import { ValueAndMax, ZeroToFour } from "./../../data.ts";
+import { ArmorCategory } from "./../../item/armor/types.ts";
+import { ProficiencyRank } from "./../../item/base/data/index.ts";
+import { DeitySystemData } from "./../../item/deity/data.ts";
+import { DeityDomain } from "./../../item/deity/types.ts";
+import { WeaponPF2e } from "./../../item/index.ts";
+import { BaseWeaponType, WeaponCategory, WeaponGroup } from "./../../item/weapon/types.ts";
+import { DamageType } from "./../../system/damage/types.ts";
+import { Predicate } from "./../../system/predication.ts";
 import { CraftingAbilityData, CraftingFormulaData } from "./../character/crafting/index.ts";
 import {
     AbilityData,
@@ -26,15 +35,6 @@ import {
     TraitViewData,
 } from "./../data/base.ts";
 import { AttributeString, SaveType, SkillSlug } from "./../types.ts";
-import { WeaponPF2e } from "./../../item/index.ts";
-import { ArmorCategory } from "./../../item/armor/types.ts";
-import { ProficiencyRank } from "./../../item/base/data/index.ts";
-import { DeitySystemData } from "./../../item/deity/data.ts";
-import { DeityDomain } from "./../../item/deity/types.ts";
-import { BaseWeaponType, WeaponCategory, WeaponGroup } from "./../../item/weapon/types.ts";
-import { ValueAndMax, ZeroToFour } from "./../../data.ts";
-import { DamageType } from "./../../system/damage/types.ts";
-import { Predicate } from "./../../system/predication.ts";
 import { WeaponAuxiliaryAction } from "./auxiliary.ts";
 import { CharacterPF2e } from "./document.ts";
 import { CharacterSheetTabVisibility } from "./sheet.ts";

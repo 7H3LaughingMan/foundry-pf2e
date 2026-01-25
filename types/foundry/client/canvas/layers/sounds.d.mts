@@ -1,11 +1,11 @@
-import { SoundPlaybackOptions } from "./../../audio/_types.mjs";
-import { ElevatedPoint, Point } from "./../../../common/_types.mjs";
-import Collection from "./../../../common/utils/collection.mjs";
 import { SceneControl } from "../../applications/ui/scene-controls.mjs";
 import Sound from "../../audio/sound.mjs";
 import AmbientSound from "../placeables/sound.mjs";
 import { PointEffectSourceData } from "../sources/point-effect-source.mjs";
 import PointSoundSource from "../sources/point-sound-source.mjs";
+import { ElevatedPoint, Point } from "./../../../common/_types.mjs";
+import Collection from "./../../../common/utils/collection.mjs";
+import { SoundPlaybackOptions } from "./../../audio/_types.mjs";
 import { AmbientSoundPlaybackConfig, PlaceablesLayerOptions } from "./_types.mjs";
 import PlaceablesLayer, { PlaceablesLayerPointerEvent } from "./base/placeables-layer.mjs";
 

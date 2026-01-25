@@ -1,5 +1,5 @@
-import { MovementDirection } from "./../constants.mjs";
 import { ElevatedPoint, Point, Rectangle } from "../_types.mjs";
+import { MovementDirection } from "./../constants.mjs";
 import {
     GridCoordinates2D,
     GridCoordinates3D,

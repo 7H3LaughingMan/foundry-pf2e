@@ -1,7 +1,7 @@
-import Color from "./../../../common/utils/color.mjs";
 import { PointSourceMesh } from "../containers/_module.mjs";
 import { PlaceableObject } from "../placeables/_module.mjs";
 import { AbstractBaseShader, AdaptiveLightingShader } from "../rendering/shaders/_module.mjs";
+import Color from "./../../../common/utils/color.mjs";
 import type BaseEffectSource from "./base-effect-source.mjs";
 import type { BaseEffectSourceData } from "./base-effect-source.mjs";
 

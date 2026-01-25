@@ -1,5 +1,5 @@
-import User from "./../../../documents/user.mjs";
 import Token from "../token.mjs";
+import User from "./../../../documents/user.mjs";
 
 /**
  * A subclass of Set which manages the Token ids which the User has targeted.

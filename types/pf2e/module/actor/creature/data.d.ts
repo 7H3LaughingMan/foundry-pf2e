@@ -1,3 +1,8 @@
+import { ImageFilePath } from "#common/constants.mjs";
+import { LabeledNumber, Size, ValueAndMax, ValueAndMaybeMax, ZeroToThree } from "./../../data.ts";
+import { ArmorClassTraceData } from "./../../system/statistic/index.ts";
+import { PerceptionTraceData } from "./../../system/statistic/perception.ts";
+import { LandSpeedStatisticTraceData, SpeedStatisticTraceData } from "./../../system/statistic/speed.ts";
 import {
     ActorAttributes,
     ActorAttributesSource,
@@ -13,11 +18,6 @@ import {
 import { ActorSizePF2e } from "./../data/size.ts";
 import { Modifier, RawModifier } from "./../modifiers.ts";
 import { AttributeString, MovementType, SaveType, SkillSlug } from "./../types.ts";
-import { ImageFilePath } from "#common/constants.mjs";
-import { LabeledNumber, Size, ValueAndMax, ValueAndMaybeMax, ZeroToThree } from "./../../data.ts";
-import { ArmorClassTraceData } from "./../../system/statistic/index.ts";
-import { PerceptionTraceData } from "./../../system/statistic/perception.ts";
-import { LandSpeedStatisticTraceData, SpeedStatisticTraceData } from "./../../system/statistic/speed.ts";
 import { CreatureActorType, CreatureTrait, Language, SenseAcuity, SenseType, SpecialVisionType } from "./types.ts";
 type BaseCreatureSource<
     TType extends CreatureActorType,

@@ -1,5 +1,6 @@
-import { ItemType } from "./../../../item/types.ts";
+import { RuleElementSchema, RuleElementSource } from "../data.ts";
 import { PickableThing } from "./../../../apps/pick-a-thing-prompt/app.ts";
+import { ItemType } from "./../../../item/types.ts";
 import { RawPredicate } from "./../../../system/predication.ts";
 import {
     DataUnionField,
@@ -10,7 +11,6 @@ import {
     StrictObjectField,
     StrictStringField,
 } from "./../../../system/schema-data-fields.ts";
-import { RuleElementSchema, RuleElementSource } from "../data.ts";
 import fields = foundry.data.fields;
 type ChoiceSetSchema = RuleElementSchema & {
     /**

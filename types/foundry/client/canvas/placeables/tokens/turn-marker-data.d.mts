@@ -1,7 +1,7 @@
-import AbstractBaseShader from "./../../../canvas/rendering/shaders/base-shader.mjs";
+import { ShaderField } from "../../perception/vision-mode.mjs";
 import DataModel from "./../../../../common/abstract/data.mjs";
 import * as fields from "./../../../../common/data/fields.mjs";
-import { ShaderField } from "../../perception/vision-mode.mjs";
+import AbstractBaseShader from "./../../../canvas/rendering/shaders/base-shader.mjs";
 
 /**
  * The turn marker animation data.

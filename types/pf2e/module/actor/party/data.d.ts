@@ -1,6 +1,3 @@
-import { CreatureReach } from "./../creature/index.ts";
-import { ActorAttributes, ActorDetails, BaseActorSourcePF2e } from "./../data/base.ts";
-import { ActorSystemModel, ActorSystemSchema } from "./../data/model.ts";
 import {
     ModelPropFromDataField,
     ModelPropsFromSchema,
@@ -8,6 +5,9 @@ import {
     SourceFromSchema,
 } from "#common/data/fields.mjs";
 import { ActorUUID } from "#common/documents/_module.mjs";
+import { CreatureReach } from "./../creature/index.ts";
+import { ActorAttributes, ActorDetails, BaseActorSourcePF2e } from "./../data/base.ts";
+import { ActorSystemModel, ActorSystemSchema } from "./../data/model.ts";
 import { PartyPF2e } from "./document.ts";
 import { KingdomSchema } from "./kingdom/schema.ts";
 import fields = foundry.data.fields;

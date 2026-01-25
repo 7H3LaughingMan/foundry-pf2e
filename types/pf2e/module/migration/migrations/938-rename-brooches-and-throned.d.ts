@@ -1,6 +1,6 @@
+import { MigrationBase } from "../base.ts";
 import { ActorSourcePF2e } from "./../../actor/data/index.ts";
 import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
-import { MigrationBase } from "../base.ts";
 /**
  * In Foundry Version 13, all broach core item images were corrected to brooch.
  * While there are no instances of macro nor token replacements in our system, they may exist in user worlds.

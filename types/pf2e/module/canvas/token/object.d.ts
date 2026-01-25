@@ -2,9 +2,9 @@ import { TokenResourceData, TokenShape } from "#client/canvas/placeables/token.m
 import { TokenUpdateCallbackOptions } from "#client/documents/token.mjs";
 import { Point } from "#common/_types.mjs";
 import { GridOffset2D } from "#common/grid/_types.mjs";
-import { UserPF2e } from "./../../user/document.ts";
-import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { TokenLayerPF2e } from "../index.ts";
+import { TokenDocumentPF2e } from "./../../scene/index.ts";
+import { UserPF2e } from "./../../user/document.ts";
 import { AuraRenderers } from "./aura/index.ts";
 import { FlankingHighlightRenderer } from "./flanking-highlight/renderer.ts";
 declare class TokenPF2e<TDocument extends TokenDocumentPF2e = TokenDocumentPF2e> extends fc.placeables

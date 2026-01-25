@@ -1,7 +1,7 @@
+import { SpriteMesh } from "../containers/_module.mjs";
+import { EventEmitter } from "./../../../common/utils/event-emitter.mjs";
 import { CanvasVisibilityTextureConfiguration } from "./../../_module.mjs";
 import FogExploration from "./../../documents/fog-exploration.mjs";
-import { EventEmitter } from "./../../../common/utils/event-emitter.mjs";
-import { SpriteMesh } from "../containers/_module.mjs";
 
 /**
  * A fog of war management class which is the singleton canvas.fog instance.

@@ -1,3 +1,9 @@
+import HandlebarsApplicationMixin, {
+    HandlebarsRenderOptions,
+    HandlebarsTemplatePart,
+} from "../../api/handlebars-application.mjs";
+import { DataSchema } from "./../../../../common/abstract/_types.mjs";
+import { PrototypeToken } from "./../../../../common/data/_module.mjs";
 import {
     ApplicationConfiguration,
     ApplicationFormConfiguration,
@@ -8,12 +14,6 @@ import {
 import ApplicationV2 from "./../../../applications/api/application.mjs";
 import Actor from "./../../../documents/actor.mjs";
 import TokenDocument from "./../../../documents/token.mjs";
-import { DataSchema } from "./../../../../common/abstract/_types.mjs";
-import { PrototypeToken } from "./../../../../common/data/_module.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/handlebars-application.mjs";
 
 /**
  * A mixin for UI shared between TokenDocument and PrototypeToken sheets

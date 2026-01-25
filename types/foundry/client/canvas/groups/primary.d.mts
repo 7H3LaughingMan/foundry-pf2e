@@ -1,4 +1,3 @@
-import Collection from "./../../../common/utils/collection.mjs";
 import CachedContainer from "../containers/advanced/cached-container.mjs";
 import SpriteMesh from "../containers/elements/sprite-mesh.mjs";
 import { CanvasQuadtree } from "../geometry/quad-tree.mjs";
@@ -6,6 +5,7 @@ import { Drawing, Tile, Token } from "../placeables/_module.mjs";
 import { PrimaryGraphics, PrimarySpriteMesh } from "../primary/_module.mjs";
 import { PrimaryCanvasObject } from "../primary/primary-canvas-object.mts";
 import PrimaryCanvasGroupAmbienceFilter from "../rendering/filters/environment.mjs";
+import Collection from "./../../../common/utils/collection.mjs";
 import CanvasGroupMixin from "./canvas-group-mixin.mjs";
 
 /**

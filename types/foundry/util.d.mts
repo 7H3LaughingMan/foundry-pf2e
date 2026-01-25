@@ -1,6 +1,6 @@
 import { DataSchema, DatabaseUpdateOperation, Document } from "./common/abstract/_module.mjs";
-import Collection from "./common/utils/collection.mjs";
 import type DataModel from "./common/abstract/data.mjs";
+import Collection from "./common/utils/collection.mjs";
 
 declare global {
     type Maybe<T> = T | null | undefined;

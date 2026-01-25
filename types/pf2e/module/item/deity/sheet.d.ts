@@ -1,10 +1,10 @@
-import { SkillSlug } from "./../../actor/types.ts";
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { ItemUUID } from "#client/documents/_module.mjs";
 import { ImageFilePath } from "#common/constants.mjs";
-import { DeityPF2e } from "./../index.ts";
-import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
+import { SkillSlug } from "./../../actor/types.ts";
 import { SheetOptions } from "./../../sheet/helpers.ts";
+import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
+import { DeityPF2e } from "./../index.ts";
 export declare class DeitySheetPF2e extends ItemSheetPF2e<DeityPF2e> {
     static get defaultOptions(): ItemSheetOptions;
     getData(options?: Partial<ItemSheetOptions>): Promise<DeitySheetData>;

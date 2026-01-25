@@ -1,6 +1,6 @@
-import { CreatureConfig, CreatureConfigData } from "./../creature/config.ts";
 import { DocumentSheetV1Options } from "#client/appv1/api/document-sheet-v1.mjs";
 import { SheetOptions } from "./../../sheet/helpers.ts";
+import { CreatureConfig, CreatureConfigData } from "./../creature/config.ts";
 import { NPCPF2e } from "./document.ts";
 export declare class NPCConfig extends CreatureConfig<NPCPF2e> {
     getData(options?: Partial<DocumentSheetV1Options>): Promise<NPCConfigData>;

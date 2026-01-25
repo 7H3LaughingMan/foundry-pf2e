@@ -1,12 +1,12 @@
-import { Folder } from "./../../documents/_module.mjs";
-import { DirectoryCollection, DirectoryMixinEntry } from "./../../documents/abstract/directory-collection-mixin.mjs";
-import { CompendiumIndexData } from "./../../documents/collections/compendium-collection.mjs";
-import { DropCanvasData } from "./../../helpers/hooks.mjs";
-import type Document from "./../../../common/abstract/document.mjs";
 import type { ApplicationConfiguration, ApplicationRenderContext } from "../_types.mjs";
 import type HandlebarsApplicationMixin from "../api/handlebars-application.mjs";
 import type { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../api/handlebars-application.mjs";
 import { ContextMenuEntry } from "../ux/context-menu.mjs";
+import type Document from "./../../../common/abstract/document.mjs";
+import { Folder } from "./../../documents/_module.mjs";
+import { DirectoryCollection, DirectoryMixinEntry } from "./../../documents/abstract/directory-collection-mixin.mjs";
+import { CompendiumIndexData } from "./../../documents/collections/compendium-collection.mjs";
+import { DropCanvasData } from "./../../helpers/hooks.mjs";
 import type AbstractSidebarTab from "./sidebar-tab.mjs";
 
 export interface DocumentDirectoryConfiguration extends ApplicationConfiguration {

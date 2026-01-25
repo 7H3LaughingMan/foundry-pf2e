@@ -1,5 +1,4 @@
-import { TokenAnimationOptions, TokenConstrainMovementPathOptions } from "./../_module.mjs";
-import TokenConfig from "./../applications/sheets/token/token-config.mjs";
+import Token, { TokenResourceData } from "../canvas/placeables/token.mjs";
 import { DocumentConstructionContext, ElevatedPoint, TokenDimensions, TokenPosition } from "./../../common/_types.mjs";
 import {
     DatabaseCreateCallbackOptions,
@@ -16,7 +15,8 @@ import { ImageFilePath } from "./../../common/constants.mjs";
 import { SchemaField } from "./../../common/data/fields.mjs";
 import { GridMeasurePathResult } from "./../../common/grid/_types.mjs";
 import Collection from "./../../common/utils/collection.mjs";
-import Token, { TokenResourceData } from "../canvas/placeables/token.mjs";
+import { TokenAnimationOptions, TokenConstrainMovementPathOptions } from "./../_module.mjs";
+import TokenConfig from "./../applications/sheets/token/token-config.mjs";
 import {
     Actor,
     BaseToken,

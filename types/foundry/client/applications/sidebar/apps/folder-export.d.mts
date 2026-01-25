@@ -1,5 +1,5 @@
-import { HandlebarsRenderOptions } from "./../../../applications/api/handlebars-application.mjs";
 import DialogV2, { DialogV2Configuration } from "../../api/dialog.mjs";
+import { HandlebarsRenderOptions } from "./../../../applications/api/handlebars-application.mjs";
 
 /**
  * A Dialog subclass that allows the user to configure export options for a Folder

@@ -1,8 +1,8 @@
-import { ActorPF2e } from "./actor/index.ts";
 import { MathFunctionName } from "#client/dice/terms/function.mjs";
 import { EnfolderableDocument } from "#client/documents/folder.mjs";
-import { ItemPF2e } from "./item/index.ts";
 import type * as fields from "#common/data/fields.mjs";
+import { ActorPF2e } from "./actor/index.ts";
+import { ItemPF2e } from "./item/index.ts";
 /** The size property of creatures and equipment */
 declare const SIZES: readonly ["tiny", "sm", "med", "lg", "huge", "grg"];
 declare const SIZE_SLUGS: readonly ["tiny", "small", "medium", "large", "huge", "gargantuan"];

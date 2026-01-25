@@ -1,6 +1,6 @@
-import { RawModifier, StatisticModifier } from "./../../actor/modifiers.ts";
 import { ApplicationV1Options } from "#client/appv1/api/application-v1.mjs";
 import { RollMode } from "#common/constants.mjs";
+import { RawModifier, StatisticModifier } from "./../../actor/modifiers.ts";
 import { RollSubstitution } from "./../../rules/synthetics.ts";
 import { CheckCheckContext } from "./types.ts";
 /**

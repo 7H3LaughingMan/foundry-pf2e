@@ -1,4 +1,4 @@
-import { TokenAnimationOptions } from "./../_types.mjs";
+import SceneConfig from "../applications/sheets/scene-config.mjs";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseCreateOperation,
@@ -9,7 +9,7 @@ import {
 import Document from "./../../common/abstract/document.mjs";
 import EmbeddedCollection from "./../../common/abstract/embedded-collection.mjs";
 import { ImageFilePath } from "./../../common/constants.mjs";
-import SceneConfig from "../applications/sheets/scene-config.mjs";
+import { TokenAnimationOptions } from "./../_types.mjs";
 import {
     AmbientLightDocument,
     AmbientSoundDocument,

@@ -1,8 +1,8 @@
+import SearchFilter, { SearchFilterConfiguration } from "../../applications/ux/search-filter.mjs";
+import { UserAction } from "./../../../common/constants.mjs";
 import { Tabs } from "./../../applications/ux/_module.mjs";
 import DragDrop from "./../../applications/ux/drag-drop.mjs";
 import { TabsConfiguration } from "./../../applications/ux/tabs.mjs";
-import { UserAction } from "./../../../common/constants.mjs";
-import SearchFilter, { SearchFilterConfiguration } from "../../applications/ux/search-filter.mjs";
 
 interface ApplicationV1Options {
     /** A named "base application" which generates an additional hook */

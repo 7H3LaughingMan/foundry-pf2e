@@ -1,11 +1,11 @@
 import { ItemUUID } from "#client/documents/_module.mjs";
 import { ImageFilePath } from "#common/constants.mjs";
-import { KitPF2e } from "./../index.ts";
+import { NullField, RecordField, SlugField } from "./../../system/schema-data-fields.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import { BaseItemSourcePF2e, ItemSystemSource } from "./../base/data/system.ts";
 import { ClassTrait } from "./../class/types.ts";
+import { KitPF2e } from "./../index.ts";
 import { PriceField } from "./../physical/schema.ts";
-import { NullField, RecordField, SlugField } from "./../../system/schema-data-fields.ts";
 import fields = foundry.data.fields;
 declare class KitEntriesField extends RecordField<
     fields.StringField<string, string, true, false, false>,

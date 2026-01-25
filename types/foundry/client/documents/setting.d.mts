@@ -1,5 +1,5 @@
-import SettingsConfig from "./../applications/settings/config.mjs";
 import { DatabaseCreateCallbackOptions, DatabaseUpdateCallbackOptions } from "./../../common/abstract/_types.mjs";
+import SettingsConfig from "./../applications/settings/config.mjs";
 import { BaseSetting } from "./_module.mjs";
 import { ClientDocument, ClientDocumentStatic } from "./abstract/client-document.mjs";
 

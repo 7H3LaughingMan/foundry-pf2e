@@ -1,6 +1,6 @@
-import { BoostFlawState } from "./../../character/apps/attribute-builder.ts";
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { PartyPF2e } from "../document.ts";
+import { BoostFlawState } from "./../../character/apps/attribute-builder.ts";
 import { Kingdom } from "./model.ts";
 import { KingdomCHG } from "./schema.ts";
 import { KingdomAbility } from "./types.ts";

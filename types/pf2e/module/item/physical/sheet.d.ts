@@ -1,7 +1,7 @@
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { AppV1RenderOptions } from "#client/appv1/api/application-v1.mjs";
-import { PhysicalItemPF2e } from "./../index.ts";
 import { ItemSheetDataPF2e, ItemSheetOptions, ItemSheetPF2e } from "./../base/sheet/sheet.ts";
+import { PhysicalItemPF2e } from "./../index.ts";
 import { MaterialValuationData } from "./index.ts";
 declare class PhysicalItemSheetPF2e<TItem extends PhysicalItemPF2e> extends ItemSheetPF2e<TItem> {
     static get defaultOptions(): ItemSheetOptions;

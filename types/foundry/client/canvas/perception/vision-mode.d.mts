@@ -1,7 +1,7 @@
-import DataModel from "./../../../common/abstract/data.mjs";
-import * as fields from "./../../../common/data/fields.mjs";
 import Token from "../placeables/token.mjs";
 import PointVisionSource from "../sources/point-vision-source.mjs";
+import DataModel from "./../../../common/abstract/data.mjs";
+import * as fields from "./../../../common/data/fields.mjs";
 
 export class ShaderField extends fields.DataField {
     override _cast(value: unknown): unknown;

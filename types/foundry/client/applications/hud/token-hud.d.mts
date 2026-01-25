@@ -1,10 +1,10 @@
-import { Token } from "./../../canvas/placeables/_module.mjs";
-import Actor from "./../../documents/actor.mjs";
-import { ImageFilePath } from "./../../../common/constants.mjs";
 import type { ApplicationConfiguration, ApplicationPosition } from "../_types.mjs";
 import type HandlebarsApplicationMixin from "../api/handlebars-application.mjs";
 import type { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../api/handlebars-application.mjs";
 import FormDataExtended from "../ux/form-data-extended.mjs";
+import { ImageFilePath } from "./../../../common/constants.mjs";
+import { Token } from "./../../canvas/placeables/_module.mjs";
+import Actor from "./../../documents/actor.mjs";
 import type BasePlaceableHUD from "./placeable-hud.mjs";
 import type { PlaceableHUDContext } from "./placeable-hud.mjs";
 

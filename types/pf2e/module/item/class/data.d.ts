@@ -1,10 +1,10 @@
-import { AttributeString, SkillSlug } from "./../../actor/types.ts";
 import { ModelPropsFromSchema, SourceFromSchema } from "#common/data/fields.mjs";
+import { AttributeString, SkillSlug } from "./../../actor/types.ts";
+import { ProficiencyRankField, RarityField } from "./../../model.ts";
+import { LaxArrayField, RecordField, SlugField } from "./../../system/schema-data-fields.ts";
 import { ABCFeatureEntryField } from "./../abc/data.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import { BaseItemSourcePF2e, ItemSystemSource, RarityTraitAndOtherTags } from "./../base/data/system.ts";
-import { ProficiencyRankField, RarityField } from "./../../model.ts";
-import { LaxArrayField, RecordField, SlugField } from "./../../system/schema-data-fields.ts";
 import { ClassPF2e } from "./document.ts";
 import fields = foundry.data.fields;
 type ClassSource = BaseItemSourcePF2e<"class", ClassSystemSource>;

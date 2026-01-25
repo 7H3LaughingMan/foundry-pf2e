@@ -1,9 +1,9 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import { DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
-import { WeaponPF2e } from "./../index.ts";
-import { RawItemChatData } from "./../base/data/index.ts";
-import { PhysicalItemPF2e } from "./../physical/index.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { EnrichmentOptionsPF2e } from "./../../system/text-editor.ts";
+import { RawItemChatData } from "./../base/data/index.ts";
+import { WeaponPF2e } from "./../index.ts";
+import { PhysicalItemPF2e } from "./../physical/index.ts";
 import { ShieldSource, ShieldSystemData } from "./data.ts";
 import { BaseShieldType, ShieldTrait } from "./types.ts";
 declare class ShieldPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {

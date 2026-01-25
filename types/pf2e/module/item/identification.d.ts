@@ -1,6 +1,6 @@
-import { SkillSlug } from "./../actor/types.ts";
 import { ImageFilePath } from "#common/constants.mjs";
 import { DCOptions } from "../dc.ts";
+import { SkillSlug } from "./../actor/types.ts";
 import { PhysicalItemPF2e } from "./physical/index.ts";
 type MagicSkill = Extract<SkillSlug, "arcana" | "nature" | "religion" | "occultism">;
 type IdentifyMagicDCs = Record<MagicSkill, number>;

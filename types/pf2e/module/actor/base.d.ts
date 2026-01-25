@@ -1,4 +1,3 @@
-import { ActorAlliance, ActorDimensions, ActorInstances, ApplyDamageParams, AuraData, SaveType } from ".//types.ts";
 import { DialogV2Configuration } from "#client/applications/api/dialog.mjs";
 import { ActorUUID } from "#client/documents/_module.mjs";
 import { ToCompendiumOptions } from "#client/documents/abstract/_module.mjs";
@@ -10,26 +9,25 @@ import {
     Document,
 } from "#common/abstract/_module.mjs";
 import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
-import {
-    AbstractEffectPF2e,
-    ConditionPF2e,
-    ContainerPF2e,
-    PhysicalItemPF2e,
-    ShieldPF2e,
-    ItemPF2e,
-} from "./../item/index.ts";
-import { ItemSourcePF2e, PhysicalItemSource } from "./../item/base/data/index.ts";
-import { ConditionKey, ConditionSlug, ConditionSource } from "./../item/condition/index.ts";
-import { EffectSource } from "./../item/effect/data.ts";
-import { ItemType } from "./../item/types.ts";
 import { ActiveEffectPF2e } from "./../active-effect.ts";
 import { TokenPF2e } from "./../canvas/index.ts";
 import { AppliedDamageFlag } from "./../chat-message/index.ts";
 import { Size } from "./../data.ts";
 import { CombatantPF2e, EncounterPF2e } from "./../encounter/index.ts";
+import { ItemSourcePF2e, PhysicalItemSource } from "./../item/base/data/index.ts";
+import { ConditionKey, ConditionSlug, ConditionSource } from "./../item/condition/index.ts";
+import { EffectSource } from "./../item/effect/data.ts";
+import {
+    AbstractEffectPF2e,
+    ConditionPF2e,
+    ContainerPF2e,
+    ItemPF2e,
+    PhysicalItemPF2e,
+    ShieldPF2e,
+} from "./../item/index.ts";
+import { ItemType } from "./../item/types.ts";
 import { RuleElementSynthetics } from "./../rules/index.ts";
 import { RuleElement } from "./../rules/rule-element/base.ts";
-import { UserPF2e } from "./../user/document.ts";
 import { ScenePF2e } from "./../scene/document.ts";
 import { TokenDocumentPF2e } from "./../scene/token-document/document.ts";
 import { DamageType } from "./../system/damage/types.ts";
@@ -40,6 +38,8 @@ import {
     StatisticDifficultyClass,
 } from "./../system/statistic/index.ts";
 import { RollDataPF2e } from "./../system/text-editor.ts";
+import { UserPF2e } from "./../user/document.ts";
+import { ActorAlliance, ActorDimensions, ActorInstances, ApplyDamageParams, AuraData, SaveType } from ".//types.ts";
 import { ActorConditions } from "./conditions.ts";
 import { Abilities, VisionLevel } from "./creature/data.ts";
 import { GetReachParameters, ModeOfBeing, ResourceData } from "./creature/types.ts";

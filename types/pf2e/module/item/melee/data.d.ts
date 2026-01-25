@@ -1,12 +1,12 @@
 import { ModelPropsFromSchema, SourceFromSchema } from "#common/data/fields.mjs";
-import { MeleePF2e } from "./../index.ts";
+import { DamageCategoryUnique, DamageType } from "./../../system/damage/types.ts";
+import { RecordField, SlugField } from "./../../system/schema-data-fields.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import { BaseItemSourcePF2e, ItemFlagsPF2e, ItemSystemSource, ItemTraitsNoRarity } from "./../base/data/system.ts";
+import { MeleePF2e } from "./../index.ts";
 import { EffectAreaShape } from "./../types.ts";
 import { WeaponMaterialData } from "./../weapon/data.ts";
 import { WeaponPropertyRuneType } from "./../weapon/types.ts";
-import { DamageCategoryUnique, DamageType } from "./../../system/damage/types.ts";
-import { RecordField, SlugField } from "./../../system/schema-data-fields.ts";
 import { NPCAttackActionType, NPCAttackTrait } from "./types.ts";
 import fields = foundry.data.fields;
 type MeleeSource = BaseItemSourcePF2e<"melee", MeleeSystemSource> & {

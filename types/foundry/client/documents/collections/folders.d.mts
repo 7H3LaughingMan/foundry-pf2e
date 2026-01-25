@@ -1,6 +1,6 @@
-import { ApplicationV1Options } from "./../../appv1/api/application-v1.mjs";
 import WorldCollection from "../abstract/world-collection.mjs";
 import Folder from "../folder.mjs";
+import { ApplicationV1Options } from "./../../appv1/api/application-v1.mjs";
 
 /**
  * The Collection of Folder documents which exist within the active World.

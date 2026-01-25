@@ -1,7 +1,7 @@
-import { CanvasAnimationData } from "./../../../canvas/animation/_types.mjs";
+import { PingOptions } from "../_types.mjs";
 import { Point } from "./../../../../common/_types.mjs";
 import { ImageFilePath } from "./../../../../common/constants.mjs";
-import { PingOptions } from "../_types.mjs";
+import { CanvasAnimationData } from "./../../../canvas/animation/_types.mjs";
 import Ping from "./ping.mjs";
 
 /**

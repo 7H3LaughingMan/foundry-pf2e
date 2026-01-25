@@ -1,8 +1,8 @@
 import { ActorPF2e } from "./../../actor/index.ts";
-import { ContainerPF2e, PhysicalItemPF2e } from "./../index.ts";
+import { Rarity } from "./../../data.ts";
 import { PhysicalItemSource } from "./../base/data/index.ts";
 import { ContainerBulkData } from "./../container/data.ts";
-import { Rarity } from "./../../data.ts";
+import { ContainerPF2e, PhysicalItemPF2e } from "./../index.ts";
 import { Coins } from "./coins.ts";
 import { BulkData, EquippedData } from "./data.ts";
 declare function computeLevelRarityPrice(item: PhysicalItemPF2e): {
@@ -50,8 +50,8 @@ declare function transferCredits({
     quantity: number;
 }): Promise<void>;
 export {
-    Coins,
     checkPhysicalItemSystemChange,
+    Coins,
     computeLevelRarityPrice,
     generateItemName,
     getDefaultEquipStatus,

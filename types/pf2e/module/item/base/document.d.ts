@@ -1,4 +1,3 @@
-import { ActorPF2e } from "./../../actor/base.ts";
 import { DialogV2Configuration } from "#client/applications/api/dialog.mjs";
 import { DocumentHTMLEmbedConfig } from "#client/applications/ux/text-editor.mjs";
 import { ItemUUID } from "#client/documents/_module.mjs";
@@ -13,12 +12,13 @@ import {
     Document,
 } from "#common/abstract/_module.mjs";
 import { ImageFilePath, RollMode } from "#common/constants.mjs";
-import { PhysicalItemPF2e } from "./../index.ts";
+import { ItemInstances, ItemType } from "../types.ts";
+import { ActorPF2e } from "./../../actor/base.ts";
 import { ItemOriginFlag } from "./../../chat-message/data.ts";
 import { ChatMessagePF2e } from "./../../chat-message/document.ts";
 import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { EnrichmentOptionsPF2e, RollDataPF2e } from "./../../system/text-editor.ts";
-import { ItemInstances, ItemType } from "../types.ts";
+import { PhysicalItemPF2e } from "./../index.ts";
 import { ItemFlagsPF2e, ItemSourcePF2e, ItemSystemData, RawItemChatData, TraitChatData } from "./data/index.ts";
 import { ItemDescriptionData, ItemTrait } from "./data/system.ts";
 import { ItemSheetPF2e } from "./sheet/sheet.ts";

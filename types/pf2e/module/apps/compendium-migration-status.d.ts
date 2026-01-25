@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../actor/index.ts";
 import { default as CompendiumCollection } from "#client/documents/collections/compendium-collection.mjs";
+import { ActorPF2e } from "./../actor/index.ts";
 import { ItemPF2e } from "./../item/index.ts";
 import appv1 = foundry.appv1;
 /** Dialog used to view compendium data and migrate them. */

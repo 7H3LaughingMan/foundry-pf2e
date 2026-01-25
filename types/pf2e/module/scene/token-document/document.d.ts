@@ -1,5 +1,3 @@
-import { ActorPF2e } from "./../../actor/index.ts";
-import { PrototypeTokenPF2e } from "./../../actor/data/base.ts";
 import { TrackedAttributesDescription } from "#client/_types.mjs";
 import { TokenResourceData } from "#client/canvas/placeables/token.mjs";
 import { TokenUpdateCallbackOptions } from "#client/documents/token.mjs";
@@ -11,10 +9,12 @@ import {
 } from "#common/abstract/_types.mjs";
 import { default as Document } from "#common/abstract/document.mjs";
 import { GridMeasurePathResult } from "#common/grid/_types.mjs";
+import { ScenePF2e } from "../document.ts";
+import { PrototypeTokenPF2e } from "./../../actor/data/base.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { TokenPF2e } from "./../../canvas/index.ts";
 import { CombatantPF2e, EncounterPF2e } from "./../../encounter/index.ts";
 import { DifficultTerrainGrade, RegionDocumentPF2e } from "./../index.ts";
-import { ScenePF2e } from "../document.ts";
 import { TokenAura } from "./aura/index.ts";
 import { TokenFlagsPF2e } from "./data.ts";
 import { TokenConfigPF2e } from "./sheets/token-config.ts";

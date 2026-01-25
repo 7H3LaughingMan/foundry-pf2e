@@ -1,5 +1,5 @@
-import { Point } from "./../../../../common/_types.mjs";
 import { PulsePingOptions } from "../_types.mjs";
+import { Point } from "./../../../../common/_types.mjs";
 import PulsePing from "./pulse.mjs";
 
 /**

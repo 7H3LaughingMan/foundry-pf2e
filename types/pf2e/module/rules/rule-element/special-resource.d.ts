@@ -1,6 +1,6 @@
+import { ItemUUID } from "#client/documents/_module.mjs";
 import { ActorType, CreaturePF2e } from "./../../actor/index.ts";
 import { ActorGroupUpdate } from "./../../actor/types.ts";
-import { ItemUUID } from "#client/documents/_module.mjs";
 import { AnyChoiceField } from "./../../system/schema-data-fields.ts";
 import { RuleElement, RuleElementOptions } from "./base.ts";
 import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource } from "./data.ts";

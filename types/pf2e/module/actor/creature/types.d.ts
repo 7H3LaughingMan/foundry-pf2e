@@ -1,10 +1,10 @@
+import { LabeledValueAndMax } from "./../../data.ts";
+import { AbilityItemPF2e, MeleePF2e, WeaponPF2e } from "./../../item/index.ts";
+import { TokenDocumentPF2e } from "./../../scene/index.ts";
+import { SpeedStatistic } from "./../../system/statistic/speed.ts";
 import { ActorPF2e, ActorUpdateCallbackOptions, ActorUpdateOperation } from "./../base.ts";
 import { MovementType } from "./../types.ts";
 import { CREATURE_ACTOR_TYPES } from "./../values.ts";
-import { AbilityItemPF2e, MeleePF2e, WeaponPF2e } from "./../../item/index.ts";
-import { LabeledValueAndMax } from "./../../data.ts";
-import { TokenDocumentPF2e } from "./../../scene/index.ts";
-import { SpeedStatistic } from "./../../system/statistic/speed.ts";
 import { CreaturePF2e } from "./document.ts";
 import { CreatureMovementData } from "./index.ts";
 import { LANGUAGES_BY_RARITY, SENSE_TYPES } from "./values.ts";

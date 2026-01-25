@@ -1,6 +1,6 @@
 import { ActorPF2e, CharacterPF2e } from "./../../module/actor/index.ts";
-import { Coins } from "./../../module/item/physical/coins.ts";
 import { OneToFour } from "./../../module/data.ts";
+import { Coins } from "./../../module/item/physical/coins.ts";
 interface ConstructorParams extends DeepPartial<fa.ApplicationConfiguration> {
     actor: CharacterPF2e;
 }

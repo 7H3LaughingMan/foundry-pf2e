@@ -1,9 +1,9 @@
-import { ActorPF2e, CharacterPF2e } from "./../index.ts";
+import { ZeroToFour } from "./../../data.ts";
+import { AbilityItemPF2e, AmmoPF2e, ArmorPF2e, WeaponPF2e } from "./../../item/index.ts";
 import { AttackTraitHelpers } from "./../creature/helpers.ts";
 import { AttackAmmunitionData } from "./../data/base.ts";
+import { ActorPF2e, CharacterPF2e } from "./../index.ts";
 import { Modifier } from "./../modifiers.ts";
-import { AbilityItemPF2e, AmmoPF2e, ArmorPF2e, WeaponPF2e } from "./../../item/index.ts";
-import { ZeroToFour } from "./../../data.ts";
 import { WeaponAuxiliaryAction } from "./auxiliary.ts";
 /** Handle weapon traits that introduce modifiers or add other weapon traits */
 declare class PCAttackTraitHelpers extends AttackTraitHelpers {

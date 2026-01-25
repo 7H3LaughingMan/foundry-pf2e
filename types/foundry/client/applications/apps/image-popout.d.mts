@@ -1,4 +1,3 @@
-import Document from "./../../../common/abstract/document.mjs";
 import { ApplicationConfiguration, ApplicationRenderContext } from "../_types.mjs";
 import {
     ApplicationV2,
@@ -6,6 +5,7 @@ import {
     HandlebarsRenderOptions,
     HandlebarsTemplatePart,
 } from "../api/_module.mjs";
+import Document from "./../../../common/abstract/document.mjs";
 
 interface ImagePopoutConfiguration extends ApplicationConfiguration {
     /** The URL to the image or video file */

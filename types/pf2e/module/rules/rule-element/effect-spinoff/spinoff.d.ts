@@ -1,8 +1,8 @@
-import { ActorPF2e } from "./../../../actor/index.ts";
-import { TraitViewData } from "./../../../actor/data/base.ts";
 import { ImageFilePath } from "#common/constants.mjs";
-import { PhysicalItemPF2e } from "./../../../item/index.ts";
+import { TraitViewData } from "./../../../actor/data/base.ts";
+import { ActorPF2e } from "./../../../actor/index.ts";
 import { EffectSource } from "./../../../item/effect/data.ts";
+import { PhysicalItemPF2e } from "./../../../item/index.ts";
 import { EffectSpinoffRuleElement } from "./rule-element.ts";
 declare class EffectSpinoff {
     item: PhysicalItemPF2e<ActorPF2e>;

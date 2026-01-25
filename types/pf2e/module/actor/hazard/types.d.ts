@@ -1,10 +1,10 @@
-import { ActorPF2e, HazardPF2e } from "./../index.ts";
-import { TraitViewData } from "./../data/base.ts";
-import { ActorSheetDataPF2e } from "./../sheet/data-types.ts";
-import { SaveType } from "./../types.ts";
 import { FormSelectOption } from "#client/applications/forms/fields.mjs";
 import { AbilityItemPF2e, MeleePF2e } from "./../../item/index.ts";
 import { NPCAttackTraitOrTag } from "./../../sheet/helpers.ts";
+import { TraitViewData } from "./../data/base.ts";
+import { ActorPF2e, HazardPF2e } from "./../index.ts";
+import { ActorSheetDataPF2e } from "./../sheet/data-types.ts";
+import { SaveType } from "./../types.ts";
 interface HazardSheetData extends ActorSheetDataPF2e<HazardPF2e> {
     attacks: HazardAttackSheedData[];
     actions: HazardActionSheetData;

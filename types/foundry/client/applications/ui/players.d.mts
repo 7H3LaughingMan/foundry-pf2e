@@ -1,4 +1,3 @@
-import User from "./../../documents/user.mjs";
 import { ApplicationConfiguration, ApplicationRenderContext } from "../_module.mjs";
 import ApplicationV2 from "../api/application.mjs";
 import HandlebarsApplicationMixin, {
@@ -6,6 +5,7 @@ import HandlebarsApplicationMixin, {
     HandlebarsTemplatePart,
 } from "../api/handlebars-application.mjs";
 import { ContextMenuEntry } from "../ux/context-menu.mjs";
+import User from "./../../documents/user.mjs";
 
 /**
  * A UI element which displays the Users defined for this world.

@@ -1,3 +1,4 @@
+import ApplicationV2 from "../../api/application.mjs";
 import {
     ApplicationClosingOptions,
     ApplicationConfiguration,
@@ -5,7 +6,6 @@ import {
     ApplicationRenderOptions,
 } from "./../../../applications/_module.mjs";
 import ChatMessage from "./../../../documents/chat-message.mjs";
-import ApplicationV2 from "../../api/application.mjs";
 
 interface ChatPopoutConfiguration extends ApplicationConfiguration {
     /** The message being rendered. */

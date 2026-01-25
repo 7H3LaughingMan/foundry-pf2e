@@ -1,7 +1,7 @@
-import User from "./../../../documents/user.mjs";
-import { ElevatedPoint, Point } from "./../../../../common/_types.mjs";
 import { RenderFlag } from "../_types.mjs";
 import { RenderFlagsObject } from "../render-flags.mjs";
+import { ElevatedPoint, Point } from "./../../../../common/_types.mjs";
+import User from "./../../../documents/user.mjs";
 
 /**
  * The ruler that is used to measure distances on the Canvas.

@@ -1,7 +1,7 @@
-import Note from "./../canvas/placeables/note.mjs";
+import { JournalPageSheet } from "../appv1/sheets/journal-page-sheet.mjs";
 import { DatabaseUpdateCallbackOptions } from "./../../common/abstract/_types.mjs";
 import { DocumentOwnershipLevel } from "./../../common/constants.mjs";
-import { JournalPageSheet } from "../appv1/sheets/journal-page-sheet.mjs";
+import Note from "./../canvas/placeables/note.mjs";
 import { BaseJournalEntryPage } from "./_module.mjs";
 import { ClientDocument } from "./abstract/client-document.mjs";
 import JournalEntry from "./journal-entry.mjs";

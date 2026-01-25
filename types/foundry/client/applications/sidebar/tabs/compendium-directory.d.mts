@@ -1,10 +1,10 @@
+import { HandlebarsApplicationMixin, HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/_module.mjs";
+import AbstractSidebarTab from "../sidebar-tab.mjs";
 import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_types.mjs";
 import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
 import { CompendiumDocument } from "./../../../documents/_module.mjs";
 import CompendiumCollection, { CompendiumIndexData } from "./../../../documents/collections/compendium-collection.mjs";
 import { DropCanvasData } from "./../../../helpers/hooks.mjs";
-import { HandlebarsApplicationMixin, HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/_module.mjs";
-import AbstractSidebarTab from "../sidebar-tab.mjs";
 
 export interface CompendiumPackDirectoryContext {
     /** Whether the pack is locked. */

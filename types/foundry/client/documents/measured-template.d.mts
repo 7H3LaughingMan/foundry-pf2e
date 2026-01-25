@@ -1,5 +1,5 @@
-import MeasuredTemplateConfig from "./../applications/sheets/template-config.mjs";
 import MeasuredTemplate from "../canvas/placeables/template.mjs";
+import MeasuredTemplateConfig from "./../applications/sheets/template-config.mjs";
 import { BaseMeasuredTemplate, Scene } from "./_module.mjs";
 import { CanvasDocument, CanvasDocumentStatic } from "./abstract/canvas-document.mjs";
 

@@ -1,7 +1,7 @@
 import { Rolled } from "#client/dice/roll.mjs";
 import { ImageFilePath } from "#common/constants.mjs";
-import { AbilityItemPF2e } from "./../../item/index.ts";
 import { EffectTrait } from "./../../item/abstract-effect/types.ts";
+import { AbilityItemPF2e } from "./../../item/index.ts";
 import { RangeData } from "./../../item/types.ts";
 import { WeaponTrait } from "./../../item/weapon/types.ts";
 import { CheckRoll } from "./../../system/check/index.ts";

@@ -1,9 +1,9 @@
 import { CreaturePF2e } from "./../../actor/index.ts";
 import { AttributeString } from "./../../actor/types.ts";
-import { PhysicalItemPF2e, SpellPF2e } from "./../index.ts";
-import { MagicTradition } from "./../spell/types.ts";
 import { Predicate } from "./../../system/predication.ts";
 import { Statistic } from "./../../system/statistic/statistic.ts";
+import { PhysicalItemPF2e, SpellPF2e } from "./../index.ts";
+import { MagicTradition } from "./../spell/types.ts";
 import { SpellCollection } from "./collection.ts";
 import { CastOptions, SpellcastingEntry, SpellcastingSheetData } from "./types.ts";
 /** An in-memory spellcasting entry for items-only spellcasting */

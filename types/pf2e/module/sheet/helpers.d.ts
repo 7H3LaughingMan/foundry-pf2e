@@ -1,13 +1,12 @@
-import { ActorPF2e } from "./../actor/index.ts";
 import { default as Application } from "#client/appv1/api/application-v1.mjs";
 import { TooltipDirection } from "#client/helpers/interaction/tooltip-manager.mjs";
-import { RollMode } from "#common/constants.mjs";
-import { ImageFilePath } from "#common/constants.mjs";
+import { ImageFilePath, RollMode } from "#common/constants.mjs";
 import { ItemUUID } from "#common/documents/_module.mjs";
-import { ItemPF2e, MeleePF2e, PhysicalItemPF2e } from "./../item/index.ts";
-import { ActionCost, TraitChatData } from "./../item/base/data/index.ts";
-import { ItemType } from "./../item/types.ts";
+import { ActorPF2e } from "./../actor/index.ts";
 import { Rarity } from "./../data.ts";
+import { ActionCost, TraitChatData } from "./../item/base/data/index.ts";
+import { ItemPF2e, MeleePF2e, PhysicalItemPF2e } from "./../item/index.ts";
+import { ItemType } from "./../item/types.ts";
 /** Prepare form options on an item or actor sheet */
 declare function createSheetOptions(
     options: Record<

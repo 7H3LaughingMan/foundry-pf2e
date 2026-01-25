@@ -1,7 +1,7 @@
-import { ActorPF2e } from "./../index.ts";
-import { StrikeData } from "./../data/base.ts";
 import { ItemPF2e } from "./../../item/index.ts";
 import { Statistic } from "./../../system/statistic/statistic.ts";
+import { StrikeData } from "./../data/base.ts";
+import { ActorPF2e } from "./../index.ts";
 import { RollContext } from "./base.ts";
 import { CheckContextConstructorParams, CheckContextData } from "./types.ts";
 declare class CheckContext<

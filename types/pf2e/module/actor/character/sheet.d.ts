@@ -1,9 +1,9 @@
-import { CreatureSheetData, Language, ResourceData } from "./../creature/index.ts";
-import { Sense } from "./../creature/sense.ts";
-import { SheetClickActionHandlers } from "./../sheet/base.ts";
-import { AbilityViewData, InventoryItem } from "./../sheet/data-types.ts";
-import { AttributeString, SaveType } from "./../types.ts";
 import { ActorSheetOptions } from "#client/appv1/sheets/actor-sheet.mjs";
+import { CreatureSheetPF2e } from "../creature/sheet.ts";
+import { DropCanvasItemData } from "./../../canvas/drop-canvas-data.ts";
+import { LabeledValueAndMax, ZeroToFour } from "./../../data.ts";
+import { TraitToggleViewData } from "./../../item/ability/trait-toggles.ts";
+import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
 import {
     AncestryPF2e,
     BackgroundPF2e,
@@ -11,17 +11,17 @@ import {
     DeityPF2e,
     FeatPF2e,
     HeritagePF2e,
-    PhysicalItemPF2e,
     ItemPF2e,
+    PhysicalItemPF2e,
 } from "./../../item/index.ts";
-import { TraitToggleViewData } from "./../../item/ability/trait-toggles.ts";
-import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
 import { MagicTradition } from "./../../item/spell/types.ts";
 import { SpellcastingSheetData } from "./../../item/spellcasting-entry/types.ts";
-import { DropCanvasItemData } from "./../../canvas/drop-canvas-data.ts";
-import { LabeledValueAndMax, ZeroToFour } from "./../../data.ts";
 import { DamageType } from "./../../system/damage/types.ts";
-import { CreatureSheetPF2e } from "../creature/sheet.ts";
+import { CreatureSheetData, Language, ResourceData } from "./../creature/index.ts";
+import { Sense } from "./../creature/sense.ts";
+import { SheetClickActionHandlers } from "./../sheet/base.ts";
+import { AbilityViewData, InventoryItem } from "./../sheet/data-types.ts";
+import { AttributeString, SaveType } from "./../types.ts";
 import { CharacterConfig } from "./config.ts";
 import { CraftingAbilitySheetData } from "./crafting/ability.ts";
 import {

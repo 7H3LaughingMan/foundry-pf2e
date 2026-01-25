@@ -1,7 +1,3 @@
-import { CreaturePF2e, FamiliarPF2e } from "./../index.ts";
-import { CreatureUpdateCallbackOptions, ResourceData } from "./../creature/types.ts";
-import { ActorInitiative } from "./../initiative.ts";
-import { AttributeString } from "./../types.ts";
 import {
     AncestryPF2e,
     BackgroundPF2e,
@@ -16,6 +12,10 @@ import { ItemType } from "./../../item/types.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { RollParameters } from "./../../system/rolls.ts";
 import { Statistic } from "./../../system/statistic/index.ts";
+import { CreatureUpdateCallbackOptions, ResourceData } from "./../creature/types.ts";
+import { CreaturePF2e, FamiliarPF2e } from "./../index.ts";
+import { ActorInitiative } from "./../initiative.ts";
+import { AttributeString } from "./../types.ts";
 import { CharacterCrafting } from "./crafting/index.ts";
 import {
     BaseWeaponProficiencyKey,

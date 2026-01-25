@@ -1,3 +1,4 @@
+import DocumentDirectory, { DocumentDirectoryConfiguration } from "../document-directory.mjs";
 import { ApplicationRenderContext } from "./../../../applications/_types.mjs";
 import {
     HandlebarsRenderOptions,
@@ -6,7 +7,6 @@ import {
 import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
 import { CompendiumDocument } from "./../../../documents/_module.mjs";
 import { DropCanvasData } from "./../../../helpers/hooks.mjs";
-import DocumentDirectory, { DocumentDirectoryConfiguration } from "../document-directory.mjs";
 
 /**
  * An Application that displays the indexed contents of a Compendium pack.

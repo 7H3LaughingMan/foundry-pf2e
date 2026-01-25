@@ -1,13 +1,13 @@
-import { Scene, User, WallDocument } from "./../../documents/_module.mjs";
+import { DoorControl } from "../containers/_module.mjs";
+import { Ray } from "../geometry/_module.mjs";
+import MouseInteractionManager from "../interaction/mouse-handler.mjs";
+import { WallsLayer } from "../layers/_module.mjs";
 import {
     DatabaseCreateCallbackOptions,
     DatabaseDeleteCallbackOptions,
     DatabaseUpdateCallbackOptions,
 } from "./../../../common/abstract/_types.mjs";
-import { DoorControl } from "../containers/_module.mjs";
-import { Ray } from "../geometry/_module.mjs";
-import MouseInteractionManager from "../interaction/mouse-handler.mjs";
-import { WallsLayer } from "../layers/_module.mjs";
+import { Scene, User, WallDocument } from "./../../documents/_module.mjs";
 import { PlaceableObject, Tile } from "./_module.mjs";
 
 /**

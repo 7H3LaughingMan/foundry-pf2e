@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../index.ts";
 import { DataModelConstructionContext } from "#common/abstract/_module.mjs";
+import { ActorPF2e } from "./../index.ts";
 import { SenseData } from "./data.ts";
 import { SenseAcuity, SenseType } from "./index.ts";
 import fields = foundry.data.fields;

@@ -6,9 +6,9 @@ import {
     Modifier,
     ModifierAdjustment,
 } from "./../actor/modifiers.ts";
-import { ItemPF2e } from "./../item/index.ts";
-import { ConditionSource, EffectSource } from "./../item/base/data/index.ts";
 import { PickableThing } from "./../apps/pick-a-thing-prompt/app.ts";
+import { ConditionSource, EffectSource } from "./../item/base/data/index.ts";
+import { ItemPF2e } from "./../item/index.ts";
 import { RollNotePF2e } from "./../notes.ts";
 import { BaseDamageData } from "./../system/damage/index.ts";
 import { DegreeOfSuccessAdjustment } from "./../system/degree-of-success.ts";

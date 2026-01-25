@@ -1,14 +1,14 @@
+import { DatabaseDeleteCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { ActorPF2e } from "./../../actor/index.ts";
 import { AttributeString } from "./../../actor/types.ts";
-import { DatabaseDeleteCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
-import { AmmoPF2e, MeleePF2e, ShieldPF2e, PhysicalItemPF2e } from "./../index.ts";
+import { StrikeRuleElement } from "./../../rules/rule-element/strike.ts";
+import { EnrichmentOptionsPF2e } from "./../../system/text-editor.ts";
 import { ItemSourcePF2e, RawItemChatData } from "./../base/data/index.ts";
+import { AmmoPF2e, MeleePF2e, PhysicalItemPF2e, ShieldPF2e } from "./../index.ts";
 import { NPCAttackTrait } from "./../melee/types.ts";
 import { PhysicalItemConstructionContext } from "./../physical/document.ts";
 import { IdentificationStatus, MystifiedData } from "./../physical/index.ts";
 import { RangeData } from "./../types.ts";
-import { StrikeRuleElement } from "./../../rules/rule-element/strike.ts";
-import { EnrichmentOptionsPF2e } from "./../../system/text-editor.ts";
 import { WeaponDamage, WeaponFlags, WeaponSource, WeaponSystemData } from "./data.ts";
 import { BaseWeaponType, OtherWeaponTag, WeaponCategory, WeaponGroup, WeaponReloadTime, WeaponTrait } from "./types.ts";
 declare class WeaponPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {

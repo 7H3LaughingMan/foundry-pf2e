@@ -1,11 +1,11 @@
+import * as ClipperLib from "js-angusj-clipper";
+import { Point } from "../../../common/_types.mjs";
+import { DatabaseUpdateCallbackOptions } from "./../../../common/abstract/_types.mjs";
 import { RegionPolygonTree } from "./../../data/region-shapes/polygon-tree.mjs";
 import { RegionShape } from "./../../data/region-shapes/shape.mjs";
 import RegionDocument from "./../../documents/region.mjs";
 import Scene from "./../../documents/scene.mjs";
 import User from "./../../documents/user.mjs";
-import { DatabaseUpdateCallbackOptions } from "./../../../common/abstract/_types.mjs";
-import * as ClipperLib from "js-angusj-clipper";
-import { Point } from "../../../common/_types.mjs";
 import PlaceableObject from "./placeable-object.mjs";
 import RegionGeometry from "./regions/geometry.mjs";
 

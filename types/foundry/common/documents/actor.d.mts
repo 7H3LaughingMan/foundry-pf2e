@@ -1,4 +1,3 @@
-import { ImageFilePath, VideoFilePath } from "./../constants.mjs";
 import { DocumentConstructionContext } from "../_types.mjs";
 import {
     DatabaseCreateCallbackOptions,
@@ -9,6 +8,7 @@ import {
 } from "../abstract/_module.mjs";
 import * as data from "../data/data.mjs";
 import * as fields from "../data/fields.mjs";
+import { ImageFilePath, VideoFilePath } from "./../constants.mjs";
 import { ActorUUID, BaseActiveEffect, BaseFolder, BaseItem, BaseToken, BaseUser, ItemSource } from "./_module.mjs";
 
 /**

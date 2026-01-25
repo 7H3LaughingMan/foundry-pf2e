@@ -1,5 +1,5 @@
-import { DocumentUUID } from "./../../utils/_module.mjs";
 import { FormInputConfig } from "./../../../common/data/_types.mjs";
+import { DocumentUUID } from "./../../utils/_module.mjs";
 import AbstractFormInputElement from "./form-element.mjs";
 
 /**

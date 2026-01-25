@@ -1,8 +1,8 @@
+import { ZeroToFour } from "./../../data.ts";
+import { MagicTradition } from "./../../item/spell/types.ts";
+import { Statistic } from "./../../system/statistic/index.ts";
 import { HitPointsSummary } from "./../base.ts";
 import { SaveType, SkillSlug } from "./../types.ts";
-import { MagicTradition } from "./../../item/spell/types.ts";
-import { ZeroToFour } from "./../../data.ts";
-import { Statistic } from "./../../system/statistic/index.ts";
 import { CharacterPF2e } from "./document.ts";
 interface CharacterHitPointsSummary extends HitPointsSummary {
     recoveryMultiplier: number;

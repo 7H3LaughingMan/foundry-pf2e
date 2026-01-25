@@ -1,10 +1,10 @@
-import { ActorPF2e } from "./../actor/index.ts";
-import { AttackAction, StrikeData } from "./../actor/data/base.ts";
 import { DataModelConstructionContext } from "#common/abstract/_module.mjs";
 import { ChatMessageCreateCallbackOptions, ChatMessageCreateOperation } from "#common/documents/chat-message.mjs";
+import { AttackAction, StrikeData } from "./../actor/data/base.ts";
+import { ActorPF2e } from "./../actor/index.ts";
 import { ItemPF2e } from "./../item/index.ts";
-import { UserPF2e } from "./../user/index.ts";
 import { ScenePF2e, TokenDocumentPF2e } from "./../scene/index.ts";
+import { UserPF2e } from "./../user/index.ts";
 import { ChatMessageFlagsPF2e, ChatMessageSourcePF2e } from "./data.ts";
 declare class ChatMessagePF2e extends ChatMessage {
     #private;

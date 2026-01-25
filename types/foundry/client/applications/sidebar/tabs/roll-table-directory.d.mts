@@ -1,7 +1,7 @@
+import DocumentDirectory from "../document-directory.mjs";
 import { ApplicationConfiguration } from "./../../../applications/_types.mjs";
 import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
 import RollTable from "./../../../documents/roll-table.mjs";
-import DocumentDirectory from "../document-directory.mjs";
 
 /**
  * The World RollTable directory listing.

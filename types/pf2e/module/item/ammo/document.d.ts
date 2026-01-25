@@ -1,10 +1,10 @@
 import { ActorPF2e } from "./../../actor/index.ts";
+import { ValueAndMax } from "./../../data.ts";
+import { EnrichmentOptionsPF2e } from "./../../system/text-editor.ts";
 import { RawItemChatData } from "./../base/data/index.ts";
 import { ConsumableTrait } from "./../consumable/types.ts";
 import { PhysicalItemPF2e } from "./../physical/index.ts";
 import { WeaponPF2e } from "./../weapon/document.ts";
-import { ValueAndMax } from "./../../data.ts";
-import { EnrichmentOptionsPF2e } from "./../../system/text-editor.ts";
 import { AmmoSource, AmmoSystemData } from "./data.ts";
 declare class AmmoPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {
     static get validTraits(): Record<ConsumableTrait, string>;

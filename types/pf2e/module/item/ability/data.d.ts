@@ -1,5 +1,7 @@
 import { ItemUUID } from "#client/documents/_module.mjs";
 import { ImageFilePath } from "#common/constants.mjs";
+import { OneToThree } from "./../../data.ts";
+import { SlugField } from "./../../system/schema-data-fields.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
 import {
     ActionType,
@@ -9,8 +11,6 @@ import {
     FrequencySource,
     ItemSystemSource,
 } from "./../base/data/system.ts";
-import { OneToThree } from "./../../data.ts";
-import { SlugField } from "./../../system/schema-data-fields.ts";
 import { AbilityItemPF2e } from "./document.ts";
 import { AbilityTraitToggles } from "./trait-toggles.ts";
 import { AbilityTrait, ActionCategory } from "./types.ts";

@@ -1,11 +1,11 @@
-import { ActorPF2e, CreaturePF2e } from "./../../actor/index.ts";
-import { TraitViewData } from "./../../actor/data/base.ts";
-import { Modifier } from "./../../actor/modifiers.ts";
-import { AttributeString } from "./../../actor/types.ts";
 import { Rolled } from "#client/dice/_module.mjs";
 import { RollMode } from "#common/constants.mjs";
-import { ItemPF2e } from "./../../item/index.ts";
+import { TraitViewData } from "./../../actor/data/base.ts";
+import { ActorPF2e, CreaturePF2e } from "./../../actor/index.ts";
+import { Modifier } from "./../../actor/modifiers.ts";
+import { AttributeString } from "./../../actor/types.ts";
 import { ZeroToFour } from "./../../data.ts";
+import { ItemPF2e } from "./../../item/index.ts";
 import { RollNotePF2e, RollNoteSource } from "./../../notes.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { CheckRollCallback } from "./../check/check.ts";

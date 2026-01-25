@@ -1,5 +1,5 @@
-import { Point } from "./../../../../common/_types.mjs";
 import { PolygonRay } from "../_types.mjs";
+import { Point } from "./../../../../common/_types.mjs";
 
 /**
  * A special class of Polygon which implements a limited angle of emission for a Point Source.

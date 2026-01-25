@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../../actor/index.ts";
 import { EnrichmentOptions } from "#client/applications/ux/text-editor.mjs";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { RawItemChatData } from "./../base/data/index.ts";
 import { PhysicalItemPF2e } from "./../physical/index.ts";
 import { Currency } from "./../physical/types.ts";

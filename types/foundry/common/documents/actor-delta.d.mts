@@ -1,9 +1,9 @@
-import { DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath, UserAction } from "./../constants.mjs";
 import { DocumentConstructionContext } from "../_types.mjs";
 import * as abstract from "../abstract/_module.mjs";
 import { TombstoneDataSchema } from "../data/data.mjs";
 import * as fields from "../data/fields.mjs";
 import Collection from "../utils/collection.mjs";
+import { DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath, UserAction } from "./../constants.mjs";
 import { BaseActiveEffect, BaseActor, BaseItem, BaseToken, BaseUser } from "./_module.mjs";
 import { ItemSchema } from "./item.mjs";
 

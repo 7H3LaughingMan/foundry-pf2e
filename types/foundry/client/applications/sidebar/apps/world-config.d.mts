@@ -1,14 +1,14 @@
+import ApplicationV2 from "../../api/application.mjs";
+import HandlebarsApplicationMixin, {
+    HandlebarsRenderOptions,
+    HandlebarsTemplatePart,
+} from "../../api/handlebars-application.mjs";
 import {
     ApplicationConfiguration,
     ApplicationFormConfiguration,
     ApplicationRenderContext,
 } from "./../../../applications/_module.mjs";
 import World from "./../../../packages/world.mjs";
-import ApplicationV2 from "../../api/application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/handlebars-application.mjs";
 
 interface WorldConfigConfiguration extends ApplicationConfiguration {
     world: World;

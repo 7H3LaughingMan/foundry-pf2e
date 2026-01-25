@@ -1,6 +1,3 @@
-import { PlaceablesLayer } from "./../../canvas/layers/_module.mjs";
-import PlaceableObject from "./../../canvas/placeables/placeable-object.mjs";
-import { CanvasDocument } from "./../../documents/abstract/canvas-document.mjs";
 import {
     ApplicationClosingOptions,
     ApplicationConfiguration,
@@ -10,6 +7,9 @@ import {
 } from "../_types.mjs";
 import ApplicationV2 from "../api/application.mjs";
 import FormDataExtended from "../ux/form-data-extended.mjs";
+import { PlaceablesLayer } from "./../../canvas/layers/_module.mjs";
+import PlaceableObject from "./../../canvas/placeables/placeable-object.mjs";
+import { CanvasDocument } from "./../../documents/abstract/canvas-document.mjs";
 
 /** An abstract base class for displaying a heads-up-display interface bound to a Placeable Object on the Canvas. */
 export default abstract class BasePlaceableHUD extends ApplicationV2<

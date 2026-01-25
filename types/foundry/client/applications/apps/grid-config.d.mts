@@ -1,4 +1,3 @@
-import Scene from "./../../documents/scene.mjs";
 import { FormFooterButton } from "../_types.mjs";
 import {
     DocumentSheetConfiguration,
@@ -9,6 +8,7 @@ import {
     HandlebarsTemplatePart,
 } from "../api/_module.mjs";
 import SceneConfig from "../sheets/scene-config.mjs";
+import Scene from "./../../documents/scene.mjs";
 
 interface GridConfigContext<TScene extends Scene = Scene> extends DocumentSheetRenderContext {
     scene: TScene;

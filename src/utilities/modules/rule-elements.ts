@@ -1,10 +1,9 @@
 import {
-    AELikeRuleElement,
-    AELikeSchema,
-    ActorTraitsRuleElement,
     AdjustDegreeOfSuccessRuleElement,
     AdjustModifierRuleElement,
     AdjustStrikeRuleElement,
+    AELikeChangeMode,
+    AELikeDataPrepPhase,
     AuraRuleElement,
     BaseSpeedRuleElement,
     BattleFormRuleElement,
@@ -19,10 +18,12 @@ import {
     FastHealingRuleElement,
     FlatModifierRuleElement,
     ImmunityRuleElement,
+    ItemAlterationProperty,
     ItemAlterationRuleElement,
     LoseHitPointsRuleElement,
     MartialProficiencyRuleElement,
     MultipleAttackPenaltyRuleElement,
+    RawPredicate,
     ResistanceRuleElement,
     RollNoteRuleElement,
     RollOptionRuleElement,
@@ -39,11 +40,10 @@ import {
     TokenMarkRuleElement,
     TokenNameRuleElement,
     WeaknessRuleElement,
-    RawPredicate,
-    AELikeChangeMode,
-    ItemAlterationProperty,
 } from "#foundry-pf2e";
 import * as R from "remeda";
+
+export type RuleValue = string | number | boolean | object;
 
 export type RuleElementSource = {
     key: string;
@@ -60,8 +60,23 @@ export type RuleElementSource = {
 export type ItemAlterationSource = {
     mode: AELikeChangeMode;
     property: ItemAlterationProperty;
-    value?: string | number | boolean | object;
+    value: RuleValue;
     fromEquipment?: boolean;
+};
+
+export type AELikeSource = RuleElementSource & {
+    key: "ActiveEffectLike";
+    mode: AELikeChangeMode;
+    path: string;
+    phase?: AELikeDataPrepPhase;
+    value: RuleValue;
+    merge?: boolean;
+};
+
+export type ActorTraitsSource = RuleElementSource & {
+    key: "ActorTraits";
+    add?: string[];
+    remove?: string[];
 };
 
 export type GrantItemSource = RuleElementSource & {
@@ -81,11 +96,11 @@ export type GrantItemSource = RuleElementSource & {
     };
 };
 
-export function isAELike(source: Maybe<RuleElementSource>): source is AELikeRuleElement<AELikeSchema>["_source"] {
+export function isAELike(source: Maybe<RuleElementSource>): source is AELikeSource {
     return R.isNonNullish(source) && source.key === "ActiveEffectLike";
 }
 
-export function isActorTraits(source: Maybe<RuleElementSource>): source is ActorTraitsRuleElement["_source"] {
+export function isActorTraits(source: Maybe<RuleElementSource>): source is ActorTraitsSource {
     return R.isNonNullish(source) && source.key === "ActorTraits";
 }
 

@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../actor/index.ts";
 import { HandlebarsRenderOptions } from "#client/applications/api/handlebars-application.mjs";
+import { ActorPF2e } from "./../actor/index.ts";
 import { AbstractEffectPF2e } from "./../item/index.ts";
 export declare class EffectsPanel extends fa.api.HandlebarsApplicationMixin(fa.api.ApplicationV2) {
     #private;

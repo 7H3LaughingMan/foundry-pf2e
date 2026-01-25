@@ -1,6 +1,6 @@
+import DocumentDirectory from "../document-directory.mjs";
 import { ApplicationConfiguration } from "./../../../applications/_types.mjs";
 import Macro from "./../../../documents/macro.mjs";
-import DocumentDirectory from "../document-directory.mjs";
 
 /**
  * The World Macro directory listing.

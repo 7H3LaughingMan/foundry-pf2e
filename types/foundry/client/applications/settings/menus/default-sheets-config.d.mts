@@ -1,5 +1,5 @@
-import CategoryBrowser, { CategoryBrowserConfiguration } from "./../../../applications/api/category-browser.mjs";
 import { SchemaField } from "./../../../../common/data/fields.mjs";
+import CategoryBrowser, { CategoryBrowserConfiguration } from "./../../../applications/api/category-browser.mjs";
 
 export default class DefaultSheetsConfig extends CategoryBrowser {
     static override DEFAULT_OPTIONS: DeepPartial<CategoryBrowserConfiguration>;

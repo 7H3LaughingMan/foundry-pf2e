@@ -1,11 +1,11 @@
+import { Rarity, ValueAndMax } from "./../../data.ts";
+import { AutoChangeEntry } from "./../../rules/rule-element/ae-like.ts";
+import { PerceptionTraceData } from "./../../system/statistic/perception.ts";
 import { ActorSystemSource, BaseActorSourcePF2e } from "./../data/base.ts";
 import { Immunity, ImmunitySource, Resistance, ResistanceSource, Weakness, WeaknessSource } from "./../data/iwr.ts";
 import { ActorSystemModel, ActorSystemSchema } from "./../data/model.ts";
 import { InitiativeTraceData } from "./../initiative.ts";
 import { ActorAlliance } from "./../types.ts";
-import { Rarity, ValueAndMax } from "./../../data.ts";
-import { AutoChangeEntry } from "./../../rules/rule-element/ae-like.ts";
-import { PerceptionTraceData } from "./../../system/statistic/perception.ts";
 import { ArmyPF2e } from "./document.ts";
 import { ArmyType } from "./types.ts";
 import fields = foundry.data.fields;

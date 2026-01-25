@@ -1,8 +1,8 @@
-import { ActorPF2e } from "./../../../actor/index.ts";
-import { ItemPF2e } from "./../../../item/index.ts";
-import { PickableThing } from "./../../../apps/pick-a-thing-prompt/app.ts";
 import { RuleElement, RuleElementOptions } from "../base.ts";
 import { ModelPropsFromRESchema } from "../data.ts";
+import { ActorPF2e } from "./../../../actor/index.ts";
+import { PickableThing } from "./../../../apps/pick-a-thing-prompt/app.ts";
+import { ItemPF2e } from "./../../../item/index.ts";
 import { AllowedDropsData, ChoiceSetPackQuery, ChoiceSetSchema, ChoiceSetSource, UninflatedChoiceSet } from "./data.ts";
 /**
  * Present a set of options to the user and assign their selection to an injectable property

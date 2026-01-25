@@ -1,9 +1,9 @@
-import Sound from "./../../audio/sound.mjs";
-import { ElevatedPoint } from "./../../../common/_types.mjs";
 import { SpriteMesh } from "../containers/_module.mjs";
 import PlaceableObject from "../placeables/placeable-object.mjs";
 import AmbientSound from "../placeables/sound.mjs";
 import PointSoundSource from "../sources/point-sound-source.mjs";
+import { ElevatedPoint } from "./../../../common/_types.mjs";
+import Sound from "./../../audio/sound.mjs";
 import { CanvasLayerOptions } from "./base/canvas-layer.mjs";
 
 export interface AmbientSoundPlaybackConfig {

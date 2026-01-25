@@ -1,13 +1,13 @@
+import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
+import { ZeroToFour } from "./../../data.ts";
+import { ItemPF2e } from "./../../item/index.ts";
+import { SpellcastingSheetData } from "./../../item/spellcasting-entry/index.ts";
+import { NPCAttackTraitOrTag, TagifyEntry } from "./../../sheet/helpers.ts";
+import { ArmorClassTraceData } from "./../../system/statistic/index.ts";
 import { CreatureSheetData } from "./../creature/sheet.ts";
 import { HitPointsStatistic } from "./../data/base.ts";
 import { AbilityViewData } from "./../sheet/data-types.ts";
 import { MovementType, SaveType, SkillSlug } from "./../types.ts";
-import { ImageFilePath, VideoFilePath } from "#common/constants.mjs";
-import { ItemPF2e } from "./../../item/index.ts";
-import { SpellcastingSheetData } from "./../../item/spellcasting-entry/index.ts";
-import { ZeroToFour } from "./../../data.ts";
-import { NPCAttackTraitOrTag, TagifyEntry } from "./../../sheet/helpers.ts";
-import { ArmorClassTraceData } from "./../../system/statistic/index.ts";
 import { NPCAttributes, NPCPerceptionData, NPCSaveData, NPCSkillData, NPCSystemData } from "./data.ts";
 import { NPCPF2e } from "./index.ts";
 interface ActionsDetails {

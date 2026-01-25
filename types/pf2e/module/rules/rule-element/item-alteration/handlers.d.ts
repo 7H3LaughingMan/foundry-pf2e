@@ -1,7 +1,9 @@
 import { DataFieldOptions } from "#common/data/_types.mjs";
-import { ItemPF2e } from "./../../../item/index.ts";
+import { AELikeChangeMode } from "../ae-like.ts";
+import { ResolvableValueField, RuleElement } from "../index.ts";
 import { ItemSourcePF2e } from "./../../../item/base/data/index.ts";
 import { PersistentDamageValueSchema } from "./../../../item/condition/data.ts";
+import { ItemPF2e } from "./../../../item/index.ts";
 import { ItemType } from "./../../../item/types.ts";
 import {
     DataUnionField,
@@ -10,8 +12,6 @@ import {
     StrictNumberField,
     StrictStringField,
 } from "./../../../system/schema-data-fields.ts";
-import { AELikeChangeMode } from "../ae-like.ts";
-import { ResolvableValueField, RuleElement } from "../index.ts";
 import fields = foundry.data.fields;
 import validation = foundry.data.validation;
 /** A `SchemaField` reappropriated for validation of specific item alterations */

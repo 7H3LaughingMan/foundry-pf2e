@@ -1,5 +1,5 @@
-import User from "./../../documents/user.mjs";
 import { ApplicationConfiguration, ApplicationRenderOptions } from "../_types.mjs";
+import User from "./../../documents/user.mjs";
 import ApplicationV2 from "./application.mjs";
 
 export default class DialogV2<

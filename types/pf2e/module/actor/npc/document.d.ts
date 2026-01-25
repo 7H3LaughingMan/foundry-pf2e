@@ -1,13 +1,13 @@
-import { CreaturePF2e } from "./../index.ts";
-import { Abilities } from "./../creature/data.ts";
-import { CreatureUpdateCallbackOptions } from "./../creature/index.ts";
-import { ActorInitiative } from "./../initiative.ts";
 import { UserAction } from "#common/constants.mjs";
 import { MeleePF2e } from "./../../item/index.ts";
 import { ItemType } from "./../../item/types.ts";
 import { RollNotePF2e } from "./../../notes.ts";
 import { CreatureIdentificationData } from "./../../recall-knowledge.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
+import { Abilities } from "./../creature/data.ts";
+import { CreatureUpdateCallbackOptions } from "./../creature/index.ts";
+import { CreaturePF2e } from "./../index.ts";
+import { ActorInitiative } from "./../initiative.ts";
 import { NPCFlags, NPCSource, NPCSystemData } from "./data.ts";
 import { VariantCloneParams } from "./types.ts";
 declare class NPCPF2e<

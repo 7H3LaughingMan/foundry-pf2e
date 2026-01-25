@@ -1,5 +1,5 @@
-import { TokenRulerData } from "./../../../_module.mjs";
 import Token from "../token.mjs";
+import { TokenRulerData } from "./../../../_module.mjs";
 
 /**
  * The ruler of a Token visualizes

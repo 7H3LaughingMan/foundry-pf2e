@@ -1,7 +1,7 @@
-import { ActorPF2e } from "./../module/actor/index.ts";
 import { ClientDocument } from "#client/documents/abstract/client-document.mjs";
-import { ItemPF2e } from "./../module/item/index.ts";
+import { ActorPF2e } from "./../module/actor/index.ts";
 import { ChatMessagePF2e } from "./../module/chat-message/document.ts";
+import { ItemPF2e } from "./../module/item/index.ts";
 /** Given an HTML element, resolves the sheet and its document */
 declare function resolveSheetDocument(html: HTMLElement): ClientDocument | null;
 /** Given an html element, attempt to retrieve the origin item and the relevant actor */

@@ -1,12 +1,12 @@
-import { ActorAttributes, ActorDetails, ActorHitPoints, BaseActorSourcePF2e } from "./../data/base.ts";
-import { Resistance, Weakness, Immunity } from "./../data/iwr.ts";
-import { ActorHitPointsSchema, ActorSystemModel, ActorSystemSchema } from "./../data/model.ts";
-import { ActorSizePF2e } from "./../data/size.ts";
-import { ActorAlliance, ImmunityType, ResistanceType, WeaknessType } from "./../types.ts";
 import { Rarity, Size } from "./../../data.ts";
 import { PublicationField } from "./../../model.ts";
 import { DataUnionField } from "./../../system/schema-data-fields.ts";
 import { ArmorClassTraceData } from "./../../system/statistic/armor-class.ts";
+import { ActorAttributes, ActorDetails, ActorHitPoints, BaseActorSourcePF2e } from "./../data/base.ts";
+import { Immunity, Resistance, Weakness } from "./../data/iwr.ts";
+import { ActorHitPointsSchema, ActorSystemModel, ActorSystemSchema } from "./../data/model.ts";
+import { ActorSizePF2e } from "./../data/size.ts";
+import { ActorAlliance, ImmunityType, ResistanceType, WeaknessType } from "./../types.ts";
 import { VehiclePF2e } from "./document.ts";
 import { VehicleTrait } from "./types.ts";
 import fields = foundry.data.fields;

@@ -1,7 +1,7 @@
-import TileHUD from "./../../applications/hud/tile-hud.mjs";
-import { Point } from "./../../../common/_types.mjs";
 import { SceneControl } from "../../applications/ui/scene-controls.mjs";
 import Tile from "../placeables/tile.mjs";
+import { Point } from "./../../../common/_types.mjs";
+import TileHUD from "./../../applications/hud/tile-hud.mjs";
 import { PlaceablesLayerOptions } from "./_types.mjs";
 import PlaceablesLayer, { PlaceablesLayerPointerEvent } from "./base/placeables-layer.mjs";
 

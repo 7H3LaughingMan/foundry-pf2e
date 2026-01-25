@@ -1,6 +1,6 @@
+import { ApplicationConfiguration } from "#client/applications/_types.mjs";
 import { SettingRegistration } from "#client/helpers/client-settings.mjs";
 import fields = foundry.data.fields;
-import { ApplicationConfiguration } from "#client/applications/_types.mjs";
 export class VariantRulesSettings extends fa.api.HandlebarsApplicationMixin(fa.api.ApplicationV2) {
     #private;
     static DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;

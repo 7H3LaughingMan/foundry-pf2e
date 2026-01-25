@@ -1,8 +1,8 @@
-import { Point } from "./../../../common/_types.mjs";
-import Collection from "./../../../common/utils/collection.mjs";
 import CanvasLayer from "../layers/base/canvas-layer.mjs";
 import { AmbientLight, Token } from "../placeables/_module.mjs";
 import type { GlobalLightSource, PointLightSource, PointVisionSource } from "../sources/_module.mjs";
+import { Point } from "./../../../common/_types.mjs";
+import Collection from "./../../../common/utils/collection.mjs";
 import CanvasGroupMixin from "./canvas-group-mixin.mjs";
 
 /**

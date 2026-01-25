@@ -1,6 +1,6 @@
+import * as fields from "./../../../common/data/fields.mjs";
 import { TokenMovementWaypoint } from "./../../documents/_types.mjs";
 import TokenDocument from "./../../documents/token.mjs";
-import * as fields from "./../../../common/data/fields.mjs";
 import RegionBehaviorType, { EventBehaviorStaticHandler } from "./base.mjs";
 
 /**

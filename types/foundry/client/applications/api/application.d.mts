@@ -1,4 +1,3 @@
-import { EventEmitter } from "./../../../common/utils/event-emitter.mjs";
 import {
     ApplicationClosingOptions,
     ApplicationConfiguration,
@@ -11,6 +10,7 @@ import {
     ApplicationTabsConfiguration,
 } from "../_types.mjs";
 import ContextMenu, { ContextMenuEntry } from "../ux/context-menu.mjs";
+import { EventEmitter } from "./../../../common/utils/event-emitter.mjs";
 
 /** The Application class is responsible for rendering an HTMLElement into the Foundry Virtual Tabletop user interface. */
 export default abstract class ApplicationV2<

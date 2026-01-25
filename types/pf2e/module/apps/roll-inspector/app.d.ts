@@ -1,5 +1,5 @@
-import { RawDamageDice, RawModifier } from "./../../actor/modifiers.ts";
 import { ApplicationConfiguration } from "#client/applications/_types.mjs";
+import { RawDamageDice, RawModifier } from "./../../actor/modifiers.ts";
 import { ChatContextFlag } from "./../../chat-message/data.ts";
 import { ChatMessagePF2e } from "./../../chat-message/document.ts";
 import { SvelteApplicationMixin, SvelteApplicationRenderContext } from "./../../sheet/mixin.svelte.ts";

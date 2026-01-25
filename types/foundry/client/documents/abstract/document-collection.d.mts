@@ -1,6 +1,4 @@
-import { ApplicationRenderOptions } from "./../../applications/_types.mjs";
-import ApplicationV2 from "./../../applications/api/application.mjs";
-import Application, { AppV1RenderOptions } from "./../../appv1/api/application-v1.mjs";
+import User from "../user.mjs";
 import {
     DatabaseAction,
     DatabaseCreateOperation,
@@ -9,7 +7,9 @@ import {
     Document,
 } from "./../../../common/abstract/_module.mjs";
 import Collection from "./../../../common/utils/collection.mjs";
-import User from "../user.mjs";
+import { ApplicationRenderOptions } from "./../../applications/_types.mjs";
+import ApplicationV2 from "./../../applications/api/application.mjs";
+import Application, { AppV1RenderOptions } from "./../../appv1/api/application-v1.mjs";
 
 /**
  * A Collection of Document objects within the Foundry Virtual Tabletop framework.

@@ -1,3 +1,4 @@
+import { SenseAcuity } from "./../../module/actor/creature/types.ts";
 import {
     ArmyPF2e,
     CharacterPF2e,
@@ -8,7 +9,6 @@ import {
     PartyPF2e,
     VehiclePF2e,
 } from "./../../module/actor/index.ts";
-import { SenseAcuity } from "./../../module/actor/creature/types.ts";
 import { AttributeString } from "./../../module/actor/types.ts";
 import {
     AbilityItemPF2e,

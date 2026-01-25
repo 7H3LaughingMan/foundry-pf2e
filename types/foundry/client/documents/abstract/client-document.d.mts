@@ -1,13 +1,5 @@
-import ApplicationV2 from "./../../applications/api/application.mjs";
-import HTMLDocumentEmbedElement from "./../../applications/elements/document-embed.mjs";
-import {
-    DocumentHTMLEmbedConfig,
-    EnrichmentAnchorOptions,
-    EnrichmentOptions,
-} from "./../../applications/ux/text-editor.mjs";
-import Application from "./../../appv1/api/application-v1.mjs";
-import { DropCanvasData } from "./../../helpers/hooks.mjs";
-import { Collection, SortOptions } from "./../../utils/_module.mjs";
+import { BaseUser } from "../_module.mjs";
+import CompendiumCollection from "../collections/compendium-collection.mjs";
 import { DocumentConstructionContext } from "./../../../common/_types.mjs";
 import {
     DatabaseCreateCallbackOptions,
@@ -19,8 +11,16 @@ import {
 } from "./../../../common/abstract/_module.mjs";
 import Document from "./../../../common/abstract/document.mjs";
 import { DocumentOwnershipLevel } from "./../../../common/constants.mjs";
-import { BaseUser } from "../_module.mjs";
-import CompendiumCollection from "../collections/compendium-collection.mjs";
+import ApplicationV2 from "./../../applications/api/application.mjs";
+import HTMLDocumentEmbedElement from "./../../applications/elements/document-embed.mjs";
+import {
+    DocumentHTMLEmbedConfig,
+    EnrichmentAnchorOptions,
+    EnrichmentOptions,
+} from "./../../applications/ux/text-editor.mjs";
+import Application from "./../../appv1/api/application-v1.mjs";
+import { DropCanvasData } from "./../../helpers/hooks.mjs";
+import { Collection, SortOptions } from "./../../utils/_module.mjs";
 
 export default function ClientDocumentMixin<TParent extends Document | null, TDocument extends Document<TParent>>(
     Base: ConstructorOf<TDocument>,

@@ -1,13 +1,13 @@
-import { ActorPF2e } from "./index.ts";
 import { HexColorString } from "#common/constants.mjs";
-import { ItemPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "./../item/index.ts";
+import { ZeroToFour } from "./../data.ts";
 import { AbilityTrait } from "./../item/ability/types.ts";
 import { ActionCost } from "./../item/base/data/system.ts";
+import { ItemPF2e, MeleePF2e, PhysicalItemPF2e, WeaponPF2e } from "./../item/index.ts";
 import { EffectAreaShape } from "./../item/types.ts";
-import { ZeroToFour } from "./../data.ts";
 import { Statistic } from "./../system/statistic/statistic.ts";
 import { DamageRollFunction } from "./data/base.ts";
 import { ActorSourcePF2e } from "./data/index.ts";
+import { ActorPF2e } from "./index.ts";
 import { Modifier } from "./modifiers.ts";
 import { NPCAttackAction, NPCStrike } from "./npc/data.ts";
 import { ActorGroupUpdate, AuraEffectData } from "./types.ts";

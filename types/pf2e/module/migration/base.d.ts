@@ -1,5 +1,5 @@
-import { ActorPF2e } from "./../actor/index.ts";
 import { ActorSourcePF2e } from "./../actor/data/index.ts";
+import { ActorPF2e } from "./../actor/index.ts";
 import { ItemSourcePF2e } from "./../item/base/data/index.ts";
 import { ScenePF2e } from "./../scene/index.ts";
 /**

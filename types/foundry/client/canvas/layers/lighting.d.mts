@@ -1,6 +1,6 @@
-import { User } from "./../../documents/_module.mjs";
 import { SceneControl } from "../../applications/ui/scene-controls.mjs";
 import AmbientLight from "../placeables/light.mjs";
+import { User } from "./../../documents/_module.mjs";
 import { PlaceablesLayerOptions } from "./_types.mjs";
 import PlaceablesLayer, { PlaceablesLayerPointerEvent } from "./base/placeables-layer.mjs";
 

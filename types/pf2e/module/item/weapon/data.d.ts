@@ -1,4 +1,6 @@
 import { AttributeString } from "./../../actor/types.ts";
+import { ZeroToFour } from "./../../data.ts";
+import { DamageDieSize, DamageType } from "./../../system/damage/index.ts";
 import { AmmoType } from "./../ammo/types.ts";
 import { PhysicalItemSource } from "./../base/data/index.ts";
 import { ItemFlagsPF2e, TraitConfig } from "./../base/data/system.ts";
@@ -13,8 +15,6 @@ import {
     PhysicalSystemSource,
     UsageDetails,
 } from "./../physical/index.ts";
-import { ZeroToFour } from "./../../data.ts";
-import { DamageDieSize, DamageType } from "./../../system/damage/index.ts";
 import { WeaponTraitToggles } from "./trait-toggles.ts";
 import {
     BaseWeaponType,

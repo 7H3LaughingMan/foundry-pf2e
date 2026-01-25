@@ -1,11 +1,11 @@
+import { JournalEntryPageSource } from "../../../common/documents/journal-entry-page.mjs";
+import { ApplicationV1HeaderButton } from "../api/application-v1.mjs";
+import DocumentSheet, { DocumentSheetData, DocumentSheetV1Options } from "../api/document-sheet-v1.mjs";
+import { DirectorySearchMode, DocumentOwnershipLevel } from "./../../../common/constants.mjs";
 import { JournalEntryPageHeading } from "./../../_module.mjs";
 import { ContextMenuEntry } from "./../../applications/ux/context-menu.mjs";
 import JournalEntryPage from "./../../documents/journal-entry-page.mjs";
 import JournalEntry from "./../../documents/journal-entry.mjs";
-import { DirectorySearchMode, DocumentOwnershipLevel } from "./../../../common/constants.mjs";
-import { JournalEntryPageSource } from "../../../common/documents/journal-entry-page.mjs";
-import { ApplicationV1HeaderButton } from "../api/application-v1.mjs";
-import DocumentSheet, { DocumentSheetData, DocumentSheetV1Options } from "../api/document-sheet-v1.mjs";
 
 /**
  * The Application responsible for displaying and editing a single JournalEntry document.

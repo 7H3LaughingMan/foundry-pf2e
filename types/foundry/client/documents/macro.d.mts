@@ -1,6 +1,6 @@
-import DocumentSheetV2 from "./../applications/api/document-sheet.mjs";
-import { ImageFilePath } from "./../../common/constants.mjs";
 import Token from "../canvas/placeables/token.mjs";
+import { ImageFilePath } from "./../../common/constants.mjs";
+import DocumentSheetV2 from "./../applications/api/document-sheet.mjs";
 import { BaseMacro, MacroSource } from "./_module.mjs";
 import { ClientDocument, ClientDocumentStatic } from "./abstract/client-document.mjs";
 import Actor from "./actor.mjs";

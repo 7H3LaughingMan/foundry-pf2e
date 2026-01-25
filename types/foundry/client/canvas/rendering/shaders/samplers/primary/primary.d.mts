@@ -24,5 +24,5 @@ export default class PrimaryBaseSamplerShader extends OccludableSamplerShader {
     protected _configureDepthShader(depthShader: DepthSamplerShader): void;
     #private;
 }
-import OccludableSamplerShader from "./occlusion.mjs";
 import DepthSamplerShader from "./depth.mjs";
+import OccludableSamplerShader from "./occlusion.mjs";

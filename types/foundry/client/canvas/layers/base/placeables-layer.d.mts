@@ -1,10 +1,10 @@
-import BasePlaceableHUD from "./../../../applications/hud/placeable-hud.mjs";
-import DocumentCollection from "./../../../documents/abstract/document-collection.mjs";
-import User from "./../../../documents/user.mjs";
-import { ElevatedPoint, Point } from "./../../../../common/_types.mjs";
 import { CanvasQuadtree } from "../../geometry/quad-tree.mjs";
 import PlaceableObject from "../../placeables/placeable-object.mjs";
 import { CanvasHistoryEvent, PlaceablesLayerOptions } from "../_types.mjs";
+import { ElevatedPoint, Point } from "./../../../../common/_types.mjs";
+import BasePlaceableHUD from "./../../../applications/hud/placeable-hud.mjs";
+import DocumentCollection from "./../../../documents/abstract/document-collection.mjs";
+import User from "./../../../documents/user.mjs";
 import InteractionLayer from "./interaction-layer.mjs";
 
 export type MinusOneToOne = -1 | 0 | 1;

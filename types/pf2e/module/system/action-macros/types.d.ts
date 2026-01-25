@@ -1,8 +1,8 @@
-import { ActorPF2e } from "./../../actor/index.ts";
+import { Rolled } from "#client/dice/_module.mjs";
 import { StrikeData } from "./../../actor/data/base.ts";
+import { ActorPF2e } from "./../../actor/index.ts";
 import { Modifier } from "./../../actor/modifiers.ts";
 import { DCSlug } from "./../../actor/types.ts";
-import { Rolled } from "#client/dice/_module.mjs";
 import { ItemPF2e } from "./../../item/index.ts";
 import { WeaponTrait } from "./../../item/weapon/types.ts";
 import { RollNotePF2e } from "./../../notes.ts";

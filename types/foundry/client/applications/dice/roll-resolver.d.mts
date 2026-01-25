@@ -1,4 +1,3 @@
-import DiceTerm from "./../../dice/terms/dice.mjs";
 import Roll from "../../dice/roll.mjs";
 import {
     ApplicationClosingOptions,
@@ -9,6 +8,7 @@ import {
 import ApplicationV2 from "../api/application.mjs";
 import HandlebarsApplicationMixin, { HandlebarsTemplatePart } from "../api/handlebars-application.mjs";
 import FormDataExtended from "../ux/form-data-extended.mjs";
+import DiceTerm from "./../../dice/terms/dice.mjs";
 
 export interface DiceTermFulfillmentDescriptor {
     /** A unique identifier for the term. */

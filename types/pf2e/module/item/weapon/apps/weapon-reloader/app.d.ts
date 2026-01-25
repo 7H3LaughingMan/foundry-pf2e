@@ -1,8 +1,8 @@
 import { CharacterPF2e } from "./../../../../actor/character/document.ts";
-import { WeaponPF2e } from "./../../../index.ts";
 import { ValueAndMax } from "./../../../../data.ts";
 import { BasePhysicalItemViewData } from "./../../../../sheet/helpers.ts";
 import { SvelteApplicationMixin, SvelteApplicationRenderContext } from "./../../../../sheet/mixin.svelte.ts";
+import { WeaponPF2e } from "./../../../index.ts";
 interface WeaponReloaderConfiguration extends fa.ApplicationConfiguration {
     weapon: WeaponPF2e<CharacterPF2e>;
 }

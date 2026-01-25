@@ -1,5 +1,5 @@
-import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
 import { MigrationBase } from "../base.ts";
+import { ItemSourcePF2e } from "./../../item/base/data/index.ts";
 /** Convert bracketed values into resolvable strings */
 export declare class Migration945REBracketsToStrings extends MigrationBase {
     #private;

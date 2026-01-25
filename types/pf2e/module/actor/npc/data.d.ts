@@ -1,3 +1,6 @@
+import { PublicationData, ValueAndMax } from "./../../data.ts";
+import { MeleePF2e } from "./../../item/index.ts";
+import { RawPredicate } from "./../../system/predication.ts";
 import { ActorPF2e } from "./../base.ts";
 import {
     Abilities,
@@ -30,9 +33,6 @@ import {
 import { InitiativeTraceData } from "./../initiative.ts";
 import { Modifier, StatisticModifier } from "./../modifiers.ts";
 import { ActorAlliance, SaveType, SkillSlug } from "./../types.ts";
-import { MeleePF2e } from "./../../item/index.ts";
-import { PublicationData, ValueAndMax } from "./../../data.ts";
-import { RawPredicate } from "./../../system/predication.ts";
 type NPCSource = BaseCreatureSource<"npc", NPCSystemSource> & {
     flags: DeepPartial<NPCFlags>;
 };

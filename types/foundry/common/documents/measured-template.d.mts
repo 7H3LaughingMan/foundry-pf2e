@@ -1,3 +1,5 @@
+import { Document, DocumentMetadata } from "../abstract/_module.mjs";
+import * as fields from "../data/fields.mjs";
 import {
     DocumentOwnershipLevel,
     DocumentOwnershipString,
@@ -5,8 +7,6 @@ import {
     MeasuredTemplateType,
     VideoFilePath,
 } from "./../constants.mjs";
-import { Document, DocumentMetadata } from "../abstract/_module.mjs";
-import * as fields from "../data/fields.mjs";
 import { BaseScene, BaseUser } from "./_module.mjs";
 
 /**

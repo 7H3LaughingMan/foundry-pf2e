@@ -1,6 +1,6 @@
 import { DropCanvasData } from "#client/helpers/hooks.mjs";
-import { ItemPF2e } from "./../item/index.ts";
 import { EffectContextData } from "./../item/abstract-effect/index.ts";
+import { ItemPF2e } from "./../item/index.ts";
 type DropCanvasItemData = DropCanvasData<"Item", ItemPF2e> & {
     value?: number;
     level?: number;
