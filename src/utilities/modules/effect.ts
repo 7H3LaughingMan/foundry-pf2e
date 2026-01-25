@@ -4,15 +4,15 @@ import {
     ConditionSlug,
     ConditionSource,
     DamageType,
+    EffectBadge,
     EffectSource,
     ItemPF2e,
-    RuleElementSource,
 } from "foundry-pf2e";
 import { SYSTEM } from "./system.ts";
 import { isDecimal, isNonNegative } from "./index.ts";
 import { TokenDocumentPF2e } from "foundry-pf2e";
 import { ActorUUID, ItemUUID, TokenDocumentUUID } from "#common/documents/_module.mjs";
-import { GrantItemSource, ItemAlterationSource } from "./rule-elements.ts";
+import { GrantItemSource, ItemAlterationSource, RuleElementSource } from "./rule-elements.ts";
 
 const PERSISTENT_DAMAGE_IMAGES: Partial<Record<DamageType, () => ImageFilePath>> = {
     acid: () => "icons/magic/acid/dissolve-arm-flesh.webp",
@@ -101,20 +101,22 @@ export function createCustomCondition(options: CustomConditionOptions): PreCreat
     });
 }
 
-export function createCustomEffect({
-    name = "Effect",
-    img,
-    badge,
-    context,
-    description,
-    duration,
-    level,
-    publication,
-    rules,
-    slug,
-    tokenIcon = true,
-    unidentified = false,
-}: CustomEffectOptions): WithRequired<PreCreate<EffectSource>, "system"> {
+export function createCustomEffect(options: CustomEffectOptions): WithRequired<PreCreate<EffectSource>, "system"> {
+    const {
+        name = "Effect",
+        img,
+        badge,
+        context,
+        description,
+        duration,
+        level,
+        publication,
+        rules,
+        slug,
+        tokenIcon = true,
+        unidentified = false,
+    } = options;
+
     const system: DeepPartial<EffectSource["system"]> = {
         unidentified,
         tokenIcon: { show: tokenIcon },
@@ -150,7 +152,7 @@ export function createCustomEffect({
 
             if (context.origin.token) origin.token = context.origin.token.uuid;
             if (context.origin.item) origin.item = context.origin.item.uuid;
-            if (context.origin.item?.isOfType("spell") && context.origin.item.spellcasting)
+            if (context.origin.item?.isOfType("spell") && context.origin.item.spellcasting) {
                 origin.spellcasting = {
                     attribute: {
                         type: context.origin.item.attribute,
@@ -158,6 +160,8 @@ export function createCustomEffect({
                     },
                     tradition: context.origin.item.spellcasting.tradition,
                 };
+                system.level = { value: context.origin.item.rank };
+            }
             origin.rollOptions = [
                 ...context.origin.actor.getSelfRollOptions("origin"),
                 ...(context.origin.item?.getRollOptions("origin:item") ?? []),
@@ -213,25 +217,7 @@ type CustomConditionOptions = Omit<CustomEffectOptions, "badge" | "rules" | "tok
 type CustomEffectOptions = {
     name?: string;
     img?: ImageFilePath;
-    badge?:
-        | {
-              type: "formula";
-              labels?: string[];
-              value?: string;
-              evaluate?: boolean;
-              reevaluate?: "initiative-roll" | "turn-start" | "turn-end";
-          }
-        | {
-              type: "value";
-              labels?: string[];
-              value?: number;
-              reevaluate?: {
-                  event?: "initiative-roll" | "turn-start" | "turn-end";
-                  formula?: "";
-                  initial?: number;
-              };
-          }
-        | { type: "counter"; labels?: string[]; value?: number; min?: number; max?: number; boolean?: number };
+    badge?: EffectBadge;
     context?: {
         origin?: {
             actor: ActorPF2e;
