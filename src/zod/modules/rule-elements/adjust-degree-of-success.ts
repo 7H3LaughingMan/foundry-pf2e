@@ -1,7 +1,7 @@
-import { Zod } from "#foundry-pf2e/zod";
 import * as z from "zod";
+import { RuleElementSource } from "./base.ts";
 
-export const AdjustDegreeOfSuccessSource = Zod.RuleElements.RuleElementSource.extend({
+export const AdjustDegreeOfSuccessSource = RuleElementSource.extend({
     key: z.literal("AdjustDegreeOfSuccess"),
     selector: z.array(z.string().nonempty()).optional(),
     adjustment: z.partialRecord(

@@ -1,5 +1,5 @@
-import { Zod } from "#foundry-pf2e/zod";
 import * as z from "zod";
+import { RuleElementSource, RuleValue } from "./base.ts";
 
 export const ItemAlteration = z.strictObject({
     mode: z.literal(["add", "downgrade", "multiply", "override", "remove", "subtract", "upgrade"]).optional(),
@@ -42,12 +42,12 @@ export const ItemAlteration = z.strictObject({
         ])
         .optional(),
     fromEquipment: z.boolean().optional(),
-    value: Zod.RuleElements.RuleValue.optional(),
+    value: RuleValue.optional(),
 });
 
 export type ItemAlteration = z.infer<typeof ItemAlteration>;
 
-export const ItemAlterationSource = Zod.RuleElements.RuleElementSource.extend({
+export const ItemAlterationSource = RuleElementSource.extend({
     key: z.literal("ItemAlteration"),
     itemId: z.string().nonempty().optional(),
     itemType: z.string().optional(),

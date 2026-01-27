@@ -1,7 +1,8 @@
-import { Zod } from "#foundry-pf2e/zod";
 import * as z from "zod";
+import { RuleElementSource } from "./base.ts";
+import { ItemAlteration } from "./item-alteration.ts";
 
-export const GrantItemSource = Zod.RuleElements.RuleElementSource.extend({
+export const GrantItemSource = RuleElementSource.extend({
     key: z.literal("GrantItem"),
     uuid: z.string().nonempty().optional(),
     flags: z.string().nonempty().nullable().optional(),
@@ -15,7 +16,7 @@ export const GrantItemSource = Zod.RuleElements.RuleElementSource.extend({
         })
         .optional(),
     nestUnderGranter: z.boolean().optional(),
-    alterations: z.array(Zod.RuleElements.ItemAlteration).optional(),
+    alterations: z.array(ItemAlteration).optional(),
     track: z.boolean().optional(),
 });
 

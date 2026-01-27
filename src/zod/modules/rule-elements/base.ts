@@ -1,6 +1,6 @@
-import { Zod } from "#foundry-pf2e/zod";
 import * as R from "remeda";
 import * as z from "zod";
+import { PredicateStatement } from "../predication.ts";
 
 export const RuleValue = z.union([
     z.string(),
@@ -17,7 +17,7 @@ export const RuleElementSource = z.looseObject({
     label: z.string().nonempty().optional(),
     priority: z.number().optional(),
     ignored: z.boolean().optional(),
-    predicate: z.array(Zod.PredicateStatement).optional(),
+    predicate: z.array(PredicateStatement).optional(),
     requiresEquipped: z.boolean().nullable().optional(),
     requiresInvestment: z.boolean().nullable().optional(),
     spinoff: z.string().nonempty().optional(),

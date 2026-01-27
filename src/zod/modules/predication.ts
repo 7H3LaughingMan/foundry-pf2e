@@ -1,6 +1,4 @@
-import { Utilities } from "#foundry-pf2e/utilities";
 import * as z from "zod";
+import { PredicateStatement as _PredicateStatement, StatementValidator } from "../../utilities/modules/predication.ts";
 
-export const PredicateStatement = z.custom<Utilities.Predication.PredicateStatement>((data) =>
-    Utilities.Predication.StatementValidator.isStatement(data),
-);
+export const PredicateStatement = z.custom<_PredicateStatement>((data) => StatementValidator.isStatement(data));

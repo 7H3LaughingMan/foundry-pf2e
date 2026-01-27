@@ -1,7 +1,7 @@
-import { Zod } from "#foundry-pf2e/zod";
 import * as z from "zod";
+import { RuleElementSource } from "./base.ts";
 
-export const ActorTraitsSource = Zod.RuleElements.RuleElementSource.extend({
+export const ActorTraitsSource = RuleElementSource.extend({
     key: z.literal("ActorTraits"),
     add: z.array(z.string().nonempty()).optional(),
     removed: z.array(z.string().nonempty()).optional(),

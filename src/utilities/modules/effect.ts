@@ -1,6 +1,5 @@
 import { ImageFilePath } from "#common/constants.mjs";
 import { ActorUUID, ItemUUID, TokenDocumentUUID } from "#common/documents/_module.mjs";
-import { Zod } from "#foundry-pf2e/zod";
 import {
     ActorPF2e,
     ConditionSlug,
@@ -11,6 +10,9 @@ import {
     ItemPF2e,
     TokenDocumentPF2e,
 } from "foundry-pf2e";
+import { RuleElementSource } from "../../zod/modules/rule-elements/base.ts";
+import { GrantItemSource } from "../../zod/modules/rule-elements/grant-item.ts";
+import { ItemAlteration } from "../../zod/modules/rule-elements/item-alteration.ts";
 import { isDecimal, isNonNegative } from "./index.ts";
 
 export function createPersistentDamageSource(
@@ -41,7 +43,7 @@ export function createCustomCondition(options: CustomConditionOptions): PreCreat
 
     if (slug === "persistent-damage" && !alterations.length) return;
 
-    const rule: Zod.RuleElements.GrantItemSource = {
+    const rule: GrantItemSource = {
         key: "GrantItem",
         uuid: condition.uuid,
         onDeleteActions: {
@@ -171,7 +173,7 @@ export function createCustomEffect(options: CustomEffectOptions): WithRequired<P
 type CustomConditionOptions = Omit<CustomEffectOptions, "badge" | "rules" | "tokenIcon"> & {
     slug: Exclude<ConditionSlug, "dying" | "unconscious">;
     counter?: number;
-    alterations?: Zod.RuleElements.ItemAlteration[];
+    alterations?: ItemAlteration[];
 };
 
 type CustomEffectOptions = {
@@ -207,7 +209,7 @@ type CustomEffectOptions = {
         license?: "OGL" | "ORC";
         remaster?: boolean;
     };
-    rules?: Zod.RuleElements.RuleElementSource[];
+    rules?: RuleElementSource[];
     slug?: string;
     tokenIcon?: boolean;
     unidentified?: boolean;
