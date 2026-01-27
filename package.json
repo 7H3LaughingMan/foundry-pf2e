@@ -15,20 +15,25 @@
         "./pf2e/*": "./types/pf2e/*",
         "./socketlib": "./types/socketlib/index.d.ts",
         "./tcal": "./types/tcal/index.d.ts",
-        "./utilities": "./src/utilities/index.ts"
+        "./utilities": "./src/utilities/index.ts",
+        "./zod": "./src/zod/index.ts"
     },
     "imports": {
-        "#common/*": "./types/foundry/common/*",
         "#client/*": "./types/foundry/client/*",
-        "#foundry-pf2e": "./types/index.d.ts"
+        "#common/*": "./types/foundry/common/*",
+        "#foundry-pf2e": "./types/index.d.ts",
+        "#foundry-pf2e/utilities": "./src/utilities/index.ts",
+        "#foundry-pf2e/zod": "./src/zod/index.ts"
     },
     "devDependencies": {
         "@eslint/json": "^0.14.0",
         "eslint": "^9.39.2",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.5",
         "glob": "^13.0.0",
         "prettier-plugin-organize-imports": "^4.3.0",
         "typescript": "5.9.3",
-        "typescript-eslint": "8.53.1"
+        "typescript-eslint": "8.54.0"
     },
     "dependencies": {
         "@codemirror/lang-json": "^6.0.2",
@@ -36,16 +41,14 @@
         "@pixi/particle-emitter": "^5.0.10",
         "@types/jquery": "^3.5.33",
         "@types/luxon": "^3.7.1",
-        "@types/node": "^25.0.5",
+        "@types/node": "^25.0.10",
         "@types/simple-peer": "^9.11.9",
         "@types/sortablejs": "^1.15.9",
         "@types/tooltipster": "^0.0.35",
         "@types/ws": "^8.18.1",
         "@types/yaireo__tagify": "^4.27.0",
-        "@yaireo/tagify": "^4.35.6",
+        "@yaireo/tagify": "^4.36.0",
         "codemirror": "^6.0.2",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-prettier": "^5.5.4",
         "handlebars": "^4.7.8",
         "js-angusj-clipper": "^1.3.1",
         "luxon": "^3.7.2",
@@ -63,12 +66,13 @@
         "prosemirror-schema-list": "^1.5.1",
         "prosemirror-state": "^1.4.4",
         "prosemirror-tables": "^1.8.5",
-        "prosemirror-transform": "^1.10.5",
-        "prosemirror-view": "^1.41.4",
+        "prosemirror-transform": "^1.11.0",
+        "prosemirror-view": "^1.41.5",
         "remeda": "^2.33.4",
         "socket.io": "^4.8.3",
         "socket.io-client": "^4.8.3",
         "sortablejs": "^1.15.6",
-        "svelte": "^5.40.1"
+        "svelte": "^5.48.4",
+        "zod": "^4.3.6"
     }
 }

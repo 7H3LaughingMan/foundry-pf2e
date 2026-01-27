@@ -2,8 +2,7 @@ import { DocumentConstructionContext } from "../common/_types.mjs";
 import { ActiveEffectSource } from "../common/documents/active-effect.mjs";
 import { DataSchema, Document, TypeDataModel } from "./../common/abstract/_module.mjs";
 import { AudioFilePath, ImageFilePath, RollMode } from "./../common/constants.mjs";
-import { applications, dice, documents, TokenMovementActionConfig } from "./_module.mjs";
-import DocumentSheetV2 from "./applications/api/document-sheet.mjs";
+import { applications, canvas, dice, documents, TokenMovementActionConfig } from "./_module.mjs";
 import CameraViews from "./applications/apps/av/cameras.mjs";
 import HTMLEnrichedContentElement from "./applications/elements/enriched-content.mjs";
 import { PrototypeTokenConfig } from "./applications/sheets/_module.mjs";
@@ -12,9 +11,6 @@ import { CompendiumDirectory } from "./applications/sidebar/tabs/_module.mjs";
 import { MainMenu, Notifications, SceneNavigation } from "./applications/ui/_module.mjs";
 import Hotbar from "./applications/ui/hotbar.mjs";
 import { EnrichmentOptions } from "./applications/ux/text-editor.mjs";
-import ActorSheet from "./appv1/sheets/actor-sheet.mjs";
-import ItemSheet from "./appv1/sheets/item-sheet.mjs";
-import JournalSheet from "./appv1/sheets/journal-sheet.mjs";
 import { CanvasAnimationAttribute } from "./canvas/animation/_types.mjs";
 import ChatBubbles from "./canvas/animation/chat-bubbles.mjs";
 import { DoorControl, ParticleEffect } from "./canvas/containers/_module.mjs";
@@ -226,77 +222,42 @@ export default interface Config<
         typeLabels: Record<string, string | undefined>;
         typeIcons: Record<string, string>;
         trackableAttributes: object;
-        sheetClasses: Record<
-            string,
-            Record<
-                string,
-                {
-                    id: string;
-                    cls: typeof ActorSheet | typeof DocumentSheetV2;
-                    default: boolean;
-                    label: string;
-                    canConfigure: boolean;
-                    canBeDefault: boolean;
-                }
-            >
-        >;
+        sheetClasses: Record<string, Record<string, SheetClassConfig>>;
+    };
+
+    /** Configuration for the Adventure document. */
+    Adventure: {
+        documentClass: ConstructorOf<documents.Adventure>;
+        compendiumIndexFields: string[];
+        compendiumBanner: string;
+        sidebarIcon: string;
     };
 
     /** Configuration for the Cards primary Document type */
     Cards: {
         collection: WorldCollection<documents.Cards>;
+        compendiumIndexFields: string[];
+        compendiumBanner: string;
         documentClass: ConstructorOf<documents.Cards>;
         sidebarIcon: string;
-        presets: Record<string, { type: string; label: string; source: string }>;
-    };
-
-    /** Configuration for the FogExploration document */
-    FogExploration: {
-        documentClass: typeof documents.FogExploration;
-        collection: typeof WorldCollection;
-    };
-
-    /** Configuration for the Folder document */
-    Folder: {
-        documentClass: typeof documents.Folder;
-        collection: typeof collections.Folders;
+        dataModels: Record<string, ConstructorOf<TypeDataModel<Document, DataSchema>>>;
+        presets: Record<string, { type: string; label: string; src: string }>;
+        typeLabels: Record<string, string>;
+        typeIcons: Record<string, string>;
     };
 
     /** Configuration for the ChatMessage document */
     ChatMessage: {
-        batchSize: number;
-        collection: typeof collections.Messages;
         documentClass: {
             new (data: PreCreate<TChatMessage["_source"]>, context?: DocumentConstructionContext<null>): TChatMessage;
         };
-        sidebarIcon: string;
+        popoutClass: typeof applications.sidebar.apps.ChatPopout;
+        collection: typeof collections.Messages;
         template: string;
-    };
-
-    /** Configuration for Item document */
-    Item: {
-        dataModels: Record<string, ConstructorOf<TypeDataModel<documents.Item, DataSchema>>>;
-        defaultType?: string;
-        collection: typeof collections.Items;
-        documentClass: {
-            new (data: PreCreate<TItem["_source"]>, context?: DocumentConstructionContext<TItem["parent"]>): TItem;
-        };
+        dataModels: Record<string, ConstructorOf<TypeDataModel<Document, DataSchema>>>;
+        typeLabels: Record<string, string>;
         typeIcons: Record<string, string>;
-        typeLabels: Record<string, string | undefined>;
-        sheetClasses: Record<
-            string,
-            Record<
-                string,
-                {
-                    id: string;
-                    cls: typeof ItemSheet | typeof DocumentSheetV2;
-                    default: boolean;
-                    label: string;
-                    canConfigure: boolean;
-                    canBeDefault: boolean;
-                }
-            >
-        >;
+        batchSize: number;
     };
 
     /** Configuration for the Combat document */
@@ -313,73 +274,104 @@ export default interface Config<
         };
     };
 
+    /** Configuration for the FogExploration document */
+    FogExploration: {
+        documentClass: typeof documents.FogExploration;
+        collection: typeof WorldCollection;
+        sheetClasses: Record<string, Record<string, SheetClassConfig>>;
+        typeLabels: Record<string, string>;
+    };
+
+    /** Configuration for the Folder document */
+    Folder: {
+        collection: typeof collections.Folders;
+        documentClass: typeof documents.Folder;
+        sheetClasses: Record<string, Record<string, SheetClassConfig>>;
+        sidebarIcon: string;
+        typeLabels: Record<string, string>;
+    };
+
+    /** Configuration for Item document */
+    Item: {
+        collection: typeof collections.Items;
+        compendiumBanner: string;
+        compendiumIndexFields: string[];
+        dataModels: Record<string, ConstructorOf<TypeDataModel<documents.Item, DataSchema>>>;
+        defaultType?: string;
+        documentClass: {
+            new (data: PreCreate<TItem["_source"]>, context?: DocumentConstructionContext<TItem["parent"]>): TItem;
+        };
+        sheetClasses: Record<string, Record<string, SheetClassConfig>>;
+        sidebarIcon: string;
+        typeLabels: Record<string, string | undefined>;
+        typeIcons: Record<string, string>;
+    };
+
     /** Configuration for the JournalEntry entity */
     JournalEntry: {
         documentClass: typeof documents.JournalEntry;
-        noteIcons: {
-            Anchor: string;
-            [key: string]: string;
-        };
-        sheetClasses: Record<
-            string,
-            Record<
-                string,
-                {
-                    id: string;
-                    cls: typeof JournalSheet;
-                    default: boolean;
-                    label: string;
-                    canConfigure: boolean;
-                    canBeDefault: boolean;
-                }
-            >
-        >;
+        collection: collections.Journal;
+        compendiumIndexFields: string[];
+        compendiumBanner: string;
         sidebarIcon: string;
+        noteIcons: Record<string, string>;
+        sheetClasses: Record<string, Record<string, SheetClassConfig>>;
     };
 
     /** Configuration for the Macro document */
     Macro: {
         documentClass: ConstructorOf<TMacro>;
         collection: typeof collections.Macros;
-        sidebarIcon: string;
-    };
-
-    /** Configuration for Scene document */
-    Scene: {
-        documentClass: ConstructorOf<TScene>;
-        collection: typeof collections.Scenes;
+        compendiumIndexFields: string[];
+        compendiumBanner: string;
         sidebarIcon: string;
     };
 
     /** Configuration for the Playlist document */
     Playlist: {
         documentClass: typeof documents.Playlist;
+        collection: collections.Playlists;
+        compendiumIndexFields: string[];
+        compendiumBanner: string;
         sidebarIcon: string;
+        autoPreloadSeconds: number;
     };
 
     /** Configuration for RollTable random draws */
     RollTable: {
         documentClass: typeof documents.RollTable;
+        collection: typeof collections.RollTables;
+        compendiumIndexFields: string[];
+        compendiumBanner: string;
         sidebarIcon: string;
         resultIcon: string;
+        resultTemplate: string;
+    };
+
+    /** Configuration for Scene document */
+    Scene: {
+        documentClass: ConstructorOf<TScene>;
+        collection: typeof collections.Scenes;
+        compendiumIndexFields: string[];
+        compendiumBanner: string;
+        sidebarIcon: string;
+    };
+
+    /** Configuration for the User document */
+    Setting: {
+        documentClass: typeof documents.Setting;
+        collection: typeof collections.WorldSettings;
     };
 
     /** Configuration for the User document */
     User: {
         documentClass: ConstructorOf<TUser>;
         collection: typeof collections.Users;
-        permissions: undefined;
     };
 
     /* -------------------------------------------- */
     /*  Embedded Documents                          */
     /* -------------------------------------------- */
-
-    /** Configuration for the AmbientLight embedded document type and its representation on the game Canvas */
-    AmbientLight: {
-        documentClass: ConstructorOf<TAmbientLightDocument>;
-        objectClass: ConstructorOf<NonNullable<TAmbientLightDocument["object"]>>;
-    };
 
     /** Configuration for the ActiveEffect embedded document type */
     ActiveEffect: {
@@ -389,6 +381,9 @@ export default interface Config<
                 context?: DocumentConstructionContext<TActiveEffect["parent"]>,
             ): TActiveEffect;
         };
+        dataModels: Record<string, ConstructorOf<TypeDataModel<Document, DataSchema>>>;
+        typeLabels: Record<string, string>;
+        typeIcons: Record<string, string>;
     };
 
     /** Configuration for the ActorDelta embedded document type. */
@@ -396,24 +391,77 @@ export default interface Config<
         documentClass: ConstructorOf<TActorDelta>;
     };
 
-    /** Configuration for the Combatant document */
+    Card: {
+        documentClass: typeof documents.Card;
+        dataModels: Record<string, ConstructorOf<TypeDataModel<Document, DataSchema>>>;
+        typeLabels: Record<string, string>;
+        typeIcons: Record<string, string>;
+    };
+
+    TableResult: {
+        documentClass: typeof documents.TableResult;
+    };
+
+    /** Configuration for the JournalEntryCategory embedded document type. */
+    JournalEntryCategory: {
+        documentClass: typeof documents.JournalEntryCategory;
+    };
+
+    /** Configuration for the JournalEntryPage embedded document type. */
+    JournalEntryPage: {
+        documentClass: typeof documents.JournalEntryPage;
+        dataModels: Record<string, ConstructorOf<TypeDataModel<Document, DataSchema>>>;
+        typeLabels: Record<string, string>;
+        typeIcons: Record<string, string>;
+        defaultType: string;
+        sidebarIcon: string;
+    };
+
+    /** Configuration for the PlaylistSound embedded document type */
+    PlaylistSound: {
+        documentClass: typeof documents.PlaylistSound;
+        sidebarIcon: string;
+    };
+
+    /** Configuration for the AmbientLight embedded document type and its representation on the game Canvas */
+    AmbientLight: {
+        documentClass: ConstructorOf<TAmbientLightDocument>;
+        objectClass: ConstructorOf<NonNullable<TAmbientLightDocument["object"]>>;
+        layerClass: typeof canvas.layers.LightingLayer;
+    };
+
+    /** Configuration for the AmbientSound embedded document type and its representation on the game Canvas */
+    AmbientSound: {
+        documentClass: typeof documents.AmbientSoundDocument;
+        objectClass: typeof canvas.placeables.AmbientSound;
+        layerClass: typeof canvas.layers.SoundsLayer;
+    };
+
+    /** Configuration for the Combatant embedded document type within a Combat document */
     Combatant: {
         documentClass: new (
             data: PreCreate<TCombatant["_source"]>,
             context?: DocumentConstructionContext<TCombatant["parent"]>,
         ) => TCombatant;
+        dataModels: Record<string, ConstructorOf<TypeDataModel<Document, DataSchema>>>;
+        typeLabels: Record<string, string>;
+        typeIcons: Record<string, string>;
     };
 
-    /**
-     * Configuration for the JournalEntryPage embedded document type.
-     */
-    JournalEntryPage: {
+    /** Configuration for the CombatantGroup embedded document type within a Combat document. */
+    CombatantGroup: {
+        documentClass: typeof documents.CombatantGroup;
         dataModels: Record<string, ConstructorOf<TypeDataModel<Document, DataSchema>>>;
-        defaultType: string;
-        documentClass: typeof documents.JournalEntryPage;
-        sidebarIcon: string;
-        typeIcons: Record<string, string>;
         typeLabels: Record<string, string>;
+        typeIcons: Record<string, string>;
+    };
+
+    /** Configuration for the Drawing embedded document type and its representation on the game Canvas */
+    Drawing: {
+        documentClass: typeof documents.DrawingDocument;
+        objectClass: typeof canvas.placeables.Drawing;
+        layerClass: typeof canvas.layers.DrawingsLayer;
+        hudClass: typeof applications.hud.DrawingHUD;
     };
 
     /** Configuration for the MeasuredTemplate embedded document type and its representation on the game Canvas */
@@ -422,34 +470,39 @@ export default interface Config<
             angle: number;
             width: number;
         };
-        types: {
-            circle: string;
-            cone: string;
-            rect: string;
-            ray: string;
-        };
         documentClass: ConstructorOf<TMeasuredTemplateDocument>;
         objectClass: ConstructorOf<NonNullable<TMeasuredTemplateDocument["object"]>>;
+        layerClass: typeof canvas.layers.TemplateLayer;
+    };
+
+    /** Configuration for the Note embedded document type and its representation on the game Canvas */
+    Note: {
+        documentClass: typeof documents.NoteDocument;
+        objectClass: typeof canvas.placeables.Note;
+        layerClass: typeof canvas.layers.NotesLayer;
     };
 
     /** Configuration for the Region embedded document type and its representation on the game Canvas  */
     Region: {
         documentClass: ConstructorOf<TRegionDocument>;
         objectClass: ConstructorOf<TRegionDocument["object"]>;
+        layerClass: typeof canvas.layers.RegionLayer;
     };
 
     /** Configuration for the RegionBehavior embedded document type */
     RegionBehavior: {
         documentClass: ConstructorOf<TRegionBehavior>;
         dataModels: Record<string, ConstructorOf<foundry.data.regionBehaviors.RegionBehaviorType>>;
-        typeIcons: Record<string, string>;
         typeLabels: Record<string, string>;
+        typeIcons: Record<string, string>;
     };
 
     /** Configuration for the Tile embedded document type and its representation on the game Canvas */
     Tile: {
         documentClass: ConstructorOf<TTileDocument>;
         objectClass: ConstructorOf<NonNullable<TTileDocument["object"]>>;
+        layerClass: typeof canvas.layers.TilesLayer;
+        hudClass: applications.hud.TileHUD;
     };
 
     /** Configuration for the Token embedded document type and its representation on the game Canvas */
@@ -477,6 +530,11 @@ export default interface Config<
     Wall: {
         documentClass: ConstructorOf<TWallDocument>;
         objectClass: ConstructorOf<placeables.Wall<TWallDocument>>;
+        layerClass: typeof canvas.layers.WallsLayer;
+        animationTypes: Record<string, WallDoorAnimationConfig>;
+        doorSounds: Record<string, WallDoorSound>;
+        textureGridSize: number;
+        thresholdAttenuationMultiplier: number;
     };
 
     /* -------------------------------------------- */
@@ -798,6 +856,16 @@ interface ControlIconsConfig {
     down: ImageFilePath;
     defeated: ImageFilePath;
     [key: string]: ImageFilePath | undefined;
+}
+
+interface SheetClassConfig {
+    canBeDefault: boolean;
+    canConfigure: boolean;
+    cls: typeof foundry.appv1.api.DocumentSheet | typeof foundry.applications.api.DocumentSheetV2;
+    default: boolean;
+    id: string;
+    label: string;
+    themes: Record<string, string>;
 }
 
 interface StatusEffectConfig extends Partial<ActiveEffectSource> {

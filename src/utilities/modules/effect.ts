@@ -1,5 +1,6 @@
 import { ImageFilePath } from "#common/constants.mjs";
 import { ActorUUID, ItemUUID, TokenDocumentUUID } from "#common/documents/_module.mjs";
+import { Zod } from "#foundry-pf2e/zod";
 import {
     ActorPF2e,
     ConditionSlug,
@@ -11,40 +12,6 @@ import {
     TokenDocumentPF2e,
 } from "foundry-pf2e";
 import { isDecimal, isNonNegative } from "./index.ts";
-import { GrantItemSource, ItemAlterationSource, RuleElementSource } from "./rule-elements.ts";
-import { SYSTEM } from "./system.ts";
-
-const PERSISTENT_DAMAGE_IMAGES: Partial<Record<DamageType, () => ImageFilePath>> = {
-    acid: () => "icons/magic/acid/dissolve-arm-flesh.webp",
-    bludgeoning: () => SYSTEM.getPath("icons/equipment/weapons/bola.webp"),
-    cold: () => "icons/magic/water/ice-snowman.webp",
-    electricity: () => SYSTEM.getPath("icons/spells/chain-lightning.webp"),
-    fire: () => "icons/magic/fire/flame-burning-creature-skeleton.webp",
-    force: () => SYSTEM.getPath("icons/spells/modify-memory.webp"),
-    mental: () => SYSTEM.getPath("icons/spells/modify-memory.webp"),
-    piercing: () => SYSTEM.getPath("icons/equipment/weapons/throwing-knife.webp"),
-    poison: () => SYSTEM.getPath("icons/spells/acidic-burst.webp"),
-    slashing: () => SYSTEM.getPath("icons/equipment/weapons/scimitar.webp"),
-    sonic: () => SYSTEM.getPath("icons/spells/cry-of-destruction.webp"),
-    spirit: () => "icons/magic/unholy/hand-claw-fire-blue.webp",
-    vitality: () => SYSTEM.getPath("spells/moment-of-renewal.webp"),
-    void: () => SYSTEM.getPath("icons/spells/grim-tendrils.webp"),
-};
-
-export function createCustomPersistentDamage(
-    options: CustomPersistentDamageOptions,
-): PreCreate<EffectSource> | undefined {
-    const { formula, damageType, dc = 15, criticalHit = false } = options;
-
-    return createCustomCondition({
-        ...options,
-        slug: "persistent-damage",
-        img: options.img || PERSISTENT_DAMAGE_IMAGES[damageType]?.call(undefined),
-        alterations: [
-            { mode: "override", property: "persistent-damage", value: { formula, damageType, dc, criticalHit } },
-        ],
-    });
-}
 
 export function createPersistentDamageSource(
     formula: string,
@@ -74,7 +41,7 @@ export function createCustomCondition(options: CustomConditionOptions): PreCreat
 
     if (slug === "persistent-damage" && !alterations.length) return;
 
-    const rule: GrantItemSource = {
+    const rule: Zod.RuleElements.GrantItemSource = {
         key: "GrantItem",
         uuid: condition.uuid,
         onDeleteActions: {
@@ -201,17 +168,10 @@ export function createCustomEffect(options: CustomEffectOptions): WithRequired<P
     };
 }
 
-type CustomPersistentDamageOptions = Omit<CustomEffectOptions, "badge" | "rules" | "tokenIcon"> & {
-    formula: string;
-    damageType: DamageType;
-    dc?: number;
-    criticalHit?: boolean;
-};
-
 type CustomConditionOptions = Omit<CustomEffectOptions, "badge" | "rules" | "tokenIcon"> & {
     slug: Exclude<ConditionSlug, "dying" | "unconscious">;
     counter?: number;
-    alterations?: ItemAlterationSource[];
+    alterations?: Zod.RuleElements.ItemAlteration[];
 };
 
 type CustomEffectOptions = {
@@ -247,7 +207,7 @@ type CustomEffectOptions = {
         license?: "OGL" | "ORC";
         remaster?: boolean;
     };
-    rules?: RuleElementSource[];
+    rules?: Zod.RuleElements.RuleElementSource[];
     slug?: string;
     tokenIcon?: boolean;
     unidentified?: boolean;

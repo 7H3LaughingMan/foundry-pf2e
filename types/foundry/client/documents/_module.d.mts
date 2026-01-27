@@ -49,7 +49,7 @@ export { default as ActorDelta } from "./actor-delta.mjs";
 export { default as Card } from "./card.mjs";
 export { default as CombatantGroup } from "./combatant-group.mjs";
 export { default as Combatant } from "./combatant.mjs";
-// export { default as JournalEntryCategory } from "./journal-entry-category.mjs";
+export { default as JournalEntryCategory } from "./journal-entry-category.mjs";
 export { default as JournalEntryPage } from "./journal-entry-page.mjs";
 export { default as PlaylistSound } from "./playlist-sound.mjs";
 export { default as RegionBehavior } from "./region-behavior.mjs";

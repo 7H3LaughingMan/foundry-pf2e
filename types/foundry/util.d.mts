@@ -63,6 +63,8 @@ declare global {
             : never
         : T;
 
+    type PartialRecord<K extends PropertyKey, V> = Partial<Record<K, V>>;
+
     /** A JSON-compatible value, plus `undefined` */
     type JSONValue = string | number | boolean | object | null | undefined;
 }
