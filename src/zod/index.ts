@@ -1,1 +1,1 @@
-export * as Zod from "./modules";
+export * as Zod from "./modules/index.ts";
