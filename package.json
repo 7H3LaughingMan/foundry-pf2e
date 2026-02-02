@@ -21,7 +21,11 @@
     "imports": {
         "#client/*": "./types/foundry/client/*",
         "#common/*": "./types/foundry/common/*",
-        "#foundry-pf2e": "./types/index.d.ts"
+        "#pf2e-module/*": "./types/pf2e/module/*",
+        "#pf2e-scripts/*": "./types/pf2e/scripts/*",
+        "#pf2e-util/*": "./types/pf2e/util/*",
+        "#utilities/*": "./src/utilities/*",
+        "#zod/*": "./src/zod/*"
     },
     "devDependencies": {
         "@eslint/json": "^0.14.0",

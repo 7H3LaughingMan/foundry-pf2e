@@ -1,0 +1,12 @@
+import { zRuleElementSource, zRuleValue } from "#zod/rules/base.ts";
+
+import * as z from "zod";
+
+export const zLoseHitPointsSource = zRuleElementSource.extend({
+    key: z.literal("LoseHitPoints"),
+    value: zRuleValue.optional(),
+    reevaluateOnUpdate: z.boolean().optional(),
+    recoverable: z.boolean().optional(),
+});
+
+export type zLoseHitPointsSource = z.infer<typeof zLoseHitPointsSource>;
