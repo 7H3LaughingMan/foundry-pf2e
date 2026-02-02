@@ -16,7 +16,7 @@ export default class HTMLRangePickerElement extends AbstractFormInputElement<num
     static create(config: RangePickerInputConfig): HTMLRangePickerElement;
 }
 
-export interface RangePickerInputConfig extends FormInputConfig<string> {
+export interface RangePickerInputConfig extends FormInputConfig<number> {
     min: number;
     max: number;
     step?: number;
