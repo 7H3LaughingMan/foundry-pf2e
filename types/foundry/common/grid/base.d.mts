@@ -1,4 +1,3 @@
-import { Color } from "pixi.js";
 import { ElevatedPoint, Point, Rectangle } from "../_types.mjs";
 import { GridType, MovementDirection } from "./../constants.mjs";
 import {

@@ -1,3 +1,4 @@
+import { BaseGrid } from "#common/grid/base.mjs";
 import SceneConfig from "../applications/sheets/scene-config.mjs";
 import {
     DatabaseCreateCallbackOptions,
@@ -54,6 +55,8 @@ export default class Scene extends ClientBaseScene {
 
     /** Track whether the scene is the active view */
     protected _view: boolean;
+
+    grid: BaseGrid;
 
     /** Determine the canvas dimensions this Scene would occupy, if rendered */
     dimensions: SceneDimensions;
