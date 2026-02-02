@@ -1,4 +1,4 @@
-import { createHTMLElement } from "#pf2e-util/dom.js";
+import { createHTMLElement } from "#utilities/dom.ts";
 
 export function notesToHTML(
     notes: { title?: string | null; text: string; visibility?: "none" | "all" | "gm" | "owner" | null }[],
