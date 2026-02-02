@@ -129,7 +129,7 @@ interface SettingRegistration<
     TChoices extends Record<string, unknown> | undefined = Record<string, unknown> | undefined,
 > extends Omit<SettingConfig<TChoices>, "config" | "key" | "namespace" | "scope"> {
     config?: boolean;
-    scope?: "client" | "world";
+    scope?: "world" | "client" | "user";
 }
 
 interface ClientSettingsMap extends Map<string, SettingConfig> {

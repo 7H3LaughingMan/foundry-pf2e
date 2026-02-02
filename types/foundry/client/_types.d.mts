@@ -965,7 +965,7 @@ export interface SettingConfig<
     /** An additional human readable hint */
     hint?: string;
     /** The scope the Setting is stored in, either World or Client */
-    scope: "world" | "client";
+    scope: "world" | "client" | "user";
     /** Indicates if this Setting should render in the Config application */
     config: boolean;
     /** This will prompt the user to reload the application for the setting to take effect. */
