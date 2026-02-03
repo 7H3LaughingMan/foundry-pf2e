@@ -1,3 +1,4 @@
+import { DocumentOwnershipLevel } from "#common/constants.mjs";
 import { DataField } from "../../common/data/fields.mjs";
 import FormDataExtended from "./ux/form-data-extended.mjs";
 
@@ -13,7 +14,14 @@ export interface ApplicationConfiguration {
     /** Configuration of the window behaviors for this Application */
     window: ApplicationWindowConfiguration;
     /** Click actions supported by the Application and their event handler functions */
-    actions: Record<string, ApplicationClickAction>;
+    actions: Record<
+        string,
+        | ApplicationClickAction
+        | {
+              handler: ApplicationClickAction;
+              buttons: number[];
+          }
+    >;
     /** Configuration used if the application top-level element is a form */
     form?: ApplicationFormConfiguration;
     /** Default positioning data for the application */
@@ -36,17 +44,11 @@ export interface ApplicationPosition {
 }
 
 export interface ApplicationWindowConfiguration {
-    /**
-     * Is this Application rendered inside a window frame?
-     * @default true
-     */
-    frame: boolean;
+    /** Is this Application rendered inside a window frame? */
+    frame?: boolean;
 
-    /**
-     * Can this Application be positioned via JavaScript or only by CSS
-     * @default true
-     */
-    positioned: boolean;
+    /** Can this Application be positioned via JavaScript or only by CSS */
+    positioned?: boolean;
 
     /** The window title. Displayed only if the application is framed */
     title?: string;
@@ -55,28 +57,19 @@ export interface ApplicationWindowConfiguration {
     icon?: string | false;
 
     /** An array of window control entries */
-    controls: ApplicationHeaderControlsEntry[];
+    controls?: ApplicationHeaderControlsEntry[];
 
-    /**
-     * Can the window app be minimized by double-clicking on the title
-     * @default true
-     */
-    minimizable: boolean;
+    /** Can the window app be minimized by double-clicking on the title */
+    minimizable?: boolean;
 
-    /**
-     * Is this window resizable?
-     * @default false
-     */
-    resizable: boolean;
+    /** Is this window resizable? */
+    resizable?: boolean;
 
-    /**
-     * A specific tag name to use for the .window-content element
-     * @default "section"
-     */
-    contentTag: string;
+    /** A specific tag name to use for the .window-content element */
+    contentTag?: string;
 
     /** Additional CSS classes to apply to the .window-content element */
-    contentClasses: string[];
+    contentClasses?: string[];
 }
 
 export interface ApplicationFormConfiguration {
@@ -97,22 +90,19 @@ interface ApplicationTabsConfiguration {
     labelPrefix?: string;
 }
 
-/**
- * @typedef ApplicationTabsConfiguration
- * @property {{id: string; icon?: string; label?: string; tooltip?: string}[]} tabs
- * @property {string} [initial]
- * @property {string} [labelPrefix]
- */
-
 export interface ApplicationHeaderControlsEntry {
     /** A font-awesome icon class which denotes the control button */
     icon: string;
-    /** The text label for the control button */
+    /** The text label for the control button. This label will be automatically localized when the button is rendered */
     label: string;
     /** The action name triggered by clicking the control button */
     action: string;
     /** Is the control button visible for the current client? */
-    visible: boolean;
+    visible?: boolean | (() => boolean);
+    /** A key or value in {@link CONST.DOCUMENT_OWNERSHIP_LEVELS} that restricts visibility of this option for the current user. This option only applies to DocumentSheetV2 instances. */
+    ownership?: DocumentOwnershipLevel;
+    /** A custom click handler function. Asynchronous functions are not awaited. */
+    onClick?: (event: PointerEvent) => void | Promise<void>;
 }
 
 export interface ApplicationConstructorParams {
