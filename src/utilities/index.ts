@@ -2,6 +2,7 @@ export * from "./compendium-collection.ts";
 export * from "./document.ts";
 export * from "./dom.ts";
 export * from "./effect.ts";
+export * from "./flags.ts";
 export * from "./localize.ts";
 export * from "./misc.ts";
 export * from "./module.ts";
