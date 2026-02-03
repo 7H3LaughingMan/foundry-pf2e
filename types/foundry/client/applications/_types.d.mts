@@ -1,3 +1,4 @@
+import { DocumentOwnershipLevel } from "../../common/constants.mjs";
 import { DataField } from "../../common/data/fields.mjs";
 import FormDataExtended from "./ux/form-data-extended.mjs";
 
@@ -112,7 +113,15 @@ export interface ApplicationHeaderControlsEntry {
     /** The action name triggered by clicking the control button */
     action: string;
     /** Is the control button visible for the current client? */
-    visible: boolean;
+    visible?: boolean | (() => boolean);
+    /**
+     * A key or value in {@link CONST.DOCUMENT_OWNERSHIP_LEVELS} that
+     * restricts visibility of this option for the current user.
+     * This option only applies to DocumentSheetV2 instances.
+     */
+    ownership?: DocumentOwnershipLevel
+    /** A custom click handler function. Asynchronous functions are not awaited. */
+    onClick?: (event: PointerEvent) => void | Promise<void>
 }
 
 export interface ApplicationConstructorParams {
