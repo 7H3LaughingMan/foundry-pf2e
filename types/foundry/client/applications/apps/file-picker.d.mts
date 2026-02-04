@@ -22,8 +22,8 @@ export interface FilePickerConfiguration extends ApplicationConfiguration {
     /** A current file source in "data", "public", or "s3". */
     activeSource?: FilePickerSource;
     /** A callback function to trigger once a file has been selected */
-    callback?: Function;
-    /** */
+    callback?: (path: string) => void;
+    /** The current file path being modified, if any */
     current?: string;
     /** A flag which permits explicitly disallowing upload, `true` by default */
     allowUpload?: boolean;
