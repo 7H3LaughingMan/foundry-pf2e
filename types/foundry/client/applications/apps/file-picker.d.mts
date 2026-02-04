@@ -131,7 +131,7 @@ export default class FilePicker extends HandlebarsApplicationMixin(
     /**
      *  @param [options={}] Options that configure the behavior of the FilePicker
      */
-    constructor(options: DeepPartial<ApplicationConfiguration & FilePickerConfiguration>);
+    constructor(options: DeepPartial<FilePickerConfiguration>);
 
     /** The full requested path given by the user */
     request: string;
