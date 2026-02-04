@@ -18,27 +18,27 @@ type FilerPickerDisplayMode = (typeof FilePicker.DISPLAY_MODES)[number];
 
 export interface FilePickerConfiguration extends ApplicationConfiguration {
     /** A type of file to target. Default: `"any"` */
-    type: FilePickerFileType;
+    type?: FilePickerFileType;
     /** A current file source in "data", "public", or "s3". */
-    activeSource: FilePickerSource;
+    activeSource?: FilePickerSource;
     /** A callback function to trigger once a file has been selected */
-    callback: Function;
-    /** */
-    current: string;
+    callback?: (path: string, filePicker: FilePicker) => void;
+    /** The current file path being modified, if any */
+    current?: string;
     /** A flag which permits explicitly disallowing upload, `true` by default */
-    allowUpload: boolean;
+    allowUpload?: boolean;
     /** An HTML form field that the result of this selection is applied to */
-    field: HTMLElement;
+    field?: HTMLElement;
     /** An HTML button element which triggers the display of this picker */
-    button: HTMLButtonElement;
+    button?: HTMLButtonElement;
     /**  */
-    favorites: Record<string, FavoriteFolder>;
+    favorites?: Record<string, FavoriteFolder>;
     /** The picker display mode in FilePicker.DISPLAY_MODES */
-    displayMode: string;
+    displayMode?: string;
     /** Display the tile size configuration. */
-    tileSize: boolean;
+    tileSize?: boolean;
     /** Redirect to the root directory rather than starting in the source directory of one of these files. */
-    redirectToRoot: string[];
+    redirectToRoot?: string[];
 }
 
 export interface FavoriteFolder {
@@ -131,7 +131,7 @@ export default class FilePicker extends HandlebarsApplicationMixin(
     /**
      *  @param [options={}] Options that configure the behavior of the FilePicker
      */
-    constructor(options: FilePickerConfiguration);
+    constructor(options: DeepPartial<FilePickerConfiguration>);
 
     /** The full requested path given by the user */
     request: string;
