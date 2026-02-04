@@ -34,4 +34,5 @@ export * from "./temp-hp.ts";
 export * from "./token-effect-icon.ts";
 export * from "./token-image.ts";
 export * from "./token-light.ts";
+export * from "./token-mark.ts";
 export * from "./token-name.ts";
