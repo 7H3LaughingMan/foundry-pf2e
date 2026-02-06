@@ -1,4 +1,7 @@
 import { joinString } from "#utilities/string.ts";
+import { isErrorWithMessage } from "#utilities/type-guards.ts";
+
+import * as R from "remeda";
 
 const _MODULE = {
     id: "",
@@ -41,11 +44,11 @@ export const MODULE = {
 
         foundry.utils.setProperty(CONFIG, `debug.${this.id}`, true);
     },
-    error(value: string, error?: Error | string): void {
+    error(value: string, error?: unknown): void {
         let message = `${value}`;
 
-        if (error instanceof Error) message += `\n${error.message}`;
-        else if (typeof error === "string") message += `\n${error}`;
+        if (isErrorWithMessage(error)) message += `\n${error.message}`;
+        else if (R.isString(error)) message += `\n${error}`;
 
         this.output("error", message);
     },
