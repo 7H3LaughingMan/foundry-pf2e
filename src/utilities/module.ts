@@ -24,22 +24,30 @@ export const MODULE = {
     Error(value: string): Error {
         return new Error(`\n[${this.name}] ${value}`);
     },
-    error(value: string, error?: Error): void {
-        let message = `[${this.name}] ${value}`;
-
-        if (error instanceof Error) message += `\n${error.message}`;
-        else if (typeof error === "string") message += `\n${error}`;
-
-        console.error(message);
+    output(type: "log" | "info" | "warn" | "error" | "debug", ...args: unknown[]): void {
+        if (_MODULE.groupLog) console[type](...args);
+        else console[type](`[${this.name}]`, ...args);
     },
     assert(condition: boolean, error: string): void {
         if (!condition) {
             throw this.Error(error);
         }
     },
-    log(...args: unknown[]): void {
-        if (_MODULE.groupLog) console.log(...args);
-        else console.log(`[${this.name}]`, ...args);
+    debug(...args: unknown[]): void {
+        if (this.isDebug) this.output("debug", ...args);
+    },
+    enableDebugMode(): void {
+        if (this.isDebug) return;
+
+        foundry.utils.setProperty(CONFIG, `debug.${this.id}`, true);
+    },
+    error(value: string, error?: Error | string): void {
+        let message = `${value}`;
+
+        if (error instanceof Error) message += `\n${error.message}`;
+        else if (typeof error === "string") message += `\n${error}`;
+
+        this.output("error", message);
     },
     group(label: string): void {
         this.groupEnd();
@@ -50,13 +58,11 @@ export const MODULE = {
         console.groupEnd();
         _MODULE.groupLog = false;
     },
-    debug(...args: unknown[]): void {
-        if (this.isDebug) this.log(...args);
+    info(...args: unknown[]): void {
+        this.output("info", ...args);
     },
-    enableDebugMode(): void {
-        if (this.isDebug) return;
-
-        foundry.utils.setProperty(CONFIG, `debug.${this.id}`, true);
+    log(...args: unknown[]): void {
+        this.output("log", ...args);
     },
     path(...path: (string | string[])[]): string {
         const joined = joinString(".", ...path);
@@ -66,5 +72,8 @@ export const MODULE = {
         if (_MODULE.id) throw new Error("Module was already registered.");
 
         _MODULE.id = id;
+    },
+    warn(...args: unknown[]): void {
+        this.output("warn", ...args);
     },
 };
