@@ -15,7 +15,7 @@ export const MODULE = {
         return _MODULE.id;
     },
     get name(): string {
-        if (!_MODULE.id) throw new Error("Module needsto be registered.");
+        if (!_MODULE.id) throw new Error("Module needs to be registered.");
         return this.current.title;
     },
     get current(): foundry.packages.Module {
