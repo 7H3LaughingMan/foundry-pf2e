@@ -1,9 +1,7 @@
 import { RollMode } from "./../../common/constants.mjs";
 import Collection from "./../../common/utils/collection.mjs";
 import { SettingConfig, SettingSubmenuConfig } from "./../_types.mjs";
-import ApplicationV2 from "./../applications/api/application.mjs";
 import SettingsConfig from "./../applications/settings/config.mjs";
-import Application from "./../appv1/api/application-v1.mjs";
 import Setting from "./../documents/setting.mjs";
 
 export interface ClientSettingsStorage extends Map<"client" | "world" | "user", Storage | WorldSettings> {
@@ -21,7 +19,7 @@ export default class ClientSettings {
     settings: ClientSettingsMap;
 
     /** Registered settings menus which trigger secondary applications */
-    menus: Map<string, { type: ConstructorOf<Application> | ConstructorOf<ApplicationV2> }>;
+    menus: Map<string, SettingSubmenuConfig>;
 
     /**
      * The storage interfaces used for persisting settings
@@ -121,7 +119,7 @@ export default class ClientSettings {
      * });
      * ```
      */
-    registerMenu(namespace: string, key: string, data: SettingSubmenuConfig): void;
+    registerMenu(namespace: string, key: string, data: Omit<SettingSubmenuConfig, "key" | "namespace">): void;
 }
 
 export default interface ClientSettings {

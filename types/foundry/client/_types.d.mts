@@ -990,18 +990,22 @@ export interface SettingConfig<
 }
 
 export interface SettingSubmenuConfig {
+    /** A unique machine-readable id for the setting */
+    key: string;
+    /** The namespace the setting belongs to */
+    namespace: string;
     /** The human readable name */
     name: string;
     /** The human readable label */
     label: string;
     /** An additional human readable hint */
-    hint: string;
+    hint?: string;
     /** The classname of an Icon to render */
-    icon: string;
+    icon?: string;
     /** The FormApplication to render */
     type: ConstructorOf<foundry.appv1.api.Application> | ConstructorOf<foundry.applications.api.ApplicationV2>;
     /** If true, only a GM can edit this Setting */
-    restricted: boolean;
+    restricted?: boolean;
 }
 
 /** A Client Keybinding Action Configuration */
