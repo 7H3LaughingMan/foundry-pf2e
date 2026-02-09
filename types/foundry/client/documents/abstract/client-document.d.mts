@@ -27,6 +27,8 @@ export default function ClientDocumentMixin<TParent extends Document | null, TDo
 ): ConstructorOf<ClientDocument<TParent> & TDocument>;
 
 export class ClientDocument<TParent extends Document | null = Document | null> extends Document<TParent> {
+    declare name: string
+
     readonly apps: Record<string, Application | ApplicationV2>;
 
     static override name: string;
