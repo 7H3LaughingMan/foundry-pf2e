@@ -64,10 +64,10 @@ import * as abstract from "./_module.mjs";
  * }
  * ```
  */
-export default abstract class TypeDataModel<
-    TParent extends abstract.DataModel | null,
-    TSchema extends abstract.DataSchema,
-> extends abstract.DataModel<TParent, TSchema> {
+export default abstract class TypeDataModel<TParent extends abstract.DataModel | null, TSchema extends abstract.DataSchema> extends abstract.DataModel<
+    TParent,
+    TSchema
+> {
     /** The package that is providing this DataModel for the given sub-type. */
     readonly modelProvider: packages.BaseSystem | packages.BaseModule | null;
 
@@ -90,10 +90,7 @@ export default abstract class TypeDataModel<
      * @param config Configuration for embedding behavior.
      * @param options The original enrichment options for cases where the Document embed content also contains text that must be enriched.
      */
-    toEmbed(
-        config: DocumentHTMLEmbedConfig,
-        options?: EnrichmentOptions,
-    ): Promise<HTMLDocumentEmbedElement | HTMLElement | HTMLCollection | null>;
+    toEmbed(config: DocumentHTMLEmbedConfig, options?: EnrichmentOptions): Promise<HTMLDocumentEmbedElement | HTMLElement | HTMLCollection | null>;
 
     /* -------------------------------------------- */
     /*  Database Operations                         */
@@ -107,11 +104,7 @@ export default abstract class TypeDataModel<
      * @param user The User requesting the document creation
      * @returns Return false to exclude this Document from the creation operation
      */
-    protected _preCreate(
-        data: { system?: DeepPartial<SourceFromSchema<TSchema>> },
-        options: object,
-        user: User,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: { system?: DeepPartial<SourceFromSchema<TSchema>> }, options: object, user: User): Promise<boolean | void>;
 
     /* -------------------------------------------- */
 
@@ -122,11 +115,7 @@ export default abstract class TypeDataModel<
      * @param options Additional options which modify the creation request
      * @param userId The id of the User requesting the document update
      */
-    protected _onCreate(
-        data: { system?: DeepPartial<SourceFromSchema<TSchema>> },
-        options: object,
-        userId: string,
-    ): void;
+    protected _onCreate(data: { system?: DeepPartial<SourceFromSchema<TSchema>> }, options: object, userId: string): void;
 
     /* -------------------------------------------- */
 

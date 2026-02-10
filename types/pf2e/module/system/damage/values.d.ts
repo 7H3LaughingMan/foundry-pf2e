@@ -1,29 +1,12 @@
 import { ImageFilePath } from "#common/constants.mjs";
 import { DamageCategory, DamageType } from "./types.ts";
 declare const PHYSICAL_DAMAGE_TYPES: readonly ["bludgeoning", "piercing", "slashing", "bleed"];
-declare const ENERGY_DAMAGE_TYPES: readonly [
-    "acid",
-    "cold",
-    "electricity",
-    "fire",
-    "sonic",
-    "force",
-    "vitality",
-    "void",
-];
+declare const ENERGY_DAMAGE_TYPES: readonly ["acid", "cold", "electricity", "fire", "sonic", "force", "vitality", "void"];
 /** A set of mutually exclusive damage categories */
 declare const DAMAGE_CATEGORIES_UNIQUE: readonly ["persistent", "precision", "splash"];
 /** All damage modifications that only affect IWR (like materials) */
 declare const MATERIAL_DAMAGE_EFFECTS: Set<
-    | "adamantine"
-    | "dawnsilver"
-    | "duskwood"
-    | "orichalcum"
-    | "silver"
-    | "cold-iron"
-    | "sisterstone-dusk"
-    | "sisterstone-scarlet"
-    | "warpglass"
+    "adamantine" | "dawnsilver" | "duskwood" | "orichalcum" | "silver" | "cold-iron" | "sisterstone-dusk" | "sisterstone-scarlet" | "warpglass"
 >;
 declare const DAMAGE_CATEGORIES: Set<
     | "adamantine"

@@ -5,13 +5,7 @@ import { ItemSourcePF2e } from "./../../../item/base/data/index.ts";
 import { PersistentDamageValueSchema } from "./../../../item/condition/data.ts";
 import { ItemPF2e } from "./../../../item/index.ts";
 import { ItemType } from "./../../../item/types.ts";
-import {
-    DataUnionField,
-    PredicateField,
-    SlugField,
-    StrictNumberField,
-    StrictStringField,
-} from "./../../../system/schema-data-fields.ts";
+import { DataUnionField, PredicateField, SlugField, StrictNumberField, StrictStringField } from "./../../../system/schema-data-fields.ts";
 import fields = foundry.data.fields;
 import validation = foundry.data.validation;
 /** A `SchemaField` reappropriated for validation of specific item alterations */
@@ -30,12 +24,7 @@ declare class ItemAlterationHandler<TSchema extends AlterationSchema> extends fi
      * A type-safe affirmation of full validity of an alteration _and_ its applicable to a particular item
      * Errors will bubble all the way up to the originating parent rule element
      */
-    isValid(data: {
-        item: ItemPF2e | ItemSourcePF2e;
-        rule: RuleElement;
-        fromEquipment: boolean;
-        alteration: MaybeAlterationData;
-    }): data is {
+    isValid(data: { item: ItemPF2e | ItemSourcePF2e; rule: RuleElement; fromEquipment: boolean; alteration: MaybeAlterationData }): data is {
         item: ItemOrSource<fields.SourceFromSchema<TSchema>["itemType"]>;
         rule: RuleElement;
         fromEquipment: boolean;
@@ -253,13 +242,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: StrictNumberField<number, number, true, false, false>;
     }>;
     category: ItemAlterationHandler<{
@@ -294,13 +277,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.StringField<"light" | "medium" | "heavy", NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "check-penalty": ItemAlterationHandler<{
@@ -458,13 +435,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.StringField<
             | "force"
             | "acid"
@@ -521,20 +492,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
-        value: fields.StringField<
-            "ac" | "fortitude-dc" | "reflex-dc" | "will-dc",
-            NonNullable<JSONValue>,
-            true,
-            false,
-            boolean
-        >;
+        mode: fields.StringField<"override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
+        value: fields.StringField<"ac" | "fortitude-dc" | "reflex-dc" | "will-dc", NonNullable<JSONValue>, true, false, boolean>;
     }>;
     description: ItemAlterationHandler<{
         itemType: fields.StringField<
@@ -592,13 +551,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override" | "add",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"override" | "add", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.ArrayField<
             DescriptionElementField,
             fields.SourceFromSchema<{
@@ -732,13 +685,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "upgrade" | "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"upgrade" | "override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.StringField<
             "advanced" | "commercial" | "tactical" | "superior" | "elite" | "ultimate" | "paragon",
             "advanced" | "commercial" | "tactical" | "superior" | "elite" | "ultimate" | "paragon",
@@ -779,13 +726,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.StringField<string, NonNullable<JSONValue>, true, false, boolean>;
     }>;
     hardness: ItemAlterationHandler<{
@@ -902,13 +843,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.StringField<
             | "abysium"
             | "adamantine"
@@ -1011,13 +946,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.SchemaField<
             PersistentDamageValueSchema,
             fields.SourceFromSchema<PersistentDamageValueSchema>,
@@ -1059,20 +988,8 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
-        value: fields.StringField<
-            "common" | "uncommon" | "rare" | "unique",
-            NonNullable<JSONValue>,
-            true,
-            false,
-            boolean
-        >;
+        mode: fields.StringField<"override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
+        value: fields.StringField<"common" | "uncommon" | "rare" | "unique", NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "range-increment": ItemAlterationHandler<{
         itemType: fields.StringField<
@@ -1359,13 +1276,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.StringField<string, NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "runes-potency": ItemAlterationHandler<{
@@ -1400,13 +1311,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "upgrade" | "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"upgrade" | "override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.NumberField<number, NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "runes-resilient": ItemAlterationHandler<{
@@ -1441,13 +1346,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "upgrade" | "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"upgrade" | "override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.NumberField<number, NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "runes-striking": ItemAlterationHandler<{
@@ -1482,13 +1381,7 @@ declare const ITEM_ALTERATION_HANDLERS: {
             false,
             false
         >;
-        mode: fields.StringField<
-            "upgrade" | "override",
-            "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade",
-            true,
-            false,
-            false
-        >;
+        mode: fields.StringField<"upgrade" | "override", "remove" | "upgrade" | "override" | "multiply" | "add" | "subtract" | "downgrade", true, false, false>;
         value: fields.NumberField<number, NonNullable<JSONValue>, true, false, boolean>;
     }>;
     "speed-penalty": ItemAlterationHandler<{
@@ -1640,10 +1533,7 @@ interface AlterationFieldOptions<
     TSchema extends AlterationSchema,
     TSourceProp extends fields.SourceFromSchema<TSchema> = fields.SourceFromSchema<TSchema>,
 > extends DataFieldOptions<TSourceProp, true, false, false> {
-    validateForItem?: (
-        item: ItemPF2e | ItemSourcePF2e,
-        alteration: MaybeAlterationData,
-    ) => validation.DataModelValidationFailure | void;
+    validateForItem?: (item: ItemPF2e | ItemSourcePF2e, alteration: MaybeAlterationData) => validation.DataModelValidationFailure | void;
     /** Whether this alteration can be used with an `ItemPF2e` instance */
     operableOnInstances?: boolean;
     /** Whether this alteration can be used with item source data */

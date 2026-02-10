@@ -11,9 +11,7 @@ declare const ClientBasePlaylistSound: {
     new <TParent extends Playlist | null>(...args: any): BasePlaylistSound<TParent> & ClientDocument<TParent>;
 } & CanvasBasePlaylistSoundStatic;
 
-interface ClientBasePlaylistSound<TParent extends Playlist | null> extends InstanceType<
-    typeof ClientBasePlaylistSound<TParent>
-> {}
+interface ClientBasePlaylistSound<TParent extends Playlist | null> extends InstanceType<typeof ClientBasePlaylistSound<TParent>> {}
 
 /**
  * The client-side PlaylistSound document which extends the common BasePlaylistSound model.
@@ -25,9 +23,7 @@ interface ClientBasePlaylistSound<TParent extends Playlist | null> extends Insta
  *   application
  * @see {@link foundry.audio.Sound}   The Sound API which manages web audio playback
  */
-export default class PlaylistSound<
-    TParent extends Playlist | null = Playlist | null,
-> extends ClientBasePlaylistSound<TParent> {
+export default class PlaylistSound<TParent extends Playlist | null = Playlist | null> extends ClientBasePlaylistSound<TParent> {
     /**
      * The debounce tolerance for processing rapid volume changes into database updates in milliseconds
      */
@@ -87,17 +83,9 @@ export default class PlaylistSound<
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _preUpdate(
-        changes: Record<string, unknown>,
-        options: DatabaseUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preUpdate(changes: Record<string, unknown>, options: DatabaseUpdateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
-    protected _onUpdate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected _onUpdate(data: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 

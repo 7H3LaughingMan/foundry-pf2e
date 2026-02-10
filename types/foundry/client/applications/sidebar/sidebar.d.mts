@@ -1,9 +1,6 @@
 import { ApplicationConfiguration, ApplicationRenderContext } from "../_types.mjs";
 import ApplicationV2 from "../api/application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../api/handlebars-application.mjs";
 import AbstractSidebarTab from "./sidebar-tab.mjs";
 
 declare interface SidebarTabDescriptor {
@@ -63,10 +60,7 @@ export default class Sidebar extends HandlebarsApplicationMixin(ApplicationV2) {
      */
     protected _prepareTabContext(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
-    protected override _renderHTML(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<Record<string, HTMLElement>>;
+    protected override _renderHTML(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<Record<string, HTMLElement>>;
 
     /* -------------------------------------------- */
     /*  Event Listeners & Handlers                  */
@@ -78,11 +72,7 @@ export default class Sidebar extends HandlebarsApplicationMixin(ApplicationV2) {
     /*  Public API                                  */
     /* -------------------------------------------- */
 
-    override changeTab(
-        tab: string,
-        group: string,
-        options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean },
-    ): void;
+    override changeTab(tab: string, group: string, options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean }): void;
 
     /**
      * Collapse the sidebar.

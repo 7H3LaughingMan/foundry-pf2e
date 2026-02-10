@@ -1,10 +1,5 @@
 import { SkillActionOptions } from "../index.ts";
-import {
-    ActionCheckPreview,
-    SingleCheckAction,
-    SingleCheckActionVariant,
-    SingleCheckActionVariantData,
-} from "./../../../actor/actions/index.ts";
+import { ActionCheckPreview, SingleCheckAction, SingleCheckActionVariant, SingleCheckActionVariantData } from "./../../../actor/actions/index.ts";
 import { ActorPF2e } from "./../../../actor/index.ts";
 import { ItemPF2e } from "./../../../item/index.ts";
 import { CheckContextData, CheckContextOptions, CheckMacroContext } from "./../../action-macros/types.ts";
@@ -16,11 +11,7 @@ declare class EscapeActionVariant extends SingleCheckActionVariant {
         opts: CheckContextOptions<ItemType>,
         data: CheckContextData<ItemType>,
     ): CheckMacroContext<ItemType> | undefined;
-    protected toActionCheckPreview(options: {
-        actor?: ActorPF2e;
-        rollOptions: string[];
-        slug: string;
-    }): ActionCheckPreview | null;
+    protected toActionCheckPreview(options: { actor?: ActorPF2e; rollOptions: string[]; slug: string }): ActionCheckPreview | null;
 }
 declare class EscapeAction extends SingleCheckAction {
     constructor();

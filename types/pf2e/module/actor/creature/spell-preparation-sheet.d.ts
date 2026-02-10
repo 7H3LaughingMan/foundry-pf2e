@@ -13,9 +13,7 @@ declare class SpellPreparationSheet<TActor extends CreaturePF2e> extends appv1.s
     #private;
     /** Implementation used to handle the toggling and rendering of item summaries */
     itemRenderer: ItemSummaryRenderer<
-        ActorPF2e<
-            import("../../scene/index.ts").TokenDocumentPF2e<import("../../scene/document.ts").ScenePF2e | null> | null
-        >,
+        ActorPF2e<import("../../scene/index.ts").TokenDocumentPF2e<import("../../scene/document.ts").ScenePF2e | null> | null>,
         this
     >;
     item: SpellcastingEntryPF2e<TActor>;

@@ -5,9 +5,7 @@ import { ItemPF2e } from "./../index.ts";
 import { AbstractEffectSystemData, EffectBadge } from "./data.ts";
 import { EffectTrait } from "./types.ts";
 /** Base effect type for all PF2e effects including conditions and afflictions */
-declare abstract class AbstractEffectPF2e<
-    TParent extends ActorPF2e | null = ActorPF2e | null,
-> extends ItemPF2e<TParent> {
+declare abstract class AbstractEffectPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     /** A normalized version of the slug that shows in roll options, removing certain prefixes */
     rollOptionSlug: string;
     static get validTraits(): Record<EffectTrait, string>;
@@ -37,11 +35,7 @@ declare abstract class AbstractEffectPF2e<
     /** Set a self roll option for this effect */
     prepareActorData(): void;
     /** Log whether this effect originated from a spell */
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     protected _onCreate(data: this["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
     /** Attempts to show floaty text and update condition automation, depending on settings */

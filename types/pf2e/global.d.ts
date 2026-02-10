@@ -13,19 +13,9 @@ import { ElementalBlast } from "./module/actor/character/elemental-blast.ts";
 import { FeatGroupData } from "./module/actor/character/feats/index.ts";
 import { ActorPF2e } from "./module/actor/index.ts";
 import { CheckModifier, Modifier, ModifierType, StatisticModifier } from "./module/actor/modifiers.ts";
-import {
-    CompendiumBrowser,
-    CompendiumBrowserSettings,
-    CompendiumBrowserSources,
-} from "./module/apps/compendium-browser/browser.ts";
+import { CompendiumBrowser, CompendiumBrowserSettings, CompendiumBrowserSources } from "./module/apps/compendium-browser/browser.ts";
 import { EffectsPanel } from "./module/apps/effects-panel.ts";
-import {
-    ActorDirectoryPF2e,
-    ChatLogPF2e,
-    CompendiumDirectoryPF2e,
-    EncounterTracker,
-    ItemDirectoryPF2e,
-} from "./module/apps/sidebar/index.ts";
+import { ActorDirectoryPF2e, ChatLogPF2e, CompendiumDirectoryPF2e, EncounterTracker, ItemDirectoryPF2e } from "./module/apps/sidebar/index.ts";
 import { WorldClock } from "./module/apps/world-clock/app.ts";
 import { CanvasPF2e, EffectsCanvasGroupPF2e } from "./module/canvas/index.ts";
 import { StatusEffects } from "./module/canvas/status-effects.ts";
@@ -51,12 +41,7 @@ import { ConditionManager } from "./module/system/conditions/manager.ts";
 import { EffectTracker } from "./module/system/effect-tracker.ts";
 import { ModuleArt } from "./module/system/module-art.ts";
 import { Predicate } from "./module/system/predication.ts";
-import {
-    CustomDamageData,
-    HomebrewTag,
-    HomebrewTraitSettingsKey,
-    LanguageSettings,
-} from "./module/system/settings/homebrew/index.ts";
+import { CustomDamageData, HomebrewTag, HomebrewTraitSettingsKey, LanguageSettings } from "./module/system/settings/homebrew/index.ts";
 import { WorldClockSettingData } from "./module/system/settings/world-clock.ts";
 import { TextEditorPF2e } from "./module/system/text-editor.ts";
 import { UserPF2e } from "./module/user/index.ts";

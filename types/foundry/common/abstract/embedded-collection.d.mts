@@ -36,10 +36,7 @@ export default class EmbeddedCollection<TDocument extends Document<Document>> ex
      * @param data    The Document data.
      * @param context Document creation context.
      */
-    createDocument(
-        data: PreCreate<TDocument["_source"]>,
-        context?: DocumentConstructionContext<TDocument["parent"]>,
-    ): TDocument;
+    createDocument(data: PreCreate<TDocument["_source"]>, context?: DocumentConstructionContext<TDocument["parent"]>): TDocument;
 
     /**
      * Initialize the EmbeddedCollection object by constructing its contained Document instances
@@ -118,10 +115,7 @@ export default class EmbeddedCollection<TDocument extends Document<Document>> ex
      * @param data         The update delta.
      * @param [options={}] Additional options which modify how the collection is updated.
      */
-    protected _createOrUpdate(
-        data: { _id: string; [key: string]: unknown },
-        options?: DocumentSourceUpdateContext,
-    ): void;
+    protected _createOrUpdate(data: { _id: string; [key: string]: unknown }, options?: DocumentSourceUpdateContext): void;
 
     /**
      * Obtain a temporary Document instance for a document id which currently has invalid source data.

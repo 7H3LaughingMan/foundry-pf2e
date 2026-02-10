@@ -309,11 +309,7 @@ export default class Roll {
      *                  left as-is.
      * @param [warn] Display a warning notification when encountering an un-matched key.
      */
-    static replaceFormulaData(
-        formula: string,
-        data: Record<string, unknown>,
-        { missing, warn }?: { missing?: string; warn?: boolean },
-    ): string;
+    static replaceFormulaData(formula: string, data: Record<string, unknown>, { missing, warn }?: { missing?: string; warn?: boolean }): string;
 
     /**
      * Validate that a provided roll formula can represent a valid
@@ -437,10 +433,7 @@ export default class Roll {
         messageData: DeepPartial<ChatMessageSource> | undefined,
         { rollMode, create }: { rollMode?: RollMode | "roll"; create: false },
     ): Promise<ChatMessageSource>;
-    toMessage(
-        messageData?: DeepPartial<ChatMessageSource>,
-        { rollMode, create }?: { rollMode?: RollMode | "roll"; create?: true },
-    ): Promise<ChatMessage>;
+    toMessage(messageData?: DeepPartial<ChatMessageSource>, { rollMode, create }?: { rollMode?: RollMode | "roll"; create?: true }): Promise<ChatMessage>;
     toMessage(
         messageData?: DeepPartial<ChatMessageSource>,
         { rollMode, create }?: { rollMode?: RollMode | "roll"; create?: boolean },

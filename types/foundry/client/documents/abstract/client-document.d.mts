@@ -13,11 +13,7 @@ import Document from "./../../../common/abstract/document.mjs";
 import { DocumentOwnershipLevel } from "./../../../common/constants.mjs";
 import ApplicationV2 from "./../../applications/api/application.mjs";
 import HTMLDocumentEmbedElement from "./../../applications/elements/document-embed.mjs";
-import {
-    DocumentHTMLEmbedConfig,
-    EnrichmentAnchorOptions,
-    EnrichmentOptions,
-} from "./../../applications/ux/text-editor.mjs";
+import { DocumentHTMLEmbedConfig, EnrichmentAnchorOptions, EnrichmentOptions } from "./../../applications/ux/text-editor.mjs";
 import Application from "./../../appv1/api/application-v1.mjs";
 import { DropCanvasData } from "./../../helpers/hooks.mjs";
 import { Collection, SortOptions } from "./../../utils/_module.mjs";
@@ -175,25 +171,13 @@ export class ClientDocument<TParent extends Document | null = Document | null> e
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
     protected override _onCreate(data: this["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    protected override _preUpdate(
-        changes: Record<string, unknown>,
-        options: DatabaseUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preUpdate(changes: Record<string, unknown>, options: DatabaseUpdateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
-    protected override _onUpdate(
-        data: Record<string, unknown>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(data: Record<string, unknown>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _preDelete(options: DatabaseDeleteCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
@@ -394,11 +378,7 @@ export class ClientDocument<TParent extends Document | null = Document | null> e
      * @returns The resolved Document
      * @throws If a Document could not be retrieved from the provided data.
      */
-    static fromDropData<T extends ClientDocument>(
-        this: ConstructorOf<T>,
-        data: object,
-        options?: object,
-    ): Promise<T | null>;
+    static fromDropData<T extends ClientDocument>(this: ConstructorOf<T>, data: object, options?: object): Promise<T | null>;
 
     /**
      * Create the Document from the given source with migration applied to it.
@@ -462,10 +442,7 @@ export class ClientDocument<TParent extends Document | null = Document | null> e
      *                must be enriched.
      * @returns A representation of the Document as HTML content, or null if such a representation could not be generated.
      */
-    toEmbed(
-        config: DocumentHTMLEmbedConfig,
-        options?: EnrichmentOptions,
-    ): Promise<HTMLDocumentEmbedElement | HTMLElement | null>;
+    toEmbed(config: DocumentHTMLEmbedConfig, options?: EnrichmentOptions): Promise<HTMLDocumentEmbedElement | HTMLElement | null>;
 
     /**
      * Specific callback actions to take when the embedded HTML for this Document has been added to the DOM.
@@ -480,10 +457,7 @@ export class ClientDocument<TParent extends Document | null = Document | null> e
      *                must be enriched.
      * @returns  Either a single root element to append, or a collection of elements that comprise the embedded content.
      */
-    protected _buildEmbedHTML(
-        config: DocumentHTMLEmbedConfig,
-        options?: EnrichmentOptions,
-    ): Promise<HTMLElement | HTMLCollection | null>;
+    protected _buildEmbedHTML(config: DocumentHTMLEmbedConfig, options?: EnrichmentOptions): Promise<HTMLElement | HTMLCollection | null>;
 
     /**
      * A method that can be overridden by subclasses to customize inline embedded HTML generation.

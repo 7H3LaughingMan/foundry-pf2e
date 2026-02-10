@@ -10,9 +10,7 @@ import PlaceableObject from "./placeable-object.mjs";
  * A PlaceablesLayer designed for rendering the visual Scene for a specific vertical cross-section.
  * @category - Canvas
  */
-export default class Tile<
-    TDocument extends TileDocument<Scene | null> = TileDocument<Scene | null>,
-> extends PlaceableObject<TDocument> {
+export default class Tile<TDocument extends TileDocument<Scene | null> = TileDocument<Scene | null>> extends PlaceableObject<TDocument> {
     static override embeddedName: "Tile";
 
     static override RENDER_FLAGS: Record<string, { propagate?: string[]; alias?: boolean }>;
@@ -111,11 +109,7 @@ export default class Tile<
     /*  Document Event Handlers                     */
     /* -------------------------------------------- */
 
-    override _onUpdate(
-        changed: DeepPartial<TDocument["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    override _onUpdate(changed: DeepPartial<TDocument["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     /* -------------------------------------------- */
     /*  Interactivity                               */
@@ -185,9 +179,7 @@ export default class Tile<
     static createPreview(data: DeepPartial<foundry.documents.TileSource>): Tile;
 }
 
-export default interface Tile<
-    TDocument extends TileDocument<Scene | null> = TileDocument<Scene | null>,
-> extends PlaceableObject<TDocument> {
+export default interface Tile<TDocument extends TileDocument<Scene | null> = TileDocument<Scene | null>> extends PlaceableObject<TDocument> {
     get layer(): TilesLayer<this>;
 }
 

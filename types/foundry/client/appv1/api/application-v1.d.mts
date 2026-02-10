@@ -275,7 +275,7 @@ export default abstract class Application<TOptions extends ApplicationV1Options 
      * @param options.group             A specific named tab group, useful if multiple sets of tabs are present
      * @param options.triggerCallback   Whether to trigger tab-change callback functions
      */
-    activateTab(tabName: string, options?: {group?: string, triggerCallback?: boolean}): boolean
+    activateTab(tabName: string, options?: { group?: string; triggerCallback?: boolean }): boolean;
 
     /**
      * After rendering, activate event listeners which provide interactivity for the Application.

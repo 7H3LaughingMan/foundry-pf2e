@@ -5,10 +5,7 @@ import { Document, DocumentMetadata, EmbeddedCollection } from "./../abstract/_m
 import BaseRegionBehavior from "./region-behavior.mjs";
 import BaseScene from "./scene.mjs";
 
-export default class BaseRegion<TParent extends BaseScene | null = BaseScene | null> extends Document<
-    TParent,
-    RegionSchema
-> {
+export default class BaseRegion<TParent extends BaseScene | null = BaseScene | null> extends Document<TParent, RegionSchema> {
     static override get metadata(): RegionMetadata;
 
     static override defineSchema(): RegionSchema;

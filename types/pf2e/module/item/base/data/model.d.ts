@@ -5,14 +5,12 @@ import { RuleElementSource } from "./../../../rules/index.ts";
 import { SlugField } from "./../../../system/schema-data-fields.ts";
 import { ItemDescriptionData } from "./system.ts";
 import fields = foundry.data.fields;
-declare abstract class ItemSystemModel<TParent extends ItemPF2e, TSchema extends ItemSystemSchema> extends foundry
-    .abstract.TypeDataModel<TParent, TSchema> {
+declare abstract class ItemSystemModel<TParent extends ItemPF2e, TSchema extends ItemSystemSchema> extends foundry.abstract.TypeDataModel<TParent, TSchema> {
     static LOCALIZATION_PREFIXES: string[];
     static defineSchema(): ItemSystemSchema;
     get actor(): ActorPF2e | null;
 }
-interface ItemSystemModel<TParent extends ItemPF2e, TSchema extends ItemSystemSchema> extends foundry.abstract
-    .TypeDataModel<TParent, TSchema> {
+interface ItemSystemModel<TParent extends ItemPF2e, TSchema extends ItemSystemSchema> extends foundry.abstract.TypeDataModel<TParent, TSchema> {
     description: ItemDescriptionData;
 }
 type ItemSystemSchema = {

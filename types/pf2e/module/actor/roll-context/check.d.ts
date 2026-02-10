@@ -4,11 +4,11 @@ import { StrikeData } from "./../data/base.ts";
 import { ActorPF2e } from "./../index.ts";
 import { RollContext } from "./base.ts";
 import { CheckContextConstructorParams, CheckContextData } from "./types.ts";
-declare class CheckContext<
-    TSelf extends ActorPF2e,
-    TStatistic extends Statistic | StrikeData,
-    TItem extends ItemPF2e<ActorPF2e> | null,
-> extends RollContext<TSelf, TStatistic, TItem> {
+declare class CheckContext<TSelf extends ActorPF2e, TStatistic extends Statistic | StrikeData, TItem extends ItemPF2e<ActorPF2e> | null> extends RollContext<
+    TSelf,
+    TStatistic,
+    TItem
+> {
     /** The slug of a `Statistic` for use in building a DC */
     against: string | null;
     constructor(params: CheckContextConstructorParams<TSelf, TStatistic, TItem>);

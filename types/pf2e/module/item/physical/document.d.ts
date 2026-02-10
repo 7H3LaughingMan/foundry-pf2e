@@ -1,11 +1,6 @@
 import { ItemUUID } from "#client/documents/_module.mjs";
 import { DocumentConstructionContext } from "#common/_types.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteOperation,
-    DatabaseUpdateCallbackOptions,
-    DatabaseUpdateOperation,
-} from "#common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseDeleteOperation, DatabaseUpdateCallbackOptions, DatabaseUpdateOperation } from "#common/abstract/_types.mjs";
 import { ActorPF2e } from "./../../actor/index.ts";
 import { Rarity, Size, ZeroToTwo } from "./../../data.ts";
 import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
@@ -139,15 +134,7 @@ declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = Actor
      * Detach a subitem from another physical item, either creating it as a new, independent item or incrementing the
      * quantity of an existing stack.
      */
-    detach({
-        skipConfirm,
-        quantity,
-        keepZero,
-    }?: {
-        skipConfirm?: boolean;
-        quantity?: number;
-        keepZero?: boolean;
-    }): Promise<void>;
+    detach({ skipConfirm, quantity, keepZero }?: { skipConfirm?: boolean; quantity?: number; keepZero?: boolean }): Promise<void>;
     /**
      * Can the provided item stack with this item? This should be used on existing items.
      * @param item an item we are trying to add to the inventory
@@ -187,18 +174,11 @@ declare abstract class PhysicalItemPF2e<TParent extends ActorPF2e | null = Actor
     /** Include mystification-related rendering instructions for views that will display this data. */
     traitChatData(dictionary?: Record<string, string>): TraitChatData[];
     /** Redirect subitem updates to the parent item */
-    update(
-        data: Record<string, unknown>,
-        operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>,
-    ): Promise<this | undefined>;
+    update(data: Record<string, unknown>, operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>): Promise<this | undefined>;
     /** Redirect subitem deletes to parent-item updates */
     delete(operation?: Partial<Omit<DatabaseDeleteOperation<null>, "parent" | "pack">>): Promise<this | undefined>;
     /** Set to unequipped upon acquiring */
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     protected _preUpdate(
         changed: DeepPartial<this["_source"]>,
         operation: DatabaseUpdateCallbackOptions & {
@@ -211,9 +191,7 @@ interface PhysicalItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> 
     readonly _source: PhysicalItemSource;
     system: PhysicalSystemData;
 }
-interface PhysicalItemConstructionContext<
-    TParent extends ActorPF2e | null,
-> extends DocumentConstructionContext<TParent> {
+interface PhysicalItemConstructionContext<TParent extends ActorPF2e | null> extends DocumentConstructionContext<TParent> {
     parentItem?: PhysicalItemPF2e<TParent>;
 }
 export { PhysicalItemPF2e, type PhysicalItemConstructionContext };

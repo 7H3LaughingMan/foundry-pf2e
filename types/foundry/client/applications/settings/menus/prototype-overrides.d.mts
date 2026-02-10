@@ -1,9 +1,4 @@
-import {
-    ApplicationV2,
-    HandlebarsApplicationMixin,
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/_module.mjs";
+import { ApplicationV2, HandlebarsApplicationMixin, HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/_module.mjs";
 import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_types.mjs";
 
 /**
@@ -21,8 +16,5 @@ export default class PrototypeOverridesConfig extends HandlebarsApplicationMixin
 
     protected override _prepareContext(): Promise<ApplicationRenderContext>;
 
-    protected override _preFirstRender(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _preFirstRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 }

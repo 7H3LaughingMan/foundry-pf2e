@@ -1,10 +1,5 @@
 import { ConsumableTrait } from "./../consumable/types.ts";
-import {
-    BasePhysicalItemSource,
-    PhysicalItemTraits,
-    PhysicalSystemData,
-    PhysicalSystemSource,
-} from "./../physical/data.ts";
+import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "./../physical/data.ts";
 import { AmmoType } from "./types.ts";
 type AmmoSource = BasePhysicalItemSource<"ammo", AmmoSystemSource>;
 interface AmmoTraits extends PhysicalItemTraits<ConsumableTrait> {}
@@ -24,8 +19,7 @@ interface AmmoUses {
     /** Whether to delete the ammo upon use if it has no remaining uses and a quantity of 1 */
     autoDestroy: boolean;
 }
-interface AmmoSystemData
-    extends Omit<AmmoSystemSource, SourceOmission>, Omit<PhysicalSystemData, "baseItem" | "subitems" | "traits"> {
+interface AmmoSystemData extends Omit<AmmoSystemSource, SourceOmission>, Omit<PhysicalSystemData, "baseItem" | "subitems" | "traits"> {
     apex?: never;
 }
 type SourceOmission = "bulk" | "description" | "hp" | "identification" | "material" | "price" | "temporary" | "usage";

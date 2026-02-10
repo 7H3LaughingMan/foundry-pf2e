@@ -30,8 +30,7 @@ declare class TreasureSystemData extends ItemSystemModel<TreasurePF2e, TreasureS
     usage: CarriedUsage;
     prepareBaseData(): void;
 }
-interface TreasureSystemData
-    extends ItemSystemModel<TreasurePF2e, TreasureSystemSchema>, fields.ModelPropsFromSchema<TreasureSystemSchema> {
+interface TreasureSystemData extends ItemSystemModel<TreasurePF2e, TreasureSystemSchema>, fields.ModelPropsFromSchema<TreasureSystemSchema> {
     bulk: BulkData;
     description: ItemDescriptionData;
     equipped: TreasureEquippedData;

@@ -1,21 +1,9 @@
 import { ModifierType } from "./../../actor/modifiers.ts";
 import { AttributeString } from "./../../actor/types.ts";
 import { DamageCategoryUnique } from "./../../system/damage/types.ts";
-import {
-    DataUnionField,
-    PredicateField,
-    SlugField,
-    StrictBooleanField,
-    StrictStringField,
-} from "./../../system/schema-data-fields.ts";
+import { DataUnionField, PredicateField, SlugField, StrictBooleanField, StrictStringField } from "./../../system/schema-data-fields.ts";
 import { RuleElement, RuleElementOptions } from "./base.ts";
-import {
-    ModelPropsFromRESchema,
-    ResolvableValueField,
-    RuleElementSchema,
-    RuleElementSource,
-    RuleValue,
-} from "./data.ts";
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource, RuleValue } from "./data.ts";
 import fields = foundry.data.fields;
 /**
  * Apply a constant modifier (or penalty/bonus) to a statistic or usage thereof
@@ -35,14 +23,7 @@ interface FlatModifierRuleElement extends RuleElement<FlatModifierSchema>, Model
 }
 type FlatModifierSchema = RuleElementSchema & {
     /** All domains to add a modifier to */
-    selector: fields.ArrayField<
-        fields.StringField<string, string, true, false, false>,
-        string[],
-        string[],
-        true,
-        false,
-        false
-    >;
+    selector: fields.ArrayField<fields.StringField<string, string, true, false, false>, string[], string[], true, false, false>;
     /** The modifier (or bonus/penalty) type */
     type: fields.StringField<ModifierType, ModifierType, true, false, true>;
     /** If this is an ability modifier, the ability score it modifies */

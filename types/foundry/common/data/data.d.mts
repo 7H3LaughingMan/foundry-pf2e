@@ -2,14 +2,7 @@ import DataModel from "../abstract/data.mjs";
 import * as documents from "../documents/_module.mjs";
 import { TokenSchema } from "../documents/token.mjs";
 import { DatabaseUpdateOperation, DataModelConstructionContext } from "./../abstract/_types.mjs";
-import {
-    DocumentOwnershipLevel,
-    DocumentOwnershipString,
-    ImageFilePath,
-    ShapeDataType,
-    TileOcclusionMode,
-    VideoFilePath,
-} from "./../constants.mjs";
+import { DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath, ShapeDataType, TileOcclusionMode, VideoFilePath } from "./../constants.mjs";
 import { DataFieldOptions } from "./_types.mjs";
 import * as fields from "./fields.mjs";
 
@@ -45,8 +38,7 @@ export class LightData<TParent extends DataModel | null> extends DataModel<TPare
     static override migrateData(source: Record<string, unknown>): Record<string, unknown>;
 }
 
-export interface LightData<TParent extends DataModel | null>
-    extends DataModel<TParent, LightDataSchema>, fields.ModelPropsFromSchema<LightDataSchema> {}
+export interface LightData<TParent extends DataModel | null> extends DataModel<TParent, LightDataSchema>, fields.ModelPropsFromSchema<LightDataSchema> {}
 
 export type LightSource = fields.SourceFromSchema<LightDataSchema>;
 
@@ -101,8 +93,7 @@ export class ShapeData<TParent extends DataModel | null> extends DataModel<TPare
     };
 }
 
-export interface ShapeData<TParent extends DataModel | null>
-    extends DataModel<TParent, ShapeDataSchema>, fields.ModelPropsFromSchema<ShapeDataSchema> {}
+export interface ShapeData<TParent extends DataModel | null> extends DataModel<TParent, ShapeDataSchema>, fields.ModelPropsFromSchema<ShapeDataSchema> {}
 
 type ShapeDataSchema = {
     /**
@@ -158,8 +149,7 @@ export class RectangleShapeData extends BaseShapeData<RectangleShapeDataSchema> 
     static override TYPE: "rectangle";
 }
 
-interface RectangleShapeData
-    extends BaseShapeData<RectangleShapeDataSchema>, fields.ModelPropsFromSchema<RectangleShapeDataSchema> {
+interface RectangleShapeData extends BaseShapeData<RectangleShapeDataSchema>, fields.ModelPropsFromSchema<RectangleShapeDataSchema> {
     readonly _source: Omit<fields.SourceFromSchema<RectangleShapeDataSchema>, "type"> & { type: "rectangle" };
     type: "rectangle";
 }
@@ -184,8 +174,7 @@ export class CircleShapeData extends BaseShapeData<CircleShapeDataSchema> {
     static override TYPE: "circle";
 }
 
-interface CircleShapeData
-    extends BaseShapeData<CircleShapeDataSchema>, fields.ModelPropsFromSchema<CircleShapeDataSchema> {
+interface CircleShapeData extends BaseShapeData<CircleShapeDataSchema>, fields.ModelPropsFromSchema<CircleShapeDataSchema> {
     readonly _source: Omit<fields.SourceFromSchema<CircleShapeDataSchema>, "type"> & { type: "circle" };
     type: "circle";
 }
@@ -206,8 +195,7 @@ export class EllipseShapeData extends BaseShapeData<EllipseShapeDataSchema> {
     static override TYPE: "ellipse";
 }
 
-interface EllipseShapeData
-    extends BaseShapeData<EllipseShapeDataSchema>, fields.ModelPropsFromSchema<EllipseShapeDataSchema> {
+interface EllipseShapeData extends BaseShapeData<EllipseShapeDataSchema>, fields.ModelPropsFromSchema<EllipseShapeDataSchema> {
     readonly _source: Omit<fields.SourceFromSchema<EllipseShapeDataSchema>, "type"> & { type: "ellipse" };
     type: "ellipse";
 }
@@ -232,8 +220,7 @@ export class PolygonShapeData extends BaseShapeData<PolygonShapeDataSchema> {
     static override TYPE: "polygon";
 }
 
-interface PolygonShapeData
-    extends BaseShapeData<PolygonShapeDataSchema>, fields.ModelPropsFromSchema<PolygonShapeDataSchema> {
+interface PolygonShapeData extends BaseShapeData<PolygonShapeDataSchema>, fields.ModelPropsFromSchema<PolygonShapeDataSchema> {
     readonly _source: Omit<fields.SourceFromSchema<PolygonShapeDataSchema>, "type"> & { type: "polygon" };
     type: "polygon";
 }
@@ -286,10 +273,7 @@ type TextureDataSchema = {
     alphaThreshold: fields.AlphaField<true, false, true>;
 };
 
-export class PrototypeToken<TParent extends documents.BaseActor | null> extends DataModel<
-    TParent,
-    PrototypeTokenSchema
-> {
+export class PrototypeToken<TParent extends documents.BaseActor | null> extends DataModel<TParent, PrototypeTokenSchema> {
     constructor(data: DeepPartial<PrototypeTokenSource>, options?: DataModelConstructionContext<TParent>);
 
     static override defineSchema(): PrototypeTokenSchema;
@@ -308,10 +292,7 @@ export class PrototypeToken<TParent extends documents.BaseActor | null> extends 
      * @see {@link foundry.abstract.Document#update}
      * @ignore
      */
-    update(
-        data: Record<string, unknown>,
-        operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>,
-    ): Promise<this | undefined>;
+    update(data: Record<string, unknown>, operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>): Promise<this | undefined>;
 
     /**
      * @see {@link foundry.abstract.Document#getFlag}
@@ -335,11 +316,7 @@ export class PrototypeToken<TParent extends documents.BaseActor | null> extends 
      * @see {@link foundry.abstract.Document#testUserPermission}
      * @ignore
      */
-    testUserPermission(
-        user: documents.BaseUser,
-        permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
-    ): boolean;
+    testUserPermission(user: documents.BaseUser, permission: DocumentOwnershipString | DocumentOwnershipLevel, { exact }?: { exact?: boolean }): boolean;
 
     /**
      * @see {@link foundry.documents.BaseActor#isOwner}
@@ -351,10 +328,7 @@ export class PrototypeToken<TParent extends documents.BaseActor | null> extends 
 export interface PrototypeToken<TParent extends documents.BaseActor | null>
     extends DataModel<TParent, PrototypeTokenSchema>, fields.ModelPropsFromSchema<PrototypeTokenSchema> {}
 
-type PrototypeTokenSchema = Omit<
-    TokenSchema,
-    "_id" | "name" | "actorId" | "delta" | "x" | "y" | "elevation" | "effects" | "overlayEffect" | "hidden"
-> & {
+type PrototypeTokenSchema = Omit<TokenSchema, "_id" | "name" | "actorId" | "delta" | "x" | "y" | "elevation" | "effects" | "overlayEffect" | "hidden"> & {
     name: fields.StringField<string, string, true, false, true>;
     randomImg: fields.BooleanField;
 };
@@ -369,23 +343,19 @@ export type PrototypeTokenSource = fields.SourceFromSchema<PrototypeTokenSchema>
  * @property _tombstone A property that identifies this entry as a tombstone.
  * @property [_stats]   An object of creation and access information.
  */
-export class TombstoneData<
-    TParent extends documents.BaseActorDelta<documents.BaseToken<documents.BaseScene | null> | null> | null,
-> extends DataModel<TParent, TombstoneDataSchema> {
+export class TombstoneData<TParent extends documents.BaseActorDelta<documents.BaseToken<documents.BaseScene | null> | null> | null> extends DataModel<
+    TParent,
+    TombstoneDataSchema
+> {
     static override defineSchema(): TombstoneDataSchema;
 }
 
-export interface TombstoneData<
-    TParent extends documents.BaseActorDelta<documents.BaseToken<documents.BaseScene | null> | null> | null,
->
+export interface TombstoneData<TParent extends documents.BaseActorDelta<documents.BaseToken<documents.BaseScene | null> | null> | null>
     extends DataModel<TParent, TombstoneDataSchema>, fields.SourceFromSchema<TombstoneDataSchema> {
     readonly _source: TombstoneSource;
 }
 
-export type TombstoneSource<TDocumentId extends string | null = string | null> = Omit<
-    fields.SourceFromSchema<TombstoneDataSchema>,
-    "_id"
-> & {
+export type TombstoneSource<TDocumentId extends string | null = string | null> = Omit<fields.SourceFromSchema<TombstoneDataSchema>, "_id"> & {
     _id: TDocumentId;
 };
 

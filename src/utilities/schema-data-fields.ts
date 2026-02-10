@@ -1,19 +1,7 @@
 import { DataSchema } from "#common/abstract/_types.mjs";
 import DataModel from "#common/abstract/data.mjs";
-import {
-    ArrayFieldOptions,
-    DataFieldOptions,
-    DataFieldValidationOptions,
-    ObjectFieldOptions,
-    StringFieldOptions,
-} from "#common/data/_types.mjs";
-import {
-    CleanFieldOptions,
-    MaybeSchemaProp,
-    ModelPropFromDataField,
-    SourceFromDataField,
-    SourceFromSchema,
-} from "#common/data/fields.mjs";
+import { ArrayFieldOptions, DataFieldOptions, DataFieldValidationOptions, ObjectFieldOptions, StringFieldOptions } from "#common/data/_types.mjs";
+import { CleanFieldOptions, MaybeSchemaProp, ModelPropFromDataField, SourceFromDataField, SourceFromSchema } from "#common/data/fields.mjs";
 
 import { Predicate, PredicateStatement, RawPredicate } from "#pf2e-module/system/predication.js";
 import { tupleHasValue } from "#utilities/misc.ts";
@@ -51,10 +39,7 @@ export class PrunedSChemaField<
 
 /** A `SchemaField` that preserves fields not declared in its `DataSchema` */
 export class LaxSchemaField<TDataSchema extends DataSchema> extends fields.SchemaField<TDataSchema> {
-    protected override _cleanType(
-        data: Record<string, unknown>,
-        options: fields.CleanFieldOptions = {},
-    ): fields.SourceFromSchema<TDataSchema> {
+    protected override _cleanType(data: Record<string, unknown>, options: fields.CleanFieldOptions = {}): fields.SourceFromSchema<TDataSchema> {
         options.source = options?.source ?? data;
 
         for (const [name, field] of this.entries()) {
@@ -129,9 +114,7 @@ export class NullableBooleanField<
             { value: "false", label: game.i18n.localize("No"), selected: value === "false" },
             { value: "null", label: "", selected: value === "null" },
         ];
-        return foundry.applications.fields.createSelectInput(
-            foundry.utils.mergeObject(config, { value, options, dataset: { data: "JSON" } }),
-        );
+        return foundry.applications.fields.createSelectInput(foundry.utils.mergeObject(config, { value, options, dataset: { data: "JSON" } }));
     }
 }
 
@@ -185,10 +168,7 @@ export class LaxArrayField<
     TNullable extends boolean = false,
     THasInitial extends boolean = true,
 > extends fields.ArrayField<TElementField, TSourceProp, TModelProp, TRequired, TNullable, THasInitial> {
-    protected override _validateElements(
-        value: unknown[],
-        options?: DataFieldValidationOptions,
-    ): void | validation.DataModelValidationFailure {
+    protected override _validateElements(value: unknown[], options?: DataFieldValidationOptions): void | validation.DataModelValidationFailure {
         const failure = super._validateElements(value, options);
         if (!failure) return failure;
 
@@ -227,10 +207,7 @@ class AnyChoiceField<
     }
 
     // Overriden to satisfy typescript types only
-    constructor(
-        options?: AnyChoiceFieldOptions<TChoices, TRequired, TNullable, THasInitial>,
-        context?: foundry.data.DataFieldContext,
-    ) {
+    constructor(options?: AnyChoiceFieldOptions<TChoices, TRequired, TNullable, THasInitial>, context?: foundry.data.DataFieldContext) {
         super(options, context);
     }
 
@@ -254,9 +231,7 @@ class AnyChoiceField<
         }
     }
 
-    override _toInput(
-        config: foundry.applications.fields.SelectInputConfig & Partial<foundry.data.ChoiceInputConfig>,
-    ): HTMLElement | HTMLCollection {
+    override _toInput(config: foundry.applications.fields.SelectInputConfig & Partial<foundry.data.ChoiceInputConfig>): HTMLElement | HTMLCollection {
         config.choices ??= R.mapToObj(this.choices, (c) => [String(c), c]);
         fields.StringField._prepareChoiceConfig(config);
         return foundry.applications.fields.createSelectInput(config);
@@ -298,12 +273,7 @@ export class DataUnionField<
 
     constructor(
         fields: TField[],
-        options: DataFieldOptions<
-            TField extends fields.DataField<infer TSourceProp> ? TSourceProp : never,
-            TRequired,
-            TNullable,
-            THasInitial
-        >,
+        options: DataFieldOptions<TField extends fields.DataField<infer TSourceProp> ? TSourceProp : never, TRequired, TNullable, THasInitial>,
     ) {
         super(options);
         this.fields = fields;
@@ -318,10 +288,7 @@ export class DataUnionField<
      * Perform some cleaning while first checking that an upstream `_cast` won't convert a dog into a cat (or a number
      * into an array).
      */
-    override clean(
-        value: unknown,
-        options?: CleanFieldOptions | undefined,
-    ): MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial> {
+    override clean(value: unknown, options?: CleanFieldOptions | undefined): MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial> {
         type MaybeProp = MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial>;
         if (Array.isArray(value) && this.fields.some((f) => f instanceof fields.ArrayField)) {
             const arrayField = this.fields.find((f) => f instanceof StrictArrayField);
@@ -339,10 +306,7 @@ export class DataUnionField<
         return super.clean(value, options) as MaybeProp;
     }
 
-    protected override _validateType(
-        value: unknown,
-        options?: DataFieldValidationOptions | undefined,
-    ): boolean | void | validation.DataModelValidationFailure {
+    protected override _validateType(value: unknown, options?: DataFieldValidationOptions | undefined): boolean | void | validation.DataModelValidationFailure {
         const errors: { field: TField; result: validation.DataModelValidationFailure }[] = [];
         for (const field of this.fields) {
             const result = field.validate(value, options);
@@ -361,50 +325,33 @@ export class DataUnionField<
             return errors.findLast((e) => e.field instanceof fields.ArrayField)?.result ?? lastError;
         } else if (typeof value === "object") {
             // This is not exhaustive, but it only needs to catch the most common cases
-            return (
-                errors.findLast((e) => e.field instanceof fields.ObjectField || e.field instanceof fields.SchemaField)
-                    ?.result ?? lastError
-            );
+            return errors.findLast((e) => e.field instanceof fields.ObjectField || e.field instanceof fields.SchemaField)?.result ?? lastError;
         } else {
             return lastError;
         }
     }
 
-    override initialize(
-        value: unknown,
-        model?: DataModel,
-        options?: object | undefined,
-    ): MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial> {
+    override initialize(value: unknown, model?: DataModel, options?: object | undefined): MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial> {
         const field = this.fields.find((f) => !f.validate(value));
-        return field?.initialize(value, model, options) as MaybeUnionSchemaProp<
-            TField,
-            TRequired,
-            TNullable,
-            THasInitial
-        >;
+        return field?.initialize(value, model, options) as MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial>;
     }
 }
 
-type MaybeUnionSchemaProp<
-    TField extends fields.DataField,
-    TRequired extends boolean,
-    TNullable extends boolean,
-    THasInitial extends boolean,
-> = MaybeSchemaProp<
-    TField extends fields.DataField<infer _TSourceProp, infer TModelProp, boolean, boolean, boolean>
-        ? TModelProp
-        : never,
+type MaybeUnionSchemaProp<TField extends fields.DataField, TRequired extends boolean, TNullable extends boolean, THasInitial extends boolean> = MaybeSchemaProp<
+    TField extends fields.DataField<infer _TSourceProp, infer TModelProp, boolean, boolean, boolean> ? TModelProp : never,
     TRequired,
     TNullable,
     THasInitial
 >;
 
 /** A sluggified string field */
-export class SlugField<
-    TRequired extends boolean = true,
-    TNullable extends boolean = boolean,
-    THasInitial extends boolean = boolean,
-> extends StrictStringField<string, string, TRequired, TNullable, THasInitial> {
+export class SlugField<TRequired extends boolean = true, TNullable extends boolean = boolean, THasInitial extends boolean = boolean> extends StrictStringField<
+    string,
+    string,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     constructor(options: SlugFieldOptions<TRequired, TNullable, THasInitial> = {}) {
         options.blank = false;
         options.camel ??= null;
@@ -415,10 +362,7 @@ export class SlugField<
         return { ...super._defaults, nullable: true, initial: null, camel: null };
     }
 
-    protected override _cleanType(
-        value: Maybe<string>,
-        options?: CleanFieldOptions,
-    ): MaybeSchemaProp<string, TRequired, TNullable, THasInitial>;
+    protected override _cleanType(value: Maybe<string>, options?: CleanFieldOptions): MaybeSchemaProp<string, TRequired, TNullable, THasInitial>;
     protected override _cleanType(value: Maybe<string>, options?: CleanFieldOptions): unknown {
         const slug = super._cleanType(value, options);
         const camel = this.options.camel ?? null;
@@ -434,21 +378,16 @@ export interface SlugField<
     options: SlugFieldOptions<TRequired, TNullable, THasInitial>;
 }
 
-export interface SlugFieldOptions<
-    TRequired extends boolean,
-    TNullable extends boolean,
-    THasInitial extends boolean,
-> extends StringFieldOptions<string, TRequired, TNullable, THasInitial> {
+export interface SlugFieldOptions<TRequired extends boolean, TNullable extends boolean, THasInitial extends boolean> extends StringFieldOptions<
+    string,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     camel?: "dromedary" | "bactrian" | null;
 }
 
-export class PredicateStatementField extends fields.DataField<
-    PredicateStatement,
-    PredicateStatement,
-    true,
-    false,
-    false
-> {
+export class PredicateStatementField extends fields.DataField<PredicateStatement, PredicateStatement, true, false, false> {
     /** A `PredicateStatement` is always required (not `undefined`) and never nullable */
     constructor(options: DataFieldOptions<PredicateStatement, true, false, false> = {}) {
         super({
@@ -474,11 +413,14 @@ export class PredicateStatementField extends fields.DataField<
     }
 }
 
-export class PredicateField<
-    TRequired extends boolean = true,
-    TNullable extends boolean = false,
-    THasInitial extends boolean = true,
-> extends StrictArrayField<PredicateStatementField, RawPredicate, Predicate, TRequired, TNullable, THasInitial> {
+export class PredicateField<TRequired extends boolean = true, TNullable extends boolean = false, THasInitial extends boolean = true> extends StrictArrayField<
+    PredicateStatementField,
+    RawPredicate,
+    Predicate,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     constructor(options: ArrayFieldOptions<RawPredicate, TRequired, TNullable, THasInitial> = {}) {
         super(new PredicateStatementField(), options);
     }
@@ -499,16 +441,12 @@ export class PredicateField<
     }
 
     protected override _toInput(config: foundry.data.FormInputConfig): HTMLInputElement {
-        return foundry.applications.fields.createTextInput(
-            Object.assign(config, { value: JSON.stringify(config.value ?? []) }),
-        );
+        return foundry.applications.fields.createTextInput(Object.assign(config, { value: JSON.stringify(config.value ?? []) }));
     }
 }
 
 export type RecordFieldModelProp<
-    TKeyField extends
-        | fields.StringField<string, string, true, false, false>
-        | fields.NumberField<number, number, true, false, false>,
+    TKeyField extends fields.StringField<string, string, true, false, false> | fields.NumberField<number, number, true, false, false>,
     TValueField extends fields.DataField,
     TDense extends boolean = false,
 > = TDense extends true
@@ -520,9 +458,7 @@ export type RecordFieldModelProp<
             | Partial<Record<ModelPropFromDataField<TKeyField>, ModelPropFromDataField<TValueField>>>;
 
 type RecordFieldSourceProp<
-    TKeyField extends
-        | fields.StringField<string, string, true, false, false>
-        | fields.NumberField<number, number, true, false, false>,
+    TKeyField extends fields.StringField<string, string, true, false, false> | fields.NumberField<number, number, true, false, false>,
     TValueField extends fields.DataField,
     /** Whether this is to be treated as a "dense" record; i.e., any valid key should return a value */
     TDense extends boolean = false,
@@ -535,9 +471,7 @@ type RecordFieldSourceProp<
             | Partial<Record<SourceFromDataField<TKeyField>, SourceFromDataField<TValueField>>>;
 
 export class RecordField<
-    TKeyField extends
-        | fields.StringField<string, string, true, false, false>
-        | fields.NumberField<number, number, true, false, false>,
+    TKeyField extends fields.StringField<string, string, true, false, false> | fields.NumberField<number, number, true, false, false>,
     TValueField extends fields.DataField,
     TRequired extends boolean = true,
     TNullable extends boolean = false,
@@ -558,12 +492,7 @@ export class RecordField<
     constructor(
         keyField: TKeyField,
         valueField: TValueField,
-        options?: ObjectFieldOptions<
-            RecordFieldSourceProp<TKeyField, TValueField, TDense>,
-            TRequired,
-            TNullable,
-            THasInitial
-        >,
+        options?: ObjectFieldOptions<RecordFieldSourceProp<TKeyField, TValueField, TDense>, TRequired, TNullable, THasInitial>,
     ) {
         super(options);
 
@@ -580,9 +509,7 @@ export class RecordField<
 
     protected _isValidKeyFieldType(
         keyField: unknown,
-    ): keyField is
-        | fields.StringField<string, string, true, false, false>
-        | fields.NumberField<number, number, true, false, false> {
+    ): keyField is fields.StringField<string, string, true, false, false> | fields.NumberField<number, number, true, false, false> {
         if (keyField instanceof fields.StringField || keyField instanceof fields.NumberField) {
             if (keyField.options.required !== true || keyField.options.nullable === true) {
                 throw new Error(`key field must be required and non-nullable`);
@@ -592,10 +519,7 @@ export class RecordField<
         return false;
     }
 
-    protected _validateValues(
-        values: Record<string, unknown>,
-        options?: DataFieldValidationOptions,
-    ): validation.DataModelValidationFailure | void {
+    protected _validateValues(values: Record<string, unknown>, options?: DataFieldValidationOptions): validation.DataModelValidationFailure | void {
         const failures = new validation.DataModelValidationFailure();
         for (const [key, value] of Object.entries(values)) {
             // If this is a deletion key for a partial update, skip
@@ -621,10 +545,7 @@ export class RecordField<
         }
     }
 
-    protected override _cleanType(
-        values: Record<string, unknown>,
-        options?: CleanFieldOptions | undefined,
-    ): Record<string, unknown> {
+    protected override _cleanType(values: Record<string, unknown>, options?: CleanFieldOptions | undefined): Record<string, unknown> {
         for (const [key, value] of Object.entries(values)) {
             if (key.startsWith("-=")) continue; // Don't attempt to clean deletion entries
             values[key] = this.valueField.clean(value, options);
@@ -632,10 +553,7 @@ export class RecordField<
         return values;
     }
 
-    protected override _validateType(
-        values: unknown,
-        options?: DataFieldValidationOptions,
-    ): boolean | validation.DataModelValidationFailure | void {
+    protected override _validateType(values: unknown, options?: DataFieldValidationOptions): boolean | validation.DataModelValidationFailure | void {
         if (!R.isPlainObject(values)) {
             return new validation.DataModelValidationFailure({ message: "must be an Object" });
         }
@@ -655,9 +573,7 @@ export class RecordField<
         if (!values) return values;
 
         // Check for validation failures in the model to omit from the results
-        const path = this.fieldPath.startsWith(model.schema.fieldPath + ".")
-            ? this.fieldPath.substring(model.schema.fieldPath.length + 1)
-            : this.fieldPath;
+        const path = this.fieldPath.startsWith(model.schema.fieldPath + ".") ? this.fieldPath.substring(model.schema.fieldPath.length + 1) : this.fieldPath;
         const pathParts = path.split(".");
         const failures = pathParts.reduce((fields, part) => {
             return fields ? fields.fields[part] : null;

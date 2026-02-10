@@ -10,8 +10,7 @@ declare class AdjustModifierRuleElement extends RuleElement<AdjustModifierSchema
     /** Instead of applying the change directly to a property path, defer it to a synthetic */
     beforePrepareData(): void;
 }
-interface AdjustModifierRuleElement
-    extends RuleElement<AdjustModifierSchema>, ModelPropsFromRESchema<AdjustModifierSchema> {
+interface AdjustModifierRuleElement extends RuleElement<AdjustModifierSchema>, ModelPropsFromRESchema<AdjustModifierSchema> {
     suppress: boolean;
     maxApplications: number;
 }

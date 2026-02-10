@@ -25,15 +25,4 @@ type TabData<T> = Record<TabName, T>;
 type CommonSortByOption = "name" | "level";
 type SortByOption = CommonSortByOption | "price";
 type SortDirection = "asc" | "desc";
-export type {
-    BrowserTab,
-    BrowserTabs,
-    CommonSortByOption,
-    ContentTabName,
-    PackInfo,
-    SortByOption,
-    SortDirection,
-    SourceInfo,
-    TabData,
-    TabName,
-};
+export type { BrowserTab, BrowserTabs, CommonSortByOption, ContentTabName, PackInfo, SortByOption, SortDirection, SourceInfo, TabData, TabName };

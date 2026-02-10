@@ -88,8 +88,7 @@ declare class LanguageSettings extends foundry.abstract.DataModel<null, Language
     /** Schema-restricting choices removes homebrew languages before they're registered: prune in ready hook instead. */
     onReady(): void;
 }
-interface LanguageSettings
-    extends foundry.abstract.DataModel<null, LanguageSettingsSchema>, ModelPropsFromSchema<LanguageSettingsSchema> {}
+interface LanguageSettings extends foundry.abstract.DataModel<null, LanguageSettingsSchema>, ModelPropsFromSchema<LanguageSettingsSchema> {}
 type LanguageSettingsSchema = {
     /** The "common" tongue of the region, rather than languages of common rarity */
     commonLanguage: StringField<LanguageNotCommon, LanguageNotCommon, true, true, true>;

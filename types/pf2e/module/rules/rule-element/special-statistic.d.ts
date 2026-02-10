@@ -12,8 +12,7 @@ declare class SpecialStatisticRuleElement extends RuleElement<SpecialStatisticSc
     static defineSchema(): SpecialStatisticSchema;
     afterPrepareData(): void;
 }
-interface SpecialStatisticRuleElement
-    extends RuleElement<SpecialStatisticSchema>, ModelPropsFromRESchema<SpecialStatisticSchema> {
+interface SpecialStatisticRuleElement extends RuleElement<SpecialStatisticSchema>, ModelPropsFromRESchema<SpecialStatisticSchema> {
     slug: string;
     get actor(): CreaturePF2e;
 }

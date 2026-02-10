@@ -19,10 +19,11 @@ import { ActorAlliance, AttributeString, SkillSlug } from "./../types.ts";
 import { Immunity, ImmunitySource, Resistance, ResistanceSource, Weakness, WeaknessSource } from "./iwr.ts";
 import { ActorSizePF2e } from "./size.ts";
 /** Base interface for all actor data */
-type BaseActorSourcePF2e<
-    TType extends ActorType,
-    TSystemSource extends ActorSystemSource = ActorSystemSource,
-> = foundry.documents.ActorSource<TType, TSystemSource, ItemSourcePF2e> & {
+type BaseActorSourcePF2e<TType extends ActorType, TSystemSource extends ActorSystemSource = ActorSystemSource> = foundry.documents.ActorSource<
+    TType,
+    TSystemSource,
+    ItemSourcePF2e
+> & {
     flags: ActorSourceFlagsPF2e;
     prototypeToken: PrototypeTokenSourcePF2e;
 };
@@ -162,9 +163,7 @@ interface AttributeBasedTraceData extends StatisticTraceData {
     breakdown: string;
 }
 /** A roll function which can be called to roll a given skill. */
-type RollFunction<T extends RollParameters = RollParameters> = (
-    params: T,
-) => Promise<Rolled<CheckRoll> | null | string | void>;
+type RollFunction<T extends RollParameters = RollParameters> = (params: T) => Promise<Rolled<CheckRoll> | null | string | void>;
 type DamageRollFunction = (params?: DamageRollParams) => Promise<string | Rolled<DamageRoll> | null>;
 interface InitiativeData extends StatisticTraceData {
     statistic: SkillSlug | "perception";

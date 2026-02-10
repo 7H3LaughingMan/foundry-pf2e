@@ -69,13 +69,7 @@ declare const DamageCategorization: {
     readonly toDamageTypes: (category: string) => Set<string>;
 };
 /** Create `DamageDicePF2e` and `ModifierPF2e` instances in order to apply damage alterations to base damage data. */
-declare function applyBaseDamageAlterations({
-    actor,
-    item,
-    base,
-    domains,
-    rollOptions,
-}: ApplyDamageAlterationsParams): void;
+declare function applyBaseDamageAlterations({ actor, item, base, domains, rollOptions }: ApplyDamageAlterationsParams): void;
 interface ApplyDamageAlterationsParams {
     base: BaseDamageData[];
     actor: ActorPF2e;

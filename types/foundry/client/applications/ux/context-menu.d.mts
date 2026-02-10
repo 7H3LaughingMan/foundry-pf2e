@@ -55,12 +55,7 @@ export default class ContextMenu {
      * @param menuItems An Array of entries to display in the menu
      * @param options Additional options to configure the context menu.
      */
-    constructor(
-        container: HTMLElement | JQuery,
-        selector: string,
-        menuItems: ContextMenuEntry[],
-        options: ContextMenuOptions,
-    );
+    constructor(container: HTMLElement | JQuery, selector: string, menuItems: ContextMenuEntry[], options: ContextMenuOptions);
 
     /* -------------------------------------------- */
     /*  Properties                                  */

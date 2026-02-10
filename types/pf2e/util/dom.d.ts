@@ -22,10 +22,7 @@ declare function createHTMLElement<K extends keyof HTMLElementTagNameMap>(
     nodeName: K,
     options?: CreateHTMLElementOptionsWithInnerHTML,
 ): HTMLElementTagNameMap[K];
-declare function createHTMLElement<K extends keyof HTMLElementTagNameMap>(
-    nodeName: K,
-    options?: CreateHTMLElementOptionsWithNeither,
-): HTMLElementTagNameMap[K];
+declare function createHTMLElement<K extends keyof HTMLElementTagNameMap>(nodeName: K, options?: CreateHTMLElementOptionsWithNeither): HTMLElementTagNameMap[K];
 interface CreateHTMLElementOptions {
     id?: string;
     classes?: string[];
@@ -46,22 +43,13 @@ interface CreateHTMLElementOptionsWithNeither extends CreateHTMLElementOptions {
     children?: never;
     innerHTML?: never;
 }
-declare function htmlQuery<K extends keyof HTMLElementTagNameMap>(
-    parent: MaybeHTML,
-    selectors: K,
-): HTMLElementTagNameMap[K] | null;
+declare function htmlQuery<K extends keyof HTMLElementTagNameMap>(parent: MaybeHTML, selectors: K): HTMLElementTagNameMap[K] | null;
 declare function htmlQuery(parent: MaybeHTML, selectors: string): HTMLElement | null;
 declare function htmlQuery<E extends HTMLElement = HTMLElement>(parent: MaybeHTML, selectors: string): E | null;
-declare function htmlQueryAll<K extends keyof HTMLElementTagNameMap>(
-    parent: MaybeHTML,
-    selectors: K,
-): HTMLElementTagNameMap[K][];
+declare function htmlQueryAll<K extends keyof HTMLElementTagNameMap>(parent: MaybeHTML, selectors: K): HTMLElementTagNameMap[K][];
 declare function htmlQueryAll(parent: MaybeHTML, selectors: string): HTMLElement[];
 declare function htmlQueryAll<E extends HTMLElement = HTMLElement>(parent: MaybeHTML, selectors: string): E[];
-declare function htmlClosest<K extends keyof HTMLElementTagNameMap>(
-    parent: MaybeHTML,
-    selectors: K,
-): HTMLElementTagNameMap[K] | null;
+declare function htmlClosest<K extends keyof HTMLElementTagNameMap>(parent: MaybeHTML, selectors: K): HTMLElementTagNameMap[K] | null;
 declare function htmlClosest(child: MaybeHTML, selectors: string): HTMLElement | null;
 declare function htmlClosest<E extends HTMLElement = HTMLElement>(parent: MaybeHTML, selectors: string): E | null;
 /** Create a reasonably specific selector for an HTML element */

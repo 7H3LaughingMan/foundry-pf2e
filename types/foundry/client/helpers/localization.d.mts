@@ -82,20 +82,13 @@ export default class Localization {
      * }
      * ```
      */
-    static localizeDataModel(
-        model: AbstractConstructorOf<DataModel>,
-        options?: { prefixes?: string[]; prefixPath?: string },
-    ): void;
+    static localizeDataModel(model: AbstractConstructorOf<DataModel>, options?: { prefixes?: string[]; prefixPath?: string }): void;
 
     /**
    * Localize the "label" and "hint" properties for all fields in a data schema.
 
    */
-    static localizeSchema(
-        schema: SchemaField,
-        prefixes?: string[],
-        options?: { prefixPath?: string; seenFields?: Set<DataField> },
-    ): void;
+    static localizeSchema(schema: SchemaField, prefixes?: string[], options?: { prefixPath?: string; seenFields?: Set<DataField> }): void;
 
     /**
      * Set a language as the active translation source for the session

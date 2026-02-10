@@ -128,10 +128,7 @@ export default class ClientKeybindings {
      * @param b the second Keybinding Action
      * @internal
      */
-    static _compareActions(
-        a: Pick<KeybindingAction, "precedence" | "order">,
-        b: Pick<KeybindingAction, "precedence" | "order">,
-    ): number;
+    static _compareActions(a: Pick<KeybindingAction, "precedence" | "order">, b: Pick<KeybindingAction, "precedence" | "order">): number;
 
     /* ---------------------------------------- */
     /*  Core Keybinding Actions                 */

@@ -8,9 +8,7 @@ interface MaterialGradeData {
     maxHP?: number;
     rarity: Rarity;
 }
-type MaterialValuationData = Partial<
-    Record<PreciousMaterialType | "", Record<PreciousMaterialGrade, MaterialGradeData | null>>
->;
+type MaterialValuationData = Partial<Record<PreciousMaterialType | "", Record<PreciousMaterialGrade, MaterialGradeData | null>>>;
 declare function getMaterialValuationData(item: PhysicalItemPF2e): MaterialGradeData | null;
 declare const OBJECT_MATERIAL_VALUATION_DATA: MaterialValuationData;
 declare const MATERIAL_DATA: {

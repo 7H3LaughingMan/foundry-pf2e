@@ -11,8 +11,7 @@ declare class TokenImageRuleElement extends RuleElement<TokenImageRuleSchema> {
     static defineSchema(): TokenImageRuleSchema;
     afterPrepareData(): void;
 }
-interface TokenImageRuleElement
-    extends RuleElement<TokenImageRuleSchema>, ModelPropsFromRESchema<TokenImageRuleSchema> {}
+interface TokenImageRuleElement extends RuleElement<TokenImageRuleSchema>, ModelPropsFromRESchema<TokenImageRuleSchema> {}
 type TokenImageRuleSchema = RuleElementSchema & {
     /** An image or video path */
     value: fields.StringField<string, string, true, false, false>;

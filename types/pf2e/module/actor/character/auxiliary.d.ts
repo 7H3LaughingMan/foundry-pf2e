@@ -27,11 +27,7 @@ interface AuxiliaryReleaseParams {
     annotation: "grip" | "drop";
     hands: 0 | 1;
 }
-type AuxiliaryActionParams =
-    | AuxiliaryInteractParams
-    | AuxiliaryWeaponParryParams
-    | AuxiliaryShieldParams
-    | AuxiliaryReleaseParams;
+type AuxiliaryActionParams = AuxiliaryInteractParams | AuxiliaryWeaponParryParams | AuxiliaryShieldParams | AuxiliaryReleaseParams;
 type AuxiliaryActionType = AuxiliaryActionParams["action"];
 type AuxiliaryActionPurpose = AuxiliaryActionParams["annotation"];
 /** Create an "auxiliary" action, an Interact or Release action using a weapon */

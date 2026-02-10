@@ -63,11 +63,7 @@ export default class JournalEntry extends ClientBaseJournalEntry {
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 }

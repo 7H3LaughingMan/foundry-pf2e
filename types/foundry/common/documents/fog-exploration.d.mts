@@ -16,15 +16,10 @@ export default class BaseFogExploration extends Document<null, FogExplorationSch
 
     static override defineSchema(): FogExplorationSchema;
 
-    protected override _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 }
 
-export default interface BaseFogExploration
-    extends Document<null, FogExplorationSchema>, fields.ModelPropsFromSchema<FogExplorationSchema> {
+export default interface BaseFogExploration extends Document<null, FogExplorationSchema>, fields.ModelPropsFromSchema<FogExplorationSchema> {
     get documentName(): FogExplorationMetadata["name"];
 }
 

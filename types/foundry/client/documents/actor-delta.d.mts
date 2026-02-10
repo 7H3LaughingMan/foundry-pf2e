@@ -3,13 +3,9 @@ import Document from "./../../common/abstract/document.mjs";
 import { Actor, BaseActorDelta, BaseToken, BaseUser, TokenDocument } from "./_module.mjs";
 import { ClientDocument } from "./abstract/client-document.mjs";
 
-declare const ClientBaseActorDelta: new <TParent extends BaseToken | null>(
-    ...args: any
-) => BaseActorDelta<TParent> & ClientDocument<TParent>;
+declare const ClientBaseActorDelta: new <TParent extends BaseToken | null>(...args: any) => BaseActorDelta<TParent> & ClientDocument<TParent>;
 
-interface ClientBaseActorDelta<TParent extends BaseToken | null> extends InstanceType<
-    typeof ClientBaseActorDelta<TParent>
-> {}
+interface ClientBaseActorDelta<TParent extends BaseToken | null> extends InstanceType<typeof ClientBaseActorDelta<TParent>> {}
 
 /**
  * The client-side ActorDelta embedded document which extends the common BaseActorDelta document model.
@@ -20,13 +16,7 @@ export default class ActorDelta<TParent extends TokenDocument | null> extends Cl
 
     protected override _configure(options?: { pack?: string | null; parentCollection?: string | null }): void;
 
-    protected override _initialize({
-        sceneReset,
-        ...options
-    }?: {
-        sceneReset?: boolean;
-        options?: Record<string, unknown>;
-    }): void;
+    protected override _initialize({ sceneReset, ...options }?: { sceneReset?: boolean; options?: Record<string, unknown> }): void;
 
     /* -------------------------------------------- */
     /*  Methods                                     */
@@ -41,10 +31,7 @@ export default class ActorDelta<TParent extends TokenDocument | null> extends Cl
 
     override prepareEmbeddedDocuments(): void;
 
-    override updateSource(
-        changes?: Record<string, unknown> | undefined,
-        options?: DocumentSourceUpdateContext,
-    ): DeepPartial<this["_source"]>;
+    override updateSource(changes?: Record<string, unknown> | undefined, options?: DocumentSourceUpdateContext): DeepPartial<this["_source"]>;
 
     override reset(): void;
 
@@ -79,20 +66,11 @@ export default class ActorDelta<TParent extends TokenDocument | null> extends Cl
 
     protected override _preDelete(options: DatabaseDeleteCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
-    protected override _onUpdate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(data: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 
-    override _dispatchDescendantDocumentEvents(
-        event: string,
-        collection: string,
-        args: [object[], ...unknown[]],
-        parent: Document | undefined,
-    ): void;
+    override _dispatchDescendantDocumentEvents(event: string, collection: string, args: [object[], ...unknown[]], parent: Document | undefined): void;
 }
 
 export {};

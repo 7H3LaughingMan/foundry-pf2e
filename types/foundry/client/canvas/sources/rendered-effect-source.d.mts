@@ -55,9 +55,7 @@ interface RenderedEffectSourceLayer {
  * An abstract class which extends the base PointSource to provide common functionality for rendering.
  * This class is extended by both the LightSource and VisionSource subclasses.
  */
-export default abstract class RenderedEffectSource<
-    TObject extends PlaceableObject | null,
-> extends BaseEffectSource<TObject> {
+export default abstract class RenderedEffectSource<TObject extends PlaceableObject | null> extends BaseEffectSource<TObject> {
     /** Keys of the data object which require shaders to be re-initialized. */
     static _initializeShaderKeys: string[];
 

@@ -57,14 +57,9 @@ declare class ActorInventory<TActor extends ActorPF2e> extends DelegatedCollecti
     ): Promise<boolean>;
     sellAllTreasure(): Promise<void>;
     /** Deletes all temporary items, skipping those that are associated with a special resource */
-    deleteTemporaryItems(
-        operation?: Partial<DatabaseDeleteOperation<TActor>> | undefined,
-    ): Promise<PhysicalItemPF2e<TActor>[]>;
+    deleteTemporaryItems(operation?: Partial<DatabaseDeleteOperation<TActor>> | undefined): Promise<PhysicalItemPF2e<TActor>[]>;
     /** Adds one or more items to this inventory without removing from its original location. */
-    add(
-        itemOrItems: AddItemParam,
-        { stack, render, container, keepId }?: AddItemOptions,
-    ): Promise<PhysicalItemPF2e<TActor>[]>;
+    add(itemOrItems: AddItemParam, { stack, render, container, keepId }?: AddItemOptions): Promise<PhysicalItemPF2e<TActor>[]>;
 }
 type AddItemParam = AddableItemSourceOrEntry | AddableItemSourceOrEntry[];
 type AddableItemSourceOrEntry = PhysicalItemPF2e | KitPF2e | PreCreate<PhysicalItemSource | KitSource>;

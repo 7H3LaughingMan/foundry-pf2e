@@ -19,11 +19,7 @@ declare function TokenConfigMixinPF2e<TBase extends ReturnType<typeof TokenAppli
     _preFirstRender(context: Record<string, unknown>, options: HandlebarsRenderOptions): Promise<void>;
     _previewChanges(changes: Record<string, unknown>): void;
     _prepareContext(options: HandlebarsRenderOptions): Promise<ApplicationRenderContext>;
-    _preparePartContext(
-        partId: string,
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<ApplicationRenderContext>;
+    _preparePartContext(partId: string, context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<ApplicationRenderContext>;
     _prepareIdentityTab(): object;
     _prepareAppearanceTab(): Promise<object>;
     _prepareVisionTab(): Promise<object>;
@@ -58,11 +54,7 @@ declare function TokenConfigMixinPF2e<TBase extends ReturnType<typeof TokenAppli
     _configureRenderParts(options: HandlebarsRenderOptions): Record<string, fa.api.HandlebarsTemplatePart>;
     _renderHTML: ((context: object, options: HandlebarsRenderOptions) => Promise<Record<string, HTMLElement>>) &
         ((context: ApplicationRenderContext, options: fa.ApplicationRenderOptions) => Promise<unknown>);
-    _replaceHTML: ((
-        result: Record<string, HTMLElement>,
-        content: HTMLElement,
-        options: HandlebarsRenderOptions,
-    ) => void) &
+    _replaceHTML: ((result: Record<string, HTMLElement>, content: HTMLElement, options: HandlebarsRenderOptions) => void) &
         ((result: unknown, content: HTMLElement, options: fa.ApplicationRenderOptions) => void);
     _preSyncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
     _syncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
@@ -256,11 +248,7 @@ declare function TokenConfigMixinPF2e<TBase extends ReturnType<typeof TokenAppli
     _preFirstRender: ((context: Record<string, unknown>, options: HandlebarsRenderOptions) => Promise<void>) &
         ((context: Record<string, unknown>, options: fa.ApplicationRenderOptions) => Promise<void>);
     _previewChanges(changes: Record<string, unknown>): void;
-    _preparePartContext(
-        partId: string,
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<ApplicationRenderContext>;
+    _preparePartContext(partId: string, context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<ApplicationRenderContext>;
     _prepareIdentityTab(): object;
     _prepareAppearanceTab(): Promise<object>;
     _prepareVisionTab(): Promise<object>;
@@ -296,11 +284,7 @@ declare function TokenConfigMixinPF2e<TBase extends ReturnType<typeof TokenAppli
     _configureRenderParts(options: HandlebarsRenderOptions): Record<string, fa.api.HandlebarsTemplatePart>;
     _renderHTML: ((context: object, options: HandlebarsRenderOptions) => Promise<Record<string, HTMLElement>>) &
         ((context: ApplicationRenderContext, options: fa.ApplicationRenderOptions) => Promise<unknown>);
-    _replaceHTML: ((
-        result: Record<string, HTMLElement>,
-        content: HTMLElement,
-        options: HandlebarsRenderOptions,
-    ) => void) &
+    _replaceHTML: ((result: Record<string, HTMLElement>, content: HTMLElement, options: HandlebarsRenderOptions) => void) &
         ((result: unknown, content: HTMLElement, options: fa.ApplicationRenderOptions) => void);
     _preSyncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
     _syncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
@@ -479,13 +463,7 @@ declare function TokenConfigMixinPF2e<TBase extends ReturnType<typeof TokenAppli
     get TURN_MARKER_MODES(): Record<string, string>;
     get TOKEN_SHAPES(): Record<string, string>;
 }) & {
-    "__#private@#SIGHT_INPUT_NAMES": (
-        | "sight.angle"
-        | "sight.saturation"
-        | "sight.range"
-        | "sight.visionMode"
-        | "sight.brightness"
-    )[];
+    "__#private@#SIGHT_INPUT_NAMES": ("sight.angle" | "sight.saturation" | "sight.range" | "sight.visionMode" | "sight.brightness")[];
     DEFAULT_OPTIONS: DeepPartial<DocumentSheetConfiguration>;
     PARTS: Record<string, fa.api.HandlebarsTemplatePart> & {
         appearance: {

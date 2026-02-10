@@ -37,9 +37,7 @@ export default class RenderFlags extends Set<string> {
  * This mixin standardizes the interface for such functionality.
  * @param Base The base class being mixed: defaults to an anonymous empty class.
  */
-export function RenderFlagsMixin<TBase extends object>(
-    Base?: AbstractConstructorOf<TBase>,
-): ConstructorOf<RenderFlagsObject> & TBase;
+export function RenderFlagsMixin<TBase extends object>(Base?: AbstractConstructorOf<TBase>): ConstructorOf<RenderFlagsObject> & TBase;
 
 export class RenderFlagsObject {
     constructor(...args: any[]);

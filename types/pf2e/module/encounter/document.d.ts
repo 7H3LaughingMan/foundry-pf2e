@@ -40,11 +40,7 @@ declare class EncounterPF2e extends Combat {
     /** Enable the initiative button on PC sheets */
     protected _onCreate(data: this["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
     /** Call onTurnStart for each rule element on the new turn's actor */
-    protected _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
     /** Disable the initiative link on PC sheets if this was the only encounter */
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
     protected _onEndTurn(combatant: fd.Combatant<this>): Promise<void>;

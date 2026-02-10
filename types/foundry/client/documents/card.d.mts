@@ -2,9 +2,7 @@ import { ChatMessageCreateOperation } from "./../../common/documents/chat-messag
 import { BaseCard, CardFaceData, Cards, ChatMessage } from "./_module.mjs";
 import { ClientDocument } from "./abstract/client-document.mjs";
 
-declare const ClientBaseCard: new <TParent extends Cards | null>(
-    ...args: any
-) => BaseCard<TParent> & ClientDocument<TParent>;
+declare const ClientBaseCard: new <TParent extends Cards | null>(...args: any) => BaseCard<TParent> & ClientDocument<TParent>;
 
 /**
  * The client-side Card document which extends the common BaseCard document model.
@@ -98,10 +96,7 @@ export default class Card<TParent extends Cards | null> extends ClientBaseCard<T
      * @param {object} [options={}]     Options which modify the message creation operation
      * @returns {Promise<ChatMessage>}  The created chat message
      */
-    toMessage(
-        messageData?: DeepPartial<foundry.documents.ChatMessageSource>,
-        options?: ChatMessageCreateOperation,
-    ): Promise<ChatMessage | undefined>;
+    toMessage(messageData?: DeepPartial<foundry.documents.ChatMessageSource>, options?: ChatMessageCreateOperation): Promise<ChatMessage | undefined>;
 }
 
 export {};

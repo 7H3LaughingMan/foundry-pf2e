@@ -31,20 +31,7 @@ declare const WEAPON_GROUPS: Set<
     | "spear"
     | "sword"
 >;
-declare const MELEE_WEAPON_GROUPS: Set<
-    | "axe"
-    | "brawling"
-    | "club"
-    | "dart"
-    | "flail"
-    | "hammer"
-    | "knife"
-    | "pick"
-    | "polearm"
-    | "shield"
-    | "spear"
-    | "sword"
->;
+declare const MELEE_WEAPON_GROUPS: Set<"axe" | "brawling" | "club" | "dart" | "flail" | "hammer" | "knife" | "pick" | "polearm" | "shield" | "spear" | "sword">;
 /** Groups that will be forced as ranged weapons */
 declare const MANDATORY_RANGED_GROUPS: Set<WeaponGroup>;
 declare const WEAPON_PROPERTY_RUNE_TYPES: Set<
@@ -136,9 +123,7 @@ declare const WEAPON_PROPERTY_RUNE_TYPES: Set<
     | "wounding"
 >;
 declare const THROWN_RANGES: Set<10 | 40 | 20 | 30 | 15 | 80 | 100 | 60>;
-declare const WEAPON_RANGES: Set<
-    10 | 40 | 20 | 30 | 50 | 15 | 80 | 100 | 120 | 240 | 60 | 70 | 90 | 110 | 140 | 150 | 180 | 200 | 300
->;
+declare const WEAPON_RANGES: Set<10 | 40 | 20 | 30 | 50 | 15 | 80 | 100 | 120 | 240 | 60 | 70 | 90 | 110 | 140 | 150 | 180 | 200 | 300>;
 declare const RANGED_ONLY_TRAITS: Set<WeaponTrait>;
 declare const MELEE_ONLY_TRAITS: Set<WeaponTrait>;
 export {

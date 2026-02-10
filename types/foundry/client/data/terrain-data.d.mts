@@ -35,10 +35,7 @@ export abstract class BaseTerrainData<TSchema extends DataSchema = DataSchema> e
      * @param token   The Token that moves
      * @param options Additional options that affect cost calculations
      */
-    static getMovementCostFunction(
-        token: TokenDocument,
-        options?: TokenMeasureMovementPathOptions,
-    ): TokenMovementCostFunction | void;
+    static getMovementCostFunction(token: TokenDocument, options?: TokenMeasureMovementPathOptions): TokenMovementCostFunction | void;
 
     /**
      * Is this terrain data the same as some other terrain data?
@@ -56,10 +53,7 @@ export class TerrainData extends BaseTerrainData {
 
     static override resolveTerrainEffects(effects: Partial<TerrainDataSource>[]): TerrainData;
 
-    static override getMovementCostFunction(
-        token: TokenDocument,
-        options?: TokenMeasureMovementPathOptions,
-    ): TokenMovementCostFunction;
+    static override getMovementCostFunction(token: TokenDocument, options?: TokenMeasureMovementPathOptions): TokenMovementCostFunction;
 
     prepareBaseData(): void;
 

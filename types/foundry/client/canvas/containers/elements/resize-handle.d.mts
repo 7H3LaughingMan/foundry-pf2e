@@ -30,12 +30,7 @@ export default class ResizeHandle extends PIXI.Graphics {
      * @param options.aspectRatio If provided, a numeric aspect ratio to maintain (width/height).
      * @returns An object containing the adjusted {x, y, width, height}.
      */
-    updateDimensions(
-        current: Rectangle,
-        origin: Rectangle,
-        destination: Point,
-        options?: { aspectRatio?: number | null },
-    ): Rectangle;
+    updateDimensions(current: Rectangle, origin: Rectangle, destination: Point, options?: { aspectRatio?: number | null }): Rectangle;
 
     /* -------------------------------------------- */
     /*  Interactivity                               */

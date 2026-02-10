@@ -1,13 +1,4 @@
-import {
-    AncestryPF2e,
-    BackgroundPF2e,
-    ClassPF2e,
-    DeityPF2e,
-    FeatPF2e,
-    HeritagePF2e,
-    ItemPF2e,
-    WeaponPF2e,
-} from "./../../item/index.ts";
+import { AncestryPF2e, BackgroundPF2e, ClassPF2e, DeityPF2e, FeatPF2e, HeritagePF2e, ItemPF2e, WeaponPF2e } from "./../../item/index.ts";
 import { ItemType } from "./../../item/types.ts";
 import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { RollParameters } from "./../../system/rolls.ts";
@@ -28,9 +19,7 @@ import {
 } from "./data.ts";
 import { CharacterFeats } from "./feats/index.ts";
 import { CharacterHitPointsSummary, CharacterSkills, GuaranteedGetStatisticSlug } from "./types.ts";
-declare class CharacterPF2e<
-    TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null,
-> extends CreaturePF2e<TParent> {
+declare class CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends CreaturePF2e<TParent> {
     /** Core singular embeds for PCs */
     ancestry: AncestryPF2e<this> | null;
     heritage: HeritagePF2e<this> | null;
@@ -109,15 +98,9 @@ declare class CharacterPF2e<
     toggleInvested(itemId: string): Promise<boolean>;
     /** Add a proficiency in a weapon group or base weapon */
     addAttackProficiency(key: BaseWeaponProficiencyKey | WeaponGroupProficiencyKey): Promise<void>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: CreatureUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: CreatureUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
 }
-interface CharacterPF2e<
-    TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null,
-> extends CreaturePF2e<TParent> {
+interface CharacterPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends CreaturePF2e<TParent> {
     flags: CharacterFlags;
     readonly _source: CharacterSource;
     system: CharacterSystemData;

@@ -93,11 +93,7 @@ export default class Notifications {
      * @param options={}] Additional options which affect the notification
      * @returns The registered notification
      */
-    notify(
-        message: string | object,
-        type: "info" | "warning" | "error" | "success",
-        options?: NotificationOptions,
-    ): Notification;
+    notify(message: string | object, type: "info" | "warning" | "error" | "success", options?: NotificationOptions): Notification;
 
     /**
      * Display a notification with the "info" type.

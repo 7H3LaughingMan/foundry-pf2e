@@ -11,16 +11,14 @@ export type DirectoryMixinEntry = WorldDocument | Setting | Adventure;
  * @param BaseCollection The base collection class to extend
  * @returns A Collection mixed with DirectoryCollection functionality
  */
-export default function DirectoryCollectionMixin<
-    TConstructor extends AbstractConstructorOf<Collection<string, Document>>,
->(BaseCollection: TConstructor): typeof DirectoryCollection & TConstructor;
+export default function DirectoryCollectionMixin<TConstructor extends AbstractConstructorOf<Collection<string, Document>>>(
+    BaseCollection: TConstructor,
+): typeof DirectoryCollection & TConstructor;
 
 /**
  * An extension of the Collection class which adds behaviors specific to tree-based collections of entries and folders.
  */
-export declare abstract class DirectoryCollection<
-    TEntry extends DirectoryMixinEntry = DirectoryMixinEntry,
-> extends Collection<string, TEntry> {
+export declare abstract class DirectoryCollection<TEntry extends DirectoryMixinEntry = DirectoryMixinEntry> extends Collection<string, TEntry> {
     /** Reference the set of Folders which contain documents in this collection */
     abstract get folders(): Collection<string, Folder>;
 
@@ -74,11 +72,8 @@ export declare abstract class DirectoryCollection<
     protected static _sortStandard(a: { sort: number }, b: { sort: number }): number;
 }
 
-export type DirectoryCollectionAndDocumentCollection = DirectoryCollection<DirectoryMixinEntry> &
-    DocumentCollection<Document>;
+export type DirectoryCollectionAndDocumentCollection = DirectoryCollection<DirectoryMixinEntry> & DocumentCollection<Document>;
 
 export interface DirectoryCollectionConstructor extends DirectoryCollectionAndDocumentCollection {
-    new <TEntry extends DirectoryMixinEntry>(
-        ...args: ConstructorParameters<ConstructorOf<TEntry>>
-    ): DirectoryCollection<TEntry> & DocumentCollection<Document>;
+    new <TEntry extends DirectoryMixinEntry>(...args: ConstructorParameters<ConstructorOf<TEntry>>): DirectoryCollection<TEntry> & DocumentCollection<Document>;
 }

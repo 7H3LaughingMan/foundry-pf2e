@@ -121,11 +121,7 @@ export default abstract class FormApplication<
      * @param options        TinyMCE initialization options passed to TextEditor.create
      * @param initialContent Initial text content for the editor area.
      */
-    activateEditor(
-        name: string,
-        options?: EditorCreateOptions,
-        initialContent?: string,
-    ): Promise<TinyMCE.Editor | EditorView>;
+    activateEditor(name: string, options?: EditorCreateOptions, initialContent?: string): Promise<TinyMCE.Editor | EditorView>;
 
     /**
      * Handle saving the content of a specific editor by name

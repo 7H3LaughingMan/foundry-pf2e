@@ -10,8 +10,7 @@ declare class DexterityModifierCapRuleElement extends RuleElement<DexterityModif
     static defineSchema(): DexterityModifierCapRuleSchema;
     beforePrepareData(): void;
 }
-interface DexterityModifierCapRuleElement
-    extends RuleElement<DexterityModifierCapRuleSchema>, ModelPropsFromRESchema<DexterityModifierCapRuleSchema> {
+interface DexterityModifierCapRuleElement extends RuleElement<DexterityModifierCapRuleSchema>, ModelPropsFromRESchema<DexterityModifierCapRuleSchema> {
     get actor(): CharacterPF2e | NPCPF2e;
 }
 type DexterityModifierCapRuleSchema = RuleElementSchema & {

@@ -107,17 +107,9 @@ export default class Playlist extends ClientBasePlaylist {
     /** Define the sorting order for the Sounds within this Playlist. For internal use. */
     protected _sortSounds(a: PlaylistSound<this>, b: PlaylistSound<this>): number;
 
-    protected override _preUpdate(
-        data: Record<string, unknown>,
-        options: DatabaseUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<void>;
+    protected override _preUpdate(data: Record<string, unknown>, options: DatabaseUpdateCallbackOptions, user: BaseUser): Promise<void>;
 
-    protected override _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 

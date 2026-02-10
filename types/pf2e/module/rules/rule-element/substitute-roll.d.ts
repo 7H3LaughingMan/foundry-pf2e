@@ -9,8 +9,7 @@ declare class SubstituteRollRuleElement extends RuleElement<SubstituteRollSchema
     beforePrepareData(): void;
     afterRoll(params: RuleElement.AfterRollParams): Promise<void>;
 }
-interface SubstituteRollRuleElement
-    extends RuleElement<SubstituteRollSchema>, ModelPropsFromRESchema<SubstituteRollSchema> {}
+interface SubstituteRollRuleElement extends RuleElement<SubstituteRollSchema>, ModelPropsFromRESchema<SubstituteRollSchema> {}
 type SubstituteRollSchema = RuleElementSchema & {
     selector: fields.StringField<string, string, true, false, true>;
     value: ResolvableValueField<true, false, false>;
@@ -20,11 +19,6 @@ type SubstituteRollSchema = RuleElementSchema & {
      * Remove the parent item (must be an effect) after a roll:
      * The value may be a boolean, "if-enabled", or a predicate to be tested against the roll options from the roll.
      */
-    removeAfterRoll: DataUnionField<
-        fields.StringField<"if-enabled"> | StrictBooleanField<false> | PredicateField<false, false, false>,
-        false,
-        false,
-        true
-    >;
+    removeAfterRoll: DataUnionField<fields.StringField<"if-enabled"> | StrictBooleanField<false> | PredicateField<false, false, false>, false, false, true>;
 };
 export { SubstituteRollRuleElement };

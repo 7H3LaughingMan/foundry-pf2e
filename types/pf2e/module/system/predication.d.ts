@@ -69,15 +69,7 @@ type Conditional = {
 type Biconditional = {
     iff: PredicateStatement[];
 };
-type CompoundStatement =
-    | Conjunction
-    | Disjunction
-    | ExclusiveDisjunction
-    | AlternativeDenial
-    | JointDenial
-    | Negation
-    | Conditional
-    | Biconditional;
+type CompoundStatement = Conjunction | Disjunction | ExclusiveDisjunction | AlternativeDenial | JointDenial | Negation | Conditional | Biconditional;
 type PredicateStatement = Atom | CompoundStatement;
 type RawPredicate = PredicateStatement[];
 export { Predicate, StatementValidator };

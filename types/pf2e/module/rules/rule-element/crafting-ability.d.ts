@@ -16,8 +16,7 @@ declare class CraftingAbilityRuleElement extends RuleElement<CraftingAbilityRule
     /** Attach the crafting ability to the feat or ability if not prepared */
     afterPrepareData(): void;
 }
-interface CraftingAbilityRuleElement
-    extends RuleElement<CraftingAbilityRuleSchema>, ModelPropsFromRESchema<CraftingAbilityRuleSchema> {
+interface CraftingAbilityRuleElement extends RuleElement<CraftingAbilityRuleSchema>, ModelPropsFromRESchema<CraftingAbilityRuleSchema> {
     readonly parent: ItemPF2e<CharacterPF2e>;
     slug: string;
     get actor(): CharacterPF2e;

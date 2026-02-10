@@ -4,13 +4,7 @@ import { SaveType } from "./../../actor/types.ts";
 import { EffectTrait } from "./../../item/abstract-effect/types.ts";
 import { DataUnionField, PredicateField, StrictArrayField } from "./../../system/schema-data-fields.ts";
 import { RuleElement, RuleElementOptions } from "./base.ts";
-import {
-    ModelPropsFromRESchema,
-    ResolvableValueField,
-    RuleElementSchema,
-    RuleElementSource,
-    RuleValue,
-} from "./data.ts";
+import { ModelPropsFromRESchema, ResolvableValueField, RuleElementSchema, RuleElementSource, RuleValue } from "./data.ts";
 import { ItemAlteration } from "./item-alteration/alteration.ts";
 import fields = foundry.data.fields;
 /** A Pathfinder 2e aura, capable of transmitting effects and with a visual representation on the canvas */
@@ -30,14 +24,7 @@ type AuraSchema = RuleElementSchema & {
     /** An optional level for the aura, to be used to set the level of the effects it transmits */
     level: ResolvableValueField<false, true, true>;
     /** Associated traits, including ones that determine transmission through walls ("visual", "auditory") */
-    traits: fields.ArrayField<
-        fields.StringField<EffectTrait, EffectTrait, true, false, false>,
-        EffectTrait[],
-        EffectTrait[],
-        true,
-        false,
-        true
-    >;
+    traits: fields.ArrayField<fields.StringField<EffectTrait, EffectTrait, true, false, false>, EffectTrait[], EffectTrait[], true, false, true>;
     /** References to effects included in this aura */
     effects: StrictArrayField<
         fields.SchemaField<AuraEffectSchema>,
@@ -69,13 +56,7 @@ type AuraEffectSchema = {
     uuid: fields.DocumentUUIDField<ItemUUID, true, false, false>;
     affects: fields.StringField<"allies" | "enemies" | "all", "allies" | "enemies" | "all", true, false, true>;
     events: fields.ArrayField<
-        fields.StringField<
-            "enter" | "turn-start" | "turn-end",
-            "enter" | "turn-start" | "turn-end",
-            true,
-            false,
-            false
-        >,
+        fields.StringField<"enter" | "turn-start" | "turn-end", "enter" | "turn-start" | "turn-end", true, false, false>,
         ("enter" | "turn-start" | "turn-end")[],
         ("enter" | "turn-start" | "turn-end")[],
         true,
@@ -113,8 +94,7 @@ type AuraAppearanceSchema = {
     border: fields.SchemaField<
         {
             color: DataUnionField<
-                | fields.StringField<"user-color", "user-color", true, false, false>
-                | fields.ColorField<true, false, false>,
+                fields.StringField<"user-color", "user-color", true, false, false> | fields.ColorField<true, false, false>,
                 true,
                 false,
                 true
@@ -137,8 +117,7 @@ type AuraAppearanceSchema = {
     highlight: fields.SchemaField<
         {
             color: DataUnionField<
-                | fields.StringField<"user-color", "user-color", true, false, false>
-                | fields.ColorField<true, false, false>,
+                fields.StringField<"user-color", "user-color", true, false, false> | fields.ColorField<true, false, false>,
                 true,
                 false,
                 true
@@ -174,14 +153,7 @@ type AuraTextureSchema = {
     /** A manual rescaling of the texture resource */
     scale: fields.NumberField<number, number, true, false, true>;
     /** A manual x/y translation of the texture resource */
-    translation: fields.SchemaField<
-        XYPairSchema,
-        fields.SourceFromSchema<XYPairSchema>,
-        fields.ModelPropsFromSchema<XYPairSchema>,
-        false,
-        true,
-        true
-    >;
+    translation: fields.SchemaField<XYPairSchema, fields.SourceFromSchema<XYPairSchema>, fields.ModelPropsFromSchema<XYPairSchema>, false, true, true>;
     /** If the `src` is a video, whether to loop it */
     loop: fields.BooleanField;
     /** If the `src` is a video, the playback rate of resulting `HTMLVideoElement` */

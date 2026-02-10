@@ -37,11 +37,6 @@ interface DamageReductionApplication {
     type: string;
     adjustment: number;
 }
-type IWRApplication =
-    | UnaffectedApplication
-    | ImmunityApplication
-    | WeaknessApplication
-    | ResistanceApplication
-    | DamageReductionApplication;
+type IWRApplication = UnaffectedApplication | ImmunityApplication | WeaknessApplication | ResistanceApplication | DamageReductionApplication;
 export { applyIWR };
 export type { IWRApplication, IWRApplicationData };

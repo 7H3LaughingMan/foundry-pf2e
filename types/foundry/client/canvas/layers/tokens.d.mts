@@ -72,12 +72,7 @@ export default class TokenLayer<TObject extends Token = Token> extends Placeable
 
     override getSnappedPoint(point: Point): Point;
 
-    override _prepareKeyboardMovementUpdates(
-        objects: TObject[],
-        dx: MinusOneToOne,
-        dy: MinusOneToOne,
-        dz: MinusOneToOne,
-    ): ({ _id: string } & ElevatedPoint)[];
+    override _prepareKeyboardMovementUpdates(objects: TObject[], dx: MinusOneToOne, dy: MinusOneToOne, dz: MinusOneToOne): ({ _id: string } & ElevatedPoint)[];
 
     protected override _draw(options: object): Promise<void>;
 
@@ -128,10 +123,7 @@ export default class TokenLayer<TObject extends Token = Token> extends Placeable
      * @param plannedMovements  The planned movement data
      * @internal
      */
-    _updatePlannedMovements(
-        user: User,
-        plannedMovements: { [tokenId: string]: TokenPlannedMovement | null } | null,
-    ): void;
+    _updatePlannedMovements(user: User, plannedMovements: { [tokenId: string]: TokenPlannedMovement | null } | null): void;
 
     /**
      * Provide an array of Tokens which are eligible subjects for tile occlusion.
@@ -143,11 +135,7 @@ export default class TokenLayer<TObject extends Token = Token> extends Placeable
 
     override _getCopyableObjects(options: { cut?: boolean }): TObject[];
 
-    override storeHistory(
-        type: CanvasHistoryEvent["type"],
-        data: DeepPartial<TObject["document"]["_source"]>,
-        options?: object,
-    ): void;
+    override storeHistory(type: CanvasHistoryEvent["type"], data: DeepPartial<TObject["document"]["_source"]>, options?: object): void;
 
     protected override _onCycleViewKey(event: KeyboardEvent): boolean;
 
@@ -167,10 +155,7 @@ export default class TokenLayer<TObject extends Token = Token> extends Placeable
      * @param {{type: "Actor"; uuid: string; x: number; y: number; elevation?: number}} data
      * @internal
      */
-    _onDropActorData(
-        event: DragEvent,
-        data: { type: "Actor"; uuid: string; x: number; y: number; elevation?: number },
-    ): Promise<TObject>;
+    _onDropActorData(event: DragEvent, data: { type: "Actor"; uuid: string; x: number; y: number; elevation?: number }): Promise<TObject>;
 
     protected override _onClickLeft(event: PlaceablesLayerPointerEvent<TObject>): void;
 

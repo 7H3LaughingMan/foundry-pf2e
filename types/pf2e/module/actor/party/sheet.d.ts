@@ -37,10 +37,7 @@ declare class PartySheetPF2e extends ActorSheetPF2e<PartyPF2e> {
     /** Override to not auto-disable fields on a thing meant to be used by players */
     protected _disableFields(_form: HTMLElement): void;
     render(force?: boolean, options?: PartySheetRenderOptions): this;
-    protected _renderInner(
-        data: Record<string, unknown>,
-        options: appv1.api.AppV1RenderOptions,
-    ): Promise<JQuery<HTMLElement>>;
+    protected _renderInner(data: Record<string, unknown>, options: appv1.api.AppV1RenderOptions): Promise<JQuery<HTMLElement>>;
     protected _onDropActor(event: DragEvent, data: DropCanvasData<"Actor", PartyPF2e>): Promise<false | void>;
 }
 interface PartySheetData extends ActorSheetDataPF2e<PartyPF2e> {

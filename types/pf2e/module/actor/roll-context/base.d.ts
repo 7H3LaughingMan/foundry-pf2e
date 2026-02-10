@@ -5,11 +5,7 @@ import { StrikeData } from "./../data/base.ts";
 import { ActorPF2e } from "./../index.ts";
 import { RollContextConstructorParams, RollContextData, UnresolvedOpposingActors } from "./types.ts";
 /** Resolve a roll context by cloning a pair of actors and feeding them with mutual roll options. */
-declare abstract class RollContext<
-    TSelf extends ActorPF2e,
-    TStatistic extends Statistic | StrikeData,
-    TItem extends ItemPF2e<ActorPF2e> | null,
-> {
+declare abstract class RollContext<TSelf extends ActorPF2e, TStatistic extends Statistic | StrikeData, TItem extends ItemPF2e<ActorPF2e> | null> {
     #private;
     /** Origin and target data provided directly by the caller */
     protected unresolved: Readonly<UnresolvedOpposingActors<TStatistic, TItem>>;

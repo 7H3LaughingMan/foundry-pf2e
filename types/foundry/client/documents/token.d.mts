@@ -128,10 +128,7 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
     /*  Methods                                     */
     /* -------------------------------------------- */
 
-    protected override _initializeSource(
-        data: object,
-        options?: DataModelConstructionContext<TParent>,
-    ): this["_source"];
+    protected override _initializeSource(data: object, options?: DataModelConstructionContext<TParent>): this["_source"];
 
     protected override _initialize(options?: Record<string, unknown>): void;
 
@@ -215,10 +212,7 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
      * @param options Parameters of the update operation
      * @returns  A Promise that resolves to true if the Token was resized, otherwise resolves to false
      */
-    resize(
-        dimensions?: Partial<TokenDimensions>,
-        options?: Partial<Omit<DatabaseUpdateOperation<TParent>, "updates">>,
-    ): Promise<boolean>;
+    resize(dimensions?: Partial<TokenDimensions>, options?: Partial<Omit<DatabaseUpdateOperation<TParent>, "updates">>): Promise<boolean>;
 
     /**
      * Stop the movement of this Token document. The movement cannot be continued after being stopped.
@@ -288,10 +282,7 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
      * @param options.cost The function that returns the cost
      *   for a given move between grid spaces (default is the distance travelled along the direct path)
      */
-    measureMovementPath(
-        waypoints: TokenMeasureMovementPathWaypoint[],
-        options?: { cost?: TokenMovementCostFunction },
-    ): GridMeasurePathResult;
+    measureMovementPath(waypoints: TokenMeasureMovementPathWaypoint[], options?: { cost?: TokenMovementCostFunction }): GridMeasurePathResult;
 
     /**
      * Get the path of movement with the intermediate steps of the direct path between waypoints.
@@ -353,17 +344,9 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
 
     protected override _onCreate(data: this["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    protected override _preUpdate(
-        data: Record<string, unknown>,
-        options: TokenUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preUpdate(data: Record<string, unknown>, options: TokenUpdateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
-    protected override _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: TokenUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<this["_source"]>, options: TokenUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 
@@ -375,17 +358,9 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
      */
     _identifyRegions(changes?: DeepPartial<this["_source"]>): string[];
 
-    static override _preCreateOperation(
-        documents: Document[],
-        operation: DatabaseCreateOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    static override _preCreateOperation(documents: Document[], operation: DatabaseCreateOperation<Document | null>, user: BaseUser): Promise<boolean | void>;
 
-    static override _preUpdateOperation(
-        documents: Document[],
-        operation: DatabaseUpdateOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    static override _preUpdateOperation(documents: Document[], operation: DatabaseUpdateOperation<Document | null>, user: BaseUser): Promise<boolean | void>;
 
     /**
      * Reject the movement or modify the update operation as needed based on the movement.
@@ -396,8 +371,7 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
      * @returns If false, the movement is prevented
      */
     protected _preUpdateMovement(
-        movement: DeepReadonly<Omit<TokenMovementOperation, "autoRotate" | "showRuler">> &
-            Pick<TokenMovementOperation, "autoRotate" | "showRuler">,
+        movement: DeepReadonly<Omit<TokenMovementOperation, "autoRotate" | "showRuler">> & Pick<TokenMovementOperation, "autoRotate" | "showRuler">,
         operation: Partial<DatabaseUpdateOperation<TParent>>,
     ): Promise<boolean | void>;
 
@@ -407,11 +381,7 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
      * @param operation The update operation
      * @param user The User that requested the update operation
      */
-    protected _onUpdateMovement(
-        movement: DeepReadonly<TokenMovementOperation>,
-        operation: Partial<DatabaseUpdateOperation<TParent>>,
-        user: User,
-    ): void;
+    protected _onUpdateMovement(movement: DeepReadonly<TokenMovementOperation>, operation: Partial<DatabaseUpdateOperation<TParent>>, user: User): void;
 
     /**
      * Called when the current movement is stopped.
@@ -434,17 +404,9 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
         context: DatabaseCreateOperation<TDocument["parent"]>,
     ): Promise<void>;
 
-    static override _onUpdateOperation(
-        documents: Document[],
-        operation: DatabaseUpdateOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<void>;
+    static override _onUpdateOperation(documents: Document[], operation: DatabaseUpdateOperation<Document | null>, user: BaseUser): Promise<void>;
 
-    static override _onDeleteOperation(
-        documents: Document[],
-        operation: DatabaseDeleteOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<void>;
+    static override _onDeleteOperation(documents: Document[], operation: DatabaseDeleteOperation<Document | null>, user: BaseUser): Promise<void>;
 
     /**
      * Are these changes moving the Token from the given origin?
@@ -526,10 +488,7 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
      * @param waypoints The waypoints of movement
      * @returns The movement split into its segments
      */
-    segmentizeRegionMovementPath(
-        region: RegionDocument,
-        waypoints: TokenSegmentizeMovementWaypoint[],
-    ): TokenRegionMovementSegment[];
+    segmentizeRegionMovementPath(region: RegionDocument, waypoints: TokenSegmentizeMovementWaypoint[]): TokenRegionMovementSegment[];
 
     /* -------------------------------------------- */
     /*  Actor Delta Operations                      */
@@ -622,10 +581,7 @@ export default class TokenDocument<TParent extends Scene | null = Scene | null> 
      * Retrieve an Array of attribute choices from a SchemaField.
      * @param schema The schema to explore for attributes.
      */
-    protected static _getTrackedAttributesFromSchema(
-        schema: SchemaField,
-        _path?: string[],
-    ): TrackedAttributesDescription;
+    protected static _getTrackedAttributesFromSchema(schema: SchemaField, _path?: string[]): TrackedAttributesDescription;
 
     /**
      * Retrieve any configured attributes for a given Actor type.
@@ -642,10 +598,7 @@ export default interface TokenDocument<TParent extends Scene | null = Scene | nu
     get sheet(): TokenConfig;
     get uuid(): TokenDocumentUUID;
 
-    update(
-        data: Record<string, unknown>,
-        operation?: Partial<TokenUpdateOperation<TParent>>,
-    ): Promise<this | undefined>;
+    update(data: Record<string, unknown>, operation?: Partial<TokenUpdateOperation<TParent>>): Promise<this | undefined>;
 }
 
 export interface TokenDocumentConstructionContext<
@@ -663,9 +616,6 @@ export interface TokenUpdateOperation<TParent extends Scene | null> extends Data
     animation?: TokenAnimationOptions;
 }
 
-export interface TokenUpdateCallbackOptions extends Omit<
-    TokenUpdateOperation<null>,
-    "action" | "pack" | "parent" | "restoreDelta" | "noHook" | "updates"
-> {}
+export interface TokenUpdateCallbackOptions extends Omit<TokenUpdateOperation<null>, "action" | "pack" | "parent" | "restoreDelta" | "noHook" | "updates"> {}
 
 export {};

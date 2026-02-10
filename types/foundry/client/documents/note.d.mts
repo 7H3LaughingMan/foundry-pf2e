@@ -2,9 +2,7 @@ import Note from "../canvas/placeables/note.mjs";
 import { BaseNote, JournalEntry, JournalEntryPage, Scene } from "./_module.mjs";
 import { CanvasDocument } from "./abstract/canvas-document.mjs";
 
-declare const CanvasBaseNote: new <TParent extends Scene | null>(
-    ...args: any
-) => BaseNote<TParent> & CanvasDocument<TParent>;
+declare const CanvasBaseNote: new <TParent extends Scene | null>(...args: any) => BaseNote<TParent> & CanvasDocument<TParent>;
 
 interface CanvasBaseNote<TParent extends Scene | null> extends InstanceType<typeof CanvasBaseNote<TParent>> {}
 

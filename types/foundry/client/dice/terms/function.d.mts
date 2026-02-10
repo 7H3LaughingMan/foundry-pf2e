@@ -2,9 +2,7 @@ import Roll from "../roll.mjs";
 import { DiceTerm, RollTerm, RollTermData } from "./_module.mjs";
 import { Evaluated } from "./term.mjs";
 
-export default class FunctionTerm<TFunctionName extends MathFunctionName = MathFunctionName> extends RollTerm<
-    FunctionTermData<TFunctionName>
-> {
+export default class FunctionTerm<TFunctionName extends MathFunctionName = MathFunctionName> extends RollTerm<FunctionTermData<TFunctionName>> {
     constructor({ fn, terms, options }: FunctionTermData<TFunctionName>);
 
     /** The named function in the Math environment which should be applied to the term */
@@ -40,13 +38,7 @@ export default class FunctionTerm<TFunctionName extends MathFunctionName = MathF
 
     protected _evaluateSync({ minimize, maximize }?: { minimize?: boolean; maximize?: boolean }): Evaluated<this>;
 
-    protected override _evaluate({
-        minimize,
-        maximize,
-    }?: {
-        minimize?: boolean;
-        maximize?: boolean;
-    }): Promise<Evaluated<this>>;
+    protected override _evaluate({ minimize, maximize }?: { minimize?: boolean; maximize?: boolean }): Promise<Evaluated<this>>;
 }
 
 export type MathFunctionName =

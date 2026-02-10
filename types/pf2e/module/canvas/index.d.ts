@@ -1,10 +1,4 @@
-import {
-    AmbientLightDocumentPF2e,
-    MeasuredTemplateDocumentPF2e,
-    RegionDocumentPF2e,
-    ScenePF2e,
-    TokenDocumentPF2e,
-} from "./../scene/index.ts";
+import { AmbientLightDocumentPF2e, MeasuredTemplateDocumentPF2e, RegionDocumentPF2e, ScenePF2e, TokenDocumentPF2e } from "./../scene/index.ts";
 import { AmbientLightPF2e } from "./ambient-light.ts";
 import { EffectsCanvasGroupPF2e } from "./group/effects.ts";
 import { LightingLayerPF2e } from "./layer/lighting.ts";
@@ -23,13 +17,4 @@ export type CanvasPF2e = foundry.canvas.Canvas<
 >;
 export * from "./helpers.ts";
 export { RulerPF2e } from "./ruler.ts";
-export {
-    AmbientLightPF2e,
-    EffectsCanvasGroupPF2e,
-    LightingLayerPF2e,
-    MeasuredTemplatePF2e,
-    RegionPF2e,
-    TemplateLayerPF2e,
-    TokenLayerPF2e,
-    TokenPF2e,
-};
+export { AmbientLightPF2e, EffectsCanvasGroupPF2e, LightingLayerPF2e, MeasuredTemplatePF2e, RegionPF2e, TemplateLayerPF2e, TokenLayerPF2e, TokenPF2e };

@@ -20,8 +20,7 @@ declare class BattleFormRuleElement extends RuleElement<BattleFormRuleSchema> {
     /** Disable ineligible damage adjustments (modifiers, bonuses, additional damage) */
     applyDamageExclusion(weapon: WeaponPF2e, modifiers: (DamageDicePF2e | Modifier)[]): void;
 }
-interface BattleFormRuleElement
-    extends RuleElement<BattleFormRuleSchema>, ModelPropsFromRESchema<BattleFormRuleSchema> {
+interface BattleFormRuleElement extends RuleElement<BattleFormRuleSchema>, ModelPropsFromRESchema<BattleFormRuleSchema> {
     get actor(): CharacterPF2e;
 }
 export { BattleFormRuleElement };

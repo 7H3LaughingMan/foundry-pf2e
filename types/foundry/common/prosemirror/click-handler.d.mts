@@ -20,12 +20,5 @@ export default class ProseMirrorClickHandler extends ProseMirrorPlugin {
      * @returns A return value of true indicates the event has been handled, it will not propagate to other plugins, and
      *          ProseMirror will call preventDefault on it.
      */
-    protected _onClick(
-        view: EditorView,
-        pos: number,
-        node: Node,
-        nodePos: number,
-        event: PointerEvent,
-        direct: boolean,
-    ): boolean | void;
+    protected _onClick(view: EditorView, pos: number, node: Node, nodePos: number, event: PointerEvent, direct: boolean): boolean | void;
 }

@@ -331,17 +331,7 @@ export type WorldDocumentType = (typeof WORLD_DOCUMENT_TYPES)[number];
  * The allowed primary Document types which may exist within a Compendium pack.
  * @type {string[]}
  */
-export const COMPENDIUM_DOCUMENT_TYPES: readonly [
-    "Actor",
-    "Adventure",
-    "Cards",
-    "Item",
-    "JournalEntry",
-    "Macro",
-    "Playlist",
-    "RollTable",
-    "Scene",
-];
+export const COMPENDIUM_DOCUMENT_TYPES: readonly ["Actor", "Adventure", "Cards", "Item", "JournalEntry", "Macro", "Playlist", "RollTable", "Scene"];
 
 /**
  * Define the allowed ownership levels for a Document.
@@ -386,16 +376,7 @@ export const DOCUMENT_META_OWNERSHIP_LEVELS: Readonly<{
 /**
  * Define the allowed Document types which may be dynamically linked in chat
  */
-export const DOCUMENT_LINK_TYPES: readonly [
-    "Actor",
-    "Cards",
-    "Item",
-    "Scene",
-    "JournalEntry",
-    "Macro",
-    "RollTable",
-    "PlaylistSound",
-];
+export const DOCUMENT_LINK_TYPES: readonly ["Actor", "Cards", "Item", "Scene", "JournalEntry", "Macro", "RollTable", "PlaylistSound"];
 
 /**
  * The supported dice roll visibility modes
@@ -446,18 +427,7 @@ export type DrawingFillType = (typeof DRAWING_FILL_TYPES)[keyof typeof DRAWING_F
 /**
  * Define the allowed Document types which Folders may contain
  */
-export const FOLDER_DOCUMENT_TYPES: readonly [
-    "Actor",
-    "Adventure",
-    "Item",
-    "Scene",
-    "JournalEntry",
-    "Playlist",
-    "RollTable",
-    "Cards",
-    "Macro",
-    "Compendium",
-];
+export const FOLDER_DOCUMENT_TYPES: readonly ["Actor", "Adventure", "Item", "Scene", "JournalEntry", "Playlist", "RollTable", "Cards", "Macro", "Compendium"];
 
 export type FolderDocumentType = (typeof FOLDER_DOCUMENT_TYPES)[number];
 
@@ -1903,31 +1873,11 @@ export const ALLOWED_HTML_ATTRIBUTES: Readonly<{
     button: readonly ["disabled", "name", "type", "value"];
     col: readonly ["span"];
     colgroup: readonly ["span"];
-    "code-mirror": readonly [
-        "disabled",
-        "name",
-        "value",
-        "placeholder",
-        "readonly",
-        "required",
-        "language",
-        "indent",
-        "nowrap",
-    ];
+    "code-mirror": readonly ["disabled", "name", "value", "placeholder", "readonly", "required", "language", "indent", "nowrap"];
     "color-picker": readonly ["disabled", "name", "value", "placeholder", "readonly", "required"];
     details: readonly ["open"];
     "document-embed": readonly ["uuid"];
-    "document-tags": readonly [
-        "disabled",
-        "name",
-        "value",
-        "placeholder",
-        "readonly",
-        "required",
-        "type",
-        "single",
-        "max",
-    ];
+    "document-tags": readonly ["disabled", "name", "value", "placeholder", "readonly", "required", "type", "single", "max"];
     "enriched-content": readonly ["enricher"];
     fieldset: readonly ["disabled"];
     "file-picker": readonly ["disabled", "name", "value", "placeholder", "readonly", "required", "type", "noupload"];

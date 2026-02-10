@@ -57,11 +57,7 @@ export declare abstract class CompendiumBrowserTab {
     protected abstract prepareFilterData(): this["filterData"];
     /** Filter indexData */
     protected abstract filterIndexData(entry: CompendiumBrowserIndexData): boolean;
-    protected filterTraits(
-        traits: string[],
-        selected: TraitData["selected"],
-        condition: TraitData["conjunction"],
-    ): boolean;
+    protected filterTraits(traits: string[], selected: TraitData["selected"], condition: TraitData["conjunction"]): boolean;
     /** Sort result array by name, level or price */
     protected sortResult(result: CompendiumBrowserIndexData[]): CompendiumBrowserIndexData[];
     /** Return new range filter values based on input */

@@ -5,9 +5,7 @@ import RegionBehaviorType, { EventsField } from "./base.mjs";
 export default class ExecuteScriptRegionBehaviorType extends RegionBehaviorType<ExecuteScriptRegionBehaviorTypeSchema> {}
 
 export default interface ExecuteScriptRegionBehaviorType
-    extends
-        RegionBehaviorType<ExecuteScriptRegionBehaviorTypeSchema>,
-        fields.ModelPropsFromSchema<ExecuteScriptRegionBehaviorTypeSchema> {}
+    extends RegionBehaviorType<ExecuteScriptRegionBehaviorTypeSchema>, fields.ModelPropsFromSchema<ExecuteScriptRegionBehaviorTypeSchema> {}
 
 export type ExecuteScriptRegionBehaviorTypeSchema = {
     /** The events that are handled by the behavior. */

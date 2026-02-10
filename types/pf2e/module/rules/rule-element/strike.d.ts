@@ -104,14 +104,7 @@ type StrikeSchema = RuleElementSchema & {
     replaceBasicUnarmed: fields.BooleanField<boolean, boolean, false, false, false>;
     /** Whether this attack is from a battle form */
     battleForm: fields.BooleanField<boolean, boolean, false, false, true>;
-    options: fields.ArrayField<
-        fields.StringField<string, string, true, false, false>,
-        string[],
-        string[],
-        false,
-        false,
-        false
-    >;
+    options: fields.ArrayField<fields.StringField<string, string, true, false, false>, string[], string[], false, false, false>;
     /** Whether this was a request for a standard fist attack */
     fist: fields.BooleanField<boolean, boolean, false, false, true>;
     /** Whether the unarmed attack is a grasping appendage */

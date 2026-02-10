@@ -8,11 +8,7 @@ declare class ArithmeticExpression extends terms.RollTerm<ArithmeticExpressionDa
     static SERIALIZE_ATTRIBUTES: string[];
     static fromData<TTerm extends terms.RollTerm>(this: ConstructorOf<TTerm>, data: terms.TermDataOf<TTerm>): TTerm;
     static totalOf(operator: ArithmeticOperator, left: number, right: number): number;
-    static totalOf(
-        operator: ArithmeticOperator,
-        left: number | undefined,
-        right: number | undefined,
-    ): number | undefined;
+    static totalOf(operator: ArithmeticOperator, left: number | undefined, right: number | undefined): number | undefined;
     get dice(): terms.DiceTerm[];
     /**
      * Simplify the expression if this term is deterministic and not multiplication.

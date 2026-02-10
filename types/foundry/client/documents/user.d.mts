@@ -75,11 +75,7 @@ export default class User extends ClientBaseUser {
      * @param [fromSlot] An optional origin slot from which the Macro is being shifted
      * @return A Promise which resolves once the User update is complete
      */
-    assignHotbarMacro(
-        macro: Macro | null,
-        slot?: number | string,
-        { fromSlot }?: { fromSlot?: number | undefined },
-    ): Promise<this>;
+    assignHotbarMacro(macro: Macro | null, slot?: number | string, { fromSlot }?: { fromSlot?: number | undefined }): Promise<this>;
 
     /**
      * Assign a specific boolean permission to this user.
@@ -131,11 +127,7 @@ export default class User extends ClientBaseUser {
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 }

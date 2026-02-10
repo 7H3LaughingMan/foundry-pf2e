@@ -6,9 +6,7 @@ import Ray from "./ray.mjs";
 /**
  * An extension of Polygon which is used to represent the line of sight for a point source.
  */
-export default abstract class PointSourcePolygon<TConfig extends PointSourcePolygonConfig = PointSourcePolygonConfig>
-    extends PIXI.Polygon
-{
+export default abstract class PointSourcePolygon<TConfig extends PointSourcePolygonConfig = PointSourcePolygonConfig> extends PIXI.Polygon {
     /**
      * Customize how wall direction of one-way walls is applied
      */
@@ -53,11 +51,7 @@ export default abstract class PointSourcePolygon<TConfig extends PointSourcePoly
      * @param config Configuration options which customize the polygon computation
      * @returns The computed polygon instance
      */
-    static create<C extends PointSourcePolygonConfig, T extends PointSourcePolygon<C>>(
-        this: ConstructorOf<T>,
-        origin: Point,
-        config?: C,
-    ): T;
+    static create<C extends PointSourcePolygonConfig, T extends PointSourcePolygon<C>>(this: ConstructorOf<T>, origin: Point, config?: C): T;
 
     /**
      * Create a clone of this polygon.
@@ -124,21 +118,9 @@ export default abstract class PointSourcePolygon<TConfig extends PointSourcePoly
      *          * all: returns a sorted array of PolygonVertex instances
      *          * closest: returns a PolygonVertex instance or null
      */
-    static testCollision(
-        origin: Point,
-        destination: Point,
-        config?: PointSourcePolygonConfig & { mode: "closest" },
-    ): PolygonVertex | null;
-    static testCollision(
-        origin: Point,
-        destination: Point,
-        config?: PointSourcePolygonConfig & { mode: "any" },
-    ): boolean;
-    static testCollision(
-        origin: Point,
-        destination: Point,
-        config?: PointSourcePolygonConfig & { mode: "all" },
-    ): PolygonVertex[];
+    static testCollision(origin: Point, destination: Point, config?: PointSourcePolygonConfig & { mode: "closest" }): PolygonVertex | null;
+    static testCollision(origin: Point, destination: Point, config?: PointSourcePolygonConfig & { mode: "any" }): boolean;
+    static testCollision(origin: Point, destination: Point, config?: PointSourcePolygonConfig & { mode: "all" }): PolygonVertex[];
     static testCollision(
         origin: Point,
         destination: Point,

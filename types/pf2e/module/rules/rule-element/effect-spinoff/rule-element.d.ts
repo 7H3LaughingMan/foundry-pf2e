@@ -11,8 +11,7 @@ declare class EffectSpinoffRuleElement extends RuleElement<EffectSpinoffSchema> 
     protected _initialize(options?: Record<string, unknown> | undefined): void;
     afterPrepareData(): void;
 }
-interface EffectSpinoffRuleElement
-    extends RuleElement<EffectSpinoffSchema>, ModelPropsFromRESchema<EffectSpinoffSchema> {
+interface EffectSpinoffRuleElement extends RuleElement<EffectSpinoffSchema>, ModelPropsFromRESchema<EffectSpinoffSchema> {
     slug: string;
     get item(): PhysicalItemPF2e<ActorPF2e>;
 }
@@ -25,9 +24,7 @@ type ActivationSchema = fields.SchemaField<
             value: fields.NumberField<number, number, true, false, true>;
             unit: fields.StringField<ActivateTimeUnit, ActivateTimeUnit, true, false, false>;
         }>;
-        traits: fields.ArrayField<
-            fields.StringField<"concentrate" | "manipulate", "concentrate" | "manipulate", true, false, false>
-        >;
+        traits: fields.ArrayField<fields.StringField<"concentrate" | "manipulate", "concentrate" | "manipulate", true, false, false>>;
         details: fields.StringField<string, string, false, true, true>;
     },
     {

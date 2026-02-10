@@ -13,10 +13,7 @@ export const SYSTEM = {
     path<T extends string>(tail: T): () => `systems/${SystemId}/${T}` {
         return () => this.getPath(tail);
     },
-    uuid<P extends foundry.utils.CompendiumUUID, S extends foundry.utils.CompendiumUUID>(
-        pf2e: P,
-        sf2e: S,
-    ): () => P | S {
+    uuid<P extends foundry.utils.CompendiumUUID, S extends foundry.utils.CompendiumUUID>(pf2e: P, sf2e: S): () => P | S {
         return () => this.getUuid(pf2e, sf2e);
     },
     getFlag<T>(obj: foundry.abstract.Document, ...path: string[]): T {

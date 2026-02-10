@@ -1,9 +1,5 @@
 import Roll, { Rolled } from "../dice/roll.mjs";
-import {
-    DatabaseCreateOperation,
-    DatabaseDeleteOperation,
-    DatabaseUpdateOperation,
-} from "./../../common/abstract/_types.mjs";
+import { DatabaseCreateOperation, DatabaseDeleteOperation, DatabaseUpdateOperation } from "./../../common/abstract/_types.mjs";
 import Document from "./../../common/abstract/document.mjs";
 import { DocumentOwnershipLevel } from "./../../common/constants.mjs";
 import CombatantConfig from "./../applications/sheets/combatant-config.mjs";
@@ -16,9 +12,7 @@ declare const ClientBaseCombatant: {
     new <TParent extends Combat | null>(...args: any): BaseCombatant<TParent> & ClientDocument<TParent>;
 } & ClientBaseCombatantStatic;
 
-declare interface ClientBaseCombatant<TParent extends Combat | null> extends InstanceType<
-    typeof ClientBaseCombatant<TParent>
-> {}
+declare interface ClientBaseCombatant<TParent extends Combat | null> extends InstanceType<typeof ClientBaseCombatant<TParent>> {}
 
 /**
  * The client-side Combatant document which extends the common BaseCombatant model.
@@ -117,23 +111,11 @@ export default class Combatant<
     /*  Database Lifecycle Events                   */
     /* -------------------------------------------- */
 
-    static override _preCreateOperation(
-        documents: Document[],
-        operation: DatabaseCreateOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    static override _preCreateOperation(documents: Document[], operation: DatabaseCreateOperation<Document | null>, user: BaseUser): Promise<boolean | void>;
 
-    static override _preUpdateOperation(
-        documents: Document[],
-        operation: DatabaseUpdateOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    static override _preUpdateOperation(documents: Document[], operation: DatabaseUpdateOperation<Document | null>, user: BaseUser): Promise<boolean | void>;
 
-    static override _preDeleteOperation(
-        documents: Document[],
-        operation: DatabaseDeleteOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    static override _preDeleteOperation(documents: Document[], operation: DatabaseDeleteOperation<Document | null>, user: BaseUser): Promise<boolean | void>;
 }
 
 export default interface Combatant<TParent extends Combat | null> extends ClientBaseCombatant<TParent> {

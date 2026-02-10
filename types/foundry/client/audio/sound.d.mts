@@ -232,10 +232,7 @@ export default class Sound extends EventEmitter {
      * @param options.type     The type of fade easing, "linear" or "exponential"
      * @returns A Promise that resolves after the requested fade duration
      */
-    fade(
-        volume: number,
-        options?: { duration?: number; from?: number; type?: "linear" | "exponential" },
-    ): Promise<void>;
+    fade(volume: number, options?: { duration?: number; from?: number; type?: "linear" | "exponential" }): Promise<void>;
 
     /**
      * Wait a certain scheduled duration within this sound's own AudioContext.

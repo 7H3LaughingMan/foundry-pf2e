@@ -62,10 +62,7 @@ export interface AdventureImportResult {
  * A callback function that is invoked and awaited after import but before the overall import workflow concludes.
  * This can be used to perform additional custom adventure setup steps.
  */
-export type AdventurePostImportCallback = (
-    result: AdventureImportResult,
-    options: AdventureImportOptions,
-) => Promise<void>;
+export type AdventurePostImportCallback = (result: AdventureImportResult, options: AdventureImportOptions) => Promise<void>;
 
 export interface ActiveEffectDuration extends EffectDurationData {
     /**
@@ -411,15 +408,9 @@ export interface TokenMeasuredMovementWaypoint {
     cost: number;
 }
 
-export interface TokenMovementWaypoint extends Omit<
-    TokenMeasuredMovementWaypoint,
-    "terrain" | "intermediate" | "userId" | "movementId" | "cost"
-> {}
+export interface TokenMovementWaypoint extends Omit<TokenMeasuredMovementWaypoint, "terrain" | "intermediate" | "userId" | "movementId" | "cost"> {}
 
-export type TokenMovementSegmentData = Pick<
-    TokenMeasuredMovementWaypoint,
-    "width" | "height" | "shape" | "action" | "terrain"
-> & {
+export type TokenMovementSegmentData = Pick<TokenMeasuredMovementWaypoint, "width" | "height" | "shape" | "action" | "terrain"> & {
     actionConfig: TokenMovementActionConfig;
     teleport: boolean;
 };
@@ -537,10 +528,7 @@ export interface TokenGetCompleteMovementPathWaypoint {
     intermediate?: boolean;
 }
 
-export interface TokenCompleteMovementWaypoint extends Omit<
-    TokenMeasuredMovementWaypoint,
-    "userId" | "movementId" | "cost"
-> {}
+export interface TokenCompleteMovementWaypoint extends Omit<TokenMeasuredMovementWaypoint, "userId" | "movementId" | "cost"> {}
 
 export interface TokenSegmentizeMovementWaypoint {
     /**

@@ -99,11 +99,7 @@ declare class WeaponPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ex
     ): MeleePF2e<NonNullable<TParent>>[];
     /** Consume a unit of ammunition used by this weapon */
     consumeAmmo(): Promise<void>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     /** Remove links to this weapon from NPC attacks */
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 }

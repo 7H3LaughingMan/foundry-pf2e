@@ -1,9 +1,4 @@
-import type {
-    ApplicationClosingOptions,
-    ApplicationConfiguration,
-    ApplicationRenderContext,
-    ApplicationRenderOptions,
-} from "../_types.mjs";
+import type { ApplicationClosingOptions, ApplicationConfiguration, ApplicationRenderContext, ApplicationRenderOptions } from "../_types.mjs";
 import type ApplicationV2 from "../api/application.mjs";
 
 /**

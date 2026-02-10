@@ -22,8 +22,7 @@ export default class BaseTile<TParent extends BaseScene | null> extends Document
     static override defineSchema(): TileSchema;
 }
 
-export default interface BaseTile<TParent extends BaseScene | null>
-    extends Document<TParent, TileSchema>, fields.ModelPropsFromSchema<TileSchema> {
+export default interface BaseTile<TParent extends BaseScene | null> extends Document<TParent, TileSchema>, fields.ModelPropsFromSchema<TileSchema> {
     get documentName(): TileMetadata["name"];
 }
 

@@ -16,9 +16,7 @@ import RegionGeometry from "./regions/geometry.mjs";
  * @see {RegionDocument}
  * @see {RegionLayer}
  */
-export default class Region<
-    TDocument extends RegionDocument<Scene | null> = RegionDocument<Scene | null>,
-> extends PlaceableObject<TDocument> {
+export default class Region<TDocument extends RegionDocument<Scene | null> = RegionDocument<Scene | null>> extends PlaceableObject<TDocument> {
     static override embeddedName: "Region";
 
     static override RENDER_FLAGS: {
@@ -97,10 +95,7 @@ export default class Region<
 
     protected override _onRelease(options: Record<string, unknown>): void;
 
-    protected override _onHoverIn(
-        event: PIXI.FederatedPointerEvent,
-        options?: { updateLegend?: boolean; hoverOutOthers?: boolean },
-    ): void;
+    protected override _onHoverIn(event: PIXI.FederatedPointerEvent, options?: { updateLegend?: boolean; hoverOutOthers?: boolean }): void;
 
     protected override _onHoverOut(event: PIXI.FederatedPointerEvent, options?: { updateLegend?: boolean }): void;
 
@@ -110,11 +105,7 @@ export default class Region<
     /*  Document Event Handlers                     */
     /* -------------------------------------------- */
 
-    override _onUpdate(
-        changed: DeepPartial<TDocument["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    override _onUpdate(changed: DeepPartial<TDocument["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     /* -------------------------------------------- */
     /*  Shape Methods                               */
@@ -138,11 +129,7 @@ export default class Region<
      * @param   [options.teleport=false]   Is it teleportation?
      * @returns                            The movement split into its segments.
      */
-    segmentizeMovement(
-        waypoints: RegionMovementWaypoint[],
-        samples: Point[],
-        options?: { teleport?: boolean },
-    ): RegionMovementSegment[];
+    segmentizeMovement(waypoints: RegionMovementWaypoint[], samples: Point[], options?: { teleport?: boolean }): RegionMovementSegment[];
 }
 
 export interface RegionMovementWaypoint {

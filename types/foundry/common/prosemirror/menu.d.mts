@@ -116,11 +116,7 @@ export default class ProseMirrorMenu extends ProseMirrorPlugin {
      * @param [options]                   Additional options to configure the dialog's behaviour.
      * @param [options.data={}]           Data to pass to the template.
      */
-    protected _showDialog(
-        action: string,
-        template: string,
-        options?: { data?: Record<string, unknown> },
-    ): Promise<HTMLElement>;
+    protected _showDialog(action: string, template: string, options?: { data?: Record<string, unknown> }): Promise<HTMLElement>;
 
     /** Clear any marks from the current selection. */
     protected _clearFormatting(): void;
@@ -135,11 +131,7 @@ export default class ProseMirrorMenu extends ProseMirrorPlugin {
      * @param  [options]               Additional options to configure behaviour.
      * @param  [options.attrs]         Attributes for the node.
      */
-    _toggleBlock(
-        node: NodeType,
-        wrap: (node: NodeType, attrs?: object | null) => Command,
-        options?: { attrs?: Record<string, unknown> | null },
-    ): void;
+    _toggleBlock(node: NodeType, wrap: (node: NodeType, attrs?: object | null) => Command, options?: { attrs?: Record<string, unknown> | null }): void;
 
     /**
      * Toggle the given selection by wrapping it in a given text block, or reverting to a paragraph block.

@@ -26,10 +26,7 @@ declare class FeatSystemData extends ItemSystemModel<FeatPF2e, FeatSystemSchema>
     prepareBaseData(): void;
     prepareDerivedData(): void;
 }
-interface FeatSystemData
-    extends
-        ItemSystemModel<FeatPF2e, FeatSystemSchema>,
-        Omit<fields.ModelPropsFromSchema<FeatSystemSchema>, "description"> {}
+interface FeatSystemData extends ItemSystemModel<FeatPF2e, FeatSystemSchema>, Omit<fields.ModelPropsFromSchema<FeatSystemSchema>, "description"> {}
 type FeatSystemSchema = Omit<ItemSystemSchema, "traits"> & {
     level: fields.SchemaField<{
         value: fields.NumberField<number, number, true, false, true>;

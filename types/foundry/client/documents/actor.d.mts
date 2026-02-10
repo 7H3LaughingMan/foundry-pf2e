@@ -1,11 +1,6 @@
 import ActorSheet from "../appv1/sheets/actor-sheet.mjs";
 import { DocumentConstructionContext } from "./../../common/_types.mjs";
-import {
-    DatabaseCreateOperation,
-    DatabaseDeleteOperation,
-    DatabaseUpdateCallbackOptions,
-    DatabaseUpdateOperation,
-} from "./../../common/abstract/_types.mjs";
+import { DatabaseCreateOperation, DatabaseDeleteOperation, DatabaseUpdateCallbackOptions, DatabaseUpdateOperation } from "./../../common/abstract/_types.mjs";
 import Document from "./../../common/abstract/document.mjs";
 import { ImageFilePath, VideoFilePath } from "./../../common/constants.mjs";
 import { IterableWeakMap, IterableWeakSet } from "./../../common/utils/_module.mjs";
@@ -20,9 +15,7 @@ declare const ClientBaseActor: {
     new <TParent extends TokenDocument | null>(...args: any): BaseActor<TParent> & ClientDocument<TParent>;
 } & ClientBaseActorStatic;
 
-declare interface ClientBaseActor<TParent extends TokenDocument | null> extends InstanceType<
-    typeof ClientBaseActor<TParent>
-> {}
+declare interface ClientBaseActor<TParent extends TokenDocument | null> extends InstanceType<typeof ClientBaseActor<TParent>> {}
 
 /**
  * The client-side Actor document which extends the common BaseActor model.
@@ -124,10 +117,7 @@ declare class Actor<TParent extends TokenDocument | null = TokenDocument | null>
      * @param options The options passed to the TokenDocument constructor
      * @returns The created TokenDocument instance
      */
-    getTokenDocument(
-        data?: DeepPartial<foundry.documents.TokenSource>,
-        options?: Partial<DocumentConstructionContext<this>>,
-    ): Promise<NonNullable<TParent>>;
+    getTokenDocument(data?: DeepPartial<foundry.documents.TokenSource>, options?: Partial<DocumentConstructionContext<this>>): Promise<NonNullable<TParent>>;
 
     /** Get an Array of Token images which could represent this Actor */
     getTokenImages(): Promise<(ImageFilePath | VideoFilePath)[]>;
@@ -156,11 +146,7 @@ declare class Actor<TParent extends TokenDocument | null = TokenDocument | null>
      * @param [options.initiativeOptions={}]   Additional options passed to the Combat#rollInitiative method.
      * @return A promise which resolves to the Combat entity once rolls are complete.
      */
-    rollInitiative(options?: {
-        createCombatants?: boolean;
-        rerollInitiative?: boolean;
-        initiativeOptions?: object;
-    }): Promise<Combat | null>;
+    rollInitiative(options?: { createCombatants?: boolean; rerollInitiative?: boolean; initiativeOptions?: object }): Promise<Combat | null>;
 
     /**
      * Toggle a configured status effect for the Actor.
@@ -174,10 +160,7 @@ declare class Actor<TParent extends TokenDocument | null = TokenDocument | null>
      *                                 - false if an existing effect needed to be removed
      *                                 - undefined if no changes need to be made
      */
-    toggleStatusEffect(
-        statusId: string,
-        options?: { active?: boolean; overlay?: boolean },
-    ): Promise<ActiveEffect<this> | boolean | void>;
+    toggleStatusEffect(statusId: string, options?: { active?: boolean; overlay?: boolean }): Promise<ActiveEffect<this> | boolean | void>;
 
     /**
      * Request wildcard token images from the server and return them.
@@ -185,10 +168,7 @@ declare class Actor<TParent extends TokenDocument | null = TokenDocument | null>
      * @param [options]
      * @param [options.pack] The name of the compendium the actor is in.
      */
-    protected static _requestTokenImages(
-        actorId: string,
-        options?: { pack?: string },
-    ): Promise<(ImageFilePath | VideoFilePath)[]>;
+    protected static _requestTokenImages(actorId: string, options?: { pack?: string }): Promise<(ImageFilePath | VideoFilePath)[]>;
 
     /* -------------------------------------------- */
     /*  Tokens                                      */
@@ -231,11 +211,7 @@ declare class Actor<TParent extends TokenDocument | null = TokenDocument | null>
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected _onCreateDescendantDocuments<P extends Document>(
         parent: P,
@@ -272,10 +248,7 @@ declare class Actor<TParent extends TokenDocument | null = TokenDocument | null>
      * @param [update]  The update delta.
      * @param [options] The update context.
      */
-    protected _updateDependentTokens(
-        update?: Record<string, unknown>,
-        options?: DatabaseUpdateOperation<TParent>,
-    ): void;
+    protected _updateDependentTokens(update?: Record<string, unknown>, options?: DatabaseUpdateOperation<TParent>): void;
 }
 
 declare interface Actor<TParent extends TokenDocument | null = TokenDocument | null> extends ClientBaseActor<TParent> {

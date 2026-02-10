@@ -28,33 +28,16 @@ declare class MeleeSystemData extends ItemSystemModel<MeleePF2e, NPCAttackSystem
     prepareBaseData(): void;
     static migrateData(source: Record<string, unknown>): Record<string, unknown>;
 }
-interface MeleeSystemData
-    extends
-        ItemSystemModel<MeleePF2e, NPCAttackSystemSchema>,
-        Omit<fields.ModelPropsFromSchema<NPCAttackSystemSchema>, "description"> {
+interface MeleeSystemData extends ItemSystemModel<MeleePF2e, NPCAttackSystemSchema>, Omit<fields.ModelPropsFromSchema<NPCAttackSystemSchema>, "description"> {
     traits: NPCAttackTraits;
 }
 type NPCAttackSystemSchema = Omit<ItemSystemSchema, "traits"> & {
     traits: fields.SchemaField<{
         otherTags: fields.ArrayField<SlugField<true, false, false>, string[], string[], true, false, true>;
-        value: fields.ArrayField<
-            fields.StringField<NPCAttackTrait, NPCAttackTrait, true, false, false>,
-            NPCAttackTrait[],
-            NPCAttackTrait[],
-            true,
-            false,
-            true
-        >;
+        value: fields.ArrayField<fields.StringField<NPCAttackTrait, NPCAttackTrait, true, false, false>, NPCAttackTrait[], NPCAttackTrait[], true, false, true>;
     }>;
     action: fields.StringField<NPCAttackActionType, NPCAttackActionType, true, false, true>;
-    area: fields.SchemaField<
-        EffectAreaSchema,
-        SourceFromSchema<EffectAreaSchema>,
-        ModelPropsFromSchema<EffectAreaSchema>,
-        true,
-        true,
-        true
-    >;
+    area: fields.SchemaField<EffectAreaSchema, SourceFromSchema<EffectAreaSchema>, ModelPropsFromSchema<EffectAreaSchema>, true, true, true>;
     damageRolls: RecordField<
         fields.StringField<string, string, true, false, false>,
         fields.SchemaField<{

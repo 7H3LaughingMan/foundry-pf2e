@@ -18,9 +18,7 @@ declare const ClientBaseChatMessage: {
     new <TUser extends User | null>(...args: any): BaseChatMessage<TUser> & ClientDocument<null>;
 } & ClientBaseChatMessageStatic;
 
-declare interface ClientBaseChatMessage<TUser extends User | null> extends InstanceType<
-    typeof ClientBaseChatMessage<TUser>
-> {}
+declare interface ClientBaseChatMessage<TUser extends User | null> extends InstanceType<typeof ClientBaseChatMessage<TUser>> {}
 
 /**
  * The client-side ChatMessage document which extends the common BaseChatMessage abstraction.
@@ -80,10 +78,7 @@ declare class ChatMessage<TUser extends User | null = User | null> extends Clien
      * @param rollMode The rollMode preference to apply to this message data
      * @returns The modified ChatMessage data with rollMode preferences applied
      */
-    static applyRollMode<TData extends DeepPartial<ChatMessageSource>>(
-        chatData: TData,
-        rollMode: RollMode | "roll",
-    ): TData;
+    static applyRollMode<TData extends DeepPartial<ChatMessageSource>>(chatData: TData, rollMode: RollMode | "roll"): TData;
 
     /**
      * Update the data of a ChatMessage instance to apply a requested rollMode
@@ -141,19 +136,11 @@ declare class ChatMessage<TUser extends User | null = User | null> extends Clien
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
     protected override _onCreate(data: this["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    protected override _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 
@@ -182,9 +169,7 @@ declare namespace ChatMessage {
     ): Promise<TDocument[]>;
     function create<TDocument extends Document>(
         this: ConstructorOf<TDocument>,
-        data:
-            | DeepPartial<TDocument["_source"] & { rolls: (string | RollJSON)[] }>
-            | DeepPartial<TDocument["_source"] & { rolls: (string | RollJSON)[] }>[],
+        data: DeepPartial<TDocument["_source"] & { rolls: (string | RollJSON)[] }> | DeepPartial<TDocument["_source"] & { rolls: (string | RollJSON)[] }>[],
         operation?: Partial<ChatMessageCreateOperation>,
     ): Promise<TDocument[] | TDocument | undefined>;
 }

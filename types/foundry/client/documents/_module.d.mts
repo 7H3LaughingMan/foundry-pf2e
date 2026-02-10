@@ -27,21 +27,7 @@ import { default as RollTable } from "./roll-table.mjs";
 import { default as Scene } from "./scene.mjs";
 import { default as User } from "./user.mjs";
 
-export {
-    Actor,
-    Cards,
-    ChatMessage,
-    Combat,
-    FogExploration,
-    Folder,
-    Item,
-    JournalEntry,
-    Macro,
-    Playlist,
-    RollTable,
-    Scene,
-    User,
-};
+export { Actor, Cards, ChatMessage, Combat, FogExploration, Folder, Item, JournalEntry, Macro, Playlist, RollTable, Scene, User };
 
 // Embedded Documents
 export { default as ActiveEffect } from "./active-effect.mjs";
@@ -81,13 +67,4 @@ export type WorldDocument =
     | Scene
     | User;
 
-export type CompendiumDocument =
-    | Actor<null>
-    | Adventure
-    | Cards
-    | Item<null>
-    | JournalEntry
-    | Macro
-    | Playlist
-    | RollTable
-    | Scene;
+export type CompendiumDocument = Actor<null> | Adventure | Cards | Item<null> | JournalEntry | Macro | Playlist | RollTable | Scene;

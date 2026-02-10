@@ -11,10 +11,7 @@ declare class DamageAlteration {
     property: DamageAlterationProperty;
     value: RuleValue | null;
     constructor(rule: PartialRuleElement);
-    getNewValue(
-        damage: BaseDamageData | DamageDicePF2e | Modifier,
-        item: ItemPF2e | null,
-    ): DamageAlterationValue | null;
+    getNewValue(damage: BaseDamageData | DamageDicePF2e | Modifier, item: ItemPF2e | null): DamageAlterationValue | null;
     applyTo<TDamage extends DamageDicePF2e | Modifier>(
         damage: TDamage,
         options: {

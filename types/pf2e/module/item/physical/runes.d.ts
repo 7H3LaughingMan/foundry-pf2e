@@ -1,11 +1,5 @@
 import { CreatureTrait } from "./../../actor/creature/index.ts";
-import {
-    DamageDicePF2e,
-    DamageDiceParameters,
-    Modifier,
-    ModifierAdjustment,
-    ModifierObjectParams,
-} from "./../../actor/modifiers.ts";
+import { DamageDicePF2e, DamageDiceParameters, Modifier, ModifierAdjustment, ModifierObjectParams } from "./../../actor/modifiers.ts";
 import { ResistanceType } from "./../../actor/types.ts";
 import { OneToFour, Rarity, ZeroToFour, ZeroToSix } from "./../../data.ts";
 import { RollNoteSource } from "./../../notes.ts";
@@ -20,16 +14,11 @@ declare function getPropertyRuneSlots(item: WeaponPF2e | ArmorPF2e): ZeroToFour;
 declare function prunePropertyRunes<T extends string>(runes: (string | null)[], validTypes: Record<T, unknown>): T[];
 declare function getRuneValuationData(item: PhysicalItemPF2e): RuneData[];
 declare function getPropertyRuneDegreeAdjustments(item: WeaponPF2e): DegreeOfSuccessAdjustment[];
-declare function getPropertyRuneDamage(
-    weapon: WeaponPF2e | MeleePF2e,
-    runes: WeaponPropertyRuneType[],
-    options: Set<string>,
-): (DamageDicePF2e | Modifier)[];
+declare function getPropertyRuneDamage(weapon: WeaponPF2e | MeleePF2e, runes: WeaponPropertyRuneType[], options: Set<string>): (DamageDicePF2e | Modifier)[];
 declare function getPropertyRuneStrikeAdjustments(runes: WeaponPropertyRuneType[]): StrikeAdjustment[];
 declare function getPropertyRuneModifierAdjustments(runes: WeaponPropertyRuneType[]): ModifierAdjustment[];
 type RuneDiceProperty = "slug" | "damageType" | "category" | "predicate" | "critical";
-type RuneAdditionalDamageDice = Partial<Pick<DamageDiceParameters, RuneDiceProperty>> &
-    Required<Pick<DamageDiceParameters, "diceNumber" | "dieSize">>;
+type RuneAdditionalDamageDice = Partial<Pick<DamageDiceParameters, RuneDiceProperty>> & Required<Pick<DamageDiceParameters, "diceNumber" | "dieSize">>;
 type RuneAdditionalDamageModifier = Omit<ModifierObjectParams, "modifier"> & {
     modifier: string | number;
 };

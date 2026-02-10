@@ -92,11 +92,7 @@ export default abstract class DiceTerm<TData extends DiceTermData = DiceTermData
      */
     alter(multiply: number, add: number): this;
 
-    protected override _evaluate(options?: {
-        minimize?: boolean;
-        maximize?: boolean;
-        allowStrings?: boolean;
-    }): Evaluated<this> | Promise<Evaluated<this>>;
+    protected override _evaluate(options?: { minimize?: boolean; maximize?: boolean; allowStrings?: boolean }): Evaluated<this> | Promise<Evaluated<this>>;
 
     /**
      * Evaluate this dice term asynchronously.
@@ -200,11 +196,7 @@ export default abstract class DiceTerm<TData extends DiceTermData = DiceTermData
      * @param highest Keep the highest?
      * @return The modified results array
      */
-    protected static _keepOrDrop<T extends DiceTermResult>(
-        results: T[],
-        number: number,
-        { keep, highest }?: { keep?: boolean; highest?: boolean },
-    ): T[];
+    protected static _keepOrDrop<T extends DiceTermResult>(results: T[], number: number, { keep, highest }?: { keep?: boolean; highest?: boolean }): T[];
 
     /**
      * A reusable helper function to handle the identification and deduction of failures
@@ -247,10 +239,7 @@ export default abstract class DiceTerm<TData extends DiceTermData = DiceTermData
 
     override toJSON(): TData;
 
-    protected static override _fromData<D extends RollTermData, T extends RollTerm<D>>(
-        this: ConstructorOf<T>,
-        data: D,
-    ): T;
+    protected static override _fromData<D extends RollTermData, T extends RollTerm<D>>(this: ConstructorOf<T>, data: D): T;
 }
 
 interface DiceTermData extends RollTermData {

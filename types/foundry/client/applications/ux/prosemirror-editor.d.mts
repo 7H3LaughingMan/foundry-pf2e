@@ -41,13 +41,7 @@ export default class ProseMirrorEditor {
      * @param [options]                   Additional options.
      * @param [options.document]  A document associated with this editor.
      */
-    constructor(
-        uuid: string,
-        view: EditorView,
-        isDirtyPlugin: Plugin,
-        collaborate: boolean,
-        options?: { document?: ClientDocument },
-    );
+    constructor(uuid: string, view: EditorView, isDirtyPlugin: Plugin, collaborate: boolean, options?: { document?: ClientDocument });
 
     /**
      * A string that uniquely identifies this ProseMirror instance.
@@ -127,12 +121,7 @@ export default class ProseMirrorEditor {
      * @returns {Promise<EditorView>}
      * @protected
      */
-    protected static _createCollaborativeEditorView(
-        uuid: string,
-        target: HTMLElement,
-        state: EditorState,
-        plugins: Plugin[],
-    ): Promise<EditorView>;
+    protected static _createCollaborativeEditorView(uuid: string, target: HTMLElement, state: EditorState, plugins: Plugin[]): Promise<EditorView>;
 
     /**
      * Create a plain EditorView without collaborative editing.

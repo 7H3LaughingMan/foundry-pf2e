@@ -25,15 +25,10 @@ export default class BaseCards extends abstract.Document<null, CardsSchema> {
 
     static get TYPES(): string[];
 
-    override testUserPermission(
-        user: BaseUser,
-        permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
-    ): boolean;
+    override testUserPermission(user: BaseUser, permission: DocumentOwnershipString | DocumentOwnershipLevel, { exact }?: { exact?: boolean }): boolean;
 }
 
-export default interface BaseCards
-    extends abstract.Document<null, CardsSchema>, fields.ModelPropsFromSchema<CardsSchema> {
+export default interface BaseCards extends abstract.Document<null, CardsSchema>, fields.ModelPropsFromSchema<CardsSchema> {
     get documentName(): CardsMetadata["name"];
 }
 

@@ -9,9 +9,7 @@ import Color from "./utils/color.mjs";
 /*  Data Model                               */
 /* ----------------------------------------- */
 
-export interface DocumentConstructionContext<
-    TParent extends Document | null,
-> extends DataModelConstructionContext<TParent> {
+export interface DocumentConstructionContext<TParent extends Document | null> extends DataModelConstructionContext<TParent> {
     /** The compendium collection ID which contains this Document, if any */
     pack?: string | null;
 }

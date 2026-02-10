@@ -29,11 +29,7 @@ declare abstract class CreatureSheetPF2e<TActor extends CreaturePF2e> extends Ac
     /** Adds support for moving spells between spell levels, spell collections, and spell preparation */
     protected _onSortItem(event: DragEvent, itemData: ItemSourcePF2e): Promise<ItemPF2e[]>;
     /** Handle dragging spells onto spell slots. */
-    protected _handleDroppedItem(
-        event: DragEvent,
-        item: ItemPF2e<ActorPF2e | null>,
-        data: DropCanvasItemData,
-    ): Promise<ItemPF2e<ActorPF2e | null>[]>;
+    protected _handleDroppedItem(event: DragEvent, item: ItemPF2e<ActorPF2e | null>, data: DropCanvasItemData): Promise<ItemPF2e<ActorPF2e | null>[]>;
     /** Replace sheet config with a special PC config form application */
     protected _getHeaderButtons(): ApplicationV1HeaderButton[];
     /** Redirect an update to shield HP to the actual item */

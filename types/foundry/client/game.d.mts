@@ -1,17 +1,4 @@
-import {
-    Actor,
-    Adventure,
-    Cards,
-    ChatMessage,
-    Combat,
-    Item,
-    JournalEntry,
-    Macro,
-    Playlist,
-    RollTable,
-    Scene,
-    User,
-} from "./documents/_module.mjs";
+import { Actor, Adventure, Cards, ChatMessage, Combat, Item, JournalEntry, Macro, Playlist, RollTable, Scene, User } from "./documents/_module.mjs";
 import WorldCollection from "./documents/abstract/world-collection.mjs";
 import * as collections from "./documents/collections/_module.mjs";
 import { CompendiumMetadata } from "./documents/collections/compendium-collection.mjs";
@@ -150,10 +137,7 @@ export default class Game<
     /* -------------------------------------------- */
 
     actors: TActors;
-    collections: Collection<
-        string,
-        WorldCollection<TActor | TItem | JournalEntry | TMacro | Playlist | RollTable | TScene>
-    >;
+    collections: Collection<string, WorldCollection<TActor | TItem | JournalEntry | TMacro | Playlist | RollTable | TScene>>;
 
     combats: collections.CombatEncounters<TCombat>;
     folders: collections.Folders;
@@ -161,12 +145,7 @@ export default class Game<
     journal: collections.Journal;
     macros: collections.Macros<TMacro>;
     messages: collections.Messages<TChatMessage>;
-    packs: Collection<
-        string,
-        collections.CompendiumCollection<
-            TActor | Adventure | Cards | TItem | JournalEntry | TMacro | Playlist | RollTable | TScene
-        >
-    >;
+    packs: Collection<string, collections.CompendiumCollection<TActor | Adventure | Cards | TItem | JournalEntry | TMacro | Playlist | RollTable | TScene>>;
     playlists: collections.Playlists;
     scenes: collections.Scenes<TScene>;
     tables: collections.RollTables;
@@ -181,9 +160,7 @@ export default class Game<
      * Fetch World data and return a Game instance
      * @return A Promise which resolves to the created Game instance
      */
-    static create(): Promise<
-        Game<Actor<null>, collections.Actors<Actor<null>>, ChatMessage, Combat, Item<null>, Macro, Scene, User>
-    >;
+    static create(): Promise<Game<Actor<null>, collections.Actors<Actor<null>>, ChatMessage, Combat, Item<null>, Macro, Scene, User>>;
 
     /** Request World data from server and return it */
     static getWorldData(socket: io.Socket): Promise<object>;

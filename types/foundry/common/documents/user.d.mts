@@ -1,13 +1,6 @@
 import Document, { DocumentMetadata } from "../abstract/document.mjs";
 import * as fields from "../data/fields.mjs";
-import {
-    DocumentOwnershipLevel,
-    ImageFilePath,
-    UserAction,
-    UserPermission,
-    UserRole,
-    UserRoleName,
-} from "./../constants.mjs";
+import { DocumentOwnershipLevel, ImageFilePath, UserAction, UserPermission, UserRole, UserRoleName } from "./../constants.mjs";
 import { BaseActor } from "./_module.mjs";
 
 /**
@@ -18,10 +11,7 @@ import { BaseActor } from "./_module.mjs";
  * @param data Initial data from which to construct the document.
  * @property   data The constructed data object for the document.
  */
-export default class BaseUser<TCharacter extends BaseActor<null> = BaseActor<null>> extends Document<
-    null,
-    UserSchema<TCharacter>
-> {
+export default class BaseUser<TCharacter extends BaseActor<null> = BaseActor<null>> extends Document<null, UserSchema<TCharacter>> {
     static override get metadata(): UserMetadata;
 
     static override defineSchema(): UserSchema<BaseActor<null>>;

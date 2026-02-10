@@ -40,11 +40,4 @@ interface CraftableItemDefinition {
     predicate: Predicate;
     batchSize?: number;
 }
-export type {
-    CraftableItemDefinition,
-    CraftingAbilityData,
-    CraftingFormula,
-    CraftingFormulaData,
-    PreparedFormula,
-    PreparedFormulaData,
-};
+export type { CraftableItemDefinition, CraftingAbilityData, CraftingFormula, CraftingFormulaData, PreparedFormula, PreparedFormulaData };

@@ -13,8 +13,7 @@ declare class MartialProficiencyRuleElement extends RuleElement<MartialProficien
     static defineSchema(): MartialProficiencySchema;
     onApplyActiveEffects(): void;
 }
-interface MartialProficiencyRuleElement
-    extends RuleElement<MartialProficiencySchema>, ModelPropsFromRESchema<MartialProficiencySchema> {
+interface MartialProficiencyRuleElement extends RuleElement<MartialProficiencySchema>, ModelPropsFromRESchema<MartialProficiencySchema> {
     get actor(): CharacterPF2e;
 }
 type MartialProficiencySchema = RuleElementSchema & {
@@ -25,13 +24,7 @@ type MartialProficiencySchema = RuleElementSchema & {
     /** The attack category to which this proficiency's rank is linked */
     sameAs: fields.StringField<WeaponCategory | ArmorCategory, WeaponCategory | ArmorCategory, false, false, false>;
     /** The maximum rank this proficiency can reach, if any */
-    maxRank: fields.StringField<
-        Exclude<ProficiencyRank, "untrained">,
-        Exclude<ProficiencyRank, "untrained">,
-        false,
-        false,
-        false
-    >;
+    maxRank: fields.StringField<Exclude<ProficiencyRank, "untrained">, Exclude<ProficiencyRank, "untrained">, false, false, false>;
     /** Initially a number indicating rank, changed into a `MartialProficiency` object for overriding as an AE-like */
     value: ResolvableValueField<false, false, false>;
     /** Whether this proficiency is visible on the character sheet */

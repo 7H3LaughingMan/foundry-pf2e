@@ -33,10 +33,7 @@ declare function createSheetTags(
     >,
     selections: SheetSelections,
 ): SheetOptions;
-declare function createTagifyTraits(
-    traits: Iterable<string>,
-    { sourceTraits, record }: TagifyTraitOptions,
-): TagifyEntry[];
+declare function createTagifyTraits(traits: Iterable<string>, { sourceTraits, record }: TagifyTraitOptions): TagifyEntry[];
 /**
  * Get a CSS class for an adjusted value
  * @param value A value from prepared/derived data
@@ -109,10 +106,7 @@ declare function createTooltipListener(
 ): void;
 declare function createNPCAttackTraitsAndTags(item: MeleePF2e): NPCAttackTraitOrTag[];
 declare function getActionIcon(actionType: string | ActionCost | null, fallback: ImageFilePath): ImageFilePath;
-declare function getActionIcon(
-    actionType: string | ActionCost | null,
-    fallback: ImageFilePath | null,
-): ImageFilePath | null;
+declare function getActionIcon(actionType: string | ActionCost | null, fallback: ImageFilePath | null): ImageFilePath | null;
 declare function getActionIcon(actionType: string | ActionCost | null): ImageFilePath;
 interface SheetOption {
     value: string;

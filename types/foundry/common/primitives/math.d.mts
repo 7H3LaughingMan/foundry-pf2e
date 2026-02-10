@@ -65,12 +65,6 @@ declare global {
          * @param [func=Math.cos] The optional math function to use for oscillation.
          * @returns The oscillation according to t.
          */
-        oscillation(
-            minVal: number,
-            maxVal: number,
-            t: number,
-            p?: number | undefined,
-            func?: (n: number) => number,
-        ): number;
+        oscillation(minVal: number, maxVal: number, t: number, p?: number | undefined, func?: (n: number) => number): number;
     }
 }

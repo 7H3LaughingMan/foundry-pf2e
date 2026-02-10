@@ -21,11 +21,7 @@ declare class DegreeOfSuccess {
     readonly rollTotal: number;
     /** The check DC being rolled against */
     readonly dc: CheckDC;
-    constructor(
-        roll: Rolled<CheckRoll> | RollBrief,
-        dc: CheckDC | number,
-        dosAdjustments?: DegreeAdjustmentsRecord | null,
-    );
+    constructor(roll: Rolled<CheckRoll> | RollBrief, dc: CheckDC | number, dosAdjustments?: DegreeAdjustmentsRecord | null);
     static readonly CRITICAL_FAILURE = 0;
     static readonly FAILURE = 1;
     static readonly SUCCESS = 2;
@@ -81,12 +77,4 @@ type DegreeOfSuccessIndex = ZeroToThree;
 declare const DEGREE_OF_SUCCESS_STRINGS: readonly ["criticalFailure", "failure", "success", "criticalSuccess"];
 type DegreeOfSuccessString = (typeof DEGREE_OF_SUCCESS_STRINGS)[number];
 export { DEGREE_ADJUSTMENT_AMOUNTS, DEGREE_OF_SUCCESS, DEGREE_OF_SUCCESS_STRINGS, DegreeOfSuccess };
-export type {
-    CheckDC,
-    DegreeAdjustmentAmount,
-    DegreeAdjustmentsRecord,
-    DegreeOfSuccessAdjustment,
-    DegreeOfSuccessIndex,
-    DegreeOfSuccessString,
-    RollBrief,
-};
+export type { CheckDC, DegreeAdjustmentAmount, DegreeAdjustmentsRecord, DegreeOfSuccessAdjustment, DegreeOfSuccessIndex, DegreeOfSuccessString, RollBrief };

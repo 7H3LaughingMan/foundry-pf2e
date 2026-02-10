@@ -5,9 +5,7 @@ export const zFalse: z.ZodLiteral<false> = z.literal(false);
 
 export const zObject: z.ZodType<object, object> = z.custom<object>((data) => R.isPlainObject(data));
 
-export const zSlugField = (
-    camel: "dromedary" | "bactrian" | null = null,
-): z.ZodPipe<z.ZodString, z.ZodTransform<string, string>> =>
+export const zSlugField = (camel: "dromedary" | "bactrian" | null = null): z.ZodPipe<z.ZodString, z.ZodTransform<string, string>> =>
     z
         .string()
         .nonempty()

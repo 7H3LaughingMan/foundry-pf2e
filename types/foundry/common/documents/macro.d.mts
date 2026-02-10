@@ -34,11 +34,7 @@ export default class BaseMacro extends Document<null, MacroSchema> {
     /*  Database Event Handlers                     */
     /* -------------------------------------------- */
 
-    protected override _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 }
 
 export default interface BaseMacro extends Document<null, MacroSchema>, fields.ModelPropsFromSchema<MacroSchema> {

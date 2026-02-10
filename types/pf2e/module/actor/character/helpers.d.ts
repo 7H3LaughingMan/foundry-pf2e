@@ -17,18 +17,10 @@ interface CreateAttackModifiersParams {
     domains: string[];
 }
 /** Get the proficiency rank of of a weapon or armor for a PC. */
-declare function getItemProficiencyRank(
-    actor: CharacterPF2e,
-    item: ArmorPF2e | WeaponPF2e,
-    itemOptions?: Set<string>,
-): ZeroToFour;
+declare function getItemProficiencyRank(actor: CharacterPF2e, item: ArmorPF2e | WeaponPF2e, itemOptions?: Set<string>): ZeroToFour;
 /** Create a penalty for attempting to Force Open without a crowbar or equivalent tool */
 declare function createForceOpenPenalty(actor: CharacterPF2e, domains: string[]): Modifier;
-declare function createShoddyPenalty(
-    actor: ActorPF2e,
-    item: WeaponPF2e | ArmorPF2e | null,
-    domains: string[],
-): Modifier | null;
+declare function createShoddyPenalty(actor: ActorPF2e, item: WeaponPF2e | ArmorPF2e | null, domains: string[]): Modifier | null;
 /**
  * Create a penalty for wearing armor with the "ponderous" trait
  * "While wearing the armor, you take a –1 penalty to initiative checks. If you don't meet the armor's required Strength

@@ -5,10 +5,7 @@ import {
     ApplicationRenderContext,
 } from "./../../../applications/_types.mjs";
 import ApplicationV2 from "./../../../applications/api/application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "./../../../applications/api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "./../../../applications/api/handlebars-application.mjs";
 import { FontDefinition, FontFamilyDefinition } from "./../../../config.mjs";
 
 interface NewFontDefinition {
@@ -121,10 +118,7 @@ export default class FontConfig extends HandlebarsApplicationMixin(ApplicationV2
      * @param definition The font family definition, expected to have a `fonts` array.
      * @returns An array of font data objects.
      */
-    protected _getDataForDefinition(
-        family: string,
-        definition: FontFamilyDefinition,
-    ): { family: string; index: number; selected: boolean; font: string }[];
+    protected _getDataForDefinition(family: string, definition: FontFamilyDefinition): { family: string; index: number; selected: boolean; font: string }[];
 
     protected override _onClickAction(event: PointerEvent, htmlElement: HTMLElement): void;
 

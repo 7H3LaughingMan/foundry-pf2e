@@ -150,8 +150,5 @@ export default class CanvasVisibility extends CanvasGroupMixin(PIXI.Container) {
      * @param options.object An optional reference to the object whose visibility is being tested
      * @internal
      */
-    _createVisibilityTestConfig(
-        point: Point,
-        options?: { tolerance?: number; object?: object | null },
-    ): CanvasVisibilityTestConfiguration;
+    _createVisibilityTestConfig(point: Point, options?: { tolerance?: number; object?: object | null }): CanvasVisibilityTestConfiguration;
 }

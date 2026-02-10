@@ -5,10 +5,7 @@ import AbstractFormInputElement from "./form-element.mjs";
 /**
  * A custom HTMLElement used to render a set of associated Documents referenced by UUID.
  */
-export default class HTMLDocumentTagsElement extends AbstractFormInputElement<
-    Record<string, string>,
-    string | string[] | null
-> {
+export default class HTMLDocumentTagsElement extends AbstractFormInputElement<Record<string, string>, string | string[] | null> {
     static override tagName: "document-tags";
 
     /** Restrict this element to documents of a particular type. */

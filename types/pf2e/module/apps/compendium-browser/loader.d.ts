@@ -1,8 +1,5 @@
 import { CompendiumDocument } from "#client/documents/_module.mjs";
-import {
-    default as CompendiumCollection,
-    CompendiumIndexData,
-} from "#client/documents/collections/compendium-collection.mjs";
+import { default as CompendiumCollection, CompendiumIndexData } from "#client/documents/collections/compendium-collection.mjs";
 import { CompendiumBrowserSources } from "./browser.ts";
 declare class PackLoader {
     #private;

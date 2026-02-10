@@ -7,11 +7,7 @@
  * @param onTimeout A method to invoke if and when the timeout is reached
  * @throws {HttpError}
  */
-export function fetchWithTimeout(
-    url: string,
-    data?: RequestInit,
-    options?: { timeoutMs?: number | null; onTimeout?: () => unknown | void },
-): Promise<Response>;
+export function fetchWithTimeout(url: string, data?: RequestInit, options?: { timeoutMs?: number | null; onTimeout?: () => unknown | void }): Promise<Response>;
 
 /**
  * A small wrapper that automatically asks for JSON with a Timeout

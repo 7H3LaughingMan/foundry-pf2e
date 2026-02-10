@@ -38,8 +38,7 @@ declare class AELikeRuleElement<TSchema extends AELikeSchema> extends RuleElemen
         merge?: boolean,
     ): (TCurrent extends (infer TValue)[] ? TValue : TCurrent) | validation.DataModelValidationFailure;
 }
-interface AELikeRuleElement<TSchema extends AELikeSchema>
-    extends RuleElement<TSchema>, ModelPropsFromRESchema<AELikeSchema> {}
+interface AELikeRuleElement<TSchema extends AELikeSchema> extends RuleElement<TSchema>, ModelPropsFromRESchema<AELikeSchema> {}
 interface AutoChangeEntry {
     source: string;
     level: number | null;
@@ -56,14 +55,7 @@ type AELikeSchema = RuleElementSchema & {
     /** The value to applied at the `path` */
     value: ResolvableValueField<true, boolean, boolean>;
     /** A list of additional domains to include in predicate testing */
-    testDomains: fields.ArrayField<
-        fields.StringField<string, string, true, false, false>,
-        string[],
-        string[],
-        false,
-        false,
-        true
-    >;
+    testDomains: fields.ArrayField<fields.StringField<string, string, true, false, false>, string[], string[], false, false, true>;
     /** Whether to merge two objects given a `mode` of "override" */
     merge: fields.BooleanField<boolean, boolean, false, false, false>;
 };

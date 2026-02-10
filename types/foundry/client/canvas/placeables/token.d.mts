@@ -10,13 +10,7 @@ import { ColorSource, Point } from "./../../../common/_types.mjs";
 import { DatabaseCreateCallbackOptions } from "./../../../common/abstract/_types.mjs";
 import { TokenDisplayMode, WallRestrictionType } from "./../../../common/constants.mjs";
 import Color from "./../../../common/utils/color.mjs";
-import {
-    ReticuleOptions,
-    TokenAnimationContext,
-    TokenAnimationData,
-    TokenAnimationOptions,
-    TokenPlannedMovement,
-} from "./../../_types.mjs";
+import { ReticuleOptions, TokenAnimationContext, TokenAnimationData, TokenAnimationOptions, TokenPlannedMovement } from "./../../_types.mjs";
 import { TokenDocument, User } from "./../../documents/_module.mjs";
 import { TokenUpdateCallbackOptions } from "./../../documents/token.mjs";
 import PlaceableObject, { PlaceableShape } from "./placeable-object.mjs";
@@ -455,11 +449,7 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
      * @param [options.movementSpeed=6]    A desired token movement speed in grid spaces per second
      * @returns    The duration of the animation in milliseconds
      */
-    protected _getAnimationDuration(
-        from: TokenAnimationData,
-        to: Partial<TokenAnimationData>,
-        options?: { movementSpeed?: number },
-    ): number;
+    protected _getAnimationDuration(from: TokenAnimationData, to: Partial<TokenAnimationData>, options?: { movementSpeed?: number }): number;
 
     /**
      * Prepare the animation data changes: performs special handling required for animating rotation.
@@ -510,10 +500,7 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
     checkCollision(destination: Point, { type, mode }: { type?: WallRestrictionType; mode: "closest" }): PolygonVertex;
     checkCollision(destination: Point, { type, mode }: { type?: WallRestrictionType; mode: "any" }): boolean;
     checkCollision(destination: Point, { type, mode }: { type?: WallRestrictionType; mode: "all" }): PolygonVertex[];
-    checkCollision(
-        destination: Point,
-        { type, mode }?: { type?: WallRestrictionType; mode?: undefined },
-    ): PolygonVertex[];
+    checkCollision(destination: Point, { type, mode }?: { type?: WallRestrictionType; mode?: undefined }): PolygonVertex[];
     checkCollision(
         destination: Point,
         { type, mode }?: { type?: WallRestrictionType; mode?: "any" | "all" | "closest" },
@@ -552,10 +539,7 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
      * @param position The (x, y) and/or elevation to use instead of the current values.
      * @returns Is the Token inside the Region?
      */
-    testInsideRegion(
-        region: Region,
-        position: Point | (Point & { elevation: number }) | { elevation: number },
-    ): boolean;
+    testInsideRegion(region: Region, position: Point | (Point & { elevation: number }) | { elevation: number }): boolean;
 
     /**
      * Split the Token movement through the waypoints into its segments.
@@ -579,11 +563,7 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
      * @param [options.teleport=false] Is it teleportation?
      * @returns The movement split into its segments.
      */
-    segmentizeRegionMovement(
-        region: Region,
-        waypoints: RegionMovementWaypoint[],
-        options?: { teleport?: boolean },
-    ): RegionMovementSegment[];
+    segmentizeRegionMovement(region: Region, waypoints: RegionMovementWaypoint[], options?: { teleport?: boolean }): RegionMovementSegment[];
 
     /**
      * Set this Token as an active target for the current game User.
@@ -594,10 +574,7 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
      * @param [context.releaseOthers=true]    Release other active targets for the same player?
      * @param [context.groupSelection=false]  Is this target being set as part of a group selection workflow?
      */
-    setTarget(
-        targeted?: boolean,
-        context?: { user?: User | null; releaseOthers?: boolean; groupSelection?: boolean },
-    ): void;
+    setTarget(targeted?: boolean, context?: { user?: User | null; releaseOthers?: boolean; groupSelection?: boolean }): void;
 
     /** The external radius of the token in pixels. */
     get externalRadius(): number;
@@ -613,31 +590,15 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     protected override _getShiftedPosition(dx: number, dy: number): Point;
 
-    protected override _updateRotation({
-        angle,
-        delta,
-        snap,
-    }?: {
-        angle?: number;
-        delta?: number;
-        snap?: number;
-    }): number;
+    protected override _updateRotation({ angle, delta, snap }?: { angle?: number; delta?: number; snap?: number }): number;
 
     /* -------------------------------------------- */
     /*  Event Listeners and Handlers                */
     /* -------------------------------------------- */
 
-    protected override _onCreate(
-        data: TDocument["_source"],
-        options: DatabaseCreateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onCreate(data: TDocument["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    override _onUpdate(
-        changed: DeepPartial<TDocument["_source"]>,
-        options: TokenUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    override _onUpdate(changed: DeepPartial<TDocument["_source"]>, options: TokenUpdateCallbackOptions, userId: string): void;
 
     /**
      * Handle changes to Token behavior when a significant status effect is applied
@@ -696,10 +657,7 @@ export default class Token<TDocument extends TokenDocument = TokenDocument> exte
 
     protected override _canDrag(user: User, event?: PIXI.FederatedEvent): boolean;
 
-    protected override _onHoverIn(
-        event: PIXI.FederatedPointerEvent,
-        { hoverOutOthers }?: { hoverOutOthers?: boolean },
-    ): boolean | void;
+    protected override _onHoverIn(event: PIXI.FederatedPointerEvent, { hoverOutOthers }?: { hoverOutOthers?: boolean }): boolean | void;
 
     protected override _onHoverOut(event: PIXI.FederatedPointerEvent): boolean | void;
 

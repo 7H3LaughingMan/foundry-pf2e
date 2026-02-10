@@ -25,11 +25,7 @@ declare class CompendiumBrowser extends SvelteApplicationMixin(fa.api.Applicatio
     _prepareContext(_options: fa.ApplicationRenderOptions): Promise<CompendiumBrowserContext>;
     resetListElement(): void;
     openTab(tabName: TabName, options?: CompendiumBrowserOpenTabOptions): Promise<void>;
-    openActionTab(options: {
-        types?: ActionType[];
-        categories?: ActionCategory[];
-        traits?: AbilityTrait[];
-    }): Promise<void>;
+    openActionTab(options: { types?: ActionType[]; categories?: ActionCategory[]; traits?: AbilityTrait[] }): Promise<void>;
     openSpellTab(entry: BaseSpellcastingEntry, maxRank?: number, category?: string | null): Promise<void>;
     initCompendiumList(): void;
     loadedPacks(tab: TabName): string[];
@@ -62,10 +58,4 @@ interface CompendiumBrowserOpenTabOptions {
     showTabs?: ContentTabName[];
 }
 export { CompendiumBrowser };
-export type {
-    CompendiumBrowserContext,
-    CompendiumBrowserOpenTabOptions,
-    CompendiumBrowserSettings,
-    CompendiumBrowserSources,
-    CompendiumBrowserState,
-};
+export type { CompendiumBrowserContext, CompendiumBrowserOpenTabOptions, CompendiumBrowserSettings, CompendiumBrowserSources, CompendiumBrowserState };

@@ -13,14 +13,10 @@ export default class BaseWorld extends packages.BasePackage<WorldSchema> {
 
     static override migrateData(source: Record<string, unknown>): Record<string, unknown>;
 
-    static override testAvailability(
-        data?: Partial<PackageManifestData>,
-        release?: packages.ReleaseData,
-    ): PackageAvailabilityCode;
+    static override testAvailability(data?: Partial<PackageManifestData>, release?: packages.ReleaseData): PackageAvailabilityCode;
 }
 
-export default interface BaseWorld
-    extends packages.BasePackage<WorldSchema>, fields.ModelPropsFromSchema<WorldSchema> {}
+export default interface BaseWorld extends packages.BasePackage<WorldSchema>, fields.ModelPropsFromSchema<WorldSchema> {}
 
 /**
  * The data schema used to define World manifest files.

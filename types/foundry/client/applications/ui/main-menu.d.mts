@@ -1,9 +1,6 @@
 import { ApplicationConfiguration, ApplicationRenderContext } from "../_module.mjs";
 import ApplicationV2 from "../api/application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../api/handlebars-application.mjs";
 
 interface MainMenuItem {
     label: string;
@@ -19,9 +16,7 @@ interface MainMenuRenderContext extends ApplicationRenderContext {
 /**
  * The main menu application which is toggled via the ESC key.
  */
-export default class MainMenu extends HandlebarsApplicationMixin(
-    ApplicationV2<ApplicationConfiguration, HandlebarsRenderOptions, MainMenuRenderContext>,
-) {
+export default class MainMenu extends HandlebarsApplicationMixin(ApplicationV2<ApplicationConfiguration, HandlebarsRenderOptions, MainMenuRenderContext>) {
     static override DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;
 
     static override PARTS: Record<string, HandlebarsTemplatePart>;

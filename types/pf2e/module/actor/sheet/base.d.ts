@@ -54,11 +54,7 @@ declare abstract class ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.she
      * PF2e specific method called by _onDropItem() when this is a new item that needs to be dropped into the actor
      * that isn't already on the actor or transferring to another actor.
      */
-    protected _handleDroppedItem(
-        event: DragEvent,
-        item: ItemPF2e<ActorPF2e | null>,
-        data: DropCanvasItemData,
-    ): Promise<ItemPF2e<ActorPF2e | null>[]>;
+    protected _handleDroppedItem(event: DragEvent, item: ItemPF2e<ActorPF2e | null>, data: DropCanvasItemData): Promise<ItemPF2e<ActorPF2e | null>[]>;
     protected _onDropFolder(_event: DragEvent, data: DropCanvasData<"Folder", Folder>): Promise<ItemPF2e<TActor>[]>;
     /**
      * Update the aria-selected attribute on each tab after finishing the normal logic on tab change.
@@ -92,8 +88,5 @@ interface ActorSheetPF2e<TActor extends ActorPF2e> extends fav1.sheets.ActorShee
     prepareItems?(sheetData: ActorSheetDataPF2e<TActor>): Promise<void>;
     render(force?: boolean, options?: ActorSheetRenderOptionsPF2e): this;
 }
-type SheetClickActionHandlers = Record<
-    string,
-    ((event: PointerEvent, actionTarget: HTMLElement) => Promise<void | unknown> | void | unknown) | undefined
->;
+type SheetClickActionHandlers = Record<string, ((event: PointerEvent, actionTarget: HTMLElement) => Promise<void | unknown> | void | unknown) | undefined>;
 export { ActorSheetPF2e, type SheetClickActionHandlers };

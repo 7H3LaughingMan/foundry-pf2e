@@ -1,10 +1,4 @@
-import {
-    ApplicationClosingOptions,
-    ApplicationConfiguration,
-    ApplicationPosition,
-    ApplicationRenderContext,
-    ApplicationRenderOptions,
-} from "../_types.mjs";
+import { ApplicationClosingOptions, ApplicationConfiguration, ApplicationPosition, ApplicationRenderContext, ApplicationRenderOptions } from "../_types.mjs";
 import ApplicationV2 from "../api/application.mjs";
 import FormDataExtended from "../ux/form-data-extended.mjs";
 import { PlaceablesLayer } from "./../../canvas/layers/_module.mjs";
@@ -12,11 +6,7 @@ import PlaceableObject from "./../../canvas/placeables/placeable-object.mjs";
 import { CanvasDocument } from "./../../documents/abstract/canvas-document.mjs";
 
 /** An abstract base class for displaying a heads-up-display interface bound to a Placeable Object on the Canvas. */
-export default abstract class BasePlaceableHUD extends ApplicationV2<
-    ApplicationConfiguration,
-    ApplicationRenderOptions,
-    PlaceableHUDContext
-> {
+export default abstract class BasePlaceableHUD extends ApplicationV2<ApplicationConfiguration, ApplicationRenderOptions, PlaceableHUDContext> {
     static override DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;
 
     static override BASE_APPLICATION: typeof BasePlaceableHUD;
@@ -73,11 +63,7 @@ export default abstract class BasePlaceableHUD extends ApplicationV2<
      * @param input The raw string input value
      * @returns The parsed input value
      */
-    protected _parseAttributeInput(
-        name: string,
-        attr: object | number,
-        input: string,
-    ): { value: number; delta?: number; isDelta: boolean; isBar: boolean };
+    protected _parseAttributeInput(name: string, attr: object | number, input: string): { value: number; delta?: number; isDelta: boolean; isBar: boolean };
 }
 
 export interface PlaceableHUDContext extends ApplicationRenderContext {

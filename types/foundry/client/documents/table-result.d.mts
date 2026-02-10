@@ -3,18 +3,14 @@ import { BaseTableResult, BaseUser } from "./_module.mjs";
 import { ClientDocument } from "./abstract/client-document.mjs";
 import RollTable from "./roll-table.mjs";
 
-declare const ClientBaseTableResult: new <TParent extends RollTable | null>(
-    ...args: any
-) => BaseTableResult<TParent> & ClientDocument<TParent>;
+declare const ClientBaseTableResult: new <TParent extends RollTable | null>(...args: any) => BaseTableResult<TParent> & ClientDocument<TParent>;
 
 /**
  * The client-side TableResult document which extends the common BaseTableResult document model.
  *
  * @see {@link RollTable} The RollTable document type which contains TableResult documents
  */
-export default class TableResult<
-    TParent extends RollTable | null = RollTable | null,
-> extends ClientBaseTableResult<TParent> {
+export default class TableResult<TParent extends RollTable | null = RollTable | null> extends ClientBaseTableResult<TParent> {
     /**
      * A path reference to the icon image used to represent this result
      */
@@ -33,11 +29,7 @@ export default class TableResult<
      */
     documentToAnchor(): HTMLAnchorElement | null;
 
-    protected override _preUpdate(
-        changes: Record<string, unknown>,
-        options: DatabaseUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preUpdate(changes: Record<string, unknown>, options: DatabaseUpdateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 }
 
 export {};

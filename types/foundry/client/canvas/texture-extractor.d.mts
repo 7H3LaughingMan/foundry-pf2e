@@ -9,10 +9,7 @@ export default class TextureExtractor {
      * @param config.controlHash Should use control hash?
      * @param config.callerName  The caller name
      */
-    constructor(
-        renderer: PIXI.Renderer,
-        config?: { format?: PIXI.FORMATS; controlHash?: boolean; callerName?: string; debug?: boolean },
-    );
+    constructor(renderer: PIXI.Renderer, config?: { format?: PIXI.FORMATS; controlHash?: boolean; callerName?: string; debug?: boolean });
 
     /**
      * List of compression that could be applied with extraction
@@ -52,9 +49,7 @@ export default class TextureExtractor {
      *          control hash option is enabled. If an output buffer was passed, the (new) output buffer is included in
      *          the result, which may be different from the output buffer that was passed because it was detached.
      */
-    extract(
-        options?: TexturePixelsExtractionOptions,
-    ): { pixels: Uint8ClampedArray | undefined; width: number; height: number; out?: ArrayBuffer } | undefined;
+    extract(options?: TexturePixelsExtractionOptions): { pixels: Uint8ClampedArray | undefined; width: number; height: number; out?: ArrayBuffer } | undefined;
     /**
      *
      * @param options Options which configure base64 extraction behavior

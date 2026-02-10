@@ -6,16 +6,10 @@ declare const ClientBaseJournalEntryCategory: new <TParent extends JournalEntry 
     ...args: any
 ) => BaseJournalEntryCategory<TParent> & ClientDocument<TParent>;
 
-interface ClientBaseJournalEntryCategory<TParent extends JournalEntry | null> extends InstanceType<
-    typeof ClientBaseJournalEntryCategory<TParent>
-> {}
+interface ClientBaseJournalEntryCategory<TParent extends JournalEntry | null> extends InstanceType<typeof ClientBaseJournalEntryCategory<TParent>> {}
 
-export default class JournalEntryCategory<
-    TParent extends JournalEntry | null = JournalEntry | null,
-> extends ClientBaseJournalEntryCategory<TParent> {}
+export default class JournalEntryCategory<TParent extends JournalEntry | null = JournalEntry | null> extends ClientBaseJournalEntryCategory<TParent> {}
 
-export default interface JournalEntryCategory<
-    TParent extends JournalEntry | null = JournalEntry | null,
-> extends ClientBaseJournalEntryCategory<TParent> {
+export default interface JournalEntryCategory<TParent extends JournalEntry | null = JournalEntry | null> extends ClientBaseJournalEntryCategory<TParent> {
     get documentName(): "JournalEntryCategory";
 }

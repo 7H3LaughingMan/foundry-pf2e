@@ -11,9 +11,7 @@ import CategoryBrowser, { CategoryBrowserConfiguration } from "../api/category-b
 export default class SettingsConfig extends CategoryBrowser {
     static override DEFAULT_OPTIONS: DeepPartial<CategoryBrowserConfiguration>;
 
-    protected override _prepareCategoryData(): Promise<
-        Record<string, { id: string; label: string; entries: object[] }>
-    >;
+    protected override _prepareCategoryData(): Promise<Record<string, { id: string; label: string; entries: object[] }>>;
 
     /**
      * Classify what Category an Action belongs to

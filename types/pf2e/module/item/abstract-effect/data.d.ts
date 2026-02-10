@@ -12,14 +12,7 @@ import fields = foundry.data.fields;
 type AbstractEffectSchema = Omit<ItemSystemSchema, "traits"> & {
     traits: fields.SchemaField<{
         otherTags: fields.ArrayField<SlugField<true, false, false>, string[], string[], true, false, true>;
-        value: fields.ArrayField<
-            fields.StringField<EffectTrait, EffectTrait, true, false, false>,
-            EffectTrait[],
-            EffectTrait[],
-            true,
-            false,
-            true
-        >;
+        value: fields.ArrayField<fields.StringField<EffectTrait, EffectTrait, true, false, false>, EffectTrait[], EffectTrait[], true, false, true>;
     }>;
     fromSpell: fields.BooleanField<boolean, boolean, true, false, true>;
 };
@@ -101,13 +94,7 @@ type EffectContextDataSchema = {
         true,
         true
     >;
-    roll: fields.SchemaField<
-        EffectContextRollSchema,
-        SourceFromSchema<EffectContextRollSchema>,
-        ModelPropsFromSchema<EffectContextRollSchema>,
-        true,
-        true
-    >;
+    roll: fields.SchemaField<EffectContextRollSchema, SourceFromSchema<EffectContextRollSchema>, ModelPropsFromSchema<EffectContextRollSchema>, true, true>;
 };
 type EffectContextSpellcastingSchema = {
     attribute: fields.SchemaField<{

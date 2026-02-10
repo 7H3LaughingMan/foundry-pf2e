@@ -54,16 +54,8 @@ declare class FeatPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exte
         },
     ): string;
     /** In case this was copied from an actor, clear the location if there's no parent. */
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     /** Warn the owning user(s) if this feat was taken despite some restriction */
     protected _onCreate(data: FeatSource, options: DatabaseCreateCallbackOptions, userId: string): void;
 }

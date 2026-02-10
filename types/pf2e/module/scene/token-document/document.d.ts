@@ -2,11 +2,7 @@ import { TrackedAttributesDescription } from "#client/_types.mjs";
 import { TokenResourceData } from "#client/canvas/placeables/token.mjs";
 import { TokenUpdateCallbackOptions } from "#client/documents/token.mjs";
 import { Point } from "#common/_types.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteCallbackOptions,
-    DatabaseOperation,
-} from "#common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseDeleteCallbackOptions, DatabaseOperation } from "#common/abstract/_types.mjs";
 import { default as Document } from "#common/abstract/document.mjs";
 import { GridMeasurePathResult } from "#common/grid/_types.mjs";
 import { ScenePF2e } from "../document.ts";
@@ -83,24 +79,12 @@ declare class TokenDocumentPF2e<TParent extends ScenePF2e | null = ScenePF2e | n
      */
     simulateUpdate(updates?: Record<string, unknown>): void;
     /** Ensure that actors that don't allow synthetics are linked. */
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     /** Ensure that actors that don't allow synthetics stay linked. */
-    protected _preUpdate(
-        data: Record<string, unknown>,
-        options: TokenUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preUpdate(data: Record<string, unknown>, options: TokenUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     /** Toggle token hiding if this token's actor is a loot actor */
     protected _onCreate(data: this["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
-    protected _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: TokenUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected _onUpdate(changed: DeepPartial<this["_source"]>, options: TokenUpdateCallbackOptions, userId: string): void;
     protected _onRelatedUpdate(
         update?:
             | {

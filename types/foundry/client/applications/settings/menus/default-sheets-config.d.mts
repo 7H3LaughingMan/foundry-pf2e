@@ -19,7 +19,5 @@ export default class DefaultSheetsConfig extends CategoryBrowser {
      */
     static registerSetting(): void;
 
-    protected override _prepareCategoryData(): Promise<
-        Record<string, { id: string; label: string; entries: object[] }>
-    >;
+    protected override _prepareCategoryData(): Promise<Record<string, { id: string; label: string; entries: object[] }>>;
 }

@@ -11,10 +11,7 @@ import { BaseActiveEffect, BaseActor, BaseFolder, BaseUser, ItemUUID } from "./_
  * @param data    Initial data from which to construct the Item
  * @param context Construction context options
  */
-export default class BaseItem<TParent extends BaseActor | null = BaseActor | null> extends abstract.Document<
-    TParent,
-    ItemSchema
-> {
+export default class BaseItem<TParent extends BaseActor | null = BaseActor | null> extends abstract.Document<TParent, ItemSchema> {
     /* -------------------------------------------- */
     /*  Model Configuration                         */
     /* -------------------------------------------- */
@@ -38,11 +35,7 @@ export default class BaseItem<TParent extends BaseActor | null = BaseActor | nul
 
     override canUserModify(user: BaseUser, action: UserAction, data?: Record<string, unknown>): boolean;
 
-    override testUserPermission(
-        user: BaseUser,
-        permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
-    ): boolean;
+    override testUserPermission(user: BaseUser, permission: DocumentOwnershipString | DocumentOwnershipLevel, { exact }?: { exact?: boolean }): boolean;
 }
 
 export default interface BaseItem<TParent extends BaseActor | null = BaseActor | null>
@@ -90,6 +83,4 @@ export type ItemSchema<TType extends string = string, TSystemSource extends obje
     _stats: fields.DocumentStatsField<ItemUUID>;
 };
 
-export type ItemSource<TType extends string = string, TSystemSource extends object = object> = fields.SourceFromSchema<
-    ItemSchema<TType, TSystemSource>
->;
+export type ItemSource<TType extends string = string, TSystemSource extends object = object> = fields.SourceFromSchema<ItemSchema<TType, TSystemSource>>;

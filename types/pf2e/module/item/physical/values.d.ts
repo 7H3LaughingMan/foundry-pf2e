@@ -1,6 +1,4 @@
-declare const PHYSICAL_ITEM_TYPES: Set<
-    "armor" | "shield" | "consumable" | "ammo" | "backpack" | "book" | "equipment" | "treasure" | "weapon"
->;
+declare const PHYSICAL_ITEM_TYPES: Set<"armor" | "shield" | "consumable" | "ammo" | "backpack" | "book" | "equipment" | "treasure" | "weapon">;
 declare const PRECIOUS_MATERIAL_TYPES: Set<
     | "abysium"
     | "adamantine"
@@ -36,11 +34,4 @@ declare const DENOMINATION_RATES: {
     credits: number;
     upb: number;
 };
-export {
-    COIN_DENOMINATIONS,
-    CURRENCY_TYPES,
-    DENOMINATION_RATES,
-    PHYSICAL_ITEM_TYPES,
-    PRECIOUS_MATERIAL_GRADES,
-    PRECIOUS_MATERIAL_TYPES,
-};
+export { COIN_DENOMINATIONS, CURRENCY_TYPES, DENOMINATION_RATES, PHYSICAL_ITEM_TYPES, PRECIOUS_MATERIAL_GRADES, PRECIOUS_MATERIAL_TYPES };

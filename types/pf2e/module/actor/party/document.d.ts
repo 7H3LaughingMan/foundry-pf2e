@@ -1,8 +1,4 @@
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteCallbackOptions,
-    DataModelValidationOptions,
-} from "#common/abstract/_module.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseDeleteCallbackOptions, DataModelValidationOptions } from "#common/abstract/_module.mjs";
 import { UserAction } from "#common/constants.mjs";
 import { ActorUUID } from "#common/documents/_module.mjs";
 import { ItemType } from "./../../item/types.ts";
@@ -14,9 +10,7 @@ import { ActorUpdateCallbackOptions } from "./../base.ts";
 import { ActorPF2e, CreaturePF2e } from "./../index.ts";
 import { PartySource, PartySystemData } from "./data.ts";
 import { PartyCampaign } from "./types.ts";
-declare class PartyPF2e<
-    TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null,
-> extends ActorPF2e<TParent> {
+declare class PartyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {
     armorClass: null;
     members: CreaturePF2e[];
     campaign: PartyCampaign | null;
@@ -45,22 +39,10 @@ declare class PartyPF2e<
     /** Include campaign statistics in party statistics */
     getStatistic(slug: string): Statistic<this> | null;
     private _resetAndRerenderDebounced;
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: PartyUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: PartyUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     /** Override to inform creatures when they were booted from a party */
-    protected _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: PartyUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected _onUpdate(changed: DeepPartial<this["_source"]>, options: PartyUpdateCallbackOptions, userId: string): void;
     /** Overriden to inform creatures the party is defunct */
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 }

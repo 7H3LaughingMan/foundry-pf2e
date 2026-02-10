@@ -91,19 +91,11 @@ export default class Scene extends ClientBaseScene {
      */
     getDimensions(): SceneDimensions;
 
-    protected override _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
     protected override _onCreate(data: this["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    protected override _preUpdate(
-        data: Record<string, unknown>,
-        options: SceneUpdateOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preUpdate(data: Record<string, unknown>, options: SceneUpdateOptions, user: BaseUser): Promise<boolean | void>;
 
     override _onUpdate(changed: DeepPartial<this["_source"]>, options: SceneUpdateOptions, userId: string): void;
 
@@ -156,15 +148,7 @@ export default class Scene extends ClientBaseScene {
          * @param [height]      The desired thumbnail height. Default is 100px;
          * @return The created thumbnail data.
          */
-    createThumbnail({
-        img,
-        width,
-        height,
-    }?: {
-        img?: ImageFilePath | null;
-        width?: number;
-        height?: number;
-    }): Promise<Record<string, unknown>>;
+    createThumbnail({ img, width, height }?: { img?: ImageFilePath | null; width?: number; height?: number }): Promise<Record<string, unknown>>;
 }
 
 export default interface Scene extends ClientBaseScene {
@@ -293,15 +277,6 @@ export type SceneTokenOperation<TParent extends Scene> = SceneEmbeddedOperation<
     animation?: TokenAnimationOptions;
 };
 
-export type SceneEmbeddedName =
-    | "AmbientLight"
-    | "AmbientSound"
-    | "Drawing"
-    | "MeasuredTemplate"
-    | "Note"
-    | "Region"
-    | "Tile"
-    | "Token"
-    | "Wall";
+export type SceneEmbeddedName = "AmbientLight" | "AmbientSound" | "Drawing" | "MeasuredTemplate" | "Note" | "Region" | "Tile" | "Token" | "Wall";
 
 export {};

@@ -24,23 +24,14 @@ declare class AfflictionSystemData extends ItemSystemModel<AfflictionPF2e, Affli
     prepareBaseData(): void;
 }
 interface AfflictionSystemData
-    extends
-        ItemSystemModel<AfflictionPF2e, AfflictionSystemSchema>,
-        Omit<ModelPropsFromSchema<AfflictionSystemSchema>, "description"> {}
+    extends ItemSystemModel<AfflictionPF2e, AfflictionSystemSchema>, Omit<ModelPropsFromSchema<AfflictionSystemSchema>, "description"> {}
 type AfflictionSystemSchema = Omit<ItemSystemSchema, "traits"> & {
     level: fields.SchemaField<{
         value: fields.NumberField<number, number, true, false, true>;
     }>;
     traits: fields.SchemaField<{
         otherTags: fields.ArrayField<SlugField<true, false, false>, string[], string[], true, false, true>;
-        value: fields.ArrayField<
-            fields.StringField<EffectTrait, EffectTrait, true, false, false>,
-            EffectTrait[],
-            EffectTrait[],
-            true,
-            false,
-            true
-        >;
+        value: fields.ArrayField<fields.StringField<EffectTrait, EffectTrait, true, false, false>, EffectTrait[], EffectTrait[], true, false, true>;
     }>;
     save: fields.SchemaField<{
         type: fields.StringField<SaveType, SaveType, true, false, true>;
@@ -56,14 +47,7 @@ type AfflictionSystemSchema = Omit<ItemSystemSchema, "traits"> & {
         progress: fields.NumberField<number, number, true, false, true>;
     }>;
     /** The onset time for this affliction */
-    onset: fields.SchemaField<
-        AfflictionOnsetSchema,
-        SourceFromSchema<AfflictionOnsetSchema>,
-        ModelPropsFromSchema<AfflictionOnsetSchema>,
-        false,
-        true,
-        true
-    >;
+    onset: fields.SchemaField<AfflictionOnsetSchema, SourceFromSchema<AfflictionOnsetSchema>, ModelPropsFromSchema<AfflictionOnsetSchema>, false, true, true>;
     /** The list of stages and what each stage does */
     stages: fields.ArrayField<fields.SchemaField<AfflictionStageSchema>>;
     /** The maximum duration of the affliction */
@@ -91,13 +75,7 @@ type AfflictionStageSchema = {
     >;
     duration: fields.SchemaField<{
         value: fields.NumberField<number, number, true, false, true>;
-        unit: fields.StringField<
-            TimeUnit | "unlimited" | "encounter",
-            TimeUnit | "unlimited" | "encounter",
-            true,
-            false,
-            true
-        >;
+        unit: fields.StringField<TimeUnit | "unlimited" | "encounter", TimeUnit | "unlimited" | "encounter", true, false, true>;
     }>;
 };
 type AfflictionDamageSchema = {
@@ -122,12 +100,4 @@ type AfflictionStageData = ModelPropsFromSchema<AfflictionStageSchema>;
 type AfflictionConditionData = ModelPropsFromSchema<AfflictionConditionSchema>;
 type AfflictionExpiryType = "turn-end";
 export { AfflictionSystemData };
-export type {
-    AfflictionConditionData,
-    AfflictionDamage,
-    AfflictionExpiryType,
-    AfflictionFlags,
-    AfflictionSource,
-    AfflictionStageData,
-    AfflictionSystemSource,
-};
+export type { AfflictionConditionData, AfflictionDamage, AfflictionExpiryType, AfflictionFlags, AfflictionSource, AfflictionStageData, AfflictionSystemSource };

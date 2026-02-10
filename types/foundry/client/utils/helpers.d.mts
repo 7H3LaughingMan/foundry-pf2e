@@ -50,10 +50,7 @@ export function fromUuid(uuid: CompendiumUUID, relative?: Maybe<ClientDocument>)
 export function fromUuid(uuid: ActorUUID, relative?: Maybe<ClientDocument>): Promise<Actor | null>;
 export function fromUuid(uuid: ItemUUID, relative?: Maybe<ClientDocument>): Promise<Item | null>;
 export function fromUuid(uuid: TokenDocumentUUID, relative?: Maybe<ClientDocument>): Promise<TokenDocument | null>;
-export function fromUuid<TDocument extends ClientDocument>(
-    uuid: string,
-    relative?: Maybe<ClientDocument>,
-): Promise<TDocument | null>;
+export function fromUuid<TDocument extends ClientDocument>(uuid: string, relative?: Maybe<ClientDocument>): Promise<TDocument | null>;
 
 export type CompendiumDocumentType = (typeof COMPENDIUM_DOCUMENT_TYPES)[number];
 export type CompendiumUUID = `Compendium.${string}.${CompendiumDocumentType}.${string}`;
@@ -86,11 +83,7 @@ export function fromUuidSync<TResult extends Actor | CompendiumIndexData = Actor
         strict?: boolean;
     },
 ): TResult | null;
-export function fromUuidSync<
-    TResult extends (Document & { name?: string }) | CompendiumIndexData =
-        | (ClientDocument & { name?: string })
-        | CompendiumIndexData,
->(
+export function fromUuidSync<TResult extends (Document & { name?: string }) | CompendiumIndexData = (ClientDocument & { name?: string }) | CompendiumIndexData>(
     uuid: string,
     options?: {
         relative?: ClientDocument;

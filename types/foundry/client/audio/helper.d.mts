@@ -239,13 +239,7 @@ export default class AudioHelper {
      * @param smoothing The smoothingTimeConstant to set on the audio analyser.
      * @returns Returns whether listening to the stream was successful
      */
-    startLevelReports(
-        id: string,
-        stream: MediaStream,
-        callback: Function,
-        interval?: number,
-        smoothing?: number,
-    ): boolean;
+    startLevelReports(id: string, stream: MediaStream, callback: Function, interval?: number, smoothing?: number): boolean;
 
     /**
      * Stop sending audio level reports

@@ -94,12 +94,7 @@ export default class ImageHelper {
      * @param [options.notify=true]     Display a UI notification when the upload is processed.
      * @returns A promise which resolves to the FilePicker upload response
      */
-    static uploadBase64(
-        base64: string,
-        fileName: string,
-        filePath: string,
-        options?: { storage?: string; type?: string; notify?: boolean },
-    ): Promise<object>;
+    static uploadBase64(base64: string, fileName: string, filePath: string, options?: { storage?: string; type?: string; notify?: boolean }): Promise<object>;
 
     /**
      * Create a canvas element containing the pixel data.

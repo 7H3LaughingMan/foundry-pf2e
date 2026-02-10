@@ -64,11 +64,7 @@ interface MigrationBase {
      * Update the token to the latest schema version.
      * @param tokenData Token data to update. This should be a `TokenData` from the previous version.
      */
-    updateToken?(
-        tokenData: foundry.documents.TokenSource,
-        actor: Readonly<ActorPF2e | null>,
-        scene: Readonly<ScenePF2e | null>,
-    ): Promise<void>;
+    updateToken?(tokenData: foundry.documents.TokenSource, actor: Readonly<ActorPF2e | null>, scene: Readonly<ScenePF2e | null>): Promise<void>;
     /**
      * Update the user to the latest schema version.
      * @param userData User's data to update. This should be a `UserData` from the previous version.

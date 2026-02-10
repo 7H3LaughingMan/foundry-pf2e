@@ -23,10 +23,7 @@ interface OpposingActorData<
     TStatistic extends Statistic | StrikeData | null,
     TItem extends ItemPF2e<ActorPF2e> | null,
 > extends Required<OpposingActorConstructorData<TActor, TStatistic, TItem>> {}
-interface UnresolvedOpposingActors<
-    TStatistic extends Statistic | StrikeData | null,
-    TItem extends ItemPF2e<ActorPF2e> | null,
-> {
+interface UnresolvedOpposingActors<TStatistic extends Statistic | StrikeData | null, TItem extends ItemPF2e<ActorPF2e> | null> {
     origin: OpposingActorData<ActorPF2e | null, TStatistic | null, TItem | null> | null;
     target: OpposingActorData<ActorPF2e | null, TStatistic | null, TItem | null> | null;
 }
@@ -78,11 +75,7 @@ interface CheckContextData<
 > extends RollContextData<TActor, TStatistic, TItem> {
     dc: CheckDC | null;
 }
-interface BaseConstructorParams<
-    TSelf extends ActorPF2e,
-    TStatistic extends Statistic | StrikeData,
-    TItem extends ItemPF2e<ActorPF2e> | null,
-> {
+interface BaseConstructorParams<TSelf extends ActorPF2e, TStatistic extends Statistic | StrikeData, TItem extends ItemPF2e<ActorPF2e> | null> {
     /** An origin actor and token: required for most checks, optional for saving throws */
     origin?: OpposingActorConstructorData<TSelf | ActorPF2e | null, TStatistic | null, TItem | null> | null;
     /** A targeted actor and token: may not be applicable if the action doesn't take targets */

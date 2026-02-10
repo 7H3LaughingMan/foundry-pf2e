@@ -43,11 +43,7 @@ export default class DetectionMode extends DataModel<null, DetectionModeSchema> 
      * @param config       The visibility test configuration
      * @returns Is the test target visible?
      */
-    testVisibility(
-        visionSource: PointVisionSource<Token>,
-        mode: TokenDetectionMode,
-        config?: CanvasVisibilityTestConfiguration,
-    ): boolean;
+    testVisibility(visionSource: PointVisionSource<Token>, mode: TokenDetectionMode, config?: CanvasVisibilityTestConfiguration): boolean;
 
     /**
      * Can this VisionSource theoretically detect a certain object based on its properties?
@@ -66,12 +62,7 @@ export default class DetectionMode extends DataModel<null, DetectionModeSchema> 
      * @param target       The target object being tested
      * @param test         The test case being evaluated
      */
-    protected _testPoint(
-        visionSource: PointVisionSource<Token>,
-        mode: TokenDetectionMode,
-        target: PlaceableObject,
-        test: CanvasVisibilityTest,
-    ): boolean;
+    protected _testPoint(visionSource: PointVisionSource<Token>, mode: TokenDetectionMode, target: PlaceableObject, test: CanvasVisibilityTest): boolean;
 
     /**
      * Test whether the line-of-sight requirement for detection is satisfied.
@@ -83,12 +74,7 @@ export default class DetectionMode extends DataModel<null, DetectionModeSchema> 
      * @param test         The test case being evaluated
      * @returns Is the LOS requirement satisfied for this test?
      */
-    protected _testLOS(
-        visionSource: PointVisionSource<Token>,
-        mode: TokenDetectionMode,
-        target: PlaceableObject,
-        test: CanvasVisibilityTest,
-    ): boolean;
+    protected _testLOS(visionSource: PointVisionSource<Token>, mode: TokenDetectionMode, target: PlaceableObject, test: CanvasVisibilityTest): boolean;
 
     /**
      * Test whether the target is within the vision angle.
@@ -98,12 +84,7 @@ export default class DetectionMode extends DataModel<null, DetectionModeSchema> 
      * @param {CanvasVisibilityTest} test       The test case being evaluated
      * @returns                       Is the point within the vision angle?
      */
-    protected _testAngle(
-        visionSource: PointVisionSource<Token>,
-        mode: TokenDetectionMode,
-        target: PlaceableObject,
-        test: CanvasVisibilityTest,
-    ): boolean;
+    protected _testAngle(visionSource: PointVisionSource<Token>, mode: TokenDetectionMode, target: PlaceableObject, test: CanvasVisibilityTest): boolean;
 
     /**
      * Verify that a target is in range of a source.
@@ -113,16 +94,10 @@ export default class DetectionMode extends DataModel<null, DetectionModeSchema> 
      * @param test         The test case being evaluated
      * @returns Is the target within range?
      */
-    protected _testRange(
-        visionSource: PointVisionSource<Token>,
-        mode: TokenDetectionMode,
-        target: PlaceableObject,
-        test: CanvasVisibilityTest,
-    ): boolean;
+    protected _testRange(visionSource: PointVisionSource<Token>, mode: TokenDetectionMode, target: PlaceableObject, test: CanvasVisibilityTest): boolean;
 }
 
-export default interface DetectionMode
-    extends DataModel<null, DetectionModeSchema>, fields.ModelPropsFromSchema<DetectionModeSchema> {}
+export default interface DetectionMode extends DataModel<null, DetectionModeSchema>, fields.ModelPropsFromSchema<DetectionModeSchema> {}
 
 export interface TokenDetectionMode {
     /** The id of the detection mode, a key from CONFIG.Canvas.detectionModes */

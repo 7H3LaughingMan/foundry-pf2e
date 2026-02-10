@@ -69,10 +69,5 @@ export default class TextureCompressor extends AsyncWorker {
      * @param options.hash  The precomputed hash.
      * @param options.debug The debug option.
      */
-    copyBuffer(
-        buffer: Uint8ClampedArray,
-        width: number,
-        height: number,
-        options?: { out?: ArrayBuffer; hash?: string; debug?: boolean },
-    ): Promise<unknown>;
+    copyBuffer(buffer: Uint8ClampedArray, width: number, height: number, options?: { out?: ArrayBuffer; hash?: string; debug?: boolean }): Promise<unknown>;
 }

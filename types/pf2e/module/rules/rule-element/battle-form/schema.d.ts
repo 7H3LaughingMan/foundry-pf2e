@@ -26,13 +26,7 @@ type BattleFormRuleOverrideSchema = {
         true
     >;
     tempHP: ResolvableValueField<false, true, true>;
-    senses: RecordField<
-        fields.StringField<SenseType, SenseType, true, false, false>,
-        fields.SchemaField<OverrideSenseSchema>,
-        false,
-        false,
-        true
-    >;
+    senses: RecordField<fields.StringField<SenseType, SenseType, true, false, false>, fields.SchemaField<OverrideSenseSchema>, false, false, true>;
     size: fields.StringField<string, string, false, true, false>;
     speeds: fields.ObjectField<BattleFormSpeeds, BattleFormSpeeds, false, false, true>;
     skills: fields.ObjectField<BattleFormSkills, BattleFormSkills, false, false, true>;

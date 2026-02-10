@@ -1,8 +1,6 @@
 import { EmittedEventListener } from "./_types.mjs";
 
-export default function EventEmitterMixin<TBase extends object>(
-    Base?: AbstractConstructorOf<TBase>,
-): ConstructorOf<EventEmitter> & TBase;
+export default function EventEmitterMixin<TBase extends object>(Base?: AbstractConstructorOf<TBase>): ConstructorOf<EventEmitter> & TBase;
 
 export class EventEmitter {
     /**

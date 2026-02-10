@@ -4,13 +4,7 @@ import PreciseText from "./precise-text.mjs";
  * A generic helper for drawing a standard Control Icon
  */
 export default class ControlIcon extends PIXI.Container {
-    constructor(options: {
-        texture: PIXI.Texture;
-        size?: number;
-        borderColor?: number;
-        tint?: number | null;
-        elevation?: number;
-    });
+    constructor(options: { texture: PIXI.Texture; size?: number; borderColor?: number; tint?: number | null; elevation?: number });
 
     // Undocumented
     iconSrc: PIXI.Texture;

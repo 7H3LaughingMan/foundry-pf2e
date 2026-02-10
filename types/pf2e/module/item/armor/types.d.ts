@@ -6,12 +6,4 @@ type ArmorTrait = keyof typeof CONFIG.PF2E.armorTraits;
 type BaseArmorType = keyof typeof CONFIG.PF2E.baseArmorTypes;
 type OtherArmorTag = "shoddy";
 type ResilientRuneType = "" | "resilient" | "greaterResilient" | "majorResilient" | "mythicResilient";
-export type {
-    ArmorCategory,
-    ArmorGroup,
-    ArmorPropertyRuneType,
-    ArmorTrait,
-    BaseArmorType,
-    OtherArmorTag,
-    ResilientRuneType,
-};
+export type { ArmorCategory, ArmorGroup, ArmorPropertyRuneType, ArmorTrait, BaseArmorType, OtherArmorTag, ResilientRuneType };

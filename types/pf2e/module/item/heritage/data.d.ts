@@ -11,9 +11,7 @@ declare class HeritageSystemData extends ItemSystemModel<HeritagePF2e, HeritageS
     static defineSchema(): HeritageSystemSchema;
 }
 interface HeritageSystemData
-    extends
-        ItemSystemModel<HeritagePF2e, HeritageSystemSchema>,
-        Omit<fields.ModelPropsFromSchema<HeritageSystemSchema>, "description"> {
+    extends ItemSystemModel<HeritagePF2e, HeritageSystemSchema>, Omit<fields.ModelPropsFromSchema<HeritageSystemSchema>, "description"> {
     level?: never;
 }
 type HeritageSystemSchema = Omit<ItemSystemSchema, "traits"> & {

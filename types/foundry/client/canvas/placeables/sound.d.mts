@@ -1,10 +1,6 @@
 import { ControlIcon } from "../containers/_module.mjs";
 import PointSoundSource from "../sources/point-sound-source.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "./../../../common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseDeleteCallbackOptions, DatabaseUpdateCallbackOptions } from "./../../../common/abstract/_types.mjs";
 import Sound from "./../../audio/sound.mjs";
 import AmbientSoundDocument from "./../../documents/ambient-sound.mjs";
 import Scene from "./../../documents/scene.mjs";
@@ -77,17 +73,9 @@ export default class AmbientSound<
     /*  Document Event Handlers                     */
     /* -------------------------------------------- */
 
-    protected override _onCreate(
-        data: TDocument["_source"],
-        options: DatabaseCreateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onCreate(data: TDocument["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    protected override _onUpdate(
-        changed: DeepPartial<TDocument["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<TDocument["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 

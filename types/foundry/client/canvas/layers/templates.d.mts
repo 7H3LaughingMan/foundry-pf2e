@@ -7,9 +7,7 @@ import PlaceablesLayer, { PlaceablesLayerPointerEvent } from "./base/placeables-
  * This Canvas Layer provides a container for MeasuredTemplate objects.
  * @category Canvas
  */
-export default class TemplateLayer<
-    TObject extends MeasuredTemplate = MeasuredTemplate,
-> extends PlaceablesLayer<TObject> {
+export default class TemplateLayer<TObject extends MeasuredTemplate = MeasuredTemplate> extends PlaceablesLayer<TObject> {
     static override get layerOptions(): PlaceablesLayerOptions;
 
     static override documentName: "MeasuredTemplate";

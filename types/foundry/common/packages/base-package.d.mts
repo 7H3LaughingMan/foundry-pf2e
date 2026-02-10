@@ -66,20 +66,13 @@ type PackageCompendiumFolderSchema = {
 
 /** A special ObjectField which captures a mapping of USER_ROLES to DOCUMENT_OWNERSHIP_LEVELS. */
 export class CompendiumOwnershipField extends fields.ObjectField<Record<UserRole, DocumentOwnershipLevel>> {
-    static override get _defaults(): ObjectFieldOptions<
-        Record<UserRole, DocumentOwnershipLevel>,
-        boolean,
-        boolean,
-        boolean
-    >;
+    static override get _defaults(): ObjectFieldOptions<Record<UserRole, DocumentOwnershipLevel>, boolean, boolean, boolean>;
 
     protected override _validateType(value: unknown, options?: Record<string, unknown>): void;
 }
 
 /** A special SetField which provides additional validation and initialization behavior specific to compendium packs. */
-export class PackageCompendiumPacks<TSchema extends PackageCompendiumSchema> extends fields.SetField<
-    fields.SchemaField<TSchema>
-> {
+export class PackageCompendiumPacks<TSchema extends PackageCompendiumSchema> extends fields.SetField<fields.SchemaField<TSchema>> {
     protected override _cleanType(value: Record<string, unknown>[], options?: Record<string, unknown>): void;
 
     override initialize(
@@ -99,10 +92,7 @@ export class PackageCompendiumPacks<TSchema extends PackageCompendiumSchema> ext
  * The data schema used to define a Package manifest.
  * Specific types of packages extend this schema with additional fields.
  */
-export default abstract class BasePackage<TDataSchema extends BasePackageSchema = BasePackageSchema> extends DataModel<
-    null,
-    TDataSchema
-> {
+export default abstract class BasePackage<TDataSchema extends BasePackageSchema = BasePackageSchema> extends DataModel<null, TDataSchema> {
     /** An availability code in PACKAGE_AVAILABILITY_CODES which defines whether this package can be used. */
     availability: PackageAvailabilityCode;
 
@@ -167,15 +157,9 @@ export default abstract class BasePackage<TDataSchema extends BasePackageSchema 
      * @param dependency    The known dependency package
      * @returns Is the dependency compatible with the required range?
      */
-    static testDependencyCompatibility(
-        compatibility: PackageCompatibility,
-        dependency: BasePackage<BasePackageSchema>,
-    ): boolean;
+    static testDependencyCompatibility(compatibility: PackageCompatibility, dependency: BasePackage<BasePackageSchema>): boolean;
 
-    static override cleanData(
-        source?: Record<string, unknown>,
-        options?: Record<string, unknown>,
-    ): fields.SourceFromSchema<BasePackageSchema>;
+    static override cleanData(source?: Record<string, unknown>, options?: Record<string, unknown>): fields.SourceFromSchema<BasePackageSchema>;
 
     /**
      * Validate that a Package ID is allowed.

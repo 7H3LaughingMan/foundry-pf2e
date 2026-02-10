@@ -16,15 +16,7 @@ declare class ItemSpellcasting<TActor extends CreaturePF2e = CreaturePF2e> imple
     original: SpellcastingEntry<TActor> | null;
     /** A predicate to test against a physical item to determine whether its contained spell can be cast */
     castPredicate: Predicate;
-    constructor({
-        id,
-        name,
-        actor,
-        statistic,
-        tradition,
-        original,
-        castPredicate,
-    }: ItemsSpellcastingConstructorParams<TActor>);
+    constructor({ id, name, actor, statistic, tradition, original, castPredicate }: ItemsSpellcastingConstructorParams<TActor>);
     get counteraction(): Statistic;
     get attribute(): AttributeString;
     get category(): "items";

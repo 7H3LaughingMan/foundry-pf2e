@@ -52,19 +52,11 @@ interface SpellCollectionTypeSource {
     flexible?: boolean;
     validItems?: "scroll" | "" | null;
 }
-interface SpellcastingEntrySystemData
-    extends Omit<SpellcastingEntrySystemSource, "description">, Omit<ItemSystemData, "level" | "traits"> {
+interface SpellcastingEntrySystemData extends Omit<SpellcastingEntrySystemSource, "description">, Omit<ItemSystemData, "level" | "traits"> {
     prepared: SpellCollectionTypeData;
 }
 interface SpellCollectionTypeData extends SpellCollectionTypeSource {
     flexible: boolean;
     validItems: "scroll" | null;
 }
-export type {
-    SlotKey,
-    SpellcastingEntrySlots,
-    SpellcastingEntrySource,
-    SpellcastingEntrySystemData,
-    SpellcastingEntrySystemSource,
-    SpellDifficultyClass,
-};
+export type { SlotKey, SpellcastingEntrySlots, SpellcastingEntrySource, SpellcastingEntrySystemData, SpellcastingEntrySystemSource, SpellDifficultyClass };

@@ -42,11 +42,7 @@ export default class DocumentSheet<
 
     protected override _activateCoreListeners(html: JQuery): void;
 
-    override activateEditor(
-        name: string,
-        options?: EditorCreateOptions,
-        initialContent?: string,
-    ): Promise<TinyMCE.Editor | ProseMirrorEditor>;
+    override activateEditor(name: string, options?: EditorCreateOptions, initialContent?: string): Promise<TinyMCE.Editor | ProseMirrorEditor>;
 
     override render(force?: boolean, options?: AppV1RenderOptions): this;
 

@@ -8,10 +8,7 @@ import { Point } from "./../../../../common/_types.mjs";
  * An optional secondary externalRadius can be provided which adds supplementary visibility outside the primary angle.
  */
 export default class LimitedAnglePolygon extends PIXI.Polygon {
-    constructor(
-        origin: Point,
-        options?: { radius?: number; angle?: number; rotation?: number; density?: number; externalRadius?: number },
-    );
+    constructor(origin: Point, options?: { radius?: number; angle?: number; rotation?: number; density?: number; externalRadius?: number });
 
     /**
      * The origin point of the Polygon

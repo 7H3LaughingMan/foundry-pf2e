@@ -17,10 +17,7 @@ export class RegionPolygonTreeNode {
      * @param parent      The parent node or `null` if root.
      * @internal
      */
-    static _fromClipperPath(
-        clipperPath: ClipperLib.IntPoint[],
-        parent: RegionPolygonTreeNode | null,
-    ): RegionPolygonTreeNode;
+    static _fromClipperPath(clipperPath: ClipperLib.IntPoint[], parent: RegionPolygonTreeNode | null): RegionPolygonTreeNode;
 
     /**
      * The parent of this node or `null` if this is the root node.

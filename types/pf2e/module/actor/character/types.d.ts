@@ -20,19 +20,5 @@ interface DexterityModifierCapData {
     source: string;
 }
 /** Slugs guaranteed to return a `Statistic` when passed to `CharacterPF2e#getStatistic` */
-type GuaranteedGetStatisticSlug =
-    | SaveType
-    | SkillSlug
-    | "perception"
-    | "class-spell"
-    | "class"
-    | "class-dc"
-    | "classDC"
-    | MagicTradition;
-export type {
-    CharacterHitPointsSummary,
-    CharacterSkill,
-    CharacterSkills,
-    DexterityModifierCapData,
-    GuaranteedGetStatisticSlug,
-};
+type GuaranteedGetStatisticSlug = SaveType | SkillSlug | "perception" | "class-spell" | "class" | "class-dc" | "classDC" | MagicTradition;
+export type { CharacterHitPointsSummary, CharacterSkill, CharacterSkills, DexterityModifierCapData, GuaranteedGetStatisticSlug };

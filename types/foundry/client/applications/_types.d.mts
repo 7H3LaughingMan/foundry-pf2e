@@ -161,11 +161,7 @@ export type ApplicationClickAction = ApplicationClickHandler | { handler: Applic
  * @param form The form element that was submitted
  * @param formData Processed data for the submitted form
  */
-export type ApplicationFormSubmission = (
-    event: Event,
-    form: HTMLFormElement,
-    formData: FormDataExtended,
-) => Promise<void>;
+export type ApplicationFormSubmission = (event: Event, form: HTMLFormElement, formData: FormDataExtended) => Promise<void>;
 
 export interface ApplicationTab {
     id: string;

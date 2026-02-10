@@ -12,11 +12,7 @@ export default class BaseCombat extends Document<null, CombatSchema> {
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 }
 
 export default interface BaseCombat extends Document<null, CombatSchema>, fields.ModelPropsFromSchema<CombatSchema> {

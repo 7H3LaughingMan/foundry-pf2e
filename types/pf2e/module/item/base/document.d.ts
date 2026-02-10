@@ -54,11 +54,7 @@ declare class ItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exte
     isOfType(type: "physical"): this is PhysicalItemPF2e<TParent>;
     isOfType<T extends "physical" | ItemType>(
         ...types: T[]
-    ): this is T extends "physical"
-        ? PhysicalItemPF2e<TParent>
-        : T extends ItemType
-          ? ItemInstances<TParent>[T]
-          : never;
+    ): this is T extends "physical" ? PhysicalItemPF2e<TParent> : T extends ItemType ? ItemInstances<TParent>[T] : never;
     /** Redirect the deletion of any owned items to ActorPF2e#deleteEmbeddedDocuments for a single workflow */
     delete(operation?: Partial<Omit<DatabaseDeleteOperation<TParent>, "parent" | "pack">>): Promise<this | undefined>;
     /** Generate a list of strings for use in predication */
@@ -108,10 +104,7 @@ declare class ItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exte
      * Internal method that transforms data into something that can be used for chat.
      * Currently renders description text using enrichHTML.
      */
-    protected processChatData(
-        htmlOptions: EnrichmentOptionsPF2e | undefined,
-        chatData: RawItemChatData,
-    ): Promise<RawItemChatData>;
+    protected processChatData(htmlOptions: EnrichmentOptionsPF2e | undefined, chatData: RawItemChatData): Promise<RawItemChatData>;
     getChatData(htmlOptions?: EnrichmentOptionsPF2e, _rollOptions?: Record<string, unknown>): Promise<RawItemChatData>;
     traitChatData(dictionary?: Record<string, string | undefined>, traits?: ItemTrait[]): TraitChatData[];
     /** Don't allow the user to create a condition or spellcasting entry from the sidebar. */
@@ -145,33 +138,18 @@ declare class ItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exte
         ids?: string[],
         operation?: Partial<DatabaseDeleteOperation<TDocument["parent"]>>,
     ): Promise<TDocument[]>;
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     /** Keep `TextEditor` and anything else up to no good from setting this item's description to `null` */
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     /** Call onCreate rule-element hooks */
     protected _onCreate(data: ItemSourcePF2e, options: DatabaseCreateCallbackOptions, userId: string): void;
     /** Refresh the Item Directory if this item isn't embedded */
-    protected _onUpdate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected _onUpdate(data: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
     /** Call onDelete rule-element hooks */
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
     /** To be overridden by subclasses to extend the HTML string that will become part of the embed */
     protected embedHTMLString(_config: DocumentHTMLEmbedConfig, _options: EnrichmentOptionsPF2e): string;
-    protected _buildEmbedHTML(
-        config: DocumentHTMLEmbedConfig,
-        options?: EnrichmentOptionsPF2e,
-    ): Promise<HTMLCollection>;
+    protected _buildEmbedHTML(config: DocumentHTMLEmbedConfig, options?: EnrichmentOptionsPF2e): Promise<HTMLCollection>;
 }
 interface ItemPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends Item<TParent> {
     constructor: typeof ItemPF2e;

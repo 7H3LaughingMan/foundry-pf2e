@@ -56,13 +56,7 @@ export function lineLineIntersection(a: Point, b: Point, c: Point, d: Point): Li
  *
  * @returns An intersection point, or null if no intersection occurred
  */
-export function lineSegmentIntersection(
-    a: Point,
-    b: Point,
-    c: Point,
-    d: Point,
-    epsilon?: number,
-): LineIntersection | null;
+export function lineSegmentIntersection(a: Point, b: Point, c: Point, d: Point, epsilon?: number): LineIntersection | null;
 
 /**
  * Determine the intersection between a candidate wall and the circular radius of the polygon.
@@ -74,13 +68,7 @@ export function lineSegmentIntersection(
  *
  * @returns The intersection of the segment AB with the circle
  */
-export function lineCircleIntersection(
-    a: Point,
-    b: Point,
-    center: Point,
-    radius: number,
-    epsilon?: number,
-): LineCircleIntersection;
+export function lineCircleIntersection(a: Point, b: Point, center: Point, radius: number, epsilon?: number): LineCircleIntersection;
 
 /**
  * Identify the point closest to C on segment AB

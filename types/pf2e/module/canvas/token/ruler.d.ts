@@ -14,10 +14,7 @@ export declare class TokenRulerPF2e extends foundry.canvas.placeables.tokens.Tok
     /** Start observing the measurement container to append action glyphs after ruler labels are drawn. */
     refresh(rulerData: DeepReadonly<TokenRulerData>): void;
     /** Include action-cost information for showing a glyph. */
-    protected _getWaypointLabelContext(
-        waypoint: DeepReadonly<TokenRulerWaypoint>,
-        state: WaypointLabelRenderState,
-    ): WaypointLabelRenderContext | void;
+    protected _getWaypointLabelContext(waypoint: DeepReadonly<TokenRulerWaypoint>, state: WaypointLabelRenderState): WaypointLabelRenderContext | void;
     /** Abuse this method to log intermediate waypoints that should be rendered with action glyphs. */
     protected _getGridHighlightStyle(
         waypoint: DeepReadonly<Omit<TokenRulerWaypoint, "index" | "center" | "size" | "ray">>,

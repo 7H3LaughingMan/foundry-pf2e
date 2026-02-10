@@ -1,10 +1,5 @@
 import { ApplicationConfiguration, ApplicationRenderContext } from "../_types.mjs";
-import {
-    ApplicationV2,
-    HandlebarsApplicationMixin,
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../api/_module.mjs";
+import { ApplicationV2, HandlebarsApplicationMixin, HandlebarsRenderOptions, HandlebarsTemplatePart } from "../api/_module.mjs";
 import Document from "./../../../common/abstract/document.mjs";
 
 interface ImagePopoutConfiguration extends ApplicationConfiguration {
@@ -79,16 +74,11 @@ export default class ImagePopout extends HandlebarsApplicationMixin(ApplicationV
      */
     shareImage(options?: ShareImageConfig): void;
 
-    protected override _initializeApplicationOptions(
-        options: DeepPartial<ImagePopoutConfiguration>,
-    ): ImagePopoutConfiguration;
+    protected override _initializeApplicationOptions(options: DeepPartial<ImagePopoutConfiguration>): ImagePopoutConfiguration;
 
     protected override _prepareContext(options: HandlebarsRenderOptions): Promise<ApplicationRenderContext>;
 
-    protected override _preFirstRender(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _preFirstRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     /* -------------------------------------------- */
     /*  Helper Methods                              */

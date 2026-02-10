@@ -16,9 +16,7 @@ export const DirectoryCollectionMix: DirectoryCollectionConstructor;
  * Each primary Document type has an associated subclass of WorldCollection which contains them.
  * @param data An array of data objects from which to create Document instances
  */
-export default abstract class WorldCollection<
-    TDocument extends WorldDocument | Setting,
-> extends DirectoryCollectionMix<TDocument> {
+export default abstract class WorldCollection<TDocument extends WorldDocument | Setting> extends DirectoryCollectionMix<TDocument> {
     /* -------------------------------------------- */
     /*  Collection Properties                       */
     /* -------------------------------------------- */

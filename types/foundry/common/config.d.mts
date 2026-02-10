@@ -15,8 +15,7 @@ declare class ServerSettings extends DataModel<null, ServerSettingsSchema> {
     static override migrateData(source: Record<string, unknown>): Record<string, unknown>;
 }
 
-declare interface ServerSettings
-    extends DataModel<null, ServerSettingsSchema>, fields.ModelPropsFromSchema<ServerSettingsSchema> {}
+declare interface ServerSettings extends DataModel<null, ServerSettingsSchema>, fields.ModelPropsFromSchema<ServerSettingsSchema> {}
 
 /**
  * @property {string|null} adminPassword

@@ -12,9 +12,7 @@ import PlaceableObject, { PlaceableShape } from "./placeable-object.mjs";
  * @see {@link MeasuredTemplateDocument}
  * @see {@link TemplateLayer}
  */
-export default class MeasuredTemplate<
-    TDocument extends MeasuredTemplateDocument = MeasuredTemplateDocument,
-> extends PlaceableObject<TDocument> {
+export default class MeasuredTemplate<TDocument extends MeasuredTemplateDocument = MeasuredTemplateDocument> extends PlaceableObject<TDocument> {
     /** The template shape used for testing point intersection */
     shape: PlaceableShape;
 
@@ -141,11 +139,7 @@ export default class MeasuredTemplate<
     /*  Document Event Handlers                     */
     /* -------------------------------------------- */
 
-    protected override _onUpdate(
-        changed: DeepPartial<TDocument["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<TDocument["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     /* -------------------------------------------- */
     /*  Interactivity                               */
@@ -162,9 +156,7 @@ export default class MeasuredTemplate<
     protected override _onClickRight(event: PIXI.FederatedPointerEvent): void;
 }
 
-export default interface MeasuredTemplate<
-    TDocument extends MeasuredTemplateDocument = MeasuredTemplateDocument,
-> extends PlaceableObject<TDocument> {
+export default interface MeasuredTemplate<TDocument extends MeasuredTemplateDocument = MeasuredTemplateDocument> extends PlaceableObject<TDocument> {
     get layer(): TemplateLayer<this>;
 }
 

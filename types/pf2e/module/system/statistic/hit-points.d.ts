@@ -27,10 +27,7 @@ declare class HitPointsStatistic<TActor extends HPStatActor = HPStatActor> exten
     get breakdown(): string;
     getTraceData(): HitPointsTraceData;
 }
-interface HitPointsTraceData
-    extends
-        BaseStatisticTraceData,
-        Pick<HitPointsStatistic, "max" | "temp" | "negativeHealing" | "unrecoverable" | "details"> {
+interface HitPointsTraceData extends BaseStatisticTraceData, Pick<HitPointsStatistic, "max" | "temp" | "negativeHealing" | "unrecoverable" | "details"> {
     /** The actor's current hit points */
     value: number;
 }

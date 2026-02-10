@@ -15,13 +15,7 @@ export declare function createActionMacro({
     actionIndex?: number;
     slot: number;
 }): Promise<void>;
-export declare function rollActionMacro({
-    actorUUID,
-    itemId,
-    elementTrait,
-    slug,
-    type,
-}: RollActionMacroParams): Promise<ChatMessagePF2e | undefined>;
+export declare function rollActionMacro({ actorUUID, itemId, elementTrait, slug, type }: RollActionMacroParams): Promise<ChatMessagePF2e | undefined>;
 export declare function createToggleEffectMacro(effect: ConditionPF2e | EffectPF2e, slot: number): Promise<void>;
 interface RollActionMacroParams {
     actorUUID?: ActorUUID;

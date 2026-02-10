@@ -23,10 +23,7 @@ type Attitude = keyof typeof CONFIG.PF2E.attitude;
 type ModeOfBeing = "living" | "undead" | "construct" | "object";
 type SenseAcuity = "precise" | "imprecise" | "vague";
 type SenseType = SetElement<typeof SENSE_TYPES>;
-type SpecialVisionType = Extract<
-    SenseType,
-    "low-light-vision" | "darkvision" | "greater-darkvision" | "see-invisibility"
->;
+type SpecialVisionType = Extract<SenseType, "low-light-vision" | "darkvision" | "greater-darkvision" | "see-invisibility">;
 type OtherCreatureSpeeds<A extends CreaturePF2e> = {
     [T in Exclude<MovementType, "land">]: SpeedStatistic<A, T> | null;
 };

@@ -1,18 +1,7 @@
 import { SceneUpdateOptions } from "#client/documents/scene.mjs";
-import {
-    DatabaseDeleteOperation,
-    DatabaseUpdateOperation,
-    Document,
-    EmbeddedCollection,
-} from "#common/abstract/_module.mjs";
+import { DatabaseDeleteOperation, DatabaseUpdateOperation, Document, EmbeddedCollection } from "#common/abstract/_module.mjs";
 import { SceneFlagsPF2e } from "./data.ts";
-import {
-    AmbientLightDocumentPF2e,
-    MeasuredTemplateDocumentPF2e,
-    RegionDocumentPF2e,
-    TileDocumentPF2e,
-    TokenDocumentPF2e,
-} from "./index.ts";
+import { AmbientLightDocumentPF2e, MeasuredTemplateDocumentPF2e, RegionDocumentPF2e, TileDocumentPF2e, TokenDocumentPF2e } from "./index.ts";
 import { SceneConfigPF2e } from "./sheet.ts";
 declare class ScenePF2e extends Scene {
     #private;

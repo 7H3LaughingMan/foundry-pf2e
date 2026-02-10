@@ -2,15 +2,7 @@ import { zRuleElementSource, zRuleValue } from "#zod/rules/base.ts";
 
 import * as z from "zod";
 
-export const zAELikeChangeMode = z.literal([
-    "multiply",
-    "add",
-    "subtract",
-    "remove",
-    "downgrade",
-    "upgrade",
-    "override",
-]);
+export const zAELikeChangeMode = z.literal(["multiply", "add", "subtract", "remove", "downgrade", "upgrade", "override"]);
 
 export type zAELikeChangeMode = z.infer<typeof zAELikeChangeMode>;
 

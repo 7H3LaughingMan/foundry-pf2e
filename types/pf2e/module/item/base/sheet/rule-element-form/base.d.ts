@@ -10,10 +10,7 @@ interface RuleElementFormOptions<TSource extends RuleElementSource, TObject exte
     object: TObject;
 }
 /** Base Rule Element form handler. Form handlers intercept sheet events to support new UI */
-declare class RuleElementForm<
-    TSource extends RuleElementSource = RuleElementSource,
-    TObject extends RuleElement | null = RuleElement | null,
-> {
+declare class RuleElementForm<TSource extends RuleElementSource = RuleElementSource, TObject extends RuleElement | null = RuleElement | null> {
     #private;
     template: string;
     sheet: ItemSheetPF2e<ItemPF2e>;

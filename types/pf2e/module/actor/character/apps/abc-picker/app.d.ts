@@ -35,9 +35,9 @@ interface ABCPickerContext extends SvelteApplicationRenderContext {
     };
 }
 /** A `Compendium`-like application for presenting A(H)BCD options for a character */
-declare class ABCPicker extends SvelteApplicationMixin<
-    AbstractConstructorOf<fa.api.ApplicationV2> & { DEFAULT_OPTIONS: DeepPartial<ABCPickerConfiguration> }
->(fa.api.ApplicationV2) {
+declare class ABCPicker extends SvelteApplicationMixin<AbstractConstructorOf<fa.api.ApplicationV2> & { DEFAULT_OPTIONS: DeepPartial<ABCPickerConfiguration> }>(
+    fa.api.ApplicationV2,
+) {
     #private;
     static DEFAULT_OPTIONS: DeepPartial<ABCPickerConfiguration>;
     options: ABCPickerConfiguration;

@@ -15,9 +15,7 @@ interface ArmorStatisticData extends StatisticData {
     rank?: ZeroToFour;
     details?: string;
 }
-interface ArmorClassTraceData<
-    TAttribute extends AttributeString | null = AttributeString | null,
-> extends StatisticTraceData<TAttribute> {
+interface ArmorClassTraceData<TAttribute extends AttributeString | null = AttributeString | null> extends StatisticTraceData<TAttribute> {
     details: string;
     slug: "ac";
 }

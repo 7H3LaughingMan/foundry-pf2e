@@ -45,9 +45,7 @@ export default class PrototypeTokenConfig extends TokenApplicationMixin(Applicat
 
     protected override _canRender(options: ApplicationRenderOptions): boolean;
 
-    protected override _initializeApplicationOptions(
-        options: DeepPartial<ApplicationConfiguration>,
-    ): ApplicationConfiguration;
+    protected override _initializeApplicationOptions(options: DeepPartial<ApplicationConfiguration>): ApplicationConfiguration;
 
     protected override _initializeTokenPreview(): Promise<void>;
 
@@ -57,10 +55,7 @@ export default class PrototypeTokenConfig extends TokenApplicationMixin(Applicat
 
     protected override _prepareButtons(): FormFooterButton[];
 
-    protected override _onFirstRender(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _onFirstRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     /* -------------------------------------------- */
     /*  Form Submission                             */
@@ -74,11 +69,7 @@ export default class PrototypeTokenConfig extends TokenApplicationMixin(Applicat
      * @returns An expanded object of processed form data
      * @throws Subclasses may throw validation errors here to prevent form submission
      */
-    protected _processFormData(
-        event: SubmitEvent | null,
-        form: HTMLFormElement,
-        formData: FormDataExtended,
-    ): Record<string, unknown>;
+    protected _processFormData(event: SubmitEvent | null, form: HTMLFormElement, formData: FormDataExtended): Record<string, unknown>;
 
     protected override _tearDown(options: ApplicationClosingOptions): void;
 }

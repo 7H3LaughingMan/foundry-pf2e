@@ -9,16 +9,12 @@ declare const PointEffectBaseLightSource: {
 } & Omit<typeof BaseLightSource, "new"> &
     typeof PointEffectSource;
 
-interface PointEffectBaseLightSource<TObject extends AmbientLight | Token | null> extends InstanceType<
-    typeof PointEffectBaseLightSource<TObject>
-> {}
+interface PointEffectBaseLightSource<TObject extends AmbientLight | Token | null> extends InstanceType<typeof PointEffectBaseLightSource<TObject>> {}
 
 /**
  * A specialized subclass of the BaseLightSource which renders a source of light as a point-based effect.
  */
-export default class PointLightSource<
-    TObject extends AmbientLight | Token,
-> extends PointEffectBaseLightSource<TObject> {
+export default class PointLightSource<TObject extends AmbientLight | Token> extends PointEffectBaseLightSource<TObject> {
     static override effectsCollection: "lightSources";
 
     override get requiresEdges(): boolean;

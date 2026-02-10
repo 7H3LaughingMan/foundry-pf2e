@@ -25,10 +25,7 @@ export class HandlebarsApplication extends ApplicationV2 {
      * @param options Options which configure application rendering behavior
      * @returns A single rendered HTMLElement for each requested part
      */
-    protected override _renderHTML(
-        context: object,
-        options: HandlebarsRenderOptions,
-    ): Promise<Record<string, HTMLElement>>;
+    protected override _renderHTML(context: object, options: HandlebarsRenderOptions): Promise<Record<string, HTMLElement>>;
 
     /**
      * Prepare context that is specific to only a single rendered part.
@@ -41,11 +38,7 @@ export class HandlebarsApplication extends ApplicationV2 {
      * @param context      Shared context provided by _prepareContext
      * @returns Context data for a specific part
      */
-    protected _preparePartContext(
-        partId: string,
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<ApplicationRenderContext>;
+    protected _preparePartContext(partId: string, context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<ApplicationRenderContext>;
 
     /**
      * Replace the HTML of the application with the result provided by Handlebars rendering.
@@ -53,11 +46,7 @@ export class HandlebarsApplication extends ApplicationV2 {
      * @param content The content element into which the rendered result must be inserted
      * @param options     Options which configure application rendering behavior
      */
-    protected override _replaceHTML(
-        result: Record<string, HTMLElement>,
-        content: HTMLElement,
-        options: HandlebarsRenderOptions,
-    ): void;
+    protected override _replaceHTML(result: Record<string, HTMLElement>, content: HTMLElement, options: HandlebarsRenderOptions): void;
 
     /**
      * Prepare data used to synchronize the state of a template part.
@@ -66,12 +55,7 @@ export class HandlebarsApplication extends ApplicationV2 {
      * @param priorElement The prior rendered HTML element for the part
      * @param state        A state object which is used to synchronize after replacement
      */
-    protected _preSyncPartState(
-        partId: string,
-        newElement: HTMLElement,
-        priorElement: HTMLElement,
-        state: object,
-    ): void;
+    protected _preSyncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
 
     /**
      * Synchronize the state of a template part after it has been rendered and replaced in the DOM.

@@ -94,11 +94,7 @@ export default class ClientSettings {
      * });
      * ```
      */
-    register<TChoices extends Record<string, unknown> | undefined>(
-        namespace: string,
-        key: string,
-        data: SettingRegistration<TChoices>,
-    ): void;
+    register<TChoices extends Record<string, unknown> | undefined>(namespace: string, key: string, data: SettingRegistration<TChoices>): void;
 
     /**
      * Register a new sub-settings menu
@@ -141,11 +137,7 @@ export default interface ClientSettings {
     get(namespace: "core", key: "noCanvas"): boolean;
     get(namespace: "core", key: "rollMode"): RollMode;
     get(namespace: "core", key: "uiConfig"): { colorScheme: { applications: string; interface: string } };
-    get<D extends boolean>(
-        namespace: string,
-        key: string,
-        { document }?: { document?: D },
-    ): D extends true ? Setting : unknown;
+    get<D extends boolean>(namespace: string, key: string, { document }?: { document?: D }): D extends true ? Setting : unknown;
 
     /**
      * Set the value of a game setting for a certain namespace and setting key
@@ -170,9 +162,10 @@ export default interface ClientSettings {
     ): D extends true ? Promise<Setting> : Promise<unknown>;
 }
 
-interface SettingRegistration<
-    TChoices extends Record<string, unknown> | undefined = Record<string, unknown> | undefined,
-> extends Omit<SettingConfig<TChoices>, "config" | "key" | "namespace" | "scope"> {
+interface SettingRegistration<TChoices extends Record<string, unknown> | undefined = Record<string, unknown> | undefined> extends Omit<
+    SettingConfig<TChoices>,
+    "config" | "key" | "namespace" | "scope"
+> {
     config?: boolean;
     scope?: "world" | "client" | "user";
 }

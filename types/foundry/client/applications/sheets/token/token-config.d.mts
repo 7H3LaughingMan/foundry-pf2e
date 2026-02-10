@@ -51,11 +51,7 @@ export default class TokenConfig extends TokenApplicationMixin(DocumentSheetV2) 
     /*  Form Submission                             */
     /* -------------------------------------------- */
 
-    protected override _processFormData(
-        event: SubmitEvent | null,
-        form: HTMLFormElement,
-        formData: FormDataExtended,
-    ): Record<string, unknown>;
+    protected override _processFormData(event: SubmitEvent | null, form: HTMLFormElement, formData: FormDataExtended): Record<string, unknown>;
 
     protected override _processSubmitData(
         event: SubmitEvent,

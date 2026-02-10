@@ -1,11 +1,5 @@
 import User from "../user.mjs";
-import {
-    DatabaseAction,
-    DatabaseCreateOperation,
-    DatabaseOperation,
-    DatabaseUpdateOperation,
-    Document,
-} from "./../../../common/abstract/_module.mjs";
+import { DatabaseAction, DatabaseCreateOperation, DatabaseOperation, DatabaseUpdateOperation, Document } from "./../../../common/abstract/_module.mjs";
 import Collection from "./../../../common/utils/collection.mjs";
 import { ApplicationRenderOptions } from "./../../applications/_types.mjs";
 import ApplicationV2 from "./../../applications/api/application.mjs";
@@ -72,11 +66,7 @@ export default abstract class DocumentCollection<TDocument extends Document> ext
      * @param options Options which modified the creation operation
      * @param userId  The ID of the User who triggered the operation
      */
-    protected _preCreateDocuments(
-        result: TDocument["_source"][],
-        options: DatabaseCreateOperation<null>,
-        userId: string,
-    ): void;
+    protected _preCreateDocuments(result: TDocument["_source"][], options: DatabaseCreateOperation<null>, userId: string): void;
 
     /**
      * Follow-up actions taken after a set of Documents in this Collection are created.
@@ -85,12 +75,7 @@ export default abstract class DocumentCollection<TDocument extends Document> ext
      * @param options   Options which modified the creation operation
      * @param userId    The ID of the User who triggered the operation
      */
-    protected _onCreateDocuments(
-        documents: TDocument[],
-        result: TDocument["_source"][],
-        options: DatabaseCreateOperation<null>,
-        userId: string,
-    ): void;
+    protected _onCreateDocuments(documents: TDocument[], result: TDocument["_source"][], options: DatabaseCreateOperation<null>, userId: string): void;
 
     /**
      * Preliminary actions taken before a set of Documents in this Collection are updated.
@@ -98,11 +83,7 @@ export default abstract class DocumentCollection<TDocument extends Document> ext
      * @param options Options which modified the update operation
      * @param userId  The ID of the User who triggered the operation
      */
-    protected _preUpdateDocuments(
-        result: TDocument["_source"][],
-        options: DatabaseUpdateOperation<null>,
-        userId: string,
-    ): void;
+    protected _preUpdateDocuments(result: TDocument["_source"][], options: DatabaseUpdateOperation<null>, userId: string): void;
 
     /**
      * Follow-up actions taken after a set of Documents in this Collection are updated.
@@ -111,12 +92,7 @@ export default abstract class DocumentCollection<TDocument extends Document> ext
      * @param options   Options which modified the update operation
      * @param userId    The ID of the User who triggered the operation
      */
-    protected _onUpdateDocuments(
-        documents: TDocument[],
-        result: TDocument["_source"][],
-        options: DatabaseUpdateOperation<null>,
-        userId: string,
-    ): void;
+    protected _onUpdateDocuments(documents: TDocument[], result: TDocument["_source"][], options: DatabaseUpdateOperation<null>, userId: string): void;
 
     /**
      * Preliminary actions taken before a set of Documents in this Collection are deleted.
@@ -124,11 +100,7 @@ export default abstract class DocumentCollection<TDocument extends Document> ext
      * @param options Options which modified the deletion operation
      * @param userId  The ID of the User who triggered the operation
      */
-    protected _preDeleteDocuments(
-        result: TDocument["_source"][],
-        options: DatabaseCreateOperation<null>,
-        userId: string,
-    ): void;
+    protected _preDeleteDocuments(result: TDocument["_source"][], options: DatabaseCreateOperation<null>, userId: string): void;
 
     /**
      * Follow-up actions taken after a set of Documents in this Collection are deleted.
@@ -137,12 +109,7 @@ export default abstract class DocumentCollection<TDocument extends Document> ext
      * @param options   Options which modified the deletion operation
      * @param userId    The ID of the User who triggered the operation
      */
-    protected _onDeleteDocuments(
-        documents: TDocument[],
-        result: string[],
-        options: DatabaseCreateOperation<null>,
-        userId: string,
-    ): void;
+    protected _onDeleteDocuments(documents: TDocument[], result: string[], options: DatabaseCreateOperation<null>, userId: string): void;
 
     /**
      * Follow-up actions to take when a database operation modifies Documents in this DocumentCollection.
@@ -153,11 +120,5 @@ export default abstract class DocumentCollection<TDocument extends Document> ext
      * @param user The User who performed the operation
      * @internal
      */
-    _onModifyContents(
-        action: DatabaseAction,
-        documents: TDocument[],
-        result: unknown[],
-        operation: DatabaseOperation<null>,
-        user: User,
-    ): void;
+    _onModifyContents(action: DatabaseAction, documents: TDocument[], result: unknown[], operation: DatabaseOperation<null>, user: User): void;
 }

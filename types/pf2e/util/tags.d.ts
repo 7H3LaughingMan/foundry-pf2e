@@ -11,10 +11,7 @@ declare function traitSlugToObject(
 /** Create a tagify select menu out of a JSON input element */
 declare function tagify(element: HTMLInputElement, options?: TagifyOptions): Tagify<TagRecord>;
 declare function tagify(element: HTMLTagifyTagsElement, options?: TagifyOptions): Tagify<TagRecord>;
-declare function tagify(
-    element: HTMLInputElement | HTMLTagifyTagsElement | null,
-    options?: TagifyOptions,
-): Tagify<TagRecord> | null;
+declare function tagify(element: HTMLInputElement | HTMLTagifyTagsElement | null, options?: TagifyOptions): Tagify<TagRecord> | null;
 /**
  * Standard properties expected by Tagify, where the `id` and `value` is what Foundry and the system would respectively
  * call the `value` and `label`

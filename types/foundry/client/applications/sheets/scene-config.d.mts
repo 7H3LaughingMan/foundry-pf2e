@@ -1,9 +1,6 @@
 import { ApplicationClosingOptions, ApplicationFormConfiguration, ApplicationTabsConfiguration } from "../_types.mjs";
 import DocumentSheetV2, { DocumentSheetConfiguration, DocumentSheetRenderContext } from "../api/document-sheet.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../api/handlebars-application.mjs";
 import FormDataExtended from "../ux/form-data-extended.mjs";
 import Scene from "./../../documents/scene.mjs";
 
@@ -25,11 +22,7 @@ export default class SceneConfig<TDocument extends Scene> extends HandlebarsAppl
         options: HandlebarsRenderOptions,
     ): Promise<DocumentSheetRenderContext>;
 
-    override changeTab(
-        tab: string,
-        group: string,
-        options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean },
-    ): void;
+    override changeTab(tab: string, group: string, options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean }): void;
 
     protected _prepareSubmitData(
         event: SubmitEvent,

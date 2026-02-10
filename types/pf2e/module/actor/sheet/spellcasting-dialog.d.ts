@@ -12,9 +12,7 @@ declare class SpellcastingCreateAndEditDialog extends appv1.api.FormApplication<
     protected _updateObject(event: Event, formData: Record<string, unknown>): Promise<void>;
     private updateAndClose;
 }
-interface SpellcastingCreateAndEditDialogSheetData extends appv1.api.FormApplicationData<
-    SpellcastingEntryPF2e<CreaturePF2e>
-> {
+interface SpellcastingCreateAndEditDialogSheetData extends appv1.api.FormApplicationData<SpellcastingEntryPF2e<CreaturePF2e>> {
     actor: CreaturePF2e;
     system: SpellcastingEntrySystemSource;
     magicTraditions: typeof CONFIG.PF2E.magicTraditions;
@@ -29,7 +27,5 @@ interface SpellcastingCreateAndEditDialogSheetData extends appv1.api.FormApplica
     autoHeightenLevels: Record<string, string>;
     validItemTypes: Record<string, string>;
 }
-declare function createSpellcastingDialog(
-    object: CreaturePF2e | SpellcastingEntryPF2e<CreaturePF2e>,
-): Promise<SpellcastingCreateAndEditDialog>;
+declare function createSpellcastingDialog(object: CreaturePF2e | SpellcastingEntryPF2e<CreaturePF2e>): Promise<SpellcastingCreateAndEditDialog>;
 export { createSpellcastingDialog };

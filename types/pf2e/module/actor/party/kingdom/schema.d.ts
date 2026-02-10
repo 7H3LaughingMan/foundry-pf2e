@@ -2,22 +2,9 @@ import { DataSchema } from "#common/abstract/_types.mjs";
 import { ImageFilePath } from "#common/constants.mjs";
 import { ItemUUID } from "#common/documents/_module.mjs";
 import { ZeroToFour } from "./../../../data.ts";
-import {
-    DataUnionField,
-    RecordField,
-    StrictBooleanField,
-    StrictStringField,
-} from "./../../../system/schema-data-fields.ts";
+import { DataUnionField, RecordField, StrictBooleanField, StrictStringField } from "./../../../system/schema-data-fields.ts";
 import { RawModifier } from "./../../modifiers.ts";
-import {
-    FameType,
-    KingdomAbility,
-    KingdomBoostCategory,
-    KingdomCommodity,
-    KingdomLeadershipRole,
-    KingdomSettlementType,
-    KingdomSkill,
-} from "./types.ts";
+import { FameType, KingdomAbility, KingdomBoostCategory, KingdomCommodity, KingdomLeadershipRole, KingdomSettlementType, KingdomSkill } from "./types.ts";
 import fields = foundry.data.fields;
 declare function defineKingdomSchema(): KingdomSchema;
 type CHGSchema = {
@@ -57,9 +44,7 @@ type BuildSchema = {
         >
     >;
     /** Boost selections made by the user, both during the build process and levelling */
-    boosts: fields.SchemaField<
-        Record<KingdomBoostCategory, fields.ArrayField<fields.StringField<KingdomAbility, KingdomAbility, true, false>>>
-    >;
+    boosts: fields.SchemaField<Record<KingdomBoostCategory, fields.ArrayField<fields.StringField<KingdomAbility, KingdomAbility, true, false>>>>;
 };
 type ResourceSchema = {
     dice: fields.SchemaField<{
@@ -163,10 +148,7 @@ type KingdomSchema = {
     leadership: fields.SchemaField<Record<KingdomLeadershipRole, fields.SchemaField<LeadershipSchema>>>;
     resources: fields.SchemaField<ResourceSchema>;
     /** A collection of settlements controlled by this kingdom, and its related data */
-    settlements: RecordField<
-        fields.StringField<string, string, true, false, false>,
-        fields.SchemaField<SettlementSchema>
-    >;
+    settlements: RecordField<fields.StringField<string, string, true, false, false>, fields.SchemaField<SettlementSchema>>;
     consumption: fields.SchemaField<{
         settlement: fields.NumberField<number, number, true, false, true>;
         army: fields.NumberField<number, number, true, false, true>;

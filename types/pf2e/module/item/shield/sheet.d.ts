@@ -1,11 +1,5 @@
 import { ItemSheetOptions } from "./../base/sheet/sheet.ts";
-import {
-    Coins,
-    MaterialSheetData,
-    PhysicalItemSheetData,
-    PhysicalItemSheetPF2e,
-    RUNE_DATA,
-} from "./../physical/index.ts";
+import { Coins, MaterialSheetData, PhysicalItemSheetData, PhysicalItemSheetPF2e, RUNE_DATA } from "./../physical/index.ts";
 import { ShieldPF2e } from "./document.ts";
 import { BaseShieldType } from "./types.ts";
 declare class ShieldSheetPF2e extends PhysicalItemSheetPF2e<ShieldPF2e> {

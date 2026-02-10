@@ -1,10 +1,4 @@
-import {
-    BaseShapeData,
-    CircleShapeData,
-    EllipseShapeData,
-    PolygonShapeData,
-    RectangleShapeData,
-} from "./../../../common/data/data.mjs";
+import { BaseShapeData, CircleShapeData, EllipseShapeData, PolygonShapeData, RectangleShapeData } from "./../../../common/data/data.mjs";
 import Region from "./../../canvas/placeables/region.mjs";
 import RegionDocument from "./../../documents/region.mjs";
 

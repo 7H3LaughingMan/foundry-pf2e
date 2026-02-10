@@ -68,11 +68,4 @@ interface BaseRollContext {
     /** Skip the roll dialog regardless of user setting  */
     skipDialog?: boolean;
 }
-export type {
-    AttackRollParams,
-    BaseRollContext,
-    DamageRollParams,
-    DiceRollOptionsPF2e,
-    RollParameters,
-    RollTwiceOption,
-};
+export type { AttackRollParams, BaseRollContext, DamageRollParams, DiceRollOptionsPF2e, RollParameters, RollTwiceOption };

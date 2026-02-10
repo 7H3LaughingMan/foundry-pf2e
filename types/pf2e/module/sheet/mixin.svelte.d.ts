@@ -25,17 +25,11 @@ declare abstract class SvelteApplication extends fa.api.ApplicationV2 {
     /** The mounted root component, saved to be unmounted on application close */
     #mount: object;
 
-    protected abstract override _prepareContext(
-        options: fa.ApplicationRenderOptions,
-    ): Promise<SvelteApplicationRenderContext>;
+    protected abstract override _prepareContext(options: fa.ApplicationRenderOptions): Promise<SvelteApplicationRenderContext>;
 
     protected override _renderHTML(context: SvelteApplicationRenderContext): Promise<SvelteApplicationRenderContext>;
 
-    protected override _replaceHTML(
-        result: SvelteApplicationRenderContext,
-        content: HTMLElement,
-        options: fa.ApplicationRenderOptions,
-    ): void;
+    protected override _replaceHTML(result: SvelteApplicationRenderContext, content: HTMLElement, options: fa.ApplicationRenderOptions): void;
 
     protected override _onClose(options: fa.ApplicationClosingOptions): void;
 }

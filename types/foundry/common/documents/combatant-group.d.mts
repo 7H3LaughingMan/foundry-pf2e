@@ -7,10 +7,7 @@ import BaseCombat from "./combat.mjs";
  * A Document that represents a grouping of individual Combatants in a Combat.
  * Defines the DataSchema and common behaviors for a CombatantGroup which are shared between both client and server.
  */
-export default class BaseCombatantGroup<TParent extends BaseCombat | null = BaseCombat | null> extends Document<
-    TParent,
-    CombatantGroupSchema
-> {
+export default class BaseCombatantGroup<TParent extends BaseCombat | null = BaseCombat | null> extends Document<TParent, CombatantGroupSchema> {
     /* -------------------------------------------- */
     /*  Model Configuration                         */
     /* -------------------------------------------- */

@@ -7,9 +7,7 @@ import { Statistic } from "./../system/statistic/statistic.ts";
 import { CreatureSource } from "./data/index.ts";
 import { ActorPF2e } from "./index.ts";
 import { ActorGroupUpdate } from "./types.ts";
-export declare class ActorSpellcasting<TActor extends ActorPF2e> extends DelegatedCollection<
-    BaseSpellcastingEntry<TActor>
-> {
+export declare class ActorSpellcasting<TActor extends ActorPF2e> extends DelegatedCollection<BaseSpellcastingEntry<TActor>> {
     #private;
     actor: TActor;
     /** The base casting proficiency, off of which spellcasting builds */

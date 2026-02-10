@@ -15,13 +15,9 @@ import * as z from "zod";
 
 export const zCreatureActorType: z.ZodLiteral<CreatureActorType> = z.literal(["character", "npc", "familiar"]);
 
-export const zCreatureTrait = z.custom<CreatureTrait>(
-    (data) => R.isString(data) && Object.hasOwn(CONFIG.PF2E.creatureTraits, data),
-);
+export const zCreatureTrait = z.custom<CreatureTrait>((data) => R.isString(data) && Object.hasOwn(CONFIG.PF2E.creatureTraits, data));
 
-export const zCreatureType = z.custom<CreatureType>(
-    (data) => R.isString(data) && Object.hasOwn(CONFIG.PF2E.creatureTypes, data),
-);
+export const zCreatureType = z.custom<CreatureType>((data) => R.isString(data) && Object.hasOwn(CONFIG.PF2E.creatureTypes, data));
 
 export const zLanguage = z.custom<Language>((data) => R.isString(data) && Object.hasOwn(CONFIG.PF2E.languages, data));
 
@@ -33,9 +29,4 @@ export const zSenseAcuity: z.ZodLiteral<SenseAcuity> = z.literal(["precise", "im
 
 export const zSenseType = z.custom<SenseType>((data) => R.isString(data) && Object.hasOwn(CONFIG.PF2E.senses, data));
 
-export const zSpecialVisionType: z.ZodLiteral<SpecialVisionType> = z.literal([
-    "low-light-vision",
-    "darkvision",
-    "greater-darkvision",
-    "see-invisibility",
-]);
+export const zSpecialVisionType: z.ZodLiteral<SpecialVisionType> = z.literal(["low-light-vision", "darkvision", "greater-darkvision", "see-invisibility"]);

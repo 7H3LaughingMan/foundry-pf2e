@@ -3,25 +3,17 @@ import VisionMode from "../perception/vision-mode.mjs";
 import { AmbientLight, Token } from "../placeables/_module.mjs";
 import { AdaptiveLightingShader, AdaptiveVisionShader } from "../rendering/shaders/_module.mjs";
 import { PointEffectSource } from "./point-effect-source.mjs";
-import RenderedEffectSource, {
-    RenderedEffectLayerConfig,
-    RenderedEffectSourceData,
-    RenderedEffectSourceLayer,
-} from "./rendered-effect-source.mjs";
+import RenderedEffectSource, { RenderedEffectLayerConfig, RenderedEffectSourceData, RenderedEffectSourceLayer } from "./rendered-effect-source.mjs";
 
 declare const RenderedPointEffectSource: {
     new <TObject extends AmbientLight | Token>(...args: any): RenderedEffectSource<TObject> & PointEffectSource;
 } & Omit<typeof RenderedEffectSource, "new"> &
     typeof PointEffectSource;
 
-interface RenderedPointEffectSource<TObject extends AmbientLight | Token> extends InstanceType<
-    typeof RenderedPointEffectSource<TObject>
-> {}
+interface RenderedPointEffectSource<TObject extends AmbientLight | Token> extends InstanceType<typeof RenderedPointEffectSource<TObject>> {}
 
 /** A specialized subclass of the PointSource abstraction which is used to control the rendering of vision sources. */
-export default class PointVisionSource<
-    TObject extends AmbientLight | Token,
-> extends RenderedPointEffectSource<TObject> {
+export default class PointVisionSource<TObject extends AmbientLight | Token> extends RenderedPointEffectSource<TObject> {
     static sourceType: "sight";
 
     static override _initializeShaderKeys: string[];

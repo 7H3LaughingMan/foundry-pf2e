@@ -3,13 +3,9 @@ import { BaseAmbientSound } from "./_module.mjs";
 import { CanvasDocument } from "./abstract/canvas-document.mjs";
 import Scene from "./scene.mjs";
 
-declare const CanvasBaseAmbientSound: new <TParent extends Scene | null>(
-    ...args: any
-) => BaseAmbientSound<TParent> & CanvasDocument<TParent>;
+declare const CanvasBaseAmbientSound: new <TParent extends Scene | null>(...args: any) => BaseAmbientSound<TParent> & CanvasDocument<TParent>;
 
-interface CanvasBaseAmbientSound<TParent extends Scene | null> extends InstanceType<
-    typeof CanvasBaseAmbientSound<TParent>
-> {}
+interface CanvasBaseAmbientSound<TParent extends Scene | null> extends InstanceType<typeof CanvasBaseAmbientSound<TParent>> {}
 
 export default class AmbientSoundDocument<TParent extends Scene | null> extends CanvasBaseAmbientSound<TParent> {}
 

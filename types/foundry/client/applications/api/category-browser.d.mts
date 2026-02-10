@@ -1,14 +1,6 @@
-import {
-    ApplicationClosingOptions,
-    ApplicationConfiguration,
-    ApplicationRenderContext,
-    ApplicationTabsConfiguration,
-} from "../_types.mjs";
+import { ApplicationClosingOptions, ApplicationConfiguration, ApplicationRenderContext, ApplicationTabsConfiguration } from "../_types.mjs";
 import ApplicationV2 from "./application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "./handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "./handlebars-application.mjs";
 
 export interface CategoryBrowserConfiguration extends ApplicationConfiguration {
     /** Where this application displays is a list of tagged FVTT packages */
@@ -40,9 +32,7 @@ export default abstract class CategoryBrowser extends HandlebarsApplicationMixin
      */
     protected get _dataLoaded(): boolean;
 
-    protected override _initializeApplicationOptions(
-        options: DeepPartial<CategoryBrowserConfiguration>,
-    ): CategoryBrowserConfiguration;
+    protected override _initializeApplicationOptions(options: DeepPartial<CategoryBrowserConfiguration>): CategoryBrowserConfiguration;
 
     protected override _configureRenderParts(options: HandlebarsRenderOptions): Record<string, HandlebarsTemplatePart>;
 
@@ -58,9 +48,7 @@ export default abstract class CategoryBrowser extends HandlebarsApplicationMixin
     /**
      * Prepare the structure of category data which is rendered in this configuration form.
      */
-    protected abstract _prepareCategoryData(): Promise<
-        Record<string, { id: string; label: string; entries: object[] }>
-    >;
+    protected abstract _prepareCategoryData(): Promise<Record<string, { id: string; label: string; entries: object[] }>>;
 
     /**
      * An optional method to make a potentially long-running request to load category data: a temporary message will be
@@ -71,10 +59,7 @@ export default abstract class CategoryBrowser extends HandlebarsApplicationMixin
     /**
      * Reusable logic for how categories are sorted in relation to each other.
      */
-    protected _sortCategories(
-        a: { label: string; [key: string]: unknown },
-        b: { label: string; [key: string]: unknown },
-    ): number;
+    protected _sortCategories(a: { label: string; [key: string]: unknown }, b: { label: string; [key: string]: unknown }): number;
 
     protected override _getTabsConfig(group: string): ApplicationTabsConfiguration | null;
 

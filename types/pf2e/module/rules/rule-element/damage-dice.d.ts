@@ -21,8 +21,7 @@ interface DamageDiceSource extends RuleElementSource {
     damageCategory?: JSONValue;
     hideIfDisabled?: JSONValue;
 }
-interface DamageDiceRuleElement
-    extends RuleElement<DamageDiceRuleSchema>, ModelPropsFromRESchema<DamageDiceRuleSchema> {}
+interface DamageDiceRuleElement extends RuleElement<DamageDiceRuleSchema>, ModelPropsFromRESchema<DamageDiceRuleSchema> {}
 type DamageDiceRuleSchema = RuleElementSchema & {
     /** All domains to add a modifier to */
     selector: fields.ArrayField<fields.StringField<string, string, true, false, false>>;
@@ -41,13 +40,7 @@ type DamageDiceRuleSchema = RuleElementSchema & {
      */
     critical: NullableBooleanField<true, true, true>;
     /** The damage category */
-    category: fields.StringField<
-        "persistent" | "precision" | "splash",
-        "persistent" | "precision" | "splash",
-        true,
-        true,
-        true
-    >;
+    category: fields.StringField<"persistent" | "precision" | "splash", "persistent" | "precision" | "splash", true, true, true>;
     /** A list of tags associated with this damage */
     tags: fields.ArrayField<SlugField<true, false, false>, string[], string[]>;
     /** Damage dice override data */

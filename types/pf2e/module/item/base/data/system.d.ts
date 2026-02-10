@@ -6,10 +6,10 @@ import { RuleElementSource } from "./../../../rules/index.ts";
 import { DamageType } from "./../../../system/damage/index.ts";
 import { Predicate } from "./../../../system/predication.ts";
 import { EffectAreaShape, ItemType } from "./../../types.ts";
-type BaseItemSourcePF2e<
-    TType extends ItemType,
-    TSystemSource extends ItemSystemSource = ItemSystemSource,
-> = foundry.documents.ItemSource<TType, TSystemSource> & {
+type BaseItemSourcePF2e<TType extends ItemType, TSystemSource extends ItemSystemSource = ItemSystemSource> = foundry.documents.ItemSource<
+    TType,
+    TSystemSource
+> & {
     flags: ItemSourceFlagsPF2e;
 };
 type ActionType = keyof typeof CONFIG.PF2E.actionTypes;

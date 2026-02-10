@@ -1,9 +1,6 @@
 import DocumentDirectory, { DocumentDirectoryConfiguration } from "../document-directory.mjs";
 import { ApplicationRenderContext } from "./../../../applications/_types.mjs";
-import {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "./../../../applications/api/handlebars-application.mjs";
+import { HandlebarsRenderOptions, HandlebarsTemplatePart } from "./../../../applications/api/handlebars-application.mjs";
 import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
 import { CompendiumDocument } from "./../../../documents/_module.mjs";
 import { DropCanvasData } from "./../../../helpers/hooks.mjs";
@@ -11,9 +8,7 @@ import { DropCanvasData } from "./../../../helpers/hooks.mjs";
 /**
  * An Application that displays the indexed contents of a Compendium pack.
  */
-export default class Compendium<
-    TDocument extends CompendiumDocument = CompendiumDocument,
-> extends DocumentDirectory<TDocument> {
+export default class Compendium<TDocument extends CompendiumDocument = CompendiumDocument> extends DocumentDirectory<TDocument> {
     static override DEFAULT_OPTIONS: DeepPartial<DocumentDirectoryConfiguration>;
 
     static override PARTS: Record<string, HandlebarsTemplatePart>;
@@ -32,9 +27,7 @@ export default class Compendium<
     /*  Rendering                                   */
     /* -------------------------------------------- */
 
-    protected override _initializeApplicationOptions(
-        options: DeepPartial<DocumentDirectoryConfiguration>,
-    ): DocumentDirectoryConfiguration;
+    protected override _initializeApplicationOptions(options: DeepPartial<DocumentDirectoryConfiguration>): DocumentDirectoryConfiguration;
 
     protected override _canCreateEntry(): boolean;
 
@@ -48,10 +41,7 @@ export default class Compendium<
 
     protected override _getFolderContextOptions(): ContextMenuEntry[];
 
-    protected override _prepareHeaderContext(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _prepareHeaderContext(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     protected override _onRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 

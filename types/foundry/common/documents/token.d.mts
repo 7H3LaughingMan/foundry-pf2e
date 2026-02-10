@@ -11,10 +11,7 @@ import { BaseActorDelta, BaseScene } from "./_module.mjs";
  * @param data Initial data from which to construct the document.
  * @property data The constructed data object for the document.
  */
-export default class BaseToken<TParent extends BaseScene | null = BaseScene | null> extends Document<
-    TParent,
-    TokenSchema
-> {
+export default class BaseToken<TParent extends BaseScene | null = BaseScene | null> extends Document<TParent, TokenSchema> {
     static override get metadata(): TokenMetadata;
 
     static override defineSchema(): TokenSchema;
@@ -125,9 +122,7 @@ type TokenSchema = {
     /** The rotation of the Token in degrees, from 0 to 360. A value of 0 represents a southward-facing Token. */
     rotation: fields.AngleField;
     /** An array of effect icon paths which are displayed on the Token */
-    effects: fields.ArrayField<
-        fields.FilePathField<ImageFilePath | VideoFilePath, ImageFilePath | VideoFilePath, true, false>
-    >;
+    effects: fields.ArrayField<fields.FilePathField<ImageFilePath | VideoFilePath, ImageFilePath | VideoFilePath, true, false>>;
     /** The opacity of the token image */
     alpha: fields.AlphaField;
     /** Is the Token currently hidden from player view? */
@@ -209,9 +204,7 @@ type TokenSchema = {
 
 export type TokenSource = fields.SourceFromSchema<TokenSchema>;
 
-export class ActorDeltaField<
-    TDocument extends BaseActorDelta<BaseToken> = BaseActorDelta<BaseToken>,
-> extends fields.EmbeddedDocumentField<TDocument> {
+export class ActorDeltaField<TDocument extends BaseActorDelta<BaseToken> = BaseActorDelta<BaseToken>> extends fields.EmbeddedDocumentField<TDocument> {
     override initialize(
         value: fields.MaybeSchemaProp<TDocument["_source"], true, true, true>,
         model?: TDocument | null,

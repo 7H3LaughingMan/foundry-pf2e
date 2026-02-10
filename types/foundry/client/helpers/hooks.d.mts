@@ -22,18 +22,7 @@ import { ContextMenuEntry } from "./../applications/ux/context-menu.mjs";
 import Canvas from "./../canvas/board.mjs";
 import LightingLayer from "./../canvas/layers/lighting.mjs";
 import Token from "./../canvas/placeables/token.mjs";
-import {
-    Actor,
-    ChatMessage,
-    Combat,
-    Item,
-    JournalEntry,
-    JournalEntryPage,
-    Macro,
-    Scene,
-    TokenDocument,
-    User,
-} from "./../documents/_module.mjs";
+import { Actor, ChatMessage, Combat, Item, JournalEntry, JournalEntryPage, Macro, Scene, TokenDocument, User } from "./../documents/_module.mjs";
 import { DocumentUUID } from "./../utils/helpers.mjs";
 
 interface HookedFunction {
@@ -61,33 +50,15 @@ type HookParamsGetChatLogEntryContext = HookParameters<"getChatLogEntryContext",
 type HookParamsGetSceneControlButtons = HookParameters<"getSceneControlButtons", [Record<string, SceneControl>]>;
 type HookParamsHotbarDrop = HookParameters<"hotbarDrop", [Hotbar<Macro>, DropCanvasData, string]>;
 type HookParamsLightingRefresh = HookParameters<"lightingRefresh", [LightingLayer]>;
-type HookParamsPreCreateItem = HookParameters<
-    "preCreateItem",
-    [PreCreate<foundry.documents.ItemSource>, DatabaseCreateOperation<Actor | null>, string]
->;
-type HooksParamsPreUpdateCombat = HookParameters<
-    "preUpdateCombat",
-    [Combat, object, { diff: boolean; advanceTime: number; [key: string]: unknown }, string]
->;
+type HookParamsPreCreateItem = HookParameters<"preCreateItem", [PreCreate<foundry.documents.ItemSource>, DatabaseCreateOperation<Actor | null>, string]>;
+type HooksParamsPreUpdateCombat = HookParameters<"preUpdateCombat", [Combat, object, { diff: boolean; advanceTime: number; [key: string]: unknown }, string]>;
 type HookParamsPreUpdateToken = HookParameters<
     "preUpdateToken",
-    [
-        Scene,
-        foundry.documents.TokenSource,
-        DeepPartial<foundry.documents.TokenSource>,
-        { diff: boolean; [key: string]: unknown },
-        string,
-    ]
+    [Scene, foundry.documents.TokenSource, DeepPartial<foundry.documents.TokenSource>, { diff: boolean; [key: string]: unknown }, string]
 >;
-type HookParamsRender<
-    T extends Application | ApplicationV2,
-    N extends string,
-    C extends ApplicationRenderContext = ApplicationRenderContext,
-> = HookParameters<
+type HookParamsRender<T extends Application | ApplicationV2, N extends string, C extends ApplicationRenderContext = ApplicationRenderContext> = HookParameters<
     `render${N}`,
-    T extends Application
-        ? [T, JQuery, Awaited<ReturnType<T["getData"]>>]
-        : [T, HTMLElement, C, ApplicationRenderOptions]
+    T extends Application ? [T, JQuery, Awaited<ReturnType<T["getData"]>>] : [T, HTMLElement, C, ApplicationRenderOptions]
 >;
 type HookParamsRenderChatMessageHTML = HookParameters<"renderChatMessageHTML", [ChatMessage, string, object]>;
 type HookParamsTargetToken = HookParameters<"targetToken", [User, Token<TokenDocument<Scene>>, boolean]>;
@@ -140,12 +111,8 @@ export namespace Hooks {
     function on(...args: HookParamsRender<SettingsConfig, "SettingsConfig">): number;
     function on(...args: HookParamsRender<TokenHUD, "TokenHUD", PlaceableHUDContext>): number;
     function on(...args: HookParamsRenderChatMessageHTML): number;
-    function on(
-        ...args: HookParamsRender<JournalPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalPageSheet">
-    ): number;
-    function on(
-        ...args: HookParamsRender<JournalTextPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalTextPageSheet">
-    ): number;
+    function on(...args: HookParamsRender<JournalPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalPageSheet">): number;
+    function on(...args: HookParamsRender<JournalTextPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalTextPageSheet">): number;
     function on(...args: HookParamsRender<RegionLegend, "RegionLegend">): number;
     function on(...args: HookParamsTargetToken): number;
     function on(...args: HookParamsUpdate<Combat, "Combat">): number;
@@ -181,12 +148,8 @@ export namespace Hooks {
     function once(...args: HookParamsRender<CompendiumDirectory, "CompendiumDirectory">): number;
     function once(...args: HookParamsRender<Dialog, "Dialog">): number;
     function once(...args: HookParamsRender<ItemDirectory<Item<null>>, "ItemDirectory">): number;
-    function once(
-        ...args: HookParamsRender<JournalPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalPageSheet">
-    ): number;
-    function once(
-        ...args: HookParamsRender<JournalTextPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalTextPageSheet">
-    ): number;
+    function once(...args: HookParamsRender<JournalPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalPageSheet">): number;
+    function once(...args: HookParamsRender<JournalTextPageSheet<JournalEntryPage<JournalEntry | null>>, "JournalTextPageSheet">): number;
     function once(...args: HookParamsRender<SceneControls, "SceneControls">): number;
     function once(...args: HookParamsRender<Settings, "Settings">): number;
     function once(...args: HookParamsRender<SettingsConfig, "SettingsConfig">): number;

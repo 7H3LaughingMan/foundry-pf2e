@@ -1,17 +1,7 @@
 import { createHTMLElement } from "#utilities/dom.ts";
 
-export function notesToHTML(
-    notes: { title?: string | null; text: string; visibility?: "none" | "all" | "gm" | "owner" | null }[],
-): string | undefined {
-    function toHTML({
-        title,
-        text,
-        visibility,
-    }: {
-        title?: string | null;
-        text: string;
-        visibility?: "none" | "all" | "gm" | "owner" | null;
-    }): HTMLLIElement {
+export function notesToHTML(notes: { title?: string | null; text: string; visibility?: "none" | "all" | "gm" | "owner" | null }[]): string | undefined {
+    function toHTML({ title, text, visibility }: { title?: string | null; text: string; visibility?: "none" | "all" | "gm" | "owner" | null }): HTMLLIElement {
         const element = createHTMLElement("li", {
             classes: ["roll-note"],
             dataset: {

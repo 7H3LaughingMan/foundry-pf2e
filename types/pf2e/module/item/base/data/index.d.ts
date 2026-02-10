@@ -89,15 +89,7 @@ interface TraitChatData {
     mystified?: boolean;
     excluded?: boolean;
 }
-export type {
-    ActionCost,
-    ActionType,
-    Frequency,
-    FrequencyInterval,
-    FrequencySource,
-    ItemFlagsPF2e,
-    ItemSystemData,
-} from "./system.ts";
+export type { ActionCost, ActionType, Frequency, FrequencyInterval, FrequencySource, ItemFlagsPF2e, ItemSystemData } from "./system.ts";
 export type {
     AbilitySource,
     AbstractEffectSource,

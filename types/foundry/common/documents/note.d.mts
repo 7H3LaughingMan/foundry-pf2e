@@ -28,15 +28,10 @@ export default class BaseNote<TParent extends BaseScene | null> extends Document
     /*  Model Methods                               */
     /* -------------------------------------------- */
 
-    testUserPermission(
-        user: BaseUser,
-        permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
-    ): boolean;
+    testUserPermission(user: BaseUser, permission: DocumentOwnershipString | DocumentOwnershipLevel, { exact }?: { exact?: boolean }): boolean;
 }
 
-export default interface BaseNote<TParent extends BaseScene | null>
-    extends Document<TParent, NoteSchema>, fields.ModelPropsFromSchema<NoteSchema> {
+export default interface BaseNote<TParent extends BaseScene | null> extends Document<TParent, NoteSchema>, fields.ModelPropsFromSchema<NoteSchema> {
     get documentName(): NoteMetadata["name"];
 }
 

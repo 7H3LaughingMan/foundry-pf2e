@@ -12,6 +12,5 @@ type ActorTraitsRuleSchema = RuleElementSchema & {
     add: fields.ArrayField<fields.StringField<string, string, true, false, false>>;
     remove: fields.ArrayField<fields.StringField<string, string, true, false, false>>;
 };
-interface ActorTraitsRuleElement
-    extends RuleElement<ActorTraitsRuleSchema>, ModelPropsFromRESchema<ActorTraitsRuleSchema> {}
+interface ActorTraitsRuleElement extends RuleElement<ActorTraitsRuleSchema>, ModelPropsFromRESchema<ActorTraitsRuleSchema> {}
 export { ActorTraitsRuleElement };

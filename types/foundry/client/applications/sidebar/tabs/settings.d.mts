@@ -1,7 +1,4 @@
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/handlebars-application.mjs";
 import AbstractSidebarTab from "../sidebar-tab.mjs";
 import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_types.mjs";
 

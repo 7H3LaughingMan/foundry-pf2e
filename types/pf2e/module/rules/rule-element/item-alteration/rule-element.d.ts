@@ -17,8 +17,7 @@ declare class ItemAlterationRuleElement extends RuleElement<ItemAlterationRuleSc
     afterPrepareData(): void;
     applyAlteration({ singleItem, additionalItems }?: ApplyAlterationOptions): void;
 }
-interface ItemAlterationRuleElement
-    extends RuleElement<ItemAlterationRuleSchema>, ModelPropsFromRESchema<ItemAlterationRuleSchema> {
+interface ItemAlterationRuleElement extends RuleElement<ItemAlterationRuleSchema>, ModelPropsFromRESchema<ItemAlterationRuleSchema> {
     constructor: typeof ItemAlterationRuleElement;
 }
 type ItemAlterationRuleSchema = RuleElementSchema &

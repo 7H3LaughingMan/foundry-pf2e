@@ -25,8 +25,7 @@ interface VehicleMovementData {
         };
     };
 }
-interface VehicleSystemData
-    extends ActorSystemModel<VehiclePF2e, VehicleSystemSchema>, fields.ModelPropsFromSchema<VehicleSystemSchema> {
+interface VehicleSystemData extends ActorSystemModel<VehiclePF2e, VehicleSystemSchema>, fields.ModelPropsFromSchema<VehicleSystemSchema> {
     traits: VehicleTraits;
     attributes: VehicleAttributes;
     details: VehicleDetails;
@@ -34,11 +33,7 @@ interface VehicleSystemData
 }
 type VehicleSystemSchema = ActorSystemSchema & {
     traits: fields.SchemaField<VehicleTraitsSchema>;
-    attributes: fields.SchemaField<
-        VehicleAttributesSchema,
-        fields.SourceFromSchema<VehicleAttributesSchema>,
-        VehicleAttributes
-    >;
+    attributes: fields.SchemaField<VehicleAttributesSchema, fields.SourceFromSchema<VehicleAttributesSchema>, VehicleAttributes>;
     details: fields.SchemaField<VehicleDetailsSchema>;
     saves: fields.SchemaField<{
         fortitude: fields.SchemaField<{
@@ -90,8 +85,7 @@ type VehicleAttributesSchema = {
         }>
     >;
     emitsSound: DataUnionField<
-        | fields.StringField<"encounter", "encounter", true, false, false>
-        | fields.BooleanField<boolean, boolean, true, false, false>,
+        fields.StringField<"encounter", "encounter", true, false, false> | fields.BooleanField<boolean, boolean, true, false, false>,
         true,
         false,
         true

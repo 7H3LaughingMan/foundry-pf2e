@@ -2,9 +2,7 @@ import { ActorPF2e } from "./../../base.ts";
 /** Simple dialog to add currency of various denominations to an actor */
 declare class UpdateCurrencyDialog extends fa.api.HandlebarsApplicationMixin(fa.api.ApplicationV2) {
     #private;
-    constructor(
-        options: Partial<UpdateCurrencyConfiguration> & Required<Pick<UpdateCurrencyConfiguration, "actor" | "mode">>,
-    );
+    constructor(options: Partial<UpdateCurrencyConfiguration> & Required<Pick<UpdateCurrencyConfiguration, "actor" | "mode">>);
     static DEFAULT_OPTIONS: DeepPartial<UpdateCurrencyConfiguration>;
     static PARTS: {
         base: {

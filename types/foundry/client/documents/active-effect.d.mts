@@ -1,31 +1,19 @@
 import { DocumentConstructionContext } from "./../../common/_types.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "./../../common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseDeleteCallbackOptions, DatabaseUpdateCallbackOptions } from "./../../common/abstract/_types.mjs";
 import Document from "./../../common/abstract/document.mjs";
 import { DataField } from "./../../common/data/fields.mjs";
-import BaseActiveEffect, {
-    ActiveEffectSource,
-    EffectChangeData,
-    EffectDurationData,
-} from "./../../common/documents/active-effect.mjs";
+import BaseActiveEffect, { ActiveEffectSource, EffectChangeData, EffectDurationData } from "./../../common/documents/active-effect.mjs";
 import { Actor, BaseActor, BaseItem, BaseUser, Item } from "./_module.mjs";
 import { ClientDocument } from "./abstract/client-document.mjs";
 
-declare const ClientBaseActiveEffect: new <TParent extends BaseActor | BaseItem | null>(
-    ...args: any
-) => BaseActiveEffect<TParent> & ClientDocument<TParent>;
+declare const ClientBaseActiveEffect: new <TParent extends BaseActor | BaseItem | null>(...args: any) => BaseActiveEffect<TParent> & ClientDocument<TParent>;
 
 /**
  * The ActiveEffect embedded document within an Actor or Item document which extends the BaseRollTable abstraction.
  * Each ActiveEffect belongs to the effects collection of its parent Document.
  * Each ActiveEffect contains a ActiveEffectData object which provides its source data.
  */
-export default class ActiveEffect<
-    TParent extends Actor | Item | null = Actor | Item | null,
-> extends ClientBaseActiveEffect<TParent> {
+export default class ActiveEffect<TParent extends Actor | Item | null = Actor | Item | null> extends ClientBaseActiveEffect<TParent> {
     /**
      * Create an ActiveEffect instance from some status effect ID.
      * Delegates to {@link ActiveEffect._fromStatusEffect} to create the ActiveEffect instance
@@ -183,25 +171,13 @@ export default class ActiveEffect<
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
     protected override _onCreate(data: this["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    protected override _preUpdate(
-        changed: Record<string, unknown>,
-        options: DatabaseUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preUpdate(changed: Record<string, unknown>, options: DatabaseUpdateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
-    protected override _onUpdate(
-        changed: Record<string, unknown>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: Record<string, unknown>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 

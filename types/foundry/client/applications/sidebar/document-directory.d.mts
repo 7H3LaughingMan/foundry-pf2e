@@ -53,9 +53,7 @@ export default class DocumentDirectory<TDocument extends DirectoryMixinEntry> ex
     /*  Rendering                                   */
     /* -------------------------------------------- */
 
-    protected override _initializeApplicationOptions(
-        options: DeepPartial<DocumentDirectoryConfiguration>,
-    ): DocumentDirectoryConfiguration;
+    protected override _initializeApplicationOptions(options: DeepPartial<DocumentDirectoryConfiguration>): DocumentDirectoryConfiguration;
 
     /** Determine if the current user has permission to create directory entries. */
     protected _canCreateEntry(): boolean;
@@ -76,18 +74,11 @@ export default class DocumentDirectory<TDocument extends DirectoryMixinEntry> ex
     /** Get context menu entries for folders in this directory. */
     protected _getFolderContextOptions(): ContextMenuEntry[];
 
-    protected override _onFirstRender(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _onFirstRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     protected override _prepareContext(options: HandlebarsRenderOptions): Promise<object>;
 
-    protected override _preparePartContext(
-        partId: string,
-        context: object,
-        options: HandlebarsRenderOptions,
-    ): Promise<object>;
+    protected override _preparePartContext(partId: string, context: object, options: HandlebarsRenderOptions): Promise<object>;
 
     /** Prepare render context for the directory part. */
     protected _prepareDirectoryContext(context: object, options: HandlebarsRenderOptions): Promise<void>;
@@ -106,19 +97,9 @@ export default class DocumentDirectory<TDocument extends DirectoryMixinEntry> ex
 
     protected override _preRender(context: object, options: HandlebarsRenderOptions): Promise<void>;
 
-    protected override _preSyncPartState(
-        partId: string,
-        newElement: HTMLElement,
-        priorElement: HTMLElement,
-        state: object,
-    ): void;
+    protected override _preSyncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
 
-    protected override _syncPartState(
-        partId: string,
-        newElement: HTMLElement,
-        priorElement: HTMLElement,
-        state: object,
-    ): void;
+    protected override _syncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
 
     /* -------------------------------------------- */
     /*  Public API                                  */
@@ -139,11 +120,7 @@ export default class DocumentDirectory<TDocument extends DirectoryMixinEntry> ex
      * @param HTMLElement target The action target element.
      * @param options._skipDeprecation Internal use only.
      */
-    protected _onClickEntry(
-        event: PointerEvent,
-        target: HTMLElement,
-        { _skipDeprecation }?: { _skipDeprecation?: boolean },
-    ): Promise<void>;
+    protected _onClickEntry(event: PointerEvent, target: HTMLElement, { _skipDeprecation }?: { _skipDeprecation?: boolean }): Promise<void>;
 
     /**
      * Handle creating a new entry in this directory.
@@ -167,11 +144,7 @@ export default class DocumentDirectory<TDocument extends DirectoryMixinEntry> ex
      * @param {boolean} [options._skipDeprecation] Internal use only.
      * @protected
      */
-    protected _onToggleFolder(
-        event: PointerEvent,
-        target: HTMLElement,
-        { _skipDeprecation }?: { _skipDeprecation?: boolean },
-    ): void;
+    protected _onToggleFolder(event: PointerEvent, target: HTMLElement, { _skipDeprecation }?: { _skipDeprecation?: boolean }): void;
 
     /* -------------------------------------------- */
     /*  Search & Filter                             */
@@ -202,12 +175,7 @@ export default class DocumentDirectory<TDocument extends DirectoryMixinEntry> ex
      * @param folderIds The set of matched folder IDs.
      * @param autoExpandIds The set of folder IDs that should be auto-expanded.
      */
-    protected _matchSearchEntries(
-        query: RegExp,
-        entryIds: Set<string>,
-        folderIds: Set<string>,
-        autoExpandIds: Set<string>,
-    ): void;
+    protected _matchSearchEntries(query: RegExp, entryIds: Set<string>, folderIds: Set<string>, autoExpandIds: Set<string>): void;
 
     /**
      * Identify folders in the collection which match a provided search query.
@@ -244,10 +212,7 @@ export default class DocumentDirectory<TDocument extends DirectoryMixinEntry> ex
      * @param folder    The dropped folder.
      * @param documents The documents to create, or their indices.
      */
-    protected _createDroppedFolderDocuments(
-        folder: Folder,
-        documents: TDocument[] | CompendiumIndexData[],
-    ): Promise<void>;
+    protected _createDroppedFolderDocuments(folder: Folder, documents: TDocument[] | CompendiumIndexData[]): Promise<void>;
 
     /**
      * Test if the given entry is already present in this directory.
@@ -301,11 +266,7 @@ export default class DocumentDirectory<TDocument extends DirectoryMixinEntry> ex
      * @param closestFolderId The ID of the closest folder to the drop target.
      * @param sortData        Sort data for the folder.
      */
-    protected _handleDroppedForeignFolder(
-        folder: Folder,
-        closestFolderId: string,
-        sortData: object,
-    ): Promise<{ folder: Folder; sortNeeded: boolean } | null>;
+    protected _handleDroppedForeignFolder(folder: Folder, closestFolderId: string, sortData: object): Promise<{ folder: Folder; sortNeeded: boolean } | null>;
 
     /**
      * Highlight folders as drop targets when a drag event enters or exits their area.

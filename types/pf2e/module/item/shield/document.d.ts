@@ -33,11 +33,7 @@ declare class ShieldPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ex
     generateUnidentifiedName({ typeOnly }?: { typeOnly?: boolean }): string;
     /** Generate a shield bash or other weapon(-like) item from this shield */
     generateWeapon(): WeaponPF2e<TParent> | null;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
 }
 interface ShieldPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends PhysicalItemPF2e<TParent> {
     readonly _source: ShieldSource;

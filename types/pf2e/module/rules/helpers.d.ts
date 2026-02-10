@@ -1,11 +1,5 @@
 import { ActorPF2e } from "./../actor/index.ts";
-import {
-    DamageDicePF2e,
-    DeferredDamageDiceOptions,
-    DeferredValueParams,
-    Modifier,
-    ModifierAdjustment,
-} from "./../actor/modifiers.ts";
+import { DamageDicePF2e, DeferredDamageDiceOptions, DeferredValueParams, Modifier, ModifierAdjustment } from "./../actor/modifiers.ts";
 import { PickableThing } from "./../apps/pick-a-thing-prompt/app.ts";
 import { ConditionSource, EffectSource } from "./../item/base/data/index.ts";
 import { ItemPF2e } from "./../item/index.ts";
@@ -17,27 +11,16 @@ import { DamageAlteration } from "./rule-element/damage-alteration/alteration.ts
 import { RuleElement } from "./rule-element/index.ts";
 import { DamageDiceSynthetics, RollSubstitution, RollTwiceSynthetic, RuleElementSynthetics } from "./synthetics.ts";
 /** Extracts a list of all cloned modifiers across all given keys in a single list. */
-declare function extractModifiers(
-    synthetics: RuleElementSynthetics,
-    domains: string[],
-    options?: DeferredValueParams,
-): Modifier[];
+declare function extractModifiers(synthetics: RuleElementSynthetics, domains: string[], options?: DeferredValueParams): Modifier[];
 declare function extractModifierAdjustments(
     adjustmentsRecord: RuleElementSynthetics["modifierAdjustments"],
     selectors: string[],
     slug: string,
 ): ModifierAdjustment[];
-declare function extractDamageAlterations(
-    alterationsRecord: Record<string, DamageAlteration[]>,
-    selectors: string[],
-    slug: string,
-): DamageAlteration[];
+declare function extractDamageAlterations(alterationsRecord: Record<string, DamageAlteration[]>, selectors: string[], slug: string): DamageAlteration[];
 /** Extracts a list of all cloned notes across all given keys in a single list. */
 declare function extractNotes(rollNotes: Record<string, RollNotePF2e[]>, selectors: string[]): RollNotePF2e[];
-declare function extractDamageDice(
-    synthetics: DamageDiceSynthetics,
-    options: DeferredDamageDiceOptions,
-): DamageDicePF2e[];
+declare function extractDamageDice(synthetics: DamageDiceSynthetics, options: DeferredDamageDiceOptions): DamageDicePF2e[];
 declare function processDamageCategoryStacking(
     base: BaseDamageData[],
     options: {
@@ -65,16 +48,8 @@ interface ExtractEphemeralEffectsParams {
     domains: string[];
     options: Set<string> | string[];
 }
-declare function extractRollTwice(
-    rollTwices: Record<string, RollTwiceSynthetic[]>,
-    selectors: string[],
-    options: Set<string>,
-): RollTwiceOption;
-declare function extractRollSubstitutions(
-    substitutions: Record<string, RollSubstitution[]>,
-    domains: string[],
-    rollOptions: Set<string>,
-): RollSubstitution[];
+declare function extractRollTwice(rollTwices: Record<string, RollTwiceSynthetic[]>, selectors: string[], options: Set<string>): RollTwiceOption;
+declare function extractRollSubstitutions(substitutions: Record<string, RollSubstitution[]>, domains: string[], rollOptions: Set<string>): RollSubstitution[];
 declare function extractDegreeOfSuccessAdjustments(
     synthetics: Pick<RuleElementSynthetics, "degreeOfSuccessAdjustments">,
     selectors: string[],
@@ -88,10 +63,7 @@ declare function processPreUpdateActorHooks(
     },
 ): Promise<void>;
 /** Gets the item update info that applies an update to all given rules */
-declare function createBatchRuleElementUpdate(
-    rules: RuleElement[],
-    update: Record<string, unknown>,
-): EmbeddedDocumentUpdateData[];
+declare function createBatchRuleElementUpdate(rules: RuleElement[], update: Record<string, unknown>): EmbeddedDocumentUpdateData[];
 declare function processChoicesFromData(data: unknown): PickableThing<string>[];
 export {
     createBatchRuleElementUpdate,

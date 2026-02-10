@@ -22,26 +22,15 @@ declare class ActionMacroHelpers {
         options: CheckContextOptions<ItemType>,
         data: CheckContextData<ItemType>,
     ): CheckMacroContext<ItemType> | undefined;
-    static note(
-        selector: string,
-        translationPrefix: string,
-        outcome: DegreeOfSuccessString,
-        translationKey?: string,
-    ): RollNotePF2e;
+    static note(selector: string, translationPrefix: string, outcome: DegreeOfSuccessString, translationKey?: string): RollNotePF2e;
     static outcomesNote(selector: string, translationKey: string, outcomes: DegreeOfSuccessString[]): RollNotePF2e;
-    static simpleRollActionCheck<TItem extends ItemPF2e<ActorPF2e>>(
-        options: SimpleRollActionCheckOptions<TItem>,
-    ): Promise<void>;
+    static simpleRollActionCheck<TItem extends ItemPF2e<ActorPF2e>>(options: SimpleRollActionCheckOptions<TItem>): Promise<void>;
     static target(): {
         token: TokenDocumentPF2e | null;
         actor: ActorPF2e | null;
     };
     static getWeaponPotencyModifier(item: WeaponPF2e<ActorPF2e>, selector: string): Modifier | null;
-    static getBestEquippedItemForAction(
-        actor: ActorPF2e,
-        traits: WeaponTrait[],
-        selector: string,
-    ): WeaponPF2e<ActorPF2e> | null;
+    static getBestEquippedItemForAction(actor: ActorPF2e, traits: WeaponTrait[], selector: string): WeaponPF2e<ActorPF2e> | null;
     /** Attempts to get the label for the given statistic using a slug */
     static getSimpleCheckLabel(slug: string): string | null;
 }

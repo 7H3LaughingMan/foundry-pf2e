@@ -52,11 +52,7 @@ export default class ClientIssues {
      * @param error  The validation error.
      * @internal
      */
-    _trackValidationFailure(
-        collection: WorldCollection<WorldDocument | Setting>,
-        source: object,
-        error: DataModelValidationError,
-    ): void;
+    _trackValidationFailure(collection: WorldCollection<WorldDocument | Setting>, source: object, error: DataModelValidationError): void;
 
     /**
      * Detect and record certain usability error messages which are likely to result in the user having a bad experience.

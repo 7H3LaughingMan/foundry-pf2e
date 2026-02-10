@@ -1,8 +1,4 @@
-import {
-    DatabaseCreateOperation,
-    DatabaseDeleteCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "#common/abstract/_types.mjs";
+import { DatabaseCreateOperation, DatabaseDeleteCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { default as Document } from "#common/abstract/document.mjs";
 import { DocumentFlags } from "#common/data/_module.mjs";
 import { SkillSlug } from "../actor/types.ts";
@@ -45,13 +41,7 @@ declare class CombatantPF2e<
     endTurn(options: { round: number }): Promise<void>;
     prepareBaseData(): void;
     /** Toggle the defeated status of this combatant, applying or removing the overlay icon on its token */
-    toggleDefeated({
-        to,
-        overlayIcon,
-    }?: {
-        to?: boolean | undefined;
-        overlayIcon?: boolean | undefined;
-    }): Promise<void>;
+    toggleDefeated({ to, overlayIcon }?: { to?: boolean | undefined; overlayIcon?: boolean | undefined }): Promise<void>;
     /**
      * Hide the tracked resource if the combatant represents a non-player-owned actor
      * @todo Make this a configurable with a metagame-knowledge setting
@@ -62,11 +52,7 @@ declare class CombatantPF2e<
     _getInitiativeFormula(): string;
     /** Toggle the visibility of names to players */
     toggleNameVisibility(): Promise<void>;
-    protected _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 }
 interface CombatantPF2e<

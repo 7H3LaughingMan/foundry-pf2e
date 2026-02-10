@@ -10,10 +10,7 @@ export default class Collection<K extends string, V> {
      * @param items An iterable.
      * @param keySelector A callback which will be invoked for each item in items.
      */
-    static groupBy<L extends string, W>(
-        items: Iterable<W>,
-        keySelector: (item: W, index: number) => L,
-    ): Collection<L, W[]>;
+    static groupBy<L extends string, W>(items: Iterable<W>, keySelector: (item: W, index: number) => L): Collection<L, W[]>;
 
     set(key: K, value: V): this;
 

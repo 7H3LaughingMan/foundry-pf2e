@@ -19,6 +19,6 @@ declare global {
          * @param options.lowercase Lowercase the string.
          * @returns The slugified input string
          */
-        slugify(options?: {replacement?: string, strict?: boolean, lowercase?: boolean}): string
+        slugify(options?: { replacement?: string; strict?: boolean; lowercase?: boolean }): string;
     }
 }

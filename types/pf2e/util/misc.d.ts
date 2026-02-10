@@ -62,10 +62,7 @@ declare function sluggify(
 type SlugCamel = "dromedary" | "bactrian" | null;
 /** Parse a string containing html */
 declare function parseHTML(unparsed: string): HTMLElement;
-declare function getActionTypeLabel(
-    type: Maybe<"action" | "free" | "reaction" | "passive">,
-    cost: Maybe<number>,
-): string | null;
+declare function getActionTypeLabel(type: Maybe<"action" | "free" | "reaction" | "passive">, cost: Maybe<number>): string | null;
 /**
  * Returns a character that can be used with the Pathfinder action font
  * to display an icon. If null it returns empty string.
@@ -123,10 +120,7 @@ declare function recursiveReplaceString<T>(source: T, replace: (s: string) => st
 /** Create a localization function with a prefixed localization object path */
 declare function localizer(prefix: string): (...args: Parameters<Localization["format"]>) => string;
 /** Walk a localization object and recursively map the keys as localization strings starting with a given prefix */
-declare function configFromLocalization<T extends Record<string, TranslationDictionaryValue>>(
-    localization: T,
-    prefix: string,
-): T;
+declare function configFromLocalization<T extends Record<string, TranslationDictionaryValue>>(localization: T, prefix: string): T;
 /** Does the parameter look like an image file path? */
 declare function isImageFilePath(path: unknown): path is ImageFilePath;
 /** Does the parameter look like a video file path? */

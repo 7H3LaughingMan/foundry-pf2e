@@ -47,12 +47,7 @@ export const zChoiceSetConfig = z.strictObject({
 
 export type zChoiceSetConfig = z.infer<typeof zChoiceSetConfig>;
 
-export const zChoiceSetObject = z.union([
-    zChoiceSetOwnedItems,
-    zChoiceSetAttacks,
-    zChoiceSetPackQuery,
-    zChoiceSetConfig,
-]);
+export const zChoiceSetObject = z.union([zChoiceSetOwnedItems, zChoiceSetAttacks, zChoiceSetPackQuery, zChoiceSetConfig]);
 
 export const zChoiceSetSource = zRuleElementSource.extend({
     key: z.literal("ChoiceSet"),

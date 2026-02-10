@@ -1,13 +1,6 @@
 import { ZeroToFour } from "./../../data.ts";
 import { PhysicalItemSource } from "./../base/data/index.ts";
-import {
-    BasePhysicalItemSource,
-    Investable,
-    ItemMaterialSource,
-    PhysicalItemTraits,
-    PhysicalSystemData,
-    PhysicalSystemSource,
-} from "./../physical/data.ts";
+import { BasePhysicalItemSource, Investable, ItemMaterialSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "./../physical/data.ts";
 import { Grade } from "./../physical/types.ts";
 import { WornUsage } from "./../physical/usage.ts";
 import { ArmorCategory, ArmorGroup, ArmorPropertyRuneType, ArmorTrait, BaseArmorType, OtherArmorTag } from "./index.ts";
@@ -41,25 +34,13 @@ type SpecificArmorData = {
     material: ItemMaterialSource;
     runes: ArmorRuneSource;
 };
-interface ArmorSystemData
-    extends
-        Omit<ArmorSystemSource, SourceOmission>,
-        Omit<Investable<PhysicalSystemData>, "baseItem" | "subitems" | "traits"> {
+interface ArmorSystemData extends Omit<ArmorSystemSource, SourceOmission>, Omit<Investable<PhysicalSystemData>, "baseItem" | "subitems" | "traits"> {
     runes: ArmorRuneData;
     /** Armor is always worn in the "armor" slot. */
     usage: WornUsage;
     stackGroup: null;
 }
-type SourceOmission =
-    | "apex"
-    | "bulk"
-    | "description"
-    | "hp"
-    | "identification"
-    | "material"
-    | "price"
-    | "temporary"
-    | "usage";
+type SourceOmission = "apex" | "bulk" | "description" | "hp" | "identification" | "material" | "price" | "temporary" | "usage";
 interface ArmorTraits extends PhysicalItemTraits<ArmorTrait> {
     otherTags: OtherArmorTag[];
 }

@@ -49,16 +49,8 @@ declare class ConditionPF2e<TParent extends ActorPF2e | null = ActorPF2e | null>
     prepareActorData(): void;
     /** Withhold all rule elements if this condition is inactive */
     prepareRuleElements(options?: Omit<RuleElementOptions, "parent">): RuleElement[];
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        operation: ConditionUpdateOperation<TParent>,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
-    protected _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        operation: ConditionUpdateOperation<TParent>,
-        userId: string,
-    ): void;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, operation: ConditionUpdateOperation<TParent>, user: fd.BaseUser): Promise<boolean | void>;
+    protected _onUpdate(changed: DeepPartial<this["_source"]>, operation: ConditionUpdateOperation<TParent>, userId: string): void;
 }
 interface ConditionPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends AbstractEffectPF2e<TParent> {
     readonly _source: ConditionSource;

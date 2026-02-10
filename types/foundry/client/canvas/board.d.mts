@@ -1,11 +1,4 @@
-import {
-    AmbientLightDocument,
-    MeasuredTemplateDocument,
-    RegionDocument,
-    Scene,
-    TokenDocument,
-    User,
-} from "../documents/_module.mjs";
+import { AmbientLightDocument, MeasuredTemplateDocument, RegionDocument, Scene, TokenDocument, User } from "../documents/_module.mjs";
 import { Point } from "./../../common/_types.mjs";
 import { CanvasPerformanceMode } from "./../../common/constants.mjs";
 import { GridlessGrid, HexagonalGrid, SquareGrid } from "./../../common/grid/_module.mjs";
@@ -40,9 +33,7 @@ import { AmbientLight, MeasuredTemplate, Region, Token } from "./placeables/_mod
 export default class Canvas<
     TScene extends Scene = Scene,
     TAmbientLight extends AmbientLight<AmbientLightDocument<TScene>> = AmbientLight<AmbientLightDocument<TScene>>,
-    TMeasuredTemplate extends MeasuredTemplate<MeasuredTemplateDocument<TScene>> = MeasuredTemplate<
-        MeasuredTemplateDocument<TScene>
-    >,
+    TMeasuredTemplate extends MeasuredTemplate<MeasuredTemplateDocument<TScene>> = MeasuredTemplate<MeasuredTemplateDocument<TScene>>,
     TToken extends Token<TokenDocument<TScene>> = Token<TokenDocument<TScene>>,
     TEffectsCanvasGroup extends EffectsCanvasGroup = EffectsCanvasGroup,
     TRegion extends Region<RegionDocument<TScene>> = Region<RegionDocument<TScene>>,

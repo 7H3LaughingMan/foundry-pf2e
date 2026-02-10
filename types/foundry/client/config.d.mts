@@ -15,13 +15,7 @@ import { CanvasAnimationAttribute } from "./canvas/animation/_types.mjs";
 import ChatBubbles from "./canvas/animation/chat-bubbles.mjs";
 import { DoorControl, ParticleEffect } from "./canvas/containers/_module.mjs";
 import ClockwiseSweepPolygon from "./canvas/geometry/clockwise-sweep.mjs";
-import {
-    EffectsCanvasGroup,
-    EnvironmentCanvasGroup,
-    HiddenCanvasGroup,
-    InterfaceCanvasGroup,
-    PrimaryCanvasGroup,
-} from "./canvas/groups/_module.mjs";
+import { EffectsCanvasGroup, EnvironmentCanvasGroup, HiddenCanvasGroup, InterfaceCanvasGroup, PrimaryCanvasGroup } from "./canvas/groups/_module.mjs";
 import { AlertPing, ArrowPing, ChevronPing, PulsePing, Ruler } from "./canvas/interaction/_module.mjs";
 import * as layers from "./canvas/layers/_module.mjs";
 import * as perception from "./canvas/perception/_module.mjs";
@@ -34,13 +28,7 @@ import {
     AdaptiveIlluminationShader,
     WeatherShaderEffect,
 } from "./canvas/rendering/shaders/_module.mjs";
-import type {
-    GlobalLightSource,
-    PointDarknessSource,
-    PointLightSource,
-    PointSoundSource,
-    PointVisionSource,
-} from "./canvas/sources/_module.mjs";
+import type { GlobalLightSource, PointDarknessSource, PointLightSource, PointSoundSource, PointVisionSource } from "./canvas/sources/_module.mjs";
 import ClientDatabaseBackend from "./data/client-backend.mjs";
 import { TokenMovementCostAggregator } from "./documents/_types.mjs";
 import WorldCollection from "./documents/abstract/world-collection.mjs";
@@ -136,9 +124,7 @@ interface WallDoorAnimationConfig {
 }
 
 export interface PartialTokenMovementActionConfig
-    extends
-        Pick<TokenMovementActionConfig, "label" | "icon" | "order">,
-        Partial<Omit<TokenMovementActionConfig, "label" | "icon" | "order">> {}
+    extends Pick<TokenMovementActionConfig, "label" | "icon" | "order">, Partial<Omit<TokenMovementActionConfig, "label" | "icon" | "order">> {}
 
 export interface RollFunction {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -376,10 +362,7 @@ export default interface Config<
     /** Configuration for the ActiveEffect embedded document type */
     ActiveEffect: {
         documentClass: {
-            new (
-                data: PreCreate<TActiveEffect["_source"]>,
-                context?: DocumentConstructionContext<TActiveEffect["parent"]>,
-            ): TActiveEffect;
+            new (data: PreCreate<TActiveEffect["_source"]>, context?: DocumentConstructionContext<TActiveEffect["parent"]>): TActiveEffect;
         };
         dataModels: Record<string, ConstructorOf<TypeDataModel<Document, DataSchema>>>;
         typeLabels: Record<string, string>;
@@ -439,10 +422,7 @@ export default interface Config<
 
     /** Configuration for the Combatant embedded document type within a Combat document */
     Combatant: {
-        documentClass: new (
-            data: PreCreate<TCombatant["_source"]>,
-            context?: DocumentConstructionContext<TCombatant["parent"]>,
-        ) => TCombatant;
+        documentClass: new (data: PreCreate<TCombatant["_source"]>, context?: DocumentConstructionContext<TCombatant["parent"]>) => TCombatant;
         dataModels: Record<string, ConstructorOf<TypeDataModel<Document, DataSchema>>>;
         typeLabels: Record<string, string>;
         typeIcons: Record<string, string>;

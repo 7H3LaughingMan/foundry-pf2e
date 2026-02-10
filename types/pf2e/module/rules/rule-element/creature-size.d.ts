@@ -14,8 +14,7 @@ declare class CreatureSizeRuleElement extends RuleElement<CreatureSizeRuleSchema
     static defineSchema(): CreatureSizeRuleSchema;
     beforePrepareData(): void;
 }
-interface CreatureSizeRuleElement
-    extends RuleElement<CreatureSizeRuleSchema>, ModelPropsFromRESchema<CreatureSizeRuleSchema> {
+interface CreatureSizeRuleElement extends RuleElement<CreatureSizeRuleSchema>, ModelPropsFromRESchema<CreatureSizeRuleSchema> {
     get actor(): CreaturePF2e;
 }
 type CreatureSizeRuleSchema = RuleElementSchema & {

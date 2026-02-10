@@ -12,10 +12,7 @@ export { default as AdaptiveDarknessShader } from "./lighting/darkness-lighting.
 export { default as AdaptiveIlluminationShader } from "./lighting/illumination-lighting.mjs";
 
 // Lighting effects
-export {
-    BewitchingWaveColorationShader,
-    BewitchingWaveIlluminationShader,
-} from "./lighting/effects/bewitching-wave.mjs";
+export { BewitchingWaveColorationShader, BewitchingWaveIlluminationShader } from "./lighting/effects/bewitching-wave.mjs";
 export { BlackHoleDarknessShader } from "./lighting/effects/black-hole.mjs";
 export { ChromaColorationShader } from "./lighting/effects/chroma.mjs";
 export { EmanationColorationShader } from "./lighting/effects/emanation.mjs";
@@ -61,11 +58,7 @@ export { default as RainShader } from "./weather/rain.mjs";
 export { default as SnowShader } from "./weather/snow.mjs";
 
 // Region
-export {
-    AbstractDarknessLevelRegionShader,
-    AdjustDarknessLevelRegionShader,
-    IlluminationDarknessLevelRegionShader,
-} from "./region/adjust-darkness-level.mjs";
+export { AbstractDarknessLevelRegionShader, AdjustDarknessLevelRegionShader, IlluminationDarknessLevelRegionShader } from "./region/adjust-darkness-level.mjs";
 export { default as RegionShader } from "./region/base.mjs";
 export { default as HighlightRegionShader } from "./region/highlight.mjs";
 

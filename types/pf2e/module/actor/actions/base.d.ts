@@ -1,15 +1,7 @@
 import { ChatMessagePF2e } from "./../../chat-message/document.ts";
 import { AbilityTrait } from "./../../item/ability/index.ts";
 import { ProficiencyRank } from "./../../item/base/data/index.ts";
-import {
-    Action,
-    ActionCost,
-    ActionMessageOptions,
-    ActionSection,
-    ActionUseOptions,
-    ActionVariant,
-    ActionVariantUseOptions,
-} from "./types.ts";
+import { Action, ActionCost, ActionMessageOptions, ActionSection, ActionUseOptions, ActionVariant, ActionVariantUseOptions } from "./types.ts";
 interface BaseActionVariantData {
     cost?: ActionCost;
     description?: string;
@@ -40,10 +32,7 @@ declare abstract class BaseActionVariant implements ActionVariant {
     toMessage(options?: Partial<ActionMessageOptions>): Promise<ChatMessagePF2e | undefined>;
     abstract use(options?: Partial<ActionVariantUseOptions>): Promise<unknown>;
 }
-declare abstract class BaseAction<
-    TData extends BaseActionVariantData,
-    TAction extends BaseActionVariant,
-> implements Action {
+declare abstract class BaseAction<TData extends BaseActionVariantData, TAction extends BaseActionVariant> implements Action {
     #private;
     readonly cost?: ActionCost;
     readonly description?: string;

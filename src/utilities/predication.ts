@@ -44,43 +44,23 @@ export class StatementValidator {
     }
 
     static #isAnd(statement: { and?: unknown }): statement is Conjunction {
-        return (
-            Object.keys(statement).length === 1 &&
-            Array.isArray(statement.and) &&
-            statement.and.every((subProp) => this.isStatement(subProp))
-        );
+        return Object.keys(statement).length === 1 && Array.isArray(statement.and) && statement.and.every((subProp) => this.isStatement(subProp));
     }
 
     static #isNand(statement: { nand?: unknown }): statement is AlternativeDenial {
-        return (
-            Object.keys(statement).length === 1 &&
-            Array.isArray(statement.nand) &&
-            statement.nand.every((subProp) => this.isStatement(subProp))
-        );
+        return Object.keys(statement).length === 1 && Array.isArray(statement.nand) && statement.nand.every((subProp) => this.isStatement(subProp));
     }
 
     static #isOr(statement: { or?: unknown }): statement is Disjunction {
-        return (
-            Object.keys(statement).length === 1 &&
-            Array.isArray(statement.or) &&
-            statement.or.every((subProp) => this.isStatement(subProp))
-        );
+        return Object.keys(statement).length === 1 && Array.isArray(statement.or) && statement.or.every((subProp) => this.isStatement(subProp));
     }
 
     static #isXor(statement: { xor?: unknown }): statement is ExclusiveDisjunction {
-        return (
-            Object.keys(statement).length === 1 &&
-            Array.isArray(statement.xor) &&
-            statement.xor.every((subProp) => this.isStatement(subProp))
-        );
+        return Object.keys(statement).length === 1 && Array.isArray(statement.xor) && statement.xor.every((subProp) => this.isStatement(subProp));
     }
 
     static #isNor(statement: { nor?: unknown }): statement is JointDenial {
-        return (
-            Object.keys(statement).length === 1 &&
-            Array.isArray(statement.nor) &&
-            statement.nor.every((subProp) => this.isStatement(subProp))
-        );
+        return Object.keys(statement).length === 1 && Array.isArray(statement.nor) && statement.nor.every((subProp) => this.isStatement(subProp));
     }
 
     static #isNot(statement: { not?: unknown }): statement is Negation {
@@ -88,17 +68,11 @@ export class StatementValidator {
     }
 
     static #isIf(statement: { if?: unknown; then?: unknown }): statement is Conditional {
-        return (
-            Object.keys(statement).length === 2 && this.isStatement(statement.if) && this.isStatement(statement.then)
-        );
+        return Object.keys(statement).length === 2 && this.isStatement(statement.if) && this.isStatement(statement.then);
     }
 
     static #isIff(statement: { iff?: unknown }): statement is Biconditional {
-        return (
-            Object.keys(statement).length === 1 &&
-            Array.isArray(statement.iff) &&
-            statement.iff.every((s) => this.isStatement(s))
-        );
+        return Object.keys(statement).length === 1 && Array.isArray(statement.iff) && statement.iff.every((s) => this.isStatement(s));
     }
 }
 
@@ -118,14 +92,6 @@ type AlternativeDenial = { nand: PredicateStatement[] };
 type JointDenial = { nor: PredicateStatement[] };
 type Conditional = { if: PredicateStatement; then: PredicateStatement };
 type Biconditional = { iff: PredicateStatement[] };
-type CompoundStatement =
-    | Conjunction
-    | Disjunction
-    | ExclusiveDisjunction
-    | AlternativeDenial
-    | JointDenial
-    | Negation
-    | Conditional
-    | Biconditional;
+type CompoundStatement = Conjunction | Disjunction | ExclusiveDisjunction | AlternativeDenial | JointDenial | Negation | Conditional | Biconditional;
 
 type PredicateStatement = Atom | CompoundStatement;

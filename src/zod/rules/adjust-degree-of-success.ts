@@ -19,10 +19,7 @@ export type zDegreeAdjustmentAmountString = z.infer<typeof zDegreeAdjustmentAmou
 export const zAdjustDegreeOfSuccessSource = zRuleElementSource.extend({
     key: z.literal("AdjustDegreeOfSuccess"),
     selector: z.array(z.string()).optional(),
-    adjustment: z.partialRecord(
-        z.union([z.literal("all"), zDegreeOfSuccessString]),
-        zDegreeAdjustmentAmountString.optional(),
-    ),
+    adjustment: z.partialRecord(z.union([z.literal("all"), zDegreeOfSuccessString]), zDegreeAdjustmentAmountString.optional()),
 });
 
 export type zAdjustDegreeOfSuccessSource = z.infer<typeof zAdjustDegreeOfSuccessSource>;

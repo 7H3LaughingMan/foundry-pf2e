@@ -27,10 +27,7 @@ interface ItemTransferConfiguration extends fa.api.DialogV2Configuration {
     newStack: boolean;
     lockStack: boolean;
 }
-interface WaitParams
-    extends
-        DeepPartial<Omit<ItemTransferConfiguration, "recipient" | "item">>,
-        Pick<ItemTransferConfiguration, "recipient" | "item"> {}
+interface WaitParams extends DeepPartial<Omit<ItemTransferConfiguration, "recipient" | "item">>, Pick<ItemTransferConfiguration, "recipient" | "item"> {}
 interface ResolutionData {
     /** The quantity being transferred. If this is a cred stick, this is the quantity of credits instead */
     quantity: number;

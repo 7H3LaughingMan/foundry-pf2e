@@ -26,16 +26,8 @@ declare class AfflictionPF2e<TParent extends ActorPF2e | null = ActorPF2e | null
     getLinkedItems(): ItemPF2e<ActorPF2e>[];
     createStageMessage(): Promise<void>;
     /** Set the start time and initiative roll of a newly created effect */
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     protected _onCreate(data: AfflictionSource, options: DatabaseCreateCallbackOptions, userId: string): void;
     _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
     rollRecovery(): Promise<void>;

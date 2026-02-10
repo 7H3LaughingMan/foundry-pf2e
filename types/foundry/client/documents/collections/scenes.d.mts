@@ -55,8 +55,5 @@ export default class Scenes<TDocument extends Scene> extends WorldCollection<TDo
     /* -------------------------------------------- */
 
     /** @override */
-    fromCompendium(
-        document: TDocument,
-        { clearState, clearSort }?: { clearState?: boolean } & FromCompendiumOptions,
-    ): foundry.documents.SceneSource;
+    fromCompendium(document: TDocument, { clearState, clearSort }?: { clearState?: boolean } & FromCompendiumOptions): foundry.documents.SceneSource;
 }

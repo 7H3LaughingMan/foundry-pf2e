@@ -47,6 +47,5 @@ interface AncestrySystemSource extends ABCSystemSource {
     vision: "normal" | "darkvision" | "low-light-vision";
     level?: never;
 }
-interface AncestrySystemData
-    extends Omit<AncestrySystemSource, "description" | "items">, Omit<ABCSystemData, "level" | "traits"> {}
+interface AncestrySystemData extends Omit<AncestrySystemSource, "description" | "items">, Omit<ABCSystemData, "level" | "traits"> {}
 export type { AncestrySource, AncestrySystemData, AncestrySystemSource, AncestryTraits, CreatureTraits };

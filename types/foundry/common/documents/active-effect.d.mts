@@ -1,13 +1,7 @@
 import { Document, DocumentMetadata } from "../abstract/_module.mjs";
 import * as fields from "../data/fields.mjs";
 import { DatabaseCreateCallbackOptions } from "./../abstract/_types.mjs";
-import {
-    ActiveEffectChangeMode,
-    DocumentOwnershipLevel,
-    DocumentOwnershipString,
-    ImageFilePath,
-    UserAction,
-} from "./../constants.mjs";
+import { ActiveEffectChangeMode, DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath, UserAction } from "./../constants.mjs";
 import { ActorUUID, BaseActor, BaseItem, BaseUser, ItemUUID } from "./_module.mjs";
 
 /**
@@ -15,10 +9,7 @@ import { ActorUUID, BaseActor, BaseItem, BaseUser, ItemUUID } from "./_module.mj
  * @param data    Initial data from which to construct the document.
  * @param context Construction context options
  */
-export default class BaseActiveEffect<TParent extends BaseActor | BaseItem<BaseActor | null> | null> extends Document<
-    TParent,
-    ActiveEffectSchema
-> {
+export default class BaseActiveEffect<TParent extends BaseActor | BaseItem<BaseActor | null> | null> extends Document<TParent, ActiveEffectSchema> {
     /* -------------------------------------------- */
     /*  Model Configuration                         */
     /* -------------------------------------------- */
@@ -33,21 +24,13 @@ export default class BaseActiveEffect<TParent extends BaseActor | BaseItem<BaseA
 
     override canUserModify(user: BaseUser, action: UserAction, data?: object): boolean;
 
-    override testUserPermission(
-        user: BaseUser,
-        permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
-    ): boolean;
+    override testUserPermission(user: BaseUser, permission: DocumentOwnershipString | DocumentOwnershipLevel, { exact }?: { exact?: boolean }): boolean;
 
     /* -------------------------------------------- */
     /*  Database Event Handlers                     */
     /* -------------------------------------------- */
 
-    protected override _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 }
 
 export default interface BaseActiveEffect<TParent extends BaseActor | BaseItem<BaseActor | null> | null>

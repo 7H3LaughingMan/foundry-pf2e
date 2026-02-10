@@ -1,19 +1,7 @@
 import { DataSchema } from "#common/abstract/_types.mjs";
 import { default as DataModel } from "#common/abstract/data.mjs";
-import {
-    ArrayFieldOptions,
-    DataFieldOptions,
-    DataFieldValidationOptions,
-    ObjectFieldOptions,
-    StringFieldOptions,
-} from "#common/data/_types.mjs";
-import {
-    CleanFieldOptions,
-    MaybeSchemaProp,
-    ModelPropFromDataField,
-    SourceFromDataField,
-    SourceFromSchema,
-} from "#common/data/fields.mjs";
+import { ArrayFieldOptions, DataFieldOptions, DataFieldValidationOptions, ObjectFieldOptions, StringFieldOptions } from "#common/data/_types.mjs";
+import { CleanFieldOptions, MaybeSchemaProp, ModelPropFromDataField, SourceFromDataField, SourceFromSchema } from "#common/data/fields.mjs";
 import { SlugCamel } from "./../../util/index.ts";
 import { Predicate, PredicateStatement, RawPredicate } from ".//predication.ts";
 import fields = foundry.data.fields;
@@ -107,10 +95,7 @@ declare class LaxArrayField<
     TNullable extends boolean = false,
     THasInitial extends boolean = true,
 > extends fields.ArrayField<TElementField, TSourceProp, TModelProp, TRequired, TNullable, THasInitial> {
-    protected _validateElements(
-        value: unknown[],
-        options?: DataFieldValidationOptions,
-    ): void | validation.DataModelValidationFailure;
+    protected _validateElements(value: unknown[], options?: DataFieldValidationOptions): void | validation.DataModelValidationFailure;
 }
 declare class StrictObjectField<
     TSourceProp extends object,
@@ -130,17 +115,12 @@ declare class AnyChoiceField<
     THasInitial extends boolean = true,
 > extends fields.DataField<TChoices, TChoices, TRequired, TNullable, THasInitial> {
     static get _defaults(): AnyChoiceFieldOptions<JSONPrimitive, boolean, boolean, boolean>;
-    constructor(
-        options?: AnyChoiceFieldOptions<TChoices, TRequired, TNullable, THasInitial>,
-        context?: foundry.data.DataFieldContext,
-    );
+    constructor(options?: AnyChoiceFieldOptions<TChoices, TRequired, TNullable, THasInitial>, context?: foundry.data.DataFieldContext);
     /** Converts invalid string representations to valid non-string choices if they exist */
     protected _cleanType(value: unknown): unknown;
     protected _cast(value: unknown): unknown;
     protected _validateType(value: unknown): void;
-    _toInput(
-        config: foundry.applications.fields.SelectInputConfig & Partial<foundry.data.ChoiceInputConfig>,
-    ): HTMLElement | HTMLCollection;
+    _toInput(config: foundry.applications.fields.SelectInputConfig & Partial<foundry.data.ChoiceInputConfig>): HTMLElement | HTMLCollection;
 }
 interface AnyChoiceField<
     TChoices extends JSONPrimitive,
@@ -174,79 +154,53 @@ declare class DataUnionField<
     fields: TField[];
     constructor(
         fields: TField[],
-        options: DataFieldOptions<
-            TField extends fields.DataField<infer TSourceProp> ? TSourceProp : never,
-            TRequired,
-            TNullable,
-            THasInitial
-        >,
+        options: DataFieldOptions<TField extends fields.DataField<infer TSourceProp> ? TSourceProp : never, TRequired, TNullable, THasInitial>,
     );
     protected _cast(value?: unknown): unknown;
     /**
      * Perform some cleaning while first checking that an upstream `_cast` won't convert a dog into a cat (or a number
      * into an array).
      */
-    clean(
-        value: unknown,
-        options?: CleanFieldOptions | undefined,
-    ): MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial>;
-    protected _validateType(
-        value: unknown,
-        options?: DataFieldValidationOptions | undefined,
-    ): boolean | void | validation.DataModelValidationFailure;
-    initialize(
-        value: unknown,
-        model?: DataModel,
-        options?: object | undefined,
-    ): MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial>;
+    clean(value: unknown, options?: CleanFieldOptions | undefined): MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial>;
+    protected _validateType(value: unknown, options?: DataFieldValidationOptions | undefined): boolean | void | validation.DataModelValidationFailure;
+    initialize(value: unknown, model?: DataModel, options?: object | undefined): MaybeUnionSchemaProp<TField, TRequired, TNullable, THasInitial>;
 }
-type MaybeUnionSchemaProp<
-    TField extends fields.DataField,
-    TRequired extends boolean,
-    TNullable extends boolean,
-    THasInitial extends boolean,
-> = MaybeSchemaProp<
-    TField extends fields.DataField<infer _TSourceProp, infer TModelProp, boolean, boolean, boolean>
-        ? TModelProp
-        : never,
+type MaybeUnionSchemaProp<TField extends fields.DataField, TRequired extends boolean, TNullable extends boolean, THasInitial extends boolean> = MaybeSchemaProp<
+    TField extends fields.DataField<infer _TSourceProp, infer TModelProp, boolean, boolean, boolean> ? TModelProp : never,
     TRequired,
     TNullable,
     THasInitial
 >;
 /** A sluggified string field */
-declare class SlugField<
-    TRequired extends boolean = true,
-    TNullable extends boolean = boolean,
-    THasInitial extends boolean = boolean,
-> extends StrictStringField<string, string, TRequired, TNullable, THasInitial> {
+declare class SlugField<TRequired extends boolean = true, TNullable extends boolean = boolean, THasInitial extends boolean = boolean> extends StrictStringField<
+    string,
+    string,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     constructor(options?: SlugFieldOptions<TRequired, TNullable, THasInitial>);
     protected static get _defaults(): SlugFieldOptions<boolean, boolean, boolean>;
-    protected _cleanType(
-        value: Maybe<string>,
-        options?: CleanFieldOptions,
-    ): MaybeSchemaProp<string, TRequired, TNullable, THasInitial>;
+    protected _cleanType(value: Maybe<string>, options?: CleanFieldOptions): MaybeSchemaProp<string, TRequired, TNullable, THasInitial>;
 }
-interface SlugField<
-    TRequired extends boolean = true,
-    TNullable extends boolean = boolean,
-    THasInitial extends boolean = boolean,
-> extends StrictStringField<string, string, TRequired, TNullable, THasInitial> {
+interface SlugField<TRequired extends boolean = true, TNullable extends boolean = boolean, THasInitial extends boolean = boolean> extends StrictStringField<
+    string,
+    string,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     options: SlugFieldOptions<TRequired, TNullable, THasInitial>;
 }
-interface SlugFieldOptions<
-    TRequired extends boolean,
-    TNullable extends boolean,
-    THasInitial extends boolean,
-> extends StringFieldOptions<string, TRequired, TNullable, THasInitial> {
+interface SlugFieldOptions<TRequired extends boolean, TNullable extends boolean, THasInitial extends boolean> extends StringFieldOptions<
+    string,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     camel?: SlugCamel;
 }
-declare class PredicateStatementField extends fields.DataField<
-    PredicateStatement,
-    PredicateStatement,
-    true,
-    false,
-    false
-> {
+declare class PredicateStatementField extends fields.DataField<PredicateStatement, PredicateStatement, true, false, false> {
     /** A `PredicateStatement` is always required (not `undefined`) and never nullable */
     constructor(options?: DataFieldOptions<PredicateStatement, true, false, false>);
     protected _validateType(value: unknown): boolean;
@@ -254,11 +208,14 @@ declare class PredicateStatementField extends fields.DataField<
     protected _cast(value: unknown): unknown;
     protected _cleanType(value: PredicateStatement): PredicateStatement;
 }
-declare class PredicateField<
-    TRequired extends boolean = true,
-    TNullable extends boolean = false,
-    THasInitial extends boolean = true,
-> extends StrictArrayField<PredicateStatementField, RawPredicate, Predicate, TRequired, TNullable, THasInitial> {
+declare class PredicateField<TRequired extends boolean = true, TNullable extends boolean = false, THasInitial extends boolean = true> extends StrictArrayField<
+    PredicateStatementField,
+    RawPredicate,
+    Predicate,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     constructor(options?: ArrayFieldOptions<RawPredicate, TRequired, TNullable, THasInitial>);
     /** Construct a `PredicatePF2e` from the initialized `PredicateStatement[]` */
     initialize(
@@ -269,9 +226,7 @@ declare class PredicateField<
     protected _toInput(config: foundry.data.FormInputConfig): HTMLInputElement;
 }
 type RecordFieldModelProp<
-    TKeyField extends
-        | fields.StringField<string, string, true, false, false>
-        | fields.NumberField<number, number, true, false, false>,
+    TKeyField extends fields.StringField<string, string, true, false, false> | fields.NumberField<number, number, true, false, false>,
     TValueField extends fields.DataField,
     TDense extends boolean = false,
 > = TDense extends true
@@ -282,9 +237,7 @@ type RecordFieldModelProp<
             | Record<ModelPropFromDataField<TKeyField>, ModelPropFromDataField<TValueField>>
             | Partial<Record<ModelPropFromDataField<TKeyField>, ModelPropFromDataField<TValueField>>>;
 type RecordFieldSourceProp<
-    TKeyField extends
-        | fields.StringField<string, string, true, false, false>
-        | fields.NumberField<number, number, true, false, false>,
+    TKeyField extends fields.StringField<string, string, true, false, false> | fields.NumberField<number, number, true, false, false>,
     TValueField extends fields.DataField,
     /** Whether this is to be treated as a "dense" record; i.e., any valid key should return a value */
     TDense extends boolean = false,
@@ -296,9 +249,7 @@ type RecordFieldSourceProp<
             | Record<SourceFromDataField<TKeyField>, SourceFromDataField<TValueField>>
             | Partial<Record<SourceFromDataField<TKeyField>, SourceFromDataField<TValueField>>>;
 declare class RecordField<
-    TKeyField extends
-        | fields.StringField<string, string, true, false, false>
-        | fields.NumberField<number, number, true, false, false>,
+    TKeyField extends fields.StringField<string, string, true, false, false> | fields.NumberField<number, number, true, false, false>,
     TValueField extends fields.DataField,
     TRequired extends boolean = true,
     TNullable extends boolean = false,
@@ -317,30 +268,14 @@ declare class RecordField<
     constructor(
         keyField: TKeyField,
         valueField: TValueField,
-        options?: ObjectFieldOptions<
-            RecordFieldSourceProp<TKeyField, TValueField, TDense>,
-            TRequired,
-            TNullable,
-            THasInitial
-        >,
+        options?: ObjectFieldOptions<RecordFieldSourceProp<TKeyField, TValueField, TDense>, TRequired, TNullable, THasInitial>,
     );
     protected _isValidKeyFieldType(
         keyField: unknown,
-    ): keyField is
-        | fields.StringField<string, string, true, false, false>
-        | fields.NumberField<number, number, true, false, false>;
-    protected _validateValues(
-        values: Record<string, unknown>,
-        options?: DataFieldValidationOptions,
-    ): validation.DataModelValidationFailure | void;
-    protected _cleanType(
-        values: Record<string, unknown>,
-        options?: CleanFieldOptions | undefined,
-    ): Record<string, unknown>;
-    protected _validateType(
-        values: unknown,
-        options?: DataFieldValidationOptions,
-    ): boolean | validation.DataModelValidationFailure | void;
+    ): keyField is fields.StringField<string, string, true, false, false> | fields.NumberField<number, number, true, false, false>;
+    protected _validateValues(values: Record<string, unknown>, options?: DataFieldValidationOptions): validation.DataModelValidationFailure | void;
+    protected _cleanType(values: Record<string, unknown>, options?: CleanFieldOptions | undefined): Record<string, unknown>;
+    protected _validateType(values: unknown, options?: DataFieldValidationOptions): boolean | validation.DataModelValidationFailure | void;
     initialize(
         values: object | null | undefined,
         model: foundry.abstract.DataModel,

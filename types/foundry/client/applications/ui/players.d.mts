@@ -1,9 +1,6 @@
 import { ApplicationConfiguration, ApplicationRenderContext } from "../_module.mjs";
 import ApplicationV2 from "../api/application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../api/handlebars-application.mjs";
 import { ContextMenuEntry } from "../ux/context-menu.mjs";
 import User from "./../../documents/user.mjs";
 
@@ -11,9 +8,7 @@ import User from "./../../documents/user.mjs";
  * A UI element which displays the Users defined for this world.
  * Currently active users are always displayed, while inactive users can be displayed on toggle.
  */
-export default class Players extends HandlebarsApplicationMixin(
-    ApplicationV2<ApplicationConfiguration, HandlebarsRenderOptions, PlayersRenderContext>,
-) {
+export default class Players extends HandlebarsApplicationMixin(ApplicationV2<ApplicationConfiguration, HandlebarsRenderOptions, PlayersRenderContext>) {
     static override DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;
 
     static override PARTS: Record<string, HandlebarsTemplatePart>;

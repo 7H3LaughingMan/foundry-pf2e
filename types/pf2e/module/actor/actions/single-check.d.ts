@@ -1,11 +1,6 @@
 import { ItemPF2e } from "./../../item/index.ts";
 import { RollNoteSource } from "./../../notes.ts";
-import {
-    CheckContextData,
-    CheckContextOptions,
-    CheckMacroContext,
-    CheckResultCallback,
-} from "./../../system/action-macros/types.ts";
+import { CheckContextData, CheckContextOptions, CheckMacroContext, CheckResultCallback } from "./../../system/action-macros/types.ts";
 import { CheckDC } from "./../../system/degree-of-success.ts";
 import { ActorPF2e } from "./../index.ts";
 import { Modifier, RawModifier } from "./../modifiers.ts";
@@ -64,11 +59,7 @@ declare class SingleCheckActionVariant extends BaseActionVariant {
         opts: CheckContextOptions<ItemType>,
         data: CheckContextData<ItemType>,
     ): CheckMacroContext<ItemType> | undefined;
-    protected toActionCheckPreview(args: {
-        actor?: ActorPF2e;
-        rollOptions: string[];
-        slug: string;
-    }): ActionCheckPreview | null;
+    protected toActionCheckPreview(args: { actor?: ActorPF2e; rollOptions: string[]; slug: string }): ActionCheckPreview | null;
 }
 declare class SingleCheckAction extends BaseAction<SingleCheckActionVariantData, SingleCheckActionVariant> {
     readonly difficultyClass?: CheckDC | DCSlug;

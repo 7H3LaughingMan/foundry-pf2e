@@ -104,25 +104,11 @@ interface AreaAttackOptions {
     };
 }
 /** Creates an area fire message with buttons to roll saves and damage */
-declare function createAreaAttackMessage({
-    action,
-    actor,
-    item,
-    statistic,
-    identifier,
-    actionCost,
-    options,
-    area,
-}: AreaAttackOptions): Promise<void>;
+declare function createAreaAttackMessage({ action, actor, item, statistic, identifier, actionCost, options, area }: AreaAttackOptions): Promise<void>;
 /** Get the range increment of a target for a given weapon */
 declare function getRangeIncrement(attackItem: ItemPF2e<ActorPF2e>, distance: number | null): number | null;
 /** Determine range penalty for a ranged attack roll */
-declare function calculateRangePenalty(
-    actor: ActorPF2e,
-    increment: number | null,
-    selectors: string[],
-    rollOptions: Set<string>,
-): Modifier | null;
+declare function calculateRangePenalty(actor: ActorPF2e, increment: number | null, selectors: string[], rollOptions: Set<string>): Modifier | null;
 /** Whether this actor is of a the "character" type, excluding those from the PF2E Companion Compendia module */
 declare function isReallyPC(actor: ActorPF2e): boolean;
 /** Recursive generator function to iterate over all items and their sub items */
@@ -133,11 +119,7 @@ declare function iterateAllItems<T extends ActorPF2e>(document: T | PhysicalItem
  * @param dest the destination actor
  * @param [itemFilterFn] an optional filter function called for each inventory item
  */
-declare function transferItemsBetweenActors(
-    source: ActorPF2e,
-    dest: ActorPF2e,
-    itemFilterFn?: (item: PhysicalItemPF2e) => boolean,
-): Promise<void>;
+declare function transferItemsBetweenActors(source: ActorPF2e, dest: ActorPF2e, itemFilterFn?: (item: PhysicalItemPF2e) => boolean): Promise<void>;
 /** Creates an empty actor group update with optional additional data */
 declare function createActorGroupUpdate(data?: Partial<ActorGroupUpdate>): ActorGroupUpdate;
 /** Applies multiple batched updates to the actor, delaying rendering till the end */

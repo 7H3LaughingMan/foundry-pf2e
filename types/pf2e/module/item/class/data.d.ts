@@ -12,10 +12,7 @@ declare class ClassSystemData extends ItemSystemModel<ClassPF2e, ClassSystemSche
     static LOCALIZATION_PREFIXES: string[];
     static defineSchema(): ClassSystemSchema;
 }
-interface ClassSystemData
-    extends
-        ItemSystemModel<ClassPF2e, ClassSystemSchema>,
-        Omit<fields.ModelPropsFromSchema<ClassSystemSchema>, "description"> {
+interface ClassSystemData extends ItemSystemModel<ClassPF2e, ClassSystemSchema>, Omit<fields.ModelPropsFromSchema<ClassSystemSchema>, "description"> {
     level?: never;
     traits: RarityTraitAndOtherTags;
 }

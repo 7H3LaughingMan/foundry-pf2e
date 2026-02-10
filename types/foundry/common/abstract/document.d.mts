@@ -2,13 +2,7 @@ import { AppV1RenderOptions } from "../../client/appv1/api/application-v1.mjs";
 import { DataField, SourceFromSchema } from "../data/fields.mjs";
 import { DocumentUUID } from "./../../client/utils/helpers.mjs";
 import { DocumentConstructionContext } from "./../_types.mjs";
-import {
-    DocumentOwnershipLevel,
-    DocumentOwnershipString,
-    UserAction,
-    UserPermission,
-    UserRoleName,
-} from "./../constants.mjs";
+import { DocumentOwnershipLevel, DocumentOwnershipString, UserAction, UserPermission, UserRoleName } from "./../constants.mjs";
 import BaseUser from "./../documents/user.mjs";
 import {
     DatabaseCreateCallbackOptions,
@@ -26,10 +20,10 @@ import DataModel from "./data.mjs";
 import EmbeddedCollection from "./embedded-collection.mjs";
 
 /** The abstract base interface for all Document types. */
-export default abstract class Document<
-    TParent extends Document | null = _Document | null,
-    TSchema extends DataSchema = DataSchema,
-> extends DataModel<TParent, TSchema> {
+export default abstract class Document<TParent extends Document | null = _Document | null, TSchema extends DataSchema = DataSchema> extends DataModel<
+    TParent,
+    TSchema
+> {
     /** A set of localization prefix paths which are used by this Document model. */
     static override LOCALIZATION_PREFIXES: string[];
 
@@ -138,11 +132,7 @@ export default abstract class Document<
      * @param [options.exact=false] Require the exact permission level requested?
      * @return Does the user have this permission level over the Document?
      */
-    testUserPermission(
-        user: BaseUser,
-        permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
-    ): boolean;
+    testUserPermission(user: BaseUser, permission: DocumentOwnershipString | DocumentOwnershipLevel, { exact }?: { exact?: boolean }): boolean;
 
     /**
      * Test whether a given User has permission to perform some action on this Document
@@ -351,10 +341,7 @@ export default abstract class Document<
      * @param [operation={}] Additional context which customizes the update workflow
      * @returns The updated Document instance
      */
-    update(
-        data: Record<string, unknown>,
-        operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>,
-    ): Promise<this | undefined>;
+    update(data: Record<string, unknown>, operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>): Promise<this | undefined>;
 
     /**
      * Delete the current Document.
@@ -370,10 +357,7 @@ export default abstract class Document<
      * @param [operation] Parameters of the get operation
      * @returns The retrieved Document, or null
      */
-    static get(
-        documentId: string,
-        operation?: Partial<DatabaseGetOperation<Document | null>>,
-    ): Document | null | undefined;
+    static get(documentId: string, operation?: Partial<DatabaseGetOperation<Document | null>>): Document | null | undefined;
 
     /* -------------------------------------------- */
     /*  Embedded Operations                         */
@@ -425,11 +409,7 @@ export default abstract class Document<
      * @param [operation={}] Additional context which customizes the creation workflow
      * @return An array of created Document instances
      */
-    createEmbeddedDocuments(
-        embeddedName: string,
-        data: object[],
-        operation?: Partial<DatabaseCreateOperation<this>>,
-    ): Promise<Document[]>;
+    createEmbeddedDocuments(embeddedName: string, data: object[], operation?: Partial<DatabaseCreateOperation<this>>): Promise<Document[]>;
 
     /**
      * Update multiple embedded Document instances within a parent Document using provided differential data.
@@ -453,11 +433,7 @@ export default abstract class Document<
      * @param [operation={}] Additional context which customizes the deletion workflow
      * @return An array of deleted Document instances
      */
-    deleteEmbeddedDocuments(
-        embeddedName: string,
-        dataId: string[],
-        operation?: Partial<DatabaseDeleteOperation<this>>,
-    ): Promise<Document<this>[]>;
+    deleteEmbeddedDocuments(embeddedName: string, dataId: string[], operation?: Partial<DatabaseDeleteOperation<this>>): Promise<Document<this>[]>;
 
     /**
      * Iterate over all embedded Documents that are hierarchical children of this Document.
@@ -520,11 +496,7 @@ export default abstract class Document<
      * @param user    The User requesting the document creation
      * @returns A return value of false indicates the creation operation should be cancelled.
      */
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
     /**
      * Perform follow-up operations after a Document of this type is created.
@@ -550,11 +522,7 @@ export default abstract class Document<
      * @returns Return false to cancel the creation operation entirely
      * @internal
      */
-    static _preCreateOperation(
-        documents: Document[],
-        operation: DatabaseCreateOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    static _preCreateOperation(documents: Document[], operation: DatabaseCreateOperation<Document | null>, user: BaseUser): Promise<boolean | void>;
 
     /**
      * Post-process a creation operation, reacting to database changes which have occurred. Post-operation events occur
@@ -585,11 +553,7 @@ export default abstract class Document<
      * @param user    The User requesting the document update
      * @returns A return value of false indicates the update operation should be cancelled.
      */
-    protected _preUpdate(
-        changed: Record<string, unknown>,
-        options: DatabaseUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected _preUpdate(changed: Record<string, unknown>, options: DatabaseUpdateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
     /**
      * Perform follow-up operations after a Document of this type is updated.
@@ -598,11 +562,7 @@ export default abstract class Document<
      * @param options Additional options which modify the update request
      * @param userId  The ID of the User requesting the document update
      */
-    protected _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     /**
      * Pre-process an update operation, potentially altering its instructions or input data. Pre-operation events only
@@ -620,11 +580,7 @@ export default abstract class Document<
      * @returns Return false to cancel the update operation entirely
      * @internal
      */
-    static _preUpdateOperation(
-        documents: Document[],
-        operation: DatabaseUpdateOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    static _preUpdateOperation(documents: Document[], operation: DatabaseUpdateOperation<Document | null>, user: BaseUser): Promise<boolean | void>;
 
     /**
      * Post-process an update operation, reacting to database changes which have occurred. Post-operation events occur
@@ -637,11 +593,7 @@ export default abstract class Document<
      * @param user      The User who performed the update operation
      * @internal
      */
-    static _onUpdateOperation(
-        documents: Document[],
-        operation: DatabaseUpdateOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<void>;
+    static _onUpdateOperation(documents: Document[], operation: DatabaseUpdateOperation<Document | null>, user: BaseUser): Promise<void>;
 
     /* -------------------------------------------- */
     /*  Database Delete Operations                  */
@@ -680,11 +632,7 @@ export default abstract class Document<
      * @returns Return false to cancel the deletion operation entirely
      * @internal
      */
-    static _preDeleteOperation(
-        documents: Document[],
-        operation: DatabaseDeleteOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    static _preDeleteOperation(documents: Document[], operation: DatabaseDeleteOperation<Document | null>, user: BaseUser): Promise<boolean | void>;
 
     /**
      * Post-process a deletion operation, reacting to database changes which have occurred. Post-operation events occur
@@ -697,11 +645,7 @@ export default abstract class Document<
      * @param user      The User who performed the deletion operation
      * @internal
      */
-    static _onDeleteOperation(
-        documents: Document[],
-        operation: DatabaseDeleteOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<void>;
+    static _onDeleteOperation(documents: Document[], operation: DatabaseDeleteOperation<Document | null>, user: BaseUser): Promise<void>;
 
     override toObject(source?: boolean): this["_source"];
 }

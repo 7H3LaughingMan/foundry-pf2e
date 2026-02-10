@@ -1,14 +1,7 @@
 import { CustomFormGroup, CustomFormInput, FormSelectOption } from "./../../client/applications/forms/fields.mjs";
 import { DocumentUUID } from "./../../client/utils/_module.mjs";
 import { DocumentType, FileCategory, FilePath } from "./../constants.mjs";
-import {
-    DataField,
-    DocumentFlagsField,
-    DocumentStatsData,
-    MaybeSchemaProp,
-    ModelPropFromDataField,
-    SourceFromDataField,
-} from "./fields.mjs";
+import { DataField, DocumentFlagsField, DocumentStatsData, MaybeSchemaProp, ModelPropFromDataField, SourceFromDataField } from "./fields.mjs";
 import { DataModelValidationFailure } from "./validation-failure.mjs";
 
 /**
@@ -22,17 +15,9 @@ import { DataModelValidationFailure } from "./validation-failure.mjs";
  *
  * An Error may be thrown which provides a custom error message explaining the reason the value is invalid.
  */
-type DataFieldValidator = (
-    value: unknown,
-    options: DataFieldValidationOptions,
-) => boolean | DataModelValidationFailure | void;
+type DataFieldValidator = (value: unknown, options: DataFieldValidationOptions) => boolean | DataModelValidationFailure | void;
 
-export interface DataFieldOptions<
-    TSourceProp,
-    TRequired extends boolean,
-    TNullable extends boolean,
-    THasInitial extends boolean,
-> {
+export interface DataFieldOptions<TSourceProp, TRequired extends boolean, TNullable extends boolean, THasInitial extends boolean> {
     /** Is this field required to be populated? */
     required?: TRequired;
 
@@ -44,17 +29,10 @@ export interface DataFieldOptions<
 
     /** The initial value of a field, or a function which assigns that initial value. */
     initial?: THasInitial extends true
-        ?
-              | TSourceProp
-              | ((data: Record<string, unknown>) => MaybeSchemaProp<TSourceProp, TRequired, TNullable, THasInitial>)
-              | null
+        ? TSourceProp | ((data: Record<string, unknown>) => MaybeSchemaProp<TSourceProp, TRequired, TNullable, THasInitial>) | null
         : THasInitial extends false
           ? undefined
-          :
-                | TSourceProp
-                | ((data: Record<string, unknown>) => MaybeSchemaProp<TSourceProp, TRequired, TNullable, THasInitial>)
-                | null
-                | undefined;
+          : TSourceProp | ((data: Record<string, unknown>) => MaybeSchemaProp<TSourceProp, TRequired, TNullable, THasInitial>) | null | undefined;
 
     /** A localizable label displayed on forms which render this field. */
     label?: string;
@@ -246,10 +224,7 @@ interface NumberFieldOptions<
      * returns the array of choices.
      */
 
-    choices?:
-        | readonly TSourceProp[]
-        | Record<string | number, string>
-        | (() => readonly TSourceProp[] | Record<string | number, string>);
+    choices?: readonly TSourceProp[] | Record<string | number, string> | (() => readonly TSourceProp[] | Record<string | number, string>);
 }
 
 interface StringFieldOptions<
@@ -268,10 +243,7 @@ interface StringFieldOptions<
      * An array of values or an object of values/labels which represent allowed choices for the field. A function may be
      * provided which dynamically returns the array of choices.
      */
-    choices?:
-        | readonly TSourceProp[]
-        | Record<TSourceProp, string>
-        | (() => readonly TSourceProp[] | Record<TSourceProp, string>);
+    choices?: readonly TSourceProp[] | Record<TSourceProp, string> | (() => readonly TSourceProp[] | Record<TSourceProp, string>);
 
     /** Is this string field a target for text search? */
     textSearch?: boolean;
@@ -301,11 +273,12 @@ export interface ObjectFieldOptions<
     THasInitial extends boolean = true,
 > extends DataFieldOptions<TSourceProp, TRequired, TNullable, THasInitial> {}
 
-interface DocumentUUIDFieldOptions<
-    TRequired extends boolean,
-    TNullable extends boolean,
-    THasInitial extends boolean,
-> extends StringFieldOptions<DocumentUUID, TRequired, TNullable, THasInitial> {
+interface DocumentUUIDFieldOptions<TRequired extends boolean, TNullable extends boolean, THasInitial extends boolean> extends StringFieldOptions<
+    DocumentUUID,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     /** A specific document type in {@link CONST.ALL_DOCUMENT_TYPES} required by this field */
     type?: DocumentType;
     /** Does this field require (or prohibit) embedded documents? */
@@ -333,11 +306,12 @@ export type DocumentFlags = ModelPropFromDataField<DocumentFlagsField>;
 
 export interface DocumentStats extends DocumentStatsData {}
 
-export interface JavaScriptFieldOptions<
-    TRequired extends boolean,
-    TNullable extends boolean,
-    THasInitial extends boolean,
-> extends StringFieldOptions<string, TRequired, TNullable, THasInitial> {
+export interface JavaScriptFieldOptions<TRequired extends boolean, TNullable extends boolean, THasInitial extends boolean> extends StringFieldOptions<
+    string,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     /** Does the field allow async code? Default: false */
     async?: boolean;
 }

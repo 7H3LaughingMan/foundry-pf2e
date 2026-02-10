@@ -1,11 +1,5 @@
 import { DocumentConstructionContext } from "../_types.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-    Document,
-    DocumentMetadata,
-    EmbeddedCollection,
-} from "../abstract/_module.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseUpdateCallbackOptions, Document, DocumentMetadata, EmbeddedCollection } from "../abstract/_module.mjs";
 import * as data from "../data/data.mjs";
 import * as fields from "../data/fields.mjs";
 import { ImageFilePath, VideoFilePath } from "./../constants.mjs";
@@ -19,10 +13,7 @@ import { ActorUUID, BaseActiveEffect, BaseFolder, BaseItem, BaseToken, BaseUser,
  * @param data    Initial data from which to construct the Actor
  * @param context Construction context options
  */
-export default class BaseActor<TParent extends BaseToken | null = BaseToken | null> extends Document<
-    TParent,
-    ActorSchema
-> {
+export default class BaseActor<TParent extends BaseToken | null = BaseToken | null> extends Document<TParent, ActorSchema> {
     /* -------------------------------------------- */
     /*  Model Configuration                         */
     /* -------------------------------------------- */
@@ -47,24 +38,13 @@ export default class BaseActor<TParent extends BaseToken | null = BaseToken | nu
     /** The allowed set of Actor types which may exist. */
     static get TYPES(): string[];
 
-    protected override _initializeSource(
-        data: Record<string, unknown>,
-        options?: DocumentConstructionContext<TParent>,
-    ): this["_source"];
+    protected override _initializeSource(data: Record<string, unknown>, options?: DocumentConstructionContext<TParent>): this["_source"];
 
     static override canUserCreate(user: BaseUser): boolean;
 
-    protected override _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
-    protected override _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 }
 
 export default interface BaseActor<TParent extends BaseToken | null = BaseToken | null>
@@ -89,11 +69,7 @@ export interface ActorMetadata extends DocumentMetadata {
     labelPlural: "DOCUMENT.Actors";
 }
 
-type ActorSchema<
-    TType extends string = string,
-    TSystemSource extends object = object,
-    TItemSource extends ItemSource = ItemSource,
-> = {
+type ActorSchema<TType extends string = string, TSystemSource extends object = object, TItemSource extends ItemSource = ItemSource> = {
     /** The _id which uniquely identifies this Actor document */
     _id: fields.DocumentIdField;
     /** The name of this Actor */

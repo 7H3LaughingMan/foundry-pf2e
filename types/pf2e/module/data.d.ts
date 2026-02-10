@@ -87,10 +87,7 @@ interface PublicationData {
 }
 export declare const PROFICIENCY_RANKS: readonly ["untrained", "trained", "expert", "master", "legendary"];
 export declare const MATH_FUNCTION_NAMES: Set<MathFunctionName>;
-type EnfolderableDocumentPF2e =
-    | ActorPF2e<null>
-    | ItemPF2e<null>
-    | Exclude<EnfolderableDocument, Actor<null> | Item<null>>;
+type EnfolderableDocumentPF2e = ActorPF2e<null> | ItemPF2e<null> | Exclude<EnfolderableDocument, Actor<null> | Item<null>>;
 export { goesToEleven, RARITIES, SIZE_SLUGS, SIZES };
 export type {
     EnfolderableDocumentPF2e,

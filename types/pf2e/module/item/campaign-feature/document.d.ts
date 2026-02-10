@@ -35,16 +35,8 @@ declare class CampaignFeaturePF2e<TParent extends ActorPF2e | null = ActorPF2e |
         },
     ): string[];
     /** In case this was copied from an actor, clear the location if there's no parent. */
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     protected embedHTMLString(
         config: DocumentHTMLEmbedConfig & {
             hr?: boolean;

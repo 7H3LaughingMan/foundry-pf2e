@@ -101,10 +101,7 @@ export interface DatabaseCreateOperation<TParent extends Document | null> {
     parentUuid?: DocumentUUID;
 }
 
-export interface DatabaseCreateCallbackOptions extends Omit<
-    Partial<DatabaseCreateOperation<null>>,
-    "action" | "data" | "pack" | "parent" | "noHook"
-> {}
+export interface DatabaseCreateCallbackOptions extends Omit<Partial<DatabaseCreateOperation<null>>, "action" | "data" | "pack" | "parent" | "noHook"> {}
 
 export interface DatabaseUpdateOperation<TParent extends Document | null> {
     action: "update";

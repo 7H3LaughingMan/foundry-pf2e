@@ -3,9 +3,7 @@ export declare class SceneConfigPF2e<TDocument extends ScenePF2e> extends fa.she
     #private;
     static DEFAULT_OPTIONS: DeepPartial<fa.api.DocumentSheetConfiguration>;
     static TABS: Record<string, fa.ApplicationTabsConfiguration>;
-    protected _configureRenderParts(
-        options: fa.api.HandlebarsRenderOptions,
-    ): Record<string, fa.api.HandlebarsTemplatePart>;
+    protected _configureRenderParts(options: fa.api.HandlebarsRenderOptions): Record<string, fa.api.HandlebarsTemplatePart>;
     /** Prepare context data for the system tab. */
     protected _preparePartContext(
         partId: string,

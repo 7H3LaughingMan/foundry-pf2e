@@ -7,11 +7,7 @@ import { ResolvedUUID } from "./_types.mjs";
  * @param iterations The number of iterations to test
  * @param args Additional arguments passed to the benchmarked function
  */
-export function benchmark<T extends (...args: any) => any>(
-    func: T,
-    iterations: number,
-    ...args: Parameters<T>
-): Promise<void>;
+export function benchmark<T extends (...args: any) => any>(func: T, iterations: number, ...args: Parameters<T>): Promise<void>;
 
 /**
  * A debugging function to test latency or timeouts by forcibly locking the thread for an amount of time.
@@ -169,11 +165,7 @@ export function expandObject<T extends object = Record<string, unknown>>(obj: ob
  * filterObject(source, template, {templateValues: true}); // {foo: {number: 0, name: "Mit"}};
  * ```
  */
-export function filterObject(
-    source: object,
-    template: object,
-    options?: { deletionKeys?: boolean; templateValues?: boolean },
-): object;
+export function filterObject(source: object, template: object, options?: { deletionKeys?: boolean; templateValues?: boolean }): object;
 
 /**
  * Flatten a possibly multidimensional object to a one-dimensional one by converting all nested keys to dot notation
@@ -376,12 +368,7 @@ export function parseUuid(uuid: Maybe<string>, options?: { relative?: Maybe<Docu
  * @param context.pack The document's compendium pack, if applicable
  * @returnsA well-formed Document uuid unless one is unable to be created
  */
-export function buildUuid(context: {
-    id: Maybe<string>;
-    documentName?: string;
-    parent?: Maybe<Document>;
-    pack?: string | null;
-}): string | null;
+export function buildUuid(context: { id: Maybe<string>; documentName?: string; parent?: Maybe<Document>; pack?: string | null }): string | null;
 
 /**
  * Escape the given unescaped string.

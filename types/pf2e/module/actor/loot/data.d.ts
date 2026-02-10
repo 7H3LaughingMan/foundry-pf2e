@@ -7,8 +7,7 @@ type LootSource = BaseActorSourcePF2e<"loot", LootSystemSource>;
 declare class LootSystemData extends ActorSystemModel<LootPF2e, LootSystemSchema> {
     static defineSchema(): LootSystemSchema;
 }
-interface LootSystemData
-    extends ActorSystemModel<LootPF2e, LootSystemSchema>, fields.ModelPropsFromSchema<LootSystemSchema> {
+interface LootSystemData extends ActorSystemModel<LootPF2e, LootSystemSchema>, fields.ModelPropsFromSchema<LootSystemSchema> {
     details: LootDetails;
     traits?: never;
     attributes: LootAttributes;

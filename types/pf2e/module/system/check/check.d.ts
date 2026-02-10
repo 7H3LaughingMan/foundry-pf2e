@@ -18,12 +18,7 @@ type CheckRollCallback = (
 declare class Check {
     #private;
     /** Roll the given statistic, optionally showing the check modifier dialog if 'Shift' is held down. */
-    static roll(
-        check: CheckModifier,
-        context?: CheckCheckContext,
-        event?: Event | null,
-        callback?: CheckRollCallback,
-    ): Promise<Rolled<CheckRoll> | null>;
+    static roll(check: CheckModifier, context?: CheckCheckContext, event?: Event | null, callback?: CheckRollCallback): Promise<Rolled<CheckRoll> | null>;
     /** Reroll a rolled check given a chat message. */
     static rerollFromMessage(message: ChatMessagePF2e, options?: RerollOptions): Promise<void>;
     /**

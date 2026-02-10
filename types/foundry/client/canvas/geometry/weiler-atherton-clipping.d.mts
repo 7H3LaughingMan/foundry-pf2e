@@ -83,11 +83,7 @@ export default class WeilerAthertonClipper {
      * @param clipObject Object to clip against the polygon
      * @param clipOpts   Options passed to the clipping object methods toPolygon and pointsBetween
      */
-    static intersect(
-        polygon: PIXI.Polygon,
-        clipObject: PIXI.Rectangle | PIXI.Circle,
-        clipOpts?: object,
-    ): PIXI.Polygon[];
+    static intersect(polygon: PIXI.Polygon, clipObject: PIXI.Rectangle | PIXI.Circle, clipOpts?: object): PIXI.Polygon[];
 
     /**
      * Clip a given clipObject using the Weiler-Atherton algorithm.

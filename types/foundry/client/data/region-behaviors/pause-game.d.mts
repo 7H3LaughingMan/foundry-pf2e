@@ -7,9 +7,7 @@ export default class PauseGameRegionBehaviorType extends RegionBehaviorType<Paus
 }
 
 export default interface PauseGameRegionBehaviorType
-    extends
-        RegionBehaviorType<PauseGameRegionBehaviorTypeSchema>,
-        fields.ModelPropsFromSchema<PauseGameRegionBehaviorTypeSchema> {}
+    extends RegionBehaviorType<PauseGameRegionBehaviorTypeSchema>, fields.ModelPropsFromSchema<PauseGameRegionBehaviorTypeSchema> {}
 
 export type PauseGameRegionBehaviorTypeSchema = {
     /** Disable the behavior once a player-controlled Token enters the region? */

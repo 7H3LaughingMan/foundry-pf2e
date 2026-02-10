@@ -3,11 +3,7 @@ import { MouseInteractionManager, RenderFlag, RenderFlags } from "../interaction
 import { PlaceablesLayer } from "../layers/_module.mjs";
 import { PlaceablesLayerPointerEvent } from "../layers/base/placeables-layer.mjs";
 import { Point } from "./../../../common/_types.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "./../../../common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseDeleteCallbackOptions, DatabaseUpdateCallbackOptions } from "./../../../common/abstract/_types.mjs";
 import { UserAction } from "./../../../common/constants.mjs";
 import { CanvasDocument } from "./../../documents/abstract/canvas-document.mjs";
 import User from "./../../documents/user.mjs";
@@ -16,9 +12,7 @@ import User from "./../../documents/user.mjs";
  * An Abstract Base Class which defines a Placeable Object which represents an Entity placed on the Canvas
  * @param document The Document instance which is represented by this object
  */
-export default abstract class PlaceableObject<
-    TDocument extends CanvasDocument = CanvasDocument,
-> extends RenderFlagsContainer<TDocument> {
+export default abstract class PlaceableObject<TDocument extends CanvasDocument = CanvasDocument> extends RenderFlagsContainer<TDocument> {
     constructor(document: TDocument);
 
     static override RENDER_FLAGS: Record<string, { propagate?: string[]; alias?: boolean }>;
@@ -185,11 +179,7 @@ export default abstract class PlaceableObject<
     /**
      * Define additional steps taken when an existing placeable object of this type is updated with new data
      */
-    protected _onUpdate(
-        changed: DeepPartial<TDocument["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected _onUpdate(changed: DeepPartial<TDocument["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     /** Define additional steps taken when an existing placeable object of this type is deleted */
 
@@ -313,10 +303,7 @@ export default abstract class PlaceableObject<
     protected _canDelete(user: User, event?: PIXI.FederatedEvent): boolean;
 
     /** Actions that should be taken for this Placeable Object when a mouseover event occurs */
-    protected _onHoverIn(
-        event: PIXI.FederatedPointerEvent,
-        { hoverOutOthers }?: { hoverOutOthers?: boolean },
-    ): boolean | void;
+    protected _onHoverIn(event: PIXI.FederatedPointerEvent, { hoverOutOthers }?: { hoverOutOthers?: boolean }): boolean | void;
 
     /** Actions that should be taken for this Placeable Object when a mouseout event occurs */
     protected _onHoverOut(event: PIXI.FederatedPointerEvent): boolean | void;
@@ -396,9 +383,7 @@ export default abstract class PlaceableObject<
     protected _onLongPress(event: PIXI.FederatedPointerEvent, origin: PIXI.Point): void;
 }
 
-export default interface PlaceableObject<
-    TDocument extends CanvasDocument = CanvasDocument,
-> extends RenderFlagsContainer<TDocument> {
+export default interface PlaceableObject<TDocument extends CanvasDocument = CanvasDocument> extends RenderFlagsContainer<TDocument> {
     hitArea: PIXI.Rectangle;
 }
 

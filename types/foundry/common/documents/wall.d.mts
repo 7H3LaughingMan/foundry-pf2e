@@ -21,8 +21,7 @@ export default class BaseWall<TParent extends BaseScene | null> extends Document
     static override defineSchema(): WallSchema;
 }
 
-export default interface BaseWall<TParent extends BaseScene | null>
-    extends Document<TParent, WallSchema>, fields.ModelPropsFromSchema<WallSchema> {
+export default interface BaseWall<TParent extends BaseScene | null> extends Document<TParent, WallSchema>, fields.ModelPropsFromSchema<WallSchema> {
     get documentName(): WallMetadata["name"];
 }
 
@@ -37,11 +36,7 @@ type WallSchema = {
     /** The _id which uniquely identifies the embedded Wall document */
     _id: fields.DocumentIdField;
     /** The wall coordinates, a length-4 array of finite numbers [x0,y0,x1,y1] */
-    c: fields.ArrayField<
-        fields.NumberField<number, number, true, false, true>,
-        [number, number, number, number],
-        [number, number, number, number]
-    >;
+    c: fields.ArrayField<fields.NumberField<number, number, true, false, true>, [number, number, number, number], [number, number, number, number]>;
     /** The illumination restriction type of this wall */
     light: fields.NumberField<WallSenseType, WallSenseType, true, true, true>;
     /** The movement restriction type of this wall */

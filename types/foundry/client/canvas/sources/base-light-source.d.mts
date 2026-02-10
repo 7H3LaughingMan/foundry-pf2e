@@ -2,10 +2,7 @@ import { AmbientLight, Token } from "../placeables/_module.mjs";
 import AbstractBaseShader from "../rendering/shaders/base-shader.mjs";
 import { LightingLevel } from "./../../../common/constants.mjs";
 import { LightSourceAnimationConfig } from "./../../config.mjs";
-import RenderedEffectSource, {
-    RenderedEffectLayerConfig,
-    RenderedEffectSourceData,
-} from "./rendered-effect-source.mjs";
+import RenderedEffectSource, { RenderedEffectLayerConfig, RenderedEffectSourceData } from "./rendered-effect-source.mjs";
 
 export interface LightSourceData extends RenderedEffectSourceData {
     /** An opacity for the emitted light, if any */
@@ -38,9 +35,7 @@ export interface LightSourceData extends RenderedEffectSourceData {
  * A specialized subclass of the PointSource abstraction which is used to control the rendering of light sources.
  * @param [options.object] The light-emitting object that generates this light source
  */
-export default abstract class BaseLightSource<
-    TObject extends AmbientLight | Token | null,
-> extends RenderedEffectSource<TObject> {
+export default abstract class BaseLightSource<TObject extends AmbientLight | Token | null> extends RenderedEffectSource<TObject> {
     static override sourceType: string;
 
     static override _initializeShaderKeys: string[];
@@ -116,10 +111,7 @@ export default abstract class BaseLightSource<
      * @param options.amplification Noise amplification (>1) or dampening (<1)
      * @param options.reverse Reverse the animation direction
      */
-    animateFlickering(
-        dt: number,
-        options?: { speed?: number; intensity?: number; amplification?: number; reverse?: boolean },
-    ): void;
+    animateFlickering(dt: number, options?: { speed?: number; intensity?: number; amplification?: number; reverse?: boolean }): void;
 
     /**
      * A basic "pulse" animation which expands and contracts.

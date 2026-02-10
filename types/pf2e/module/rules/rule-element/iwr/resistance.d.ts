@@ -10,8 +10,7 @@ declare class ResistanceRuleElement extends IWRRuleElement<ResistanceRuleSchema>
     get property(): Resistance[];
     getIWR(value: number): Resistance[];
 }
-interface ResistanceRuleElement
-    extends IWRRuleElement<ResistanceRuleSchema>, ModelPropsFromRESchema<ResistanceRuleSchema> {
+interface ResistanceRuleElement extends IWRRuleElement<ResistanceRuleSchema>, ModelPropsFromRESchema<ResistanceRuleSchema> {
     value: RuleValue;
     type: ResistanceType[];
     exceptions: IWRException<ResistanceType>[];

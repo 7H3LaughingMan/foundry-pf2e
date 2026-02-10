@@ -15,10 +15,7 @@ import { ItemSchema } from "./item.mjs";
  * @param data    Initial data used to construct the ActorDelta.
  * @param context Construction context options.
  */
-export default class BaseActorDelta<TParent extends BaseToken | null> extends abstract.Document<
-    TParent,
-    ActorDeltaSchema
-> {
+export default class BaseActorDelta<TParent extends BaseToken | null> extends abstract.Document<TParent, ActorDeltaSchema> {
     /* -------------------------------------------- */
     /*  Model Configuration                         */
     /* -------------------------------------------- */
@@ -29,11 +26,7 @@ export default class BaseActorDelta<TParent extends BaseToken | null> extends ab
 
     override canUserModify(user: BaseUser, action: UserAction, data?: Record<string, unknown>): boolean;
 
-    override testUserPermission(
-        user: BaseUser,
-        permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
-    ): boolean;
+    override testUserPermission(user: BaseUser, permission: DocumentOwnershipString | DocumentOwnershipLevel, { exact }?: { exact?: boolean }): boolean;
 
     /* -------------------------------------------- */
     /*  Methods                                     */
@@ -52,11 +45,7 @@ export default class BaseActorDelta<TParent extends BaseToken | null> extends ab
      * @param {object} [context]  Context to supply to synthetic Actor instantiation.
      * @returns {Actor|null}
      */
-    static applyDelta(
-        delta: BaseActorDelta<BaseToken | null>,
-        baseActor: BaseActor,
-        context?: DocumentConstructionContext<BaseToken | null>,
-    ): BaseActor;
+    static applyDelta(delta: BaseActorDelta<BaseToken | null>, baseActor: BaseActor, context?: DocumentConstructionContext<BaseToken | null>): BaseActor;
 }
 
 export default interface BaseActorDelta<TParent extends BaseToken | null>

@@ -1,24 +1,13 @@
 import * as fields from "../data/fields.mjs";
-import {
-    DataModelConstructionContext,
-    DataModelUpdateOptions,
-    DataModelValidationOptions,
-    DataSchema,
-} from "./_types.mjs";
+import { DataModelConstructionContext, DataModelUpdateOptions, DataModelValidationOptions, DataSchema } from "./_types.mjs";
 
 /**
  * The abstract base class which defines the data schema contained within a Document.
  * @param [data={}]    Initial data used to construct the data object
  * @param [options={}] Options which affect DataModel construction
  */
-export default abstract class DataModel<
-    TParent extends DataModel | null = _DataModel | null,
-    TSchema extends DataSchema = DataSchema,
-> {
-    constructor(
-        data?: DeepPartial<fields.SourceFromSchema<DataSchema>>,
-        options?: DataModelConstructionContext<TParent>,
-    );
+export default abstract class DataModel<TParent extends DataModel | null = _DataModel | null, TSchema extends DataSchema = DataSchema> {
+    constructor(data?: DeepPartial<fields.SourceFromSchema<DataSchema>>, options?: DataModelConstructionContext<TParent>);
 
     /**
      * The source data object for this DataModel instance.
@@ -141,10 +130,7 @@ export default abstract class DataModel<
      * @param [options.label]     A prefix label that should prepend any error messages
      * @param [options.namespace] A field namespace that should prepend key names with dot-notation
      */
-    static formatValidationErrors(
-        errors: Record<string, string>,
-        options?: { label?: string; namespace?: string },
-    ): string;
+    static formatValidationErrors(errors: Record<string, string>, options?: { label?: string; namespace?: string }): string;
 
     /**
      * Jointly validate the overall data model after each field has been individually validated.

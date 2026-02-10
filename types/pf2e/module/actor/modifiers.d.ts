@@ -15,9 +15,7 @@ declare const PROFICIENCY_RANK_OPTION: readonly [
     "proficiency:legendary",
 ];
 declare function ensureProficiencyOption(options: Set<string>, rank: number): void;
-declare const MODIFIER_TYPES: Set<
-    "item" | "untyped" | "status" | "ability" | "proficiency" | "circumstance" | "potency"
->;
+declare const MODIFIER_TYPES: Set<"item" | "untyped" | "status" | "ability" | "proficiency" | "circumstance" | "potency">;
 type ModifierType = SetElement<typeof MODIFIER_TYPES>;
 interface RawModifier {
     /** An identifier for this modifier; should generally be a localization key (see en.json). */
@@ -160,15 +158,7 @@ interface ModifierObjectParams extends RawModifier {
     rule?: RuleElement | null;
     alterations?: DamageAlteration[];
 }
-type ModifierOrderedParams = [
-    slug: string,
-    modifier: number,
-    type?: ModifierType,
-    enabled?: boolean,
-    ignored?: boolean,
-    source?: string,
-    notes?: string,
-];
+type ModifierOrderedParams = [slug: string, modifier: number, type?: ModifierType, enabled?: boolean, ignored?: boolean, source?: string, notes?: string];
 /**
  * Create a modifier for a given attribute type.
  * @returns The modifier of the given attribute
@@ -185,13 +175,7 @@ interface CreateAbilityModifierParams {
  * Create a modifier for a given proficiency level of some ability.
  * @returns The modifier for the given proficiency rank and character level.
  */
-declare function createProficiencyModifier({
-    actor,
-    rank,
-    domains,
-    level,
-    addLevel,
-}: CreateProficiencyModifierParams): Modifier;
+declare function createProficiencyModifier({ actor, rank, domains, level, addLevel }: CreateProficiencyModifierParams): Modifier;
 interface CreateProficiencyModifierParams {
     actor: ActorPF2e;
     rank: ZeroToFour;

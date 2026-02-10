@@ -12,10 +12,7 @@ import Item from "./../../documents/item.mjs";
  * @param item      The Item instance being displayed within the sheet.
  * @param [options] Additional options which modify the rendering of the item.
  */
-export default class ItemSheet<TItem extends Item, TOptions extends DocumentSheetV1Options> extends DocumentSheet<
-    TItem,
-    TOptions
-> {
+export default class ItemSheet<TItem extends Item, TOptions extends DocumentSheetV1Options> extends DocumentSheet<TItem, TOptions> {
     constructor(item: TItem, options?: Partial<TOptions>);
 
     static override get defaultOptions(): DocumentSheetV1Options;

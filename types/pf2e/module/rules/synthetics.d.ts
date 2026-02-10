@@ -6,14 +6,7 @@ import { ActiveEffectPF2e } from "./../active-effect.ts";
 import { DexterityModifierCapData } from "./../actor/character/types.ts";
 import { LabeledSpeed, SenseData } from "./../actor/creature/data.ts";
 import { ActorPF2e } from "./../actor/index.ts";
-import {
-    DamageDicePF2e,
-    DeferredDamageDiceOptions,
-    DeferredPromise,
-    DeferredValue,
-    Modifier,
-    ModifierAdjustment,
-} from "./../actor/modifiers.ts";
+import { DamageDicePF2e, DeferredDamageDiceOptions, DeferredPromise, DeferredValue, Modifier, ModifierAdjustment } from "./../actor/modifiers.ts";
 import { MovementType } from "./../actor/types.ts";
 import { AbilityTrait } from "./../item/ability/index.ts";
 import { ConditionSource, EffectSource } from "./../item/base/data/index.ts";

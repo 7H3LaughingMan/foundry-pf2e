@@ -101,11 +101,4 @@ interface ActorSheetRenderOptionsPF2e extends AppV1RenderOptions {
     /** What tab to switch to when rendering the sheet */
     tab?: string;
 }
-export type {
-    AbilityViewData,
-    ActorSheetDataPF2e,
-    ActorSheetRenderOptionsPF2e,
-    CurrencySummary,
-    InventoryItem,
-    SheetInventory,
-};
+export type { AbilityViewData, ActorSheetDataPF2e, ActorSheetRenderOptionsPF2e, CurrencySummary, InventoryItem, SheetInventory };

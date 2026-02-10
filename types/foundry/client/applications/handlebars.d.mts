@@ -168,10 +168,7 @@ export function localize(value: string, options: { hash: object }): string;
  * {{numberFormat undefined decimals=0 sign=true}} <!-- NaN -->
  *  ```
  */
-export function numberFormat(
-    value: number | string,
-    options: { decimals?: number; sign?: boolean },
-): Handlebars.SafeString;
+export function numberFormat(value: number | string, options: { decimals?: number; sign?: boolean }): Handlebars.SafeString;
 
 /**
  * Render a form input field of type number with value appropriately rounded to step size.
@@ -215,11 +212,7 @@ export function object(options: Handlebars.HelperOptions): Record<string, unknow
  * </div>
  * ```
  */
-export function radioBoxes(
-    name: string,
-    choices: object,
-    options: { checked?: string; localize?: boolean },
-): Handlebars.SafeString;
+export function radioBoxes(name: string, choices: object, options: { checked?: string; localize?: boolean }): Handlebars.SafeString;
 
 export interface SelectOptionsHelperOptions extends SelectInputConfig {
     /** Invert the key/value order of a provided choices object */
@@ -293,10 +286,7 @@ export interface SelectOptionsHelperOptions extends SelectInputConfig {
  * </select>
  * ```
  */
-export function selectOptions(
-    choices: object | Array<object>,
-    options: SelectOptionsHelperOptions,
-): Handlebars.SafeString;
+export function selectOptions(choices: object | Array<object>, options: SelectOptionsHelperOptions): Handlebars.SafeString;
 
 /**
  * Convert a DataField instance into an HTML input fragment.

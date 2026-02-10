@@ -8,12 +8,7 @@ let files = await glob("./pf2e/module/**/*.d.ts", {
     posix: true,
 });
 
-files.push(
-    "./pf2e/global.d.ts",
-    "./pf2e/module/system/action-macros/index.d.ts",
-    "./pf2e/scripts/config/index.d.ts",
-    "./pf2e/scripts/config/traits.d.ts",
-);
+files.push("./pf2e/global.d.ts", "./pf2e/module/system/action-macros/index.d.ts", "./pf2e/scripts/config/index.d.ts", "./pf2e/scripts/config/traits.d.ts");
 
 files.sort((a, b) => {
     const a_parts = a.split("/");

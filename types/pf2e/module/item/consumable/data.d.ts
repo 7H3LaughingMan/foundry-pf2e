@@ -1,10 +1,5 @@
 import { DamageKind, DamageType } from "./../../system/damage/index.ts";
-import {
-    BasePhysicalItemSource,
-    PhysicalItemTraits,
-    PhysicalSystemData,
-    PhysicalSystemSource,
-} from "./../physical/data.ts";
+import { BasePhysicalItemSource, PhysicalItemTraits, PhysicalSystemData, PhysicalSystemSource } from "./../physical/data.ts";
 import { SpellSource } from "./../spell/data.ts";
 import { ConsumableCategory, ConsumableTrait, OtherConsumableTag } from "./types.ts";
 type ConsumableSource = BasePhysicalItemSource<"consumable", ConsumableSystemSource>;
@@ -35,15 +30,8 @@ type ConsumableDamageHealing = {
     type: DamageType;
     kind: DamageKind;
 };
-interface ConsumableSystemData
-    extends Omit<ConsumableSystemSource, SourceOmission>, Omit<PhysicalSystemData, "subitems" | "traits"> {
+interface ConsumableSystemData extends Omit<ConsumableSystemSource, SourceOmission>, Omit<PhysicalSystemData, "subitems" | "traits"> {
     apex?: never;
 }
 type SourceOmission = "bulk" | "description" | "hp" | "identification" | "material" | "price" | "temporary" | "usage";
-export type {
-    ConsumableDamageHealing,
-    ConsumableSource,
-    ConsumableSystemData,
-    ConsumableSystemSource,
-    ConsumableTrait,
-};
+export type { ConsumableDamageHealing, ConsumableSource, ConsumableSystemData, ConsumableSystemSource, ConsumableTrait };

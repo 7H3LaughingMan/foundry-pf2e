@@ -1,12 +1,7 @@
 import { DataSchema } from "#common/abstract/_types.mjs";
 import { AELikeDataPrepPhase } from "../ae-like.ts";
 import { ResolvableValueField, RuleElementSchema } from "../data.ts";
-import {
-    DataUnionField,
-    PredicateField,
-    StrictArrayField,
-    StrictBooleanField,
-} from "./../../../system/schema-data-fields.ts";
+import { DataUnionField, PredicateField, StrictArrayField, StrictBooleanField } from "./../../../system/schema-data-fields.ts";
 import { RollOptionRuleElement } from "./rule-element.ts";
 import fields = foundry.data.fields;
 declare class Suboption extends foundry.abstract.DataModel<RollOptionRuleElement, SuboptionSchema> {
@@ -14,10 +9,7 @@ declare class Suboption extends foundry.abstract.DataModel<RollOptionRuleElement
     get rule(): RollOptionRuleElement;
     get selected(): boolean;
 }
-interface Suboption
-    extends
-        foundry.abstract.DataModel<RollOptionRuleElement, SuboptionSchema>,
-        fields.ModelPropsFromSchema<SuboptionSchema> {}
+interface Suboption extends foundry.abstract.DataModel<RollOptionRuleElement, SuboptionSchema>, fields.ModelPropsFromSchema<SuboptionSchema> {}
 type RollOptionSchema = RuleElementSchema & {
     domain: fields.StringField<string, string, true, false, true>;
     phase: fields.StringField<AELikeDataPrepPhase, AELikeDataPrepPhase, false, false, true>;

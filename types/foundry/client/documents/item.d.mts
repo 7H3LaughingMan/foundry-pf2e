@@ -1,10 +1,6 @@
 import { DocumentSheetV1Options } from "../appv1/api/document-sheet-v1.mjs";
 import ItemSheet from "../appv1/sheets/item-sheet.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseCreateOperation,
-    DatabaseDeleteOperation,
-} from "./../../common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseCreateOperation, DatabaseDeleteOperation } from "./../../common/abstract/_types.mjs";
 import Document from "./../../common/abstract/document.mjs";
 import { Actor, BaseItem, BaseUser, ItemSource, ItemUUID } from "./_module.mjs";
 import { ClientDocument, ClientDocumentStatic } from "./abstract/client-document.mjs";
@@ -50,11 +46,7 @@ declare class Item<TParent extends Actor | null = Actor | null> extends ClientBa
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    protected override _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
     static override _onCreateOperation<TDocument extends Document>(
         this: ConstructorOf<TDocument>,
@@ -62,11 +54,7 @@ declare class Item<TParent extends Actor | null = Actor | null> extends ClientBa
         context: DatabaseCreateOperation<TDocument["parent"]>,
     ): Promise<void>;
 
-    static override _onDeleteOperation(
-        documents: Document[],
-        operation: DatabaseDeleteOperation<Document | null>,
-        user: BaseUser,
-    ): Promise<void>;
+    static override _onDeleteOperation(documents: Document[], operation: DatabaseDeleteOperation<Document | null>, user: BaseUser): Promise<void>;
 }
 
 declare interface Item<TParent extends Actor | null = Actor | null> extends ClientBaseItem<TParent> {

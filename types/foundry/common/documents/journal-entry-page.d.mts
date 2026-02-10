@@ -4,10 +4,7 @@ import { DocumentOwnershipLevel, JournalEntryPageFormat } from "./../constants.m
 import { BaseJournalEntry, BaseUser } from "./_module.mjs";
 
 /** The JournalEntryPage document model. */
-export default class BaseJournalEntryPage<TParent extends BaseJournalEntry | null> extends Document<
-    TParent,
-    JournalEntryPageSchema
-> {
+export default class BaseJournalEntryPage<TParent extends BaseJournalEntry | null> extends Document<TParent, JournalEntryPageSchema> {
     static override get metadata(): JournalEntryPageMetadata;
 
     static override defineSchema(): JournalEntryPageSchema;
@@ -29,11 +26,7 @@ interface JournalEntryPageMetadata extends DocumentMetadata {
     coreTypes: ["image", "pdf", "text", "video"];
 }
 
-type JournalEntryPageSchema<
-    TType extends string = string,
-    TSystemSource extends object = object,
-    TSystemData extends object = TSystemSource,
-> = {
+type JournalEntryPageSchema<TType extends string = string, TSystemSource extends object = object, TSystemData extends object = TSystemSource> = {
     _id: fields.DocumentIdField;
     /** The text name of this page. */
     name: fields.StringField<string, string, true, false, false>;

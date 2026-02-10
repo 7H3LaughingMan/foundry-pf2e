@@ -1,11 +1,4 @@
-import {
-    DeepReadonly,
-    ElevatedPoint,
-    Point,
-    SocketRequest,
-    SocketResponse,
-    TokenPosition,
-} from "./../common/_types.mjs";
+import { DeepReadonly, ElevatedPoint, Point, SocketRequest, SocketResponse, TokenPosition } from "./../common/_types.mjs";
 import { DataModel } from "./../common/abstract/_module.mjs";
 import { DataField } from "./../common/data/fields.mjs";
 import { GridMeasurePathResultWaypoint, GridOffset3D } from "./../common/grid/_types.mjs";
@@ -380,10 +373,7 @@ export interface TokenConstrainMovementPathOptions {
     history?: boolean | DeepReadonly<TokenMeasuredMovementWaypoint[]>;
 }
 
-interface TokenConstrainedMovementWaypoint extends Omit<
-    TokenMeasuredMovementWaypoint,
-    "userId" | "movementId" | "cost"
-> {}
+interface TokenConstrainedMovementWaypoint extends Omit<TokenMeasuredMovementWaypoint, "userId" | "movementId" | "cost"> {}
 
 export interface TokenFindMovementPathOptions {
     /**
@@ -742,10 +732,7 @@ export interface TokenMovementActionConfig {
     deriveTerrainDifficulty: ((nonDerivedDifficulties: { [action: string]: number }) => number) | null;
 
     /** The cost modification function. Default: `() => cost => cost`. */
-    getCostFunction: (
-        token: TokenDocument,
-        options: TokenMeasureMovementPathOptions,
-    ) => TokenMovementActionCostFunction;
+    getCostFunction: (token: TokenDocument, options: TokenMeasureMovementPathOptions) => TokenMovementActionCostFunction;
 }
 
 export interface CanvasViewPosition {
@@ -953,9 +940,7 @@ export type WorldCompendiumConfiguration = Record<string, WorldCompendiumPackCon
 /* ----------------------------------------- */
 
 /** A Client Setting */
-export interface SettingConfig<
-    TChoices extends Record<string, unknown> | undefined = Record<string, unknown> | undefined,
-> {
+export interface SettingConfig<TChoices extends Record<string, unknown> | undefined = Record<string, unknown> | undefined> {
     /** A unique machine-readable id for the setting */
     key: string;
     /** The namespace the setting belongs to */
@@ -971,14 +956,7 @@ export interface SettingConfig<
     /** This will prompt the user to reload the application for the setting to take effect. */
     requiresReload?: boolean;
     /** The JS Type that the Setting is storing */
-    type:
-        | NumberConstructor
-        | StringConstructor
-        | BooleanConstructor
-        | ObjectConstructor
-        | ArrayConstructor
-        | ConstructorOf<DataModel>
-        | DataField;
+    type: NumberConstructor | StringConstructor | BooleanConstructor | ObjectConstructor | ArrayConstructor | ConstructorOf<DataModel> | DataField;
     /** For string Types, defines the allowable values */
     choices?: TChoices;
     /** For numeric Types, defines the allowable range */

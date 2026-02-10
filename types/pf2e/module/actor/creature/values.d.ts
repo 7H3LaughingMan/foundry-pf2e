@@ -36,28 +36,11 @@ declare const SENSE_TYPES: Set<
 declare const SENSES_WITH_MANDATORY_ACUITIES: {
     [K in SenseType]?: SenseAcuity;
 };
-declare const SENSES_WITH_UNLIMITED_RANGE: readonly [
-    "darkvision",
-    "greater-darkvision",
-    "low-light-vision",
-    "see-invisibility",
-];
+declare const SENSES_WITH_UNLIMITED_RANGE: readonly ["darkvision", "greater-darkvision", "low-light-vision", "see-invisibility"];
 declare const SENSE_ACUITIES: readonly ["precise", "imprecise", "vague"];
 declare const LANGUAGES_BY_RARITY:
     | {
-          common: readonly [
-              "draconic",
-              "dwarven",
-              "elven",
-              "fey",
-              "gnomish",
-              "goblin",
-              "halfling",
-              "jotun",
-              "orcish",
-              "sakvroth",
-              "taldane",
-          ];
+          common: readonly ["draconic", "dwarven", "elven", "fey", "gnomish", "goblin", "halfling", "jotun", "orcish", "sakvroth", "taldane"];
           uncommon: readonly [
               "adlet",
               "aklo",

@@ -12,8 +12,7 @@ declare class AdjustDegreeOfSuccessRuleElement extends RuleElement<AdjustDegreeR
     static defineSchema(): AdjustDegreeRuleSchema;
     beforePrepareData(): void;
 }
-interface AdjustDegreeOfSuccessRuleElement
-    extends RuleElement<AdjustDegreeRuleSchema>, ModelPropsFromRESchema<AdjustDegreeRuleSchema> {
+interface AdjustDegreeOfSuccessRuleElement extends RuleElement<AdjustDegreeRuleSchema>, ModelPropsFromRESchema<AdjustDegreeRuleSchema> {
     get actor(): CharacterPF2e | NPCPF2e;
 }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

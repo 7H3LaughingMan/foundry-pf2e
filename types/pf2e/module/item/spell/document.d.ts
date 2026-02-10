@@ -1,10 +1,6 @@
 import { Rolled } from "#client/dice/roll.mjs";
 import { DocumentConstructionContext } from "#common/_types.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-    DatabaseUpdateOperation,
-} from "#common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseUpdateCallbackOptions, DatabaseUpdateOperation } from "#common/abstract/_types.mjs";
 import { RollMode } from "#common/constants.mjs";
 import { ItemUUID } from "#common/documents/_module.mjs";
 import { ActorPF2e } from "./../../actor/index.ts";
@@ -114,10 +110,7 @@ declare class SpellPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ext
             includeVariants?: boolean;
         },
     ): string[];
-    toMessage(
-        event?: Maybe<PointerEvent>,
-        { create, data, rollMode }?: SpellToMessageOptions,
-    ): Promise<ChatMessagePF2e | undefined>;
+    toMessage(event?: Maybe<PointerEvent>, { create, data, rollMode }?: SpellToMessageOptions): Promise<ChatMessagePF2e | undefined>;
     getDescriptionData(): Promise<ItemDescriptionData>;
     getChatData(
         this: SpellPF2e<ActorPF2e>,
@@ -127,34 +120,14 @@ declare class SpellPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ext
             groupId?: SpellSlotGroupId;
         },
     ): Promise<RawItemChatData>;
-    rollAttack(
-        this: SpellPF2e<ActorPF2e>,
-        event: PointerEvent,
-        attackNumber?: number,
-        context?: StatisticRollParameters,
-    ): Promise<Rolled<CheckRoll> | null>;
-    rollDamage(
-        this: SpellPF2e<ActorPF2e>,
-        event: PointerEvent,
-        mapIncreases?: ZeroToTwo,
-    ): Promise<Rolled<DamageRoll> | null>;
+    rollAttack(this: SpellPF2e<ActorPF2e>, event: PointerEvent, attackNumber?: number, context?: StatisticRollParameters): Promise<Rolled<CheckRoll> | null>;
+    rollDamage(this: SpellPF2e<ActorPF2e>, event: PointerEvent, mapIncreases?: ZeroToTwo): Promise<Rolled<DamageRoll> | null>;
     /** Roll counteract check */
     rollCounteract(event?: PointerEvent): Promise<Rolled<CheckRoll> | null>;
     getOriginData(): ItemOriginFlag;
-    update(
-        data: Record<string, unknown>,
-        operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>,
-    ): Promise<this | undefined>;
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    update(data: Record<string, unknown>, operation?: Partial<Omit<DatabaseUpdateOperation<null>, "parent" | "pack">>): Promise<this | undefined>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
 }
 interface SpellPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     readonly _source: SpellSource;

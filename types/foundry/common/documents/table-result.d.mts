@@ -4,10 +4,7 @@ import { DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath, TableRe
 import * as documents from "./_module.mjs";
 
 /** The TableResult document model. */
-export default class BaseTableResult<TParent extends documents.BaseRollTable | null> extends Document<
-    TParent,
-    TableResultSchema
-> {
+export default class BaseTableResult<TParent extends documents.BaseRollTable | null> extends Document<TParent, TableResultSchema> {
     /* -------------------------------------------- */
     /*  Model Configuration                         */
     /* -------------------------------------------- */
@@ -23,10 +20,7 @@ export default class BaseTableResult<TParent extends documents.BaseRollTable | n
     ): boolean;
 }
 
-export default interface BaseTableResult<TParent extends documents.BaseRollTable | null> extends Document<
-    TParent,
-    TableResultSchema
-> {
+export default interface BaseTableResult<TParent extends documents.BaseRollTable | null> extends Document<TParent, TableResultSchema> {
     get documentName(): TableResultMetadata["name"];
 }
 

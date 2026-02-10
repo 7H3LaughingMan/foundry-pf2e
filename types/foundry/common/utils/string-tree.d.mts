@@ -30,10 +30,7 @@ export default class StringTree<TEntry extends object> {
      * @param options.limit                         The maximum number of items to retrieve.
      * @param options.filterEntries A filter function to apply to each candidate entry.
      */
-    lookup(
-        strings: Iterable<string>,
-        options?: { limit?: number; filterEntries?: StringTreeEntryFilter<TEntry> },
-    ): TEntry[];
+    lookup(strings: Iterable<string>, options?: { limit?: number; filterEntries?: StringTreeEntryFilter<TEntry> }): TEntry[];
 
     /**
      * Returns the node at the given path through the tree.

@@ -14,9 +14,7 @@ declare class ConditionSystemData extends ItemSystemModel<ConditionPF2e, Conditi
     prepareBaseData(): void;
 }
 interface ConditionSystemData
-    extends
-        ItemSystemModel<ConditionPF2e, ConditionSystemSchema>,
-        Omit<ModelPropsFromSchema<ConditionSystemSchema>, "description" | "value"> {
+    extends ItemSystemModel<ConditionPF2e, ConditionSystemSchema>, Omit<ModelPropsFromSchema<ConditionSystemSchema>, "description" | "value"> {
     slug: ConditionSlug;
     duration: DurationData;
     value: ConditionValueData;

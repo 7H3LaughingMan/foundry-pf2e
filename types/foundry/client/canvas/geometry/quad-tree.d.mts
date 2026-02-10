@@ -1,9 +1,6 @@
 import { Rectangle } from "./../../../common/_types.mjs";
 
-export interface QuadtreeObject<
-    TObject extends object = object,
-    TQuadtree extends Quadtree<TObject> = Quadtree<TObject>,
-> {
+export interface QuadtreeObject<TObject extends object = object, TQuadtree extends Quadtree<TObject> = Quadtree<TObject>> {
     r: Rectangle;
     t: TObject;
     n: Set<TQuadtree>;

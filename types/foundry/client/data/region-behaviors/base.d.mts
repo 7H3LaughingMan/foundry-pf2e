@@ -64,10 +64,7 @@ export default abstract class RegionBehaviorType<
 }
 
 /** Run in the context of a {@link RegionBehaviorType} */
-type EventBehaviorStaticHandler = <TBehaviorType extends RegionBehaviorType>(
-    this: TBehaviorType,
-    event: RegionEvent,
-) => Promise<void>;
+type EventBehaviorStaticHandler = <TBehaviorType extends RegionBehaviorType>(this: TBehaviorType, event: RegionEvent) => Promise<void>;
 
 type RegionEventType = (typeof REGION_EVENTS)[keyof typeof REGION_EVENTS];
 

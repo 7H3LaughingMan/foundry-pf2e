@@ -1,8 +1,4 @@
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "#common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseDeleteCallbackOptions, DatabaseUpdateCallbackOptions } from "#common/abstract/_types.mjs";
 import { ActorPF2e } from "./../../actor/index.ts";
 import { RuleElement, RuleElementOptions } from "./../../rules/index.ts";
 import { EffectBadge } from "./../abstract-effect/data.ts";
@@ -34,16 +30,8 @@ declare class EffectPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> ex
         },
     ): string[];
     /** Set the start time and initiative roll of a newly created effect */
-    protected _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     protected _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
     /** If applicable, reevaluate this effect's badge */
     onEncounterEvent(event: BadgeReevaluationEventType): Promise<void>;

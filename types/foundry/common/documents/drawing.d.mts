@@ -27,11 +27,7 @@ export default class BaseDrawing<TParent extends BaseScene | null> extends abstr
     /*  Model Methods                           */
     /* ---------------------------------------- */
 
-    override testUserPermission(
-        user: BaseUser,
-        permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
-    ): boolean;
+    override testUserPermission(user: BaseUser, permission: DocumentOwnershipString | DocumentOwnershipLevel, { exact }?: { exact?: boolean }): boolean;
 }
 
 export default interface BaseDrawing<TParent extends BaseScene | null>

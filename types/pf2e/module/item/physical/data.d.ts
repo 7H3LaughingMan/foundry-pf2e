@@ -9,10 +9,10 @@ import { Coins } from "./helpers.ts";
 import { PhysicalItemTrait, PhysicalItemType, PreciousMaterialGrade, PreciousMaterialType } from "./types.ts";
 import { UsageDetails } from "./usage.ts";
 type ItemCarryType = (typeof ITEM_CARRY_TYPES)[number];
-type BasePhysicalItemSource<
-    TType extends PhysicalItemType,
-    TSystemSource extends PhysicalSystemSource = PhysicalSystemSource,
-> = BaseItemSourcePF2e<TType, TSystemSource>;
+type BasePhysicalItemSource<TType extends PhysicalItemType, TSystemSource extends PhysicalSystemSource = PhysicalSystemSource> = BaseItemSourcePF2e<
+    TType,
+    TSystemSource
+>;
 interface PhysicalSystemSource extends ItemSystemSource {
     level: {
         value: number;

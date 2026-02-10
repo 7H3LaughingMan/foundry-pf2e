@@ -1,14 +1,7 @@
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/handlebars-application.mjs";
 import AbstractSidebarTab from "../sidebar-tab.mjs";
 import { ChatSpeakerData } from "./../../../../common/documents/chat-message.mjs";
-import {
-    ApplicationClosingOptions,
-    ApplicationConfiguration,
-    ApplicationRenderContext,
-} from "./../../../applications/_types.mjs";
+import { ApplicationClosingOptions, ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_types.mjs";
 import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
 import ChatMessage from "./../../../documents/chat-message.mjs";
 import Messages from "./../../../documents/collections/chat-messages.mjs";
@@ -93,10 +86,7 @@ export default class ChatLog extends HandlebarsApplicationMixin(AbstractSidebarT
      */
     protected _getEntryContextOptions(): ContextMenuEntry[];
 
-    protected override _onFirstRender(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _onFirstRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     protected override _onRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
@@ -111,17 +101,9 @@ export default class ChatLog extends HandlebarsApplicationMixin(AbstractSidebarT
      */
     protected _prepareInputContext(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
-    protected override _renderHTML(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<Record<string, HTMLElement>>;
+    protected override _renderHTML(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<Record<string, HTMLElement>>;
 
-    protected override _preSyncPartState(
-        partId: string,
-        newElement: HTMLElement,
-        priorElement: HTMLElement,
-        state: object,
-    ): void;
+    protected override _preSyncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
 
     /**
      * Prepare data used to synchronize the state of the chat input.
@@ -131,12 +113,7 @@ export default class ChatLog extends HandlebarsApplicationMixin(AbstractSidebarT
      */
     protected _preSyncInputState(newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
 
-    protected override _syncPartState(
-        partId: string,
-        newElement: HTMLElement,
-        priorElement: HTMLElement,
-        state: object,
-    ): void;
+    protected override _syncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
 
     /**
      * Synchronize the state of the chat input.
@@ -150,11 +127,7 @@ export default class ChatLog extends HandlebarsApplicationMixin(AbstractSidebarT
     /*  Event Listeners & Handlers                  */
     /* -------------------------------------------- */
 
-    protected override _attachPartListeners(
-        partId: string,
-        element: HTMLElement,
-        options: HandlebarsRenderOptions,
-    ): void;
+    protected override _attachPartListeners(partId: string, element: HTMLElement, options: HandlebarsRenderOptions): void;
 
     /**
      * Attach listeners to the chat log.
@@ -244,11 +217,7 @@ export default class ChatLog extends HandlebarsApplicationMixin(AbstractSidebarT
      * @param options.waitImages Wait for any images embedded in the chat log to load first before scrolling.
      * @param options.scrollOptions Options to configure scrolling behavior.
      */
-    scrollBottom(options?: {
-        popout?: boolean;
-        waitImages?: boolean;
-        scrollOptions?: ScrollIntoViewOptions;
-    }): Promise<void>;
+    scrollBottom(options?: { popout?: boolean; waitImages?: boolean; scrollOptions?: ScrollIntoViewOptions }): Promise<void>;
 
     /**
      * Update the contents of a previously-posted message.

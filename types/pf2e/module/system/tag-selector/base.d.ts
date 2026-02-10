@@ -2,10 +2,7 @@ import { ActorPF2e } from "./../../actor/index.ts";
 import { ItemPF2e } from "./../../item/index.ts";
 import { SelectableTagField } from "./index.ts";
 import appv1 = foundry.appv1;
-declare abstract class BaseTagSelector<TDocument extends ActorPF2e | ItemPF2e> extends appv1.api.DocumentSheet<
-    TDocument,
-    TagSelectorOptions
-> {
+declare abstract class BaseTagSelector<TDocument extends ActorPF2e | ItemPF2e> extends appv1.api.DocumentSheet<TDocument, TagSelectorOptions> {
     #private;
     static get defaultOptions(): TagSelectorOptions;
     choices: Record<string, string>;

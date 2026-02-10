@@ -9,9 +9,7 @@ import PlaceableObject from "./placeable-object.mjs";
  * Each Note links to a JournalEntry document and represents its location on the map.
  * @todo fill in ... some day
  */
-export default class Note<
-    TDocument extends NoteDocument<Scene | null> = NoteDocument<Scene | null>,
-> extends PlaceableObject<TDocument> {
+export default class Note<TDocument extends NoteDocument<Scene | null> = NoteDocument<Scene | null>> extends PlaceableObject<TDocument> {
     static override embeddedName: "Note";
 
     override get bounds(): PIXI.Rectangle;
@@ -53,17 +51,11 @@ export default class Note<
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _onUpdate(
-        changed: DeepPartial<TDocument["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<TDocument["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _canHover(user: User): boolean;
 }
 
-export default interface Note<
-    TDocument extends NoteDocument<Scene | null> = NoteDocument<Scene | null>,
-> extends PlaceableObject<TDocument> {
+export default interface Note<TDocument extends NoteDocument<Scene | null> = NoteDocument<Scene | null>> extends PlaceableObject<TDocument> {
     get layer(): NotesLayer<this>;
 }

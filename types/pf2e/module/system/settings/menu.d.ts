@@ -38,9 +38,6 @@ interface MenuTemplateData extends fav1.api.FormApplicationData {
 interface SettingsMenuOptions extends fav1.api.FormApplicationOptions {
     highlightSetting?: string;
 }
-declare function settingsToSheetData(
-    settings: Record<string, PartialSettingsData>,
-    cache?: Record<string, unknown>,
-): Record<string, SettingsTemplateData>;
+declare function settingsToSheetData(settings: Record<string, PartialSettingsData>, cache?: Record<string, unknown>): Record<string, SettingsTemplateData>;
 export { SettingsMenuPF2e, settingsToSheetData };
 export type { MenuTemplateData, PartialSettingsData, SettingsMenuOptions, SettingsTemplateData };

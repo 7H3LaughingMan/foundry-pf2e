@@ -133,10 +133,7 @@ export default function ClientPackageMixin<TBase extends ConstructorOf<BasePacka
          * @returns A Promise which resolves to a constructed ServerPackage instance
          * @throws An error if the retrieved manifest data is invalid
          */
-        static async fromRemoteManifest(
-            manifest: string,
-            options?: { strict?: boolean },
-        ): Promise<ClientPackage | null> {
+        static async fromRemoteManifest(manifest: string, options?: { strict?: boolean }): Promise<ClientPackage | null> {
             manifest;
             options;
             return null;

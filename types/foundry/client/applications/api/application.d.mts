@@ -303,11 +303,7 @@ export default abstract class ApplicationV2<
      * @param [options.force=false]         Force changing the tab even if the new tab is already active
      * @param [options.updatePosition=true] Update application position after changing the tab?
      */
-    changeTab(
-        tab: string,
-        group: string,
-        options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean },
-    ): void;
+    changeTab(tab: string, group: string, options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean }): void;
 
     /**
      * Programmatically submit an ApplicationV2 instance which implements a single top-level form.

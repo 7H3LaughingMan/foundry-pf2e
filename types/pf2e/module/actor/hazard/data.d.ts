@@ -17,8 +17,7 @@ type HazardSource = BaseActorSourcePF2e<"hazard", HazardSystemSource>;
 declare class HazardSystemData extends ActorSystemModel<HazardPF2e, HazardSystemSchema> {
     static defineSchema(): HazardSystemSchema;
 }
-interface HazardSystemData
-    extends ActorSystemModel<HazardPF2e, HazardSystemSchema>, fields.ModelPropsFromSchema<HazardSystemSchema> {
+interface HazardSystemData extends ActorSystemModel<HazardPF2e, HazardSystemSchema>, fields.ModelPropsFromSchema<HazardSystemSchema> {
     traits: HazardTraits;
     attributes: HazardAttributes;
     details: HazardDetails;
@@ -28,11 +27,7 @@ interface HazardSystemData
 type HazardSystemSchema = ActorSystemSchema & {
     /** Traits, languages, and other information. */
     traits: fields.SchemaField<HazardTraitsSchema>;
-    attributes: fields.SchemaField<
-        HazardAttributesSchema,
-        fields.SourceFromSchema<HazardAttributesSchema>,
-        HazardAttributes
-    >;
+    attributes: fields.SchemaField<HazardAttributesSchema, fields.SourceFromSchema<HazardAttributesSchema>, HazardAttributes>;
     details: fields.SchemaField<HazardDetailsSchema>;
     saves: fields.SchemaField<{
         fortitude: fields.SchemaField<HazardSaveDataSchema>;
@@ -85,8 +80,7 @@ type HazardAttributesSchema = {
         }>
     >;
     emitsSound: DataUnionField<
-        | fields.StringField<"encounter", "encounter", true, false, false>
-        | fields.BooleanField<boolean, boolean, true, false, false>,
+        fields.StringField<"encounter", "encounter", true, false, false> | fields.BooleanField<boolean, boolean, true, false, false>,
         true,
         false,
         true

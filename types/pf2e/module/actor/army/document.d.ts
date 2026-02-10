@@ -32,11 +32,7 @@ declare class ArmyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentP
     /** Prevent addition of invalid tactic types */
     checkItemValidity(source: PreCreate<ItemSourcePF2e>): boolean;
     getStatistic(slug: string): Statistic<this> | null;
-    _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: ActorUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    _preUpdate(changed: DeepPartial<this["_source"]>, options: ActorUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
     _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 }
 interface ArmyPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentPF2e | null> extends ActorPF2e<TParent> {

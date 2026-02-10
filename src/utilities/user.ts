@@ -33,11 +33,7 @@ export function canObserveActor(actor: Maybe<ActorPF2e>, withParty: boolean = tr
     const user = getCurrentUser();
     if (actor.testUserPermission(user, "OBSERVER")) return true;
 
-    return (
-        !!withParty &&
-        game.pf2e.settings.metagame.partyStats &&
-        (actor as CreaturePF2e).parties?.some((party) => party.testUserPermission(user, "LIMITED"))
-    );
+    return !!withParty && game.pf2e.settings.metagame.partyStats && (actor as CreaturePF2e).parties?.some((party) => party.testUserPermission(user, "LIMITED"));
 }
 
 export function getSelectedActor(fn = (_actor: ActorPF2e) => true): ActorPF2e | null {

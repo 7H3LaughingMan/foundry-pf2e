@@ -60,10 +60,7 @@ interface CastOptions {
 type UnusedProperties = "actor" | "spells" | "getSheetData" | "cast" | "canCast";
 type OptionalProperties = "isFlexible" | "isFocusPool" | "isInnate" | "isPrepared" | "isRitual" | "isSpontaneous";
 /** Spell list render data for a `BaseSpellcastingEntry` */
-interface SpellcastingSheetData
-    extends
-        Omit<BaseSpellcastingEntry<ActorPF2e>, "statistic" | OptionalProperties | UnusedProperties>,
-        SpellCollectionData {
+interface SpellcastingSheetData extends Omit<BaseSpellcastingEntry<ActorPF2e>, "statistic" | OptionalProperties | UnusedProperties>, SpellCollectionData {
     statistic: StatisticChatData | null;
     hasCollection: boolean;
     isFlexible?: boolean;

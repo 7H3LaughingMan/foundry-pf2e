@@ -138,11 +138,7 @@ export default class TooltipManager {
      * @param options Additional options which can override tooltip behavior.
      * @param options.cssClass An optional, space-separated list of CSS classes to apply to the activated tooltip.
      */
-    createLockedTooltip(
-        position: { top: string; right: string; bottom: string; left: string },
-        text: string,
-        options?: { cssClass?: string },
-    ): HTMLElement;
+    createLockedTooltip(position: { top: string; right: string; bottom: string; left: string }, text: string, options?: { cssClass?: string }): HTMLElement;
 
     /**
      * If an explicit tooltip expansion direction was not specified, figure out a valid direction based on the bounds

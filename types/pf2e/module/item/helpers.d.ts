@@ -51,10 +51,7 @@ declare function addOrUpgradeTrait<TTrait extends ItemTrait>(
  * @param traits the traits object to update
  * @param trait the trait being removed
  */
-declare function removeTrait<TTrait extends ItemTrait>(
-    traits: Pick<ItemTraits<TTrait>, "value" | "config">,
-    trait: string,
-): void;
+declare function removeTrait<TTrait extends ItemTrait>(traits: Pick<ItemTraits<TTrait>, "value" | "config">, trait: string): void;
 declare function createEffectAreaLabel(areaData: { type: EffectAreaShape; value: number }): string;
 declare function placeItemTemplate(
     area: {
@@ -69,13 +66,4 @@ declare function placeItemTemplate(
         item: ItemPF2e;
     },
 ): Promise<MeasuredTemplatePF2e>;
-export {
-    addOrUpgradeTrait,
-    createEffectAreaLabel,
-    itemIsOfType,
-    markdownToHTML,
-    performLatePreparation,
-    placeItemTemplate,
-    reduceItemName,
-    removeTrait,
-};
+export { addOrUpgradeTrait, createEffectAreaLabel, itemIsOfType, markdownToHTML, performLatePreparation, placeItemTemplate, reduceItemName, removeTrait };

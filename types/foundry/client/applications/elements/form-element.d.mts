@@ -4,10 +4,7 @@
  * @fires {Event} input           An "input" event when the value of the input changes
  * @fires {Event} change          A "change" event when the value of the element changes
  */
-export default abstract class AbstractFormInputElement<
-    TInternalValue,
-    TInputValue = TInternalValue,
-> extends HTMLElement {
+export default abstract class AbstractFormInputElement<TInternalValue, TInputValue = TInternalValue> extends HTMLElement {
     /** The HTML tag name used by this element. */
     static tagName: string;
 

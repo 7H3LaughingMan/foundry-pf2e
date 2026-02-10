@@ -1,9 +1,4 @@
-import {
-    ApplicationV1HeaderButton,
-    DocumentSheet,
-    DocumentSheetData,
-    DocumentSheetV1Options,
-} from "../api/_module.mjs";
+import { ApplicationV1HeaderButton, DocumentSheet, DocumentSheetData, DocumentSheetV1Options } from "../api/_module.mjs";
 import { ActiveEffect, ActiveEffectSource, Actor, Folder, Item, TokenDocument } from "./../../documents/_module.mjs";
 import { DropCanvasData } from "./../../helpers/hooks.mjs";
 
@@ -31,10 +26,7 @@ export interface ActorSheetData<TActor extends Actor> extends DocumentSheetData<
  * @param actor     The Actor instance being displayed within the sheet.
  * @param [options] Additional application configuration options.
  */
-export default class ActorSheet<TActor extends Actor, TItem extends Item = Item> extends DocumentSheet<
-    TActor,
-    ActorSheetOptions
-> {
+export default class ActorSheet<TActor extends Actor, TItem extends Item = Item> extends DocumentSheet<TActor, ActorSheetOptions> {
     static override get defaultOptions(): ActorSheetOptions;
 
     override get id(): string;
@@ -131,9 +123,7 @@ export default class ActorSheet<TActor extends Actor, TItem extends Item = Item>
      * This method is factored out to allow downstream classes the opportunity to override item creation behavior.
      * @param itemData The item data requested for creation
      */
-    protected _onDropItemCreate(
-        itemData: foundry.documents.ItemSource | foundry.documents.ItemSource[],
-    ): Promise<Item<TActor>[]>;
+    protected _onDropItemCreate(itemData: foundry.documents.ItemSource | foundry.documents.ItemSource[]): Promise<Item<TActor>[]>;
 
     /** Handle a drop event for an existing embedded Item to sort that Item relative to its siblings */
     protected _onSortItem(event: DragEvent, itemData: TItem["_source"]): Promise<TItem[]>;

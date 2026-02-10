@@ -5,9 +5,7 @@ import Folder from "../folder.mjs";
 import Collection from "./../../../common/utils/collection.mjs";
 import CompendiumCollection from "./compendium-collection.mjs";
 
-declare const MixedCompendiumPacks: ReturnType<
-    typeof DirectoryCollectionMixin<typeof DocumentCollection<WorldDocument>>
->;
+declare const MixedCompendiumPacks: ReturnType<typeof DirectoryCollectionMixin<typeof DocumentCollection<WorldDocument>>>;
 
 /**
  * A mapping of CompendiumCollection instances, one per Compendium pack

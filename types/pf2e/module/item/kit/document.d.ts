@@ -9,11 +9,7 @@ declare class KitPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> exten
     get entries(): KitEntryData[];
     get price(): Price;
     /** Expand a tree of kit entry data into a list of physical items */
-    createGrantedItems(options?: {
-        entries?: KitEntryData[];
-        containerId?: string;
-        size?: Size;
-    }): Promise<PhysicalItemPF2e<null>[]>;
+    createGrantedItems(options?: { entries?: KitEntryData[]; containerId?: string; size?: Size }): Promise<PhysicalItemPF2e<null>[]>;
 }
 interface KitPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     readonly _source: KitSource;

@@ -5,13 +5,7 @@ import { PhysicalItemPF2e } from "./../../../item/index.ts";
 import { Predicate } from "./../../../system/predication.ts";
 import { ResourceData } from "./../../creature/index.ts";
 import { CharacterPF2e } from "./../../index.ts";
-import {
-    CraftableItemDefinition,
-    CraftingAbilityData,
-    CraftingFormula,
-    PreparedFormula,
-    PreparedFormulaData,
-} from "./types.ts";
+import { CraftableItemDefinition, CraftingAbilityData, CraftingFormula, PreparedFormula, PreparedFormulaData } from "./types.ts";
 declare class CraftingAbility implements CraftingAbilityData {
     #private;
     /** This crafting ability's parent actor */
@@ -54,14 +48,8 @@ declare class CraftingAbility implements CraftingAbilityData {
     setFormulaQuantity(indexOrUuid: number | string, value: "increase" | "decrease" | number): Promise<void>;
     toggleFormulaExpended(index: number, value?: boolean): Promise<void>;
     toggleSignatureItem(itemUUID: string): Promise<void>;
-    updateFormulas(
-        formulas: PreparedFormulaData[],
-        operation?: Partial<DatabaseUpdateOperation<CharacterPF2e>> | undefined,
-    ): Promise<void>;
-    craft(
-        itemOrUUIDOrIndex: PhysicalItemPF2e | ItemUUID | number,
-        { consume, destination }?: CraftParameters,
-    ): Promise<PhysicalItemPF2e | null>;
+    updateFormulas(formulas: PreparedFormulaData[], operation?: Partial<DatabaseUpdateOperation<CharacterPF2e>> | undefined): Promise<void>;
+    craft(itemOrUUIDOrIndex: PhysicalItemPF2e | ItemUUID | number, { consume, destination }?: CraftParameters): Promise<PhysicalItemPF2e | null>;
     /** Returns what items should be created by this ability during daily preparation, and what the resource expenditure should be */
     calculateDailyCrafting(): Promise<DailyCraftingResult>;
     getSheetData(): Promise<CraftingAbilitySheetData>;

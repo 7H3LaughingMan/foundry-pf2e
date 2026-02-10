@@ -26,11 +26,5 @@ export default class CompendiumFolderCollection extends DocumentCollection<Folde
         options?: DatabaseCreateOperation<null>,
     ): Promise<Folder[]>;
 
-    override _onModifyContents(
-        action: DatabaseAction,
-        documents: Folder[],
-        result: unknown[],
-        operation: DatabaseOperation<null>,
-        user: User,
-    ): void;
+    override _onModifyContents(action: DatabaseAction, documents: Folder[], result: unknown[], operation: DatabaseOperation<null>, user: User): void;
 }

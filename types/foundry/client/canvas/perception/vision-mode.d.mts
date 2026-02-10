@@ -83,8 +83,7 @@ export default class VisionMode extends DataModel<null, VisionModeSchema> {
     animate(dt: number): Promise<void>;
 }
 
-export default interface VisionMode
-    extends DataModel<null, VisionModeSchema>, fields.ModelPropsFromSchema<VisionModeSchema> {}
+export default interface VisionMode extends DataModel<null, VisionModeSchema>, fields.ModelPropsFromSchema<VisionModeSchema> {}
 
 export type LightingVisibility = (typeof VisionMode.LIGHTING_VISIBILITY)[keyof typeof VisionMode.LIGHTING_VISIBILITY];
 

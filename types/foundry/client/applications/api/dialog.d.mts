@@ -69,10 +69,7 @@ export default class DialogV2<
      *             or the value returned by that button's callback. If the dialog was
      *             dismissed, and rejectClose is false, the Promise resolves to null.
      */
-    static prompt({
-        ok,
-        ...options
-    }: { ok: Partial<DialogV2Button> } & DeepPartial<DialogV2Configuration & DialogV2WaitOptions>): Promise<unknown>;
+    static prompt({ ok, ...options }: { ok: Partial<DialogV2Button> } & DeepPartial<DialogV2Configuration & DialogV2WaitOptions>): Promise<unknown>;
 
     /**
      * Spawn a dialog and wait for it to be dismissed or submitted.
@@ -194,11 +191,7 @@ export interface DialogV2WaitOptions {
  * @param button If the form was submitted via keyboard, this will be the default
  * @param dialog The dialog element.
  */
-export type DialogV2ButtonCallback = (
-    event: PointerEvent | SubmitEvent,
-    button: HTMLButtonElement,
-    dialog: DialogV2,
-) => Promise<unknown> | unknown;
+export type DialogV2ButtonCallback = (event: PointerEvent | SubmitEvent, button: HTMLButtonElement, dialog: DialogV2) => Promise<unknown> | unknown;
 
 /**
  * A dialog render handler method.

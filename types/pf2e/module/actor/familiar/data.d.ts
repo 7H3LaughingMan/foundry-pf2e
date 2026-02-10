@@ -1,9 +1,4 @@
-import {
-    ModelPropFromDataField,
-    ModelPropsFromSchema,
-    SourceFromDataField,
-    SourceFromSchema,
-} from "#common/data/fields.mjs";
+import { ModelPropFromDataField, ModelPropsFromSchema, SourceFromDataField, SourceFromSchema } from "#common/data/fields.mjs";
 import { StatisticTraceData } from "./../../system/statistic/data.ts";
 import {
     BaseCreatureSource,
@@ -35,10 +30,7 @@ declare class FamiliarSystemData extends ActorSystemModel<FamiliarPF2e, Familiar
     prepareBaseData(): void;
     prepareDerivedData(): void;
 }
-interface FamiliarSystemData
-    extends
-        foundry.abstract.TypeDataModel<FamiliarPF2e, FamiliarSystemSchema>,
-        ModelPropsFromSchema<FamiliarSystemSchema> {
+interface FamiliarSystemData extends foundry.abstract.TypeDataModel<FamiliarPF2e, FamiliarSystemSchema>, ModelPropsFromSchema<FamiliarSystemSchema> {
     attributes: CreatureAttributes;
     details: FamiliarDetails;
     customModifiers: Record<string, Modifier[]>;

@@ -25,10 +25,7 @@ export interface PointEffectSourceData {
  * @param BaseSource  The base source class to extend
  * @mixin
  */
-export default function PointEffectSourceMixin<
-    TObject extends PlaceableObject<any>,
-    TBase extends typeof BaseEffectSource<TObject>,
->(
+export default function PointEffectSourceMixin<TObject extends PlaceableObject<any>, TBase extends typeof BaseEffectSource<TObject>>(
     BaseSource: TBase,
 ): {
     defaultData: BaseEffectSourceOptions<TObject>;

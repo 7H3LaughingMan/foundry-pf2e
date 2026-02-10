@@ -1,13 +1,6 @@
 import ApplicationV2 from "../../api/application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/handlebars-application.mjs";
-import {
-    ApplicationClosingOptions,
-    ApplicationConfiguration,
-    ApplicationRenderContext,
-} from "./../../../applications/_module.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/handlebars-application.mjs";
+import { ApplicationClosingOptions, ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_module.mjs";
 import Module from "./../../../packages/module.mjs";
 
 /**
@@ -68,9 +61,5 @@ export default class ModuleManagement extends HandlebarsApplicationMixin(Applica
     /*  Event Listeners and Handlers                */
     /* -------------------------------------------- */
 
-    protected override _attachPartListeners(
-        partId: string,
-        element: HTMLElement,
-        options: HandlebarsRenderOptions,
-    ): void;
+    protected override _attachPartListeners(partId: string, element: HTMLElement, options: HandlebarsRenderOptions): void;
 }

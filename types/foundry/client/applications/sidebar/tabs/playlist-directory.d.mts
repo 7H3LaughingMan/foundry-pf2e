@@ -2,10 +2,7 @@ import DocumentDirectory, { DocumentDirectoryConfiguration } from "../document-d
 import { PlaylistMode } from "./../../../../common/constants.mjs";
 import { NumberField } from "./../../../../common/data/fields.mjs";
 import { ApplicationRenderContext } from "./../../../applications/_types.mjs";
-import {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "./../../../applications/api/handlebars-application.mjs";
+import { HandlebarsRenderOptions, HandlebarsTemplatePart } from "./../../../applications/api/handlebars-application.mjs";
 import HTMLRangePickerElement from "./../../../applications/elements/range-picker.mjs";
 import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
 import Folder from "./../../../documents/folder.mjs";
@@ -169,20 +166,11 @@ export default class PlaylistDirectory extends DocumentDirectory<Playlist> {
      */
     protected _getSoundContextOptions(): ContextMenuEntry[];
 
-    protected override _onFirstRender(
-        context: PlaylistDirectoryRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _onFirstRender(context: PlaylistDirectoryRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
-    protected override _onRender(
-        context: PlaylistDirectoryRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _onRender(context: PlaylistDirectoryRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
-    protected override _prepareDirectoryContext(
-        context: PlaylistRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _prepareDirectoryContext(context: PlaylistRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     /**
      * Augment the tree directory structure with playlist-level data objects for rendering.
@@ -198,27 +186,17 @@ export default class PlaylistDirectory extends DocumentDirectory<Playlist> {
      */
     protected _preparePlaylistContext(root: PlaylistDirectoryRenderContext, playlist: Playlist): PlaylistRenderContext;
 
-    protected override _preparePartContext(
-        partId: string,
-        context: PlaylistRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<PlaylistRenderContext>;
+    protected override _preparePartContext(partId: string, context: PlaylistRenderContext, options: HandlebarsRenderOptions): Promise<PlaylistRenderContext>;
 
     /**
      * Prepare render context for the volume controls part.
      */
-    protected _prepareControlsContext(
-        context: PlaylistDirectoryRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected _prepareControlsContext(context: PlaylistDirectoryRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     /**
      * Prepare render context for the currently playing part.
      */
-    protected _preparePlayingContext(
-        context: PlaylistDirectoryRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected _preparePlayingContext(context: PlaylistDirectoryRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     /* -------------------------------------------- */
     /*  Public API                                  */
@@ -255,19 +233,9 @@ export default class PlaylistDirectory extends DocumentDirectory<Playlist> {
     /*  Search & Filter                             */
     /* -------------------------------------------- */
 
-    protected override _onMatchSearchEntry(
-        query: string,
-        entryIds: Set<string>,
-        element: HTMLElement,
-        options?: { soundIds?: string[] },
-    ): void;
+    protected override _onMatchSearchEntry(query: string, entryIds: Set<string>, element: HTMLElement, options?: { soundIds?: string[] }): void;
 
-    protected override _matchSearchEntries(
-        query: RegExp,
-        entryIds: Set<string>,
-        folderIds: Set<string>,
-        autoExpandIds: Set<string>,
-    ): void;
+    protected override _matchSearchEntries(query: RegExp, entryIds: Set<string>, folderIds: Set<string>, autoExpandIds: Set<string>): void;
 
     protected override _matchSearchFolders(query: RegExp, folderIds: Set<string>, autoExpandIds: Set<string>): void;
 

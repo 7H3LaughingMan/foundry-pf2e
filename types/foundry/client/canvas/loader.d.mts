@@ -33,10 +33,7 @@ export default class TextureLoader {
      * @param [options.additionalSources=[]]       Additional sources to load during canvas initialize
      * @param [options.maxConcurrent]              The maximum number of textures that can be loaded concurrently
      */
-    static loadSceneTextures(
-        scene: Scene,
-        options?: { expireCache?: boolean; additionalSources?: string[]; maxConcurrent?: number },
-    ): Promise<void[]>;
+    static loadSceneTextures(scene: Scene, options?: { expireCache?: boolean; additionalSources?: string[]; maxConcurrent?: number }): Promise<void[]>;
 
     /**
      * Load an Array of provided source URL paths
@@ -48,10 +45,7 @@ export default class TextureLoader {
      * @param [options.displayProgress]   Display loading progress bar
      * @returns A Promise which resolves once all textures are loaded
      */
-    load(
-        sources: string[],
-        options?: { message?: string; expireCache?: boolean; maxConcurrent?: number; displayProgress?: boolean },
-    ): Promise<void[]>;
+    load(sources: string[], options?: { message?: string; expireCache?: boolean; maxConcurrent?: number; displayProgress?: boolean }): Promise<void[]>;
 
     /**
      * Load a single texture or spritesheet on-demand from a given source URL path
@@ -138,7 +132,4 @@ export function getTexture(src: string): PIXI.Texture | PIXI.Spritesheet | null;
  * @param src      The requested texture source
  * @param fallback A fallback texture to use if the requested source is unavailable or invalid
  */
-export function loadTexture(
-    src: string,
-    { fallback }?: { fallback?: ImageFilePath },
-): Promise<PIXI.Texture | PIXI.Spritesheet | null>;
+export function loadTexture(src: string, { fallback }?: { fallback?: ImageFilePath }): Promise<PIXI.Texture | PIXI.Spritesheet | null>;

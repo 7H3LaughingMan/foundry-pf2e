@@ -22,9 +22,6 @@ interface TrickMagicItemDifficultyData {
     occultism?: number;
     nature?: number;
 }
-declare function calculateTrickMagicItemCheckDC(
-    item: ConsumablePF2e,
-    options?: DCOptions,
-): TrickMagicItemDifficultyData;
+declare function calculateTrickMagicItemCheckDC(item: ConsumablePF2e, options?: DCOptions): TrickMagicItemDifficultyData;
 export { calculateTrickMagicItemCheckDC, CANTRIP_DECK_UUID, createConsumableFromSpell, isSpellConsumableUUID };
 export type { SpellConsumableItemType, TrickMagicItemDifficultyData };

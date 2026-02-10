@@ -31,11 +31,13 @@ type RuleElementSchema = {
     /** A grouping slug to mark a rule as a part of a spinoff effect, which some item types can compose */
     spinoff: SlugField<false, false, false>;
 };
-declare class ResolvableValueField<
-    TRequired extends boolean,
-    TNullable extends boolean,
-    THasInitial extends boolean = false,
-> extends fields.DataField<RuleValue, RuleValue, TRequired, TNullable, THasInitial> {
+declare class ResolvableValueField<TRequired extends boolean, TNullable extends boolean, THasInitial extends boolean = false> extends fields.DataField<
+    RuleValue,
+    RuleValue,
+    TRequired,
+    TNullable,
+    THasInitial
+> {
     #private;
     protected _validateType(value: JSONValue): false | void;
     /** No casting is applied to this value */

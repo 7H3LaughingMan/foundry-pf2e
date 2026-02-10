@@ -7,9 +7,7 @@ export default class ExecuteMacroRegionBehaviorType extends RegionBehaviorType<E
 }
 
 export default interface ExecuteMacroRegionBehaviorType
-    extends
-        RegionBehaviorType<ExecuteMacroRegionBehaviorTypeSchema>,
-        fields.ModelPropsFromSchema<ExecuteMacroRegionBehaviorTypeSchema> {}
+    extends RegionBehaviorType<ExecuteMacroRegionBehaviorTypeSchema>, fields.ModelPropsFromSchema<ExecuteMacroRegionBehaviorTypeSchema> {}
 
 export type ExecuteMacroRegionBehaviorTypeSchema = {
     /** The events that are handled by the behavior. */

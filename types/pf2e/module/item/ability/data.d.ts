@@ -3,27 +3,13 @@ import { ImageFilePath } from "#common/constants.mjs";
 import { OneToThree } from "./../../data.ts";
 import { SlugField } from "./../../system/schema-data-fields.ts";
 import { ItemSystemModel, ItemSystemSchema } from "./../base/data/model.ts";
-import {
-    ActionType,
-    BaseItemSourcePF2e,
-    Frequency,
-    FrequencyInterval,
-    FrequencySource,
-    ItemSystemSource,
-} from "./../base/data/system.ts";
+import { ActionType, BaseItemSourcePF2e, Frequency, FrequencyInterval, FrequencySource, ItemSystemSource } from "./../base/data/system.ts";
 import { AbilityItemPF2e } from "./document.ts";
 import { AbilityTraitToggles } from "./trait-toggles.ts";
 import { AbilityTrait, ActionCategory } from "./types.ts";
 import fields = foundry.data.fields;
 type AbilitySource = BaseItemSourcePF2e<"action", AbilitySystemSource>;
-declare class FrequencyField extends fields.SchemaField<
-    FrequencySchema,
-    FrequencySource,
-    Frequency,
-    false,
-    true,
-    false
-> {
+declare class FrequencyField extends fields.SchemaField<FrequencySchema, FrequencySource, Frequency, false, true, false> {
     constructor();
 }
 declare class AbilitySystemData extends ItemSystemModel<AbilityItemPF2e, AbilitySystemSchema> {
@@ -37,9 +23,7 @@ declare class AbilitySystemData extends ItemSystemModel<AbilityItemPF2e, Ability
     prepareDerivedData(): void;
 }
 interface AbilitySystemData
-    extends
-        ItemSystemModel<AbilityItemPF2e, AbilitySystemSchema>,
-        Omit<fields.ModelPropsFromSchema<AbilitySystemSchema>, "description"> {}
+    extends ItemSystemModel<AbilityItemPF2e, AbilitySystemSchema>, Omit<fields.ModelPropsFromSchema<AbilitySystemSchema>, "description"> {}
 type AbilitySystemSchema = Omit<ItemSystemSchema, "traits"> & {
     traits: fields.SchemaField<{
         otherTags: fields.ArrayField<SlugField<true, false, false>>;

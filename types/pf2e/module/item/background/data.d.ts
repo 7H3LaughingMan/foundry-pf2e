@@ -19,6 +19,5 @@ interface BackgroundSystemSource extends ABCSystemSource {
     level?: never;
 }
 type BackgroundTraits = ItemTraits<BackgroundTrait>;
-interface BackgroundSystemData
-    extends Omit<BackgroundSystemSource, "description" | "items">, Omit<ABCSystemData, "level" | "traits"> {}
+interface BackgroundSystemData extends Omit<BackgroundSystemSource, "description" | "items">, Omit<ABCSystemData, "level" | "traits"> {}
 export type { BackgroundSource, BackgroundSystemData, BackgroundSystemSource };

@@ -1,8 +1,4 @@
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseCreateOperation,
-    DatabaseDeleteCallbackOptions,
-} from "./../../common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseCreateOperation, DatabaseDeleteCallbackOptions } from "./../../common/abstract/_types.mjs";
 import Document from "./../../common/abstract/document.mjs";
 import { Actor, BaseFolder, BaseUser, Item, JournalEntry, Macro, RollTable, Scene } from "./_module.mjs";
 import { ClientDocument, ClientDocumentStatic } from "./abstract/client-document.mjs";
@@ -70,11 +66,7 @@ export default class Folder<TDocument extends EnfolderableDocument = Enfolderabl
     /*  Methods                                     */
     /* -------------------------------------------- */
 
-    override _preCreate(
-        data: DeepPartial<this["_source"]>,
-        options: DatabaseCreateCallbackOptions,
-        user: BaseUser,
-    ): Promise<boolean | void>;
+    override _preCreate(data: DeepPartial<this["_source"]>, options: DatabaseCreateCallbackOptions, user: BaseUser): Promise<boolean | void>;
 
     /**
      * Create a new Folder by rendering a dialog window to provide basic creation details
@@ -101,10 +93,7 @@ export default class Folder<TDocument extends EnfolderableDocument = Enfolderabl
      * @param updateByName Update existing entries in the Compendium pack, matching by name
      * @return The updated Compendium Collection instance
      */
-    exportToCompendium(
-        pack: CompendiumCollection<TDocument>,
-        { updateByName }?: { updateByName?: boolean },
-    ): Promise<CompendiumCollection<TDocument>>;
+    exportToCompendium(pack: CompendiumCollection<TDocument>, { updateByName }?: { updateByName?: boolean }): Promise<CompendiumCollection<TDocument>>;
 
     /**
      * Provide a dialog form that allows for exporting the contents of a Folder into an eligible Compendium pack.

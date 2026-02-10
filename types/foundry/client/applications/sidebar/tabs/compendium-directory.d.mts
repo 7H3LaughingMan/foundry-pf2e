@@ -64,10 +64,7 @@ export default class CompendiumDirectory extends HandlebarsApplicationMixin(Abst
      */
     protected _getFolderContextOptions(): ContextMenuEntry[];
 
-    protected override _onFirstRender(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _onFirstRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     protected override _onRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
@@ -82,10 +79,7 @@ export default class CompendiumDirectory extends HandlebarsApplicationMixin(Abst
     /**
      * Prepare render context for the directory part.
      */
-    protected _prepareDirectoryContext(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected _prepareDirectoryContext(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     /**
      * Prepare render context for the header part.
@@ -98,19 +92,9 @@ export default class CompendiumDirectory extends HandlebarsApplicationMixin(Abst
      */
     protected _preparePackContext(pack: CompendiumCollection): CompendiumPackDirectoryContext;
 
-    protected override _preSyncPartState(
-        partId: string,
-        newElement: HTMLElement,
-        priorElement: HTMLElement,
-        state: object,
-    ): void;
+    protected override _preSyncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
 
-    protected override _syncPartState(
-        partId: string,
-        newElement: HTMLElement,
-        priorElement: HTMLElement,
-        state: object,
-    ): void;
+    protected override _syncPartState(partId: string, newElement: HTMLElement, priorElement: HTMLElement, state: object): void;
 
     /* -------------------------------------------- */
     /*  Public API                                  */
@@ -205,13 +189,7 @@ export default class CompendiumDirectory extends HandlebarsApplicationMixin(Abst
      * @param autoExpandIds The set of folder IDs that should be auto-expanded.
      * @param options Additional options for subclass-specific behavior.
      */
-    protected _matchSearchEntries(
-        query: RegExp,
-        packs: Set<string>,
-        folderIds: Set<string>,
-        autoExpandIds: Set<string>,
-        options?: object,
-    ): void;
+    protected _matchSearchEntries(query: RegExp, packs: Set<string>, folderIds: Set<string>, autoExpandIds: Set<string>, options?: object): void;
 
     /**
      * Identify folders in the collection which match a provided search query.
@@ -221,12 +199,7 @@ export default class CompendiumDirectory extends HandlebarsApplicationMixin(Abst
      * @param {object} [options]           Additional options for subclass-specific behavior.
      * @protected
      */
-    protected _matchSearchFolders(
-        query: RegExp,
-        folderIds: Set<string>,
-        autoExpandIds: Set<string>,
-        options?: object,
-    ): void;
+    protected _matchSearchFolders(query: RegExp, folderIds: Set<string>, autoExpandIds: Set<string>, options?: object): void;
 
     /* -------------------------------------------- */
     /*  Drag & Drop                                 */

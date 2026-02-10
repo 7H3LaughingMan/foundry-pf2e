@@ -22,14 +22,7 @@ import {
     SaveData,
     SenseData,
 } from "./../creature/data.ts";
-import {
-    ActorAttributesSource,
-    ActorFlagsPF2e,
-    AreaAttack,
-    AttributeBasedTraceData,
-    HitPointsStatistic,
-    StrikeData,
-} from "./../data/base.ts";
+import { ActorAttributesSource, ActorFlagsPF2e, AreaAttack, AttributeBasedTraceData, HitPointsStatistic, StrikeData } from "./../data/base.ts";
 import { InitiativeTraceData } from "./../initiative.ts";
 import { Modifier, StatisticModifier } from "./../modifiers.ts";
 import { ActorAlliance, SaveType, SkillSlug } from "./../types.ts";

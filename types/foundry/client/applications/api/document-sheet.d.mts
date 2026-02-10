@@ -100,12 +100,7 @@ export default abstract class DocumentSheetV2<
      * @throws {Error} Subclasses may throw validation errors here to prevent form submission
      * @returns Prepared submission data as an object
      */
-    protected _prepareSubmitData(
-        event: SubmitEvent,
-        form: HTMLFormElement,
-        formData: FormDataExtended,
-        updateData?: object,
-    ): object;
+    protected _prepareSubmitData(event: SubmitEvent, form: HTMLFormElement, formData: FormDataExtended, updateData?: object): object;
 
     /**
      * Customize how form data is extracted into an expanded object.
@@ -115,11 +110,7 @@ export default abstract class DocumentSheetV2<
      * @returns An expanded object of processed form data
      * @throws {Error} Subclasses may throw validation errors here to prevent form submission
      */
-    protected _processFormData(
-        event: SubmitEvent | null,
-        form: HTMLFormElement,
-        formData: FormDataExtended,
-    ): Record<string, unknown>;
+    protected _processFormData(event: SubmitEvent | null, form: HTMLFormElement, formData: FormDataExtended): Record<string, unknown>;
 
     /**
      * Submit a document update or creation request based on the processed form data.
@@ -132,9 +123,7 @@ export default abstract class DocumentSheetV2<
         event: SubmitEvent,
         form: HTMLFormElement,
         submitData: Record<string, unknown>,
-        options?:
-            | Partial<DatabaseCreateOperation<TConfig["document"]["parent"]>>
-            | Partial<DatabaseUpdateOperation<TConfig["document"]["parent"]>>,
+        options?: Partial<DatabaseCreateOperation<TConfig["document"]["parent"]>> | Partial<DatabaseUpdateOperation<TConfig["document"]["parent"]>>,
     ): Promise<void>;
 }
 

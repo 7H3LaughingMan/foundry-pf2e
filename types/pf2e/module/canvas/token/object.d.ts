@@ -7,8 +7,7 @@ import { TokenDocumentPF2e } from "./../../scene/index.ts";
 import { UserPF2e } from "./../../user/document.ts";
 import { AuraRenderers } from "./aura/index.ts";
 import { FlankingHighlightRenderer } from "./flanking-highlight/renderer.ts";
-declare class TokenPF2e<TDocument extends TokenDocumentPF2e = TokenDocumentPF2e> extends fc.placeables
-    .Token<TDocument> {
+declare class TokenPF2e<TDocument extends TokenDocumentPF2e = TokenDocumentPF2e> extends fc.placeables.Token<TDocument> {
     #private;
     constructor(document: TDocument);
     static RENDER_FLAGS: {

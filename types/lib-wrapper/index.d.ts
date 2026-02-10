@@ -284,11 +284,6 @@ declare global {
          *   Be careful when setting this to 'true', as confirmed conflicts are almost certainly something the user should be made aware of.
          *   Defaults to 'false'.
          */
-        static ignore_conflicts(
-            package_id: string,
-            ignore_ids: string | string[],
-            targets: string | string[],
-            options?: { ingore_errors?: boolean },
-        ): void;
+        static ignore_conflicts(package_id: string, ignore_ids: string | string[], targets: string | string[], options?: { ingore_errors?: boolean }): void;
     }
 }

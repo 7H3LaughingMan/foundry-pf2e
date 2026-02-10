@@ -17,8 +17,7 @@ declare class DamageAlterationRuleElement extends RuleElement<DamageAlterationSc
     ): DamageAlterationValue | null;
     beforePrepareData(): void;
 }
-interface DamageAlterationRuleElement
-    extends RuleElement<DamageAlterationSchema>, ModelPropsFromRESchema<DamageAlterationSchema> {}
+interface DamageAlterationRuleElement extends RuleElement<DamageAlterationSchema>, ModelPropsFromRESchema<DamageAlterationSchema> {}
 type DamageAlterationProperty = "dice-faces" | "dice-number" | "damage-type" | "tags";
 type DamageAlterationSchema = RuleElementSchema & {
     selectors: fields.SetField<fields.StringField<string, string, true, false, false>>;

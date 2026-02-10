@@ -19,10 +19,7 @@ import { ActorSizePF2e } from "./../data/size.ts";
 import { Modifier, RawModifier } from "./../modifiers.ts";
 import { AttributeString, MovementType, SaveType, SkillSlug } from "./../types.ts";
 import { CreatureActorType, CreatureTrait, Language, SenseAcuity, SenseType, SpecialVisionType } from "./types.ts";
-type BaseCreatureSource<
-    TType extends CreatureActorType,
-    TSystemSource extends CreatureSystemSource,
-> = BaseActorSourcePF2e<TType, TSystemSource>;
+type BaseCreatureSource<TType extends CreatureActorType, TSystemSource extends CreatureSystemSource> = BaseActorSourcePF2e<TType, TSystemSource>;
 /** Skill and Lore statistics for rolling. */
 interface CreatureSystemSource extends ActorSystemSource {
     attributes: CreatureAttributesSource;

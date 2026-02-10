@@ -23,10 +23,7 @@ declare class EffectSystemData extends ItemSystemModel<EffectPF2e, EffectSystemS
     static defineSchema(): EffectSystemSchema;
     prepareBaseData(): void;
 }
-interface EffectSystemData
-    extends
-        ItemSystemModel<EffectPF2e, EffectSystemSchema>,
-        Omit<ModelPropsFromSchema<EffectSystemSchema>, "description" | "badge"> {
+interface EffectSystemData extends ItemSystemModel<EffectPF2e, EffectSystemSchema>, Omit<ModelPropsFromSchema<EffectSystemSchema>, "description" | "badge"> {
     expired: boolean;
     badge: EffectBadge | null;
     _source: EffectSystemSource;

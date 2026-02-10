@@ -1,12 +1,6 @@
 import { Document, DocumentMetadata } from "../abstract/_module.mjs";
 import * as fields from "../data/fields.mjs";
-import {
-    DocumentOwnershipLevel,
-    DocumentOwnershipString,
-    ImageFilePath,
-    MeasuredTemplateType,
-    VideoFilePath,
-} from "./../constants.mjs";
+import { DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath, MeasuredTemplateType, VideoFilePath } from "./../constants.mjs";
 import { BaseScene, BaseUser } from "./_module.mjs";
 
 /**
@@ -16,10 +10,7 @@ import { BaseScene, BaseUser } from "./_module.mjs";
  * @param data                   Initial data used to construct the data object
  * @param [document] The embedded document to which this data object belongs
  */
-export default class BaseMeasuredTemplate<TParent extends BaseScene | null> extends Document<
-    TParent,
-    MeasuredTemplateSchema
-> {
+export default class BaseMeasuredTemplate<TParent extends BaseScene | null> extends Document<TParent, MeasuredTemplateSchema> {
     /* -------------------------------------------- */
     /*  Model Configuration                         */
     /* -------------------------------------------- */
@@ -32,11 +23,7 @@ export default class BaseMeasuredTemplate<TParent extends BaseScene | null> exte
     /*  Model Methods                               */
     /* -------------------------------------------- */
 
-    override testUserPermission(
-        user: BaseUser,
-        permission: DocumentOwnershipString | DocumentOwnershipLevel,
-        { exact }?: { exact?: boolean },
-    ): boolean;
+    override testUserPermission(user: BaseUser, permission: DocumentOwnershipString | DocumentOwnershipLevel, { exact }?: { exact?: boolean }): boolean;
 }
 
 export default interface BaseMeasuredTemplate<TParent extends BaseScene | null>

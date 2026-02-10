@@ -95,9 +95,7 @@ interface FilePickerContext extends ApplicationRenderContext {
  * The FilePicker application renders contents of the server-side public directory.
  * This app allows for navigating and uploading files to the public path.
  */
-export default class FilePicker extends HandlebarsApplicationMixin(
-    ApplicationV2<FilePickerConfiguration, HandlebarsRenderOptions, FilePickerContext>,
-) {
+export default class FilePicker extends HandlebarsApplicationMixin(ApplicationV2<FilePickerConfiguration, HandlebarsRenderOptions, FilePickerContext>) {
     static override DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;
 
     static override PARTS: Record<string, HandlebarsTemplatePart>;
@@ -209,11 +207,7 @@ export default class FilePicker extends HandlebarsApplicationMixin(
      * @param target   The target within the source location
      * @param options  Optional arguments modifying the request
      */
-    static configurePath(
-        source: FilePickerSource,
-        target: string,
-        options?: object,
-    ): Promise<FilePickerManageFilesResult>;
+    static configurePath(source: FilePickerSource, target: string, options?: object): Promise<FilePickerManageFilesResult>;
 
     /**
      * Create a subdirectory within a given source. The requested subdirectory path must not already exist.
@@ -221,11 +215,7 @@ export default class FilePicker extends HandlebarsApplicationMixin(
      * @param target   The target within the source location
      * @param options  Optional arguments which modify the request
      */
-    static createDirectory(
-        source: FilePickerSource,
-        target: string,
-        options?: object,
-    ): Promise<FilePickerManageFilesResult>;
+    static createDirectory(source: FilePickerSource, target: string, options?: object): Promise<FilePickerManageFilesResult>;
 
     /**
      * Dispatch a POST request to the server containing a directory path and a file to upload
@@ -288,11 +278,7 @@ export default class FilePicker extends HandlebarsApplicationMixin(
 
     protected override _prepareTabs(group: string): Record<string, ApplicationTab>;
 
-    override changeTab(
-        tab: string,
-        group: string,
-        options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean },
-    ): void;
+    override changeTab(tab: string, group: string, options?: { event?: Event; navElement?: HTMLElement; force?: boolean; updatePosition?: boolean }): void;
 
     protected override _tearDown(options: ApplicationClosingOptions): void;
 

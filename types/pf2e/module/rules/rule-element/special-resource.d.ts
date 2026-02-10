@@ -35,8 +35,7 @@ declare class SpecialResourceRuleElement extends RuleElement<SpecialResourceSche
     /** Finish initializing the special resource, flooring values and assigning the value. If its from an item, use as the source of truth */
     beforePrepareData(): void;
 }
-interface SpecialResourceRuleElement
-    extends RuleElement<SpecialResourceSchema>, ModelPropsFromRESchema<SpecialResourceSchema> {
+interface SpecialResourceRuleElement extends RuleElement<SpecialResourceSchema>, ModelPropsFromRESchema<SpecialResourceSchema> {
     slug: string;
     max: number;
     value: number;

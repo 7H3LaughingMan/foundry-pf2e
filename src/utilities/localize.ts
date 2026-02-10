@@ -36,10 +36,7 @@ export function localizePath(...path: string[]): string {
     return MODULE.path(...path);
 }
 
-export function notify(
-    type: "info" | "warning" | "error" | "success",
-    ...args: NotificationArgs
-): foundry.applications.ui.Notification {
+export function notify(type: "info" | "warning" | "error" | "success", ...args: NotificationArgs): foundry.applications.ui.Notification {
     const permanent = R.isBoolean(args.at(-1)) ? (args.pop() as boolean) : false;
     const message = localize(...(args as LocalizeArgs));
     return foundry.ui.notifications.notify(message, type, { permanent });
@@ -61,8 +58,8 @@ export function error(...args: NotificationArgs): foundry.applications.ui.Notifi
     return notify("error", ...args);
 }
 
-type LocalizeData = Record<string, Maybe<string | number | boolean>>;
+export type LocalizeData = Record<string, Maybe<string | number | boolean>>;
 
-type NotificationArgs = LocalizeArgs | [...LocalizeArgs, string | LocalizeData | boolean];
+export type NotificationArgs = LocalizeArgs | [...LocalizeArgs, string | LocalizeData | boolean];
 
-type LocalizeArgs = string[] | [...string[], string | LocalizeData];
+export type LocalizeArgs = string[] | [...string[], string | LocalizeData];

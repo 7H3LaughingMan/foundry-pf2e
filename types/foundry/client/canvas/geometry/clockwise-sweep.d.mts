@@ -47,11 +47,7 @@ declare class ClockwiseSweepPolygon extends PointSourcePolygon<ClockwiseSweepPol
      * @param {object} [config={}]           Optional polygon config which may include deprecated properties
      * @returns {Record<EdgeType, {priority: number, mode: 0|1|2}>}
      */
-    protected _determineEdgeTypes(
-        type: string,
-        priority: number,
-        config?: object,
-    ): Record<EdgeType, { priority: number; mode: 0 | 1 | 2 }>;
+    protected _determineEdgeTypes(type: string, priority: number, config?: object): Record<EdgeType, { priority: number; mode: 0 | 1 | 2 }>;
 
     override clone(): this;
 
@@ -78,10 +74,7 @@ declare class ClockwiseSweepPolygon extends PointSourcePolygon<ClockwiseSweepPol
      * @param edgeTypes Which types of edges are being used? 0=no, 1=maybe, 2=always
      * @returns Should the edge be included?
      */
-    protected _testEdgeInclusion(
-        edge: Edge,
-        edgeTypes: Record<EdgeType, { priority: number; mode: 0 | 1 | 2 }>,
-    ): boolean;
+    protected _testEdgeInclusion(edge: Edge, edgeTypes: Record<EdgeType, { priority: number; mode: 0 | 1 | 2 }>): boolean;
 
     /**
      * Compute the aggregate bounding box which is the intersection of all boundary shapes.
@@ -130,11 +123,7 @@ declare class ClockwiseSweepPolygon extends PointSourcePolygon<ClockwiseSweepPol
 }
 
 declare namespace ClockwiseSweepPolygon {
-    function create<T extends PointSourcePolygon>(
-        this: ConstructorOf<T>,
-        origin: Point,
-        config?: ClockwiseSweepPolygonConfig,
-    ): T;
+    function create<T extends PointSourcePolygon>(this: ConstructorOf<T>, origin: Point, config?: ClockwiseSweepPolygonConfig): T;
 }
 
 export default ClockwiseSweepPolygon;

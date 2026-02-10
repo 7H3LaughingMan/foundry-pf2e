@@ -34,11 +34,7 @@ declare class ChoiceSetRuleElement extends RuleElement<ChoiceSetSchema> {
      */
     inflateChoices(rollOptions: Set<string>, tempItems: ItemPF2e<ActorPF2e>[]): Promise<PickableThing[]>;
     /** Perform a query via predicate testing against compendium items */
-    queryCompendium(
-        choices: ChoiceSetPackQuery,
-        actorRollOptions: Set<string>,
-        tempItems: ItemPF2e<ActorPF2e>[],
-    ): Promise<PickableThing<string>[]>;
+    queryCompendium(choices: ChoiceSetPackQuery, actorRollOptions: Set<string>, tempItems: ItemPF2e<ActorPF2e>[]): Promise<PickableThing<string>[]>;
 }
 interface ChoiceSetRuleElement extends RuleElement<ChoiceSetSchema>, ModelPropsFromRESchema<ChoiceSetSchema> {}
 export { ChoiceSetRuleElement };

@@ -79,9 +79,7 @@ interface SceneControlsActivationChange {
  * The Scene Controls UI element.
  * @alias SceneControls
  */
-export default class SceneControls extends HandlebarsApplicationMixin(
-    ApplicationV2<ApplicationConfiguration, SceneControlsRenderOptions>,
-) {
+export default class SceneControls extends HandlebarsApplicationMixin(ApplicationV2<ApplicationConfiguration, SceneControlsRenderOptions>) {
     static override DEFAULT_OPTIONS: ApplicationConfiguration;
 
     static override PARTS: Record<string, HandlebarsTemplatePart>;

@@ -10,9 +10,7 @@ declare const CanvasBaseAmbientLight: {
     new <TParent extends Scene | null>(...args: any): BaseAmbientLight<TParent> & CanvasDocument<TParent>;
 } & CanvasBaseAmbientLightStatic;
 
-interface CanvasBaseAmbientLight<TParent extends Scene | null> extends InstanceType<
-    typeof CanvasBaseAmbientLight<TParent>
-> {}
+interface CanvasBaseAmbientLight<TParent extends Scene | null> extends InstanceType<typeof CanvasBaseAmbientLight<TParent>> {}
 
 export default class AmbientLightDocument<TParent extends Scene | null> extends CanvasBaseAmbientLight<TParent> {
     /* -------------------------------------------- */
@@ -26,11 +24,7 @@ export default class AmbientLightDocument<TParent extends Scene | null> extends 
     /*  Event Handlers                              */
     /* -------------------------------------------- */
 
-    protected override _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 }
 
 export default interface AmbientLightDocument<TParent extends Scene | null> extends CanvasBaseAmbientLight<TParent> {

@@ -10,8 +10,7 @@ export default class BaseJournalEntry extends Document<null, JournalEntrySchema>
     static override defineSchema(): JournalEntrySchema;
 }
 
-export default interface BaseJournalEntry
-    extends Document<null, JournalEntrySchema>, fields.ModelPropsFromSchema<JournalEntrySchema> {
+export default interface BaseJournalEntry extends Document<null, JournalEntrySchema>, fields.ModelPropsFromSchema<JournalEntrySchema> {
     readonly pages: EmbeddedCollection<BaseJournalEntryPage<this>>;
 
     readonly categories: EmbeddedCollection<BaseJournalEntryCategory<this>>;

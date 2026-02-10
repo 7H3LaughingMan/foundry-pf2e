@@ -1,12 +1,7 @@
 import { ApplicationRenderOptions } from "../../applications/_types.mjs";
 import { CompendiumDocument, User } from "../_module.mjs";
 import DocumentCollection from "../abstract/document-collection.mjs";
-import {
-    DatabaseAction,
-    DatabaseCreateOperation,
-    DatabaseOperation,
-    DatabaseUpdateOperation,
-} from "./../../../common/abstract/_module.mjs";
+import { DatabaseAction, DatabaseCreateOperation, DatabaseOperation, DatabaseUpdateOperation } from "./../../../common/abstract/_module.mjs";
 import { DocumentOwnershipLevel, DocumentOwnershipString, ImageFilePath } from "./../../../common/constants.mjs";
 import Collection from "./../../../common/utils/collection.mjs";
 import { CompendiumDocumentType, CompendiumUUID } from "./../../utils/helpers.mjs";
@@ -16,9 +11,7 @@ import { CompendiumDocumentType, CompendiumUUID } from "./../../utils/helpers.mj
  * Each Compendium pack has its own associated instance of the CompendiumCollection class which contains its contents.
  * @param metadata The compendium metadata, an object provided by game.data
  */
-export default abstract class CompendiumCollection<
-    TDocument extends CompendiumDocument = CompendiumDocument,
-> extends DocumentCollection<TDocument> {
+export default abstract class CompendiumCollection<TDocument extends CompendiumDocument = CompendiumDocument> extends DocumentCollection<TDocument> {
     constructor(metadata: CompendiumMetadata<TDocument>, options?: ApplicationRenderOptions);
 
     /** The compendium metadata which defines the compendium content and location */
@@ -50,10 +43,7 @@ export default abstract class CompendiumCollection<
      * @param metadata The compendium metadata used to create the new pack
      * @param options  Additional options which modify the Compendium creation request
      */
-    static createCompendium<T extends CompendiumDocument>(
-        metadata: CompendiumMetadata<T>,
-        options?: Record<string, unknown>,
-    ): Promise<CompendiumCollection<T>>;
+    static createCompendium<T extends CompendiumDocument>(metadata: CompendiumMetadata<T>, options?: Record<string, unknown>): Promise<CompendiumCollection<T>>;
 
     /** The canonical Compendium name - comprised of the originating package and the pack name */
     get collection(): string;
@@ -76,9 +66,7 @@ export default abstract class CompendiumCollection<
     override delete(id: string): boolean;
 
     /** Load the Compendium index and cache it as the keys and values of the Collection. */
-    getIndex<T extends CompendiumIndexData = CompendiumIndexData>(options?: {
-        fields: string[];
-    }): Promise<Collection<string, T>>;
+    getIndex<T extends CompendiumIndexData = CompendiumIndexData>(options?: { fields: string[] }): Promise<Collection<string, T>>;
 
     /**
      * Get a single Document from this Compendium by ID.
@@ -109,15 +97,7 @@ export default abstract class CompendiumCollection<
      * @param [options]    Additional options forwarded to Document.createDocuments
      * @return The imported Documents, now existing within the World
      */
-    importAll({
-        folderId,
-        folderName,
-        options,
-    }?: {
-        folderId?: string | null;
-        folderName?: string;
-        options?: Record<string, unknown>;
-    }): Promise<TDocument[]>;
+    importAll({ folderId, folderName, options }?: { folderId?: string | null; folderName?: string; options?: Record<string, unknown> }): Promise<TDocument[]>;
 
     /**
      * Add a Document to the index, capturing it's relevant index attributes
@@ -156,35 +136,14 @@ export default abstract class CompendiumCollection<
         { exact }?: { exact?: boolean },
     ): boolean;
 
-    protected override _onCreateDocuments(
-        documents: TDocument[],
-        result: TDocument["_source"][],
-        options: DatabaseCreateOperation<null>,
-        userId: string,
-    ): void;
+    protected override _onCreateDocuments(documents: TDocument[], result: TDocument["_source"][], options: DatabaseCreateOperation<null>, userId: string): void;
 
-    protected override _onUpdateDocuments(
-        documents: TDocument[],
-        result: TDocument["_source"][],
-        options: DatabaseUpdateOperation<null>,
-        userId: string,
-    ): void;
+    protected override _onUpdateDocuments(documents: TDocument[], result: TDocument["_source"][], options: DatabaseUpdateOperation<null>, userId: string): void;
 
-    protected override _onDeleteDocuments(
-        documents: TDocument[],
-        result: string[],
-        options: DatabaseCreateOperation<null>,
-        userId: string,
-    ): void;
+    protected override _onDeleteDocuments(documents: TDocument[], result: string[], options: DatabaseCreateOperation<null>, userId: string): void;
 
     /** Follow-up actions taken when Documents within this Compendium pack are modified */
-    override _onModifyContents(
-        action: DatabaseAction,
-        documents: TDocument[],
-        result: unknown[],
-        operation: DatabaseOperation<null>,
-        user: User,
-    ): void;
+    override _onModifyContents(action: DatabaseAction, documents: TDocument[], result: unknown[], operation: DatabaseOperation<null>, user: User): void;
 }
 
 export interface CompendiumMetadata<T extends CompendiumDocument = CompendiumDocument> {

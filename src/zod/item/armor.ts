@@ -11,13 +11,9 @@ import {
 import * as R from "remeda";
 import * as z from "zod";
 
-export const zArmorCategory: z.ZodLazy<z.ZodLiteral<ArmorCategory>> = z.lazy(() =>
-    z.literal(R.keys(CONFIG.PF2E.armorCategories)),
-);
+export const zArmorCategory: z.ZodLazy<z.ZodLiteral<ArmorCategory>> = z.lazy(() => z.literal(R.keys(CONFIG.PF2E.armorCategories)));
 
-export const zArmorGroup: z.ZodLazy<z.ZodLiteral<ArmorGroup>> = z.lazy(() =>
-    z.literal(R.keys(CONFIG.PF2E.armorGroups)),
-);
+export const zArmorGroup: z.ZodLazy<z.ZodLiteral<ArmorGroup>> = z.lazy(() => z.literal(R.keys(CONFIG.PF2E.armorGroups)));
 
 export const zArmorPropertyRuneType: z.ZodLiteral<ArmorPropertyRuneType> = z.literal([
     "acidResistant",
@@ -81,22 +77,10 @@ export const zArmorPropertyRuneType: z.ZodLiteral<ArmorPropertyRuneType> = z.lit
     "winged",
 ]);
 
-export const zArmorTrait: z.ZodLazy<z.ZodLiteral<ArmorTrait>> = z.lazy(() =>
-    z.literal(R.keys(CONFIG.PF2E.armorTraits)),
-);
+export const zArmorTrait: z.ZodLazy<z.ZodLiteral<ArmorTrait>> = z.lazy(() => z.literal(R.keys(CONFIG.PF2E.armorTraits)));
 
-export const zBaseArmorType: z.ZodLazy<z.ZodLiteral<BaseArmorType>> = z.lazy(() =>
-    z.literal(R.keys(CONFIG.PF2E.baseArmorTypes)),
-);
+export const zBaseArmorType: z.ZodLazy<z.ZodLiteral<BaseArmorType>> = z.lazy(() => z.literal(R.keys(CONFIG.PF2E.baseArmorTypes)));
 
-export const zOtherArmorTag: z.ZodLazy<z.ZodLiteral<OtherArmorTag>> = z.lazy(() =>
-    z.literal(R.keys(CONFIG.PF2E.otherArmorTags)),
-);
+export const zOtherArmorTag: z.ZodLazy<z.ZodLiteral<OtherArmorTag>> = z.lazy(() => z.literal(R.keys(CONFIG.PF2E.otherArmorTags)));
 
-export const zResilientRuneType: z.ZodLiteral<ResilientRuneType> = z.literal([
-    "",
-    "resilient",
-    "greaterResilient",
-    "majorResilient",
-    "mythicResilient",
-]);
+export const zResilientRuneType: z.ZodLiteral<ResilientRuneType> = z.literal(["", "resilient", "greaterResilient", "majorResilient", "mythicResilient"]);

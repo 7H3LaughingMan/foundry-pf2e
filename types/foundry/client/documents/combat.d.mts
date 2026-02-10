@@ -196,11 +196,7 @@ export default class Combat extends ClientBaseCombat {
 
     protected override _onCreate(data: this["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    protected override _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 
@@ -350,10 +346,7 @@ export default class Combat extends ClientBaseCombat {
      * @param combatant The Combatant whose turn just started
      * @param context The context of the turn that just started
      */
-    protected _clearMovementHistoryOnStartTurn(
-        combatant: Combatant<this>,
-        context: CombatTurnEventContext,
-    ): Promise<void>;
+    protected _clearMovementHistoryOnStartTurn(combatant: Combatant<this>, context: CombatTurnEventContext): Promise<void>;
 
     /**
      * When Tokens are deleted, handle actions to update/delete Combatants of these Tokens.

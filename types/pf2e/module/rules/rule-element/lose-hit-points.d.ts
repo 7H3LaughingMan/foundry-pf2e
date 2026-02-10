@@ -11,8 +11,7 @@ declare class LoseHitPointsRuleElement extends RuleElement<LoseHitPointsRuleSche
     beforePrepareData(): void;
     preUpdate(changes: DeepPartial<ItemSourcePF2e>): Promise<void>;
 }
-interface LoseHitPointsRuleElement
-    extends RuleElement<LoseHitPointsRuleSchema>, ModelPropsFromRESchema<LoseHitPointsRuleSchema> {
+interface LoseHitPointsRuleElement extends RuleElement<LoseHitPointsRuleSchema>, ModelPropsFromRESchema<LoseHitPointsRuleSchema> {
     get actor(): CreaturePF2e;
 }
 type LoseHitPointsRuleSchema = RuleElementSchema & {

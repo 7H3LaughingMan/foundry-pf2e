@@ -34,13 +34,7 @@ export default class DepthSamplerShader extends BaseSamplerShader {
 
     static override _preRenderBatch(batchRenderer: any): void;
 
-    static override _packInterleavedGeometry(
-        element: any,
-        attributeBuffer: any,
-        indexBuffer: any,
-        aIndex: any,
-        iIndex: any,
-    ): void;
+    static override _packInterleavedGeometry(element: any, attributeBuffer: any, indexBuffer: any, aIndex: any, iIndex: any): void;
 
     static override get batchVertexShader(): string;
 

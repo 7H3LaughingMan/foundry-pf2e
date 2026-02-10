@@ -114,10 +114,7 @@ declare global {
          * @param accumulator The initial value of the returned accumulator.
          * @returns The final value of the accumulator.
          */
-        reduce<U>(
-            reducer: (previousValue: U, currentValue: T, currentIndex: number, set: Set<T>) => U,
-            accumulator: U,
-        ): U;
+        reduce<U>(reducer: (previousValue: U, currentValue: T, currentIndex: number, set: Set<T>) => U, accumulator: U): U;
         reduce(reducer: (previousValue: T, currentValue: T, currentIndex: number, set: Set<T>) => T, accumulator: T): T;
 
         /**

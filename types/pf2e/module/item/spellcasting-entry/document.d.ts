@@ -8,10 +8,7 @@ import { MagicTradition } from "./../spell/types.ts";
 import { SpellCollection, SpellSlotGroupId } from "./collection.ts";
 import { SpellcastingEntrySource, SpellcastingEntrySystemData } from "./data.ts";
 import { CastOptions, SpellcastingCategory, SpellcastingEntry, SpellcastingSheetData } from "./types.ts";
-declare class SpellcastingEntryPF2e<TParent extends ActorPF2e | null = ActorPF2e | null>
-    extends ItemPF2e<TParent>
-    implements SpellcastingEntry<TParent>
-{
+declare class SpellcastingEntryPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> implements SpellcastingEntry<TParent> {
     spells: SpellCollection<NonNullable<TParent>> | null;
     /** Spellcasting attack and dc data created during actor preparation */
     statistic: Statistic;
@@ -73,11 +70,7 @@ declare class SpellcastingEntryPF2e<TParent extends ActorPF2e | null = ActorPF2e
     /** Returns rendering data to display the spellcasting entry in the sheet */
     getSheetData({ prepList }?: { prepList?: boolean | undefined }): Promise<SpellcastingSheetData>;
     getRollOptions(prefix?: string): string[];
-    protected _preUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        user: fd.BaseUser,
-    ): Promise<boolean | void>;
+    protected _preUpdate(changed: DeepPartial<this["_source"]>, options: DatabaseUpdateCallbackOptions, user: fd.BaseUser): Promise<boolean | void>;
 }
 interface SpellcastingEntryPF2e<TParent extends ActorPF2e | null = ActorPF2e | null> extends ItemPF2e<TParent> {
     readonly _source: SpellcastingEntrySource;

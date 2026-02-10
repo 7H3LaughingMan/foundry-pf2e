@@ -14,11 +14,7 @@ export class ProseMirrorDropDown {
      * @param [options.icon]                    Use an icon for the dropdown rather than a text label.
      * @param [options.onAction]                A callback to fire when a menu item is clicked.
      */
-    constructor(
-        title: string,
-        items: ProseMirrorMenuItem[],
-        options?: { cssClass?: string; icon: string; onAction?: (event: PointerEvent) => void },
-    );
+    constructor(title: string, items: ProseMirrorMenuItem[], options?: { cssClass?: string; icon: string; onAction?: (event: PointerEvent) => void });
 
     /** Attach event listeners. */
     activateListeners(html: HTMLElement): void;

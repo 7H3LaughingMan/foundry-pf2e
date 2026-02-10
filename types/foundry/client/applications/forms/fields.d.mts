@@ -41,19 +41,14 @@ export function createTextInput(config: FormInputConfig<string>): HTMLInputEleme
  * const groups = ["Good Options", "Bad Options", "Unused Options"];
  * const optgroups = foundry.applications.fields.prepareSelectOptionGroups({options, groups, blank: true, sort: true});
  */
-export function prepareSelectOptionGroups(
-    config: FormInputConfig<string> & SelectInputConfig,
-): { group: string; options: FormSelectOption[] }[];
+export function prepareSelectOptionGroups(config: FormInputConfig<string> & SelectInputConfig): { group: string; options: FormSelectOption[] }[];
 
 /**
  * Apply standard attributes to all input elements.
  * @param input The element being configured
  * @param config Configuration for the element
  */
-export function setInputAttributes<TValue extends string | boolean = string | boolean>(
-    input: HTMLElement,
-    config: FormInputConfig<TValue>,
-): void;
+export function setInputAttributes<TValue extends string | boolean = string | boolean>(input: HTMLElement, config: FormInputConfig<TValue>): void;
 
 /**
  * Create an HTML element for a FontAwesome icon
@@ -72,10 +67,7 @@ export function createFontAwesomeIcon(
 
 export type CustomFormGroup = (field: foundry.data.fields.DataField, groupConfig: FormGroupConfig) => HTMLDivElement;
 
-export type CustomFormInput = (
-    field: foundry.data.fields.DataField,
-    config: FormInputConfig,
-) => HTMLElement | HTMLCollection;
+export type CustomFormInput = (field: foundry.data.fields.DataField, config: FormInputConfig) => HTMLElement | HTMLCollection;
 
 export interface EditorInputConfig extends FormInputConfig<string> {
     /** Default: `prosemirror` */

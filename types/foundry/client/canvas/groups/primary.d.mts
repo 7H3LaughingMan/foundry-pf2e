@@ -207,10 +207,7 @@ export default class PrimaryCanvasGroup extends CanvasGroupMixin(CachedContainer
      * @param b Some other object to display
      * @internal
      */
-    static _compareObjects(
-        a: PrimaryCanvasObject | PIXI.DisplayObject,
-        b: PrimaryCanvasObject | PIXI.DisplayObject,
-    ): number;
+    static _compareObjects(a: PrimaryCanvasObject | PIXI.DisplayObject, b: PrimaryCanvasObject | PIXI.DisplayObject): number;
 
     /* -------------------------------------------- */
     /*  Event Listeners and Handlers                */

@@ -1,8 +1,5 @@
 import ApplicationV2 from "../../api/application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/handlebars-application.mjs";
 import { DataField } from "./../../../../common/data/fields.mjs";
 import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_types.mjs";
 import AVMaster from "./../../../av/master.mjs";
@@ -140,10 +137,7 @@ export default class CameraViews extends HandlebarsApplicationMixin(ApplicationV
     /**
      * Prepare render context for controls.
      */
-    protected _prepareControlsContext(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected _prepareControlsContext(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     /**
      * Prepare render context for the given user.
@@ -152,11 +146,7 @@ export default class CameraViews extends HandlebarsApplicationMixin(ApplicationV
      */
     _prepareUserContext(id: string): CameraViewUserContext | void;
 
-    protected override _replaceHTML(
-        result: Record<string, HTMLElement>,
-        content: HTMLElement,
-        options: HandlebarsRenderOptions,
-    ): void;
+    protected override _replaceHTML(result: Record<string, HTMLElement>, content: HTMLElement, options: HandlebarsRenderOptions): void;
 
     /* -------------------------------------------- */
     /*  Event Listeners & Handlers                  */

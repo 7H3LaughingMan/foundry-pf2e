@@ -1,13 +1,6 @@
 import { CompendiumIndexData } from "./../../client/documents/collections/compendium-collection.mjs";
 import BaseUser from "./../documents/user.mjs";
-import {
-    DatabaseCreateOperation,
-    DatabaseDeleteOperation,
-    DatabaseGetOperation,
-    DatabaseOperation,
-    DatabaseUpdateOperation,
-    Document,
-} from "./_module.mjs";
+import { DatabaseCreateOperation, DatabaseDeleteOperation, DatabaseGetOperation, DatabaseOperation, DatabaseUpdateOperation, Document } from "./_module.mjs";
 
 /**
  * An interface shared by both the client and server-side which defines how creation, update, and deletion operations are transacted.
@@ -155,22 +148,12 @@ export default abstract class DatabaseBackend {
      * @param options.parent A parent document
      * @param options.pack   A compendium pack within which the operation occurred
      */
-    protected _logOperation(
-        action: string,
-        type: string,
-        documents: Document[],
-        options?: { level?: string; parent?: Document; pack: string },
-    ): void;
+    protected _logOperation(action: string, type: string, documents: Document[], options?: { level?: string; parent?: Document; pack: string }): void;
 
     /**
      * Construct a standardized error message given the context of an attempted operation
      */
-    protected _logError(
-        user: BaseUser,
-        action: string,
-        subject: string,
-        options?: { parent: Document; pack?: string },
-    ): string;
+    protected _logError(user: BaseUser, action: string, subject: string, options?: { parent: Document; pack?: string }): string;
 
     protected abstract _log(level: string, message: string): void;
 }

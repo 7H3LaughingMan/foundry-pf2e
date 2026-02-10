@@ -23,8 +23,5 @@ export default class Actors<TDocument extends Actor<null>> extends WorldCollecti
 
     static override documentName: "Actor";
 
-    override fromCompendium(
-        document: TDocument | TDocument["_source"],
-        options?: FromCompendiumOptions,
-    ): TDocument["_source"];
+    override fromCompendium(document: TDocument | TDocument["_source"], options?: FromCompendiumOptions): TDocument["_source"];
 }

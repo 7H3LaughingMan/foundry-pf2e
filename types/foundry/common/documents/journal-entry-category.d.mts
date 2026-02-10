@@ -2,10 +2,7 @@ import { Document, DocumentMetadata } from "../abstract/_module.mjs";
 import * as fields from "../data/fields.mjs";
 import { BaseJournalEntry } from "./_module.mjs";
 
-export default class BaseJournalEntryCategory<TParent extends BaseJournalEntry | null> extends Document<
-    TParent,
-    JournalEntryCategorySchema
-> {
+export default class BaseJournalEntryCategory<TParent extends BaseJournalEntry | null> extends Document<TParent, JournalEntryCategorySchema> {
     static override get metadata(): JournalEntryCategoryMetadata;
 
     static override defineSchema(): JournalEntryCategorySchema;

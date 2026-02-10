@@ -1,7 +1,4 @@
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/handlebars-application.mjs";
 import { DataSchema } from "./../../../../common/abstract/_types.mjs";
 import { PrototypeToken } from "./../../../../common/data/_module.mjs";
 import {
@@ -90,10 +87,7 @@ export default function TokenApplicationMixin<
          */
         protected abstract _initializeTokenPreview(): Promise<void>;
 
-        protected override async _preFirstRender(
-            context: Record<string, unknown>,
-            options: HandlebarsRenderOptions,
-        ): Promise<void> {
+        protected override async _preFirstRender(context: Record<string, unknown>, options: HandlebarsRenderOptions): Promise<void> {
             context;
             options;
         }

@@ -1,8 +1,4 @@
-import {
-    ApplicationConfiguration,
-    ApplicationRenderContext,
-    ApplicationRenderOptions,
-} from "#client/applications/_types.mjs";
+import { ApplicationConfiguration, ApplicationRenderContext, ApplicationRenderOptions } from "#client/applications/_types.mjs";
 import { default as ChatPopout } from "#client/applications/sidebar/apps/chat-popout.mjs";
 import { ContextMenuEntry } from "#client/applications/ux/context-menu.mjs";
 import { ChatSpeakerData } from "#common/documents/chat-message.mjs";

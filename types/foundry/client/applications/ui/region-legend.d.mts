@@ -1,9 +1,4 @@
-import {
-    ApplicationClosingOptions,
-    ApplicationConfiguration,
-    ApplicationRenderContext,
-    ApplicationRenderOptions,
-} from "../_types.mjs";
+import { ApplicationClosingOptions, ApplicationConfiguration, ApplicationRenderContext, ApplicationRenderOptions } from "../_types.mjs";
 import ApplicationV2 from "../api/application.mjs";
 import HandlebarsApplicationMixin, { HandlebarsTemplatePart } from "../api/handlebars-application.mjs";
 import Region from "./../../canvas/placeables/region.mjs";
@@ -27,10 +22,7 @@ export default class RegionLegend extends HandlebarsApplicationMixin(Application
 
     override close(options?: ApplicationClosingOptions): Promise<this>;
 
-    protected override _onFirstRender(
-        context: ApplicationRenderContext,
-        options: ApplicationRenderOptions,
-    ): Promise<void>;
+    protected override _onFirstRender(context: ApplicationRenderContext, options: ApplicationRenderOptions): Promise<void>;
 
     protected override _onRender(context: ApplicationRenderContext, options: ApplicationRenderOptions): Promise<void>;
 

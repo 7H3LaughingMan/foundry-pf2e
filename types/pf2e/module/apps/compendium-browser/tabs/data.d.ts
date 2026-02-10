@@ -140,14 +140,7 @@ interface SpellFilters extends BaseFilterData {
     };
     source: CheckboxData;
 }
-type BrowserFilter =
-    | ActionFilters
-    | BestiaryFilters
-    | CampaignFeatureFilters
-    | EquipmentFilters
-    | FeatFilters
-    | HazardFilters
-    | SpellFilters;
+type BrowserFilter = ActionFilters | BestiaryFilters | CampaignFeatureFilters | EquipmentFilters | FeatFilters | HazardFilters | SpellFilters;
 type BrowserFilterData = CheckboxData | LevelData | SelectData | RangesInputData | TraitData;
 type CompendiumBrowserIndexData = Omit<CompendiumIndexData, "_id"> & Partial<SearchResult>;
 interface RenderResultListOptions {

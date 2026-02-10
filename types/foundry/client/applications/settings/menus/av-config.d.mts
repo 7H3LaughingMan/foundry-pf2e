@@ -1,14 +1,5 @@
-import {
-    ApplicationV2,
-    HandlebarsApplicationMixin,
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/_module.mjs";
-import {
-    ApplicationConfiguration,
-    ApplicationRenderContext,
-    ApplicationTabsConfiguration,
-} from "./../../../applications/_types.mjs";
+import { ApplicationV2, HandlebarsApplicationMixin, HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/_module.mjs";
+import { ApplicationConfiguration, ApplicationRenderContext, ApplicationTabsConfiguration } from "./../../../applications/_types.mjs";
 import AVMaster from "./../../../av/master.mjs";
 
 interface AVConfigConfiguration extends ApplicationConfiguration {

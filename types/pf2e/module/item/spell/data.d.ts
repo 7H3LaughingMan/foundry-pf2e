@@ -96,8 +96,7 @@ interface SpellOverlayOverride {
     overlayType: "override";
     sort: number;
 }
-interface SpellSystemData
-    extends Omit<SpellSystemSource, "damage" | "description">, Omit<ItemSystemData, "level" | "traits"> {
+interface SpellSystemData extends Omit<SpellSystemSource, "damage" | "description">, Omit<ItemSystemData, "level" | "traits"> {
     /** Time and resources consumed in the casting of this spell */
     cast: SpellCastData;
     damage: Record<string, SpellDamage>;

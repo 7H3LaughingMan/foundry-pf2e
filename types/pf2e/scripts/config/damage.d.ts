@@ -70,12 +70,4 @@ declare const damageRollFlavors: Record<
     | "untyped",
     string
 >;
-export {
-    damageCategories,
-    damageCategoriesUnique,
-    damageRollFlavors,
-    damageTypes,
-    energyDamageTypes,
-    materialDamageEffects,
-    physicalDamageTypes,
-};
+export { damageCategories, damageCategoriesUnique, damageRollFlavors, damageTypes, energyDamageTypes, materialDamageEffects, physicalDamageTypes };

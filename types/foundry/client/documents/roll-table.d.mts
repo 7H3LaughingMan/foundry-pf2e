@@ -89,12 +89,7 @@ export default class RollTable extends ClientBaseRollTable {
      */
     drawMany(
         number: number,
-        {
-            roll,
-            recursive,
-            displayChat,
-            rollMode,
-        }?: { roll?: Roll | null; recursive?: boolean; displayChat?: boolean; rollMode?: RollMode | null },
+        { roll, recursive, displayChat, rollMode }?: { roll?: Roll | null; recursive?: boolean; displayChat?: boolean; rollMode?: RollMode | null },
     ): Promise<RollTableDraw<this>>;
 
     /** Normalize the probabilities of rolling each item in the RollTable based on their assigned weights */
@@ -122,15 +117,7 @@ export default class RollTable extends ClientBaseRollTable {
      * const roll = new Roll("1d20 + @abilities.wis.mod", actor.getRollData());
      * const customResults = await table.roll({roll});
      */
-    roll({
-        roll,
-        recursive,
-        _depth,
-    }?: {
-        roll?: Roll;
-        recursive?: boolean;
-        _depth?: number;
-    }): Promise<RollTableDraw<this>>;
+    roll({ roll, recursive, _depth }?: { roll?: Roll; recursive?: boolean; _depth?: number }): Promise<RollTableDraw<this>>;
 
     /**
      * Get an Array of valid results for a given rolled total

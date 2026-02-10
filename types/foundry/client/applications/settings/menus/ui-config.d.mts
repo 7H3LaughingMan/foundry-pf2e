@@ -1,14 +1,7 @@
 import { SchemaField } from "./../../../../common/data/fields.mjs";
-import {
-    ApplicationClosingOptions,
-    ApplicationConfiguration,
-    ApplicationRenderContext,
-} from "./../../../applications/_types.mjs";
+import { ApplicationClosingOptions, ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_types.mjs";
 import ApplicationV2 from "./../../../applications/api/application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "./../../../applications/api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "./../../../applications/api/handlebars-application.mjs";
 
 export interface GameUIConfiguration {
     uiScale: number;

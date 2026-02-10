@@ -1,11 +1,4 @@
-import {
-    EvaluateRollParams,
-    RollJSON,
-    RollOptions,
-    RollParseNode,
-    RollRenderOptions,
-    Rolled,
-} from "#client/dice/_module.mjs";
+import { EvaluateRollParams, RollJSON, RollOptions, RollParseNode, RollRenderOptions, Rolled } from "#client/dice/_module.mjs";
 import { DiceTerm, RollTerm, RollTermData } from "#client/dice/terms/_module.mjs";
 import { default as Peggy } from "peggy";
 import { DamageRollFlag } from "./../../chat-message/index.ts";

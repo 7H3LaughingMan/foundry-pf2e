@@ -11,9 +11,7 @@ import JournalEntry from "./../../documents/journal-entry.mjs";
  * @param object    The JournalEntryPage instance which is being edited.
  * @param [options] Application options.
  */
-export class JournalPageSheet<
-    TDocument extends JournalEntryPage<JournalEntry | null>,
-> extends DocumentSheet<TDocument> {
+export class JournalPageSheet<TDocument extends JournalEntryPage<JournalEntry | null>> extends DocumentSheet<TDocument> {
     /** The table of contents for this JournalTextPageSheet. */
     toc: Record<string, JournalEntryPageHeading>;
 
@@ -27,9 +25,7 @@ export class JournalPageSheet<
     /*  Rendering                                   */
     /* -------------------------------------------- */
 
-    override getData(
-        options?: Partial<DocumentSheetV1Options>,
-    ): DocumentSheetData<TDocument> | Promise<DocumentSheetData<TDocument>>;
+    override getData(options?: Partial<DocumentSheetV1Options>): DocumentSheetData<TDocument> | Promise<DocumentSheetData<TDocument>>;
 
     protected override _renderInner(data: DocumentSheetData<TDocument>, options: AppV1RenderOptions): Promise<JQuery>;
 
@@ -45,11 +41,7 @@ export class JournalPageSheet<
     /*  Text Editor Integration                     */
     /* -------------------------------------------- */
 
-    override activateEditor(
-        name: string,
-        options?: EditorCreateOptions,
-        initialContent?: string,
-    ): Promise<TinyMCE.Editor | EditorView>;
+    override activateEditor(name: string, options?: EditorCreateOptions, initialContent?: string): Promise<TinyMCE.Editor | EditorView>;
 
     /**
      * Update the parent sheet if it is open when the server autosaves the contents of this editor.
@@ -62,15 +54,11 @@ export class JournalPageSheet<
 }
 
 /** The Application responsible for displaying and editing a single JournalEntryPage image document. */
-export class JournalImagePageSheet<
-    TDocument extends JournalEntryPage<JournalEntry | null>,
-> extends JournalPageSheet<TDocument> {
+export class JournalImagePageSheet<TDocument extends JournalEntryPage<JournalEntry | null>> extends JournalPageSheet<TDocument> {
     static override get defaultOptions(): DocumentSheetV1Options;
 }
 
-export class JournalTextPageSheet<
-    TDocument extends JournalEntryPage<JournalEntry | null>,
-> extends JournalPageSheet<TDocument> {
+export class JournalTextPageSheet<TDocument extends JournalEntryPage<JournalEntry | null>> extends JournalPageSheet<TDocument> {
     /** Bi-directional HTML <-> Markdown converter. */
     protected static _converter: object;
 
@@ -99,9 +87,7 @@ export class JournalTextPageSheet<
     protected _convertFormats(renderData?: Record<string, unknown>): void;
 }
 
-export class JournalTextTinyMCESheet<
-    TDocument extends JournalEntryPage<JournalEntry | null>,
-> extends JournalTextPageSheet<TDocument> {
+export class JournalTextTinyMCESheet<TDocument extends JournalEntryPage<JournalEntry | null>> extends JournalTextPageSheet<TDocument> {
     override getData(options?: DocumentSheetV1Options): Promise<DocumentSheetData<TDocument>>;
 
     override close(options?: { force?: boolean }): Promise<void>;
@@ -109,8 +95,6 @@ export class JournalTextTinyMCESheet<
     protected override _render(force?: boolean, options?: AppV1RenderOptions): Promise<void>;
 }
 
-export interface JournalTextTinyMCESheet<
-    TDocument extends JournalEntryPage<JournalEntry | null>,
-> extends JournalTextPageSheet<TDocument> {
+export interface JournalTextTinyMCESheet<TDocument extends JournalEntryPage<JournalEntry | null>> extends JournalTextPageSheet<TDocument> {
     activateEditor(name: string, options?: EditorCreateOptions, initialContent?: string): Promise<TinyMCE.Editor>;
 }

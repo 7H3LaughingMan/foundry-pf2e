@@ -23,10 +23,7 @@ declare class KitEntriesField extends RecordField<
 declare class KitSystemData extends ItemSystemModel<KitPF2e, KitSystemSchema> {
     static defineSchema(): KitSystemSchema;
 }
-interface KitSystemData
-    extends
-        ItemSystemModel<KitPF2e, KitSystemSchema>,
-        Omit<fields.ModelPropsFromSchema<KitSystemSchema>, "description"> {}
+interface KitSystemData extends ItemSystemModel<KitPF2e, KitSystemSchema>, Omit<fields.ModelPropsFromSchema<KitSystemSchema>, "description"> {}
 type KitEntryData = NonNullable<KitSystemData["items"][string]>;
 type KitEntryValueSchema = {
     uuid: fields.DocumentUUIDField<ItemUUID, true, false, false>;
@@ -39,14 +36,7 @@ type KitEntryValueSchema = {
 type KitSystemSchema = Omit<ItemSystemSchema, "traits"> & {
     traits: fields.SchemaField<{
         otherTags: fields.ArrayField<SlugField<true, false, false>, string[], string[], true, false, true>;
-        value: fields.ArrayField<
-            fields.StringField<ClassTrait, ClassTrait, true, false, false>,
-            ClassTrait[],
-            ClassTrait[],
-            true,
-            false,
-            true
-        >;
+        value: fields.ArrayField<fields.StringField<ClassTrait, ClassTrait, true, false, false>, ClassTrait[], ClassTrait[], true, false, true>;
     }>;
     items: KitEntriesField;
     price: PriceField;

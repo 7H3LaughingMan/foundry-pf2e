@@ -62,9 +62,7 @@ declare global {
                 originItem?: ItemPF2e;
                 allModifiersInChatMessage: PF2eModifiersMatter.Modifier[];
             };
-            filterOutIgnoredModifiers: (
-                allModifiersInChatMessage: PF2eModifiersMatter.Modifier[],
-            ) => PF2eModifiersMatter.Modifier[];
+            filterOutIgnoredModifiers: (allModifiersInChatMessage: PF2eModifiersMatter.Modifier[]) => PF2eModifiersMatter.Modifier[];
             getDcModsAndDcActor: ({
                 targetedActor,
                 originItem,

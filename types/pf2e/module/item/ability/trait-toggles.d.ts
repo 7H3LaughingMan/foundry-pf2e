@@ -5,10 +5,7 @@ import { AbilityItemPF2e, FeatPF2e } from "./../index.ts";
 import { AbilitySystemData } from "./data.ts";
 import fields = foundry.data.fields;
 /** A helper class to handle toggleable ability traits */
-declare class AbilityTraitToggles extends foundry.abstract.DataModel<
-    AbilitySystemData | FeatSystemData,
-    TraitToggleSchema
-> {
+declare class AbilityTraitToggles extends foundry.abstract.DataModel<AbilitySystemData | FeatSystemData, TraitToggleSchema> {
     static defineSchema(): TraitToggleSchema;
     /** The grandparent item */
     get item(): AbilityItemPF2e | FeatPF2e;
@@ -20,9 +17,7 @@ declare class AbilityTraitToggles extends foundry.abstract.DataModel<
     update({ trait, selected }: { trait: "mindshift"; selected: boolean }): Promise<boolean>;
 }
 interface AbilityTraitToggles
-    extends
-        foundry.abstract.DataModel<AbilitySystemData | FeatSystemData, TraitToggleSchema>,
-        ModelPropsFromSchema<TraitToggleSchema> {}
+    extends foundry.abstract.DataModel<AbilitySystemData | FeatSystemData, TraitToggleSchema>, ModelPropsFromSchema<TraitToggleSchema> {}
 type TraitToggleSchema = {
     mindshift: fields.SchemaField<
         {

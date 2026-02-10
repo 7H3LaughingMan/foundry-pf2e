@@ -9,10 +9,7 @@ export default class GamePause extends ApplicationV2 {
 
     protected override _prepareContext(): Promise<object>;
 
-    protected override _renderHTML(
-        context: object,
-        options: ApplicationRenderOptions,
-    ): Promise<[HTMLImageElement, HTMLElement]>;
+    protected override _renderHTML(context: object, options: ApplicationRenderOptions): Promise<[HTMLImageElement, HTMLElement]>;
 
     protected override _replaceHTML(result: HTMLElement[], content: HTMLElement): void;
 }

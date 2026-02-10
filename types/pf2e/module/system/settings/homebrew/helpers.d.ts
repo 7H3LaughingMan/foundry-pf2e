@@ -12,11 +12,4 @@ type ReservedTermsRecord = Record<HomebrewTraitKey | "damageTypes" | "skills", S
 /** Reads homebrew settings from all modules */
 declare function readModuleHomebrewSettings(): ModuleHomebrewData;
 declare function prepareCleanup(listKey: HomebrewTraitKey, deletions: string[]): MigrationBase;
-export {
-    isHomebrewCustomDamage,
-    isHomebrewFlagCategory,
-    prepareCleanup,
-    prepareReservedTerms,
-    readModuleHomebrewSettings,
-    type ReservedTermsRecord,
-};
+export { isHomebrewCustomDamage, isHomebrewFlagCategory, prepareCleanup, prepareReservedTerms, readModuleHomebrewSettings, type ReservedTermsRecord };

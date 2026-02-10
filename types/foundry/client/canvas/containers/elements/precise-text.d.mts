@@ -14,11 +14,5 @@ export default class PreciseText extends PIXI.Text {
      * @param options.anchor A text anchor point from CONST.TEXT_ANCHOR_POINTS
      * @returns The prepared TextStyle
      */
-    static getTextStyle({
-        anchor,
-        ...options
-    }?: {
-        anchor?: number;
-        options?: Partial<PIXI.ITextStyle>;
-    }): PIXI.TextStyle;
+    static getTextStyle({ anchor, ...options }?: { anchor?: number; options?: Partial<PIXI.ITextStyle> }): PIXI.TextStyle;
 }

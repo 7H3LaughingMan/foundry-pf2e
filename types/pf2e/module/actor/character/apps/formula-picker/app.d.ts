@@ -16,9 +16,9 @@ interface FormulaPickerConfiguration extends fa.ApplicationConfiguration {
     mode: "craft" | "prepare";
 }
 /** Creates a formula picker dialog that resolves with the selected item */
-declare class FormulaPicker extends SvelteApplicationMixin<
-    AbstractConstructorOf<ApplicationV2> & { DEFAULT_OPTIONS: DeepPartial<FormulaPickerConfiguration> }
->(fa.api.ApplicationV2) {
+declare class FormulaPicker extends SvelteApplicationMixin<AbstractConstructorOf<ApplicationV2> & { DEFAULT_OPTIONS: DeepPartial<FormulaPickerConfiguration> }>(
+    fa.api.ApplicationV2,
+) {
     #private;
     static DEFAULT_OPTIONS: {
         id: string;

@@ -41,10 +41,7 @@ export default class TokenRuler<TObject extends Token> extends BaseTokenRuler<TO
     /**
      * Get the context used to render a ruler waypoint label.
      */
-    protected _getWaypointLabelContext(
-        waypoint: DeepReadonly<TokenRulerWaypoint>,
-        state: WaypointLabelRenderState,
-    ): WaypointLabelRenderContext | void;
+    protected _getWaypointLabelContext(waypoint: DeepReadonly<TokenRulerWaypoint>, state: WaypointLabelRenderState): WaypointLabelRenderContext | void;
 
     /**
      * Get the style of the waypoint at the given waypoint.

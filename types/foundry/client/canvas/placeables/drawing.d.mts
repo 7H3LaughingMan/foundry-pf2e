@@ -7,9 +7,7 @@ import PlaceableObject from "./placeable-object.mjs";
  * The Drawing object is an implementation of the PlaceableObject container.
  * Each Drawing is a placeable object in the DrawingsLayer.
  */
-export default class Drawing<
-    TDocument extends DrawingDocument<Scene | null> = DrawingDocument<Scene | null>,
-> extends PlaceableObject<TDocument> {
+export default class Drawing<TDocument extends DrawingDocument<Scene | null> = DrawingDocument<Scene | null>> extends PlaceableObject<TDocument> {
     constructor(document: TDocument);
 
     /** The inner drawing container */
@@ -82,12 +80,7 @@ export default class Drawing<
      * @param point    The current point
      * @param next     The next point
      */
-    protected _getBezierControlPoints(
-        factor: number,
-        previous: [number, number],
-        point: [number, number],
-        next: [number, number],
-    ): void;
+    protected _getBezierControlPoints(factor: number, previous: [number, number], point: [number, number], next: [number, number]): void;
 
     /** Refresh the boundary frame which outlines the Drawing shape */
     protected _refreshFrame({ x, y, width, height }: { x: number; y: number; width: number; height: number }): void;
@@ -108,8 +101,6 @@ export default class Drawing<
     protected _onDrawingTextKeydown(event: KeyboardEvent): void;
 }
 
-export default interface Drawing<
-    TDocument extends DrawingDocument<Scene | null> = DrawingDocument<Scene | null>,
-> extends PlaceableObject<TDocument> {
+export default interface Drawing<TDocument extends DrawingDocument<Scene | null> = DrawingDocument<Scene | null>> extends PlaceableObject<TDocument> {
     get layer(): DrawingsLayer<this>;
 }

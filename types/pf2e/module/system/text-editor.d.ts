@@ -7,11 +7,7 @@ declare class TextEditorPF2e extends foundry.applications.ux.TextEditor {
     #private;
     static enrichHTML(content: string | null, options?: EnrichmentOptionsPF2e): Promise<string>;
     /** Replace core static method to conditionally handle parsing of inline damage rolls */
-    static _createInlineRoll(
-        match: RegExpMatchArray,
-        rollData: Record<string, unknown>,
-        options?: EnrichmentOptionsPF2e,
-    ): Promise<HTMLAnchorElement | null>;
+    static _createInlineRoll(match: RegExpMatchArray, rollData: Record<string, unknown>, options?: EnrichmentOptionsPF2e): Promise<HTMLAnchorElement | null>;
     /** Replace core static method to conditionally handle inline damage roll clicks */
     static _onClickInlineRoll(event: PointerEvent): Promise<ChatMessage | undefined>;
     static processUserVisibility(content: string, options: EnrichmentOptionsPF2e): string;
@@ -23,11 +19,7 @@ declare class TextEditorPF2e extends foundry.applications.ux.TextEditor {
      * @param options attributes to add to the generated span element
      * @returns The generated span element, or `null` if no `name` node was found
      */
-    static convertXMLNode(
-        html: HTMLElement,
-        name: string,
-        { visible, visibility, whose, tooltip, classes }: ConvertXMLNodeOptions,
-    ): HTMLElement | null;
+    static convertXMLNode(html: HTMLElement, name: string, { visible, visibility, whose, tooltip, classes }: ConvertXMLNodeOptions): HTMLElement | null;
     /** Create roll options with information about the action being used */
     static createActionOptions(item: Maybe<ItemPF2e>, extra?: string[]): string[];
 }

@@ -9,8 +9,7 @@ declare class EphemeralEffectRuleElement extends RuleElement<EphemeralEffectSche
     static validateJoint(data: fields.SourceFromSchema<EphemeralEffectSchema>): void;
     afterPrepareData(): void;
 }
-interface EphemeralEffectRuleElement
-    extends RuleElement<EphemeralEffectSchema>, ModelPropsFromRESchema<EphemeralEffectSchema> {}
+interface EphemeralEffectRuleElement extends RuleElement<EphemeralEffectSchema>, ModelPropsFromRESchema<EphemeralEffectSchema> {}
 type EphemeralEffectSchema = RuleElementSchema & {
     affects: fields.StringField<"target" | "origin", "target" | "origin", true, false, true>;
     selectors: fields.ArrayField<fields.StringField<string, string, true, false, false>>;

@@ -3,10 +3,7 @@ import { TagifyEntry } from "./../../sheet/helpers.ts";
  * A HTML Element that handles `Tagify` data and always has a `value` of `string[]`.
  * `Tagify` must be bound to the child input element that can be accessed at `HTMLTagifyTagsElement#input`
  */
-declare class HTMLTagifyTagsElement extends foundry.applications.elements.AbstractFormInputElement<
-    TagifyEntry[] | string[],
-    string
-> {
+declare class HTMLTagifyTagsElement extends foundry.applications.elements.AbstractFormInputElement<TagifyEntry[] | string[], string> {
     static tagName: string;
     constructor();
     protected _primaryInput: HTMLInputElement;

@@ -2,9 +2,7 @@ import Drawing from "../canvas/placeables/drawing.mjs";
 import { BaseDrawing, Scene } from "./_module.mjs";
 import { CanvasDocument } from "./abstract/canvas-document.mjs";
 
-declare const CanvasBaseDrawing: new <TParent extends Scene | null>(
-    ...args: any
-) => BaseDrawing<TParent> & CanvasDocument<TParent>;
+declare const CanvasBaseDrawing: new <TParent extends Scene | null>(...args: any) => BaseDrawing<TParent> & CanvasDocument<TParent>;
 
 interface CanvasBaseDrawing<TParent extends Scene | null> extends InstanceType<typeof CanvasBaseDrawing<TParent>> {}
 
@@ -22,9 +20,7 @@ export default class DrawingDocument<TParent extends Scene | null = Scene | null
     override get isOwner(): boolean;
 }
 
-export default interface DrawingDocument<
-    TParent extends Scene | null = Scene | null,
-> extends CanvasBaseDrawing<TParent> {
+export default interface DrawingDocument<TParent extends Scene | null = Scene | null> extends CanvasBaseDrawing<TParent> {
     readonly _object: Drawing<this> | null;
 }
 

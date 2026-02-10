@@ -170,13 +170,7 @@ export default class PlaceablesLayer<TObject extends PlaceableObject = Placeable
      * @returns  An array of objects which were rotated
      * @throws   An error if an explicitly provided id is not valid
      */
-    rotateMany(options?: {
-        angle?: number;
-        delta?: number;
-        snap?: number;
-        ids?: string[];
-        includeLocked: boolean;
-    }): Promise<TObject[]>;
+    rotateMany(options?: { angle?: number; delta?: number; snap?: number; ids?: string[]; includeLocked: boolean }): Promise<TObject[]>;
 
     /**
      * Simultaneously move multiple PlaceableObjects via keyboard movement offsets.
@@ -206,24 +200,14 @@ export default class PlaceablesLayer<TObject extends PlaceableObject = Placeable
      * @see {@link PlaceablesLayer#moveMany}
      * @internal
      */
-    _prepareKeyboardMovementUpdates(
-        objects: TObject[],
-        dx: MinusOneToOne,
-        dy: MinusOneToOne,
-        dz: MinusOneToOne,
-    ): ({ _id: string } & ElevatedPoint)[];
+    _prepareKeyboardMovementUpdates(objects: TObject[], dx: MinusOneToOne, dy: MinusOneToOne, dz: MinusOneToOne): ({ _id: string } & ElevatedPoint)[];
 
     /**
      * Prepare the updates and update options for rotating the given placeable objects via keyboard.
      * @see {@link PlaceablesLayer#moveMany}
      * @internal
      */
-    _prepareKeyboardRotationUpdates(
-        objects: TObject[],
-        dx: MinusOneToOne,
-        dy: MinusOneToOne,
-        dz: MinusOneToOne,
-    ): { _id: string; rotation: number }[];
+    _prepareKeyboardRotationUpdates(objects: TObject[], dx: MinusOneToOne, dy: MinusOneToOne, dz: MinusOneToOne): { _id: string; rotation: number }[];
 
     /**
      * Assign a set of render flags to all placeables in this layer.
@@ -362,10 +346,7 @@ export default class PlaceablesLayer<TObject extends PlaceableObject = Placeable
      * @returns  The created preview object
      * @internal
      */
-    _createPreview(
-        createData: DeepPartial<TObject["document"]["_source"]>,
-        options?: { renderSheet?: boolean; top?: number; left?: number },
-    ): Promise<TObject>;
+    _createPreview(createData: DeepPartial<TObject["document"]["_source"]>, options?: { renderSheet?: boolean; top?: number; left?: number }): Promise<TObject>;
 
     /* -------------------------------------------- */
     /*  Event Listeners and Handlers                */

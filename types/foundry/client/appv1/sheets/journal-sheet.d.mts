@@ -62,9 +62,7 @@ export default class JournalSheet<TJournalEntry extends JournalEntry> extends Do
 
     protected override _getHeaderButtons(): ApplicationV1HeaderButton[];
 
-    override getData(
-        options?: Partial<DocumentSheetV1Options>,
-    ): JournalSheetData<TJournalEntry> | Promise<JournalSheetData<TJournalEntry>>;
+    override getData(options?: Partial<DocumentSheetV1Options>): JournalSheetData<TJournalEntry> | Promise<JournalSheetData<TJournalEntry>>;
 
     override get template(): string;
 
@@ -238,12 +236,7 @@ export default class JournalSheet<TJournalEntry extends JournalEntry> extends Do
 
     protected override _onDrop(event: DragEvent): Promise<void>;
 
-    protected override _onSearchFilter(
-        event: KeyboardEvent,
-        query: string,
-        rgx: RegExp,
-        html: HTMLElement | null,
-    ): void;
+    protected override _onSearchFilter(event: KeyboardEvent, query: string, rgx: RegExp, html: HTMLElement | null): void;
 }
 
 type JournalSheetViewMode = (typeof JournalSheet.VIEW_MODES)[keyof typeof JournalSheet.VIEW_MODES];

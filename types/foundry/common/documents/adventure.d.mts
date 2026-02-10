@@ -1,13 +1,6 @@
 import { Document, DocumentMetadata } from "../abstract/_module.mjs";
 import * as fields from "../data/fields.mjs";
-import {
-    DocumentOwnershipLevel,
-    ImageFilePath,
-    UserAction,
-    UserPermission,
-    UserRole,
-    UserRoleName,
-} from "./../constants.mjs";
+import { DocumentOwnershipLevel, ImageFilePath, UserAction, UserPermission, UserRole, UserRoleName } from "./../constants.mjs";
 import * as documents from "./_module.mjs";
 
 /**
@@ -58,8 +51,7 @@ export default class BaseAdventure extends Document<null, AdventureSchema> {
     hasRole(role: UserRole | UserRoleName, { exact }?: { exact: boolean }): boolean;
 }
 
-export default interface BaseAdventure
-    extends Document<null, AdventureSchema>, fields.ModelPropsFromSchema<AdventureSchema> {
+export default interface BaseAdventure extends Document<null, AdventureSchema>, fields.ModelPropsFromSchema<AdventureSchema> {
     get documentName(): AdventureMetadata["name"];
 }
 

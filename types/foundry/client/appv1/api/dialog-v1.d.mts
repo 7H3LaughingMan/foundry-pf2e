@@ -71,16 +71,7 @@ export default class Dialog extends Application {
      *  defaultYes: false
      * });
      */
-    static confirm<Y = true, N = false>({
-        title,
-        content,
-        yes,
-        no,
-        render,
-        defaultYes,
-        rejectClose,
-        options,
-    }?: ConfirmDialogParameters<Y, N>): Promise<Y | N>;
+    static confirm<Y = true, N = false>({ title, content, yes, no, render, defaultYes, rejectClose, options }?: ConfirmDialogParameters<Y, N>): Promise<Y | N>;
 
     static override get defaultOptions(): DialogOptions;
 
@@ -161,11 +152,7 @@ export default class Dialog extends Application {
      * @param [renderOptions] Options passed to the Dialog render call.
      * @returns A Promise that resolves to the chosen result.
      */
-    static wait(
-        data?: DialogData,
-        options?: Partial<DialogOptions>,
-        renderOptions?: Partial<AppV1RenderOptions>,
-    ): Promise<unknown>;
+    static wait(data?: DialogData, options?: Partial<DialogOptions>, renderOptions?: Partial<AppV1RenderOptions>): Promise<unknown>;
 }
 
 export interface DialogOptions extends ApplicationV1Options {

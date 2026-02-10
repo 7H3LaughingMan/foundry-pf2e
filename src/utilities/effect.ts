@@ -13,12 +13,7 @@ import { zRuleElementSource } from "#zod/rules/base.ts";
 import { zGrantItemSource } from "#zod/rules/grant-item.ts";
 import { zItemAlteration } from "#zod/rules/item-alteration.ts";
 
-export function createPersistentDamageSource(
-    formula: string,
-    damageType: DamageType,
-    dc: number = 15,
-    criticalHit: boolean = false,
-): ConditionSource {
+export function createPersistentDamageSource(formula: string, damageType: DamageType, dc: number = 15, criticalHit: boolean = false): ConditionSource {
     const conditionSource = game.pf2e.ConditionManager.getCondition("persistent-damage").toObject();
     return foundry.utils.mergeObject(conditionSource, {
         system: { persistent: { formula, damageType, dc, criticalHit } },
@@ -57,20 +52,7 @@ export function createCustomConditions({ conditions }: CustomConditionsOptions):
 }
 
 export function createCustomEffect(options: CustomEffectOptions): WithRequired<PreCreate<EffectSource>, "system"> {
-    const {
-        name = "Effect",
-        img,
-        badge,
-        context,
-        description,
-        duration,
-        level,
-        publication,
-        rules,
-        slug,
-        tokenIcon = true,
-        unidentified = false,
-    } = options;
+    const { name = "Effect", img, badge, context, description, duration, level, publication, rules, slug, tokenIcon = true, unidentified = false } = options;
 
     const system: DeepPartial<EffectSource["system"]> = {
         unidentified,
@@ -117,10 +99,7 @@ export function createCustomEffect(options: CustomEffectOptions): WithRequired<P
                 };
                 system.level = { value: context.origin.item.rank };
             }
-            origin.rollOptions = [
-                ...context.origin.actor.getSelfRollOptions("origin"),
-                ...(context.origin.item?.getRollOptions("origin:item") ?? []),
-            ];
+            origin.rollOptions = [...context.origin.actor.getSelfRollOptions("origin"), ...(context.origin.item?.getRollOptions("origin:item") ?? [])];
 
             system.context.origin = origin;
         }

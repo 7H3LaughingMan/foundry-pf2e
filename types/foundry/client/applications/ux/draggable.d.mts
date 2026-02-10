@@ -23,12 +23,7 @@ export default class Draggable {
      * @param resizable Is the application resizable? Supply an object to configure resizing behavior
      *                  or true to have it automatically configured.
      */
-    constructor(
-        app: Application | ApplicationV2,
-        element: HTMLElement | JQuery,
-        handle: HTMLElement | false,
-        resizable: boolean | DraggableResizeOptions,
-    );
+    constructor(app: Application | ApplicationV2, element: HTMLElement | JQuery, handle: HTMLElement | false, resizable: boolean | DraggableResizeOptions);
 
     /* -------------------------------------------- */
     /*  Properties                                  */

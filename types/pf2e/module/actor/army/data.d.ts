@@ -12,8 +12,7 @@ import fields = foundry.data.fields;
 declare class ArmySystemData extends ActorSystemModel<ArmyPF2e, ArmySystemSchema> {
     static defineSchema(): ArmySystemSchema;
 }
-interface ArmySystemData
-    extends ActorSystemModel<ArmyPF2e, ArmySystemSchema>, fields.ModelPropsFromSchema<ArmySystemSchema> {
+interface ArmySystemData extends ActorSystemModel<ArmyPF2e, ArmySystemSchema>, fields.ModelPropsFromSchema<ArmySystemSchema> {
     attributes: fields.ModelPropsFromSchema<ArmyAttributesSchema> & {
         hp: {
             max: number;
@@ -64,14 +63,7 @@ type ArmySystemSchema = Omit<ActorSystemSchema, "attributes" | "traits" | "resou
             true,
             true
         >;
-        melee: fields.SchemaField<
-            ArmyWeaponSchema,
-            fields.SourceFromSchema<ArmyWeaponSchema>,
-            fields.ModelPropsFromSchema<ArmyWeaponSchema>,
-            true,
-            true,
-            true
-        >;
+        melee: fields.SchemaField<ArmyWeaponSchema, fields.SourceFromSchema<ArmyWeaponSchema>, fields.ModelPropsFromSchema<ArmyWeaponSchema>, true, true, true>;
     }>;
     resources: fields.SchemaField<{
         /** How often this army can use ranged attacks */

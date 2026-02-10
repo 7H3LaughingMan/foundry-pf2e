@@ -6,15 +6,7 @@ import { TokenDocumentPF2e } from "./../../scene/token-document/index.ts";
 import { CheckDC, DegreeOfSuccessAdjustment } from "./../degree-of-success.ts";
 import { BaseRollContext } from "./../rolls.ts";
 type RollTwiceOption = "keep-higher" | "keep-lower" | false;
-type CheckType =
-    | "attack-roll"
-    | "check"
-    | "counteract-check"
-    | "flat-check"
-    | "initiative"
-    | "perception-check"
-    | "saving-throw"
-    | "skill-check";
+type CheckType = "attack-roll" | "check" | "counteract-check" | "flat-check" | "initiative" | "perception-check" | "saving-throw" | "skill-check";
 interface CheckCheckContext extends BaseRollContext {
     /** The type of this roll, like 'perception-check' or 'saving-throw'. */
     type?: CheckType;

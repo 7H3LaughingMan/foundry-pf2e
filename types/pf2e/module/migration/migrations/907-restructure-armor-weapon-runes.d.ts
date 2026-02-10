@@ -6,14 +6,7 @@ export declare class Migration907RestructureArmorWeaponRunes extends MigrationBa
     static version: number;
     updateItem(source: MaybeWithRuneDeletions): Promise<void>;
 }
-type OldRunePropertyKey =
-    | "potencyRune"
-    | "resiliencyRune"
-    | "strikingRune"
-    | "propertyRune1"
-    | "propertyRune2"
-    | "propertyRune3"
-    | "propertyRune4";
+type OldRunePropertyKey = "potencyRune" | "resiliencyRune" | "strikingRune" | "propertyRune1" | "propertyRune2" | "propertyRune3" | "propertyRune4";
 type MaybeWithRuneDeletions = ItemSourcePF2e & {
     system: {
         [K in `-=${OldRunePropertyKey}`]?: null;

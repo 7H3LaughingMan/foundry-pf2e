@@ -47,13 +47,7 @@ export default class ParentheticalTerm extends RollTerm<ParentheticalTermData> {
 
     protected _evaluateSync({ minimize, maximize }?: { minimize?: boolean; maximize?: boolean }): Evaluated<this>;
 
-    protected override _evaluate({
-        minimize,
-        maximize,
-    }?: {
-        minimize?: boolean;
-        maximize?: boolean;
-    }): Promise<Evaluated<this>>;
+    protected override _evaluate({ minimize, maximize }?: { minimize?: boolean; maximize?: boolean }): Promise<Evaluated<this>>;
 
     /**
      * Construct a ParentheticalTerm from an Array of component terms which should be wrapped inside the parentheses.

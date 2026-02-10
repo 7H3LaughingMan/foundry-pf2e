@@ -24,10 +24,7 @@ export default class WordTree<TEntry extends object = WordTreeEntry> extends Str
      * @param options.filterEntries A filter function to apply to each candidate entry.
      * @returns A number of entries that have the given prefix.
      */
-    override lookup(
-        prefix: string,
-        options?: { limit?: number; filterEntries?: StringTreeEntryFilter<TEntry> },
-    ): TEntry[];
+    override lookup(prefix: string, options?: { limit?: number; filterEntries?: StringTreeEntryFilter<TEntry> }): TEntry[];
 
     /**
      * Returns the node at the given prefix.

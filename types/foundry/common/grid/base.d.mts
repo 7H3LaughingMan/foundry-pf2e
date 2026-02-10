@@ -203,10 +203,7 @@ export abstract class BaseGrid {
         waypoints: (GridCoordinates2D & Partial<GridMeasurePathWaypointData2D>)[],
         options?: { cost?: GridMeasurePathCostFunction2D },
     ): GridMeasurePathResult;
-    measurePath(
-        waypoints: GridMeasurePathWaypointData3D[],
-        options?: { cost?: GridMeasurePathCostFunction3D },
-    ): GridMeasurePathResult;
+    measurePath(waypoints: GridMeasurePathWaypointData3D[], options?: { cost?: GridMeasurePathCostFunction3D }): GridMeasurePathResult;
 
     /**
      * Measures the path and writes the measurements into `result`.

@@ -1,13 +1,6 @@
 import ApplicationV2 from "../../api/application.mjs";
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/handlebars-application.mjs";
-import {
-    ApplicationConfiguration,
-    ApplicationPosition,
-    ApplicationRenderContext,
-} from "./../../../applications/_types.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/handlebars-application.mjs";
+import { ApplicationConfiguration, ApplicationPosition, ApplicationRenderContext } from "./../../../applications/_types.mjs";
 import User from "./../../../documents/user.mjs";
 
 interface CameraPopoutConfiguration extends ApplicationConfiguration {
@@ -42,10 +35,7 @@ export default class CameraPopout extends HandlebarsApplicationMixin(Application
     /** @inheritDoc */
     _initializeApplicationOptions(options: DeepPartial<ApplicationConfiguration>): ApplicationConfiguration;
 
-    protected override _onFirstRender(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _onFirstRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     protected override _prepareContext(options: HandlebarsRenderOptions): Promise<ApplicationRenderContext>;
 

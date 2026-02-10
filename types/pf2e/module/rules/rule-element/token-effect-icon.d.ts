@@ -9,8 +9,7 @@ declare class TokenEffectIconRuleElement extends RuleElement<TokenEffectIconSche
     static defineSchema(): TokenEffectIconSchema;
     afterPrepareData(): void;
 }
-interface TokenEffectIconRuleElement
-    extends RuleElement<TokenEffectIconSchema>, ModelPropsFromRESchema<TokenEffectIconSchema> {}
+interface TokenEffectIconRuleElement extends RuleElement<TokenEffectIconSchema>, ModelPropsFromRESchema<TokenEffectIconSchema> {}
 type TokenEffectIconSchema = RuleElementSchema & {
     value: fields.StringField<string, string, false, false, false>;
 };

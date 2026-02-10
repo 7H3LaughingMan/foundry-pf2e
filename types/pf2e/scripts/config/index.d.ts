@@ -1,14 +1,5 @@
 import { SenseAcuity } from "./../../module/actor/creature/types.ts";
-import {
-    ArmyPF2e,
-    CharacterPF2e,
-    FamiliarPF2e,
-    HazardPF2e,
-    LootPF2e,
-    NPCPF2e,
-    PartyPF2e,
-    VehiclePF2e,
-} from "./../../module/actor/index.ts";
+import { ArmyPF2e, CharacterPF2e, FamiliarPF2e, HazardPF2e, LootPF2e, NPCPF2e, PartyPF2e, VehiclePF2e } from "./../../module/actor/index.ts";
 import { AttributeString } from "./../../module/actor/types.ts";
 import {
     AbilityItemPF2e,
@@ -494,21 +485,7 @@ export declare const PF2ECONFIG: {
         | "sword",
         string
     >;
-    meleeWeaponGroups: Record<
-        | "axe"
-        | "brawling"
-        | "club"
-        | "dart"
-        | "flail"
-        | "hammer"
-        | "knife"
-        | "pick"
-        | "polearm"
-        | "shield"
-        | "spear"
-        | "sword",
-        string
-    >;
+    meleeWeaponGroups: Record<"axe" | "brawling" | "club" | "dart" | "flail" | "hammer" | "knife" | "pick" | "polearm" | "shield" | "spear" | "sword", string>;
     baseArmorTypes: {
         "abadarcorp-travel-suit": string;
         "aegis-series": string;
@@ -5464,10 +5441,7 @@ export declare const PF2ECONFIG: {
     };
     weaponReload: Record<WeaponReloadTime, string>;
     armorCategories: Record<"light" | "medium" | "unarmored" | "heavy" | "light-barding" | "heavy-barding", string>;
-    armorGroups: Record<
-        "wood" | "composite" | "ceramic" | "chain" | "cloth" | "leather" | "plate" | "polymer" | "skeletal",
-        string
-    >;
+    armorGroups: Record<"wood" | "composite" | "ceramic" | "chain" | "cloth" | "leather" | "plate" | "polymer" | "skeletal", string>;
     consumableCategories: Record<
         | "scroll"
         | "poison"
@@ -7860,17 +7834,7 @@ export declare const PF2ECONFIG: {
         >
     >;
     featCategories: Record<
-        | "curse"
-        | "class"
-        | "general"
-        | "skill"
-        | "calling"
-        | "ancestry"
-        | "bonus"
-        | "ancestryfeature"
-        | "classfeature"
-        | "deityboon"
-        | "pfsboon",
+        "curse" | "class" | "general" | "skill" | "calling" | "ancestry" | "bonus" | "ancestryfeature" | "classfeature" | "deityboon" | "pfsboon",
         string
     >;
     actionTypes: {

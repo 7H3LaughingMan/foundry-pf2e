@@ -2,11 +2,7 @@ import { DoorControl } from "../containers/_module.mjs";
 import { Ray } from "../geometry/_module.mjs";
 import MouseInteractionManager from "../interaction/mouse-handler.mjs";
 import { WallsLayer } from "../layers/_module.mjs";
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseDeleteCallbackOptions,
-    DatabaseUpdateCallbackOptions,
-} from "./../../../common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseDeleteCallbackOptions, DatabaseUpdateCallbackOptions } from "./../../../common/abstract/_types.mjs";
 import { Scene, User, WallDocument } from "./../../documents/_module.mjs";
 import { PlaceableObject, Tile } from "./_module.mjs";
 
@@ -15,9 +11,7 @@ import { PlaceableObject, Tile } from "./_module.mjs";
  * Walls are used to restrict Token movement or visibility as well as to define the areas of effect for ambient lights
  * and sounds.
  */
-export default class Wall<
-    TDocument extends WallDocument<Scene | null> = WallDocument<Scene | null>,
-> extends PlaceableObject<TDocument> {
+export default class Wall<TDocument extends WallDocument<Scene | null> = WallDocument<Scene | null>> extends PlaceableObject<TDocument> {
     constructor(document?: TDocument);
 
     /** An reference the Door Control icon associated with this Wall, if any */
@@ -118,17 +112,9 @@ export default class Wall<
     /*  Socket Listeners and Handlers               */
     /* -------------------------------------------- */
 
-    protected override _onCreate(
-        data: TDocument["_source"],
-        options: DatabaseCreateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onCreate(data: TDocument["_source"], options: DatabaseCreateCallbackOptions, userId: string): void;
 
-    protected override _onUpdate(
-        changed: DeepPartial<TDocument["_source"]>,
-        options: DatabaseUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected override _onUpdate(changed: DeepPartial<TDocument["_source"]>, options: DatabaseUpdateCallbackOptions, userId: string): void;
 
     protected override _onDelete(options: DatabaseDeleteCallbackOptions, userId: string): void;
 

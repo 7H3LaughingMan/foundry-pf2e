@@ -24,9 +24,7 @@ interface PerceptionStatisticData extends StatisticData {
 type LabeledSenseData = Required<SenseData> & {
     label: string | null;
 };
-interface PerceptionTraceData<
-    TAttribute extends AttributeString | null = AttributeString | null,
-> extends StatisticTraceData<TAttribute> {
+interface PerceptionTraceData<TAttribute extends AttributeString | null = AttributeString | null> extends StatisticTraceData<TAttribute> {
     /** Unusual senses or other perception-related notes */
     details: string;
     senses: LabeledSenseData[];

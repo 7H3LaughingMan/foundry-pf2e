@@ -8,14 +8,7 @@ declare class WeaponDamagePF2e {
     #private;
     static fromNPCAttack({ attack, actor, context }: NPCStrikeCalculateParams): Promise<WeaponDamageTemplate | null>;
     /** Calculates the damage a weapon will deal when striking. Performs side effects, so make sure to pass a clone */
-    static calculate({
-        weapon,
-        actor,
-        damageDice,
-        modifiers,
-        weaponPotency,
-        context,
-    }: WeaponDamageCalculateParams): Promise<WeaponDamageTemplate | null>;
+    static calculate({ weapon, actor, damageDice, modifiers, weaponPotency, context }: WeaponDamageCalculateParams): Promise<WeaponDamageTemplate | null>;
     /** Parse damage formulas from melee items and construct `WeaponDamage` objects out of them */
     static npcDamageToWeaponDamage(instance: NPCAttackDamage): ConvertedNPCDamage;
 }

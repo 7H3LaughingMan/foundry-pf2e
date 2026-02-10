@@ -78,11 +78,7 @@ export default abstract class RollTerm<TTermData extends RollTermData = RollTerm
      * @param options.allowStrings If true, string terms will not throw an error when evaluated.
      * @returns Returns a Promise if the term is non-deterministic.
      */
-    protected _evaluate(options?: {
-        minimize?: boolean;
-        maximize?: boolean;
-        allowStrings?: boolean;
-    }): Promise<Evaluated<this>> | Evaluated<this>;
+    protected _evaluate(options?: { minimize?: boolean; maximize?: boolean; allowStrings?: boolean }): Promise<Evaluated<this>> | Evaluated<this>;
 
     /**
      * Determine if evaluating a given RollTerm with certain evaluation options can be done so deterministically.
@@ -91,10 +87,7 @@ export default abstract class RollTerm<TTermData extends RollTermData = RollTerm
      * @param options.maximize Force the result to be maximized.
      * @param options.minimize Force the result to be minimized.
      */
-    static isDeterministic(
-        term: RollTerm,
-        { maximize, minimize }?: { maximize?: boolean; minimize?: boolean },
-    ): boolean;
+    static isDeterministic(term: RollTerm, { maximize, minimize }?: { maximize?: boolean; minimize?: boolean }): boolean;
 
     /* -------------------------------------------- */
     /*  Serialization and Loading                   */

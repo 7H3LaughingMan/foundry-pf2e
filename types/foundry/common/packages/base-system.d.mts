@@ -20,8 +20,7 @@ export default class BaseSystem extends packages.BasePackage<SystemSchema> {
     get template(): object;
 }
 
-export default interface BaseSystem
-    extends packages.BasePackage<SystemSchema>, fields.ModelPropsFromSchema<SystemSchema> {
+export default interface BaseSystem extends packages.BasePackage<SystemSchema>, fields.ModelPropsFromSchema<SystemSchema> {
     version: string;
 }
 

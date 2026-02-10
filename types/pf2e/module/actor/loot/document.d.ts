@@ -1,8 +1,4 @@
-import {
-    DatabaseCreateCallbackOptions,
-    DatabaseCreateOperation,
-    DatabaseDeleteOperation,
-} from "#common/abstract/_types.mjs";
+import { DatabaseCreateCallbackOptions, DatabaseCreateOperation, DatabaseDeleteOperation } from "#common/abstract/_types.mjs";
 import { default as Document } from "#common/abstract/document.mjs";
 import { UserAction } from "#common/constants.mjs";
 import { ItemType } from "./../../item/types.ts";
@@ -34,11 +30,7 @@ declare class LootPF2e<TParent extends TokenDocumentPF2e | null = TokenDocumentP
     /** Never process rules elements on loot actors */
     prepareDerivedData(): void;
     protected _onCreate(data: LootSource, options: DatabaseCreateCallbackOptions, userId: string): void;
-    protected _onUpdate(
-        changed: DeepPartial<this["_source"]>,
-        options: ActorUpdateCallbackOptions,
-        userId: string,
-    ): void;
+    protected _onUpdate(changed: DeepPartial<this["_source"]>, options: ActorUpdateCallbackOptions, userId: string): void;
     protected _onCreateDescendantDocuments<P extends Document>(
         parent: P,
         collection: string,

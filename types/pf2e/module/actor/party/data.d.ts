@@ -1,9 +1,4 @@
-import {
-    ModelPropFromDataField,
-    ModelPropsFromSchema,
-    SourceFromDataField,
-    SourceFromSchema,
-} from "#common/data/fields.mjs";
+import { ModelPropFromDataField, ModelPropsFromSchema, SourceFromDataField, SourceFromSchema } from "#common/data/fields.mjs";
 import { ActorUUID } from "#common/documents/_module.mjs";
 import { CreatureReach } from "./../creature/index.ts";
 import { ActorAttributes, ActorDetails, BaseActorSourcePF2e } from "./../data/base.ts";
@@ -17,8 +12,7 @@ declare class PartySystemData extends ActorSystemModel<PartyPF2e, PartySystemSch
     prepareBaseData(): void;
     prepareDerivedData(): void;
 }
-interface PartySystemData
-    extends ActorSystemModel<PartyPF2e, PartySystemSchema>, ModelPropsFromSchema<PartySystemSchema> {
+interface PartySystemData extends ActorSystemModel<PartyPF2e, PartySystemSchema>, ModelPropsFromSchema<PartySystemSchema> {
     attributes: PartyAttributes;
     details: PartyDetails;
     movement: PartyMovementData;
@@ -32,14 +26,7 @@ type PartySystemSchema = ActorSystemSchema & {
             }>
         >;
     }>;
-    campaign: fields.SchemaField<
-        KingdomSchema,
-        SourceFromSchema<KingdomSchema>,
-        ModelPropsFromSchema<KingdomSchema>,
-        false,
-        true,
-        true
-    >;
+    campaign: fields.SchemaField<KingdomSchema, SourceFromSchema<KingdomSchema>, ModelPropsFromSchema<KingdomSchema>, false, true, true>;
 };
 interface PartySystemSource extends SourceFromSchema<PartySystemSchema> {
     details: PartyDetailsSource;

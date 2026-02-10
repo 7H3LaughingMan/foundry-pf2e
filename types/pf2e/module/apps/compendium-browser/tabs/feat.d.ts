@@ -11,11 +11,7 @@ export declare class CompendiumBrowserFeatTab extends CompendiumBrowserTab {
     storeFields: string[];
     constructor(browser: CompendiumBrowser);
     protected loadData(): Promise<void>;
-    protected filterTraits(
-        traits: string[],
-        selected: TraitData["selected"],
-        condition: TraitData["conjunction"],
-    ): boolean;
+    protected filterTraits(traits: string[], selected: TraitData["selected"], condition: TraitData["conjunction"]): boolean;
     protected filterIndexData(entry: CompendiumBrowserIndexData): boolean;
     protected prepareFilterData(): FeatFilters;
 }

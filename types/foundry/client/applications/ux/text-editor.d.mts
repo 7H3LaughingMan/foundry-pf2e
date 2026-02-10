@@ -99,10 +99,7 @@ export default class TextEditor {
      * @param content Initial HTML or text content to populate the editor with
      * @returns The editor instance.
      */
-    static create(
-        options?: { engine?: "prosemirror" | "tinymice" },
-        content?: string,
-    ): Promise<TinyMCE.Editor | ProseMirrorEditor>;
+    static create(options?: { engine?: "prosemirror" | "tinymice" }, content?: string): Promise<TinyMCE.Editor | ProseMirrorEditor>;
 
     /**
      * Create a TinyMCE editor instance.
@@ -144,10 +141,7 @@ export default class TextEditor {
      * @param options.relativeTo A document to resolve relative UUIDs against.
      * @returns Whether any content links were replaced and the text nodes need to be updated.
      */
-    protected static _enrichContentLinks(
-        text: Text[],
-        options?: EnrichmentOptions & { relativeTo?: Document },
-    ): Promise<boolean>;
+    protected static _enrichContentLinks(text: Text[], options?: EnrichmentOptions & { relativeTo?: Document }): Promise<boolean>;
 
     /**
      * Handle embedding Document content with @Embed[uuid]{label} text.
@@ -172,11 +166,7 @@ export default class TextEditor {
      * @param options  Options provided to customize text enrichment.
      * @returns Whether any inline rolls were replaced and the text nodes need to be updated.
      */
-    protected static _enrichInlineRolls(
-        rollData: object | Function,
-        text: Text[],
-        options?: EnrichmentOptions,
-    ): Promise<boolean>;
+    protected static _enrichInlineRolls(rollData: object | Function, text: Text[], options?: EnrichmentOptions): Promise<boolean>;
 
     /**
      * Match any custom registered regex patterns and apply their replacements.
@@ -185,11 +175,7 @@ export default class TextEditor {
      * @param options Options provided to customize text enrichment
      * @returns Whether any replacements were made, requiring the text nodes to be updated.
      */
-    protected static _applyCustomEnrichers(
-        config: TextEditorEnricherConfig,
-        text: Text[],
-        options: EnrichmentOptions,
-    ): Promise<boolean>;
+    protected static _applyCustomEnrichers(config: TextEditorEnricherConfig, text: Text[], options: EnrichmentOptions): Promise<boolean>;
 
     /**
      * Preview an HTML fragment by constructing a substring of a given length from its inner text.
@@ -214,10 +200,7 @@ export default class TextEditor {
      * @param options.suffix A suffix string to append to denote that the text was truncated.
      * @returns The truncated text string
      */
-    static truncateText(
-        text: string,
-        options?: { maxLength?: number; splitWords?: boolean; suffix?: string | null },
-    ): string;
+    static truncateText(text: string, options?: { maxLength?: number; splitWords?: boolean; suffix?: string | null }): string;
 
     /* -------------------------------------------- */
     /*  Text Node Manipulation                      */
@@ -231,12 +214,7 @@ export default class TextEditor {
      * @param options Options to configure text replacement behavior.
      * @returns Whether a replacement was made.
      */
-    protected static _replaceTextContent(
-        text: Text[],
-        rgx: RegExp,
-        func: TextContentReplacer,
-        options?: TextReplacementOptions,
-    ): boolean;
+    protected static _replaceTextContent(text: Text[], rgx: RegExp, func: TextContentReplacer, options?: TextReplacementOptions): boolean;
 
     /* -------------------------------------------- */
     /*  Text Replacement Functions                  */
@@ -250,10 +228,7 @@ export default class TextEditor {
      * @returns {Promise<HTMLAnchorElement>}   An HTML element for the document link.
      * @protected
      */
-    protected static _createContentLink(
-        match: RegExpMatchArray,
-        options?: EnrichmentOptions & { relativeTo?: Document },
-    ): Promise<HTMLAnchorElement>;
+    protected static _createContentLink(match: RegExpMatchArray, options?: EnrichmentOptions & { relativeTo?: Document }): Promise<HTMLAnchorElement>;
 
     /**
      * Helper method to create an anchor element.
@@ -303,11 +278,7 @@ export default class TextEditor {
      * @param options  Options provided to customize text enrichment.
      * @returns The replaced match. Returns null if the contained command is not a valid roll expression.
      */
-    protected static _createInlineRoll(
-        match: RegExpMatchArray,
-        rollData: object,
-        options?: EnrichmentOptions,
-    ): Promise<HTMLAnchorElement | null>;
+    protected static _createInlineRoll(match: RegExpMatchArray, rollData: object, options?: EnrichmentOptions): Promise<HTMLAnchorElement | null>;
 
     /* -------------------------------------------- */
     /*  Event Listeners and Handlers                */
@@ -336,10 +307,7 @@ export default class TextEditor {
      * @param options.relativeTo A document to generate the link relative to.
      * @param options.label      A custom label to use instead of the document's name.
      */
-    static getContentLink(
-        eventData: object,
-        options?: { relativeTo?: ClientDocument; label?: string },
-    ): Promise<string | null>;
+    static getContentLink(eventData: object, options?: { relativeTo?: ClientDocument; label?: string }): Promise<string | null>;
 
     /**
      * Upload an image to a document's asset path.

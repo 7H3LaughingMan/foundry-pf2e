@@ -2,18 +2,12 @@ import * as R from "remeda";
 
 type MaybeHTML = Maybe<Document | Element | EventTarget>;
 
-export function createHTMLElement<K extends keyof HTMLElementTagNameMap>(
-    nodeName: K,
-    options?: CreateHTMLElementOptionsWithChildren,
-): HTMLElementTagNameMap[K];
+export function createHTMLElement<K extends keyof HTMLElementTagNameMap>(nodeName: K, options?: CreateHTMLElementOptionsWithChildren): HTMLElementTagNameMap[K];
 export function createHTMLElement<K extends keyof HTMLElementTagNameMap>(
     nodeName: K,
     options?: CreateHTMLElementOptionsWithInnerHTML,
 ): HTMLElementTagNameMap[K];
-export function createHTMLElement<K extends keyof HTMLElementTagNameMap>(
-    nodeName: K,
-    options?: CreateHTMLElementOptionsWithNeither,
-): HTMLElementTagNameMap[K];
+export function createHTMLElement<K extends keyof HTMLElementTagNameMap>(nodeName: K, options?: CreateHTMLElementOptionsWithNeither): HTMLElementTagNameMap[K];
 export function createHTMLElement<K extends keyof HTMLElementTagNameMap>(
     nodeName: K,
     { id, classes = [], dataset = {}, aria = {}, children = [], innerHTML }: CreateHTMLElementOptions = {},
@@ -66,10 +60,7 @@ interface CreateHTMLElementOptionsWithNeither extends CreateHTMLElementOptions {
     innerHTML?: never;
 }
 
-export function htmlQuery<K extends keyof HTMLElementTagNameMap>(
-    parent: MaybeHTML,
-    selectors: K,
-): HTMLElementTagNameMap[K] | null;
+export function htmlQuery<K extends keyof HTMLElementTagNameMap>(parent: MaybeHTML, selectors: K): HTMLElementTagNameMap[K] | null;
 export function htmlQuery(parent: MaybeHTML, selectors: string): HTMLElement | null;
 export function htmlQuery<E extends HTMLElement = HTMLElement>(parent: MaybeHTML, selectors: string): E | null;
 export function htmlQuery(parent: MaybeHTML, selectors: string): HTMLElement | null {
@@ -77,10 +68,7 @@ export function htmlQuery(parent: MaybeHTML, selectors: string): HTMLElement | n
     return parent.querySelector<HTMLElement>(selectors);
 }
 
-export function htmlQueryAll<K extends keyof HTMLElementTagNameMap>(
-    parent: MaybeHTML,
-    selectors: K,
-): HTMLElementTagNameMap[K][];
+export function htmlQueryAll<K extends keyof HTMLElementTagNameMap>(parent: MaybeHTML, selectors: K): HTMLElementTagNameMap[K][];
 export function htmlQueryAll(parent: MaybeHTML, selectors: string): HTMLElement[];
 export function htmlQueryAll<E extends HTMLElement = HTMLElement>(parent: MaybeHTML, selectors: string): E[];
 export function htmlQueryAll(parent: MaybeHTML, selectors: string): HTMLElement[] {
@@ -88,10 +76,7 @@ export function htmlQueryAll(parent: MaybeHTML, selectors: string): HTMLElement[
     return Array.from(parent.querySelectorAll<HTMLElement>(selectors));
 }
 
-export function htmlClosest<K extends keyof HTMLElementTagNameMap>(
-    parent: MaybeHTML,
-    selectors: K,
-): HTMLElementTagNameMap[K] | null;
+export function htmlClosest<K extends keyof HTMLElementTagNameMap>(parent: MaybeHTML, selectors: K): HTMLElementTagNameMap[K] | null;
 export function htmlClosest(child: MaybeHTML, selectors: string): HTMLElement | null;
 export function htmlClosest<E extends HTMLElement = HTMLElement>(parent: MaybeHTML, selectors: string): E | null;
 export function htmlClosest(child: MaybeHTML, selectors: string): HTMLElement | null {
@@ -103,10 +88,7 @@ export function htmlSelectorFor(element: HTMLElement): string {
     const nodeName = element.nodeName.toLowerCase();
     const classes = element.className.split(" ").filter(R.isTruthy);
     const classesString = classes.length > 0 ? `.${classes.join(".")}` : "";
-    const datasetEntries = Object.entries(element.dataset).map(([k, v]) => [
-        k.replace(/([A-Z])/g, "-$1").toLowerCase(),
-        v,
-    ]);
+    const datasetEntries = Object.entries(element.dataset).map(([k, v]) => [k.replace(/([A-Z])/g, "-$1").toLowerCase(), v]);
     const datasetString = datasetEntries.map(([k, v]) => `[data-${k}="${v}"]`).join("");
 
     return `${nodeName}${classesString}${datasetString}`;

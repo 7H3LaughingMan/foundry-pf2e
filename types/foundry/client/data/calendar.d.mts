@@ -5,10 +5,7 @@ import { CalendarConfig, TimeComponents, TimeFormatter } from "./_types.mjs";
 /**
  * Game Time Calendar configuration data model.
  */
-export default class CalendarData<TComponents extends TimeComponents = TimeComponents> extends DataModel<
-    null,
-    CalendarDataSchema
-> {
+export default class CalendarData<TComponents extends TimeComponents = TimeComponents> extends DataModel<null, CalendarDataSchema> {
     static override defineSchema(): CalendarDataSchema;
 
     static formatTimestamp<T extends TimeComponents>(calendar: CalendarData<T>, components: T, options: object): string;

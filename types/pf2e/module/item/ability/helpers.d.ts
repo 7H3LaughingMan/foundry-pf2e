@@ -16,10 +16,7 @@ interface SourceWithFrequencyData {
     };
 }
 /** Pre-update helper to ensure actionType and actions are in sync with each other */
-declare function normalizeActionChangeData(
-    document: SourceWithActionData,
-    changed: DeepPartial<SourceWithActionData>,
-): void;
+declare function normalizeActionChangeData(document: SourceWithActionData, changed: DeepPartial<SourceWithActionData>): void;
 /** Adds sheet listeners for modifying frequency */
 declare function activateActionSheetListeners(item: ItemPF2e & SourceWithFrequencyData, html: HTMLElement): void;
 declare function getActionCostRollOptions(

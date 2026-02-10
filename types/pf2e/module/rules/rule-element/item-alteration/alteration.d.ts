@@ -16,10 +16,7 @@ declare class ItemAlteration extends foundry.abstract.DataModel<RuleElement, Ite
      */
     applyTo(item: ItemPF2e<ActorPF2e> | ItemSourcePF2e): void;
 }
-interface ItemAlteration
-    extends
-        foundry.abstract.DataModel<RuleElement, ItemAlterationSchema>,
-        fields.ModelPropsFromSchema<ItemAlterationSchema> {}
+interface ItemAlteration extends foundry.abstract.DataModel<RuleElement, ItemAlterationSchema>, fields.ModelPropsFromSchema<ItemAlterationSchema> {}
 type ItemAlterationSchema = {
     mode: fields.StringField<AELikeChangeMode, AELikeChangeMode, true, false, false>;
     property: fields.StringField<ItemAlterationProperty, ItemAlterationProperty, true, false, false>;

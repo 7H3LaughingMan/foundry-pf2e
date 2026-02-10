@@ -1,10 +1,5 @@
 import Roll from "../../dice/roll.mjs";
-import {
-    ApplicationClosingOptions,
-    ApplicationConfiguration,
-    ApplicationFormConfiguration,
-    ApplicationRenderContext,
-} from "../_types.mjs";
+import { ApplicationClosingOptions, ApplicationConfiguration, ApplicationFormConfiguration, ApplicationRenderContext } from "../_types.mjs";
 import ApplicationV2 from "../api/application.mjs";
 import HandlebarsApplicationMixin, { HandlebarsTemplatePart } from "../api/handlebars-application.mjs";
 import FormDataExtended from "../ux/form-data-extended.mjs";
@@ -67,11 +62,7 @@ export default class RollResolver extends HandlebarsApplicationMixin(Application
      * @param term The term.
      * @param method The method used to obtain the result.
      */
-    resolveResult(
-        term: DiceTerm,
-        method: string,
-        options?: { reroll?: boolean; explode?: boolean },
-    ): Promise<number | void>;
+    resolveResult(term: DiceTerm, method: string, options?: { reroll?: boolean; explode?: boolean }): Promise<number | void>;
 
     /**
      * Update the Roll instance with the fulfilled results.
@@ -79,12 +70,7 @@ export default class RollResolver extends HandlebarsApplicationMixin(Application
      * @param form The form element that was submitted.
      * @param formData Processed data for the submitted form.
      */
-    protected static _fulfillRoll(
-        this: RollResolver,
-        event: SubmitEvent,
-        form: HTMLFormElement,
-        formData: FormDataExtended,
-    ): Promise<void>;
+    protected static _fulfillRoll(this: RollResolver, event: SubmitEvent, form: HTMLFormElement, formData: FormDataExtended): Promise<void>;
 
     /**
      * Add a new term to the resolver.

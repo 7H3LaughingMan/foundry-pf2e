@@ -15,9 +15,7 @@ declare class CampaignFeatureSystemData extends ItemSystemModel<CampaignFeatureP
     prepareBaseData(): void;
 }
 interface CampaignFeatureSystemData
-    extends
-        ItemSystemModel<CampaignFeaturePF2e, CampaignFeatureSystemSchema>,
-        Omit<fields.ModelPropsFromSchema<CampaignFeatureSystemSchema>, "description"> {}
+    extends ItemSystemModel<CampaignFeaturePF2e, CampaignFeatureSystemSchema>, Omit<fields.ModelPropsFromSchema<CampaignFeatureSystemSchema>, "description"> {}
 type CampaignFeatureSystemSchema = Omit<ItemSystemSchema, "traits"> & {
     level: fields.SchemaField<{
         value: fields.NumberField<number, number, true, false, true>;

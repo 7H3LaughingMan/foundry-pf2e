@@ -1,7 +1,4 @@
-import HandlebarsApplicationMixin, {
-    HandlebarsRenderOptions,
-    HandlebarsTemplatePart,
-} from "../../api/handlebars-application.mjs";
+import HandlebarsApplicationMixin, { HandlebarsRenderOptions, HandlebarsTemplatePart } from "../../api/handlebars-application.mjs";
 import AbstractSidebarTab from "../sidebar-tab.mjs";
 import { ApplicationConfiguration, ApplicationRenderContext } from "./../../../applications/_types.mjs";
 import { ContextMenuEntry } from "./../../../applications/ux/context-menu.mjs";
@@ -13,9 +10,7 @@ import { Combat, Combatant } from "./../../../documents/_module.mjs";
  * @extends {AbstractSidebarTab}
  * @mixes HandlebarsApplication
  */
-export default class CombatTracker<TCombat extends Combat | null = Combat | null> extends HandlebarsApplicationMixin(
-    AbstractSidebarTab,
-) {
+export default class CombatTracker<TCombat extends Combat | null = Combat | null> extends HandlebarsApplicationMixin(AbstractSidebarTab) {
     static override DEFAULT_OPTIONS: DeepPartial<ApplicationConfiguration>;
 
     static override tabName: "combat";
@@ -58,10 +53,7 @@ export default class CombatTracker<TCombat extends Combat | null = Combat | null
      */
     protected _getCombatantThumbnail(combatant: Combatant): Promise<string>;
 
-    protected override _onFirstRender(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected override _onFirstRender(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     protected override _preparePartContext(
         partId: string,
@@ -77,10 +69,7 @@ export default class CombatTracker<TCombat extends Combat | null = Combat | null
     /**
      * Prepare render context for the tracker part.
      */
-    protected _prepareTrackerContext(
-        context: ApplicationRenderContext,
-        options: HandlebarsRenderOptions,
-    ): Promise<void>;
+    protected _prepareTrackerContext(context: ApplicationRenderContext, options: HandlebarsRenderOptions): Promise<void>;
 
     /**
      * Prepare render context for a single entry in the combat tracker.
