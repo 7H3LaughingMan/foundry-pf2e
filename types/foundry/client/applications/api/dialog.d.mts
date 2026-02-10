@@ -205,7 +205,7 @@ export type DialogV2ButtonCallback = (
  * @param event The render event.
  * @param dialog The dialog element.
  */
-export type DialogV2RenderCallback = (event: Event, dialog: HTMLDialogElement) => void;
+export type DialogV2RenderCallback = (event: Event, dialog: DialogV2) => void;
 
 /**
  * @param event The close event
