@@ -269,6 +269,15 @@ export default abstract class Application<TOptions extends ApplicationV1Options 
     protected _activateCoreListeners(html: JQuery): void;
 
     /**
+     * Change the currently active tab
+     * @param tabName                   The target tab name to switch to
+     * @param options                   Options which configure changing the tab
+     * @param options.group             A specific named tab group, useful if multiple sets of tabs are present
+     * @param options.triggerCallback   Whether to trigger tab-change callback functions
+     */
+    activateTab(tabName: string, options?: {group?: string, triggerCallback?: boolean}): boolean
+
+    /**
      * After rendering, activate event listeners which provide interactivity for the Application.
      * This is where user-defined Application subclasses should attach their event-handling logic.
      */
