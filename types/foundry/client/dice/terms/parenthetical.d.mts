@@ -45,13 +45,7 @@ export default class ParentheticalTerm extends RollTerm<ParentheticalTermData> {
     /*  Parenthetical Term Methods                  */
     /* -------------------------------------------- */
 
-    protected override _evaluateSync({
-        minimize,
-        maximize,
-    }?: {
-        minimize?: boolean;
-        maximize?: boolean;
-    }): Evaluated<this>;
+    protected _evaluateSync({ minimize, maximize }?: { minimize?: boolean; maximize?: boolean }): Evaluated<this>;
 
     protected override _evaluate({
         minimize,

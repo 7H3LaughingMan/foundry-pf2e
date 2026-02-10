@@ -80,7 +80,7 @@ export default class PoolTerm<TData extends PoolTermData = PoolTermData> extends
      */
     alter(...args: unknown[]): this[];
 
-    protected override _evaluateSync({ minimize, maximize }?: Omit<EvaluateRollParams, "async">): Evaluated<this>;
+    protected _evaluateSync({ minimize, maximize }?: Omit<EvaluateRollParams, "async">): Evaluated<this>;
 
     protected override _evaluate({ minimize, maximize }?: Omit<EvaluateRollParams, "async">): Promise<Evaluated<this>>;
 

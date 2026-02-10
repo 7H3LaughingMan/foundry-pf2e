@@ -11,7 +11,7 @@ export default class Coin extends DiceTerm<CoinData> {
         c: "call";
     };
 
-    override roll({ minimize, maximize }?: { minimize?: boolean; maximize?: boolean }): DiceTermResult;
+    override roll(options?: { minimize?: boolean; maximize?: boolean }): Promise<DiceTermResult>;
 
     override getResultLabel(result: object): string;
 

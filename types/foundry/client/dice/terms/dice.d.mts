@@ -1,4 +1,4 @@
-import { DiceTermResult } from "../_types.mjs";
+import { DiceTermResult, RollParseNode } from "../_types.mjs";
 import { RollTermData } from "./_types.mjs";
 import RollTerm, { Evaluated } from "./term.mjs";
 
@@ -8,19 +8,18 @@ import RollTerm, { Evaluated } from "./term.mjs";
 export default abstract class DiceTerm<TData extends DiceTermData = DiceTermData> extends RollTerm<TData> {
     /**
      * @param termData Data used to create the Dice Term, including the following:
-     * @param termData.number    The number of dice of this term to roll, before modifiers are applied
-     * @param termData.faces     The number of faces on each die of this type
+     * @param termData.number The number of dice of this term to roll, before modifiers are applied, or a Roll instance that will be evaluated to a number.
+     * @param termData.faces The number of faces on each die of this type, or a Roll instance that will be evaluated to a number.
+     * @param termData.method The resolution method used to resolve DiceTerm.
      * @param termData.modifiers An array of modifiers applied to the results
-     * @param termData.results   An optional array of pre-cast results for the term
-     * @param termData.options   Additional options that modify the term
+     * @param termData.results An optional array of pre-cast results for the term
+     * @param termData.options Additional options that modify the term
      */
     constructor({ number, faces, modifiers, results, options }?: TData);
 
-    /** The number of dice of this term to roll, before modifiers are applied */
-    number: number;
-
-    /** The number of faces on the die */
-    faces: TData["faces"];
+    /** The resolution method used to resolve this DiceTerm. */
+    get method(): string;
+    set method(method: string);
 
     /** An Array of dice term modifiers which are applied */
     modifiers: string[];
@@ -54,12 +53,32 @@ export default abstract class DiceTerm<TData extends DiceTermData = DiceTermData
     /*  Dice Term Attributes                        */
     /* -------------------------------------------- */
 
+    /** The number of dice of this term to roll. Returns undefined if the number is a complex term that has not yet been evaluated. */
+    get number(): number | void;
+
+    /** The number of dice of this term to roll, before modifiers are applied, or a Roll instance that will be evaluated to a number. */
+    set number(value: number | Roll);
+
+    /** The number of faces on the die. Returns undefined if the faces are represented as a complex term that has not yet been evaluated. */
+    get faces(): number | void;
+
+    /** The number of faces on the die, or a Roll instance that will be evaluated to a number.*/
+    set faces(value: number | Roll);
+
     override get expression(): string;
+
+    /** The denomination of this DiceTerm instance. */
+    get denomination(): string;
+
+    /** An array of additional DiceTerm instances involved in resolving this DiceTerm. */
+    get dice(): DiceTerm[];
 
     override get total(): number | undefined;
 
     /** Return an array of rolled values which are still active within this term */
     get values(): number;
+
+    override get isDeterministic(): boolean;
 
     /* -------------------------------------------- */
     /*  Dice Term Methods                           */
@@ -68,27 +87,63 @@ export default abstract class DiceTerm<TData extends DiceTermData = DiceTermData
     /**
      * Alter the DiceTerm by adding or multiplying the number of dice which are rolled
      * @param multiply A factor to multiply. Dice are multiplied before any additions.
-     * @param add      A number of dice to add. Dice are added after multiplication.
+     * @param add A number of dice to add. Dice are added after multiplication.
      * @return The altered term
      */
     alter(multiply: number, add: number): this;
 
-    protected override _evaluateSync({
-        minimize,
-        maximize,
-    }?: {
+    protected override _evaluate(options?: {
         minimize?: boolean;
         maximize?: boolean;
-    }): Evaluated<this>;
+        allowStrings?: boolean;
+    }): Evaluated<this> | Promise<Evaluated<this>>;
+
+    /**
+     * Evaluate this dice term asynchronously.
+     * @param options Options forwarded to inner Roll evaluation.
+     */
+    protected _evaluateAsync(options?: object): Promise<DiceTerm>;
+
+    /**
+     * Evaluate deterministic values of this term synchronously.
+     * @param options.maximize Force the result to be maximized.
+     * @param options.minimize Force the result to be minimized.
+     * @param options.strict Throw an error if attempting to evaluate a die term in a way that cannot be done synchronously.
+     */
+    _evaluateSync(options?: { maximize?: boolean; minimize?: boolean; strict?: boolean }): DiceTerm;
 
     /**
      * Roll the DiceTerm by mapping a random uniform draw against the faces of the dice term.
-     * @param [options={}] Options which modify how a random result is produced
-     * @param [options.minimize=false] Minimize the result, obtaining the smallest possible value.
-     * @param [options.maximize=false] Maximize the result, obtaining the largest possible value.
-     * @return The produced result
+     * @param options Options which modify how a random result is produced
+     * @param options.minimize  Minimize the result, obtaining the smallest possible value.
+     * @param options.maximize Maximize the result, obtaining the largest possible value.
+     * @returns The produced result
      */
-    roll({ minimize, maximize }?: { minimize?: boolean; maximize?: boolean }): DiceTermResult;
+    roll(options?: { minimize?: boolean; maximize?: boolean }): Promise<DiceTermResult>;
+
+    /**
+     * Generate a roll result value for this DiceTerm based on its fulfillment method.
+     * @param options Options forwarded to the fulfillment method handler.
+     * @returns  Returns a Promise that resolves to the fulfilled number, or undefined if it could not be fulfilled.
+     */
+    protected _roll(options?: object): Promise<number | void>;
+
+    /**
+     * Invoke the configured fulfillment handler for this term to produce a result value.
+     * @param options Options forwarded to the fulfillment method handler.
+     * @returns Returns a Promise that resolves to the fulfilled number, or undefined if it could not be fulfilled.
+     */
+    #invokeFulfillmentHandler(options?: object): Promise<number | void>;
+
+    /**
+     * Maps a randomly-generated value in the interval [0, 1) to a face value on the die.
+     * @param randomUniform A value to map. Must be in the interval [0, 1).
+     * @returns The face value.
+     */
+    mapRandomFace(randomUniform: number): number;
+
+    /** Generate a random face value for this die using the configured PRNG. */
+    randomFace(): number;
 
     /**
      * Return a string used as the label for each rolled result
@@ -130,19 +185,19 @@ export default abstract class DiceTerm<TData extends DiceTermData = DiceTermData
     /**
      * A helper comparison function.
      * Returns a boolean depending on whether the result compares favorably against the target.
-     * @param result     The result being compared
+     * @param result The result being compared
      * @param comparison The comparison operator in [=,<,<=,>,>=]
-     * @param target     The target value
+     * @param target The target value
      * @return Is the comparison true?
      */
     static compareResult(result: number, comparison: ComparisonOperator, target?: number): boolean;
 
     /**
      * A helper method to modify the results array of a dice term by flagging certain results are kept or dropped.
-     * @param results   The results array
-     * @param number    The number to keep or drop
-     * @param [keep]    Keep results?
-     * @param [highest] Keep the highest?
+     * @param results The results array
+     * @param number The number to keep or drop
+     * @param keep Keep results?
+     * @param highest Keep the highest?
      * @return The modified results array
      */
     protected static _keepOrDrop<T extends DiceTermResult>(
@@ -187,6 +242,15 @@ export default abstract class DiceTerm<TData extends DiceTermData = DiceTermData
      * @return The constructed term
      */
     static fromMatch<T extends DiceTerm>(this: ConstructorOf<T>, match: RegExpMatchArray): T;
+
+    static override fromParseNode(node: RollParseNode): RollTerm;
+
+    override toJSON(): TData;
+
+    protected static override _fromData<D extends RollTermData, T extends RollTerm<D>>(
+        this: ConstructorOf<T>,
+        data: D,
+    ): T;
 }
 
 interface DiceTermData extends RollTermData {
