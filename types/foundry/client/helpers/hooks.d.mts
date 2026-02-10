@@ -103,7 +103,7 @@ type HookParamsGetProseMirrorMenuDropDowns = HookParameters<
 
 export namespace Hooks {
     /** A mapping of hook events which have functions registered to them. */
-    let events: Record<string, HookedFunction>;
+    let events: Record<string, HookedFunction[]>;
 
     /**
      * Register a callback handler which should be triggered when a hook is triggered.
