@@ -19,8 +19,8 @@ jobs:
             - uses: actions/setup-node@v4
               id: setup-node
               with:
-                  node-version-file: package.json
                   cache: npm
+                  cache-dependency-path: package-lock.json
 
             - if: ${{ steps.setup-node.outputs.cache-hit != 'true' }}
               run: npm ci
