@@ -1,4 +1,4 @@
-import { ApplicationConfiguration, ApplicationRenderOptions } from "../_types.mjs";
+import { ApplicationConfiguration, ApplicationRenderContext, ApplicationRenderOptions } from "../_types.mjs";
 import User from "./../../documents/user.mjs";
 import ApplicationV2 from "./application.mjs";
 
@@ -10,7 +10,7 @@ export default class DialogV2<
 
     protected override _initializeApplicationOptions(options: DeepPartial<TConfig>): TConfig;
 
-    protected override _renderHTML(): Promise<HTMLFormElement>;
+    protected override _renderHTML(context: ApplicationRenderContext, options: TRenderOptions): Promise<HTMLFormElement>;
 
     /**
      * Render configured buttons
@@ -25,11 +25,11 @@ export default class DialogV2<
      */
     protected _onSubmit(target: HTMLButtonElement, event: PointerEvent | SubmitEvent): Promise<DialogV2>;
 
-    protected override _onFirstRender(): Promise<void>;
+    protected override _onFirstRender(context: object, options: TRenderOptions): Promise<void>;
 
     protected override _attachFrameListeners(): void;
 
-    protected override _replaceHTML(result: unknown, content: HTMLFormElement): void;
+    protected override _replaceHTML(result: unknown, content: HTMLFormElement, options: TRenderOptions): void;
 
     /**
      * Handle keypresses within the dialog
