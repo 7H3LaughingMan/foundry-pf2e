@@ -202,7 +202,7 @@ declare class ActorPF2e<TParent extends TokenDocumentPF2e | null = TokenDocument
     toggleRollOption(domain: string, option: string, value?: boolean): Promise<boolean | null>;
     toggleRollOption(domain: string, option: string, itemId?: string | null, value?: boolean, suboption?: string | null): Promise<boolean | null>;
     /** Ensure newly-created tokens have dimensions matching this actor's size category */
-    getTokenDocument(data?: DeepPartial<foundry.documents.TokenSource>, options?: DocumentConstructionContext<this>): Promise<NonNullable<TParent>>;
+    getTokenDocument(data?: DeepPartial<foundry.documents.TokenSource>, options?: DocumentConstructionContext<ScenePF2e>): Promise<NonNullable<TParent>>;
     /**
      * Handle how changes to a Token attribute bar are applied to the Actor.
      *

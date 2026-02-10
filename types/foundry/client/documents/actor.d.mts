@@ -117,7 +117,7 @@ declare class Actor<TParent extends TokenDocument | null = TokenDocument | null>
      * @param options The options passed to the TokenDocument constructor
      * @returns The created TokenDocument instance
      */
-    getTokenDocument(data?: DeepPartial<foundry.documents.TokenSource>, options?: Partial<DocumentConstructionContext<this>>): Promise<NonNullable<TParent>>;
+    getTokenDocument(data?: DeepPartial<foundry.documents.TokenSource>, options?: Partial<DocumentConstructionContext<Scene>>): Promise<NonNullable<TParent>>;
 
     /** Get an Array of Token images which could represent this Actor */
     getTokenImages(): Promise<(ImageFilePath | VideoFilePath)[]>;
