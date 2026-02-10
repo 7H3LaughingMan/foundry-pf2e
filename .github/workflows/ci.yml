@@ -13,16 +13,21 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
               id: checkout
 
-            - uses: actions/setup-node@v4
+            - uses: actions/setup-node@v6
               id: setup-node
               with:
-                  cache: npm
-                  cache-dependency-path: package-lock.json
+                  node-version: 24
 
-            - if: ${{ steps.setup-node.outputs.cache-hit != 'true' }}
+            - uses: actions/cache@v5
+              id: cache
+              with:
+                  path: node_modules/
+                  key: npm-${{ hashFiles('package-lock.json') }}
+
+            - if: ${{ steps.cache.outputs.cache-hit != 'true' }}
               run: npm ci
 
             - run: npm run tsc
